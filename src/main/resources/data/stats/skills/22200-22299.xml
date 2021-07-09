@@ -338,27 +338,30 @@
 			</effect>
 		</effects>
 	</skill>
-	<skill id="22215" levels="1" name="Energy Replenishing Herb Tea">
-		<!-- "For 30 minute(s), energy is replenished when Exp. is acquired through hunting." -->
+	<skill id="22215" levels="1" name="Vitality Replenishing Herb Tea">
+		<!-- High Five Confirmed -->
 		<set name="abnormalLvl" val="3" />
 		<set name="abnormalTime" val="1800" />
 		<set name="abnormalType" val="VP_UP" />
 		<set name="abnormalVisualEffect" val="VP_UP" />
+		<set name="affectScope" val="SINGLE" />
 		<set name="blockedInOlympiad" val="true" />
+		<set name="buffProtectLevel" val="1" />
 		<set name="effectPoint" val="100" />
-		<set name="hitTime" val="100" />
 		<set name="icon" val="icon.etc_hot_spring_mineral_i00" />
 		<set name="irreplaceableBuff" val="true" />
 		<set name="isMagic" val="2" />
 		<set name="itemConsumeCount" val="1" />
-		<set name="itemConsumeId" val="21212" /> <!-- Vitality Replenishing Herb Tea -->
+		<set name="itemConsumeId" val="21212" />
 		<set name="magicLvl" val="-1" />
 		<set name="operateType" val="A2" />
 		<set name="reuseDelay" val="3600000" />
+		<set name="reuseDelayLock" val="true" />
+		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
 		<effects>
 			<effect name="Buff">
-				<sub stat="vitalityConsumeRate" val="10" />
+				<add stat="vitalityConsumeRate" val="1" />
 			</effect>
 		</effects>
 	</skill>

@@ -1007,8 +1007,10 @@
 		</cond>
 	</skill>
 	<skill id="2244" levels="1" name="Herb of Life">
-		<!-- Confirmed CT2.5 -->
+		<!-- High Five Confirmed -->
+		<set name="affectScope" val="SINGLE" />
 		<set name="effectPoint" val="100" />
+		<set name="hitCancelTime" val="500" />
 		<set name="hitTime" val="100" />
 		<set name="isMagic" val="2" />
 		<set name="magicLvl" val="40" />
@@ -1023,6 +1025,7 @@
 		<effects>
 			<effect name="Hp">
 				<param amount="60" />
+				<param mode="DIFF" />
 			</effect>
 			<effect name="HpPerMax">
 				<param power="17" />
@@ -1030,8 +1033,10 @@
 		</effects>
 	</skill>
 	<skill id="2245" levels="1" name="Herb of Mana">
-		<!-- Confirmed CT2.5 -->
+		<!-- High Five Confirmed -->
+		<set name="affectScope" val="SINGLE" />
 		<set name="effectPoint" val="100" />
+		<set name="hitCancelTime" val="500" />
 		<set name="hitTime" val="100" />
 		<set name="isMagic" val="2" />
 		<set name="magicLvl" val="40" />
@@ -1046,6 +1051,7 @@
 		<effects>
 			<effect name="Mp">
 				<param amount="20" />
+				<param mode="DIFF" />
 			</effect>
 			<effect name="MpPerMax">
 				<param power="4" />
@@ -1053,11 +1059,13 @@
 		</effects>
 	</skill>
 	<skill id="2246" levels="1" name="Herb of Power">
-		<!-- Confirmed CT2.5 -->
+		<!-- High Five Confirmed -->
 		<set name="abnormalLvl" val="1" />
 		<set name="abnormalTime" val="300" />
 		<set name="abnormalType" val="PA_UP_HERB" />
+		<set name="affectScope" val="SINGLE" />
 		<set name="effectPoint" val="100" />
+		<set name="hitCancelTime" val="500" />
 		<set name="hitTime" val="100" />
 		<set name="icon" val="icon.etc_herb_red_i00" />
 		<set name="isMagic" val="2" />
@@ -1072,20 +1080,24 @@
 		<effects>
 			<effect name="Buff">
 				<mul stat="pAtk" val="1.25">
-					<using kind="FIST,SWORD,DAGGER,DUALDAGGER,DUALFIST,DUAL,BLUNT,ANCIENTSWORD,RAPIER,ETC" />
+					<using kind="FIST,SWORD,DAGGER,DUALDAGGER,DUAL,DUALFIST,BLUNT,ANCIENTSWORD,RAPIER,ETC" />
 				</mul>
-				<mul stat="pAtk" val="1.15">
+			</effect>
+			<effect name="Buff">
+				<mul stat="pAtk" val="1.25">
 					<using kind="BOW,POLE,CROSSBOW" />
 				</mul>
 			</effect>
 		</effects>
 	</skill>
 	<skill id="2247" levels="1" name="Herb of Magic">
-		<!-- Confirmed CT2.5 -->
+		<!-- High Five Confirmed -->
 		<set name="abnormalLvl" val="1" />
 		<set name="abnormalTime" val="300" />
 		<set name="abnormalType" val="MA_UP_HERB" />
+		<set name="affectScope" val="SINGLE" />
 		<set name="effectPoint" val="100" />
+		<set name="hitCancelTime" val="500" />
 		<set name="hitTime" val="100" />
 		<set name="icon" val="icon.etc_herb_blue_i00" />
 		<set name="isMagic" val="2" />
@@ -1728,9 +1740,11 @@
 		</effects>
 	</skill>
 	<skill id="2278" levels="3" name="Herb of Life">
-		<!-- Confirmed CT2.5 -->
-		<table name="#amount"> 15 25 100 </table>
+		<!-- High Five Confirmed -->
+		<table name="#hpPerMaxPower"> 15 25 100 </table>
+		<set name="affectScope" val="SINGLE" />
 		<set name="effectPoint" val="100" />
+		<set name="hitCancelTime" val="500" />
 		<set name="hitTime" val="100" />
 		<set name="isMagic" val="2" />
 		<set name="magicLvl" val="1" />
@@ -1744,14 +1758,16 @@
 		</cond>
 		<effects>
 			<effect name="HpPerMax">
-				<param power="#amount" />
+				<param power="#hpPerMaxPower" />
 			</effect>
 		</effects>
 	</skill>
 	<skill id="2279" levels="3" name="Herb of Mana">
-		<!-- Confirmed CT2.5 -->
-		<table name="#amount"> 11 18 100 </table>
+		<!-- High Five Confirmed -->
+		<table name="#mpPerMaxPower"> 11 18 100 </table>
+		<set name="affectScope" val="SINGLE" />
 		<set name="effectPoint" val="100" />
+		<set name="hitCancelTime" val="500" />
 		<set name="hitTime" val="100" />
 		<set name="isMagic" val="2" />
 		<set name="magicLvl" val="1" />
@@ -1765,17 +1781,19 @@
 		</cond>
 		<effects>
 			<effect name="MpPerMax">
-				<param power="#amount" />
+				<param power="#mpPerMaxPower" />
 			</effect>
 		</effects>
 	</skill>
 	<skill id="2280" levels="1" name="Herb of Power">
-		<!-- Confirmed CT2.5 -->
+		<!-- High Five Confirmed -->
 		<set name="abnormalInstant" val="true" />
 		<set name="abnormalLvl" val="3" />
 		<set name="abnormalTime" val="300" />
 		<set name="abnormalType" val="PA_UP" />
+		<set name="affectScope" val="SINGLE" />
 		<set name="effectPoint" val="100" />
+		<set name="hitCancelTime" val="500" />
 		<set name="hitTime" val="100" />
 		<set name="icon" val="icon.etc_herb_red_i00" />
 		<set name="isMagic" val="2" />
@@ -1794,12 +1812,14 @@
 		</effects>
 	</skill>
 	<skill id="2281" levels="1" name="Herb of Magic">
-		<!-- Confirmed CT2.5 -->
+		<!-- High Five Confirmed -->
 		<set name="abnormalInstant" val="true" />
 		<set name="abnormalLvl" val="3" />
 		<set name="abnormalTime" val="300" />
 		<set name="abnormalType" val="MA_UP" />
+		<set name="affectScope" val="SINGLE" />
 		<set name="effectPoint" val="100" />
+		<set name="hitCancelTime" val="500" />
 		<set name="hitTime" val="100" />
 		<set name="icon" val="icon.etc_herb_blue_i00" />
 		<set name="isMagic" val="2" />
@@ -1818,12 +1838,14 @@
 		</effects>
 	</skill>
 	<skill id="2282" levels="1" name="Herb of Atk. Spd.">
-		<!-- Confirmed CT2.5 -->
+		<!-- High Five Confirmed -->
 		<set name="abnormalInstant" val="true" />
 		<set name="abnormalLvl" val="2" />
 		<set name="abnormalTime" val="300" />
 		<set name="abnormalType" val="ATTACK_TIME_DOWN" />
+		<set name="affectScope" val="SINGLE" />
 		<set name="effectPoint" val="100" />
+		<set name="hitCancelTime" val="500" />
 		<set name="hitTime" val="100" />
 		<set name="icon" val="BranchSys2.icon.etc_attack_sp_herb_i01" />
 		<set name="isMagic" val="2" />
@@ -1842,12 +1864,14 @@
 		</effects>
 	</skill>
 	<skill id="2283" levels="1" name="Herb of Casting Spd.">
-		<!-- Confirmed CT2.5 -->
+		<!-- High Five Confirmed -->
 		<set name="abnormalInstant" val="true" />
 		<set name="abnormalLvl" val="3" />
 		<set name="abnormalTime" val="300" />
 		<set name="abnormalType" val="CASTING_TIME_DOWN" />
+		<set name="affectScope" val="SINGLE" />
 		<set name="effectPoint" val="100" />
+		<set name="hitCancelTime" val="500" />
 		<set name="hitTime" val="100" />
 		<set name="icon" val="icon.etc_magic_sp_herb_i00" />
 		<set name="isMagic" val="2" />
@@ -1866,12 +1890,14 @@
 		</effects>
 	</skill>
 	<skill id="2284" levels="1" name="Herb of Critical Attack">
-		<!-- Confirmed CT2.5 -->
+		<!-- High Five Confirmed -->
 		<set name="abnormalInstant" val="true" />
 		<set name="abnormalLvl" val="3" />
 		<set name="abnormalTime" val="300" />
 		<set name="abnormalType" val="CRITICAL_PROB_UP" />
+		<set name="affectScope" val="SINGLE" />
 		<set name="effectPoint" val="100" />
+		<set name="hitCancelTime" val="500" />
 		<set name="hitTime" val="100" />
 		<set name="icon" val="icon.etc_critical_herb_i00" />
 		<set name="isMagic" val="2" />
@@ -1890,12 +1916,14 @@
 		</effects>
 	</skill>
 	<skill id="2285" levels="1" name="Herb of Speed">
-		<!-- Confirmed CT2.5 -->
+		<!-- High Five Confirmed -->
 		<set name="abnormalInstant" val="true" />
 		<set name="abnormalLvl" val="2" />
 		<set name="abnormalTime" val="300" />
 		<set name="abnormalType" val="SPEED_UP" />
+		<set name="affectScope" val="SINGLE" />
 		<set name="effectPoint" val="100" />
+		<set name="hitCancelTime" val="500" />
 		<set name="hitTime" val="100" />
 		<set name="icon" val="BranchSys2.icon.etc_move_herb_i01" />
 		<set name="isMagic" val="2" />

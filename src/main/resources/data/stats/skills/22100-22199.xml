@@ -1335,15 +1335,17 @@
 			</effect>
 		</effects>
 	</skill>
-	<skill id="22162" levels="1" name="Mt. Fuji Herb">
-		<!-- Confirmed CT2.5 -->
+	<skill id="22162" levels="1" name="Herb of Mt. Fuji">
+		<!-- High Five Confirmed -->
 		<set name="abnormalInstant" val="true" />
 		<set name="abnormalLvl" val="2" />
 		<set name="abnormalTime" val="600" />
 		<set name="abnormalType" val="VP_UP" />
 		<set name="abnormalVisualEffect" val="VP_UP" />
+		<set name="affectScope" val="SINGLE" />
 		<set name="blockedInOlympiad" val="true" />
 		<set name="effectPoint" val="100" />
+		<set name="hitCancelTime" val="500" />
 		<set name="hitTime" val="100" />
 		<set name="icon" val="BranchSys2.icon.br_fuji_herb_i00" />
 		<set name="isMagic" val="2" />
@@ -1354,18 +1356,20 @@
 		<set name="targetType" val="SELF" />
 		<effects>
 			<effect name="Buff">
-				<sub stat="vitalityConsumeRate" val="10" />
+				<add stat="vitalityConsumeRate" val="1" />
 			</effect>
 		</effects>
 	</skill>
 	<skill id="22163" levels="1" name="Hawk Herb">
-		<!-- Confirmed CT2.5 -->
+		<!-- High Five Confirmed -->
 		<set name="abnormalInstant" val="true" />
 		<set name="abnormalLvl" val="1" />
 		<set name="abnormalTime" val="600" />
 		<set name="abnormalType" val="BR_EVENT_BUF1" />
+		<set name="affectScope" val="SINGLE" />
 		<set name="blockedInOlympiad" val="true" />
 		<set name="effectPoint" val="100" />
+		<set name="hitCancelTime" val="500" />
 		<set name="hitTime" val="100" />
 		<set name="icon" val="BranchSys2.icon.br_hawk_herb_i00" />
 		<set name="isMagic" val="2" />
@@ -1377,18 +1381,22 @@
 		<effects>
 			<effect name="Buff">
 				<mul stat="pAtkSpd" val="1.15" />
+			</effect>
+			<effect name="Buff">
 				<mul stat="critRate" val="1.1" />
 			</effect>
 		</effects>
 	</skill>
 	<skill id="22164" levels="1" name="Eggplant Herb">
-		<!-- Confirmed CT2.5 -->
+		<!-- High Five Confirmed -->
 		<set name="abnormalInstant" val="true" />
 		<set name="abnormalLvl" val="1" />
 		<set name="abnormalTime" val="600" />
 		<set name="abnormalType" val="BR_EVENT_BUF1" />
+		<set name="affectScope" val="SINGLE" />
 		<set name="blockedInOlympiad" val="true" />
 		<set name="effectPoint" val="100" />
+		<set name="hitCancelTime" val="500" />
 		<set name="hitTime" val="100" />
 		<set name="icon" val="BranchSys2.icon.br_eggplant_herb_i00" />
 		<set name="isMagic" val="2" />
@@ -1399,8 +1407,10 @@
 		<set name="targetType" val="SELF" />
 		<effects>
 			<effect name="Buff">
-				<mul stat="mAtkSpd" val="1.1" />
 				<add stat="mCritRate" val="2" />
+			</effect>
+			<effect name="Buff">
+				<mul stat="mAtkSpd" val="1.1" />
 			</effect>
 		</effects>
 	</skill>

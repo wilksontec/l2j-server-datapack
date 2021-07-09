@@ -233,12 +233,15 @@
 		</effects>
 	</skill>
 	<skill id="2512" levels="1" name="Herb of Vampiric Rage">
-		<!-- Confirmed CT2.5 -->
+		<!-- High Five Confirmed -->
 		<set name="abnormalInstant" val="true" />
 		<set name="abnormalLvl" val="4" />
 		<set name="abnormalTime" val="300" />
 		<set name="abnormalType" val="VAMPIRIC_ATTACK" />
+		<set name="affectScope" val="SINGLE" />
 		<set name="effectPoint" val="100" />
+		<set name="hitCancelTime" val="500" />
+		<set name="hitTime" val="100" />
 		<set name="icon" val="BranchSys2.icon.etc_vampiric_rage_herb_i01" />
 		<set name="isMagic" val="2" />
 		<set name="magicLvl" val="40" />
@@ -251,18 +254,20 @@
 		</cond>
 		<effects>
 			<effect name="Buff">
-				<add stat="absorbDam" val="9" /> <!-- absorb 9% HP from damage inflicted on enemies -->
+				<add stat="absorbDam" val="9" />
 			</effect>
 		</effects>
 	</skill>
 	<skill id="2513" levels="1" name="Herb of Doubt">
-		<!-- Confirmed CT2.5 -->
+		<!-- High Five Confirmed -->
 		<set name="abnormalInstant" val="true" />
 		<set name="abnormalLvl" val="1" />
 		<set name="abnormalTime" val="300" />
 		<set name="abnormalType" val="BIG_HEAD" />
 		<set name="abnormalVisualEffect" val="BIG_HEAD" />
 		<set name="activateRate" val="0" />
+		<set name="affectScope" val="SINGLE" />
+		<set name="hitCancelTime" val="500" />
 		<set name="icon" val="icon.skill2513" />
 		<set name="isMagic" val="2" />
 		<set name="magicLvl" val="1" />
@@ -282,17 +287,22 @@
 		<effects>
 			<effect name="Buff">
 				<mul stat="regHp" val="2" />
+			</effect>
+			<effect name="Buff">
 				<mul stat="regMp" val="2" />
 			</effect>
 		</effects>
 	</skill>
 	<skill id="2514" levels="1" name="Herb of Critical Attack - Power">
-		<!-- Confirmed CT2.5 -->
+		<!-- High Five Confirmed -->
 		<set name="abnormalInstant" val="true" />
 		<set name="abnormalLvl" val="3" />
 		<set name="abnormalTime" val="300" />
 		<set name="abnormalType" val="CRITICAL_DMG_UP" />
+		<set name="affectScope" val="SINGLE" />
 		<set name="effectPoint" val="100" />
+		<set name="hitCancelTime" val="500" />
+		<set name="hitTime" val="100" />
 		<set name="icon" val="BranchSys2.icon.etc_crt_force_herb_i01" />
 		<set name="isMagic" val="2" />
 		<set name="magicLvl" val="48" />
@@ -1631,11 +1641,15 @@
 		</effects>
 	</skill>
 	<skill id="2580" levels="1" name="Vitality Replenishing Herb">
+		<!-- High Five Confirmed -->
 		<set name="abnormalLvl" val="1" />
 		<set name="abnormalTime" val="300" />
 		<set name="abnormalType" val="VP_UP" />
 		<set name="abnormalVisualEffect" val="VP_UP" />
+		<set name="affectScope" val="SINGLE" />
+		<set name="buffProtectLevel" val="2" />
 		<set name="effectPoint" val="100" />
+		<set name="hitCancelTime" val="500" />
 		<set name="hitTime" val="100" />
 		<set name="icon" val="icon.skilltransform4" />
 		<set name="irreplaceableBuff" val="true" />
@@ -1650,7 +1664,7 @@
 		</cond>
 		<effects>
 			<effect name="Buff">
-				<sub stat="vitalityConsumeRate" val="10" />
+				<add stat="vitalityConsumeRate" val="1" />
 			</effect>
 		</effects>
 	</skill>

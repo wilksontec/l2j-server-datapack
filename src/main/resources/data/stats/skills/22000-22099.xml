@@ -698,14 +698,17 @@
 			</effect>
 		</effects>
 	</skill>
-	<skill id="22029" levels="1" name="Baguette Herb">
+	<skill id="22029" levels="1" name="Baguette's Herb">
+		<!-- High Five Confirmed -->
 		<set name="abnormalInstant" val="true" />
 		<set name="abnormalLvl" val="1" />
 		<set name="abnormalTime" val="600" />
 		<set name="abnormalType" val="BR_EVENT_BUF1" />
-		<set name="abnormalVisualEffect" val="BR_AFRO_NORMAL" />
+		<set name="abnormalVisualEffect" val="CHANGE_WP;CHANGE_HAIR_B" />
+		<set name="affectScope" val="SINGLE" />
 		<set name="blockedInOlympiad" val="true" />
 		<set name="effectPoint" val="100" />
+		<set name="hitCancelTime" val="500" />
 		<set name="hitTime" val="100" />
 		<set name="icon" val="BranchSys.icon.br_herb_of_baguette_i00" />
 		<set name="isMagic" val="2" />
@@ -719,18 +722,21 @@
 		</cond>
 		<effects>
 			<effect name="Buff">
-				<mul stat="pAtkSpd" val="1.08" />
+				<mul stat="pAtkSpd" val="1.1" />
 			</effect>
 		</effects>
 	</skill>
-	<skill id="22030" levels="1" name="Cream Puff Herb">
+	<skill id="22030" levels="1" name="Fresh Cream Herb">
+		<!-- High Five Confirmed -->
 		<set name="abnormalInstant" val="true" />
 		<set name="abnormalLvl" val="1" />
 		<set name="abnormalTime" val="600" />
 		<set name="abnormalType" val="BR_EVENT_BUF1" />
-		<set name="abnormalVisualEffect" val="BR_AFRO_GOLD" />
+		<set name="abnormalVisualEffect" val="CHANGE_WP;CHANGE_HAIR_G" />
+		<set name="affectScope" val="SINGLE" />
 		<set name="blockedInOlympiad" val="true" />
 		<set name="effectPoint" val="100" />
+		<set name="hitCancelTime" val="500" />
 		<set name="hitTime" val="100" />
 		<set name="icon" val="BranchSys.icon.br_herb_of_cream_i00" />
 		<set name="isMagic" val="2" />
@@ -744,18 +750,21 @@
 		</cond>
 		<effects>
 			<effect name="Buff">
-				<sub stat="vitalityConsumeRate" val="10" />
+				<add stat="vitalityConsumeRate" val="1" />
 			</effect>
 		</effects>
 	</skill>
 	<skill id="22031" levels="1" name="Cheesecake Herb">
+		<!-- High Five Confirmed -->
 		<set name="abnormalInstant" val="true" />
 		<set name="abnormalLvl" val="1" />
 		<set name="abnormalTime" val="600" />
 		<set name="abnormalType" val="BR_EVENT_BUF1" />
-		<set name="abnormalVisualEffect" val="BR_AFRO_PINK" />
+		<set name="abnormalVisualEffect" val="CHANGE_WP;CHANGE_HAIR_P" />
+		<set name="affectScope" val="SINGLE" />
 		<set name="blockedInOlympiad" val="true" />
 		<set name="effectPoint" val="100" />
+		<set name="hitCancelTime" val="500" />
 		<set name="hitTime" val="100" />
 		<set name="icon" val="BranchSys.icon.br_herb_of_cheesecake_i00" />
 		<set name="isMagic" val="2" />
@@ -769,7 +778,7 @@
 		</cond>
 		<effects>
 			<effect name="Buff">
-				<mul stat="mAtkSpd" val="1.08" />
+				<mul stat="mAtkSpd" val="1.15" />
 			</effect>
 		</effects>
 	</skill>

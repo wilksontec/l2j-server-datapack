@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <list xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../xsd/skills.xsd">
 	<skill id="2900" levels="1" name="Ancient Herb - Slayer">
+		<!-- High Five Confirmed -->
 		<set name="abnormalInstant" val="true" />
 		<set name="abnormalLvl" val="1" />
 		<set name="abnormalTime" val="60" />
 		<set name="abnormalType" val="SIGNAL_C" />
+		<set name="affectScope" val="SINGLE" />
 		<set name="effectPoint" val="100" />
+		<set name="hitCancelTime" val="500" />
+		<set name="hitTime" val="100" />
 		<set name="icon" val="icon.freed_soul_core_i00" />
 		<set name="isMagic" val="2" />
 		<set name="magicLvl" val="85" />
@@ -21,11 +25,15 @@
 		</effects>
 	</skill>
 	<skill id="2901" levels="1" name="Ancient Herb - Immortal">
+		<!-- High Five Confirmed -->
 		<set name="abnormalInstant" val="true" />
 		<set name="abnormalLvl" val="1" />
 		<set name="abnormalTime" val="60" />
 		<set name="abnormalType" val="PD_UP_SPECIAL" />
+		<set name="affectScope" val="SINGLE" />
 		<set name="effectPoint" val="100" />
+		<set name="hitCancelTime" val="500" />
+		<set name="hitTime" val="100" />
 		<set name="icon" val="icon.freed_soul_core_i00" />
 		<set name="isMagic" val="2" />
 		<set name="magicLvl" val="85" />
@@ -37,24 +45,28 @@
 			<player level="78" />
 		</cond>
 		<effects>
-			<effect name="BlockDamage">
-				<param block="HP"/>
-			</effect>
-			<effect name="BlockDamage">
-				<param block="MP"/>
-			</effect>
 			<effect name="BlockDebuff" />
+			<effect name="BlockDamage">
+				<param block="HP" />
+			</effect>
+			<effect name="BlockDamage">
+				<param block="MP" />
+			</effect>
 			<effect name="Buff">
-				<sub stat="cancelVuln" val="100" />
+				<mul stat="cancelVuln" val="0" />
 			</effect>
 		</effects>
 	</skill>
 	<skill id="2902" levels="1" name="Ancient Herb - Terminator">
+		<!-- High Five Confirmed -->
 		<set name="abnormalInstant" val="true" />
 		<set name="abnormalLvl" val="4" />
 		<set name="abnormalTime" val="60" />
 		<set name="abnormalType" val="CASTING_TIME_DOWN" />
+		<set name="affectScope" val="SINGLE" />
 		<set name="effectPoint" val="100" />
+		<set name="hitCancelTime" val="500" />
+		<set name="hitTime" val="100" />
 		<set name="icon" val="icon.freed_soul_core_i00" />
 		<set name="isMagic" val="2" />
 		<set name="magicLvl" val="85" />
@@ -72,11 +84,15 @@
 		</effects>
 	</skill>
 	<skill id="2903" levels="1" name="Ancient Herb - Guide">
+		<!-- High Five Confirmed -->
 		<set name="abnormalInstant" val="true" />
 		<set name="abnormalLvl" val="4" />
 		<set name="abnormalTime" val="60" />
 		<set name="abnormalType" val="SPEED_UP_SPECIAL" />
+		<set name="affectScope" val="SINGLE" />
 		<set name="effectPoint" val="100" />
+		<set name="hitCancelTime" val="500" />
+		<set name="hitTime" val="100" />
 		<set name="icon" val="icon.freed_soul_core_i00" />
 		<set name="isMagic" val="2" />
 		<set name="magicLvl" val="85" />

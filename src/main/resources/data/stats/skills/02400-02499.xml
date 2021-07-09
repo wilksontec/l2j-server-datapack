@@ -1913,7 +1913,12 @@
 		</effects>
 	</skill>
 	<skill id="2485" levels="1" name="Herb of Life">
+		<!-- High Five Confirmed -->
+		<set name="affectObject" val="FRIEND" />
+		<set name="affectRange" val="1000" />
+		<set name="affectScope" val="PARTY" />
 		<set name="effectPoint" val="100" />
+		<set name="hitCancelTime" val="500" />
 		<set name="hitTime" val="100" />
 		<set name="isMagic" val="2" />
 		<set name="magicLvl" val="40" />
@@ -1927,12 +1932,17 @@
 		</cond>
 		<effects>
 			<effect name="HpPerMax">
-				<param power="15" />
+				<param power="50" />
 			</effect>
 		</effects>
 	</skill>
 	<skill id="2486" levels="1" name="Herb of Mana">
+		<!-- High Five Confirmed -->
+		<set name="affectObject" val="FRIEND" />
+		<set name="affectRange" val="1000" />
+		<set name="affectScope" val="PARTY" />
 		<set name="effectPoint" val="100" />
+		<set name="hitCancelTime" val="500" />
 		<set name="hitTime" val="100" />
 		<set name="isMagic" val="2" />
 		<set name="magicLvl" val="40" />
@@ -1946,7 +1956,7 @@
 		</cond>
 		<effects>
 			<effect name="MpPerMax">
-				<param power="12" />
+				<param power="30" />
 			</effect>
 		</effects>
 	</skill>

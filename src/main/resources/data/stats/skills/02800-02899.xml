@@ -1838,41 +1838,59 @@
 			<effect name="RestorationRandom" />
 		</effects>
 	</skill>
-	<skill id="2883" levels="1" name="Energy Replenishing Herb Tea">
+	<skill id="2883" levels="1" name="Vitality Replenishing Herb Tea">
+		<!-- High Five Confirmed -->
 		<set name="abnormalLvl" val="1" />
 		<set name="abnormalTime" val="600" />
 		<set name="abnormalType" val="VP_UP" />
 		<set name="abnormalVisualEffect" val="VP_UP" />
+		<set name="affectScope" val="SINGLE" />
+		<set name="buffProtectLevel" val="2" />
 		<set name="effectPoint" val="100" />
+		<set name="hitCancelTime" val="500" />
 		<set name="hitTime" val="100" />
 		<set name="icon" val="icon.etc_hot_spring_nectar_i00" />
 		<set name="irreplaceableBuff" val="true" />
 		<set name="isMagic" val="2" />
 		<set name="itemConsumeCount" val="1" />
-		<set name="itemConsumeId" val="14742" /> <!-- Event - Vitality Replenishing Herb Tea 10 minutes -->
+		<set name="itemConsumeId" val="14742" />
 		<set name="magicLvl" val="-1" />
 		<set name="operateType" val="A2" />
 		<set name="reuseDelay" val="10000" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
-		<set name="targetType" val="NONE" />
+		<set name="targetType" val="SELF" />
+		<effects>
+			<effect name="Buff">
+				<add stat="vitalityConsumeRate" val="1" />
+			</effect>
+		</effects>
 	</skill>
-	<skill id="2884" levels="1" name="Energy Replenishing Herb Tea">
+	<skill id="2884" levels="1" name="Vitality Replenishing Herb Tea">
+		<!-- High Five Confirmed -->
 		<set name="abnormalLvl" val="2" />
 		<set name="abnormalTime" val="1200" />
 		<set name="abnormalType" val="VP_UP" />
 		<set name="abnormalVisualEffect" val="VP_UP" />
+		<set name="affectScope" val="SINGLE" />
+		<set name="buffProtectLevel" val="2" />
 		<set name="effectPoint" val="100" />
+		<set name="hitCancelTime" val="500" />
 		<set name="hitTime" val="100" />
 		<set name="icon" val="icon.etc_hot_spring_nectar_i00" />
 		<set name="irreplaceableBuff" val="true" />
 		<set name="isMagic" val="2" />
 		<set name="itemConsumeCount" val="2" />
-		<set name="itemConsumeId" val="14743" /> <!-- Event - Vitality Replenishing Herb Tea 20 minutes -->
+		<set name="itemConsumeId" val="14743" />
 		<set name="magicLvl" val="-1" />
 		<set name="operateType" val="A2" />
 		<set name="reuseDelay" val="10000" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
-		<set name="targetType" val="NONE" />
+		<set name="targetType" val="SELF" />
+		<effects>
+			<effect name="Buff">
+				<add stat="vitalityConsumeRate" val="1" />
+			</effect>
+		</effects>
 	</skill>
 	<skill id="2885" levels="1" name="Shield">
 		<!-- Confirmed CT2.5 -->
@@ -2094,12 +2112,15 @@
 		</effects>
 	</skill>
 	<skill id="2897" levels="1" name="Baguette's Herb">
+		<!-- High Five Confirmed -->
 		<set name="abnormalInstant" val="true" />
 		<set name="abnormalLvl" val="1" />
 		<set name="abnormalTime" val="600" />
 		<set name="abnormalType" val="WP_CHANGE_EVENT" />
 		<set name="abnormalVisualEffect" val="CHANGE_WP;CHANGE_HAIR_B" />
+		<set name="affectScope" val="SINGLE" />
 		<set name="effectPoint" val="100" />
+		<set name="hitCancelTime" val="500" />
 		<set name="hitTime" val="100" />
 		<set name="icon" val="icon.etc_herb_of_baguette" />
 		<set name="isMagic" val="2" />
@@ -2109,22 +2130,25 @@
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
 		<effects>
+			<effect name="Buff">
+				<mul stat="regHp" val="1.2" />
+			</effect>
 			<effect name="MaxHp">
 				<param power="10" />
 				<param type="PER" />
 			</effect>
-			<effect name="Buff">
-				<mul stat="regHp" val="1.2" />
-			</effect>
 		</effects>
 	</skill>
 	<skill id="2898" levels="1" name="Fresh Cream Herb">
+		<!-- High Five Confirmed -->
 		<set name="abnormalInstant" val="true" />
 		<set name="abnormalLvl" val="1" />
 		<set name="abnormalTime" val="600" />
 		<set name="abnormalType" val="WP_CHANGE_EVENT" />
 		<set name="abnormalVisualEffect" val="CHANGE_WP;CHANGE_HAIR_G" />
+		<set name="affectScope" val="SINGLE" />
 		<set name="effectPoint" val="100" />
+		<set name="hitCancelTime" val="500" />
 		<set name="hitTime" val="100" />
 		<set name="icon" val="icon.etc_herb_of_cream" />
 		<set name="isMagic" val="2" />
@@ -2134,6 +2158,15 @@
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
 		<effects>
+			<effect name="Buff">
+				<mul stat="pAtkSpd" val="1.15" />
+			</effect>
+			<effect name="Buff">
+				<mul stat="mAtkSpd" val="1.1" />
+			</effect>
+			<effect name="Buff">
+				<mul stat="mDef" val="1.1" />
+			</effect>
 			<effect name="MaxHp">
 				<param power="10" />
 				<param type="PER" />
@@ -2143,21 +2176,26 @@
 				<param type="PER" />
 			</effect>
 			<effect name="Buff">
-				<mul stat="mAtkSpd" val="1.1" />
 				<mul stat="pDef" val="1.1" />
-				<mul stat="mDef" val="1.1" />
-				<mul stat="pAtkSpd" val="1.15" />
+			</effect>
+			<effect name="Buff">
+				<mul stat="debuffVuln" val="1.1" />
+			</effect>
+			<effect name="Buff">
 				<add stat="runSpd" val="10" />
 			</effect>
 		</effects>
 	</skill>
 	<skill id="2899" levels="1" name="Cheesecake Herb">
+		<!-- High Five Confirmed -->
 		<set name="abnormalInstant" val="true" />
 		<set name="abnormalLvl" val="1" />
 		<set name="abnormalTime" val="600" />
 		<set name="abnormalType" val="WP_CHANGE_EVENT" />
 		<set name="abnormalVisualEffect" val="CHANGE_WP;CHANGE_HAIR_P" />
+		<set name="affectScope" val="SINGLE" />
 		<set name="effectPoint" val="100" />
+		<set name="hitCancelTime" val="500" />
 		<set name="hitTime" val="100" />
 		<set name="icon" val="icon.etc_herb_of_cheesecake" />
 		<set name="isMagic" val="2" />
