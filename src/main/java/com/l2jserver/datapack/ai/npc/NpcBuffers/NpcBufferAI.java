@@ -24,6 +24,7 @@ import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
 import com.l2jserver.gameserver.model.actor.instance.L2TamedBeastInstance;
 import com.l2jserver.gameserver.model.skills.Skill;
+import com.l2jserver.gameserver.model.skills.targets.AffectObjectStaticImpl;
 import com.l2jserver.gameserver.model.zone.ZoneId;
 import com.l2jserver.gameserver.util.Util;
 
@@ -69,7 +70,8 @@ public class NpcBufferAI implements Runnable {
 			}
 			case RANGE: {
 				for (L2Character target : _npc.getKnownList().getKnownCharactersInRadius(skill.getAffectRange())) {
-					switch (_skillData.getAffectObject()) {
+					final var affectObject = (AffectObjectStaticImpl) _skillData.getAffectObject();
+					switch (affectObject) {
 						case FRIEND: {
 							if (isFriendly(player, target) && !target.isDead()) {
 								skill.applyEffects(target, target);

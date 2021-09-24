@@ -22,6 +22,7 @@ import com.l2jserver.gameserver.model.StatsSet;
 import com.l2jserver.gameserver.model.holders.SkillHolder;
 import com.l2jserver.gameserver.model.skills.Skill;
 import com.l2jserver.gameserver.model.skills.targets.AffectObject;
+import com.l2jserver.gameserver.model.skills.targets.AffectObjectStaticImpl;
 import com.l2jserver.gameserver.model.skills.targets.AffectScope;
 
 /**
@@ -39,7 +40,7 @@ public class NpcBufferSkillData {
 		_initialDelay = set.getInt("initialDelay", 0) * 1000;
 		_delay = set.getInt("delay") * 1000;
 		_affectScope = set.getEnum("affectScope", AffectScope.class);
-		_affectObject = set.getEnum("affectObject", AffectObject.class);
+		_affectObject = set.getEnum("affectObject", AffectObjectStaticImpl.class);
 	}
 	
 	public Skill getSkill() {
