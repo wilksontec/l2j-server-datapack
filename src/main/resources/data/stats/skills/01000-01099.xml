@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <list xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../xsd/skills.xsd">
 	<skill id="1001" levels="10" name="Soul Cry" enchantGroup1="1">
-		<!-- Confirmed CT2.5 -->
+		<!-- High Five Confirmed -->
+		<table name="#consumeMPower"> 0 0 -1 -2 -2 -2 -3 -3 -4 -4 </table>
 		<table name="#magicLvl"> 1 14 25 35 40 48 56 60 66 72 </table>
-		<table name="#mdot"> 0 0 -1 -2 -2 -2 -3 -3 -4 -4 </table>
 		<table name="#mpConsume1"> 1 2 3 3 4 5 6 6 7 7 </table>
 		<table name="#pAtk"> 4.5 14 33.5 66.5 90.5 141.5 208.5 247 310 375.5 </table>
-		<table name="#ench1patk"> 418 421 424 427 430 433 436 439 442 445 448 451 454 457 460 463 466 469 472 475 478 481 484 487 490 493 496 499 502 505 </table>
 		<table name="#enchMagicLvl"> 76 76 76 77 77 77 78 78 78 79 79 79 80 80 80 81 81 81 82 82 82 83 83 83 84 84 84 85 85 85 </table>
+		<table name="#ench1pAtk"> 418 421 424 427 430 433 436 439 442 445 448 451 454 457 460 463 466 469 472 475 478 481 484 487 490 493 496 499 502 505 </table>
 		<set name="abnormalVisualEffect" val="NONE" />
 		<set name="icon" val="icon.skill1001" />
 		<set name="magicLvl" val="#magicLvl" />
@@ -18,8 +18,10 @@
 		<enchant1 name="magicLvl" val="#enchMagicLvl" />
 		<effects>
 			<effect name="ConsumeMp">
-				<param power="#mdot" />
+				<param power="#consumeMPower" />
 				<param ticks="5" />
+			</effect>
+			<effect name="Buff">
 				<add stat="pAtk" val="#pAtk" />
 			</effect>
 		</effects>
@@ -27,7 +29,9 @@
 			<effect name="ConsumeMp">
 				<param power="-4" />
 				<param ticks="5" />
-				<add stat="pAtk" val="#ench1patk" />
+			</effect>
+			<effect name="Buff">
+				<add stat="pAtk" val="#ench1pAtk" />
 			</effect>
 		</enchant1Effects>
 	</skill>

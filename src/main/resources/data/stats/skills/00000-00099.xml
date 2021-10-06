@@ -1896,10 +1896,12 @@
 		</enchant4Effects>
 	</skill>
 	<skill id="60" levels="1" name="Fake Death">
+		<!-- High Five Confirmed -->
 		<set name="abnormalVisualEffect" val="NONE" />
 		<set name="icon" val="icon.skill0060" />
 		<set name="magicLvl" val="40" />
-		<set name="mpConsume2" val="200" />
+		<set name="mpConsume1" val="200" />
+		<set name="nextActionAttack" val="fake_death" />
 		<set name="operateType" val="T" />
 		<set name="rideState" val="NONE" />
 		<set name="targetType" val="SELF" />
@@ -1907,6 +1909,9 @@
 			<effect name="ConsumeFakeDeath">
 				<param power="-10" />
 				<param ticks="5" />
+			</effect>
+			<effect name="SilentMove">
+				<param power="70" />
 			</effect>
 		</effects>
 	</skill>

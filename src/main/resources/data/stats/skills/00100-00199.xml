@@ -489,19 +489,22 @@
 		</enchant3Effects>
 	</skill>
 	<skill id="111" levels="2" name="Ultimate Evasion" enchantGroup1="1" enchantGroup2="1">
-		<table name="#abnormalLvls"> 1 2 </table>
-		<table name="#effectPoints"> 268 523 </table>
+		<!-- High Five Confirmed -->
+		<table name="#abnormalLvl"> 1 2 </table>
+		<table name="#effectPoint"> 268 523 </table>
 		<table name="#magicLvl"> 28 55 </table>
 		<table name="#mpConsume2"> 13 25 </table>
 		<table name="#pSkillEvas"> 25 40 </table>
 		<table name="#rEvas"> 20 25 </table>
-		<table name="#ench1AbnormalTimes"> 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 </table>
-		<table name="#ench2reuseDelay"> 885000 870000 855000 840000 825000 810000 795000 780000 765000 750000 735000 720000 705000 690000 675000 660000 645000 630000 615000 600000 585000 570000 555000 540000 525000 510000 495000 480000 465000 450000 </table>
 		<table name="#enchMagicLvl"> 76 76 76 77 77 77 78 78 78 79 79 79 80 80 80 81 81 81 82 82 82 83 83 83 84 84 84 85 85 85 </table>
-		<set name="abnormalLvl" val="#abnormalLvls" />
+		<table name="#ench1AbnormalTime"> 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 </table>
+		<table name="#ench2ReuseDelay"> 885000 870000 855000 840000 825000 810000 795000 780000 765000 750000 735000 720000 705000 690000 675000 660000 645000 630000 615000 600000 585000 570000 555000 540000 525000 510000 495000 480000 465000 450000 </table>
+		<set name="abnormalLvl" val="#abnormalLvl" />
 		<set name="abnormalTime" val="30" />
 		<set name="abnormalType" val="AVOID_UP_SPECIAL" />
-		<set name="effectPoint" val="#effectPoints" />
+		<set name="affectScope" val="SINGLE" />
+		<set name="effectPoint" val="#effectPoint" />
+		<set name="hitCancelTime" val="500" />
 		<set name="hitTime" val="1000" />
 		<set name="icon" val="icon.skill0111" />
 		<set name="magicLvl" val="#magicLvl" />
@@ -510,15 +513,19 @@
 		<set name="reuseDelay" val="900000" />
 		<set name="rideState" val="NONE" />
 		<set name="targetType" val="SELF" />
-		<enchant1 name="abnormalTime" val="#ench1AbnormalTimes" />
+		<enchant1 name="abnormalTime" val="#ench1AbnormalTime" />
 		<enchant1 name="magicLvl" val="#enchMagicLvl" />
 		<enchant2 name="magicLvl" val="#enchMagicLvl" />
-		<enchant2 name="reuseDelay" val="#ench2reuseDelay" />
+		<enchant2 name="reuseDelay" val="#ench2ReuseDelay" />
 		<effects>
 			<effect name="Buff">
-				<add stat="pSkillEvas" val="#pSkillEvas" />
 				<add stat="rEvas" val="#rEvas" />
-				<sub stat="cancelVuln" val="80" />
+			</effect>
+			<effect name="Buff">
+				<add stat="pSkillEvas" val="#pSkillEvas" />
+			</effect>
+			<effect name="Buff">
+				<mul stat="cancelVuln" val="0.2" />
 			</effect>
 		</effects>
 	</skill>
@@ -1568,12 +1575,12 @@
 			</effect>
 		</effects>
 	</skill>
-	<skill id="196" levels="1" name="Holy Blade">
+	<skill id="196" levels="1" name="Divine Blade">
+		<!-- High Five Confirmed -->
 		<set name="abnormalVisualEffect" val="NONE" />
-		<set name="attributeType" val="HOLY" />
 		<set name="icon" val="icon.skill0196" />
 		<set name="magicLvl" val="43" />
-		<set name="mpConsume2" val="8" />
+		<set name="mpConsume1" val="8" />
 		<set name="operateType" val="T" />
 		<set name="rideState" val="NONE" />
 		<set name="targetType" val="SELF" />
@@ -1583,20 +1590,21 @@
 			</effect>
 		</effects>
 	</skill>
-	<skill id="197" levels="2" name="Holy Armor">
-		<table name="#darkRes"> 7 10 </table>
+	<skill id="197" levels="2" name="Divine Armor">
+		<!-- High Five Confirmed -->
+		<table name="#attributeRes"> 7 10 </table>
 		<table name="#magicLvl"> 40 46 </table>
-		<table name="#mpConsume2"> 7 9 </table>
+		<table name="#mpConsume1"> 7 9 </table>
 		<set name="abnormalVisualEffect" val="NONE" />
 		<set name="icon" val="icon.skill0197" />
 		<set name="magicLvl" val="#magicLvl" />
-		<set name="mpConsume2" val="#mpConsume2" />
+		<set name="mpConsume1" val="#mpConsume1" />
 		<set name="operateType" val="T" />
 		<set name="rideState" val="NONE" />
 		<set name="targetType" val="SELF" />
 		<effects>
 			<effect name="Buff">
-				<add stat="darkRes" val="#darkRes" />
+				<add stat="darkRes" val="#attributeRes" />
 			</effect>
 		</effects>
 	</skill>
