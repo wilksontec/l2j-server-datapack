@@ -1683,11 +1683,13 @@
 		</effects>
 	</skill>
 	<skill id="873" levels="1" name="Rapid Shot">
-		<!-- Confirmed CT2.5 -->
+		<!-- High Five Confirmed -->
 		<set name="abnormalLvl" val="2" />
 		<set name="abnormalTime" val="1200" />
 		<set name="abnormalType" val="ATTACK_SPEED_UP_BOW" />
+		<set name="affectScope" val="SINGLE" />
 		<set name="effectPoint" val="549" />
+		<set name="hitCancelTime" val="500" />
 		<set name="hitTime" val="1500" />
 		<set name="icon" val="icon.skill0099" />
 		<set name="magicLvl" val="70" />

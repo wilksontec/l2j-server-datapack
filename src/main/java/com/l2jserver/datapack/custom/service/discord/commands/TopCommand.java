@@ -18,31 +18,30 @@
  */
 package com.l2jserver.datapack.custom.service.discord.commands;
 
-import com.l2jserver.commons.database.ConnectionFactory;
-import com.l2jserver.datapack.custom.service.discord.AbstractCommand;
-import com.l2jserver.gameserver.data.sql.impl.ClanTable;
-import com.l2jserver.gameserver.instancemanager.CastleManager;
-import com.l2jserver.gameserver.model.L2Clan;
-import com.l2jserver.gameserver.model.L2World;
-import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
-import com.l2jserver.gameserver.model.entity.Castle;
-import java.awt.*;
+import static com.l2jserver.gameserver.config.Configuration.discord;
+
+import java.awt.Color;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.DecimalFormat;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
-import java.util.*;
-import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
-import net.dv8tion.jda.api.EmbedBuilder;
-import net.dv8tion.jda.api.entities.Guild;
-import net.dv8tion.jda.api.events.ReadyEvent;
-import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 
-import static com.l2jserver.gameserver.config.Configuration.discord;
+import com.l2jserver.commons.database.ConnectionFactory;
+import com.l2jserver.datapack.custom.service.discord.AbstractCommand;
+import com.l2jserver.gameserver.data.sql.impl.ClanTable;
+import com.l2jserver.gameserver.instancemanager.CastleManager;
+import com.l2jserver.gameserver.model.L2Clan;
+import com.l2jserver.gameserver.model.entity.Castle;
+
+import net.dv8tion.jda.api.EmbedBuilder;
+import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 
 /**
  * Top Command.

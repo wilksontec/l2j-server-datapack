@@ -1626,7 +1626,7 @@
 		<table name="#effectPoint"> 303 549 </table>
 		<table name="#magicLvl"> 32 55 </table>
 		<table name="#mpConsume2"> 14 25 </table>
-		<table name="#rate"> 8 12 </table>
+		<table name="#pAtkSpd"> 1.08 1.12 </table>
 		<set name="abnormalLvl" val="#abnormalLvl" />
 		<set name="abnormalTime" val="1200" />
 		<set name="abnormalType" val="ATTACK_SPEED_UP_BOW" />
@@ -1643,7 +1643,7 @@
 		<set name="targetType" val="SELF" />
 		<effects>
 			<effect name="Buff">
-				<mul stat="pAtkSpd" val="#rate">
+				<mul stat="pAtkSpd" val="#pAtkSpd">
 					<using kind="BOW" />
 				</mul>
 			</effect>
