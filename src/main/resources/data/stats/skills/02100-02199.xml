@@ -1171,13 +1171,16 @@
 		</effects>
 	</skill>
 	<skill id="2179" levels="1" name="Blessed Scroll of Resurrection: Pet">
+		<!-- High Five Confirmed -->
+		<set name="affectScope" val="SINGLE" />
 		<set name="castRange" val="400" />
 		<set name="effectPoint" val="1" />
 		<set name="effectRange" val="600" />
+		<set name="hitCancelTime" val="500" />
 		<set name="hitTime" val="15000" />
 		<set name="isMagic" val="2" />
 		<set name="itemConsumeCount" val="1" />
-		<set name="itemConsumeId" val="6387" /> <!-- Blessed Scroll of Resurrection for Pets -->
+		<set name="itemConsumeId" val="6387" />
 		<set name="magicLvl" val="1" />
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />

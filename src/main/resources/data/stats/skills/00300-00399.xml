@@ -121,19 +121,22 @@
 		</enchant3Effects>
 	</skill>
 	<skill id="303" levels="4" name="Soul of Sagittarius" enchantGroup1="1">
-		<table name="#abnormalLvls"> 1 2 3 4 </table>
-		<table name="#effectPoints"> 438 549 597 635 </table>
+		<!-- High Five Confirmed -->
+		<table name="#abnormalLvl"> 1 2 3 4 </table>
+		<table name="#effectPoint"> 438 549 597 635 </table>
 		<table name="#hpConsume"> 185 271 316 364 </table>
-		<table name="#magicLvl"> 40 58 64 70 </table>
-		<table name="#maxMp"> 10 15 20 25 </table>
-		<table name="#ench1abnormalLvl"> 4 4 4 4 4 4 4 4 4 5 5 5 5 5 5 5 5 5 5 6 6 6 6 6 6 6 6 6 6 6 </table>
-		<table name="#ench1hpConsume"> 358 352 346 340 334 328 322 316 310 304 298 292 286 280 274 267 261 255 249 243 237 231 225 219 213 207 201 195 189 183 </table>
-		<table name="#ench1maxMp"> 25 25 25 25 25 25 25 25 25 30 30 30 30 30 30 30 30 30 30 35 35 35 35 35 35 35 35 35 35 35 </table>
+		<table name="#magicLvl"> 46 58 64 70 </table>
+		<table name="#maxMpPower"> 10 15 20 25 </table>
 		<table name="#enchMagicLvl"> 76 76 76 77 77 77 78 78 78 79 79 79 80 80 80 81 81 81 82 82 82 83 83 83 84 84 84 85 85 85 </table>
-		<set name="abnormalLvl" val="#abnormalLvls" />
+		<table name="#ench1AbnormalLvl"> 4 4 4 4 4 4 4 4 4 5 5 5 5 5 5 5 5 5 5 6 6 6 6 6 6 6 6 6 6 6 </table>
+		<table name="#ench1HpConsume"> 358 352 346 340 334 328 322 316 310 304 298 292 286 280 274 267 261 255 249 243 237 231 225 219 213 207 201 195 189 183 </table>
+		<table name="#ench1MaxMpPower"> 25 25 25 25 25 25 25 25 25 30 30 30 30 30 30 30 30 30 30 35 35 35 35 35 35 35 35 35 35 35 </table>
+		<set name="abnormalLvl" val="#abnormalLvl" />
 		<set name="abnormalTime" val="1200" />
 		<set name="abnormalType" val="MAX_MP_UP" />
-		<set name="effectPoint" val="#effectPoints" />
+		<set name="affectScope" val="SINGLE" />
+		<set name="effectPoint" val="#effectPoint" />
+		<set name="hitCancelTime" val="500" />
 		<set name="hitTime" val="2000" />
 		<set name="hpConsume" val="#hpConsume" />
 		<set name="icon" val="icon.skill0303" />
@@ -142,17 +145,18 @@
 		<set name="reuseDelay" val="4000" />
 		<set name="rideState" val="NONE" />
 		<set name="targetType" val="SELF" />
-		<enchant1 name="hpConsume" val="#ench1hpConsume" />
+		<enchant1 name="abnormalLvl" val="#ench1AbnormalLvl" />
+		<enchant1 name="hpConsume" val="#ench1HpConsume" />
 		<enchant1 name="magicLvl" val="#enchMagicLvl" />
 		<effects>
 			<effect name="MaxMp">
-				<param power="#maxMp" />
+				<param power="#maxMpPower" />
 				<param type="PER" />
 			</effect>
 		</effects>
 		<enchant1Effects>
 			<effect name="MaxMp">
-				<param power="#ench1maxMp" />
+				<param power="#ench1MaxMpPower" />
 				<param type="PER" />
 			</effect>
 		</enchant1Effects>
@@ -530,19 +534,22 @@
 		</enchant2Effects>
 	</skill>
 	<skill id="314" levels="16" name="Fatal Counter" enchantGroup1="2" enchantGroup2="2" enchantGroup3="2" enchantGroup4="2" enchantGroup5="2" enchantGroup6="2" enchantGroup7="2">
-		<table name="#effectPoints"> -567 -575 -583 -591 -599 -607 -614 -621 -627 -634 -640 -646 -651 -656 -661 -665 </table>
+		<!-- High Five Confirmed -->
+		<table name="#effectPoint"> -567 -575 -583 -591 -599 -607 -614 -621 -627 -634 -640 -646 -651 -656 -661 -665 </table>
 		<table name="#magicLvl"> 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 </table>
 		<table name="#mpConsume2"> 116 119 121 122 124 126 129 131 133 135 138 140 142 144 146 148 </table>
-		<table name="#power"> 2908 3030 3154 3280 3408 3537 3668 3800 3933 4067 4201 4336 4470 4604 4738 4870 </table>
-		<table name="#ench1Power"> 4915 4959 5003 5047 5090 5134 5178 5222 5266 5310 5354 5398 5442 5486 5529 5573 5617 5661 5705 5749 5793 5837 5881 5925 5968 6012 6056 6100 6144 6188 </table>
-		<table name="#ench2MpConsume2"> 148 145 143 140 138 135 132 130 127 125 122 120 117 115 112 110 107 105 102 100 97 95 92 90 87 85 82 80 77 75 </table>
-		<table name="#enchDuel"> 4955 5040 5125 5210 5295 5380 5465 5551 5636 5721 5806 5891 5976 6061 6147 6232 6317 6402 6487 6572 6657 6742 6828 6913 6998 7083 7168 7253 7338 7424 </table>
+		<table name="#physicalAttackHpLinkPower"> 2908 3030 3154 3280 3408 3537 3668 3800 3933 4067 4201 4336 4470 4604 4738 4870 </table>
 		<table name="#enchAttributePower"> 1 3 5 6 8 10 11 13 15 16 18 20 21 23 25 26 28 30 31 33 35 36 38 40 41 43 45 46 48 50 </table>
 		<table name="#enchMagicLvl"> 76 76 76 77 77 77 78 78 78 79 79 79 80 80 80 81 81 81 82 82 82 83 83 83 84 84 84 85 85 85 </table>
+		<table name="#ench1PhysicalAttackHpLinkPower"> 4915 4959 5003 5047 5090 5134 5178 5222 5266 5310 5354 5398 5442 5486 5529 5573 5617 5661 5705 5749 5793 5837 5881 5925 5968 6012 6056 6100 6144 6188 </table>
+		<table name="#ench2MpConsume2"> 148 145 143 140 138 135 132 130 127 125 122 120 117 115 112 110 107 105 102 100 97 95 92 90 87 85 82 80 77 75 </table>
+		<table name="#ench7PvpEffect"> 4955 5040 5125 5210 5295 5380 5465 5551 5636 5721 5806 5891 5976 6061 6147 6232 6317 6402 6487 6572 6657 6742 6828 6913 6998 7083 7168 7253 7338 7424 </table>
+		<set name="affectScope" val="SINGLE" />
 		<set name="castRange" val="900" />
 		<set name="coolTime" val="1000" />
-		<set name="effectPoint" val="#effectPoints" />
+		<set name="effectPoint" val="#effectPoint" />
 		<set name="effectRange" val="1400" />
+		<set name="hitCancelTime" val="500" />
 		<set name="hitTime" val="3000" />
 		<set name="icon" val="icon.skill0314" />
 		<set name="magicLvl" val="#magicLvl" />
@@ -551,7 +558,7 @@
 		<set name="overHit" val="true" />
 		<set name="reuseDelay" val="5000" />
 		<set name="rideState" val="NONE" />
-		<set name="targetType" val="ONE" />
+		<set name="targetType" val="ENEMY" />
 		<enchant1 name="magicLvl" val="#enchMagicLvl" />
 		<enchant2 name="magicLvl" val="#enchMagicLvl" />
 		<enchant2 name="mpConsume2" val="#ench2MpConsume2" />
@@ -573,19 +580,19 @@
 		</cond>
 		<effects>
 			<effect name="PhysicalAttackHpLink">
-				<param power="#power" />
+				<param power="#physicalAttackHpLinkPower" />
 			</effect>
 		</effects>
 		<enchant1Effects>
 			<effect name="PhysicalAttackHpLink">
-				<param power="#ench1Power" />
+				<param power="#ench1PhysicalAttackHpLinkPower" />
 			</effect>
 		</enchant1Effects>
 		<enchant7Effects>
 		</enchant7Effects>
 		<enchant7pvpEffects>
 			<effect name="PhysicalAttackHpLink">
-				<param power="#enchDuel" />
+				<param power="#ench7PvpEffect" />
 			</effect>
 		</enchant7pvpEffects>
 		<enchant7pveEffects>
@@ -914,19 +921,21 @@
 			</effect>
 		</enchant2Effects>
 	</skill>
-	<skill id="323" levels="1" name="Quiver of Arrow: Grade A">
-		<!-- Confirmed CT2.5 -->
+	<skill id="323" levels="1" name="Quiver of Arrow: A Grade">
+		<!-- High Five Confirmed -->
+		<set name="affectScope" val="SINGLE" />
 		<table name="#extractableItems">
 			1344,700,30;1344,1400,50;1344,2800,20
 		</table>
 		<set name="capsuled_items_skill" val="#extractableItems" />
+		<set name="hitCancelTime" val="500" />
 		<set name="hitTime" val="3000" />
 		<set name="icon" val="icon.skill0323" />
 		<set name="isMagic" val="1" />
 		<set name="itemConsumeCount" val="1" />
-		<set name="itemConsumeId" val="1461" /> <!-- Crystal (A-Grade) -->
-		<set name="magicLvl" val="60" />
-		<set name="mpConsume2" val="366" />
+		<set name="itemConsumeId" val="1461" />
+		<set name="magicLvl" val="66" />
+		<set name="mpConsume1" val="366" />
 		<set name="operateType" val="A1" />
 		<set name="reuseDelay" val="600000" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
@@ -941,19 +950,21 @@
 			<effect name="RestorationRandom" />
 		</effects>
 	</skill>
-	<skill id="324" levels="1" name="Quiver of Arrow: Grade S">
-		<!-- Confirmed CT2.5 -->
+	<skill id="324" levels="1" name="Quiver of Arrow: S Grade">
+		<!-- High Five Confirmed -->
+		<set name="affectScope" val="SINGLE" />
 		<table name="#extractableItems">
 			1345,900,30;1345,1800,50;1345,3600,20
 		</table>
 		<set name="capsuled_items_skill" val="#extractableItems" />
+		<set name="hitCancelTime" val="500" />
 		<set name="hitTime" val="3000" />
 		<set name="icon" val="icon.skill0324" />
 		<set name="isMagic" val="1" />
 		<set name="itemConsumeCount" val="1" />
-		<set name="itemConsumeId" val="1462" /> <!-- Crystal (S-Grade) -->
+		<set name="itemConsumeId" val="1462" />
 		<set name="magicLvl" val="72" />
-		<set name="mpConsume2" val="398" />
+		<set name="mpConsume1" val="398" />
 		<set name="operateType" val="A1" />
 		<set name="reuseDelay" val="600000" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />

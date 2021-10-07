@@ -854,17 +854,21 @@
 		</enchant1Effects>
 	</skill>
 	<skill id="414" levels="8" name="Dead Eye" enchantGroup1="1">
-		<table name="#abnormalLvls"> 1 2 3 4 5 6 7 8 </table>
+		<!-- High Five Confirmed -->
+		<table name="#abnormalLvl"> 1 2 3 4 5 6 7 8 </table>
 		<table name="#accCombat"> 1 1 2 2 2 3 3 3 </table>
-		<table name="#effectPoints"> 566 582 597 611 624 635 646 655 </table>
+		<table name="#effectPoint"> 566 582 597 611 624 635 646 655 </table>
 		<table name="#magicLvl"> 60 62 64 66 68 70 72 74 </table>
-		<table name="#mpConsume2"> 28 29 30 31 32 33 34 35 </table>
-		<table name="#pAtk"> 124 134 155 155 166 177 188 199 </table>
+		<table name="#mpConsume2"> 28 29 30 31 32 33 34 34 </table>
+		<table name="#pAtk"> 124 134 145 155 166 177 188 199 </table>
+		<table name="#enchMagicLvl"> 76 76 76 77 77 77 78 78 78 79 79 79 80 80 80 81 81 81 82 82 82 83 83 83 84 84 84 85 85 85 </table>
 		<table name="#ench1pAtk"> 211 213 214 216 217 219 220 221 223 224 226 227 229 230 231 233 234 236 237 239 240 242 243 244 246 247 249 250 252 253 </table>
-		<set name="abnormalLvl" val="#abnormalLvls" />
+		<set name="abnormalLvl" val="#abnormalLvl" />
 		<set name="abnormalTime" val="120" />
 		<set name="abnormalType" val="SNIPE" />
-		<set name="effectPoint" val="#effectPoints" />
+		<set name="affectScope" val="SINGLE" />
+		<set name="effectPoint" val="#effectPoint" />
+		<set name="hitCancelTime" val="500" />
 		<set name="hitTime" val="2000" />
 		<set name="icon" val="icon.skill0414" />
 		<set name="magicLvl" val="#magicLvl" />
@@ -873,6 +877,7 @@
 		<set name="reuseDelay" val="75000" />
 		<set name="rideState" val="NONE" />
 		<set name="targetType" val="SELF" />
+		<enchant1 name="magicLvl" val="#enchMagicLvl" />
 		<cond msgId="113" addName="1">
 			<using kind="BOW" />
 		</cond>
@@ -881,15 +886,21 @@
 				<mul stat="pAtkSpd" val="0.9">
 					<using kind="BOW" />
 				</mul>
-				<add stat="pAtk" val="#pAtk">
-					<using kind="BOW" />
-				</add>
-				<add stat="accCombat" val="#accCombat">
-					<using kind="BOW" />
-				</add>
+			</effect>
+			<effect name="Buff">
 				<mul stat="critDmg" val="1.2">
 					<using kind="BOW" />
 				</mul>
+			</effect>
+			<effect name="Buff">
+				<add stat="accCombat" val="#accCombat">
+					<using kind="BOW" />
+				</add>
+			</effect>
+			<effect name="Buff">
+				<add stat="pAtk" val="#pAtk">
+					<using kind="BOW" />
+				</add>
 			</effect>
 		</effects>
 		<enchant1Effects>
@@ -897,28 +908,37 @@
 				<mul stat="pAtkSpd" val="0.9">
 					<using kind="BOW" />
 				</mul>
-				<add stat="pAtk" val="#ench1pAtk">
-					<using kind="BOW" />
-				</add>
-				<add stat="accCombat" val="3">
-					<using kind="BOW" />
-				</add>
+			</effect>
+			<effect name="Buff">
 				<mul stat="critDmg" val="1.2">
 					<using kind="BOW" />
 				</mul>
 			</effect>
+			<effect name="Buff">
+				<add stat="accCombat" val="3">
+					<using kind="BOW" />
+				</add>
+			</effect>
+			<effect name="Buff">
+				<add stat="pAtk" val="#ench1pAtk">
+					<using kind="BOW" />
+				</add>
+			</effect>
 		</enchant1Effects>
 	</skill>
 	<skill id="415" levels="3" name="Spirit of Sagittarius">
-		<table name="#abnormalLvls"> 2 4 6 </table>
-		<table name="#effectPoints"> 549 611 655 </table>
+		<!-- High Five Confirmed -->
+		<table name="#abnormalLvl"> 2 4 6 </table>
+		<table name="#effectPoint"> 549 611 655 </table>
 		<table name="#magicLvl"> 58 66 74 </table>
 		<table name="#mpConsume2"> 27 31 34 </table>
-		<table name="#PhysicalMpConsumeRate"> 0.9 0.8 0.7 </table>
-		<set name="abnormalLvl" val="#abnormalLvls" />
+		<table name="#physicalMpConsumeRate"> 0.9 0.8 0.7 </table>
+		<set name="abnormalLvl" val="#abnormalLvl" />
 		<set name="abnormalTime" val="1200" />
 		<set name="abnormalType" val="MP_COST_DOWN" />
-		<set name="effectPoint" val="#effectPoints" />
+		<set name="affectScope" val="SINGLE" />
+		<set name="effectPoint" val="#effectPoint" />
+		<set name="hitCancelTime" val="500" />
 		<set name="hitTime" val="2000" />
 		<set name="icon" val="icon.skill0415" />
 		<set name="magicLvl" val="#magicLvl" />
@@ -929,7 +949,7 @@
 		<set name="targetType" val="SELF" />
 		<effects>
 			<effect name="Buff">
-				<mul stat="physicalMpConsumeRate" val="#PhysicalMpConsumeRate" />
+				<mul stat="physicalMpConsumeRate" val="#physicalMpConsumeRate" />
 			</effect>
 		</effects>
 	</skill>
@@ -958,12 +978,16 @@
 		</effects>
 	</skill>
 	<skill id="417" levels="5" name="Pain of Sagittarius" enchantGroup1="1">
-		<table name="#amount"> 36 39 41 43 46 </table>
-		<table name="#effectPoints"> 549 582 611 635 655 </table>
+		<!-- High Five Confirmed -->
+		<table name="#effectPoint"> 549 582 611 635 655 </table>
 		<table name="#hpConsume"> 318 343 366 387 407 </table>
 		<table name="#magicLvl"> 58 62 66 70 74 </table>
-		<table name="#ench1amount"> 47 47 47 47 47 47 47 48 48 48 48 48 48 48 48 49 49 49 49 49 49 49 49 49 50 50 50 50 50 50 </table>
-		<set name="effectPoint" val="#effectPoints" />
+		<table name="#mpAmount"> 36 39 41 43 46 </table>
+		<table name="#enchMagicLvl"> 76 76 76 77 77 77 78 78 78 79 79 79 80 80 80 81 81 81 82 82 82 83 83 83 84 84 84 85 85 85 </table>
+		<table name="#ench1MpAmount"> 47 47 47 47 47 47 47 48 48 48 48 48 48 48 48 49 49 49 49 49 49 49 49 49 50 50 50 50 50 50 </table>
+		<set name="affectScope" val="SINGLE" />
+		<set name="effectPoint" val="#effectPoint" />
+		<set name="hitCancelTime" val="500" />
 		<set name="hitTime" val="2000" />
 		<set name="hpConsume" val="#hpConsume" />
 		<set name="icon" val="icon.skill0417" />
@@ -972,14 +996,17 @@
 		<set name="reuseDelay" val="8000" />
 		<set name="rideState" val="NONE" />
 		<set name="targetType" val="SELF" />
+		<enchant1 name="magicLvl" val="#enchMagicLvl" />
 		<effects>
 			<effect name="Mp">
-				<param amount="#amount" />
+				<param amount="#mpAmount" />
+				<param mode="DIFF" />
 			</effect>
 		</effects>
 		<enchant1Effects>
 			<effect name="Mp">
-				<param amount="#ench1amount" />
+				<param amount="#ench1MpAmount" />
+				<param mode="DIFF" />
 			</effect>
 		</enchant1Effects>
 	</skill>
@@ -3396,6 +3423,7 @@
 		<set name="soulMaxConsumeCount" val="5" />
 		<set name="targetType" val="ENEMY" />
 		<set name="trait" val="BLEED" />
+		<enchant1 name="abnormalLvl" val="#ench1AbnormalLvl" />
 		<enchant1 name="magicLvl" val="#enchMagicLvl" />
 		<enchant2 name="activateRate" val="#ench2ActivateRate" />
 		<enchant2 name="magicLvl" val="#enchMagicLvl" />
