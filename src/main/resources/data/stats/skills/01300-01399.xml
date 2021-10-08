@@ -421,10 +421,11 @@
 		</effects>
 	</skill>
 	<skill id="1312" levels="1" name="Fishing">
+		<set name="affectScope" val="SINGLE" />
 		<set name="icon" val="icon.skill1312" />
 		<set name="isMagic" val="2" />
 		<set name="magicLvl" val="1" />
-		<set name="mpConsume2" val="1" />
+		<set name="mpConsume1" val="1" />
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
@@ -439,10 +440,11 @@
 	<skill id="1313" levels="27" name="Pumping">
 		<!-- Confirmed CT2.5 -->
 		<table name="#power"> 0.66 0.9375 1.26 1.55 1.7 1.85 2 2.15 2.3 2.45 2.6 2.75 2.9 3.05 3.2 3.35 3.5 3.65 3.8 3.95 4.1 4.25 4.4 4.55 4.7 4.85 5 </table>
+		<set name="affectScope" val="SINGLE" />
 		<set name="icon" val="icon.skill1313" />
 		<set name="isMagic" val="2" />
 		<set name="magicLvl" val="1" />
-		<set name="mpConsume2" val="2" />
+		<set name="mpConsume1" val="2" />
 		<set name="operateType" val="A1" />
 		<set name="reuseDelay" val="2000" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
@@ -460,10 +462,11 @@
 	<skill id="1314" levels="27" name="Reeling">
 		<!-- Confirmed CT2.5 -->
 		<table name="#power"> 0.66 0.9375 1.26 1.55 1.7 1.85 2 2.15 2.3 2.45 2.6 2.75 2.9 3.05 3.2 3.35 3.5 3.65 3.8 3.95 4.1 4.25 4.4 4.55 4.7 4.85 5 </table>
+		<set name="affectScope" val="SINGLE" />
 		<set name="icon" val="icon.skill1314" />
 		<set name="isMagic" val="2" />
 		<set name="magicLvl" val="1" />
-		<set name="mpConsume2" val="2" />
+		<set name="mpConsume1" val="2" />
 		<set name="operateType" val="A1" />
 		<set name="reuseDelay" val="2000" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
