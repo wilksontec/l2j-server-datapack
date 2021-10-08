@@ -630,7 +630,10 @@
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="TARGET" />
 		<cond msgId="109">
-			<target npcId="1538" />
+			<and>
+				<player companion="PET" />
+				<target npcId="1538" />
+			</and>
 		</cond>
 	</skill>
 	<skill id="22127" levels="1" name="Summon Warm Kotatz">

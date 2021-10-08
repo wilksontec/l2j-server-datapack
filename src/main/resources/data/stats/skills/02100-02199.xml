@@ -1185,11 +1185,11 @@
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="PC_BODY" />
-		<cond msgId="113" addName="1">
-			<target npcType="L2PetInstance" />
-		</cond>
 		<cond>
-			<player canResurrect="true" />
+			<and>
+				<player companion="PET" />
+				<player canResurrect="true" />
+			</and>
 		</cond>
 		<effects>
 			<effect name="Resurrection">
