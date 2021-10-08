@@ -842,26 +842,28 @@
 	</skill>
 	<skill id="927" levels="14" name="Burning Chop" enchantGroup1="2">
 		<!-- High Five Confirmed -->
-		<table name="#abnormalLvls"> 5 5 5 6 6 6 7 7 7 7 7 8 8 8 </table>
-		<table name="#dot"> -43 -43 -43 -53 -53 -53 -61 -61 -61 -61 -61 -66 -66 -66 </table>
-		<table name="#effectPoints"> -193 -213 -233 -252 -271 -279 -288 -296 -304 -311 -317 -323 -328 -333 </table>
+		<table name="#abnormalLvl"> 5 5 5 6 6 6 7 7 7 7 7 8 8 8 </table>
+		<table name="#effectPoint"> -193 -213 -233 -252 -271 -279 -288 -296 -304 -311 -317 -323 -328 -333 </table>
 		<table name="#magicLvl"> 40 44 48 52 56 58 60 62 64 66 68 70 72 74 </table>
-		<table name="#power"> 167 210 261 319 384 419 455 492 531 570 610 651 691 731 </table>
+		<table name="#physicalAttackPower"> 167 210 261 319 384 419 455 492 531 570 610 651 691 731 </table>
+		<table name="#tickHpPower"> -43 -43 -43 -53 -53 -53 -61 -61 -61 -61 -61 -66 -66 -66 </table>
 		<table name="#ench1EffectPoint"> -335 -337 -338 -340 -341 -342 -343 -344 -345 -346 -347 -348 -349 -350 -350 -351 -352 -352 -353 -353 -354 -354 -354 -355 -355 -355 -1 -1 -1 -1 </table>
-		<table name="#ench1Power"> 758 766 773 781 788 796 803 811 818 826 833 841 848 856 863 871 878 886 893 901 908 916 923 931 939 946 954 961 969 976 </table>
-		<table name="#enchMagicLvl"> 76 76 76 77 77 77 78 78 78 79 79 79 80 80 80 81 81 81 82 82 82 83 83 83 84 84 84 85 85 85 </table>
-		<set name="abnormalLvl" val="#abnormalLvls" />
+		<table name="#ench1MagicLvl"> 76 76 76 77 77 77 78 78 78 79 79 79 80 80 80 81 81 81 82 82 82 83 83 83 84 84 84 85 85 85 </table>
+		<table name="#ench1PhysicalAttackPower"> 758 766 773 781 788 796 803 811 818 826 833 841 848 856 863 871 878 886 893 901 908 916 923 931 939 946 954 961 969 976 </table>
+		<set name="abnormalLvl" val="#abnormalLvl" />
 		<set name="abnormalTime" val="10" />
 		<set name="abnormalType" val="DOT_ATTR" />
 		<set name="abnormalVisualEffect" val="DOT_BLEEDING" />
 		<set name="activateRate" val="50" />
+		<set name="affectScope" val="SINGLE" />
+		<set name="attributePower" val="20" />
+		<set name="attributeType" val="FIRE" />
 		<set name="basicProperty" val="CON" />
 		<set name="castRange" val="40" />
 		<set name="coolTime" val="720" />
-		<set name="effectPoint" val="#effectPoints" />
+		<set name="effectPoint" val="#effectPoint" />
 		<set name="effectRange" val="400" />
-		<set name="attributeType" val="FIRE" />
-		<set name="attributePower" val="20" />
+		<set name="hitCancelTime" val="500" />
 		<set name="hitTime" val="1080" />
 		<set name="icon" val="icon.skill0927" />
 		<set name="isDebuff" val="true" />
@@ -873,30 +875,32 @@
 		<set name="overHit" val="true" />
 		<set name="reuseDelay" val="3000" />
 		<set name="rideState" val="NONE" />
-		<set name="targetType" val="ONE" />
+		<set name="targetType" val="ENEMY" />
 		<enchant1 name="effectPoint" val="#ench1EffectPoint" />
-		<enchant1 name="magicLvl" val="#enchMagicLvl" />
+		<enchant1 name="magicLvl" val="#ench1MagicLvl" />
 		<cond msgId="113" addName="1">
 			<using kind="SWORD,BLUNT,DAGGER,POLE,DUALFIST,DUAL,DUALDAGGER" />
 		</cond>
 		<effects>
 			<effect name="PhysicalAttack">
-				<param power="#power" />
+				<param power="#physicalAttackPower" />
 				<param criticalChance="10" />
 			</effect>
 			<effect name="TickHp">
-				<param power="#dot" />
+				<param power="#tickHpPower" />
 				<param ticks="1" />
+				<param mode="DIFF" />
 			</effect>
 		</effects>
 		<enchant1Effects>
 			<effect name="PhysicalAttack">
-				<param power="#ench1Power" />
+				<param power="#ench1PhysicalAttackPower" />
 				<param criticalChance="10" />
 			</effect>
 			<effect name="TickHp">
 				<param power="-66" />
 				<param ticks="1" />
+				<param mode="DIFF" />
 			</effect>
 		</enchant1Effects>
 	</skill>
