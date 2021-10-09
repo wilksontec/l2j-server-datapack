@@ -945,13 +945,13 @@
 	</skill>
 	<skill id="4463" levels="3" name="Surrender To Water">
 		<!-- Confirmed CT2.5 -->
-		<table name="#abnormalLvls"> 2 3 4 </table>
+		<table name="#abnormalLvl"> 2 3 4 </table>
 		<table name="#fire"> 7 12 15 </table>
 		<table name="#magicLvl"> 20 40 70 </table>
 		<table name="#mpConsume2"> 16 28 52 </table>
 		<table name="#mpConsume1"> 4 7 13 </table>
 		<table name="#water"> 15 25 30 </table>
-		<set name="abnormalLvl" val="#abnormalLvls" />
+		<set name="abnormalLvl" val="#abnormalLvl" />
 		<set name="abnormalTime" val="30" />
 		<set name="abnormalType" val="ARMOR_WATER" />
 		<set name="activateRate" val="80" />
@@ -981,13 +981,13 @@
 	</skill>
 	<skill id="4464" levels="3" name="Surrender To Wind">
 		<!-- Confirmed CT2.5 -->
-		<table name="#abnormalLvls"> 2 3 4 </table>
+		<table name="#abnormalLvl"> 2 3 4 </table>
 		<table name="#earth"> 7 12 15 </table>
 		<table name="#magicLvl"> 20 40 70 </table>
 		<table name="#mpConsume2"> 16 28 52 </table>
 		<table name="#mpConsume1"> 4 7 13 </table>
 		<table name="#wind"> 15 25 30 </table>
-		<set name="abnormalLvl" val="#abnormalLvls" />
+		<set name="abnormalLvl" val="#abnormalLvl" />
 		<set name="abnormalTime" val="30" />
 		<set name="abnormalType" val="ARMOR_WIND" />
 		<set name="activateRate" val="80" />
@@ -1017,13 +1017,13 @@
 	</skill>
 	<skill id="4465" levels="3" name="Surrender To Earth">
 		<!-- Confirmed CT2.5 -->
-		<table name="#abnormalLvls"> 2 3 4 </table>
+		<table name="#abnormalLvl"> 2 3 4 </table>
 		<table name="#earth"> 15 25 30 </table>
 		<table name="#magicLvl"> 20 40 70 </table>
 		<table name="#mpConsume2"> 16 28 52 </table>
 		<table name="#mpConsume1"> 4 7 13 </table>
 		<table name="#wind"> 7 12 15 </table>
-		<set name="abnormalLvl" val="#abnormalLvls" />
+		<set name="abnormalLvl" val="#abnormalLvl" />
 		<set name="abnormalTime" val="30" />
 		<set name="abnormalType" val="ARMOR_EARTH" />
 		<set name="activateRate" val="80" />
@@ -1053,13 +1053,13 @@
 	</skill>
 	<skill id="4466" levels="3" name="Surrender To Darkness">
 		<!-- Confirmed CT2.5 -->
-		<table name="#abnormalLvls"> 2 3 4 </table>
+		<table name="#abnormalLvl"> 2 3 4 </table>
 		<table name="#dark"> 15 25 30 </table>
 		<table name="#holy"> 7 12 15 </table>
 		<table name="#magicLvl"> 20 40 70 </table>
 		<table name="#mpConsume2"> 16 28 52 </table>
 		<table name="#mpConsume1"> 4 7 13 </table>
-		<set name="abnormalLvl" val="#abnormalLvls" />
+		<set name="abnormalLvl" val="#abnormalLvl" />
 		<set name="abnormalTime" val="30" />
 		<set name="abnormalType" val="ARMOR_UNHOLY" />
 		<set name="activateRate" val="80" />
@@ -1089,13 +1089,13 @@
 	</skill>
 	<skill id="4467" levels="3" name="Surrender To Light">
 		<!-- Confirmed CT2.5 -->
-		<table name="#abnormalLvls"> 2 3 4 </table>
+		<table name="#abnormalLvl"> 2 3 4 </table>
 		<table name="#dark"> 7 12 15 </table>
 		<table name="#holy"> 15 25 30 </table>
 		<table name="#magicLvl"> 20 40 70 </table>
 		<table name="#mpConsume2"> 16 28 52 </table>
 		<table name="#mpConsume1"> 4 7 13 </table>
-		<set name="abnormalLvl" val="#abnormalLvls" />
+		<set name="abnormalLvl" val="#abnormalLvl" />
 		<set name="abnormalTime" val="30" />
 		<set name="abnormalType" val="ARMOR_HOLY" />
 		<set name="activateRate" val="80" />
@@ -1169,12 +1169,12 @@
 	</skill>
 	<skill id="4471" levels="12" name="NPC Anger">
 		<!-- Confirmed CT2.5 -->
-		<table name="#abnormalLvls"> 1 2 3 4 5 6 7 8 9 10 11 12 </table>
+		<table name="#abnormalLvl"> 1 2 3 4 5 6 7 8 9 10 11 12 </table>
 		<table name="#magicLvl"> 10 20 30 40 50 60 70 75 80 85 90 95 </table>
 		<table name="#mpConsume2"> 10 16 21 28 36 44 52 55 58 60 61 62 </table>
 		<table name="#mpConsume1"> 3 4 6 7 9 11 13 14 15 15 16 16 </table>
 		<table name="#pAtkDef"> 1.15 1.3 1.45 1.6 1.9 2.2 2.5 2.8 3.1 3.4 3.7 4 </table>
-		<set name="abnormalLvl" val="#abnormalLvls" />
+		<set name="abnormalLvl" val="#abnormalLvl" />
 		<set name="abnormalTime" val="300" />
 		<set name="abnormalType" val="PA_PD_UP" />
 		<set name="effectPoint" val="100" />

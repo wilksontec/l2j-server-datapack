@@ -212,7 +212,7 @@
 	<skill id="6205" levels="19" name="Strider Bite">
 		<!-- Confirmed CT2.5 -->
 		<table name="#dot"> -65 -75 -75 -82 -82 -82 -82 -82 -85 -85 -85 -85 -85 -85 -85 -85 -85 -85 -87 </table>
-		<table name="#effectPoints"> -523 -566 -604 -635 -646 -655 -662 -669 -676 -679 -681 -684 -687 -689 -692 -694 -696 -698 -700 </table>
+		<table name="#effectPoint"> -523 -566 -604 -635 -646 -655 -662 -669 -676 -679 -681 -684 -687 -689 -692 -694 -696 -698 -700 </table>
 		<table name="#magicLvl"> 55 60 65 70 72 74 76 78 80 81 82 83 84 85 86 87 88 89 90 </table>
 		<table name="#mpConsume2"> 68 76 82 89 91 94 96 98 100 100 101 102 103 103 104 104 105 105 105 </table>
 		<table name="#power"> 1649 2045 2476 2927 3108 3288 3464 3636 3801 3881 3959 4034 4107 4176 4243 4307 4367 4424 4477 </table>
@@ -225,7 +225,7 @@
 		<set name="basicProperty" val="CON" />
 		<set name="castRange" val="40" />
 		<set name="coolTime" val="720" />
-		<set name="effectPoint" val="#effectPoints" />
+		<set name="effectPoint" val="#effectPoint" />
 		<set name="effectRange" val="400" />
 		<set name="hitTime" val="1080" />
 		<set name="isDebuff" val="true" />
@@ -596,8 +596,8 @@
 		</effects>
 	</skill>
 	<skill id="6240" levels="5" name="Heatstroke">
-		<table name="#abnormalLvls"> 1 2 3 4 5 </table>
-		<set name="abnormalLvl" val="#abnormalLvls" />
+		<table name="#abnormalLvl"> 1 2 3 4 5 </table>
+		<set name="abnormalLvl" val="#abnormalLvl" />
 		<set name="abnormalTime" val="86400" />
 		<set name="abnormalType" val="SIGNAL_D" />
 		<set name="effectPoint" val="-100" />

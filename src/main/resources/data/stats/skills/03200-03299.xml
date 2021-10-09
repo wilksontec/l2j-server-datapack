@@ -2,14 +2,14 @@
 <list xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../xsd/skills.xsd">
 	<skill id="3200" levels="3" name="Item Skill: Spell Refresh">
 		<!-- Confirmed CT2.5 -->
-		<table name="#effectPoints"> 549 611 655 </table>
+		<table name="#effectPoint"> 549 611 655 </table>
 		<table name="#magicLvl"> 55 64 75 </table>
 		<table name="#mpConsume2"> 43 49 55 </table>
 		<table name="#mpConsume1"> 11 13 14 </table>
 		<set name="abnormalLvl" val="1" />
 		<set name="abnormalTime" val="60" />
 		<set name="abnormalType" val="ABNORMAL_ITEM" />
-		<set name="effectPoint" val="#effectPoints" />
+		<set name="effectPoint" val="#effectPoint" />
 		<set name="hitTime" val="4000" />
 		<set name="icon" val="icon.skill3123" />
 		<set name="isMagic" val="2" />
@@ -28,14 +28,14 @@
 	</skill>
 	<skill id="3201" levels="3" name="Item Skill: Music Refresh">
 		<!-- Confirmed CT2.5 -->
-		<table name="#effectPoints"> 549 611 655 </table>
+		<table name="#effectPoint"> 549 611 655 </table>
 		<table name="#magicLvl"> 55 64 75 </table>
 		<table name="#mpConsume2"> 43 49 55 </table>
 		<table name="#mpConsume1"> 11 13 14 </table>
 		<set name="abnormalLvl" val="1" />
 		<set name="abnormalTime" val="60" />
 		<set name="abnormalType" val="ABNORMAL_ITEM" />
-		<set name="effectPoint" val="#effectPoints" />
+		<set name="effectPoint" val="#effectPoint" />
 		<set name="hitTime" val="4000" />
 		<set name="icon" val="icon.skill3123" />
 		<set name="isMagic" val="2" />
@@ -54,14 +54,14 @@
 	</skill>
 	<skill id="3202" levels="3" name="Item Skill: Refresh">
 		<!-- Confirmed CT2.5 -->
-		<table name="#effectPoints"> 549 611 655 </table>
+		<table name="#effectPoint"> 549 611 655 </table>
 		<table name="#magicLvl"> 55 64 75 </table>
 		<table name="#mpConsume2"> 43 49 55 </table>
 		<table name="#mpConsume1"> 11 13 14 </table>
 		<set name="abnormalLvl" val="1" />
 		<set name="abnormalTime" val="60" />
 		<set name="abnormalType" val="ABNORMAL_ITEM" />
-		<set name="effectPoint" val="#effectPoints" />
+		<set name="effectPoint" val="#effectPoint" />
 		<set name="hitTime" val="4000" />
 		<set name="icon" val="icon.skill3123" />
 		<set name="isMagic" val="2" />
@@ -99,16 +99,16 @@
 	</skill>
 	<skill id="3204" levels="3" name="Item Skill: Reflect Damage">
 		<!-- Confirmed CT2.5 -->
-		<table name="#abnormalLvls"> 1 2 3 </table>
-		<table name="#effectPoints"> 379 438 495 </table>
+		<table name="#abnormalLvl"> 1 2 3 </table>
+		<table name="#effectPoint"> 379 438 495 </table>
 		<table name="#magicLvl"> 55 64 75 </table>
 		<table name="#mpConsume2"> 20 24 28 </table>
 		<table name="#mpConsume1"> 5 6 7 </table>
 		<table name="#reflectDam"> 10 15 20 </table>
-		<set name="abnormalLvl" val="#abnormalLvls" />
+		<set name="abnormalLvl" val="#abnormalLvl" />
 		<set name="abnormalTime" val="300" />
 		<set name="abnormalType" val="ABNORMAL_ITEM" />
-		<set name="effectPoint" val="#effectPoints" />
+		<set name="effectPoint" val="#effectPoint" />
 		<set name="hitTime" val="4000" />
 		<set name="icon" val="icon.skill3123" />
 		<set name="isMagic" val="1" />

@@ -49,9 +49,9 @@
 		</effects>
 	</skill>
 	<skill id="6402" levels="5" name="Torumba Poison Strike">
-		<table name="#abnormalLvls"> 11 12 13 14 15 </table>
+		<table name="#abnormalLvl"> 11 12 13 14 15 </table>
 		<table name="#dot"> -100 -220 -440 -880 -1600 </table>
-		<set name="abnormalLvl" val="#abnormalLvls" />
+		<set name="abnormalLvl" val="#abnormalLvl" />
 		<set name="abnormalTime" val="60" />
 		<set name="abnormalType" val="POISON" />
 		<set name="abnormalVisualEffect" val="DOT_POISON" />

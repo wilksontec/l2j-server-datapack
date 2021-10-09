@@ -673,7 +673,7 @@
 	</skill>
 	<skill id="716" levels="4" name="Zaken Hold">
 		<!-- Confirmed CT2.5 -->
-		<table name="#effectPoints"> -307 -323 -335 -342 </table>
+		<table name="#effectPoint"> -307 -323 -335 -342 </table>
 		<table name="#magicLvl"> 65 70 75 80 </table>
 		<table name="#mpConsume2"> 60 65 69 72 </table>
 		<set name="abnormalLvl" val="1" />
@@ -685,7 +685,7 @@
 		<set name="basicProperty" val="MEN" />
 		<set name="castRange" val="800" />
 		<set name="coolTime" val="2000" />
-		<set name="effectPoint" val="#effectPoints" />
+		<set name="effectPoint" val="#effectPoint" />
 		<set name="effectRange" val="1300" />
 		<set name="hitTime" val="2000" />
 		<set name="icon" val="icon.skill_transform_debuff" />

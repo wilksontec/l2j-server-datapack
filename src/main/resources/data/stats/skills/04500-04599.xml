@@ -691,11 +691,11 @@
 		</effects>
 	</skill>
 	<skill id="4544" levels="3" name="Quest - BOSS Weakness">
-		<table name="#abnormalLvls"> 1 2 3 </table>
+		<table name="#abnormalLvl"> 1 2 3 </table>
 		<table name="#pAtk"> 0.7 0.6 0.5 </table>
 		<table name="#pAtkSpd"> 0.9 0.8 0.6 </table>
 		<table name="#pDef"> 0.8 0.6 0.7 </table>
-		<set name="abnormalLvl" val="#abnormalLvls" />
+		<set name="abnormalLvl" val="#abnormalLvl" />
 		<set name="abnormalTime" val="600" />
 		<set name="abnormalType" val="PUBLIC_SLOT" />
 		<set name="isMagic" val="1" />

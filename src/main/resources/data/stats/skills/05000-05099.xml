@@ -876,7 +876,7 @@
 	</skill>
 	<skill id="5044" levels="3" name="NPC Ultimate Defense">
 		<!-- CT2.5 retail confirmed -->
-		<table name="#abnormalLvls"> 1 2 2 </table>
+		<table name="#abnormalLvl"> 1 2 2 </table>
 		<table name="#abnormalTime"> 30 30 5 </table>
 		<table name="#magicLvl"> 20 46 1 </table>
 		<table name="#mDef"> 1350 2700 9000 </table>
@@ -884,7 +884,7 @@
 		<table name="#pDef"> 1800 3600 9000 </table>
 		<table name="#reuseDelay"> 1800000 1800000 5000 </table>
 		<table name="#time"> 30 30 5 </table>
-		<set name="abnormalLvl" val="#abnormalLvls" />
+		<set name="abnormalLvl" val="#abnormalLvl" />
 		<set name="abnormalTime" val="#abnormalTime" />
 		<set name="abnormalType" val="PD_UP_SPECIAL" />
 		<set name="abnormalVisualEffect" val="ULTIMATE_DEFENCE" />
