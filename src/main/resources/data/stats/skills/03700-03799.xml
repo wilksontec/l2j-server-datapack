@@ -1014,18 +1014,21 @@
 		</effects>
 	</skill>
 	<skill id="3764" levels="1" name="Armor of Nightmare">
-		<!-- Confirmed CT2.5 -->
+		<!-- High Five Confirmed -->
+		<set name="blockedInOlympiad" val="true" />
 		<set name="icon" val="icon.armor_t80_ul_i00" />
 		<set name="magicLvl" val="67" />
 		<set name="operateType" val="P" />
 		<set name="targetType" val="SELF" />
 		<effects>
-			<effect name="Buff">
-				<mul stat="pAtk" val="1.1708" />
+			<effect name="DefenceTrait">
+				<param HOLD="29.16" />
 			</effect>
 			<effect name="DefenceTrait">
 				<param SLEEP="29.16" />
-				<param HOLD="29.16" />
+			</effect>
+			<effect name="Buff">
+				<mul stat="pAtk" val="1.1708" />
 			</effect>
 		</effects>
 	</skill>
@@ -1077,20 +1080,25 @@
 			</effect>
 		</effects>
 	</skill>
-	<skill id="3768" levels="1" name="Nightmarish Leather Armor">
-		<!-- Confirmed CT2.5 -->
+	<skill id="3768" levels="1" name="Leather Armor of Nightmare">
+		<!-- High Five Confirmed -->
+		<set name="blockedInOlympiad" val="true" />
 		<set name="icon" val="icon.armor_t81_ul_i00" />
 		<set name="magicLvl" val="67" />
 		<set name="operateType" val="P" />
 		<set name="targetType" val="SELF" />
 		<effects>
-			<effect name="Buff">
-				<add stat="absorbDam" val="3" />
-				<mul stat="mDef" val="1.0827" />
-			</effect>
 			<effect name="DefenceTrait">
 				<param SLEEP="29.16" />
+			</effect>
+			<effect name="DefenceTrait">
 				<param HOLD="29.16" />
+			</effect>
+			<effect name="Buff">
+				<mul stat="mDef" val="1.0827" />
+			</effect>
+			<effect name="Buff">
+				<add stat="absorbDam" val="3" />
 			</effect>
 		</effects>
 	</skill>
@@ -1143,20 +1151,25 @@
 			</effect>
 		</effects>
 	</skill>
-	<skill id="3772" levels="1" name="Nightmare Robe">
-		<!-- Confirmed CT2.5 -->
+	<skill id="3772" levels="1" name="Robe of Nightmare">
+		<!-- High Five Confirmed -->
+		<set name="blockedInOlympiad" val="true" />
 		<set name="icon" val="icon.armor_t82_ul_i00" />
 		<set name="magicLvl" val="67" />
 		<set name="operateType" val="P" />
 		<set name="targetType" val="SELF" />
 		<effects>
-			<effect name="Buff">
-				<mul stat="mAtk" val="1.0827" />
-				<mul stat="regMp" val="1.0827" />
-			</effect>
 			<effect name="DefenceTrait">
 				<param SLEEP="29.16" />
+			</effect>
+			<effect name="DefenceTrait">
 				<param HOLD="29.16" />
+			</effect>
+			<effect name="Buff">
+				<mul stat="mAtk" val="1.0827" />
+			</effect>
+			<effect name="Buff">
+				<mul stat="regMp" val="1.0827" />
 			</effect>
 		</effects>
 	</skill>
@@ -1224,19 +1237,25 @@
 		</effects>
 	</skill>
 	<skill id="3777" levels="1" name="Draconic Leather Armor">
-		<!-- Confirmed CT2.5 -->
+		<!-- High Five Confirmed -->
+		<set name="blockedInOlympiad" val="true" />
 		<set name="icon" val="icon.armor_t89_ul_i00" />
 		<set name="magicLvl" val="75" />
 		<set name="operateType" val="P" />
 		<set name="targetType" val="SELF" />
 		<effects>
+			<effect name="Buff">
+				<mul stat="pAtkSpd" val="1.0580001" />
+			</effect>
 			<effect name="MaxMp">
 				<param power="630" />
+				<param type="DIFF" />
+			</effect>
+			<effect name="Buff">
+				<mul stat="pAtk" val="1.0580001" />
 			</effect>
 			<effect name="Buff">
 				<add stat="weightPenalty" val="8159" />
-				<mul stat="pAtk" val="1.058" />
-				<mul stat="pAtkSpd" val="1.058" />
 			</effect>
 		</effects>
 	</skill>
@@ -1276,20 +1295,27 @@
 		</effects>
 	</skill>
 	<skill id="3780" levels="1" name="Major Arcana Robe">
-		<!-- Confirmed CT2.5 -->
+		<!-- High Five Confirmed -->
+		<set name="blockedInOlympiad" val="true" />
 		<set name="icon" val="icon.armor_t90_ul_i00" />
 		<set name="magicLvl" val="75" />
 		<set name="operateType" val="P" />
 		<set name="targetType" val="SELF" />
 		<effects>
-			<effect name="Buff">
-				<sub stat="cancel" val="21" />
-				<add stat="weightPenalty" val="8159" />
-				<mul stat="mAtk" val="1.1603" />
-				<mul stat="runSpd" val="1.0991" />
-			</effect>
 			<effect name="DefenceTrait">
 				<param SHOCK="20.83" />
+			</effect>
+			<effect name="Buff">
+				<mul stat="mAtk" val="1.1603" />
+			</effect>
+			<effect name="Buff">
+				<sub stat="cancel" val="21" />
+			</effect>
+			<effect name="Buff">
+				<add stat="runSpd" val="9.91" />
+			</effect>
+			<effect name="Buff">
+				<add stat="weightPenalty" val="8159" />
 			</effect>
 		</effects>
 	</skill>
@@ -1418,36 +1444,44 @@
 		</effects>
 	</skill>
 	<skill id="3788" levels="1" name="Imperial Crusader Breastplate">
-		<!-- Confirmed CT2.5 -->
+		<!-- High Five Confirmed -->
+		<set name="blockedInOlympiad" val="true" />
 		<set name="icon" val="icon.armor_t88_u_i00" />
 		<set name="magicLvl" val="75" />
 		<set name="operateType" val="P" />
 		<set name="targetType" val="SELF" />
 		<effects>
+			<effect name="DefenceTrait">
+				<param SLEEP="28" />
+			</effect>
+			<effect name="DefenceTrait">
+				<param HOLD="28" />
+			</effect>
 			<effect name="MaxHp">
 				<param power="889" />
+				<param type="DIFF" />
 			</effect>
 			<effect name="Buff">
 				<mul stat="pDef" val="1.0724" />
 			</effect>
-			<effect name="DefenceTrait">
-				<param SLEEP="28" />
-				<param HOLD="28" />
-			</effect>
 		</effects>
 	</skill>
 	<skill id="3789" levels="1" name="Dynasty Breastplate">
-		<!-- Confirmed CT2.5 -->
+		<!-- High Five Confirmed -->
+		<set name="blockedInOlympiad" val="true" />
 		<set name="icon" val="icon.armor_t91_uf_i00" />
 		<set name="magicLvl" val="80" />
 		<set name="operateType" val="P" />
 		<set name="targetType" val="SELF" />
 		<effects>
-			<effect name="MaxHp">
-				<param power="984" />
-			</effect>
 			<effect name="Buff">
 				<add stat="darkRes" val="3.2" />
+			</effect>
+			<effect name="MaxHp">
+				<param power="984" />
+				<param type="DIFF" />
+			</effect>
+			<effect name="Buff">
 				<mul stat="pDef" val="1.0724" />
 			</effect>
 		</effects>
@@ -1529,20 +1563,28 @@
 		</effects>
 	</skill>
 	<skill id="3795" levels="1" name="Dynasty Leather Armor">
-		<!-- Confirmed CT2.5 -->
+		<!-- High Five Confirmed -->
+		<set name="blockedInOlympiad" val="true" />
 		<set name="icon" val="icon.armor_t92_ud_i00" />
 		<set name="magicLvl" val="80" />
 		<set name="operateType" val="P" />
 		<set name="targetType" val="SELF" />
 		<effects>
-			<effect name="MaxMp">
-				<param power="492" />
+			<effect name="Buff">
+				<mul stat="pAtkSpd" val="1.0476999" />
+			</effect>
+			<effect name="Buff">
+				<add stat="rEvas" val="3.4" />
+			</effect>
+			<effect name="Buff">
+				<add stat="darkRes" val="3.2" />
 			</effect>
 			<effect name="Buff">
 				<add stat="accCombat" val="3.4" />
-				<add stat="darkRes" val="3.2" />
-				<mul stat="pAtkSpd" val="1.0477" />
-				<add stat="rEvas" val="3.4" />
+			</effect>
+			<effect name="MaxHp">
+				<param power="492" />
+				<param type="DIFF" />
 			</effect>
 		</effects>
 	</skill>
@@ -1601,7 +1643,8 @@
 		</effects>
 	</skill>
 	<skill id="3799" levels="1" name="Dynasty Tunic">
-		<!-- Confirmed CT2.5 -->
+		<!-- High Five Confirmed -->
+		<set name="blockedInOlympiad" val="true" />
 		<set name="icon" val="icon.armor_t93_uw_i00" />
 		<set name="magicLvl" val="80" />
 		<set name="operateType" val="P" />
