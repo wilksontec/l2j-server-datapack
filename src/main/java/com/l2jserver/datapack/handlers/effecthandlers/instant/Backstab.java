@@ -20,13 +20,10 @@ package com.l2jserver.datapack.handlers.effecthandlers.instant;
 
 import com.l2jserver.gameserver.enums.ShotType;
 import com.l2jserver.gameserver.model.StatsSet;
-import com.l2jserver.gameserver.model.actor.L2Character;
-import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
 import com.l2jserver.gameserver.model.conditions.Condition;
 import com.l2jserver.gameserver.model.effects.AbstractEffect;
 import com.l2jserver.gameserver.model.effects.L2EffectType;
 import com.l2jserver.gameserver.model.skills.BuffInfo;
-import com.l2jserver.gameserver.model.skills.Skill;
 import com.l2jserver.gameserver.model.stats.Formulas;
 
 /**
@@ -67,11 +64,11 @@ public final class Backstab extends AbstractEffect {
 			return;
 		}
 		
-		final L2Character target = info.getEffected();
-		final L2Character activeChar = info.getEffector();
-		final Skill skill = info.getSkill();
-		boolean ss = skill.useSoulShot() && activeChar.isChargedShot(ShotType.SOULSHOTS);
-		byte shld = Formulas.calcShldUse(activeChar, target, skill);
+		final var target = info.getEffected();
+		final var activeChar = info.getEffector();
+		final var skill = info.getSkill();
+		final boolean ss = skill.useSoulShot() && activeChar.isChargedShot(ShotType.SOULSHOTS);
+		final byte shld = Formulas.calcShldUse(activeChar, target, skill);
 		double damage = Formulas.calcBackstabDamage(activeChar, target, skill, shld, ss, _power);
 		
 		// Crit rate base crit rate for skill, modified with STR bonus
@@ -79,7 +76,11 @@ public final class Backstab extends AbstractEffect {
 			damage *= 2;
 		}
 		
-		target.reduceCurrentHp(damage, activeChar, skill);
+		if (target.isPlayer()) {
+			target.getActingPlayer().getStatus().reduceHp(damage, activeChar, true, false, skill.isToggle(), true);
+		} else {
+			target.reduceCurrentHp(damage, activeChar, skill);
+		}
 		target.notifyDamageReceived(damage, activeChar, skill, true, false, false);
 		
 		// Manage attack or cast break of the target (calculating rate, sending message...)
@@ -89,8 +90,7 @@ public final class Backstab extends AbstractEffect {
 		}
 		
 		if (activeChar.isPlayer()) {
-			L2PcInstance activePlayer = activeChar.getActingPlayer();
-			activePlayer.sendDamageMessage(target, (int) damage, false, true, false);
+			activeChar.sendDamageMessage(target, (int) damage, false, true, false);
 		}
 		
 		// Check if damage should be reflected
