@@ -967,35 +967,45 @@
 		</effects>
 	</skill>
 	<skill id="1157" levels="5" name="Body To Mind" enchantGroup1="1" enchantGroup2="1" enchantGroup3="1">
-		<table name="#amount"> 22 35 47 53 61 </table>
+		<!-- High Five Confirmed -->
 		<table name="#effectPoint"> 243 379 495 549 611 </table>
 		<table name="#hpConsume"> 131 209 280 318 366 </table>
-		<table name="#ench1amount"> 70 70 70 70 71 71 71 71 71 71 72 72 72 72 72 72 72 73 73 73 73 73 73 74 74 74 74 74 74 75 </table>
-		<table name="#ench2hpConsume"> 359 353 347 341 335 328 322 316 310 304 297 291 285 279 273 266 260 254 248 242 235 229 223 217 211 204 198 192 186 180 </table>
-		<table name="#ench3Bravery"> 29 38 48 57 66 76 85 94 104 113 122 132 141 150 160 169 178 188 197 206 216 225 234 244 253 262 272 281 290 300 </table>
+		<table name="#magicLvl"> 25 40 52 58 66 </table>
+		<table name="#mpAmount"> 22 35 47 53 61 </table>
+		<table name="#enchMagicLvl"> 76 76 76 77 77 77 78 78 78 79 79 79 80 80 80 81 81 81 82 82 82 83 83 83 84 84 84 85 85 85 </table>
+		<table name="#ench1MpAmount"> 70 70 70 70 71 71 71 71 71 71 72 72 72 72 72 72 72 73 73 73 73 73 73 74 74 74 74 74 74 75 </table>
+		<table name="#ench2HpConsume"> 359 353 347 341 335 328 322 316 310 304 297 291 285 279 273 266 260 254 248 242 235 229 223 217 211 204 198 192 186 180 </table>
+		<table name="#ench3CpAmount"> 29 38 48 57 66 76 85 94 104 113 122 132 141 150 160 169 178 188 197 206 216 225 234 244 253 262 272 281 290 300 </table>
+		<set name="affectScope" val="SINGLE" />
 		<set name="effectPoint" val="#effectPoint" />
+		<set name="hitCancelTime" val="500" />
 		<set name="hitTime" val="4000" />
 		<set name="hpConsume" val="#hpConsume" />
 		<set name="icon" val="icon.skill1157" />
 		<set name="isMagic" val="1" />
+		<set name="magicLvl" val="#magicLvl" />
 		<set name="operateType" val="A1" />
 		<set name="reuseDelay" val="5000" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
-		<enchant2 name="hpConsume" val="#ench2hpConsume" />
+ 		<enchant1 name="magicLvl" val="#enchMagicLvl" />
+		<enchant2 name="hpConsume" val="#ench2HpConsume" />
+ 		<enchant2 name="magicLvl" val="#enchMagicLvl" />
+ 		<enchant3 name="magicLvl" val="#enchMagicLvl" />
 		<effects>
 			<effect name="Mp">
-				<param amount="#amount" />
+				<param amount="#mpAmount" />
+				<param mode="DIFF" />
 			</effect>
 		</effects>
 		<enchant1Effects>
 			<effect name="Mp">
-				<param amount="#ench1amount" />
+				<param amount="#ench1MpAmount" />
 			</effect>
 		</enchant1Effects>
 		<enchant3Effects>
 			<effect name="Cp">
-				<param amount="#ench3Bravery" />
+				<param amount="#ench3CpAmount" />
 			</effect>
 			<effect name="Mp">
 				<param amount="61" />
