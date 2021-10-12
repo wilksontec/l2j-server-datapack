@@ -1179,49 +1179,61 @@
 		</effects>
 	</skill>
 	<skill id="1530" levels="13" name="Death Spike" enchantGroup1="2" enchantGroup2="2" enchantGroup3="2">
+		<!-- High Five Confirmed -->
 		<table name="#effectPoint"> -418 -457 -495 -532 -549 -566 -582 -597 -611 -624 -635 -646 -655 </table>
 		<table name="#magicLvl"> 44 48 52 56 58 60 62 64 66 68 70 72 74 </table>
+		<table name="#magicalAttackRangePower"> 35 39 43 47 49 51 53 56 58 59 61 63 65 </table>
+		<table name="#mpConsume1"> 4 5 6 7 7 7 8 8 8 9 9 9 10 </table>
 		<table name="#mpConsume2"> 19 22 24 28 29 31 32 33 35 36 37 38 40 </table>
-		<table name="#mpConsume_Init"> 4 5 6 7 7 7 8 8 8 9 9 9 10 </table>
-		<table name="#power"> 35 39 43 47 49 51 53 56 58 59 61 63 65 </table>
-		<table name="#ench1Power"> 66 66 67 68 69 70 70 71 72 73 73 74 75 76 76 77 78 79 79 80 81 82 82 83 84 85 86 86 87 88 </table>
-		<table name="#enchDuel"> 66 68 69 71 73 74 76 78 79 81 83 84 86 88 89 91 92 94 96 97 99 101 102 104 106 107 109 111 112 114 </table>
-		<table name="#enchAttributePower"> 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 </table>
 		<table name="#enchMagicLvl"> 76 76 76 77 77 77 78 78 78 79 79 79 80 80 80 81 81 81 82 82 82 83 83 83 84 84 84 85 85 85 </table>
+		<table name="#ench1MagicalAttackRangePower"> 66 66 67 68 69 70 70 71 72 73 73 74 75 76 76 77 78 79 79 80 81 82 82 83 84 85 86 86 87 88 </table>
+		<table name="#ench2AttributePower"> 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 </table>
+		<table name="#ench3PvpMagicalAttackRangePower"> 66 68 69 71 73 74 76 78 79 81 83 84 86 88 89 91 92 94 96 97 99 101 102 104 106 107 109 111 112 114 </table>
+		<set name="affectScope" val="SINGLE" />
+		<set name="attributePower" val="20" />
+		<set name="attributeType" val="UNHOLY" />
 		<set name="castRange" val="900" />
 		<set name="effectPoint" val="#effectPoint" />
 		<set name="effectRange" val="1400" />
-		<set name="attributeType" val="UNHOLY" />
-		<set name="attributePower" val="20" />
+		<set name="hitCancelTime" val="500" />
 		<set name="hitTime" val="4000" />
 		<set name="icon" val="icon.skill1148" />
 		<set name="isMagic" val="1" />
 		<set name="magicLvl" val="#magicLvl" />
+		<set name="mpConsume1" val="#mpConsume1" />
 		<set name="mpConsume2" val="#mpConsume2" />
-		<set name="mpConsume1" val="#mpConsume_Init" />
 		<set name="operateType" val="A1" />
-		<set name="reuseDelay" val="1000" />
+		<set name="reuseDelay" val="1200" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
-		<set name="targetType" val="ONE" />
+		<set name="targetType" val="ENEMY" />
 		<enchant1 name="magicLvl" val="#enchMagicLvl" />
-		<enchant2 name="attributePower" val="#enchAttributePower" />
+		<enchant2 name="attributePower" val="#ench2AttributePower" />
 		<enchant2 name="magicLvl" val="#enchMagicLvl" />
 		<enchant3 name="magicLvl" val="#enchMagicLvl" />
 		<effects>
-			<effect name="MagicalAttack">
-				<param power="#power" />
+			<effect name="MagicalAttackRange">
+				<param power="#magicalAttackRangePower" />
+				<param shieldDefensePercent="40" />
 			</effect>
 		</effects>
+		<enchant1Effects>
+			<effect name="MagicalAttackRange">
+				<param power="#ench1MagicalAttackRangePower" />
+				<param shieldDefensePercent="40" />
+			</effect>
+		</enchant1Effects>
 		<enchant3Effects>
 		</enchant3Effects>
 		<enchant3pvpEffects>
-			<effect name="MagicalAttack">
-				<param power="#enchDuel" />
+			<effect name="MagicalAttackRange">
+				<param power="#ench3PvpMagicalAttackRangePower" />
+				<param shieldDefensePercent="40" />
 			</effect>
 		</enchant3pvpEffects>
 		<enchant3pveEffects>
-			<effect name="MagicalAttack">
+			<effect name="MagicalAttackRange">
 				<param power="65" />
+				<param shieldDefensePercent="40" />
 			</effect>
 		</enchant3pveEffects>
 	</skill>
