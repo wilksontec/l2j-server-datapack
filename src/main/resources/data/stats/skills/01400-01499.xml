@@ -969,22 +969,31 @@
 		</channelingEffects>
 	</skill>
 	<skill id="1424" levels="1" name="Anti-Summoning Field">
+		<!-- High Five Confirmed -->
+		<set name="affectScope" val="SINGLE" />
 		<set name="blockedInOlympiad" val="true" />
 		<set name="castRange" val="900" />
+		<set name="effectRange" val="1000" />
 		<set name="hitTime" val="5000" />
 		<set name="icon" val="icon.skill1424" />
 		<set name="isMagic" val="1" />
 		<set name="itemConsumeCount" val="1" />
-		<set name="itemConsumeId" val="8876" /> <!-- Magic Symbol -->
+		<set name="itemConsumeId" val="8876" />
 		<set name="magicLvl" val="80" />
-		<set name="mpConsume2" val="70" />
-		<set name="mpConsume1" val="70" />
+		<set name="mpConsume1" val="14" />
+		<set name="mpConsume2" val="56" />
 		<set name="operateType" val="A1" />
 		<set name="reuseDelay" val="1800000" />
-		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="reuseDelayLock" val="true" />
+		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="GROUND" />
+		<cond msgId="113" addName="1">
+			<player existNpc="13018,13019,13020,13021,13022,13023,13024;200;false" />
+		</cond>
 		<effects>
+			<effect name="InstantDispelBySlotMyself">
+				<param dispel="MAGICAL_STANCE" />
+			</effect>
 			<effect name="SummonNpc">
 				<param npcId="13030" npcCount="1" />
 			</effect>

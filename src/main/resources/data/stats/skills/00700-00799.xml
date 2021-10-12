@@ -2389,6 +2389,7 @@
 		<set name="chargeConsume" val="2" />
 		<set name="effectPoint" val="-679" />
 		<set name="effectRange" val="200" />
+		<set name="hitCancelTime" val="500" />
 		<set name="hitTime" val="1200" />
 		<set name="icon" val="icon.skill0776" />
 		<set name="isDebuff" val="true" />
@@ -2414,6 +2415,7 @@
 			<effect name="TickHp">
 				<param power="-200" />
 				<param ticks="1" />
+				<param mode="DIFF" />
 			</effect>
 		</effects>
 	</skill>

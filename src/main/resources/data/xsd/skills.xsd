@@ -156,6 +156,7 @@
 				<xs:attribute type="xs:string" name="categoryType" />
 				<xs:attribute type="xs:boolean" name="hasAgathion" />
 				<xs:attribute type="xs:int" name="agathionEnergy" />
+				<xs:attribute type="xs:string" name="existNpc" />
 			</xs:extension>
 		</xs:simpleContent>
 	</xs:complexType>
@@ -210,6 +211,16 @@
 		<xs:attribute type="xs:short" name="msgId" />
 		<xs:attribute type="xs:byte" name="addName" />
 		<xs:attribute type="xs:string" name="msg" />
+	</xs:complexType>
+	<xs:complexType name="conditionType">
+		<xs:choice maxOccurs="unbounded" minOccurs="1">
+			<xs:element name="conditionType" type="usingType" />
+		</xs:choice>
+	</xs:complexType>
+	<xs:complexType name="conditionsType">
+		<xs:choice maxOccurs="unbounded" minOccurs="1">
+			<xs:element name="conditionType" type="usingType" />
+		</xs:choice>
 	</xs:complexType>
 	<xs:simpleType name="operation">
 		<xs:restriction base="xs:string">
@@ -584,6 +595,7 @@
 					<xs:enumeration value="InstantCallTargetParty" />
 					<xs:enumeration value="InstantDespawn" />
 					<xs:enumeration value="InstantDispelByName" />
+					<xs:enumeration value="InstantDispelBySlotMyself" />
 					<xs:enumeration value="InstantHpByLevelSelf" />
 					<xs:enumeration value="InstantMpByLevelSelf" />
 					<xs:enumeration value="Lethal" />
@@ -711,6 +723,7 @@
 			<xs:element name="enchant6" type="enchantType" />
 			<xs:element name="enchant7" type="enchantType" />
 			<xs:element name="enchant8" type="enchantType" />
+			<xs:element name="condition" type="conditionType" />
 			<xs:element name="cond" type="condType" />
 			<xs:element name="effects" type="effectsType" />
 			<xs:element name="enchant1Effects" type="effectsType" />

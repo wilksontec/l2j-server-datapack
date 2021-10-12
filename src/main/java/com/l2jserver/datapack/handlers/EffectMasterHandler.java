@@ -147,6 +147,7 @@ public final class EffectMasterHandler {
 		DispelAll.class,
 		DispelByCategory.class,
 		DispelBySlot.class,
+		InstantDispelBySlotMyself.class,
 		DispelBySlotProbability.class,
 		EnableCloak.class,
 		EnergyAttack.class,

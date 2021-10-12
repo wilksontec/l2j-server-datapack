@@ -1304,11 +1304,13 @@
 		</effects>
 	</skill>
 	<skill id="2461" levels="1" name="Force of Destruction">
-		<!-- Confirmed CT2.5 -->
+		<!-- High Five Confirmed -->
+		<set name="affectScope" val="SINGLE" />
+		<set name="hitCancelTime" val="500" />
 		<set name="hitTime" val="1500" />
 		<set name="isMagic" val="2" />
 		<set name="itemConsumeCount" val="1" />
-		<set name="itemConsumeId" val="10569" /> <!-- Forgotten Scroll - Force of Destruction -->
+		<set name="itemConsumeId" val="10569" />
 		<set name="magicLvl" val="1" />
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
@@ -1319,7 +1321,7 @@
 					<player active_skill_id="776" />
 				</not>
 				<player class_id_restriction="114" />
-				<player level="81" />
+				<player level="83" />
 			</and>
 		</cond>
 		<effects>
