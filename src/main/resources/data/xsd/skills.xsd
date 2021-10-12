@@ -212,16 +212,6 @@
 		<xs:attribute type="xs:byte" name="addName" />
 		<xs:attribute type="xs:string" name="msg" />
 	</xs:complexType>
-	<xs:complexType name="conditionType">
-		<xs:choice maxOccurs="unbounded" minOccurs="1">
-			<xs:element name="conditionType" type="usingType" />
-		</xs:choice>
-	</xs:complexType>
-	<xs:complexType name="conditionsType">
-		<xs:choice maxOccurs="unbounded" minOccurs="1">
-			<xs:element name="conditionType" type="usingType" />
-		</xs:choice>
-	</xs:complexType>
 	<xs:simpleType name="operation">
 		<xs:restriction base="xs:string">
 			<xs:enumeration value="DIFF" />
@@ -723,7 +713,6 @@
 			<xs:element name="enchant6" type="enchantType" />
 			<xs:element name="enchant7" type="enchantType" />
 			<xs:element name="enchant8" type="enchantType" />
-			<xs:element name="condition" type="conditionType" />
 			<xs:element name="cond" type="condType" />
 			<xs:element name="effects" type="effectsType" />
 			<xs:element name="enchant1Effects" type="effectsType" />
