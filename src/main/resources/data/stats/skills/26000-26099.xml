@@ -239,13 +239,18 @@
 		<set name="targetType" val="SELF" />
 	</skill>
 	<skill id="26022" levels="1" name="High grade potion which improves attack speed">
+		<!-- High Five Confirmed -->
 		<set name="abnormalLvl" val="2" />
 		<set name="abnormalTime" val="1200" />
 		<set name="abnormalType" val="ATTACK_TIME_DOWN" />
+		<set name="affectScope" val="SINGLE" />
 		<set name="blockedInOlympiad" val="true" />
+		<set name="buffProtectLevel" val="1" />
 		<set name="icon" val="br_cashtex.item.br_cash_adv_swift_attack_potion_i00" />
 		<set name="irreplaceableBuff" val="true" />
 		<set name="isMagic" val="2" />
+		<set name="itemConsumeCount" val="1" />
+		<set name="itemConsumeId" val="22022" />
 		<set name="magicLvl" val="-1" />
 		<set name="operateType" val="A2" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
@@ -256,14 +261,19 @@
 			</effect>
 		</effects>
 	</skill>
-	<skill id="26023" levels="1" name="High grade potion which improves moving speed">
+	<skill id="26023" levels="1" name="High Grade Speed Improving Potion">
+		<!-- High Five Confirmed -->
 		<set name="abnormalLvl" val="2" />
 		<set name="abnormalTime" val="1200" />
 		<set name="abnormalType" val="SPEED_UP" />
+		<set name="affectScope" val="SINGLE" />
 		<set name="blockedInOlympiad" val="true" />
+		<set name="buffProtectLevel" val="1" />
 		<set name="icon" val="br_cashtex.item.br_cash_adv_quick_step_potion_i00" />
 		<set name="irreplaceableBuff" val="true" />
 		<set name="isMagic" val="2" />
+		<set name="itemConsumeCount" val="1" />
+		<set name="itemConsumeId" val="22023" />
 		<set name="magicLvl" val="-1" />
 		<set name="operateType" val="A2" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
@@ -275,6 +285,8 @@
 		</effects>
 	</skill>
 	<skill id="26024" levels="1" name="Temporary Healing Potion">
+		<!-- High Five Confirmed -->
+		<set name="affectScope" val="SINGLE" />
 		<set name="blockedInOlympiad" val="true" />
 		<set name="isMagic" val="2" />
 		<set name="magicLvl" val="1" />
@@ -284,14 +296,18 @@
 		<effects>
 			<effect name="Hp">
 				<param amount="435" />
+				<param mode="DIFF" />
 			</effect>
 		</effects>
 	</skill>
 	<skill id="26025" levels="1" name="Powerful Healing Potion">
+		<!-- High Five Confirmed -->
 		<set name="abnormalLvl" val="3" />
 		<set name="abnormalTime" val="15" />
 		<set name="abnormalType" val="HP_RECOVER" />
+		<set name="affectScope" val="SINGLE" />
 		<set name="blockedInOlympiad" val="true" />
+		<set name="buffProtectLevel" val="1" />
 		<set name="icon" val="br_cashtex.item.br_cash_greater_healing_potion_i00" />
 		<set name="irreplaceableBuff" val="true" />
 		<set name="isMagic" val="2" />
@@ -303,14 +319,18 @@
 			<effect name="TickHp">
 				<param power="50" />
 				<param ticks="3" />
+				<param mode="DIFF" />
 			</effect>
 		</effects>
 	</skill>
 	<skill id="26026" levels="1" name="High-grade Healing Potion">
+		<!-- High Five Confirmed -->
 		<set name="abnormalLvl" val="2" />
 		<set name="abnormalTime" val="15" />
 		<set name="abnormalType" val="HP_RECOVER" />
+		<set name="affectScope" val="SINGLE" />
 		<set name="blockedInOlympiad" val="true" />
+		<set name="buffProtectLevel" val="1" />
 		<set name="icon" val="br_cashtex.item.br_cash_healing_potion_i00" />
 		<set name="irreplaceableBuff" val="true" />
 		<set name="isMagic" val="2" />
@@ -322,18 +342,21 @@
 			<effect name="TickHp">
 				<param power="24" />
 				<param ticks="3" />
+				<param mode="DIFF" />
 			</effect>
 		</effects>
 	</skill>
-	<skill id="26027" levels="6" name="Secret medicine of Will">
-		<!-- Confirmed CT2.5 -->
-		<!-- Level 1 doesn't exist in client. -->
-		<table name="#amount"> 0 350 600 800 1000 1200 </table>
+	<skill id="26027" levels="6" name="Secret Medicine of Will">
+		<!-- High Five Confirmed -->
+		<!-- Note: Level 1 doesn't exist in client. -->
+		<table name="#cpAmount"> 0 350 600 800 1000 1200 </table>
 		<table name="#levelRange"> 0;0 20;39 40;51 52;60 61;75 76;85 </table>
+		<set name="affectScope" val="SINGLE" />
 		<set name="blockedInOlympiad" val="true" />
 		<set name="isMagic" val="2" />
 		<set name="magicLvl" val="1" />
 		<set name="operateType" val="A1" />
+		<set name="reuseDelay" val="600000" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
 		<cond msgId="113" addName="1">
@@ -341,19 +364,22 @@
 		</cond>
 		<effects>
 			<effect name="Cp">
-				<param amount="#amount" />
+				<param amount="#cpAmount" />
+				<param mode="DIFF" />
 			</effect>
 		</effects>
 	</skill>
-	<skill id="26028" levels="6" name="Secret medicine of Life">
-		<!-- Confirmed CT2.5 -->
-		<!-- Level 1 doesn't exist in client. -->
-		<table name="#amount"> 0 650 1100 1500 1900 2300 </table>
+	<skill id="26028" levels="6" name="Secret Medicine of Life">
+		<!-- High Five Confirmed -->
+		<!-- Note: Level 1 doesn't exist in client. -->
+		<table name="#hpAmount"> 0 650 1100 1500 1900 2300 </table>
 		<table name="#levelRange"> 0;0 20;39 40;51 52;60 61;75 76;85 </table>
+		<set name="affectScope" val="SINGLE" />
 		<set name="blockedInOlympiad" val="true" />
 		<set name="isMagic" val="2" />
 		<set name="magicLvl" val="1" />
 		<set name="operateType" val="A1" />
+		<set name="reuseDelay" val="600000" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
 		<cond msgId="113" addName="1">
@@ -361,11 +387,14 @@
 		</cond>
 		<effects>
 			<effect name="Hp">
-				<param amount="#amount" />
+				<param amount="#hpAmount" />
+				<param mode="DIFF" />
 			</effect>
 		</effects>
 	</skill>
 	<skill id="26029" levels="1" name="Potion of Will">
+		<!-- High Five Confirmed -->
+		<set name="affectScope" val="SINGLE" />
 		<set name="blockedInOlympiad" val="true" />
 		<set name="isMagic" val="2" />
 		<set name="magicLvl" val="1" />
@@ -375,11 +404,13 @@
 		<effects>
 			<effect name="Cp">
 				<param amount="50" />
+				<param mode="DIFF" />
 			</effect>
 		</effects>
 	</skill>
-	<skill id="26030" levels="1" name="Healing medicine for Mana">
-		<!-- Confirmed CT2.5 -->
+	<skill id="26030" levels="1" name="Healing Medicine for Mana">
+		<!-- High Five Confirmed -->
+		<set name="affectScope" val="SINGLE" />
 		<set name="blockedInOlympiad" val="true" />
 		<set name="isMagic" val="2" />
 		<set name="magicLvl" val="1" />
@@ -390,21 +421,26 @@
 		<effects>
 			<effect name="Mp">
 				<param amount="60" />
+				<param mode="DIFF" />
 			</effect>
 		</effects>
 	</skill>
 	<skill id="26031" levels="1" name="Wind Walk Scroll">
+		<!-- High Five Confirmed -->
 		<set name="abnormalLvl" val="26" />
 		<set name="abnormalTime" val="3600" />
 		<set name="abnormalType" val="SPEED_UP" />
+		<set name="affectScope" val="SINGLE" />
 		<set name="blockedInOlympiad" val="true" />
+		<set name="buffProtectLevel" val="1" />
+		<set name="hitCancelTime" val="500" />
 		<set name="hitTime" val="4000" />
 		<set name="icon" val="br_cashtex.item.br_cash_scroll_of_wind_walk_i00" />
 		<set name="irreplaceableBuff" val="true" />
 		<set name="isMagic" val="2" />
 		<set name="itemConsumeCount" val="1" />
-		<set name="itemConsumeId" val="22039" /> <!-- Wind Walk Scroll -->
-		<set name="magicLvl" val="-1" />
+		<set name="itemConsumeId" val="22039" />
+		<set name="magicLvl" val="1" />
 		<set name="operateType" val="A2" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
@@ -415,17 +451,21 @@
 		</effects>
 	</skill>
 	<skill id="26032" levels="1" name="Haste Scroll">
+		<!-- High Five Confirmed -->
 		<set name="abnormalLvl" val="26" />
 		<set name="abnormalTime" val="3600" />
 		<set name="abnormalType" val="ATTACK_TIME_DOWN" />
+		<set name="affectScope" val="SINGLE" />
 		<set name="blockedInOlympiad" val="true" />
+		<set name="buffProtectLevel" val="1" />
+		<set name="hitCancelTime" val="500" />
 		<set name="hitTime" val="4000" />
 		<set name="icon" val="br_cashtex.item.br_cash_scroll_of_haste_i00" />
 		<set name="irreplaceableBuff" val="true" />
 		<set name="isMagic" val="2" />
 		<set name="itemConsumeCount" val="1" />
-		<set name="itemConsumeId" val="22040" /> <!-- Haste Scroll -->
-		<set name="magicLvl" val="-1" />
+		<set name="itemConsumeId" val="22040" />
+		<set name="magicLvl" val="1" />
 		<set name="operateType" val="A2" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
@@ -436,17 +476,21 @@
 		</effects>
 	</skill>
 	<skill id="26033" levels="1" name="Might Scroll">
+		<!-- High Five Confirmed -->
 		<set name="abnormalLvl" val="26" />
 		<set name="abnormalTime" val="3600" />
 		<set name="abnormalType" val="PA_UP" />
+		<set name="affectScope" val="SINGLE" />
 		<set name="blockedInOlympiad" val="true" />
+		<set name="buffProtectLevel" val="1" />
+		<set name="hitCancelTime" val="500" />
 		<set name="hitTime" val="4000" />
 		<set name="icon" val="br_cashtex.item.br_cash_scroll_of_might_i00" />
 		<set name="irreplaceableBuff" val="true" />
 		<set name="isMagic" val="2" />
 		<set name="itemConsumeCount" val="1" />
-		<set name="itemConsumeId" val="22041" /> <!-- Might Scroll -->
-		<set name="magicLvl" val="-1" />
+		<set name="itemConsumeId" val="22041" />
+		<set name="magicLvl" val="1" />
 		<set name="operateType" val="A2" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
@@ -457,17 +501,21 @@
 		</effects>
 	</skill>
 	<skill id="26034" levels="1" name="Shield Scroll">
+		<!-- High Five Confirmed -->
 		<set name="abnormalLvl" val="26" />
 		<set name="abnormalTime" val="3600" />
 		<set name="abnormalType" val="PD_UP" />
+		<set name="affectScope" val="SINGLE" />
 		<set name="blockedInOlympiad" val="true" />
+		<set name="buffProtectLevel" val="1" />
+		<set name="hitCancelTime" val="500" />
 		<set name="hitTime" val="4000" />
 		<set name="icon" val="br_cashtex.item.br_cash_scroll_of_shield_i00" />
 		<set name="irreplaceableBuff" val="true" />
 		<set name="isMagic" val="2" />
 		<set name="itemConsumeCount" val="1" />
-		<set name="itemConsumeId" val="22042" /> <!-- Shield Scroll -->
-		<set name="magicLvl" val="-1" />
+		<set name="itemConsumeId" val="22042" />
+		<set name="magicLvl" val="1" />
 		<set name="operateType" val="A2" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
@@ -478,17 +526,21 @@
 		</effects>
 	</skill>
 	<skill id="26035" levels="1" name="Death Whisper Scroll">
+		<!-- High Five Confirmed -->
 		<set name="abnormalLvl" val="26" />
 		<set name="abnormalTime" val="3600" />
 		<set name="abnormalType" val="CRITICAL_DMG_UP" />
+		<set name="affectScope" val="SINGLE" />
 		<set name="blockedInOlympiad" val="true" />
+		<set name="buffProtectLevel" val="1" />
+		<set name="hitCancelTime" val="500" />
 		<set name="hitTime" val="4000" />
 		<set name="icon" val="br_cashtex.item.br_cash_scroll_of_death_whisper_i00" />
 		<set name="irreplaceableBuff" val="true" />
 		<set name="isMagic" val="2" />
 		<set name="itemConsumeCount" val="1" />
-		<set name="itemConsumeId" val="22043" /> <!-- Scroll of Death Whisper -->
-		<set name="magicLvl" val="-1" />
+		<set name="itemConsumeId" val="22043" />
+		<set name="magicLvl" val="1" />
 		<set name="operateType" val="A2" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
@@ -499,17 +551,21 @@
 		</effects>
 	</skill>
 	<skill id="26036" levels="1" name="Guidance Scroll">
+		<!-- High Five Confirmed -->
 		<set name="abnormalLvl" val="26" />
 		<set name="abnormalTime" val="3600" />
 		<set name="abnormalType" val="HIT_UP" />
+		<set name="affectScope" val="SINGLE" />
 		<set name="blockedInOlympiad" val="true" />
+		<set name="buffProtectLevel" val="1" />
+		<set name="hitCancelTime" val="500" />
 		<set name="hitTime" val="4000" />
 		<set name="icon" val="br_cashtex.item.br_cash_scroll_of_guidance_i00" />
 		<set name="irreplaceableBuff" val="true" />
 		<set name="isMagic" val="2" />
 		<set name="itemConsumeCount" val="1" />
-		<set name="itemConsumeId" val="22044" /> <!-- Scroll of Guidance -->
-		<set name="magicLvl" val="-1" />
+		<set name="itemConsumeId" val="22044" />
+		<set name="magicLvl" val="1" />
 		<set name="operateType" val="A2" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
@@ -520,17 +576,21 @@
 		</effects>
 	</skill>
 	<skill id="26037" levels="1" name="Empower Scroll">
+		<!-- High Five Confirmed -->
 		<set name="abnormalLvl" val="26" />
 		<set name="abnormalTime" val="3600" />
 		<set name="abnormalType" val="MA_UP" />
+		<set name="affectScope" val="SINGLE" />
 		<set name="blockedInOlympiad" val="true" />
+		<set name="buffProtectLevel" val="1" />
+		<set name="hitCancelTime" val="500" />
 		<set name="hitTime" val="4000" />
 		<set name="icon" val="br_cashtex.item.br_cash_scroll_of_empower_i00" />
 		<set name="irreplaceableBuff" val="true" />
 		<set name="isMagic" val="2" />
 		<set name="itemConsumeCount" val="1" />
-		<set name="itemConsumeId" val="22045" /> <!-- Empower Scroll -->
-		<set name="magicLvl" val="-1" />
+		<set name="itemConsumeId" val="22045" />
+		<set name="magicLvl" val="1" />
 		<set name="operateType" val="A2" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
@@ -541,17 +601,21 @@
 		</effects>
 	</skill>
 	<skill id="26038" levels="1" name="Greater Acumen Scroll">
+		<!-- High Five Confirmed -->
 		<set name="abnormalLvl" val="26" />
 		<set name="abnormalTime" val="3600" />
 		<set name="abnormalType" val="CASTING_TIME_DOWN" />
+		<set name="affectScope" val="SINGLE" />
 		<set name="blockedInOlympiad" val="true" />
+		<set name="buffProtectLevel" val="1" />
+		<set name="hitCancelTime" val="500" />
 		<set name="hitTime" val="4000" />
 		<set name="icon" val="br_cashtex.item.br_cash_scroll_of_greater_acumen_i00" />
 		<set name="irreplaceableBuff" val="true" />
 		<set name="isMagic" val="2" />
 		<set name="itemConsumeCount" val="1" />
-		<set name="itemConsumeId" val="22046" /> <!-- Grater Acumen Scroll -->
-		<set name="magicLvl" val="-1" />
+		<set name="itemConsumeId" val="22046" />
+		<set name="magicLvl" val="1" />
 		<set name="operateType" val="A2" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
@@ -562,38 +626,46 @@
 		</effects>
 	</skill>
 	<skill id="26039" levels="1" name="Vampiric Rage Scroll">
+		<!-- High Five Confirmed -->
 		<set name="abnormalLvl" val="26" />
 		<set name="abnormalTime" val="3600" />
 		<set name="abnormalType" val="VAMPIRIC_ATTACK" />
+		<set name="affectScope" val="SINGLE" />
 		<set name="blockedInOlympiad" val="true" />
+		<set name="buffProtectLevel" val="1" />
+		<set name="hitCancelTime" val="500" />
 		<set name="hitTime" val="4000" />
 		<set name="icon" val="br_cashtex.item.br_cash_scroll_of_vampiric_rage_i00" />
 		<set name="irreplaceableBuff" val="true" />
 		<set name="isMagic" val="2" />
 		<set name="itemConsumeCount" val="1" />
-		<set name="itemConsumeId" val="22047" /> <!-- Vampiric Rage Scroll -->
-		<set name="magicLvl" val="-1" />
+		<set name="itemConsumeId" val="22047" />
+		<set name="magicLvl" val="1" />
 		<set name="operateType" val="A2" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
 		<effects>
 			<effect name="Buff">
-				<add stat="absorbDam" val="9" /> <!-- absorb 9% HP from damage inflicted on enemies -->
+				<add stat="absorbDam" val="9" />
 			</effect>
 		</effects>
 	</skill>
-	<skill id="26040" levels="1" name="Bless the Body Scroll">
+	<skill id="26040" levels="1" name="Blessed Body Scroll">
+		<!-- High Five Confirmed -->
 		<set name="abnormalLvl" val="26" />
 		<set name="abnormalTime" val="3600" />
 		<set name="abnormalType" val="MAX_HP_UP" />
+		<set name="affectScope" val="SINGLE" />
 		<set name="blockedInOlympiad" val="true" />
+		<set name="buffProtectLevel" val="1" />
+		<set name="hitCancelTime" val="500" />
 		<set name="hitTime" val="4000" />
 		<set name="icon" val="br_cashtex.item.br_cash_scroll_of_bless_the_body_i00" />
 		<set name="irreplaceableBuff" val="true" />
 		<set name="isMagic" val="2" />
 		<set name="itemConsumeCount" val="1" />
-		<set name="itemConsumeId" val="22048" /> <!-- Bless the Body Scroll -->
-		<set name="magicLvl" val="-1" />
+		<set name="itemConsumeId" val="22048" />
+		<set name="magicLvl" val="1" />
 		<set name="operateType" val="A2" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
@@ -605,45 +677,67 @@
 		</effects>
 	</skill>
 	<skill id="26041" levels="1" name="Berserker Spirit Scroll">
+		<!-- High Five Confirmed -->
 		<set name="abnormalLvl" val="26" />
 		<set name="abnormalTime" val="3600" />
 		<set name="abnormalType" val="BERSERKER" />
+		<set name="affectScope" val="SINGLE" />
 		<set name="blockedInOlympiad" val="true" />
+		<set name="buffProtectLevel" val="1" />
+		<set name="hitCancelTime" val="500" />
 		<set name="hitTime" val="4000" />
 		<set name="icon" val="br_cashtex.item.br_cash_scroll_of_berserker_spirit_i00" />
 		<set name="irreplaceableBuff" val="true" />
 		<set name="isMagic" val="2" />
 		<set name="itemConsumeCount" val="1" />
-		<set name="itemConsumeId" val="22049" /> <!-- Berserker Spirit Scroll -->
-		<set name="magicLvl" val="-1" />
+		<set name="itemConsumeId" val="22049" />
+		<set name="magicLvl" val="1" />
 		<set name="operateType" val="A2" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
 		<effects>
 			<effect name="Buff">
-				<mul stat="pDef" val="0.92" />
-				<mul stat="mDef" val="0.84" />
-				<sub stat="rEvas" val="4" />
-				<mul stat="pAtk" val="1.08" />
-				<mul stat="mAtk" val="1.16" />
 				<mul stat="pAtkSpd" val="1.08" />
+			</effect>
+			<effect name="Buff">
+				<sub stat="rEvas" val="4" />
+			</effect>
+			<effect name="Buff">
 				<mul stat="mAtkSpd" val="1.08" />
+			</effect>
+			<effect name="Buff">
+				<mul stat="mAtk" val="1.16" />
+			</effect>
+			<effect name="Buff">
+				<mul stat="mDef" val="0.84" />
+			</effect>
+			<effect name="Buff">
+				<mul stat="pAtk" val="1.08" />
+			</effect>
+			<effect name="Buff">
+				<mul stat="pDef" val="0.92" />
+			</effect>
+			<effect name="Buff">
 				<add stat="runSpd" val="8" />
 			</effect>
 		</effects>
 	</skill>
 	<skill id="26042" levels="1" name="Magic Barrier Scroll">
+		<!-- High Five Confirmed -->
 		<set name="abnormalLvl" val="26" />
 		<set name="abnormalTime" val="3600" />
 		<set name="abnormalType" val="MD_UP" />
+		<set name="affectScope" val="SINGLE" />
 		<set name="blockedInOlympiad" val="true" />
+		<set name="buffProtectLevel" val="1" />
+		<set name="hitCancelTime" val="500" />
 		<set name="hitTime" val="4000" />
 		<set name="icon" val="br_cashtex.item.br_cash_scroll_of_magic_barrier_i00" />
 		<set name="irreplaceableBuff" val="true" />
 		<set name="isMagic" val="2" />
 		<set name="itemConsumeCount" val="1" />
-		<set name="itemConsumeId" val="22050" /> <!-- Magic Barrier Scroll -->
-		<set name="magicLvl" val="-1" />
+		<set name="itemConsumeId" val="22050" />
+		<set name="magicLvl" val="1" />
 		<set name="operateType" val="A2" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
@@ -653,18 +747,22 @@
 			</effect>
 		</effects>
 	</skill>
-	<skill id="26043" levels="1" name="Bless the Soul Scroll">
+	<skill id="26043" levels="1" name="Blessed Soul Scroll">
+		<!-- High Five Confirmed -->
 		<set name="abnormalLvl" val="26" />
 		<set name="abnormalTime" val="3600" />
 		<set name="abnormalType" val="MAX_MP_UP" />
+		<set name="affectScope" val="SINGLE" />
 		<set name="blockedInOlympiad" val="true" />
+		<set name="buffProtectLevel" val="1" />
+		<set name="hitCancelTime" val="500" />
 		<set name="hitTime" val="4000" />
 		<set name="icon" val="br_cashtex.item.br_cash_scroll_of_bless_the_soul_i00" />
 		<set name="irreplaceableBuff" val="true" />
 		<set name="isMagic" val="2" />
 		<set name="itemConsumeCount" val="1" />
-		<set name="itemConsumeId" val="22051" /> <!-- Bless the Soul Scroll -->
-		<set name="magicLvl" val="-1" />
+		<set name="itemConsumeId" val="22051" />
+		<set name="magicLvl" val="1" />
 		<set name="operateType" val="A2" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
@@ -676,40 +774,52 @@
 		</effects>
 	</skill>
 	<skill id="26044" levels="1" name="Clarity Scroll">
+		<!-- High Five Confirmed -->
 		<set name="abnormalLvl" val="26" />
 		<set name="abnormalTime" val="3600" />
 		<set name="abnormalType" val="CHEAP_MAGIC" />
+		<set name="affectScope" val="SINGLE" />
 		<set name="blockedInOlympiad" val="true" />
+		<set name="buffProtectLevel" val="1" />
+		<set name="hitCancelTime" val="500" />
 		<set name="hitTime" val="4000" />
 		<set name="icon" val="br_cashtex.item.br_cash_scroll_of_clarity_i00" />
 		<set name="irreplaceableBuff" val="true" />
 		<set name="isMagic" val="2" />
 		<set name="itemConsumeCount" val="1" />
-		<set name="itemConsumeId" val="22052" /> <!-- Clarity Scroll -->
-		<set name="magicLvl" val="-1" />
+		<set name="itemConsumeId" val="22052" />
+		<set name="magicLvl" val="1" />
 		<set name="operateType" val="A2" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
 		<effects>
 			<effect name="Buff">
 				<mul stat="physicalMpConsumeRate" val="0.8" />
+			</effect>
+			<effect name="Buff">
 				<mul stat="magicalMpConsumeRate" val="0.9" />
+			</effect>
+			<effect name="Buff">
 				<mul stat="danceMpConsumeRate" val="0.8" />
 			</effect>
 		</effects>
 	</skill>
 	<skill id="26045" levels="1" name="Wild Magic Scroll">
+		<!-- High Five Confirmed -->
 		<set name="abnormalLvl" val="26" />
 		<set name="abnormalTime" val="3600" />
 		<set name="abnormalType" val="MAGIC_CRITICAL_UP" />
+		<set name="affectScope" val="SINGLE" />
 		<set name="blockedInOlympiad" val="true" />
+		<set name="buffProtectLevel" val="1" />
+		<set name="hitCancelTime" val="500" />
 		<set name="hitTime" val="4000" />
 		<set name="icon" val="br_cashtex.item.br_cash_scroll_of_wild_magic_i00" />
 		<set name="irreplaceableBuff" val="true" />
 		<set name="isMagic" val="2" />
 		<set name="itemConsumeCount" val="1" />
-		<set name="itemConsumeId" val="22053" /> <!-- Wild Magic Scroll -->
-		<set name="magicLvl" val="-1" />
+		<set name="itemConsumeId" val="22053" />
+		<set name="magicLvl" val="1" />
 		<set name="operateType" val="A2" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
@@ -720,10 +830,11 @@
 		</effects>
 	</skill>
 	<skill id="26046" levels="5" name="Rune of Experience Points">
-		<!-- Confirmed CT2.5 -->
+		<!-- High Five Confirmed -->
 		<table name="#bonusExp"> 10 20 30 40 50 </table>
-		<table name="#icons"> br_cashtex.skill.br_cash_rune_of_exp_buff_1 br_cashtex.skill.br_cash_rune_of_exp_buff_2 br_cashtex.skill.br_cash_rune_of_exp_buff_3 br_cashtex.skill.br_cash_rune_of_exp_buff_4 br_cashtex.skill.br_cash_rune_of_exp_buff_5 </table>
-		<set name="icon" val="#icons" />
+		<table name="#icon"> br_cashtex.skill.br_cash_rune_of_exp_buff_1 br_cashtex.skill.br_cash_rune_of_exp_buff_2 br_cashtex.skill.br_cash_rune_of_exp_buff_3 br_cashtex.skill.br_cash_rune_of_exp_buff_4 br_cashtex.skill.br_cash_rune_of_exp_buff_5 </table>
+		<set name="blockedInOlympiad" val="true" />
+		<set name="icon" val="#icon" />
 		<set name="magicLvl" val="1" />
 		<set name="operateType" val="P" />
 		<set name="targetType" val="SELF" />
@@ -734,10 +845,11 @@
 		</effects>
 	</skill>
 	<skill id="26047" levels="5" name="Rune of SP">
-		<!-- Confirmed CT2.5 -->
+		<!-- High Five Confirmed -->
 		<table name="#bonusSp"> 10 20 30 40 50 </table>
-		<table name="#icons"> br_cashtex.skill.br_cash_rune_of_sp_buff_1 br_cashtex.skill.br_cash_rune_of_sp_buff_2 br_cashtex.skill.br_cash_rune_of_sp_buff_3 br_cashtex.skill.br_cash_rune_of_sp_buff_4 br_cashtex.skill.br_cash_rune_of_sp_buff_5 </table>
-		<set name="icon" val="#icons" />
+		<table name="#icon"> br_cashtex.skill.br_cash_rune_of_sp_buff_1 br_cashtex.skill.br_cash_rune_of_sp_buff_2 br_cashtex.skill.br_cash_rune_of_sp_buff_3 br_cashtex.skill.br_cash_rune_of_sp_buff_4 br_cashtex.skill.br_cash_rune_of_sp_buff_5 </table>
+		<set name="blockedInOlympiad" val="true" />
+		<set name="icon" val="#icon" />
 		<set name="magicLvl" val="1" />
 		<set name="operateType" val="P" />
 		<set name="targetType" val="SELF" />

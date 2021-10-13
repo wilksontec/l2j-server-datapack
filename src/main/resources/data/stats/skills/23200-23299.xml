@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <list xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../xsd/skills.xsd">
-	<skill id="23200" levels="1" name="Ball Trapping Penalty Kick Agathion Special Skill - Soccer Ball of Cheers">
-		<!-- Confirmed CT2.5 -->
+	<skill id="23200" levels="1" name="Penalty Kick Agathion Special Skill - Soccer Ball of Cheering">
+		<!-- High Five Confirmed -->
+		<set name="affectScope" val="SINGLE" />
 		<set name="icon" val="icon.skill_agathion_special" />
 		<set name="isMagic" val="2" />
 		<set name="magicLvl" val="1" />
@@ -16,16 +17,25 @@
 			</and>
 		</cond>
 		<cond msgId="2292">
-			<player agathionId="20991" />
+			<and>
+				<player hasAgathion="true" />
+				<player agathionEnergy="500" />
+			</and>
 		</cond>
 		<effects>
+			<effect name="InstantAgathionEnergy">
+				<param energy="-500" />
+				<param type="DIFF" />
+			</effect>
 			<effect name="Restoration">
 				<param itemId="20993" itemCount="1" />
 			</effect>
 		</effects>
 	</skill>
 	<skill id="23201" levels="1" name="Ball Trapping Gnocian Agathion Cute Trick">
-		<set name="hitTime" val="3000" />
+		<!-- High Five Confirmed -->
+		<set name="affectScope" val="SINGLE" />
+		<set name="hitTime" val="7000" />
 		<set name="icon" val="icon.skill_agathion_cute" />
 		<set name="isMagic" val="2" />
 		<set name="magicLvl" val="85" />
@@ -33,11 +43,13 @@
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
 		<cond msgId="2292">
-			<player agathionId="1576" />
+			<player hasAgathion="true" />
 		</cond>
 	</skill>
 	<skill id="23202" levels="1" name="Ball Trapping Orodriel Agathion Cute Trick">
-		<set name="hitTime" val="3000" />
+		<!-- High Five Confirmed -->
+		<set name="affectScope" val="SINGLE" />
+		<set name="hitTime" val="7000" />
 		<set name="icon" val="icon.skill_agathion_cute" />
 		<set name="isMagic" val="2" />
 		<set name="magicLvl" val="85" />
@@ -45,11 +57,13 @@
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
 		<cond msgId="2292">
-			<player agathionId="1577" />
+			<player hasAgathion="true" />
 		</cond>
 	</skill>
 	<skill id="23203" levels="1" name="Penalty Kick Agathion Cute Trick">
-		<set name="hitTime" val="3000" />
+		<!-- High Five Confirmed -->
+		<set name="affectScope" val="SINGLE" />
+		<set name="hitTime" val="7000" />
 		<set name="icon" val="icon.skill_agathion_cute" />
 		<set name="isMagic" val="2" />
 		<set name="magicLvl" val="85" />
@@ -57,11 +71,13 @@
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
 		<cond msgId="2292">
-			<player agathionId="1578" />
+			<player hasAgathion="true" />
 		</cond>
 	</skill>
 	<skill id="23204" levels="1" name="Ball Trapping Gnocian Agathion Cute Trick">
-		<set name="hitTime" val="3000" />
+		<!-- High Five Confirmed -->
+		<set name="affectScope" val="SINGLE" />
+		<set name="hitTime" val="7000" />
 		<set name="icon" val="icon.skill_agathion_cute" />
 		<set name="isMagic" val="2" />
 		<set name="magicLvl" val="85" />
@@ -69,11 +85,13 @@
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
 		<cond msgId="2292">
-			<player agathionId="1579" />
+			<player hasAgathion="true" />
 		</cond>
 	</skill>
 	<skill id="23205" levels="1" name="Ball Trapping Orodriel Agathion Cute Trick">
-		<set name="hitTime" val="3000" />
+		<!-- High Five Confirmed -->
+		<set name="affectScope" val="SINGLE" />
+		<set name="hitTime" val="7000" />
 		<set name="icon" val="icon.skill_agathion_cute" />
 		<set name="isMagic" val="2" />
 		<set name="magicLvl" val="85" />
@@ -81,11 +99,13 @@
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
 		<cond msgId="2292">
-			<player agathionId="1580" />
+			<player hasAgathion="true" />
 		</cond>
 	</skill>
 	<skill id="23206" levels="1" name="Penalty Kick Agathion Cute Trick">
-		<set name="hitTime" val="3000" />
+		<!-- High Five Confirmed -->
+		<set name="affectScope" val="SINGLE" />
+		<set name="hitTime" val="7000" />
 		<set name="icon" val="icon.skill_agathion_cute" />
 		<set name="isMagic" val="2" />
 		<set name="magicLvl" val="85" />
@@ -93,11 +113,13 @@
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
 		<cond msgId="2292">
-			<player agathionId="1581" />
+			<player hasAgathion="true" />
 		</cond>
 	</skill>
 	<skill id="23207" levels="1" name="Ball Trapping Gnocian Agathion Cute Trick">
-		<set name="hitTime" val="3000" />
+		<!-- High Five Confirmed -->
+		<set name="affectScope" val="SINGLE" />
+		<set name="hitTime" val="7000" />
 		<set name="icon" val="icon.skill_agathion_cute" />
 		<set name="isMagic" val="2" />
 		<set name="magicLvl" val="85" />
@@ -105,11 +127,13 @@
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
 		<cond msgId="2292">
-			<player agathionId="1582" />
+			<player hasAgathion="true" />
 		</cond>
 	</skill>
 	<skill id="23208" levels="1" name="Ball Trapping Orodriel Agathion Cute Trick">
-		<set name="hitTime" val="3000" />
+		<!-- High Five Confirmed -->
+		<set name="affectScope" val="SINGLE" />
+		<set name="hitTime" val="7000" />
 		<set name="icon" val="icon.skill_agathion_cute" />
 		<set name="isMagic" val="2" />
 		<set name="magicLvl" val="85" />
@@ -117,11 +141,13 @@
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
 		<cond msgId="2292">
-			<player agathionId="1583" />
+			<player hasAgathion="true" />
 		</cond>
 	</skill>
 	<skill id="23209" levels="1" name="Penalty Kick Agathion Cute Trick">
-		<set name="hitTime" val="3000" />
+		<!-- High Five Confirmed -->
+		<set name="affectScope" val="SINGLE" />
+		<set name="hitTime" val="7000" />
 		<set name="icon" val="icon.skill_agathion_cute" />
 		<set name="isMagic" val="2" />
 		<set name="magicLvl" val="85" />
@@ -129,7 +155,7 @@
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
 		<cond msgId="2292">
-			<player agathionId="1584" />
+			<player hasAgathion="true" />
 		</cond>
 	</skill>
 	<skill id="23210" levels="85" name="Aura Flare">

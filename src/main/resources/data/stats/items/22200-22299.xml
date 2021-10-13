@@ -384,6 +384,8 @@
 		<set name="material" val="PAPER" />
 		<set name="weight" val="500" />
 		<set name="is_stackable" val="true" />
+		<set name="handler" val="ItemSkills" />
+		<set name="item_skill" val="22370-1" />
 	</item>
 	<item id="22233" type="EtcItem" name="Mysterious Blessed Spiritshot Pack (S-Grade) - Event">
 		<!-- Description: Double-click to receive 1,000 rounds of Mysterious Blessed Spiritshot (S-Grade). -->
@@ -391,6 +393,8 @@
 		<set name="material" val="PAPER" />
 		<set name="weight" val="500" />
 		<set name="is_stackable" val="true" />
+		<set name="handler" val="ItemSkills" />
+		<set name="item_skill" val="22371-1" />
 	</item>
 	<item id="22234" type="EtcItem" name="Sweet Chocolate Box">
 		<!-- Description: Dimensional item. Gift box containing 3 Sweet Chocolates and 1 Valentine's Day Love Pouch. Cannot be dropped. Can be stored in a private warehouse. -->

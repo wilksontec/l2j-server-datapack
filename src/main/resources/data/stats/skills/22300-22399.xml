@@ -391,12 +391,49 @@
 		<set name="targetType" val="NONE" />
 	</skill>
 	<skill id="22370" levels="1" name="Mysterious Soulshot Pack (S-Grade)">
-		<set name="operateType" val="P" />
-		<set name="targetType" val="NONE" />
+		<!-- High Five Confirmed -->
+		<set name="affectScope" val="SINGLE" />
+		<set name="isMagic" val="2" />
+		<set name="itemConsumeCount" val="1" />
+		<set name="itemConsumeId" val="22232" />
+		<set name="magicLvl" val="1" />
+		<set name="operateType" val="A1" />
+		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
+		<set name="targetType" val="SELF" />
+		<cond msgId="129">
+			<and>
+				<player invSize="10" />
+				<player weight="90" />
+			</and>
+		</cond>
+		<effects>
+			<effect name="Restoration">
+				<param itemCount="1000" />
+				<param itemId="21850" itemCount="1000" />
+			</effect>
+		</effects>
 	</skill>
 	<skill id="22371" levels="1" name="Mysterious Blessed Spiritshot Pack (S-Grade)">
-		<set name="operateType" val="P" />
-		<set name="targetType" val="NONE" />
+		<!-- High Five Confirmed -->
+		<set name="affectScope" val="SINGLE" />
+		<set name="isMagic" val="2" />
+		<set name="itemConsumeCount" val="1" />
+		<set name="itemConsumeId" val="22233" />
+		<set name="magicLvl" val="1" />
+		<set name="operateType" val="A1" />
+		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
+		<set name="targetType" val="SELF" />
+		<cond msgId="129">
+			<and>
+				<player invSize="10" />
+				<player weight="90" />
+			</and>
+		</cond>
+		<effects>
+			<effect name="Restoration">
+				<param itemId="22231" itemCount="1000" />
+			</effect>
+		</effects>
 	</skill>
 	<skill id="22372" levels="1" name="Meteor">
 		<set name="operateType" val="P" />
