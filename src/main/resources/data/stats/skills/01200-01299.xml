@@ -795,22 +795,25 @@
 		</enchant1Effects>
 	</skill>
 	<skill id="1228" levels="18" name="Summon Silhouette" enchantGroup1="1">
-		<table name="#hitTime"> 15000 15000 15000 15000 6000 6000 6000 6000 6000 6000 6000 6000 6000 6000 6000 6000 6000 6000 </table> <!-- H5 hitTime -->
+		<!-- High Five Confirmed -->
+		<table name="#hitTime"> 15000 15000 15000 15000 6000 6000 6000 6000 6000 6000 6000 6000 6000 6000 6000 6000 6000 6000 </table>
 		<table name="#magicLvl"> 20 25 30 35 40 44 48 52 56 58 60 62 64 66 68 70 72 74 </table>
-		<table name="#mpConsume2"> 31 35 42 48 56 62 69 75 82 85 88 92 95 98 101 104 106 109 </table>
 		<table name="#mpConsume1"> 8 9 11 12 14 16 18 19 21 22 22 23 24 25 26 26 27 28 </table>
+		<table name="#mpConsume2"> 31 35 42 48 56 62 69 75 82 85 88 92 95 98 101 104 106 109 </table>
 		<table name="#npcIds"> 14527 14528 14529 14530 14531 14532 14533 14534 14535 14536 14537 14538 14539 14540 14541 14542 14543 14544 </table>
 		<table name="#reuseDelay"> 5400000 5400000 5400000 5400000 5000 5000 5000 5000 5000 5000 5000 5000 5000 5000 5000 5000 5000 5000 </table>
 		<table name="#summonLifeTime"> 1200 1200 1200 1200 3600 3600 3600 3600 3600 3600 3600 3600 3600 3600 3600 3600 3600 3600 </table>
-		<table name="#enchNpcId"> 14545 14546 14547 14548 14549 14550 14551 14552 14553 14554 14555 14556 14557 14558 14559 14560 14561 14562 14563 14564 14565 14566 14567 14568 14569 14570 14571 14572 14573 14574 </table>
+		<table name="#ench1NpcId"> 14545 14546 14547 14548 14549 14550 14551 14552 14553 14554 14555 14556 14557 14558 14559 14560 14561 14562 14563 14564 14565 14566 14567 14568 14569 14570 14571 14572 14573 14574 </table>
+		<set name="affectScope" val="SINGLE" />
+		<set name="hitCancelTime" val="500" />
 		<set name="hitTime" val="#hitTime" />
 		<set name="icon" val="icon.skill1228" />
 		<set name="isMagic" val="1" />
 		<set name="itemConsumeCount" val="1" />
-		<set name="itemConsumeId" val="3031" /> <!-- Spirit Ore -->
+		<set name="itemConsumeId" val="3031" />
 		<set name="magicLvl" val="#magicLvl" />
-		<set name="mpConsume2" val="#mpConsume2" />
 		<set name="mpConsume1" val="#mpConsume1" />
+		<set name="mpConsume2" val="#mpConsume2" />
 		<set name="operateType" val="A1" />
 		<set name="reuseDelay" val="#reuseDelay" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
@@ -827,7 +830,7 @@
 		</effects>
 		<enchant1Effects>
 			<effect name="Summon">
-				<param npcId="#enchNpcId" />
+				<param npcId="#ench1NpcId" />
 				<param lifeTime="3600" />
 				<param expMultiplier="0.1" />
 			</effect>

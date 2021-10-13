@@ -394,40 +394,46 @@
 		</enchant1Effects>
 	</skill>
 	<skill id="1128" levels="18" name="Summon Shadow" enchantGroup1="1">
-		<table name="#mpConsume2"> 31 35 42 48 56 62 69 75 82 85 88 92 95 98 101 104 106 109 </table>
-		<table name="#mpConsume1"> 8 9 11 12 14 16 18 19 21 22 22 23 24 25 26 26 27 28 </table>
-		<table name="#reuseDelay"> 5400000 5400000 5400000 5400000 5000 5000 5000 5000 5000 5000 5000 5000 5000 5000 5000 5000 5000 5000 </table>
-		<table name="#enchNpcId"> 14497 14498 14499 14500 14501 14502 14503 14504 14505 14506 14507 14508 14509 14510 14511 14512 14513 14514 14515 14516 14517 14518 14519 14520 14521 14522 14523 14524 14525 14526 </table>
-		<set name="icon" val="icon.skill1128" />
-		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
-		<!-- H5 hitTime -->
+		<!-- High Five Confirmed -->
+		<table name="#consumeItemCount"> 0 0 0 0 0 1 1 1 1 1 1 1 2 2 2 2 2 2 </table>
 		<table name="#hitTime"> 15000 15000 15000 15000 6000 6000 6000 6000 6000 6000 6000 6000 6000 6000 6000 6000 6000 6000 </table>
 		<table name="#itemConsumeCount"> 1 1 2 2 7 1 1 4 5 6 11 12 2 3 4 4 9 10 </table>
-		<table name="#itemConsumeCountOT"> 0 0 0 0 0 1 1 1 1 1 1 1 2 2 2 2 2 2 </table>
 		<table name="#npcIds"> 14479 14480 14481 14482 14483 14484 14485 14486 14487 14488 14489 14490 14491 14492 14493 14494 14495 14496 </table>
 		<table name="#summonLifeTime"> 1200 1200 1200 1200 3600 3600 3600 3600 3600 3600 3600 3600 3600 3600 3600 3600 3600 3600 </table>
+		<table name="#magicLvl"> 20 25 30 35 40 44 48 52 56 58 60 62 64 66 68 70 72 74 </table>
+		<table name="#mpConsume1"> 8 9 11 12 14 16 18 19 21 22 22 23 24 25 26 26 27 28 </table>
+		<table name="#mpConsume2"> 31 35 42 48 56 62 69 75 82 85 88 92 95 98 101 104 106 109 </table>
+		<table name="#reuseDelay"> 5400000 5400000 5400000 5400000 5000 5000 5000 5000 5000 5000 5000 5000 5000 5000 5000 5000 5000 5000 </table>
+		<table name="#ench1MagicLvl"> 76 76 76 77 77 77 78 78 78 79 79 79 80 80 80 81 81 81 82 82 82 83 83 83 84 84 84 85 85 85 </table>
+		<table name="#ench1NpcId"> 14497 14498 14499 14500 14501 14502 14503 14504 14505 14506 14507 14508 14509 14510 14511 14512 14513 14514 14515 14516 14517 14518 14519 14520 14521 14522 14523 14524 14525 14526 </table>
+		<set name="affectScope" val="SINGLE" />
+		<set name="hitCancelTime" val="500" />
 		<set name="hitTime" val="#hitTime" />
+		<set name="icon" val="icon.skill1128" />
 		<set name="isMagic" val="1" />
 		<set name="itemConsumeCount" val="#itemConsumeCount" />
 		<set name="itemConsumeId" val="3031" />
-		<set name="mpConsume2" val="#mpConsume2" />
+		<set name="magicLvl" val="#magicLvl" />
 		<set name="mpConsume1" val="#mpConsume1" />
+		<set name="mpConsume2" val="#mpConsume2" />
 		<set name="operateType" val="A1" />
 		<set name="reuseDelay" val="#reuseDelay" />
+		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
+		<enchant1 name="magicLvl" val="#ench1MagicLvl" />
 		<cond>
 			<player canSummon="true" />
 		</cond>
 		<effects>
 			<effect name="Summon">
 				<param npcId="#npcIds" />
-				<param consumeItemId="3031" consumeItemCount="#itemConsumeCountOT" />
+				<param consumeItemId="3031" consumeItemCount="#consumeItemCount" />
 				<param lifeTime="#summonLifeTime" />
 			</effect>
 		</effects>
 		<enchant1Effects>
 			<effect name="Summon">
-				<param npcId="#enchNpcId" />
+				<param npcId="#ench1NpcId" />
 				<param consumeItemId="3031" consumeItemCount="2" />
 				<param lifeTime="3600" />
 			</effect>
