@@ -587,6 +587,7 @@
 					<xs:enumeration value="InstantDispelByName" />
 					<xs:enumeration value="InstantDispelBySlotMyself" />
 					<xs:enumeration value="InstantHpByLevelSelf" />
+					<xs:enumeration value="InstantMagicalAttackOverHit" />
 					<xs:enumeration value="InstantMpByLevelSelf" />
 					<xs:enumeration value="Lethal" />
 					<xs:enumeration value="Lucky" />

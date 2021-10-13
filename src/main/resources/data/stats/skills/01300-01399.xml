@@ -1279,67 +1279,87 @@
 		</enchant1Effects>
 	</skill>
 	<skill id="1341" levels="1" name="Wind Vortex" enchantGroup1="6" enchantGroup2="6" enchantGroup3="6" enchantGroup4="6">
-		<table name="#ench1Power"> 147 147 148 148 148 149 149 149 150 150 151 151 151 152 152 </table>
-		<table name="#ench2MpConsume2"> 81 78 74 72 70 66 64 61 58 56 53 50 46 44 42 </table>
-		<table name="#ench2MpConsume1"> 20 19 19 18 17 17 16 15 14 14 13 12 12 11 10 </table>
-		<table name="#ench3ActivateRates"> 82 83 84 86 87 88 90 91 92 94 95 96 97 99 100 </table>
-		<table name="#ench4AttributePower"> 22 24 26 28 30 32 34 36 38 40 42 44 46 48 50 </table>
+		<!-- High Five Confirmed -->
 		<table name="#enchMagicLvl"> 81 81 81 82 82 82 83 83 83 84 84 84 85 85 85 </table>
+		<table name="#ench1InstantMagicalAttackOverHitPower"> 147 147 148 148 148 149 149 149 150 150 151 151 151 152 152 </table>
+		<table name="#ench2MpConsume1"> 20 19 18 18 17 16 16 15 14 14 13 12 11 11 10 </table>
+		<table name="#ench2MpConsume2"> 81 78 75 72 70 67 64 61 58 56 53 50 47 44 42 </table>
+		<table name="#ench3ActivateRate"> 82 83 84 86 87 88 90 91 92 94 95 96 97 99 100 </table>
+		<table name="#ench4AttributePower"> 22 24 26 28 30 32 34 36 38 40 42 44 46 48 50 </table>
 		<set name="abnormalLvl" val="1" />
 		<set name="abnormalTime" val="30" />
 		<set name="abnormalType" val="MULTI_DEBUFF_WIND" />
 		<set name="activateRate" val="80" />
+		<set name="affectScope" val="SINGLE" />
+		<set name="attributePower" val="20" />
+		<set name="attributeType" val="WIND" />
 		<set name="basicProperty" val="MEN" />
 		<set name="castRange" val="900" />
 		<set name="effectPoint" val="-999" />
 		<set name="effectRange" val="1400" />
-		<set name="attributeType" val="WIND" />
-		<set name="attributePower" val="20" />
+		<set name="hitCancelTime" val="500" />
 		<set name="hitTime" val="6000" />
 		<set name="icon" val="icon.skill1341" />
 		<set name="isDebuff" val="true" />
 		<set name="isMagic" val="1" />
 		<set name="lvlBonusRate" val="2" />
 		<set name="magicLvl" val="77" />
-		<set name="mpConsume2" val="84" />
 		<set name="mpConsume1" val="21" />
+		<set name="mpConsume2" val="84" />
 		<set name="operateType" val="A2" />
-		<set name="overHit" val="true" />
 		<set name="reuseDelay" val="15000" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
-		<set name="targetType" val="ONE" />
+		<set name="targetType" val="ENEMY" />
 		<enchant1 name="magicLvl" val="#enchMagicLvl" />
 		<enchant2 name="magicLvl" val="#enchMagicLvl" />
-		<enchant2 name="mpConsume2" val="#ench2MpConsume2" />
 		<enchant2 name="mpConsume1" val="#ench2MpConsume1" />
-		<enchant3 name="activateRate" val="#ench3ActivateRates" />
+		<enchant2 name="mpConsume2" val="#ench2MpConsume2" />
+		<enchant3 name="activateRate" val="#ench3ActivateRate" />
 		<enchant3 name="magicLvl" val="#enchMagicLvl" />
 		<enchant4 name="attributePower" val="#ench4AttributePower" />
 		<enchant4 name="magicLvl" val="#enchMagicLvl" />
 		<effects>
-			<effect name="MagicalAttack">
+			<effect name="InstantMagicalAttackOverHit">
 				<param power="140" />
+			</effect>
+			<effect name="Debuff">
+				<mul stat="pAtkSpd" val="0.9" />
+			</effect>
+			<effect name="Debuff">
+				<sub stat="windRes" val="20" />
+			</effect>
+			<effect name="Debuff">
+				<mul stat="mAtkSpd" val="0.7" />
+			</effect>
+			<effect name="Debuff">
+				<mul stat="runSpd" val="0.9" />
 			</effect>
 			<effect name="TickMp">
 				<param power="-12" />
 				<param ticks="5" />
-				<mul stat="runSpd" val="0.9" />
-				<mul stat="pAtkSpd" val="0.9" />
-				<mul stat="mAtkSpd" val="0.7" />
-				<sub stat="windRes" val="20" />
+				<param mode="DIFF" />
 			</effect>
 		</effects>
 		<enchant1Effects>
-			<effect name="MagicalAttack">
-				<param power="#ench1Power" />
+			<effect name="InstantMagicalAttackOverHit">
+				<param power="#ench1InstantMagicalAttackOverHitPower" />
+			</effect>
+			<effect name="Debuff">
+				<mul stat="pAtkSpd" val="0.9" />
+			</effect>
+			<effect name="Debuff">
+				<sub stat="windRes" val="20" />
+			</effect>
+			<effect name="Debuff">
+				<mul stat="mAtkSpd" val="0.7" />
+			</effect>
+			<effect name="Debuff">
+				<mul stat="runSpd" val="0.9" />
 			</effect>
 			<effect name="TickMp">
 				<param power="-12" />
 				<param ticks="5" />
-				<mul stat="runSpd" val="0.9" />
-				<mul stat="pAtkSpd" val="0.9" />
-				<mul stat="mAtkSpd" val="0.7" />
-				<sub stat="windRes" val="20" />
+				<param mode="DIFF" />
 			</effect>
 		</enchant1Effects>
 	</skill>
@@ -1404,66 +1424,86 @@
 		</enchant1Effects>
 	</skill>
 	<skill id="1343" levels="1" name="Dark Vortex" enchantGroup1="6" enchantGroup2="6" enchantGroup3="6" enchantGroup4="6">
-		<table name="#ench1Power"> 147 147 148 148 148 149 149 149 150 150 151 151 151 152 152 </table>
-		<table name="#ench2MpConsume2"> 81 78 74 72 70 66 64 61 58 56 53 50 46 44 42 </table>
-		<table name="#ench2MpConsume1"> 20 19 19 18 17 17 16 15 14 14 13 12 12 11 10 </table>
-		<table name="#ench3ActivateRates"> 82 83 84 86 87 88 90 91 92 94 95 96 97 99 100 </table>
-		<table name="#ench4AttributePower"> 22 24 26 28 30 32 34 36 38 40 42 44 46 48 50 </table>
+		<!-- High Five Confirmed -->
 		<table name="#enchMagicLvl"> 81 81 81 82 82 82 83 83 83 84 84 84 85 85 85 </table>
+		<table name="#ench1HpDrainPower"> 147 147 148 148 148 149 149 149 150 150 151 151 151 152 152 </table>
+		<table name="#ench2MpConsume1"> 20 19 18 18 17 16 16 15 14 14 13 12 11 11 10 </table>
+		<table name="#ench2MpConsume2"> 81 78 75 72 70 67 64 61 58 56 53 50 47 44 42 </table>
+		<table name="#ench3ActivateRate"> 82 83 84 86 87 88 90 91 92 94 95 96 97 99 100 </table>
+		<table name="#ench3TickMpPower"> -12 -12 -11 -11 -11 -11 -11 -11 -11 -10 -10 -10 -10 -10 -10 </table>
+		<table name="#ench4AttributePower"> 22 24 26 28 30 32 34 36 38 40 42 44 46 48 50 </table>
 		<set name="abnormalLvl" val="1" />
 		<set name="abnormalTime" val="30" />
 		<set name="abnormalType" val="MULTI_DEBUFF_UNHOLY" />
 		<set name="activateRate" val="80" />
+		<set name="affectScope" val="SINGLE" />
+		<set name="attributePower" val="20" />
+		<set name="attributeType" val="UNHOLY" />
 		<set name="basicProperty" val="MEN" />
 		<set name="castRange" val="900" />
 		<set name="effectPoint" val="-993" />
 		<set name="effectRange" val="1400" />
-		<set name="attributeType" val="UNHOLY" />
-		<set name="attributePower" val="20" />
+		<set name="hitCancelTime" val="500" />
 		<set name="hitTime" val="6000" />
 		<set name="icon" val="icon.skill1343" />
 		<set name="isDebuff" val="true" />
 		<set name="isMagic" val="1" />
 		<set name="lvlBonusRate" val="2" />
 		<set name="magicLvl" val="76" />
-		<set name="mpConsume2" val="84" />
 		<set name="mpConsume1" val="21" />
+		<set name="mpConsume2" val="84" />
 		<set name="operateType" val="A2" />
 		<set name="reuseDelay" val="15000" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
-		<set name="targetType" val="ONE" />
+		<set name="targetType" val="ENEMY" />
 		<enchant1 name="magicLvl" val="#enchMagicLvl" />
 		<enchant2 name="magicLvl" val="#enchMagicLvl" />
-		<enchant2 name="mpConsume2" val="#ench2MpConsume2" />
 		<enchant2 name="mpConsume1" val="#ench2MpConsume1" />
-		<enchant3 name="activateRate" val="#ench3ActivateRates" />
+		<enchant2 name="mpConsume2" val="#ench2MpConsume2" />
+		<enchant3 name="activateRate" val="#ench3ActivateRate" />
 		<enchant3 name="magicLvl" val="#enchMagicLvl" />
 		<enchant4 name="attributePower" val="#ench4AttributePower" />
 		<enchant4 name="magicLvl" val="#enchMagicLvl" />
 		<effects>
 			<effect name="HpDrain">
 				<param power="139" />
-				<param drain="0.2" />
+				<param drain="0.25" />
+			</effect>
+			<effect name="Debuff">
+				<sub stat="darkRes" val="30" />
 			</effect>
 			<effect name="TickMp">
 				<param power="-12" />
 				<param ticks="5" />
-				<sub stat="accCombat" val="6" />
-				<sub stat="darkRes" val="30" />
+				<param mode="DIFF" />
 			</effect>
 		</effects>
 		<enchant1Effects>
 			<effect name="HpDrain">
-				<param power="#ench1Power" />
-				<param drain="0.2" />
+				<param power="#ench1HpDrainPower" />
+				<param drain="0.25" />
 			</effect>
-			<effect name="TickMp">
-				<param power="-12" />
-				<param ticks="5" />
-				<sub stat="accCombat" val="6" />
+			<effect name="Debuff">
 				<sub stat="darkRes" val="30" />
 			</effect>
+			<effect name="TickMp">
+				<param power="-13" />
+				<param ticks="5" />
+			</effect>
 		</enchant1Effects>
+		<enchant3Effects>
+			<effect name="HpDrain">
+				<param power="139" />
+				<param drain="0.25" />
+			</effect>
+			<effect name="Debuff">
+				<sub stat="darkRes" val="30" />
+			</effect>
+			<effect name="TickMp">
+				<param power="#ench3TickMpPower" />
+				<param ticks="5" />
+			</effect>
+		</enchant3Effects>
 	</skill>
 	<skill id="1344" levels="1" name="Mass Warrior Bane">
 		<!-- High Five Confirmed -->
