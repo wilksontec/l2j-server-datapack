@@ -919,26 +919,28 @@
 		</enchant1Effects>
 	</skill>
 	<skill id="1333" levels="10" name="Summon Nightshade" enchantGroup1="1">
+		<!-- High Five Confirmed -->
 		<table name="#itemConsumeCount"> 1 1 2 2 4 1 1 4 1 2 </table>
 		<table name="#itemConsumeCountOT"> 2 2 2 2 2 4 4 4 6 6 </table>
 		<table name="#magicLvl"> 56 58 60 62 64 66 68 70 72 74 </table>
-		<table name="#mpConsume2"> 56 62 69 75 82 85 88 92 95 98 </table>
 		<table name="#mpConsume1"> 14 16 18 19 21 22 22 23 24 25 </table>
+		<table name="#mpConsume2"> 56 62 69 75 82 85 88 92 95 98 </table>
 		<table name="#npcIds"> 14619 14620 14621 14622 14623 14624 14625 14626 14627 14628 </table>
 		<table name="#enchNpcId"> 14633 14634 14635 14636 14637 14638 14639 14640 14641 14642 14643 14644 14645 14646 14647 14648 14649 14650 14651 14652 14653 14654 14655 14656 14657 14658 14659 14660 14661 14662 </table>
+		<set name="affectScope" val="SINGLE" />
+		<set name="hitCancelTime" val="500" />
+		<set name="hitTime" val="6000" />
 		<set name="icon" val="icon.skill1333" />
+		<set name="isMagic" val="1" />
 		<set name="itemConsumeCount" val="#itemConsumeCount" />
 		<set name="itemConsumeId" val="3031" />
 		<set name="magicLvl" val="#magicLvl" />
-		<set name="mpConsume2" val="#mpConsume2" />
 		<set name="mpConsume1" val="#mpConsume1" />
+		<set name="mpConsume2" val="#mpConsume2" />
+		<set name="operateType" val="A1" />
 		<set name="reuseDelay" val="5000" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
-		<!-- H5 hitTime -->
-		<set name="hitTime" val="6000" />
-		<set name="isMagic" val="1" />
-		<set name="operateType" val="A1" />
 		<cond>
 			<player canSummon="true" />
 		</cond>

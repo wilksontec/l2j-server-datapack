@@ -3062,26 +3062,30 @@
 		</enchant1Effects>
 	</skill>
 	<skill id="1278" levels="14" name="Summon Soulless" enchantGroup1="1">
+		<!-- High Five Confirmed -->
 		<table name="#itemConsumeCount"> 1 1 1 2 2 2 1 1 2 2 1 1 2 2 </table>
 		<table name="#itemConsumeCountOT"> 2 2 2 2 2 2 4 4 4 4 6 6 6 6 </table>
 		<table name="#magicLvl"> 40 44 48 52 56 58 60 62 64 66 68 70 72 74 </table>
-		<table name="#mpConsume2"> 56 62 69 75 82 85 88 92 95 98 101 104 106 109 </table>
 		<table name="#mpConsume1"> 14 16 18 19 21 22 22 23 24 25 26 26 27 28 </table>
+		<table name="#mpConsume2"> 56 62 69 75 82 85 88 92 95 98 101 104 106 109 </table>
 		<table name="#npcIds"> 14575 14576 14577 14578 14579 14580 14581 14582 14583 14584 14585 14586 14587 14588 </table>
-		<table name="#enchNpcId"> 14589 14590 14591 14592 14593 14594 14595 14596 14597 14598 14599 14600 14601 14602 14603 14604 14605 14606 14607 14608 14609 14610 14611 14612 14613 14614 14615 14616 14617 14618 </table>
+		<table name="#ench1MagicLvl"> 76 76 76 77 77 77 78 78 78 79 79 79 80 80 80 81 81 81 82 82 82 83 83 83 84 84 84 85 85 85 </table>
+		<table name="#ench1NpcId"> 14589 14590 14591 14592 14593 14594 14595 14596 14597 14598 14599 14600 14601 14602 14603 14604 14605 14606 14607 14608 14609 14610 14611 14612 14613 14614 14615 14616 14617 14618 </table>
+		<set name="affectScope" val="SINGLE" />
+		<set name="hitCancelTime" val="500" />
+		<set name="hitTime" val="6000" />
 		<set name="icon" val="icon.skill1278" />
+		<set name="isMagic" val="1" />
 		<set name="itemConsumeCount" val="#itemConsumeCount" />
 		<set name="itemConsumeId" val="3031" />
 		<set name="magicLvl" val="#magicLvl" />
-		<set name="mpConsume2" val="#mpConsume2" />
 		<set name="mpConsume1" val="#mpConsume1" />
+		<set name="mpConsume2" val="#mpConsume2" />
+		<set name="operateType" val="A1" />
 		<set name="reuseDelay" val="5000" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
-		<!-- H5 hitTime -->
-		<set name="hitTime" val="6000" />
-		<set name="isMagic" val="1" />
-		<set name="operateType" val="A1" />
+		<enchant1 name="magicLvl" val="#ench1MagicLvl" />
 		<cond>
 			<player canSummon="true" />
 		</cond>
@@ -3094,7 +3098,7 @@
 		</effects>
 		<enchant1Effects>
 			<effect name="Summon">
-				<param npcId="#enchNpcId" />
+				<param npcId="#ench1NpcId" />
 				<param consumeItemId="3031" consumeItemCount="6" />
 				<param lifeTime="3600" />
 			</effect>
@@ -3167,27 +3171,29 @@
 		</enchant1Effects>
 	</skill>
 	<skill id="1281" levels="9" name="Summon Spark Cubic" enchantGroup1="2">
-		<!-- Confirmed CT2.5 -->
+		<!-- High Five Confirmed -->
 		<table name="#cubicPower"> 282 377 497 644 820 1026 1264 1530 1822 </table>
 		<table name="#itemConsumeCount"> 4 5 6 7 7 7 9 10 11 </table>
 		<table name="#magicLvl"> 40 44 48 52 56 60 64 68 72 </table>
-		<table name="#mpConsume2"> 28 31 35 38 41 44 48 51 53 </table>
 		<table name="#mpConsume1"> 7 8 9 10 11 11 12 13 14 </table>
-		<table name="#ench1Power"> 1919 1967 2015 2061 2151 2194 2235 2275 2275 2275 2275 2275 2275 2275 2275 2275 2275 2275 2275 2275 2275 2275 2275 2275 2275 2275 2275 2275 2275 2275 </table>
-		<table name="#enchMagicLvl"> 76 76 76 77 77 77 78 78 78 79 79 79 80 80 80 81 81 81 82 82 82 83 83 83 84 84 84 85 85 85 </table>
+		<table name="#mpConsume2"> 28 31 35 38 41 44 48 51 53 </table>
+		<table name="#ench1MagicLvl"> 76 76 76 77 77 77 78 78 78 79 79 79 80 80 80 81 81 81 82 82 82 83 83 83 84 84 84 85 85 85 </table>
+		<table name="#ench1CubicPower"> 1919 1919 1919 1919 1967 1967 1967 1967 2015 2015 2015 2015 2061 2061 2061 2061 2061 2151 2151 2151 2151 2194 2194 2194 2194 2235 2235 2235 2235 2275 </table>
+		<set name="affectScope" val="SINGLE" />
+		<set name="hitCancelTime" val="500" />
 		<set name="hitTime" val="6000" />
 		<set name="icon" val="icon.skill1281" />
 		<set name="isMagic" val="1" />
 		<set name="itemConsumeCount" val="#itemConsumeCount" />
 		<set name="itemConsumeId" val="3031" />
 		<set name="magicLvl" val="#magicLvl" />
-		<set name="mpConsume2" val="#mpConsume2" />
 		<set name="mpConsume1" val="#mpConsume1" />
+		<set name="mpConsume2" val="#mpConsume2" />
 		<set name="operateType" val="A1" />
 		<set name="reuseDelay" val="5000" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
-		<enchant1 name="magicLvl" val="#enchMagicLvl" />
+		<enchant1 name="magicLvl" val="#ench1MagicLvl" />
 		<effects>
 			<effect name="SummonCubic">
 				<param cubicId="8" cubicDelay="30" cubicDuration="900" cubicMaxCount="10" cubicSkillChance="12" cubicPower="#cubicPower" />
@@ -3195,7 +3201,7 @@
 		</effects>
 		<enchant1Effects>
 			<effect name="SummonCubic">
-				<param cubicId="8" cubicDelay="30" cubicDuration="900" cubicMaxCount="10" cubicSkillChance="12" cubicPower="#ench1Power" />
+				<param cubicId="8" cubicDelay="30" cubicDuration="900" cubicMaxCount="10" cubicSkillChance="12" cubicPower="#ench1CubicPower" />
 			</effect>
 		</enchant1Effects>
 	</skill>

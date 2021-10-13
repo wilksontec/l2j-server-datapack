@@ -2474,15 +2474,18 @@
 		</effects>
 	</skill>
 	<skill id="779" levels="1" name="Summon Smart Cubic">
+		<!-- High Five Confirmed -->
 		<!-- Eva Templar's Smart Cubic -->
+		<set name="affectScope" val="SINGLE" />
+		<set name="hitCancelTime" val="500" />
 		<set name="hitTime" val="6000" />
 		<set name="icon" val="icon.skill0779" />
 		<set name="isMagic" val="1" />
 		<set name="itemConsumeCount" val="38" />
-		<set name="itemConsumeId" val="3031" /> <!-- Spirit Ore -->
+		<set name="itemConsumeId" val="3031" />
 		<set name="magicLvl" val="80" />
-		<set name="mpConsume2" val="59" />
-		<set name="mpConsume1" val="14" />
+		<set name="mpConsume1" val="15" />
+		<set name="mpConsume2" val="58" />
 		<set name="operateType" val="A1" />
 		<set name="reuseDelay" val="5000" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
@@ -2490,20 +2493,23 @@
 		<effects>
 			<effect name="SummonCubic">
 				<param cubicId="10" cubicDelay="10" cubicDuration="900" cubicMaxCount="50" cubicSkillChance="30" cubicPower="2106" />
-				<param cubicSkill1Chance="33" cubicSkill2Chance="33" cubicSkill3Chance="33" />
+				<param cubicSkill1Chance="25" cubicSkill2Chance="25" cubicSkill3Chance="50" />
 			</effect>
 		</effects>
 	</skill>
 	<skill id="780" levels="1" name="Summon Smart Cubic">
+		<!-- High Five Confirmed -->
 		<!-- Shillien Templar's Smart Cubic -->
+		<set name="affectScope" val="SINGLE" />
+		<set name="hitCancelTime" val="500" />
 		<set name="hitTime" val="6000" />
 		<set name="icon" val="icon.skill0779" />
 		<set name="isMagic" val="1" />
 		<set name="itemConsumeCount" val="38" />
-		<set name="itemConsumeId" val="3031" /> <!-- Spirit Ore -->
+		<set name="itemConsumeId" val="3031" />
 		<set name="magicLvl" val="80" />
-		<set name="mpConsume2" val="59" />
-		<set name="mpConsume1" val="14" />
+		<set name="mpConsume1" val="15" />
+		<set name="mpConsume2" val="58" />
 		<set name="operateType" val="A1" />
 		<set name="reuseDelay" val="5000" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
@@ -2511,20 +2517,23 @@
 		<effects>
 			<effect name="SummonCubic">
 				<param cubicId="11" cubicDelay="10" cubicDuration="900" cubicMaxCount="50" cubicSkillChance="30" cubicPower="2106" />
-				<param cubicSkill1Chance="33" cubicSkill2Chance="33" cubicSkill3Chance="33" />
+				<param cubicSkill1Chance="40" cubicSkill2Chance="15" cubicSkill3Chance="45" />
 			</effect>
 		</effects>
 	</skill>
 	<skill id="781" levels="1" name="Summon Smart Cubic">
+		<!-- High Five Confirmed -->
 		<!-- Arcana Lord's Smart Cubic -->
+		<set name="affectScope" val="SINGLE" />
+		<set name="hitCancelTime" val="500" />
 		<set name="hitTime" val="6000" />
 		<set name="icon" val="icon.skill0779" />
 		<set name="isMagic" val="1" />
 		<set name="itemConsumeCount" val="38" />
-		<set name="itemConsumeId" val="3031" /> <!-- Spirit Ore -->
+		<set name="itemConsumeId" val="3031" />
 		<set name="magicLvl" val="80" />
-		<set name="mpConsume2" val="59" />
-		<set name="mpConsume1" val="14" />
+		<set name="mpConsume1" val="15" />
+		<set name="mpConsume2" val="58" />
 		<set name="operateType" val="A1" />
 		<set name="reuseDelay" val="5000" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
@@ -2532,20 +2541,23 @@
 		<effects>
 			<effect name="SummonCubic">
 				<param cubicId="12" cubicDelay="10" cubicDuration="900" cubicMaxCount="50" cubicSkillChance="30" cubicPower="2106" />
-				<param cubicSkill1Chance="33" cubicSkill2Chance="33" cubicSkill3Chance="33" />
+				<param cubicSkill1Chance="20" cubicSkill2Chance="30" cubicSkill3Chance="50" />
 			</effect>
 		</effects>
 	</skill>
 	<skill id="782" levels="1" name="Summon Smart Cubic">
+		<!-- High Five Confirmed -->
 		<!-- Elemental Master's Smart Cubic -->
+		<set name="affectScope" val="SINGLE" />
+		<set name="hitCancelTime" val="500" />
 		<set name="hitTime" val="6000" />
 		<set name="icon" val="icon.skill0779" />
 		<set name="isMagic" val="1" />
 		<set name="itemConsumeCount" val="38" />
-		<set name="itemConsumeId" val="3031" /> <!-- Spirit Ore -->
+		<set name="itemConsumeId" val="3031" />
 		<set name="magicLvl" val="80" />
-		<set name="mpConsume2" val="59" />
-		<set name="mpConsume1" val="14" />
+		<set name="mpConsume1" val="15" />
+		<set name="mpConsume2" val="58" />
 		<set name="operateType" val="A1" />
 		<set name="reuseDelay" val="5000" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
@@ -2553,20 +2565,23 @@
 		<effects>
 			<effect name="SummonCubic">
 				<param cubicId="13" cubicDelay="10" cubicDuration="900" cubicMaxCount="50" cubicSkillChance="30" cubicPower="2106" />
-				<param cubicSkill1Chance="33" cubicSkill2Chance="33" cubicSkill3Chance="33" />
+				<param cubicSkill1Chance="25" cubicSkill2Chance="25" cubicSkill3Chance="50" />
 			</effect>
 		</effects>
 	</skill>
 	<skill id="783" levels="1" name="Summon Smart Cubic">
+		<!-- High Five Confirmed -->
 		<!-- Spectral Master's Smart Cubic -->
+		<set name="affectScope" val="SINGLE" />
+		<set name="hitCancelTime" val="500" />
 		<set name="hitTime" val="6000" />
 		<set name="icon" val="icon.skill0779" />
 		<set name="isMagic" val="1" />
 		<set name="itemConsumeCount" val="38" />
-		<set name="itemConsumeId" val="3031" /> <!-- Spirit Ore -->
+		<set name="itemConsumeId" val="3031" />
 		<set name="magicLvl" val="80" />
-		<set name="mpConsume2" val="59" />
-		<set name="mpConsume1" val="14" />
+		<set name="mpConsume1" val="15" />
+		<set name="mpConsume2" val="58" />
 		<set name="operateType" val="A1" />
 		<set name="reuseDelay" val="5000" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
@@ -2574,22 +2589,24 @@
 		<effects>
 			<effect name="SummonCubic">
 				<param cubicId="14" cubicDelay="10" cubicDuration="900" cubicMaxCount="50" cubicSkillChance="30" cubicPower="2106" />
-				<param cubicSkill1Chance="33" cubicSkill2Chance="33" cubicSkill3Chance="33" />
+				<param cubicSkill1Chance="30" cubicSkill2Chance="20" cubicSkill3Chance="50" />
 			</effect>
 		</effects>
 	</skill>
 	<skill id="784" levels="1" name="Spirit of Phoenix">
-		<!-- Confirmed CT2.5 and Updated to H5 -->
+		<!-- High Five Confirmed -->
 		<set name="abnormalLvl" val="1" />
 		<set name="abnormalTime" val="60" />
 		<set name="abnormalType" val="SEED_OF_KNIGHT" />
+		<set name="affectScope" val="SINGLE" />
 		<set name="effectPoint" val="138" />
+		<set name="hitCancelTime" val="500" />
 		<set name="hitTime" val="2500" />
 		<set name="icon" val="icon.skill0784" />
 		<set name="isMagic" val="1" />
-		<set name="magicLvl" val="83" />
-		<set name="mpConsume2" val="29" />
+		<set name="magicLvl" val="81" />
 		<set name="mpConsume1" val="8" />
+		<set name="mpConsume2" val="29" />
 		<set name="operateType" val="A2" />
 		<set name="reuseDelay" val="15000" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
@@ -2599,8 +2616,10 @@
 				<param attackerType="L2Character" minAttackerLevel="1" maxAttackerLevel="99" />
 				<param minDamage="1" />
 				<param chance="20" />
-				<param skillId="5562" skillLevel="1" /> <!-- Spirit of Phoenix -->
+				<param skillId="5562" skillLevel="1" />
 				<param targetType="SELF" />
+			</effect>
+			<effect name="Buff">
 				<add stat="pDef" val="200" />
 			</effect>
 		</effects>

@@ -342,24 +342,25 @@
 		</enchant1Effects>
 	</skill>
 	<skill id="1408" levels="1" name="Summon Spectral Lord" enchantGroup1="5">
-		<!-- Confirmed CT2.5 and Updated to H5 -->
-		<table name="#ench1npcId"> 14901 14902 14903 14904 14905 14906 14907 14908 14909 14910 14911 14912 14913 14914 14915 </table>
-		<table name="#enchMagicLvl"> 81 81 81 82 82 82 83 83 83 84 84 84 85 85 85 </table>
+		<!-- High Five Confirmed -->
+		<table name="#ench1MagicLvl"> 81 81 81 82 82 82 83 83 83 84 84 84 85 85 85 </table>
+		<table name="#ench1NpcId"> 14901 14902 14903 14904 14905 14906 14907 14908 14909 14910 14911 14912 14913 14914 14915 </table>
+		<set name="affectScope" val="SINGLE" />
+		<set name="hitCancelTime" val="500" />
 		<set name="hitTime" val="6000" />
 		<set name="icon" val="icon.skill1408" />
 		<set name="isMagic" val="1" />
 		<set name="itemConsumeCount" val="4" />
-		<set name="itemConsumeId" val="3031" /> <!-- Spirit Ore -->
+		<set name="itemConsumeId" val="3031" />
 		<set name="magicLvl" val="79" />
-		<set name="mpConsume2" val="115" />
 		<set name="mpConsume1" val="29" />
+		<set name="mpConsume2" val="115" />
 		<set name="operateType" val="A1" />
 		<set name="reuseDelay" val="5000" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
-		<enchant1 name="magicLvl" val="#enchMagicLvl" />
+		<enchant1 name="magicLvl" val="#ench1MagicLvl" />
 		<enchant1 name="mpConsume2" val="116" />
-		<enchant1 name="mpConsume1" val="29" />
 		<cond>
 			<player canSummon="true" />
 		</cond>
@@ -372,7 +373,7 @@
 		</effects>
 		<enchant1Effects>
 			<effect name="Summon">
-				<param npcId="#ench1npcId" />
+				<param npcId="#ench1NpcId" />
 				<param consumeItemId="3031" consumeItemCount="11" />
 				<param lifeTime="3600" />
 			</effect>
