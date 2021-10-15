@@ -2636,12 +2636,14 @@
 		</effects>
 	</skill>
 	<skill id="2783" levels="1" name="Lucky Strike">
-		<!-- Confirmed CT2.5 -->
+		<!-- High Five Confirmed -->
+		<set name="affectScope" val="SINGLE" />
+		<set name="hitCancelTime" val="500" />
 		<set name="hitTime" val="1500" />
 		<set name="isMagic" val="2" />
 		<set name="itemConsumeCount" val="1" />
-		<set name="itemConsumeId" val="14222" /> <!-- Forgotten Scroll - Lucky Strike. -->
-		<set name="magicLvl" val="1" />
+		<set name="itemConsumeId" val="14222" />
+		<set name="magicLvl" val="81" />
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />

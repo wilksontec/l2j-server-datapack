@@ -1717,8 +1717,12 @@
 		</effects>
 	</skill>
 	<skill id="440" levels="1" name="Braveheart" enchantGroup1="5">
-		<table name="#ench1amount"> 1010 1020 1030 1040 1050 1060 1070 1080 1090 1100 1110 1120 1130 1140 1150 </table>
+		<!-- High Five Confirmed -->
+		<table name="#ench1CpAmount"> 1010 1020 1030 1040 1050 1060 1070 1080 1090 1100 1110 1120 1130 1140 1150 </table>
+		<table name="#ench1MagicLvl"> 81 81 81 82 82 82 83 83 83 84 84 84 85 85 85 </table>
+		<set name="affectScope" val="SINGLE" />
 		<set name="effectPoint" val="669" />
+		<set name="hitCancelTime" val="500" />
 		<set name="hitTime" val="1500" />
 		<set name="icon" val="icon.skill0440" />
 		<set name="magicLvl" val="78" />
@@ -1727,14 +1731,16 @@
 		<set name="reuseDelay" val="150000" />
 		<set name="rideState" val="NONE" />
 		<set name="targetType" val="SELF" />
+		<enchant1 name="magicLvl" val="#ench1MagicLvl" />
 		<effects>
 			<effect name="Cp">
 				<param amount="1000" />
+				<param mode="DIFF" />
 			</effect>
 		</effects>
 		<enchant1Effects>
 			<effect name="Cp">
-				<param amount="#ench1amount" />
+				<param amount="#ench1CpAmount" />
 			</effect>
 		</enchant1Effects>
 	</skill>
@@ -2139,8 +2145,10 @@
 		</enchant1Effects>
 	</skill>
 	<skill id="453" levels="1" name="Escape Shackle">
-		<!-- Confirmed CT2.5 -->
+		<!-- High Five Confirmed -->
+		<set name="affectScope" val="SINGLE" />
 		<set name="effectPoint" val="597" />
+		<set name="hitCancelTime" val="500" />
 		<set name="hitTime" val="1000" />
 		<set name="icon" val="icon.skill0453" />
 		<set name="magicLvl" val="60" />
@@ -2156,141 +2164,177 @@
 		</effects>
 	</skill>
 	<skill id="454" levels="1" name="Symbol of Defense">
+		<!-- High Five Confirmed -->
+		<set name="affectScope" val="SINGLE" />
 		<set name="blockedInOlympiad" val="true" />
 		<set name="hitTime" val="5000" />
 		<set name="icon" val="icon.skill0454" />
 		<set name="isMagic" val="2" />
 		<set name="itemConsumeCount" val="1" />
-		<set name="itemConsumeId" val="8875" /> <!-- Battle Symbol -->
+		<set name="itemConsumeId" val="8875" />
 		<set name="magicLvl" val="80" />
-		<set name="mpConsume2" val="44" />
-		<set name="mpConsume1" val="36" />
+		<set name="mpConsume2" val="80" />
 		<set name="operateType" val="A1" />
 		<set name="reuseDelay" val="1800000" />
+		<set name="reuseDelayLock" val="true" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
 		<effects>
+			<effect name="InstantDispelBySlotMyself">
+				<param dispel="PHYSICAL_STANCE" />
+			</effect>
 			<effect name="SummonNpc">
 				<param npcId="13018" npcCount="1" />
 			</effect>
 		</effects>
 	</skill>
 	<skill id="455" levels="1" name="Symbol of Noise">
+		<!-- High Five Confirmed -->
+		<set name="affectScope" val="SINGLE" />
 		<set name="blockedInOlympiad" val="true" />
 		<set name="castRange" val="900" />
+		<set name="effectRange" val="1000" />
 		<set name="hitTime" val="5000" />
 		<set name="icon" val="icon.skill0455" />
 		<set name="isMagic" val="2" />
 		<set name="itemConsumeCount" val="1" />
-		<set name="itemConsumeId" val="8875" /> <!-- Battle Symbol -->
+		<set name="itemConsumeId" val="8875" />
 		<set name="magicLvl" val="80" />
-		<set name="mpConsume2" val="44" />
-		<set name="mpConsume1" val="36" />
+		<set name="mpConsume2" val="80" />
 		<set name="operateType" val="A1" />
 		<set name="reuseDelay" val="1800000" />
+		<set name="reuseDelayLock" val="true" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="GROUND" />
 		<effects>
+			<effect name="InstantDispelBySlotMyself">
+				<param dispel="PHYSICAL_STANCE" />
+			</effect>
 			<effect name="SummonNpc">
 				<param npcId="13019" npcCount="1" />
 			</effect>
 		</effects>
 	</skill>
 	<skill id="456" levels="1" name="Symbol of Resistance">
+		<!-- High Five Confirmed -->
+		<set name="affectScope" val="SINGLE" />
 		<set name="blockedInOlympiad" val="true" />
 		<set name="hitTime" val="5000" />
 		<set name="icon" val="icon.skill0456" />
 		<set name="isMagic" val="2" />
 		<set name="itemConsumeCount" val="1" />
-		<set name="itemConsumeId" val="8875" /> <!-- Battle Symbol -->
+		<set name="itemConsumeId" val="8875" />
 		<set name="magicLvl" val="80" />
-		<set name="mpConsume2" val="44" />
-		<set name="mpConsume1" val="36" />
+		<set name="mpConsume2" val="80" />
 		<set name="operateType" val="A1" />
 		<set name="reuseDelay" val="1800000" />
+		<set name="reuseDelayLock" val="true" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
 		<effects>
+			<effect name="InstantDispelBySlotMyself">
+				<param dispel="PHYSICAL_STANCE" />
+			</effect>
 			<effect name="SummonNpc">
 				<param npcId="13020" npcCount="1" />
 			</effect>
 		</effects>
 	</skill>
 	<skill id="457" levels="1" name="Symbol of Honor">
+		<!-- High Five Confirmed -->
+		<set name="affectScope" val="SINGLE" />
 		<set name="blockedInOlympiad" val="true" />
 		<set name="hitTime" val="5000" />
 		<set name="icon" val="icon.skill0457" />
 		<set name="isMagic" val="2" />
 		<set name="itemConsumeCount" val="1" />
-		<set name="itemConsumeId" val="8875" /> <!-- Battle Symbol -->
+		<set name="itemConsumeId" val="8875" />
 		<set name="magicLvl" val="80" />
-		<set name="mpConsume2" val="44" />
-		<set name="mpConsume1" val="36" />
+		<set name="mpConsume2" val="80" />
 		<set name="operateType" val="A1" />
 		<set name="reuseDelay" val="1800000" />
+		<set name="reuseDelayLock" val="true" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
 		<effects>
+			<effect name="InstantDispelBySlotMyself">
+				<param dispel="PHYSICAL_STANCE" />
+			</effect>
 			<effect name="SummonNpc">
 				<param npcId="13021" npcCount="1" />
 			</effect>
 		</effects>
 	</skill>
 	<skill id="458" levels="1" name="Symbol of Energy">
+		<!-- High Five Confirmed -->
+		<set name="affectScope" val="SINGLE" />
 		<set name="blockedInOlympiad" val="true" />
 		<set name="hitTime" val="5000" />
 		<set name="icon" val="icon.skill0458" />
 		<set name="isMagic" val="2" />
 		<set name="itemConsumeCount" val="1" />
-		<set name="itemConsumeId" val="8875" /> <!-- Battle Symbol -->
+		<set name="itemConsumeId" val="8875" />
 		<set name="magicLvl" val="80" />
-		<set name="mpConsume2" val="44" />
-		<set name="mpConsume1" val="36" />
+		<set name="mpConsume2" val="80" />
 		<set name="operateType" val="A1" />
 		<set name="reuseDelay" val="1800000" />
+		<set name="reuseDelayLock" val="true" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
 		<effects>
+			<effect name="InstantDispelBySlotMyself">
+				<param dispel="PHYSICAL_STANCE" />
+			</effect>
 			<effect name="SummonNpc">
 				<param npcId="13022" npcCount="1" />
 			</effect>
 		</effects>
 	</skill>
 	<skill id="459" levels="1" name="Symbol of the Sniper">
+		<!-- High Five Confirmed -->
+		<set name="affectScope" val="SINGLE" />
 		<set name="blockedInOlympiad" val="true" />
 		<set name="hitTime" val="5000" />
 		<set name="icon" val="icon.skill0459" />
 		<set name="isMagic" val="2" />
 		<set name="itemConsumeCount" val="1" />
-		<set name="itemConsumeId" val="8875" /> <!-- Battle Symbol -->
+		<set name="itemConsumeId" val="8875" />
 		<set name="magicLvl" val="80" />
-		<set name="mpConsume2" val="44" />
-		<set name="mpConsume1" val="36" />
+		<set name="mpConsume2" val="80" />
 		<set name="operateType" val="A1" />
 		<set name="reuseDelay" val="1800000" />
+		<set name="reuseDelayLock" val="true" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
 		<effects>
+			<effect name="InstantDispelBySlotMyself">
+				<param dispel="PHYSICAL_STANCE" />
+			</effect>
 			<effect name="SummonNpc">
 				<param npcId="13023" npcCount="1" />
 			</effect>
 		</effects>
 	</skill>
 	<skill id="460" levels="1" name="Symbol of the Assassin">
+		<!-- High Five Confirmed -->
+		<set name="affectScope" val="SINGLE" />
 		<set name="blockedInOlympiad" val="true" />
 		<set name="hitTime" val="5000" />
 		<set name="icon" val="icon.skill0460" />
 		<set name="isMagic" val="2" />
 		<set name="itemConsumeCount" val="1" />
-		<set name="itemConsumeId" val="8875" /> <!-- Battle Symbol -->
+		<set name="itemConsumeId" val="8875" />
 		<set name="magicLvl" val="80" />
-		<set name="mpConsume2" val="44" />
-		<set name="mpConsume1" val="36" />
+		<set name="mpConsume2" val="80" />
 		<set name="operateType" val="A1" />
 		<set name="reuseDelay" val="1800000" />
+		<set name="reuseDelayLock" val="true" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
 		<effects>
+			<effect name="InstantDispelBySlotMyself">
+				<param dispel="PHYSICAL_STANCE" />
+			</effect>
 			<effect name="SummonNpc">
 				<param npcId="13024" npcCount="1" />
 			</effect>
