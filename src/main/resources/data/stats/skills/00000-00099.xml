@@ -1279,11 +1279,14 @@
 		</enchant1Effects>
 	</skill>
 	<skill id="34" levels="3" name="Bandage">
+		<!-- High Five Confirmed -->
 		<table name="#dispelAbnormals"> BLEEDING,3 BLEEDING,7 BLEEDING,9 </table>
 		<table name="#effectPoint"> 204 438 582 </table>
 		<table name="#magicLvl"> 20 46 62 </table>
 		<table name="#mpConsume2"> 19 41 55 </table>
+		<set name="affectScope" val="SINGLE" />
 		<set name="effectPoint" val="#effectPoint" />
+		<set name="hitCancelTime" val="500" />
 		<set name="hitTime" val="1500" />
 		<set name="icon" val="icon.skill0034" />
 		<set name="magicLvl" val="#magicLvl" />
@@ -1694,10 +1697,12 @@
 		</enchant1Effects>
 	</skill>
 	<skill id="50" levels="8" name="Focused Force">
-		<!-- Confirmed CT2.5 -->
+		<!-- High Five Confirmed -->
+		<table name="#focusEnergyCharge"> 1 2 3 4 5 6 7 8 </table>
 		<table name="#magicLvl"> 24 32 40 52 60 66 72 79 </table>
-		<table name="#maxCharges"> 1 2 3 4 5 6 7 8 </table>
+		<set name="affectScope" val="SINGLE" />
 		<set name="effectPoint" val="150" />
+		<set name="hitCancelTime" val="500" />
 		<set name="hitTime" val="900" />
 		<set name="hpConsume" val="20" />
 		<set name="icon" val="icon.skill0050" />
@@ -1711,12 +1716,12 @@
 		</cond>
 		<cond msgId="324">
 			<not>
-				<player Charges="#maxCharges" />
+				<player Charges="#focusEnergyCharge" />
 			</not>
 		</cond>
 		<effects>
 			<effect name="FocusEnergy">
-				<param charge="#maxCharges" />
+				<param charge="#focusEnergyCharge" />
 			</effect>
 		</effects>
 	</skill>
@@ -2397,10 +2402,13 @@
 		</enchant1Effects>
 	</skill>
 	<skill id="83" levels="1" name="Wolf Spirit Totem">
+		<!-- High Five Confirmed -->
 		<set name="abnormalLvl" val="1" />
 		<set name="abnormalTime" val="300" />
 		<set name="abnormalType" val="POSSESSION" />
+		<set name="affectScope" val="SINGLE" />
 		<set name="effectPoint" val="204" />
+		<set name="hitCancelTime" val="500" />
 		<set name="hitTime" val="2000" />
 		<set name="icon" val="icon.skill0083" />
 		<set name="magicLvl" val="20" />
@@ -2414,12 +2422,14 @@
 		</cond>
 		<effects>
 			<effect name="Buff">
-				<mul stat="runSpd" val="1.2">
-					<using kind="DUALFIST" />
-				</mul>
 				<add stat="accCombat" val="3">
 					<using kind="DUALFIST" />
 				</add>
+			</effect>
+			<effect name="Buff">
+				<mul stat="runSpd" val="1.2">
+					<using kind="DUALFIST" />
+				</mul>
 			</effect>
 		</effects>
 	</skill>

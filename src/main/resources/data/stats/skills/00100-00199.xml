@@ -400,11 +400,13 @@
 		</enchant3Effects>
 	</skill>
 	<skill id="109" levels="1" name="Ogre Spirit Totem">
-		<!-- Confirmed CT2.5 and Updated to H5 -->
+		<!-- High Five Confirmed -->
 		<set name="abnormalLvl" val="1" />
 		<set name="abnormalTime" val="300" />
 		<set name="abnormalType" val="POSSESSION" />
+		<set name="affectScope" val="SINGLE" />
 		<set name="effectPoint" val="438" />
+		<set name="hitCancelTime" val="500" />
 		<set name="hitTime" val="2000" />
 		<set name="icon" val="icon.skill0109" />
 		<set name="magicLvl" val="46" />
@@ -418,14 +420,20 @@
 		</cond>
 		<effects>
 			<effect name="Buff">
-				<mul stat="pAtk" val="1.3">
-					<using kind="DUALFIST" />
-				</mul>
-				<mul stat="pDef" val="1.3" />
-				<mul stat="mDef" val="1.3" />
 				<mul stat="critDmg" val="1.1">
 					<using kind="DUALFIST" />
 				</mul>
+			</effect>
+			<effect name="Buff">
+				<mul stat="mDef" val="1.3" />
+			</effect>
+			<effect name="Buff">
+				<mul stat="pAtk" val="1.3">
+					<using kind="DUALFIST" />
+				</mul>
+			</effect>
+			<effect name="Buff">
+				<mul stat="pDef" val="1.3" />
 			</effect>
 		</effects>
 	</skill>
@@ -738,18 +746,21 @@
 		</effects>
 	</skill>
 	<skill id="121" levels="6" name="Battle Roar" enchantGroup1="1" enchantGroup2="1">
+		<!-- High Five Confirmed -->
 		<table name="#abnormalLvl"> 1 2 3 4 5 6 </table>
-		<table name="#power"> 10 15 20 25 30 35 </table>
 		<table name="#effectPoint"> 268 379 467 549 597 635 </table>
 		<table name="#magicLvl"> 28 40 49 58 64 70 </table>
+		<table name="#maxHpPower"> 10 15 20 25 30 35 </table>
 		<table name="#mpConsume2"> 13 18 22 27 30 33 </table>
-		<table name="#ench1Reuse"> 148000 145000 143000 140000 138000 135000 133000 130000 128000 125000 123000 120000 118000 115000 113000 110000 108000 105000 103000 100000 98000 95000 93000 90000 88000 85000 83000 80000 78000 75000 </table>
-		<table name="#ench2pAtk"> 1 1 1 2 2 2 3 3 3 4 4 4 4 5 5 5 6 6 6 7 7 7 7 8 8 8 9 9 9 10 </table>
 		<table name="#enchMagicLvl"> 76 76 76 77 77 77 78 78 78 79 79 79 80 80 80 81 81 81 82 82 82 83 83 83 84 84 84 85 85 85 </table>
+		<table name="#ench1ReuseDelay"> 148000 145000 143000 140000 138000 135000 133000 130000 128000 125000 123000 120000 118000 115000 113000 110000 108000 105000 103000 100000 98000 95000 93000 90000 88000 85000 83000 80000 78000 75000 </table>
+		<table name="#ench2pAtk"> 1 1 1 2 2 2 3 3 3 4 4 4 4 5 5 5 6 6 6 7 7 7 7 8 8 8 9 9 9 10 </table>
 		<set name="abnormalLvl" val="#abnormalLvl" />
 		<set name="abnormalTime" val="600" />
 		<set name="abnormalType" val="MAX_HP_UP" />
+		<set name="affectScope" val="SINGLE" />
 		<set name="effectPoint" val="#effectPoint" />
+		<set name="hitCancelTime" val="500" />
 		<set name="hitTime" val="1500" />
 		<set name="icon" val="icon.skill0121" />
 		<set name="magicLvl" val="#magicLvl" />
@@ -759,11 +770,11 @@
 		<set name="rideState" val="NONE" />
 		<set name="targetType" val="SELF" />
 		<enchant1 name="magicLvl" val="#enchMagicLvl" />
-		<enchant1 name="reuseDelay" val="#ench1Reuse" />
+		<enchant1 name="reuseDelay" val="#ench1ReuseDelay" />
 		<enchant2 name="magicLvl" val="#enchMagicLvl" />
 		<effects>
 			<effect name="MaxHp">
-				<param power="#power" />
+				<param power="#maxHpPower" />
 				<param type="PER" />
 				<param heal="true" />
 			</effect>
@@ -773,6 +784,8 @@
 				<param power="35" />
 				<param type="PER" />
 				<param heal="true" />
+			</effect>
+			<effect name="Buff">
 				<add stat="pAtk" val="#ench2pAtk" />
 			</effect>
 		</enchant2Effects>
@@ -1046,7 +1059,7 @@
 		</enchant1Effects>
 	</skill>
 	<skill id="139" levels="3" name="Guts">
-		<!-- Confirmed CT2.5 -->
+		<!-- High Five Confirmed -->
 		<table name="#abnormalLvl"> 1 2 3 </table>
 		<table name="#effectPoint"> 341 408 495 </table>
 		<table name="#magicLvl"> 36 43 52 </table>
@@ -1055,7 +1068,9 @@
 		<set name="abnormalLvl" val="#abnormalLvl" />
 		<set name="abnormalTime" val="90" />
 		<set name="abnormalType" val="PINCH" />
+		<set name="affectScope" val="SINGLE" />
 		<set name="effectPoint" val="#effectPoint" />
+		<set name="hitCancelTime" val="500" />
 		<set name="hitTime" val="1500" />
 		<set name="icon" val="icon.skill0139" />
 		<set name="magicLvl" val="#magicLvl" />
