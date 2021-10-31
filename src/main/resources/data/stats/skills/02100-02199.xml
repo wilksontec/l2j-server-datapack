@@ -417,25 +417,29 @@
 		</effects>
 	</skill>
 	<skill id="2122" levels="1" name="Facelifting Potion">
-		<!-- Confirmed CT2.5 -->
+		<!-- High Five Confirmed -->
+		<set name="affectScope" val="SINGLE" />
 		<set name="hitTime" val="500" />
 		<set name="isMagic" val="2" />
 		<set name="itemConsumeCount" val="1" />
-		<set name="itemConsumeId" val="5235" /> <!-- Facelifting Potion - A -->
+		<set name="itemConsumeId" val="5235" />
 		<set name="magicLvl" val="1" />
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
 		<effects>
-			<effect name="ChangeFace" />
+			<effect name="ChangeFace">
+				<param value="0" />
+			</effect>
 		</effects>
 	</skill>
 	<skill id="2123" levels="1" name="Facelifting Potion">
-		<!-- Confirmed CT2.5 -->
+		<!-- High Five Confirmed -->
+		<set name="affectScope" val="SINGLE" />
 		<set name="hitTime" val="500" />
 		<set name="isMagic" val="2" />
 		<set name="itemConsumeCount" val="1" />
-		<set name="itemConsumeId" val="5236" /> <!-- Facelifting Potion - B -->
+		<set name="itemConsumeId" val="5236" />
 		<set name="magicLvl" val="1" />
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
@@ -447,11 +451,12 @@
 		</effects>
 	</skill>
 	<skill id="2124" levels="1" name="Facelifting Potion">
-		<!-- Confirmed CT2.5 -->
+		<!-- High Five Confirmed -->
+		<set name="affectScope" val="SINGLE" />
 		<set name="hitTime" val="500" />
 		<set name="isMagic" val="2" />
 		<set name="itemConsumeCount" val="1" />
-		<set name="itemConsumeId" val="5237" /> <!-- Facelifting Potion - C -->
+		<set name="itemConsumeId" val="5237" />
 		<set name="magicLvl" val="1" />
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
@@ -463,25 +468,29 @@
 		</effects>
 	</skill>
 	<skill id="2125" levels="1" name="Dye Potion">
-		<!-- Confirmed CT2.5 -->
+		<!-- High Five Confirmed -->
+		<set name="affectScope" val="SINGLE" />
 		<set name="hitTime" val="500" />
 		<set name="isMagic" val="2" />
 		<set name="itemConsumeCount" val="1" />
-		<set name="itemConsumeId" val="5238" /> <!-- Dye Potion - A -->
+		<set name="itemConsumeId" val="5238" />
 		<set name="magicLvl" val="1" />
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
 		<effects>
-			<effect name="ChangeHairColor" />
+			<effect name="ChangeHairColor">
+				<param value="0" />
+			</effect>
 		</effects>
 	</skill>
 	<skill id="2126" levels="1" name="Dye Potion">
-		<!-- Confirmed CT2.5 -->
+		<!-- High Five Confirmed -->
+		<set name="affectScope" val="SINGLE" />
 		<set name="hitTime" val="500" />
 		<set name="isMagic" val="2" />
 		<set name="itemConsumeCount" val="1" />
-		<set name="itemConsumeId" val="5239" /> <!-- Dye Potion - B -->
+		<set name="itemConsumeId" val="5239" />
 		<set name="magicLvl" val="1" />
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
@@ -493,11 +502,12 @@
 		</effects>
 	</skill>
 	<skill id="2127" levels="1" name="Dye Potion">
-		<!-- Confirmed CT2.5 -->
+		<!-- High Five Confirmed -->
+		<set name="affectScope" val="SINGLE" />
 		<set name="hitTime" val="500" />
 		<set name="isMagic" val="2" />
 		<set name="itemConsumeCount" val="1" />
-		<set name="itemConsumeId" val="5240" /> <!-- Dye Potion - C -->
+		<set name="itemConsumeId" val="5240" />
 		<set name="magicLvl" val="1" />
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
@@ -509,11 +519,12 @@
 		</effects>
 	</skill>
 	<skill id="2128" levels="1" name="Dye Potion">
-		<!-- Confirmed CT2.5 -->
+		<!-- High Five Confirmed -->
+		<set name="affectScope" val="SINGLE" />
 		<set name="hitTime" val="500" />
 		<set name="isMagic" val="2" />
 		<set name="itemConsumeCount" val="1" />
-		<set name="itemConsumeId" val="5241" /> <!-- Dye Potion - D -->
+		<set name="itemConsumeId" val="5241" />
 		<set name="magicLvl" val="1" />
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
@@ -525,25 +536,29 @@
 		</effects>
 	</skill>
 	<skill id="2129" levels="1" name="Hair Style Change Potion">
-		<!-- Confirmed CT2.5 -->
+		<!-- High Five Confirmed -->
+		<set name="affectScope" val="SINGLE" />
 		<set name="hitTime" val="500" />
 		<set name="isMagic" val="2" />
 		<set name="itemConsumeCount" val="1" />
-		<set name="itemConsumeId" val="5242" /> <!-- Hair Style Change Potion - A -->
+		<set name="itemConsumeId" val="5242" />
 		<set name="magicLvl" val="1" />
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
 		<effects>
-			<effect name="ChangeHairStyle" />
+			<effect name="ChangeHairStyle">
+				<param value="0" />
+			</effect>
 		</effects>
 	</skill>
 	<skill id="2130" levels="1" name="Hair Style Change Potion">
-		<!-- Confirmed CT2.5 -->
+		<!-- High Five Confirmed -->
+		<set name="affectScope" val="SINGLE" />
 		<set name="hitTime" val="500" />
 		<set name="isMagic" val="2" />
 		<set name="itemConsumeCount" val="1" />
-		<set name="itemConsumeId" val="5243" /> <!-- Hair Style Change Potion - B -->
+		<set name="itemConsumeId" val="5243" />
 		<set name="magicLvl" val="1" />
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
@@ -555,11 +570,12 @@
 		</effects>
 	</skill>
 	<skill id="2131" levels="1" name="Hair Style Change Potion">
-		<!-- Confirmed CT2.5 -->
+		<!-- High Five Confirmed -->
+		<set name="affectScope" val="SINGLE" />
 		<set name="hitTime" val="500" />
 		<set name="isMagic" val="2" />
 		<set name="itemConsumeCount" val="1" />
-		<set name="itemConsumeId" val="5244" /> <!-- Hair Style Change Potion - C -->
+		<set name="itemConsumeId" val="5244" />
 		<set name="magicLvl" val="1" />
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
@@ -571,11 +587,12 @@
 		</effects>
 	</skill>
 	<skill id="2132" levels="1" name="Hair Style Change Potion">
-		<!-- Confirmed CT2.5 -->
+		<!-- High Five Confirmed -->
+		<set name="affectScope" val="SINGLE" />
 		<set name="hitTime" val="500" />
 		<set name="isMagic" val="2" />
 		<set name="itemConsumeCount" val="1" />
-		<set name="itemConsumeId" val="5245" /> <!-- Hair Style Change Potion - D -->
+		<set name="itemConsumeId" val="5245" />
 		<set name="magicLvl" val="1" />
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
@@ -587,11 +604,12 @@
 		</effects>
 	</skill>
 	<skill id="2133" levels="1" name="Hair Style Change Potion">
-		<!-- Confirmed CT2.5 -->
+		<!-- High Five Confirmed -->
+		<set name="affectScope" val="SINGLE" />
 		<set name="hitTime" val="500" />
 		<set name="isMagic" val="2" />
 		<set name="itemConsumeCount" val="1" />
-		<set name="itemConsumeId" val="5246" /> <!-- Hair Style Change Potion - E -->
+		<set name="itemConsumeId" val="5246" />
 		<set name="magicLvl" val="1" />
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
@@ -603,11 +621,12 @@
 		</effects>
 	</skill>
 	<skill id="2134" levels="1" name="Hair Style Change Potion">
-		<!-- Confirmed CT2.5 -->
+		<!-- High Five Confirmed -->
+		<set name="affectScope" val="SINGLE" />
 		<set name="hitTime" val="500" />
 		<set name="isMagic" val="2" />
 		<set name="itemConsumeCount" val="1" />
-		<set name="itemConsumeId" val="5247" /> <!-- Hair Style Change Potion - F -->
+		<set name="itemConsumeId" val="5247" />
 		<set name="magicLvl" val="1" />
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
@@ -622,11 +641,12 @@
 		</effects>
 	</skill>
 	<skill id="2135" levels="1" name="Hair Style Change Potion">
-		<!-- Confirmed CT2.5 -->
+		<!-- High Five Confirmed -->
+		<set name="affectScope" val="SINGLE" />
 		<set name="hitTime" val="500" />
 		<set name="isMagic" val="2" />
 		<set name="itemConsumeCount" val="1" />
-		<set name="itemConsumeId" val="5248" /> <!-- Hair Style Change Potion - G -->
+		<set name="itemConsumeId" val="5248" />
 		<set name="magicLvl" val="1" />
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
