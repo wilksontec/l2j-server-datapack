@@ -448,136 +448,6 @@
 		<respawn delay="80" />
 		<hellboundLevel max="1" />
 	</npc>
-	<npc id="22320">
-		<location x="-16812" y="235255" z="-2820" />
-		<respawn delay="80" />
-		<hellboundLevel max="4" />
-	</npc>
-	<npc id="22320">
-		<location x="-17557" y="236195" z="-2800" />
-		<respawn delay="80" />
-		<hellboundLevel max="4" />
-	</npc>
-	<npc id="22320">
-		<location x="-17919" y="236180" z="-2795" />
-		<respawn delay="80" />
-		<hellboundLevel max="4" />
-	</npc>
-	<npc id="22320">
-		<location x="-21234" y="240285" z="-2807" />
-		<respawn delay="80" />
-		<hellboundLevel max="4" />
-	</npc>
-	<npc id="22320">
-		<location x="-20228" y="240758" z="-2860" />
-		<respawn delay="80" />
-		<hellboundLevel max="4" />
-	</npc>
-	<npc id="22320">
-		<location x="-19142" y="239223" z="-2899" />
-		<respawn delay="80" />
-		<hellboundLevel max="4" />
-	</npc>
-	<npc id="22320">
-		<location x="-20225" y="238019" z="-2962" />
-		<respawn delay="80" />
-		<hellboundLevel max="4" />
-	</npc>
-	<npc id="22320">
-		<location x="-19525" y="240239" z="-2860" />
-		<respawn delay="80" />
-		<hellboundLevel max="4" />
-	</npc>
-	<npc id="22320">
-		<location x="-10501" y="237750" z="-3120" />
-		<respawn delay="80" />
-		<hellboundLevel max="4" />
-	</npc>
-	<npc id="22320">
-		<location x="-10315" y="237442" z="-3850" />
-		<respawn delay="80" />
-		<hellboundLevel max="4" />
-	</npc>
-	<npc id="22320">
-		<location x="-17970" y="239239" z="-3345" />
-		<respawn delay="80" />
-		<hellboundLevel max="4" />
-	</npc>
-	<npc id="22320">
-		<location x="-17240" y="239110" z="-3290" />
-		<respawn delay="80" />
-		<hellboundLevel max="4" />
-	</npc>
-	<npc id="22320">
-		<location x="-17837" y="238631" z="-3320" />
-		<respawn delay="80" />
-		<hellboundLevel max="4" />
-	</npc>
-	<npc id="22321">
-		<location x="-17247" y="235256" z="-2835" />
-		<respawn delay="60" />
-		<hellboundLevel max="4" />
-	</npc>
-	<npc id="22321">
-		<location x="-17350" y="234873" z="-2730" />
-		<respawn delay="60" />
-		<hellboundLevel max="4" />
-	</npc>
-	<npc id="22321">
-		<location x="-15706" y="234478" z="-2816" />
-		<respawn delay="60" />
-		<hellboundLevel max="4" />
-	</npc>
-	<npc id="22321">
-		<location x="-20515" y="238473" z="-2690" />
-		<respawn delay="80" />
-		<hellboundLevel max="4" />
-	</npc>
-	<npc id="22321">
-		<location x="-20764" y="240794" z="-2848" />
-		<respawn delay="80" />
-		<hellboundLevel max="4" />
-	</npc>
-	<npc id="22321">
-		<location x="-20072" y="239928" z="-2860" />
-		<respawn delay="80" />
-		<hellboundLevel max="4" />
-	</npc>
-	<npc id="22321">
-		<location x="-19837" y="238139" z="-2775" />
-		<respawn delay="80" />
-		<hellboundLevel max="4" />
-	</npc>
-	<npc id="22321">
-		<location x="-20195" y="241023" z="-2864" />
-		<respawn delay="80" />
-		<hellboundLevel max="4" />
-	</npc>
-	<npc id="22321">
-		<location x="-10270" y="237659" z="-3140" />
-		<respawn delay="80" />
-		<hellboundLevel max="4" />
-	</npc>
-	<npc id="22321">
-		<location x="-11142" y="237759" z="-3090" />
-		<respawn delay="80" />
-		<hellboundLevel max="4" />
-	</npc>
-	<npc id="22321">
-		<location x="-17899" y="239334" z="-3350" />
-		<respawn delay="80" />
-		<hellboundLevel max="4" />
-	</npc>
-	<npc id="22321">
-		<location x="-17231" y="238281" z="-3325" />
-		<respawn delay="80" />
-		<hellboundLevel max="4" />
-	</npc>
-	<npc id="22321">
-		<location x="-17768" y="239231" z="-3350" />
-		<respawn delay="80" />
-		<hellboundLevel max="4" />
-	</npc>
 	<npc id="22344">
 		<location x="-6317" y="243792" z="-1990" />
 		<respawn delay="80" />
@@ -1642,264 +1512,394 @@
 		<hellboundLevel min="3" max="4" />
 	</npc>
 	<npc id="22320">
-		<location x="-16920" y="235757" z="-2890" />
-		<respawn delay="60" />
-		<hellboundLevel min="5" />
+		<location x="-20517" y="238099" z="-2592" />
+		<respawn delay="80" />
+		<hellboundLevel min="1" max="4" />
 	</npc>
 	<npc id="22320">
-		<location x="-17866" y="236108" z="-2800" />
-		<respawn delay="60" />
-		<hellboundLevel min="5" />
+		<location x="-19501" y="239017" z="-2856" />
+		<respawn delay="80" />
+		<hellboundLevel min="1" max="4" />
 	</npc>
 	<npc id="22320">
-		<location x="-16754" y="234598" z="-2700" />
-		<respawn delay="60" />
-		<hellboundLevel min="5" />
+		<location x="-21226" y="240347" z="-2800" />
+		<respawn delay="80" />
+		<hellboundLevel min="1" max="4" />
 	</npc>
 	<npc id="22320">
-		<location x="-16028" y="234191" z="-2745" />
-		<respawn delay="60" />
-		<hellboundLevel min="5" />
+		<location x="-19993" y="240609" z="-2856" />
+		<respawn delay="80" />
+		<hellboundLevel min="1" max="4" />
 	</npc>
 	<npc id="22320">
-		<location x="-15344" y="234153" z="-2875" />
-		<respawn delay="60" />
-		<hellboundLevel min="5" />
+		<location x="-20676" y="239545" z="-2808" />
+		<respawn delay="80" />
+		<hellboundLevel min="1" max="4" />
+	</npc>
+	<npc id="22321">
+		<location x="-20568" y="240691" z="-2856" />
+		<respawn delay="80" />
+		<hellboundLevel min="1" max="4" />
+	</npc>
+	<npc id="22321">
+		<location x="-19614" y="240099" z="-2856" />
+		<respawn delay="80" />
+		<hellboundLevel min="1" max="4" />
+	</npc>
+	<npc id="22321">
+		<location x="-19886" y="238290" z="-2776" />
+		<respawn delay="80" />
+		<hellboundLevel min="1" max="4" />
+	</npc>
+	<npc id="22321">
+		<location x="-20184" y="239056" z="-2816" />
+		<respawn delay="80" />
+		<hellboundLevel min="1" max="4" />
+	</npc>
+	<npc id="22321">
+		<location x="-20076" y="239819" z="-2856" />
+		<respawn delay="80" />
+		<hellboundLevel min="1" max="4" />
 	</npc>
 	<npc id="22320">
-		<location x="-17143" y="236092" z="-3045" />
+		<location x="-19406" y="238936" z="-2856" />
 		<respawn delay="60" />
-		<hellboundLevel min="5" />
+		<hellboundLevel min="5" max="100" />
 	</npc>
 	<npc id="22320">
-		<location x="-20888" y="238719" z="-2630" />
+		<location x="-20518" y="238292" z="-2648" />
 		<respawn delay="60" />
-		<hellboundLevel min="5" />
+		<hellboundLevel min="5" max="100" />
 	</npc>
 	<npc id="22320">
-		<location x="-20011" y="238017" z="-2733" />
+		<location x="-19632" y="240545" z="-2856" />
 		<respawn delay="60" />
-		<hellboundLevel min="5" />
+		<hellboundLevel min="5" max="100" />
 	</npc>
 	<npc id="22320">
-		<location x="-21064" y="239874" z="-2800" />
+		<location x="-21256" y="240518" z="-2800" />
 		<respawn delay="60" />
-		<hellboundLevel min="5" />
+		<hellboundLevel min="5" max="100" />
 	</npc>
 	<npc id="22320">
-		<location x="-20289" y="239383" z="-2840" />
+		<location x="-20286" y="240808" z="-2856" />
 		<respawn delay="60" />
-		<hellboundLevel min="5" />
+		<hellboundLevel min="5" max="100" />
 	</npc>
 	<npc id="22320">
-		<location x="-20403" y="238425" z="-2709" />
+		<location x="-20382" y="239863" z="-2848" />
 		<respawn delay="60" />
-		<hellboundLevel min="5" />
+		<hellboundLevel min="5" max="100" />
 	</npc>
 	<npc id="22320">
-		<location x="-20118" y="238379" z="-2750" />
+		<location x="-19705" y="239563" z="-2856" />
 		<respawn delay="60" />
-		<hellboundLevel min="5" />
+		<hellboundLevel min="5" max="100" />
 	</npc>
 	<npc id="22320">
-		<location x="-19828" y="238816" z="-2835" />
+		<location x="-19757" y="238239" z="-2792" />
 		<respawn delay="60" />
-		<hellboundLevel min="5" />
+		<hellboundLevel min="5" max="100" />
 	</npc>
 	<npc id="22320">
-		<location x="-20357" y="240546" z="-2860" />
+		<location x="-20913" y="239659" z="-2792" />
 		<respawn delay="60" />
-		<hellboundLevel min="5" />
+		<hellboundLevel min="5" max="100" />
 	</npc>
 	<npc id="22320">
-		<location x="-20096" y="238677" z="-2800" />
+		<location x="-20241" y="238933" z="-2792" />
 		<respawn delay="60" />
-		<hellboundLevel min="5" />
+		<hellboundLevel min="5" max="100" />
+	</npc>
+	<npc id="22321">
+		<location x="-20463" y="237689" z="-2480" />
+		<respawn delay="60" />
+		<hellboundLevel min="5" max="100" />
+	</npc>
+	<npc id="22321">
+		<location x="-19262" y="238481" z="-2888" />
+		<respawn delay="60" />
+		<hellboundLevel min="5" max="100" />
+	</npc>
+	<npc id="22321">
+		<location x="-19482" y="239945" z="-2856" />
+		<respawn delay="60" />
+		<hellboundLevel min="5" max="100" />
+	</npc>
+	<npc id="22321">
+		<location x="-20026" y="240317" z="-2856" />
+		<respawn delay="60" />
+		<hellboundLevel min="5" max="100" />
+	</npc>
+	<npc id="22321">
+		<location x="-20787" y="240917" z="-2848" />
+		<respawn delay="60" />
+		<hellboundLevel min="5" max="100" />
+	</npc>
+	<npc id="22321">
+		<location x="-20780" y="240213" z="-2824" />
+		<respawn delay="60" />
+		<hellboundLevel min="5" max="100" />
+	</npc>
+	<npc id="22321">
+		<location x="-20223" y="239479" z="-2848" />
+		<respawn delay="60" />
+		<hellboundLevel min="5" max="100" />
+	</npc>
+	<npc id="22321">
+		<location x="-19831" y="239105" z="-2848" />
+		<respawn delay="60" />
+		<hellboundLevel min="5" max="100" />
+	</npc>
+	<npc id="22321">
+		<location x="-20054" y="238369" z="-2760" />
+		<respawn delay="60" />
+		<hellboundLevel min="5" max="100" />
+	</npc>
+	<npc id="22321">
+		<location x="-20766" y="238522" z="-2648" />
+		<respawn delay="60" />
+		<hellboundLevel min="5" max="100" />
 	</npc>
 	<npc id="22320">
-		<location x="-19622" y="238589" z="-2835" />
-		<respawn delay="60" />
-		<hellboundLevel min="5" />
+		<location x="-16037" y="234356" z="-2760" />
+		<respawn delay="80" />
+		<hellboundLevel min="1" max="4" />
 	</npc>
 	<npc id="22320">
-		<location x="-10686" y="237614" z="-3125" />
-		<respawn delay="60" />
-		<hellboundLevel min="5" />
+		<location x="-17764" y="234535" z="-2592" />
+		<respawn delay="80" />
+		<hellboundLevel min="1" max="4" />
 	</npc>
 	<npc id="22320">
-		<location x="-10953" y="237634" z="-3100" />
-		<respawn delay="60" />
-		<hellboundLevel min="5" />
+		<location x="-17507" y="235387" z="-2800" />
+		<respawn delay="80" />
+		<hellboundLevel min="1" max="4" />
+	</npc>
+	<npc id="22321">
+		<location x="-16733" y="234222" z="-2624" />
+		<respawn delay="80" />
+		<hellboundLevel min="1" max="4" />
+	</npc>
+	<npc id="22321">
+		<location x="-16747" y="235272" z="-2808" />
+		<respawn delay="80" />
+		<hellboundLevel min="1" max="4" />
+	</npc>
+	<npc id="22321">
+		<location x="-17743" y="236351" z="-2800" />
+		<respawn delay="80" />
+		<hellboundLevel min="1" max="4" />
 	</npc>
 	<npc id="22320">
-		<location x="-10743" y="237553" z="-3120" />
+		<location x="-15775" y="234379" z="-2792" />
 		<respawn delay="60" />
-		<hellboundLevel min="5" />
+		<hellboundLevel min="5" max="100" />
 	</npc>
 	<npc id="22320">
-		<location x="-10332" y="237630" z="-3150" />
+		<location x="-17896" y="236343" z="-2816" />
 		<respawn delay="60" />
-		<hellboundLevel min="5" />
+		<hellboundLevel min="5" max="100" />
 	</npc>
 	<npc id="22320">
-		<location x="-17662" y="238847" z="-3334" />
+		<location x="-17139" y="235725" z="-2912" />
 		<respawn delay="60" />
-		<hellboundLevel min="5" />
+		<hellboundLevel min="5" max="100" />
 	</npc>
 	<npc id="22320">
-		<location x="-17699" y="239775" z="-3306" />
+		<location x="-16979" y="234209" z="-2576" />
 		<respawn delay="60" />
-		<hellboundLevel min="5" />
+		<hellboundLevel min="5" max="100" />
 	</npc>
 	<npc id="22320">
-		<location x="-17064" y="238966" z="-3277" />
+		<location x="-16873" y="234692" z="-2712" />
 		<respawn delay="60" />
-		<hellboundLevel min="5" />
+		<hellboundLevel min="5" max="100" />
 	</npc>
 	<npc id="22320">
-		<location x="-17955" y="239631" z="-3360" />
+		<location x="-17282" y="235110" z="-2792" />
 		<respawn delay="60" />
-		<hellboundLevel min="5" />
+		<hellboundLevel min="5" max="100" />
+	</npc>
+	<npc id="22321">
+		<location x="-16366" y="234158" z="-2696" />
+		<respawn delay="60" />
+		<hellboundLevel min="5" max="100" />
+	</npc>
+	<npc id="22321">
+		<location x="-16801" y="235332" z="-2832" />
+		<respawn delay="60" />
+		<hellboundLevel min="5" max="100" />
+	</npc>
+	<npc id="22321">
+		<location x="-17979" y="234517" z="-2568" />
+		<respawn delay="60" />
+		<hellboundLevel min="5" max="100" />
+	</npc>
+	<npc id="22321">
+		<location x="-16382" y="234753" z="-2784" />
+		<respawn delay="60" />
+		<hellboundLevel min="5" max="100" />
+	</npc>
+	<npc id="22321">
+		<location x="-17382" y="234669" z="-2672" />
+		<respawn delay="60" />
+		<hellboundLevel min="5" max="100" />
+	</npc>
+	<npc id="22321">
+		<location x="-17783" y="235082" z="-2728" />
+		<respawn delay="60" />
+		<hellboundLevel min="5" max="100" />
 	</npc>
 	<npc id="22320">
-		<location x="-18415" y="239743" z="-3327" />
-		<respawn delay="60" />
-		<hellboundLevel min="5" />
+		<location x="-10364" y="237234" z="-3136" />
+		<respawn delay="80" />
+		<hellboundLevel min="1" max="4" />
 	</npc>
 	<npc id="22320">
-		<location x="-17319" y="238629" z="-3330" />
-		<respawn delay="60" />
-		<hellboundLevel min="5" />
+		<location x="-10577" y="237560" z="-3136" />
+		<respawn delay="80" />
+		<hellboundLevel min="1" max="4" />
 	</npc>
 	<npc id="22321">
-		<location x="-17156" y="234340" z="-2600" />
-		<respawn delay="60" />
-		<hellboundLevel min="5" />
+		<location x="-10384" y="237807" z="-3112" />
+		<respawn delay="80" />
+		<hellboundLevel min="1" max="4" />
 	</npc>
 	<npc id="22321">
-		<location x="-17850" y="234647" z="-2615" />
+		<location x="-10935" y="237614" z="-3096" />
+		<respawn delay="80" />
+		<hellboundLevel min="1" max="4" />
+	</npc>
+	<npc id="22320">
+		<location x="-10932" y="237602" z="-3096" />
 		<respawn delay="60" />
-		<hellboundLevel min="5" />
+		<hellboundLevel min="5" max="100" />
+	</npc>
+	<npc id="22320">
+		<location x="-10309" y="237103" z="-3120" />
+		<respawn delay="60" />
+		<hellboundLevel min="5" max="100" />
+	</npc>
+	<npc id="22320">
+		<location x="-10662" y="237594" z="-3120" />
+		<respawn delay="60" />
+		<hellboundLevel min="5" max="100" />
+	</npc>
+	<npc id="22320">
+		<location x="-10339" y="237806" z="-3104" />
+		<respawn delay="60" />
+		<hellboundLevel min="5" max="100" />
 	</npc>
 	<npc id="22321">
-		<location x="-17694" y="234978" z="-2724" />
+		<location x="-10240" y="237380" z="-3144" />
 		<respawn delay="60" />
-		<hellboundLevel min="5" />
+		<hellboundLevel min="5" max="100" />
 	</npc>
 	<npc id="22321">
-		<location x="-18040" y="236508" z="-2850" />
+		<location x="-10409" y="237589" z="-3144" />
 		<respawn delay="60" />
-		<hellboundLevel min="5" />
+		<hellboundLevel min="5" max="100" />
 	</npc>
 	<npc id="22321">
-		<location x="-17137" y="234705" z="-2700" />
+		<location x="-10728" y="237788" z="-3096" />
 		<respawn delay="60" />
-		<hellboundLevel min="5" />
+		<hellboundLevel min="5" max="100" />
 	</npc>
 	<npc id="22321">
-		<location x="-17169" y="235011" z="-2770" />
+		<location x="-10583" y="237343" z="-3144" />
 		<respawn delay="60" />
-		<hellboundLevel min="5" />
+		<hellboundLevel min="5" max="100" />
+	</npc>
+	<npc id="22320">
+		<location x="-17482" y="238751" z="-3320" />
+		<respawn delay="80" />
+		<hellboundLevel min="1" max="4" />
+	</npc>
+	<npc id="22320">
+		<location x="-17414" y="239320" z="-3280" />
+		<respawn delay="80" />
+		<hellboundLevel min="1" max="4" />
+	</npc>
+	<npc id="22320">
+		<location x="-17747" y="239853" z="-3320" />
+		<respawn delay="80" />
+		<hellboundLevel min="1" max="4" />
 	</npc>
 	<npc id="22321">
-		<location x="-20297" y="239051" z="-2805" />
-		<respawn delay="60" />
-		<hellboundLevel min="5" />
+		<location x="-17956" y="239215" z="-3344" />
+		<respawn delay="80" />
+		<hellboundLevel min="1" max="4" />
 	</npc>
 	<npc id="22321">
-		<location x="-19769" y="240624" z="-2860" />
-		<respawn delay="60" />
-		<hellboundLevel min="5" />
+		<location x="-18177" y="239644" z="-3328" />
+		<respawn delay="80" />
+		<hellboundLevel min="1" max="4" />
 	</npc>
 	<npc id="22321">
-		<location x="-20629" y="240148" z="-2835" />
+		<location x="-16950" y="238597" z="-3328" />
+		<respawn delay="80" />
+		<hellboundLevel min="1" max="4" />
+	</npc>
+	<npc id="22320">
+		<location x="-17556" y="238835" z="-3320" />
 		<respawn delay="60" />
-		<hellboundLevel min="5" />
+		<hellboundLevel min="5" max="100" />
+	</npc>
+	<npc id="22320">
+		<location x="-16924" y="238564" z="-3328" />
+		<respawn delay="60" />
+		<hellboundLevel min="5" max="100" />
+	</npc>
+	<npc id="22320">
+		<location x="-18122" y="239903" z="-3352" />
+		<respawn delay="60" />
+		<hellboundLevel min="5" max="100" />
+	</npc>
+	<npc id="22320">
+		<location x="-17925" y="239584" z="-3352" />
+		<respawn delay="60" />
+		<hellboundLevel min="5" max="100" />
+	</npc>
+	<npc id="22320">
+		<location x="-17473" y="239547" z="-3256" />
+		<respawn delay="60" />
+		<hellboundLevel min="5" max="100" />
+	</npc>
+	<npc id="22320">
+		<location x="-17206" y="238874" z="-3312" />
+		<respawn delay="60" />
+		<hellboundLevel min="5" max="100" />
 	</npc>
 	<npc id="22321">
-		<location x="-19417" y="238807" z="-2860" />
+		<location x="-17308" y="238488" z="-3328" />
 		<respawn delay="60" />
-		<hellboundLevel min="5" />
+		<hellboundLevel min="5" max="100" />
 	</npc>
 	<npc id="22321">
-		<location x="-20623" y="240344" z="-2850" />
+		<location x="-17698" y="239920" z="-3304" />
 		<respawn delay="60" />
-		<hellboundLevel min="5" />
+		<hellboundLevel min="5" max="100" />
 	</npc>
 	<npc id="22321">
-		<location x="-20427" y="239900" z="-2852" />
+		<location x="-18274" y="239549" z="-3320" />
 		<respawn delay="60" />
-		<hellboundLevel min="5" />
+		<hellboundLevel min="5" max="100" />
 	</npc>
 	<npc id="22321">
-		<location x="-20176" y="239302" z="-2845" />
+		<location x="-18050" y="239237" z="-3320" />
 		<respawn delay="60" />
-		<hellboundLevel min="5" />
+		<hellboundLevel min="5" max="100" />
 	</npc>
 	<npc id="22321">
-		<location x="-19766" y="239306" z="-2862" />
+		<location x="-17718" y="239257" z="-3336" />
 		<respawn delay="60" />
-		<hellboundLevel min="5" />
+		<hellboundLevel min="5" max="100" />
 	</npc>
 	<npc id="22321">
-		<location x="-19524" y="239598" z="-2862" />
+		<location x="-17291" y="239200" z="-3272" />
 		<respawn delay="60" />
-		<hellboundLevel min="5" />
-	</npc>
-	<npc id="22321">
-		<location x="-20192" y="239892" z="-2860" />
-		<respawn delay="60" />
-		<hellboundLevel min="5" />
-	</npc>
-	<npc id="22321">
-		<location x="-10805" y="237616" z="-3105" />
-		<respawn delay="60" />
-		<hellboundLevel min="5" />
-	</npc>
-	<npc id="22321">
-		<location x="-10256" y="237334" z="-3150" />
-		<respawn delay="60" />
-		<hellboundLevel min="5" />
-	</npc>
-	<npc id="22321">
-		<location x="-10245" y="237540" z="-3150" />
-		<respawn delay="60" />
-		<hellboundLevel min="5" />
-	</npc>
-	<npc id="22321">
-		<location x="-10387" y="237221" z="-3145" />
-		<respawn delay="60" />
-		<hellboundLevel min="5" />
-	</npc>
-	<npc id="22321">
-		<location x="-18014" y="239263" z="-3336" />
-		<respawn delay="60" />
-		<hellboundLevel min="5" />
-	</npc>
-	<npc id="22321">
-		<location x="-17140" y="238909" z="-3310" />
-		<respawn delay="60" />
-		<hellboundLevel min="5" />
-	</npc>
-	<npc id="22321">
-		<location x="-18254" y="239650" z="-3330" />
-		<respawn delay="60" />
-		<hellboundLevel min="5" />
-	</npc>
-	<npc id="22321">
-		<location x="-17758" y="239635" z="-3342" />
-		<respawn delay="60" />
-		<hellboundLevel min="5" />
-	</npc>
-	<npc id="22321">
-		<location x="-17693" y="239017" z="-3338" />
-		<respawn delay="60" />
-		<hellboundLevel min="5" />
-	</npc>
-	<npc id="22321">
-		<location x="-16844" y="238250" z="-3345" />
-		<respawn delay="60" />
-		<hellboundLevel min="5" />
+		<hellboundLevel min="5" max="100" />
 	</npc>
 	<npc id="22330">
 		<location x="-26764" y="257254" z="-1935" />

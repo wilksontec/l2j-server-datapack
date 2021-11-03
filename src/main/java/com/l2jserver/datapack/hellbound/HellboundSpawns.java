@@ -44,7 +44,7 @@ public final class HellboundSpawns implements IXmlReader {
 	
 	private final List<L2Spawn> _spawns = new ArrayList<>();
 	
-	private final Map<Integer, int[]> _spawnLevels = new HashMap<>();
+	private final Map<L2Spawn, int[]> _spawnLevels = new HashMap<>();
 	
 	public HellboundSpawns() {
 		load();
@@ -89,8 +89,6 @@ public final class HellboundSpawns implements IXmlReader {
 			int maxLevel = 100;
 			for (Node element = npc.getFirstChild(); element != null; element = element.getNextSibling()) {
 				final NamedNodeMap attrs = element.getAttributes();
-				minLevel = 1;
-				maxLevel = 100;
 				switch (element.getNodeName()) {
 					case "location": {
 						loc = new Location(parseInteger(attrs, "x"), parseInteger(attrs, "y"), parseInteger(attrs, "z"), parseInteger(attrs, "heading", 0));
@@ -117,7 +115,7 @@ public final class HellboundSpawns implements IXmlReader {
 				}
 				spawn.setLocation(loc);
 				spawn.setRespawnDelay(delay, randomInterval);
-				_spawnLevels.put(npcId, new int[] {
+				_spawnLevels.put(spawn, new int[] {
 					minLevel,
 					maxLevel
 				});
@@ -142,8 +140,8 @@ public final class HellboundSpawns implements IXmlReader {
 	 * @param npcId the NPC ID
 	 * @return the spawn minimum level
 	 */
-	public int getSpawnMinLevel(int npcId) {
-		return _spawnLevels.containsKey(npcId) ? _spawnLevels.get(npcId)[0] : 1;
+	public int getSpawnMinLevel(L2Spawn spawn) {
+		return _spawnLevels.containsKey(spawn) ? _spawnLevels.get(spawn)[0] : 1;
 	}
 	
 	/**
@@ -151,8 +149,8 @@ public final class HellboundSpawns implements IXmlReader {
 	 * @param npcId the NPC ID
 	 * @return the spawn maximum level
 	 */
-	public int getSpawnMaxLevel(int npcId) {
-		return _spawnLevels.containsKey(npcId) ? _spawnLevels.get(npcId)[1] : 1;
+	public int getSpawnMaxLevel(L2Spawn spawn) {
+		return _spawnLevels.containsKey(spawn) ? _spawnLevels.get(spawn)[1] : 1;
 	}
 	
 	public static HellboundSpawns getInstance() {

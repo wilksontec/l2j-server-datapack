@@ -133,8 +133,6 @@ public final class MinionSpawnManager extends AbstractNpcAI {
 		NPC.add(22305); // Kechi's Captain
 		NPC.add(22306); // Kechi's Captain
 		NPC.add(22307); // Kechi's Captain
-		NPC.add(22320); // Junior Watchman
-		NPC.add(22321); // Junior Summoner
 		NPC.add(22346); // Quarry Foreman
 		NPC.add(22363); // Body Destroyer
 		NPC.add(22370); // Passageway Captain
@@ -378,6 +376,7 @@ public final class MinionSpawnManager extends AbstractNpcAI {
 		NPC.add(27267); // Fallen Angel Haures
 		NPC.add(27290); // White Wing Commander
 		NPC.add(29001); // Queen Ant
+		NPC.add(29014); // Orfen
 		NPC.add(29030); // Fenril Hound Kerinne
 		NPC.add(29033); // Fenril Hound Freki
 		NPC.add(29037); // Fenril Hound Kinaz
