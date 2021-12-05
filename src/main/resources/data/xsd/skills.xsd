@@ -602,6 +602,7 @@
 					<xs:enumeration value="Mp" />
 					<xs:enumeration value="MpPerMax" />
 					<xs:enumeration value="Mute" />
+					<xs:enumeration value="NevitHourglass" />
 					<xs:enumeration value="NoblesseBless" />
 					<xs:enumeration value="OpenChest" />
 					<xs:enumeration value="Unsummon" />

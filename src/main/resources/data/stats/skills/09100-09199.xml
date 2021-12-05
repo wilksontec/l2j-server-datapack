@@ -346,564 +346,949 @@
 		</effects>
 	</skill>
 	<skill id="9115" levels="1" name="Nevit's Hourglass - 1 hour">
-		<!-- Increases Nevit's blessing by 1 hour. -->
+		<!-- High Five Confirmed -->
 		<set name="abnormalLvl" val="1" />
 		<set name="abnormalTime" val="3600" />
 		<set name="abnormalType" val="VOTE" />
 		<set name="abnormalVisualEffect" val="VP_KEEP" />
+		<set name="affectScope" val="SINGLE" />
+		<set name="buffProtectLevel" val="2" />
+		<set name="hitCancelTime" val="500" />
 		<set name="icon" val="icon.etc_dragons_blood_i03" />
+		<set name="itemConsumeCount" val="1" />
+		<set name="itemConsumeId" val="17095" /> <!-- Nevit's Hourglass - 1 hour - 1~19 -->
 		<set name="irreplaceableBuff" val="true" />
 		<set name="isMagic" val="2" />
-		<set name="itemConsumeCount" val="1" />
-		<set name="itemConsumeId" val="17095" /> <!-- Nevit's Hourglass - 1 hour -->
 		<set name="magicLvl" val="-1" />
 		<set name="operateType" val="A2" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
-		<set name="targetType" val="NONE" />
+		<set name="reuseDelayLock" val="true" />
+		<set name="reuseDelayType" val="S" />
+		<set name="targetType" val="SELF" />
+		<cond msgId="113" addName="1">
+			<target checkAbnormal="VOTE;1;false" /> <!-- Nevit's Hourglass -->
+		</cond>
+		<effects>
+			<effect name="Buff" />
+		</effects>
 	</skill>
 	<skill id="9116" levels="1" name="Nevit's Hourglass - 1.5 hour">
-		<!-- Increases Nevit's blessing by 1.5 hour. -->
+		<!-- High Five Confirmed -->
 		<set name="abnormalLvl" val="1" />
 		<set name="abnormalTime" val="5400" />
 		<set name="abnormalType" val="VOTE" />
 		<set name="abnormalVisualEffect" val="VP_KEEP" />
+		<set name="affectScope" val="SINGLE" />
+		<set name="buffProtectLevel" val="2" />
+		<set name="hitCancelTime" val="500" />
 		<set name="icon" val="icon.etc_dragons_blood_i03" />
+		<set name="itemConsumeCount" val="1" />
+		<set name="itemConsumeId" val="17096" /> <!-- Nevit's Hourglass - 1.5 hour - 1~19 -->
 		<set name="irreplaceableBuff" val="true" />
 		<set name="isMagic" val="2" />
-		<set name="itemConsumeCount" val="1" />
-		<set name="itemConsumeId" val="17096" /> <!-- Nevit's Hourglass - 1.5 hour -->
 		<set name="magicLvl" val="-1" />
 		<set name="operateType" val="A2" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
-		<set name="targetType" val="NONE" />
+		<set name="reuseDelayLock" val="true" />
+		<set name="reuseDelayType" val="S" />
+		<set name="targetType" val="SELF" />
+		<cond msgId="113" addName="1">
+			<target checkAbnormal="VOTE;1;false" /> <!-- Nevit's Hourglass -->
+		</cond>
+		<effects>
+			<effect name="Buff" />
+		</effects>
 	</skill>
 	<skill id="9117" levels="1" name="Nevit's Hourglass - 2 hour">
-		<!-- Increases Nevit's blessing by 2 hour. -->
+		<!-- High Five Confirmed -->
 		<set name="abnormalLvl" val="1" />
 		<set name="abnormalTime" val="7200" />
 		<set name="abnormalType" val="VOTE" />
 		<set name="abnormalVisualEffect" val="VP_KEEP" />
+		<set name="affectScope" val="SINGLE" />
+		<set name="buffProtectLevel" val="2" />
+		<set name="hitCancelTime" val="500" />
 		<set name="icon" val="icon.etc_dragons_blood_i03" />
+		<set name="itemConsumeCount" val="1" />
+		<set name="itemConsumeId" val="17097" /> <!-- Nevit's Hourglass - 2 hour - 1~19-->
 		<set name="irreplaceableBuff" val="true" />
 		<set name="isMagic" val="2" />
-		<set name="itemConsumeCount" val="1" />
-		<set name="itemConsumeId" val="17097" /> <!-- Nevit's Hourglass - 2 hour -->
 		<set name="magicLvl" val="-1" />
 		<set name="operateType" val="A2" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
-		<set name="targetType" val="NONE" />
+		<set name="reuseDelayLock" val="true" />
+		<set name="reuseDelayType" val="S" />
+		<set name="targetType" val="SELF" />
+		<cond msgId="113" addName="1">
+			<target checkAbnormal="VOTE;1;false" /> <!-- Nevit's Hourglass -->
+		</cond>
+		<effects>
+			<effect name="Buff" />
+		</effects>
 	</skill>
 	<skill id="9118" levels="1" name="Nevit's Hourglass - 2.5 hour">
-		<!-- Increases Nevit's blessing by 2.5 hour. -->
+		<!-- High Five Confirmed -->
 		<set name="abnormalLvl" val="1" />
 		<set name="abnormalTime" val="9000" />
 		<set name="abnormalType" val="VOTE" />
 		<set name="abnormalVisualEffect" val="VP_KEEP" />
+		<set name="affectScope" val="SINGLE" />
+		<set name="buffProtectLevel" val="2" />
+		<set name="hitCancelTime" val="500" />
 		<set name="icon" val="icon.etc_dragons_blood_i03" />
+		<set name="itemConsumeCount" val="1" />
+		<set name="itemConsumeId" val="17098" /> <!-- Nevit's Hourglass - 2.5 hour - 1~19 -->
 		<set name="irreplaceableBuff" val="true" />
 		<set name="isMagic" val="2" />
-		<set name="itemConsumeCount" val="1" />
-		<set name="itemConsumeId" val="17098" /> <!-- Nevit's Hourglass - 2.5 hour -->
 		<set name="magicLvl" val="-1" />
 		<set name="operateType" val="A2" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
-		<set name="targetType" val="NONE" />
+		<set name="reuseDelayLock" val="true" />
+		<set name="reuseDelayType" val="S" />
+		<set name="targetType" val="SELF" />
+		<cond msgId="113" addName="1">
+			<target checkAbnormal="VOTE;1;false" /> <!-- Nevit's Hourglass -->
+		</cond>
+		<effects>
+			<effect name="Buff" />
+		</effects>
 	</skill>
 	<skill id="9119" levels="1" name="Nevit's Hourglass - 3 hour">
-		<!-- Increases Nevit's blessing by 3 hour. -->
+		<!-- High Five Confirmed -->
 		<set name="abnormalLvl" val="1" />
 		<set name="abnormalTime" val="10800" />
 		<set name="abnormalType" val="VOTE" />
 		<set name="abnormalVisualEffect" val="VP_KEEP" />
+		<set name="affectScope" val="SINGLE" />
+		<set name="buffProtectLevel" val="2" />
+		<set name="hitCancelTime" val="500" />
 		<set name="icon" val="icon.etc_dragons_blood_i03" />
+		<set name="itemConsumeCount" val="1" />
+		<set name="itemConsumeId" val="17099" /> <!-- Nevit's Hourglass - 3 hour - 1~19 -->
 		<set name="irreplaceableBuff" val="true" />
 		<set name="isMagic" val="2" />
-		<set name="itemConsumeCount" val="1" />
-		<set name="itemConsumeId" val="17099" /> <!-- Nevit's Hourglass - 3 hour -->
 		<set name="magicLvl" val="-1" />
 		<set name="operateType" val="A2" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
-		<set name="targetType" val="NONE" />
+		<set name="reuseDelayLock" val="true" />
+		<set name="reuseDelayType" val="S" />
+		<set name="targetType" val="SELF" />
+		<cond msgId="113" addName="1">
+			<target checkAbnormal="VOTE;1;false" /> <!-- Nevit's Hourglass -->
+		</cond>
+		<effects>
+			<effect name="Buff" />
+		</effects>
 	</skill>
 	<skill id="9120" levels="1" name="Nevit's Hourglass - 1 hour">
-		<!-- Increases Nevit's blessing by 1 hour. -->
+		<!-- High Five Confirmed -->
 		<set name="abnormalLvl" val="1" />
 		<set name="abnormalTime" val="3600" />
 		<set name="abnormalType" val="VOTE" />
 		<set name="abnormalVisualEffect" val="VP_KEEP" />
+		<set name="affectScope" val="SINGLE" />
+		<set name="buffProtectLevel" val="2" />
+		<set name="hitCancelTime" val="500" />
 		<set name="icon" val="icon.etc_dragons_blood_i03" />
+		<set name="itemConsumeCount" val="1" />
+		<set name="itemConsumeId" val="17100" /> <!-- Nevit's Hourglass - 1 hour - 20~39 -->
 		<set name="irreplaceableBuff" val="true" />
 		<set name="isMagic" val="2" />
-		<set name="itemConsumeCount" val="1" />
-		<set name="itemConsumeId" val="17100" /> <!-- Nevit's Hourglass - 1 hour -->
 		<set name="magicLvl" val="-1" />
 		<set name="operateType" val="A2" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
-		<set name="targetType" val="NONE" />
+		<set name="reuseDelayLock" val="true" />
+		<set name="reuseDelayType" val="S" />
+		<set name="targetType" val="SELF" />
+		<cond msgId="113" addName="1">
+			<target checkAbnormal="VOTE;1;false" /> <!-- Nevit's Hourglass -->
+		</cond>
+		<effects>
+			<effect name="Buff" />
+		</effects>
 	</skill>
 	<skill id="9121" levels="1" name="Nevit's Hourglass - 1.5 hour">
-		<!-- Increases Nevit's blessing by 1.5 hour. -->
+		<!-- High Five Confirmed -->
 		<set name="abnormalLvl" val="1" />
 		<set name="abnormalTime" val="5400" />
 		<set name="abnormalType" val="VOTE" />
 		<set name="abnormalVisualEffect" val="VP_KEEP" />
+		<set name="affectScope" val="SINGLE" />
+		<set name="buffProtectLevel" val="2" />
+		<set name="hitCancelTime" val="500" />
 		<set name="icon" val="icon.etc_dragons_blood_i03" />
+		<set name="itemConsumeCount" val="1" />
+		<set name="itemConsumeId" val="17101" /> <!-- Nevit's Hourglass - 1.5 hour - 20~39 -->
 		<set name="irreplaceableBuff" val="true" />
 		<set name="isMagic" val="2" />
-		<set name="itemConsumeCount" val="1" />
-		<set name="itemConsumeId" val="17101" /> <!-- Nevit's Hourglass - 1.5 hour -->
 		<set name="magicLvl" val="-1" />
 		<set name="operateType" val="A2" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
-		<set name="targetType" val="NONE" />
+		<set name="reuseDelayLock" val="true" />
+		<set name="reuseDelayType" val="S" />
+		<set name="targetType" val="SELF" />
+		<cond msgId="113" addName="1">
+			<target checkAbnormal="VOTE;1;false" /> <!-- Nevit's Hourglass -->
+		</cond>
+		<effects>
+			<effect name="Buff" />
+		</effects>
 	</skill>
 	<skill id="9122" levels="1" name="Nevit's Hourglass - 2 hour">
-		<!-- Increases Nevit's blessing by 2 hour. -->
+		<!-- High Five Confirmed -->
 		<set name="abnormalLvl" val="1" />
 		<set name="abnormalTime" val="7200" />
 		<set name="abnormalType" val="VOTE" />
 		<set name="abnormalVisualEffect" val="VP_KEEP" />
+		<set name="affectScope" val="SINGLE" />
+		<set name="buffProtectLevel" val="2" />
+		<set name="hitCancelTime" val="500" />
 		<set name="icon" val="icon.etc_dragons_blood_i03" />
+		<set name="itemConsumeCount" val="1" />
+		<set name="itemConsumeId" val="17102" /> <!-- Nevit's Hourglass - 2 hour - 20~39 -->
 		<set name="irreplaceableBuff" val="true" />
 		<set name="isMagic" val="2" />
-		<set name="itemConsumeCount" val="1" />
-		<set name="itemConsumeId" val="17102" /> <!-- Nevit's Hourglass - 2 hour -->
 		<set name="magicLvl" val="-1" />
 		<set name="operateType" val="A2" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
-		<set name="targetType" val="NONE" />
+		<set name="reuseDelayLock" val="true" />
+		<set name="reuseDelayType" val="S" />
+		<set name="targetType" val="SELF" />
+		<cond msgId="113" addName="1">
+			<target checkAbnormal="VOTE;1;false" /> <!-- Nevit's Hourglass -->
+		</cond>
+		<effects>
+			<effect name="Buff" />
+		</effects>
 	</skill>
 	<skill id="9123" levels="1" name="Nevit's Hourglass - 2.5 hour">
-		<!-- Increases Nevit's blessing by 2.5 hour. -->
+		<!-- High Five Confirmed -->
 		<set name="abnormalLvl" val="1" />
 		<set name="abnormalTime" val="9000" />
 		<set name="abnormalType" val="VOTE" />
 		<set name="abnormalVisualEffect" val="VP_KEEP" />
+		<set name="affectScope" val="SINGLE" />
+		<set name="buffProtectLevel" val="2" />
+		<set name="hitCancelTime" val="500" />
 		<set name="icon" val="icon.etc_dragons_blood_i03" />
+		<set name="itemConsumeCount" val="1" />
+		<set name="itemConsumeId" val="17103" /> <!-- Nevit's Hourglass - 2.5 hour - 20~39 -->
 		<set name="irreplaceableBuff" val="true" />
 		<set name="isMagic" val="2" />
-		<set name="itemConsumeCount" val="1" />
-		<set name="itemConsumeId" val="17103" /> <!-- Nevit's Hourglass - 2.5 hour -->
 		<set name="magicLvl" val="-1" />
 		<set name="operateType" val="A2" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
-		<set name="targetType" val="NONE" />
+		<set name="reuseDelayLock" val="true" />
+		<set name="reuseDelayType" val="S" />
+		<set name="targetType" val="SELF" />
+		<cond msgId="113" addName="1">
+			<target checkAbnormal="VOTE;1;false" /> <!-- Nevit's Hourglass -->
+		</cond>
+		<effects>
+			<effect name="Buff" />
+		</effects>
 	</skill>
 	<skill id="9124" levels="1" name="Nevit's Hourglass - 3 hour">
-		<!-- Increases Nevit's blessing by 3 hour. -->
+		<!-- High Five Confirmed -->
 		<set name="abnormalLvl" val="1" />
 		<set name="abnormalTime" val="10800" />
 		<set name="abnormalType" val="VOTE" />
 		<set name="abnormalVisualEffect" val="VP_KEEP" />
+		<set name="affectScope" val="SINGLE" />
+		<set name="buffProtectLevel" val="2" />
+		<set name="hitCancelTime" val="500" />
 		<set name="icon" val="icon.etc_dragons_blood_i03" />
+		<set name="itemConsumeCount" val="1" />
+		<set name="itemConsumeId" val="17104" /> <!-- Nevit's Hourglass - 3 hour - 20~39 -->
 		<set name="irreplaceableBuff" val="true" />
 		<set name="isMagic" val="2" />
-		<set name="itemConsumeCount" val="1" />
-		<set name="itemConsumeId" val="17104" /> <!-- Nevit's Hourglass - 3 hour -->
 		<set name="magicLvl" val="-1" />
 		<set name="operateType" val="A2" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
-		<set name="targetType" val="NONE" />
+		<set name="reuseDelayLock" val="true" />
+		<set name="reuseDelayType" val="S" />
+		<set name="targetType" val="SELF" />
+		<cond msgId="113" addName="1">
+			<target checkAbnormal="VOTE;1;false" /> <!-- Nevit's Hourglass -->
+		</cond>
+		<effects>
+			<effect name="Buff" />
+		</effects>
 	</skill>
 	<skill id="9125" levels="1" name="Nevit's Hourglass - 1 hour">
-		<!-- Increases Nevit's blessing by 1 hour. -->
+		<!-- High Five Confirmed -->
 		<set name="abnormalLvl" val="1" />
 		<set name="abnormalTime" val="3600" />
 		<set name="abnormalType" val="VOTE" />
 		<set name="abnormalVisualEffect" val="VP_KEEP" />
+		<set name="affectScope" val="SINGLE" />
+		<set name="buffProtectLevel" val="2" />
+		<set name="hitCancelTime" val="500" />
 		<set name="icon" val="icon.etc_dragons_blood_i03" />
+		<set name="itemConsumeCount" val="1" />
+		<set name="itemConsumeId" val="17105" /> <!-- Nevit's Hourglass - 1 hour - 40~51 -->
 		<set name="irreplaceableBuff" val="true" />
 		<set name="isMagic" val="2" />
-		<set name="itemConsumeCount" val="1" />
-		<set name="itemConsumeId" val="17105" /> <!-- Nevit's Hourglass - 1 hour -->
 		<set name="magicLvl" val="-1" />
 		<set name="operateType" val="A2" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
-		<set name="targetType" val="NONE" />
+		<set name="reuseDelayLock" val="true" />
+		<set name="reuseDelayType" val="S" />
+		<set name="targetType" val="SELF" />
+		<cond msgId="113" addName="1">
+			<target checkAbnormal="VOTE;1;false" /> <!-- Nevit's Hourglass -->
+		</cond>
+		<effects>
+			<effect name="Buff" />
+		</effects>
 	</skill>
 	<skill id="9126" levels="1" name="Nevit's Hourglass - 1.5 hour">
-		<!-- Increases Nevit's blessing by 1.5 hour. -->
+		<!-- High Five Confirmed -->
 		<set name="abnormalLvl" val="1" />
 		<set name="abnormalTime" val="5400" />
 		<set name="abnormalType" val="VOTE" />
 		<set name="abnormalVisualEffect" val="VP_KEEP" />
+		<set name="affectScope" val="SINGLE" />
+		<set name="buffProtectLevel" val="2" />
+		<set name="hitCancelTime" val="500" />
 		<set name="icon" val="icon.etc_dragons_blood_i03" />
+		<set name="itemConsumeCount" val="1" />
+		<set name="itemConsumeId" val="17106" /> <!-- Nevit's Hourglass - 1.5 hour - 40~51 -->
 		<set name="irreplaceableBuff" val="true" />
 		<set name="isMagic" val="2" />
-		<set name="itemConsumeCount" val="1" />
-		<set name="itemConsumeId" val="17106" /> <!-- Nevit's Hourglass - 1.5 hour -->
 		<set name="magicLvl" val="-1" />
 		<set name="operateType" val="A2" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
-		<set name="targetType" val="NONE" />
+		<set name="reuseDelayLock" val="true" />
+		<set name="reuseDelayType" val="S" />
+		<set name="targetType" val="SELF" />
+		<cond msgId="113" addName="1">
+			<target checkAbnormal="VOTE;1;false" /> <!-- Nevit's Hourglass -->
+		</cond>
+		<effects>
+			<effect name="Buff" />
+		</effects>
 	</skill>
 	<skill id="9127" levels="1" name="Nevit's Hourglass - 2 hour">
-		<!-- Increases Nevit's blessing by 2 hour. -->
+		<!-- High Five Confirmed -->
 		<set name="abnormalLvl" val="1" />
 		<set name="abnormalTime" val="7200" />
 		<set name="abnormalType" val="VOTE" />
 		<set name="abnormalVisualEffect" val="VP_KEEP" />
+		<set name="affectScope" val="SINGLE" />
+		<set name="buffProtectLevel" val="2" />
+		<set name="hitCancelTime" val="500" />
 		<set name="icon" val="icon.etc_dragons_blood_i03" />
+		<set name="itemConsumeCount" val="1" />
+		<set name="itemConsumeId" val="17107" /> <!-- Nevit's Hourglass - 2 hour - 40~51 -->
 		<set name="irreplaceableBuff" val="true" />
 		<set name="isMagic" val="2" />
-		<set name="itemConsumeCount" val="1" />
-		<set name="itemConsumeId" val="17107" /> <!-- Nevit's Hourglass - 2 hour -->
 		<set name="magicLvl" val="-1" />
 		<set name="operateType" val="A2" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
-		<set name="targetType" val="NONE" />
+		<set name="reuseDelayLock" val="true" />
+		<set name="reuseDelayType" val="S" />
+		<set name="targetType" val="SELF" />
+		<cond msgId="113" addName="1">
+			<target checkAbnormal="VOTE;1;false" /> <!-- Nevit's Hourglass -->
+		</cond>
+		<effects>
+			<effect name="Buff" />
+		</effects>
 	</skill>
 	<skill id="9128" levels="1" name="Nevit's Hourglass - 2.5 hour">
-		<!-- Increases Nevit's blessing by 2.5 hour. -->
+		<!-- High Five Confirmed -->
 		<set name="abnormalLvl" val="1" />
 		<set name="abnormalTime" val="9000" />
 		<set name="abnormalType" val="VOTE" />
 		<set name="abnormalVisualEffect" val="VP_KEEP" />
+		<set name="affectScope" val="SINGLE" />
+		<set name="buffProtectLevel" val="2" />
+		<set name="hitCancelTime" val="500" />
 		<set name="icon" val="icon.etc_dragons_blood_i03" />
+		<set name="itemConsumeCount" val="1" />
+		<set name="itemConsumeId" val="17108" /> <!-- Nevit's Hourglass - 2.5 hour - 40~51 -->
 		<set name="irreplaceableBuff" val="true" />
 		<set name="isMagic" val="2" />
-		<set name="itemConsumeCount" val="1" />
-		<set name="itemConsumeId" val="17108" /> <!-- Nevit's Hourglass - 2.5 hour -->
 		<set name="magicLvl" val="-1" />
 		<set name="operateType" val="A2" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
-		<set name="targetType" val="NONE" />
+		<set name="reuseDelayLock" val="true" />
+		<set name="reuseDelayType" val="S" />
+		<set name="targetType" val="SELF" />
+		<cond msgId="113" addName="1">
+			<target checkAbnormal="VOTE;1;false" /> <!-- Nevit's Hourglass -->
+		</cond>
+		<effects>
+			<effect name="Buff" />
+		</effects>
 	</skill>
 	<skill id="9129" levels="1" name="Nevit's Hourglass - 3 hour">
-		<!-- Increases Nevit's blessing by 3 hour. -->
+		<!-- High Five Confirmed -->
 		<set name="abnormalLvl" val="1" />
 		<set name="abnormalTime" val="10800" />
 		<set name="abnormalType" val="VOTE" />
 		<set name="abnormalVisualEffect" val="VP_KEEP" />
+		<set name="affectScope" val="SINGLE" />
+		<set name="buffProtectLevel" val="2" />
+		<set name="hitCancelTime" val="500" />
 		<set name="icon" val="icon.etc_dragons_blood_i03" />
+		<set name="itemConsumeCount" val="1" />
+		<set name="itemConsumeId" val="17109" /> <!-- Nevit's Hourglass - 3 hour - 40~51 -->
 		<set name="irreplaceableBuff" val="true" />
 		<set name="isMagic" val="2" />
-		<set name="itemConsumeCount" val="1" />
-		<set name="itemConsumeId" val="17109" /> <!-- Nevit's Hourglass - 3 hour -->
 		<set name="magicLvl" val="-1" />
 		<set name="operateType" val="A2" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
-		<set name="targetType" val="NONE" />
+		<set name="reuseDelayLock" val="true" />
+		<set name="reuseDelayType" val="S" />
+		<set name="targetType" val="SELF" />
+		<cond msgId="113" addName="1">
+			<target checkAbnormal="VOTE;1;false" /> <!-- Nevit's Hourglass -->
+		</cond>
+		<effects>
+			<effect name="Buff" />
+		</effects>
 	</skill>
 	<skill id="9130" levels="1" name="Nevit's Hourglass - 1 hour">
-		<!-- Increases Nevit's blessing by 1 hour. -->
+		<!-- High Five Confirmed -->
 		<set name="abnormalLvl" val="1" />
 		<set name="abnormalTime" val="3600" />
 		<set name="abnormalType" val="VOTE" />
 		<set name="abnormalVisualEffect" val="VP_KEEP" />
+		<set name="affectScope" val="SINGLE" />
+		<set name="buffProtectLevel" val="2" />
+		<set name="hitCancelTime" val="500" />
 		<set name="icon" val="icon.etc_dragons_blood_i03" />
+		<set name="itemConsumeCount" val="1" />
+		<set name="itemConsumeId" val="17110" /> <!-- Nevit's Hourglass - 1 hour - 52~60 -->
 		<set name="irreplaceableBuff" val="true" />
 		<set name="isMagic" val="2" />
-		<set name="itemConsumeCount" val="1" />
-		<set name="itemConsumeId" val="17110" /> <!-- Nevit's Hourglass - 1 hour -->
 		<set name="magicLvl" val="-1" />
 		<set name="operateType" val="A2" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
-		<set name="targetType" val="NONE" />
+		<set name="reuseDelayLock" val="true" />
+		<set name="reuseDelayType" val="S" />
+		<set name="targetType" val="SELF" />
+		<cond msgId="113" addName="1">
+			<target checkAbnormal="VOTE;1;false" /> <!-- Nevit's Hourglass -->
+		</cond>
+		<effects>
+			<effect name="Buff" />
+		</effects>
 	</skill>
 	<skill id="9131" levels="1" name="Nevit's Hourglass - 1.5 hour">
-		<!-- Increases Nevit's blessing by 1.5 hour. -->
+		<!-- High Five Confirmed -->
 		<set name="abnormalLvl" val="1" />
 		<set name="abnormalTime" val="5400" />
 		<set name="abnormalType" val="VOTE" />
 		<set name="abnormalVisualEffect" val="VP_KEEP" />
+		<set name="affectScope" val="SINGLE" />
+		<set name="buffProtectLevel" val="2" />
+		<set name="hitCancelTime" val="500" />
 		<set name="icon" val="icon.etc_dragons_blood_i03" />
+		<set name="itemConsumeCount" val="1" />
+		<set name="itemConsumeId" val="17111" /> <!-- Nevit's Hourglass - 1.5 hour - 52~60 -->
 		<set name="irreplaceableBuff" val="true" />
 		<set name="isMagic" val="2" />
-		<set name="itemConsumeCount" val="1" />
-		<set name="itemConsumeId" val="17111" /> <!-- Nevit's Hourglass - 1.5 hour -->
 		<set name="magicLvl" val="-1" />
 		<set name="operateType" val="A2" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
-		<set name="targetType" val="NONE" />
+		<set name="reuseDelayLock" val="true" />
+		<set name="reuseDelayType" val="S" />
+		<set name="targetType" val="SELF" />
+		<cond msgId="113" addName="1">
+			<target checkAbnormal="VOTE;1;false" /> <!-- Nevit's Hourglass -->
+		</cond>
+		<effects>
+			<effect name="Buff" />
+		</effects>
 	</skill>
 	<skill id="9132" levels="1" name="Nevit's Hourglass - 2 hour">
-		<!-- Increases Nevit's blessing by 2 hour. -->
+		<!-- High Five Confirmed -->
 		<set name="abnormalLvl" val="1" />
 		<set name="abnormalTime" val="7200" />
 		<set name="abnormalType" val="VOTE" />
 		<set name="abnormalVisualEffect" val="VP_KEEP" />
+		<set name="affectScope" val="SINGLE" />
+		<set name="buffProtectLevel" val="2" />
+		<set name="hitCancelTime" val="500" />
 		<set name="icon" val="icon.etc_dragons_blood_i03" />
+		<set name="itemConsumeCount" val="1" />
+		<set name="itemConsumeId" val="17112" /> <!-- Nevit's Hourglass - 2 hour - 52~60 -->
 		<set name="irreplaceableBuff" val="true" />
 		<set name="isMagic" val="2" />
-		<set name="itemConsumeCount" val="1" />
-		<set name="itemConsumeId" val="17112" /> <!-- Nevit's Hourglass - 2 hour -->
 		<set name="magicLvl" val="-1" />
 		<set name="operateType" val="A2" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
-		<set name="targetType" val="NONE" />
+		<set name="reuseDelayLock" val="true" />
+		<set name="reuseDelayType" val="S" />
+		<set name="targetType" val="SELF" />
+		<cond msgId="113" addName="1">
+			<target checkAbnormal="VOTE;1;false" /> <!-- Nevit's Hourglass -->
+		</cond>
+		<effects>
+			<effect name="Buff" />
+		</effects>
 	</skill>
 	<skill id="9133" levels="1" name="Nevit's Hourglass - 2.5 hour">
-		<!-- Increases Nevit's blessing by 2.5 hour. -->
+		<!-- High Five Confirmed -->
 		<set name="abnormalLvl" val="1" />
 		<set name="abnormalTime" val="9000" />
 		<set name="abnormalType" val="VOTE" />
 		<set name="abnormalVisualEffect" val="VP_KEEP" />
+		<set name="affectScope" val="SINGLE" />
+		<set name="buffProtectLevel" val="2" />
+		<set name="hitCancelTime" val="500" />
 		<set name="icon" val="icon.etc_dragons_blood_i03" />
+		<set name="itemConsumeCount" val="1" />
+		<set name="itemConsumeId" val="17113" /> <!-- Nevit's Hourglass - 2.5 hour - 52~60 -->
 		<set name="irreplaceableBuff" val="true" />
 		<set name="isMagic" val="2" />
-		<set name="itemConsumeCount" val="1" />
-		<set name="itemConsumeId" val="17113" /> <!-- Nevit's Hourglass - 2.5 hour -->
 		<set name="magicLvl" val="-1" />
 		<set name="operateType" val="A2" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
-		<set name="targetType" val="NONE" />
+		<set name="reuseDelayLock" val="true" />
+		<set name="reuseDelayType" val="S" />
+		<set name="targetType" val="SELF" />
+		<cond msgId="113" addName="1">
+			<target checkAbnormal="VOTE;1;false" /> <!-- Nevit's Hourglass -->
+		</cond>
+		<effects>
+			<effect name="Buff" />
+		</effects>
 	</skill>
 	<skill id="9134" levels="1" name="Nevit's Hourglass - 3 hour">
-		<!-- Increases Nevit's blessing by 3 hour. -->
+		<!-- High Five Confirmed -->
 		<set name="abnormalLvl" val="1" />
 		<set name="abnormalTime" val="10800" />
 		<set name="abnormalType" val="VOTE" />
 		<set name="abnormalVisualEffect" val="VP_KEEP" />
+		<set name="affectScope" val="SINGLE" />
+		<set name="buffProtectLevel" val="2" />
+		<set name="hitCancelTime" val="500" />
 		<set name="icon" val="icon.etc_dragons_blood_i03" />
+		<set name="itemConsumeCount" val="1" />
+		<set name="itemConsumeId" val="17114" /> <!-- Nevit's Hourglass - 3 hour - 52~60 -->
 		<set name="irreplaceableBuff" val="true" />
 		<set name="isMagic" val="2" />
-		<set name="itemConsumeCount" val="1" />
-		<set name="itemConsumeId" val="17114" /> <!-- Nevit's Hourglass - 3 hour -->
 		<set name="magicLvl" val="-1" />
 		<set name="operateType" val="A2" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
-		<set name="targetType" val="NONE" />
+		<set name="reuseDelayLock" val="true" />
+		<set name="reuseDelayType" val="S" />
+		<set name="targetType" val="SELF" />
+		<cond msgId="113" addName="1">
+			<target checkAbnormal="VOTE;1;false" /> <!-- Nevit's Hourglass -->
+		</cond>
+		<effects>
+			<effect name="Buff" />
+		</effects>
 	</skill>
 	<skill id="9135" levels="1" name="Nevit's Hourglass - 1 hour">
-		<!-- Increases Nevit's blessing by 1 hour. -->
+		<!-- High Five Confirmed -->
 		<set name="abnormalLvl" val="1" />
 		<set name="abnormalTime" val="3600" />
 		<set name="abnormalType" val="VOTE" />
 		<set name="abnormalVisualEffect" val="VP_KEEP" />
+		<set name="affectScope" val="SINGLE" />
+		<set name="buffProtectLevel" val="2" />
+		<set name="hitCancelTime" val="500" />
 		<set name="icon" val="icon.etc_dragons_blood_i03" />
+		<set name="itemConsumeCount" val="1" />
+		<set name="itemConsumeId" val="17115" /> <!-- Nevit's Hourglass - 1 hour - 61~75 -->
 		<set name="irreplaceableBuff" val="true" />
 		<set name="isMagic" val="2" />
-		<set name="itemConsumeCount" val="1" />
-		<set name="itemConsumeId" val="17115" /> <!-- Nevit's Hourglass - 1 hour -->
 		<set name="magicLvl" val="-1" />
 		<set name="operateType" val="A2" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
-		<set name="targetType" val="NONE" />
+		<set name="reuseDelayLock" val="true" />
+		<set name="reuseDelayType" val="S" />
+		<set name="targetType" val="SELF" />
+		<cond msgId="113" addName="1">
+			<target checkAbnormal="VOTE;1;false" /> <!-- Nevit's Hourglass -->
+		</cond>
+		<effects>
+			<effect name="Buff" />
+		</effects>
 	</skill>
 	<skill id="9136" levels="1" name="Nevit's Hourglass - 1.5 hour">
-		<!-- Increases Nevit's blessing by 1.5 hour. -->
+		<!-- High Five Confirmed -->
 		<set name="abnormalLvl" val="1" />
 		<set name="abnormalTime" val="5400" />
 		<set name="abnormalType" val="VOTE" />
 		<set name="abnormalVisualEffect" val="VP_KEEP" />
+		<set name="affectScope" val="SINGLE" />
+		<set name="buffProtectLevel" val="2" />
+		<set name="hitCancelTime" val="500" />
 		<set name="icon" val="icon.etc_dragons_blood_i03" />
+		<set name="itemConsumeCount" val="1" />
+		<set name="itemConsumeId" val="17116" /> <!-- Nevit's Hourglass - 1.5 hour - 61~75 -->
 		<set name="irreplaceableBuff" val="true" />
 		<set name="isMagic" val="2" />
-		<set name="itemConsumeCount" val="1" />
-		<set name="itemConsumeId" val="17116" /> <!-- Nevit's Hourglass - 1.5 hour -->
 		<set name="magicLvl" val="-1" />
 		<set name="operateType" val="A2" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
-		<set name="targetType" val="NONE" />
+		<set name="reuseDelayLock" val="true" />
+		<set name="reuseDelayType" val="S" />
+		<set name="targetType" val="SELF" />
+		<cond msgId="113" addName="1">
+			<target checkAbnormal="VOTE;1;false" /> <!-- Nevit's Hourglass -->
+		</cond>
+		<effects>
+			<effect name="Buff" />
+		</effects>
 	</skill>
 	<skill id="9137" levels="1" name="Nevit's Hourglass - 2 hour">
-		<!-- Increases Nevit's blessing by 2 hour. -->
+		<!-- High Five Confirmed -->
 		<set name="abnormalLvl" val="1" />
 		<set name="abnormalTime" val="7200" />
 		<set name="abnormalType" val="VOTE" />
 		<set name="abnormalVisualEffect" val="VP_KEEP" />
+		<set name="affectScope" val="SINGLE" />
+		<set name="buffProtectLevel" val="2" />
+		<set name="hitCancelTime" val="500" />
 		<set name="icon" val="icon.etc_dragons_blood_i03" />
+		<set name="itemConsumeCount" val="1" />
+		<set name="itemConsumeId" val="17117" /> <!-- Nevit's Hourglass - 2 hour - 61~75 -->
 		<set name="irreplaceableBuff" val="true" />
 		<set name="isMagic" val="2" />
-		<set name="itemConsumeCount" val="1" />
-		<set name="itemConsumeId" val="17117" /> <!-- Nevit's Hourglass - 2 hour -->
 		<set name="magicLvl" val="-1" />
 		<set name="operateType" val="A2" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
-		<set name="targetType" val="NONE" />
+		<set name="reuseDelayLock" val="true" />
+		<set name="reuseDelayType" val="S" />
+		<set name="targetType" val="SELF" />
+		<cond msgId="113" addName="1">
+			<target checkAbnormal="VOTE;1;false" /> <!-- Nevit's Hourglass -->
+		</cond>
+		<effects>
+			<effect name="Buff" />
+		</effects>
 	</skill>
 	<skill id="9138" levels="1" name="Nevit's Hourglass - 2.5 hour">
-		<!-- Increases Nevit's blessing by 2.5 hour. -->
+		<!-- High Five Confirmed -->
 		<set name="abnormalLvl" val="1" />
 		<set name="abnormalTime" val="9000" />
 		<set name="abnormalType" val="VOTE" />
 		<set name="abnormalVisualEffect" val="VP_KEEP" />
+		<set name="affectScope" val="SINGLE" />
+		<set name="buffProtectLevel" val="2" />
+		<set name="hitCancelTime" val="500" />
 		<set name="icon" val="icon.etc_dragons_blood_i03" />
+		<set name="itemConsumeCount" val="1" />
+		<set name="itemConsumeId" val="17118" /> <!-- Nevit's Hourglass - 2.5 hour - 61~75 -->
 		<set name="irreplaceableBuff" val="true" />
 		<set name="isMagic" val="2" />
-		<set name="itemConsumeCount" val="1" />
-		<set name="itemConsumeId" val="17118" /> <!-- Nevit's Hourglass - 2.5 hour -->
 		<set name="magicLvl" val="-1" />
 		<set name="operateType" val="A2" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
-		<set name="targetType" val="NONE" />
+		<set name="reuseDelayLock" val="true" />
+		<set name="reuseDelayType" val="S" />
+		<set name="targetType" val="SELF" />
+		<cond msgId="113" addName="1">
+			<target checkAbnormal="VOTE;1;false" /> <!-- Nevit's Hourglass -->
+		</cond>
+		<effects>
+			<effect name="Buff" />
+		</effects>
 	</skill>
 	<skill id="9139" levels="1" name="Nevit's Hourglass - 3 hour">
-		<!-- Increases Nevit's blessing by 3 hour. -->
+		<!-- High Five Confirmed -->
 		<set name="abnormalLvl" val="1" />
 		<set name="abnormalTime" val="10800" />
 		<set name="abnormalType" val="VOTE" />
 		<set name="abnormalVisualEffect" val="VP_KEEP" />
+		<set name="affectScope" val="SINGLE" />
+		<set name="buffProtectLevel" val="2" />
+		<set name="hitCancelTime" val="500" />
 		<set name="icon" val="icon.etc_dragons_blood_i03" />
+		<set name="itemConsumeCount" val="1" />
+		<set name="itemConsumeId" val="17119" /> <!-- Nevit's Hourglass - 3 hour - 61~75 -->
 		<set name="irreplaceableBuff" val="true" />
 		<set name="isMagic" val="2" />
-		<set name="itemConsumeCount" val="1" />
-		<set name="itemConsumeId" val="17119" /> <!-- Nevit's Hourglass - 3 hour -->
 		<set name="magicLvl" val="-1" />
 		<set name="operateType" val="A2" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
-		<set name="targetType" val="NONE" />
+		<set name="reuseDelayLock" val="true" />
+		<set name="reuseDelayType" val="S" />
+		<set name="targetType" val="SELF" />
+		<cond msgId="113" addName="1">
+			<target checkAbnormal="VOTE;1;false" /> <!-- Nevit's Hourglass -->
+		</cond>
+		<effects>
+			<effect name="Buff" />
+		</effects>
 	</skill>
 	<skill id="9140" levels="1" name="Nevit's Hourglass - 1 hour">
-		<!-- Increases Nevit's blessing by 1 hour. -->
+		<!-- High Five Confirmed -->
 		<set name="abnormalLvl" val="1" />
 		<set name="abnormalTime" val="3600" />
 		<set name="abnormalType" val="VOTE" />
 		<set name="abnormalVisualEffect" val="VP_KEEP" />
+		<set name="affectScope" val="SINGLE" />
+		<set name="buffProtectLevel" val="2" />
+		<set name="hitCancelTime" val="500" />
 		<set name="icon" val="icon.etc_dragons_blood_i03" />
+		<set name="itemConsumeCount" val="1" />
+		<set name="itemConsumeId" val="17120" /> <!-- Nevit's Hourglass - 1 hour - 76~79 -->
 		<set name="irreplaceableBuff" val="true" />
 		<set name="isMagic" val="2" />
-		<set name="itemConsumeCount" val="1" />
-		<set name="itemConsumeId" val="17120" /> <!-- Nevit's Hourglass - 1 hour -->
 		<set name="magicLvl" val="-1" />
 		<set name="operateType" val="A2" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
-		<set name="targetType" val="NONE" />
+		<set name="reuseDelayLock" val="true" />
+		<set name="reuseDelayType" val="S" />
+		<set name="targetType" val="SELF" />
+		<cond msgId="113" addName="1">
+			<target checkAbnormal="VOTE;1;false" /> <!-- Nevit's Hourglass -->
+		</cond>
+		<effects>
+			<effect name="Buff" />
+		</effects>
 	</skill>
 	<skill id="9141" levels="1" name="Nevit's Hourglass - 1.5 hour">
-		<!-- Increases Nevit's blessing by 1.5 hour. -->
+		<!-- High Five Confirmed -->
 		<set name="abnormalLvl" val="1" />
 		<set name="abnormalTime" val="5400" />
 		<set name="abnormalType" val="VOTE" />
 		<set name="abnormalVisualEffect" val="VP_KEEP" />
+		<set name="affectScope" val="SINGLE" />
+		<set name="buffProtectLevel" val="2" />
+		<set name="hitCancelTime" val="500" />
 		<set name="icon" val="icon.etc_dragons_blood_i03" />
+		<set name="itemConsumeCount" val="1" />
+		<set name="itemConsumeId" val="17121" /> <!-- Nevit's Hourglass - 1.5 hour - 76~79 -->
 		<set name="irreplaceableBuff" val="true" />
 		<set name="isMagic" val="2" />
-		<set name="itemConsumeCount" val="1" />
-		<set name="itemConsumeId" val="17121" /> <!-- Nevit's Hourglass - 1.5 hour -->
 		<set name="magicLvl" val="-1" />
 		<set name="operateType" val="A2" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
-		<set name="targetType" val="NONE" />
+		<set name="reuseDelayLock" val="true" />
+		<set name="reuseDelayType" val="S" />
+		<set name="targetType" val="SELF" />
+		<cond msgId="113" addName="1">
+			<target checkAbnormal="VOTE;1;false" /> <!-- Nevit's Hourglass -->
+		</cond>
+		<effects>
+			<effect name="Buff" />
+		</effects>
 	</skill>
 	<skill id="9142" levels="1" name="Nevit's Hourglass - 2 hour">
-		<!-- Increases Nevit's blessing by 2 hour. -->
+		<!-- High Five Confirmed -->
 		<set name="abnormalLvl" val="1" />
 		<set name="abnormalTime" val="7200" />
 		<set name="abnormalType" val="VOTE" />
 		<set name="abnormalVisualEffect" val="VP_KEEP" />
+		<set name="affectScope" val="SINGLE" />
+		<set name="buffProtectLevel" val="2" />
+		<set name="hitCancelTime" val="500" />
 		<set name="icon" val="icon.etc_dragons_blood_i03" />
+		<set name="itemConsumeCount" val="1" />
+		<set name="itemConsumeId" val="17122" /> <!-- Nevit's Hourglass - 2 hour - 76~79 -->
 		<set name="irreplaceableBuff" val="true" />
 		<set name="isMagic" val="2" />
-		<set name="itemConsumeCount" val="1" />
-		<set name="itemConsumeId" val="17122" /> <!-- Nevit's Hourglass - 2 hour -->
 		<set name="magicLvl" val="-1" />
 		<set name="operateType" val="A2" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
-		<set name="targetType" val="NONE" />
+		<set name="reuseDelayLock" val="true" />
+		<set name="reuseDelayType" val="S" />
+		<set name="targetType" val="SELF" />
+		<cond msgId="113" addName="1">
+			<target checkAbnormal="VOTE;1;false" /> <!-- Nevit's Hourglass -->
+		</cond>
+		<effects>
+			<effect name="Buff" />
+		</effects>
 	</skill>
 	<skill id="9143" levels="1" name="Nevit's Hourglass - 2.5 hour">
-		<!-- Increases Nevit's blessing by 2.5 hour. -->
+		<!-- High Five Confirmed -->
 		<set name="abnormalLvl" val="1" />
 		<set name="abnormalTime" val="9000" />
 		<set name="abnormalType" val="VOTE" />
 		<set name="abnormalVisualEffect" val="VP_KEEP" />
+		<set name="affectScope" val="SINGLE" />
+		<set name="buffProtectLevel" val="2" />
+		<set name="hitCancelTime" val="500" />
 		<set name="icon" val="icon.etc_dragons_blood_i03" />
+		<set name="itemConsumeCount" val="1" />
+		<set name="itemConsumeId" val="17123" /> <!-- Nevit's Hourglass - 2.5 hour - 76~79 -->
 		<set name="irreplaceableBuff" val="true" />
 		<set name="isMagic" val="2" />
-		<set name="itemConsumeCount" val="1" />
-		<set name="itemConsumeId" val="17123" /> <!-- Nevit's Hourglass - 2.5 hour -->
 		<set name="magicLvl" val="-1" />
 		<set name="operateType" val="A2" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
-		<set name="targetType" val="NONE" />
+		<set name="reuseDelayLock" val="true" />
+		<set name="reuseDelayType" val="S" />
+		<set name="targetType" val="SELF" />
+		<cond msgId="113" addName="1">
+			<target checkAbnormal="VOTE;1;false" /> <!-- Nevit's Hourglass -->
+		</cond>
+		<effects>
+			<effect name="Buff" />
+		</effects>
 	</skill>
 	<skill id="9144" levels="1" name="Nevit's Hourglass - 3 hour">
-		<!-- Increases Nevit's blessing by 3 hour. -->
+		<!-- High Five Confirmed -->
 		<set name="abnormalLvl" val="1" />
 		<set name="abnormalTime" val="10800" />
 		<set name="abnormalType" val="VOTE" />
 		<set name="abnormalVisualEffect" val="VP_KEEP" />
+		<set name="affectScope" val="SINGLE" />
+		<set name="buffProtectLevel" val="2" />
+		<set name="hitCancelTime" val="500" />
 		<set name="icon" val="icon.etc_dragons_blood_i03" />
+		<set name="itemConsumeCount" val="1" />
+		<set name="itemConsumeId" val="17124" /> <!-- Nevit's Hourglass - 3 hour - 76~79 -->
 		<set name="irreplaceableBuff" val="true" />
 		<set name="isMagic" val="2" />
-		<set name="itemConsumeCount" val="1" />
-		<set name="itemConsumeId" val="17124" /> <!-- Nevit's Hourglass - 3 hour -->
 		<set name="magicLvl" val="-1" />
 		<set name="operateType" val="A2" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
-		<set name="targetType" val="NONE" />
+		<set name="reuseDelayLock" val="true" />
+		<set name="reuseDelayType" val="S" />
+		<set name="targetType" val="SELF" />
+		<cond msgId="113" addName="1">
+			<target checkAbnormal="VOTE;1;false" /> <!-- Nevit's Hourglass -->
+		</cond>
+		<effects>
+			<effect name="Buff" />
+		</effects>
 	</skill>
 	<skill id="9145" levels="1" name="Nevit's Hourglass - 1 hour">
-		<!-- Increases Nevit's blessing by 1 hour. -->
+		<!-- High Five Confirmed -->
 		<set name="abnormalLvl" val="1" />
 		<set name="abnormalTime" val="3600" />
 		<set name="abnormalType" val="VOTE" />
 		<set name="abnormalVisualEffect" val="VP_KEEP" />
+		<set name="affectScope" val="SINGLE" />
+		<set name="buffProtectLevel" val="2" />
+		<set name="hitCancelTime" val="500" />
 		<set name="icon" val="icon.etc_dragons_blood_i03" />
+		<set name="itemConsumeCount" val="1" />
+		<set name="itemConsumeId" val="17125" /> <!-- Nevit's Hourglass - 1 hour - 80~85 -->
 		<set name="irreplaceableBuff" val="true" />
 		<set name="isMagic" val="2" />
-		<set name="itemConsumeCount" val="1" />
-		<set name="itemConsumeId" val="17125" /> <!-- Nevit's Hourglass - 1 hour -->
 		<set name="magicLvl" val="-1" />
 		<set name="operateType" val="A2" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
-		<set name="targetType" val="NONE" />
+		<set name="reuseDelayLock" val="true" />
+		<set name="reuseDelayType" val="S" />
+		<set name="targetType" val="SELF" />
+		<cond msgId="113" addName="1">
+			<target checkAbnormal="VOTE;1;false" /> <!-- Nevit's Hourglass -->
+		</cond>
+		<effects>
+			<effect name="Buff" />
+		</effects>
 	</skill>
 	<skill id="9146" levels="1" name="Nevit's Hourglass - 1.5 hour">
-		<!-- Increases Nevit's blessing by 1.5 hour. -->
+		<!-- High Five Confirmed -->
 		<set name="abnormalLvl" val="1" />
 		<set name="abnormalTime" val="5400" />
 		<set name="abnormalType" val="VOTE" />
 		<set name="abnormalVisualEffect" val="VP_KEEP" />
+		<set name="affectScope" val="SINGLE" />
+		<set name="buffProtectLevel" val="2" />
+		<set name="hitCancelTime" val="500" />
 		<set name="icon" val="icon.etc_dragons_blood_i03" />
+		<set name="itemConsumeCount" val="1" />
+		<set name="itemConsumeId" val="17126" /> <!-- Nevit's Hourglass - 1.5 hour - 80~85 -->
 		<set name="irreplaceableBuff" val="true" />
 		<set name="isMagic" val="2" />
-		<set name="itemConsumeCount" val="1" />
-		<set name="itemConsumeId" val="17126" /> <!-- Nevit's Hourglass - 1.5 hour -->
 		<set name="magicLvl" val="-1" />
 		<set name="operateType" val="A2" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
-		<set name="targetType" val="NONE" />
+		<set name="reuseDelayLock" val="true" />
+		<set name="reuseDelayType" val="S" />
+		<set name="targetType" val="SELF" />
+		<cond msgId="113" addName="1">
+			<target checkAbnormal="VOTE;1;false" /> <!-- Nevit's Hourglass -->
+		</cond>
+		<effects>
+			<effect name="Buff" />
+		</effects>
 	</skill>
 	<skill id="9147" levels="1" name="Nevit's Hourglass - 2 hour">
-		<!-- Increases Nevit's blessing by 2 hour. -->
+		<!-- High Five Confirmed -->
 		<set name="abnormalLvl" val="1" />
 		<set name="abnormalTime" val="7200" />
 		<set name="abnormalType" val="VOTE" />
 		<set name="abnormalVisualEffect" val="VP_KEEP" />
+		<set name="affectScope" val="SINGLE" />
+		<set name="buffProtectLevel" val="2" />
+		<set name="hitCancelTime" val="500" />
 		<set name="icon" val="icon.etc_dragons_blood_i03" />
+		<set name="itemConsumeCount" val="1" />
+		<set name="itemConsumeId" val="17127" /> <!-- Nevit's Hourglass - 2 hour - 80~85 -->
 		<set name="irreplaceableBuff" val="true" />
 		<set name="isMagic" val="2" />
-		<set name="itemConsumeCount" val="1" />
-		<set name="itemConsumeId" val="17127" /> <!-- Nevit's Hourglass - 2 hour -->
 		<set name="magicLvl" val="-1" />
 		<set name="operateType" val="A2" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
-		<set name="targetType" val="NONE" />
+		<set name="reuseDelayLock" val="true" />
+		<set name="reuseDelayType" val="S" />
+		<set name="targetType" val="SELF" />
+		<cond msgId="113" addName="1">
+			<target checkAbnormal="VOTE;1;false" /> <!-- Nevit's Hourglass -->
+		</cond>
+		<effects>
+			<effect name="Buff" />
+		</effects>
 	</skill>
 	<skill id="9148" levels="1" name="Nevit's Hourglass - 2.5 hour">
-		<!-- Increases Nevit's blessing by 2.5 hour. -->
+		<!-- High Five Confirmed -->
 		<set name="abnormalLvl" val="1" />
 		<set name="abnormalTime" val="9000" />
 		<set name="abnormalType" val="VOTE" />
 		<set name="abnormalVisualEffect" val="VP_KEEP" />
+		<set name="affectScope" val="SINGLE" />
+		<set name="buffProtectLevel" val="2" />
+		<set name="hitCancelTime" val="500" />
 		<set name="icon" val="icon.etc_dragons_blood_i03" />
+		<set name="itemConsumeCount" val="1" />
+		<set name="itemConsumeId" val="17128" /> <!-- Nevit's Hourglass - 2.5 hour - 80~85 -->
 		<set name="irreplaceableBuff" val="true" />
 		<set name="isMagic" val="2" />
-		<set name="itemConsumeCount" val="1" />
-		<set name="itemConsumeId" val="17128" /> <!-- Nevit's Hourglass - 2.5 hour -->
 		<set name="magicLvl" val="-1" />
 		<set name="operateType" val="A2" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
-		<set name="targetType" val="NONE" />
+		<set name="reuseDelayLock" val="true" />
+		<set name="reuseDelayType" val="S" />
+		<set name="targetType" val="SELF" />
+		<cond msgId="113" addName="1">
+			<target checkAbnormal="VOTE;1;false" /> <!-- Nevit's Hourglass -->
+		</cond>
+		<effects>
+			<effect name="Buff" />
+		</effects>
 	</skill>
 	<skill id="9149" levels="1" name="Nevit's Hourglass - 3 hour">
-		<!-- Increases Nevit's blessing by 3 hour. -->
+		<!-- High Five Confirmed -->
 		<set name="abnormalLvl" val="1" />
 		<set name="abnormalTime" val="10800" />
 		<set name="abnormalType" val="VOTE" />
 		<set name="abnormalVisualEffect" val="VP_KEEP" />
+		<set name="affectScope" val="SINGLE" />
+		<set name="buffProtectLevel" val="2" />
+		<set name="hitCancelTime" val="500" />
 		<set name="icon" val="icon.etc_dragons_blood_i03" />
+		<set name="itemConsumeCount" val="1" />
+		<set name="itemConsumeId" val="17129" /> <!-- Nevit's Hourglass - 3 hour - 80~85 -->
 		<set name="irreplaceableBuff" val="true" />
 		<set name="isMagic" val="2" />
-		<set name="itemConsumeCount" val="1" />
-		<set name="itemConsumeId" val="17129" /> <!-- Nevit's Hourglass - 3 hour -->
 		<set name="magicLvl" val="-1" />
 		<set name="operateType" val="A2" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
-		<set name="targetType" val="NONE" />
+		<set name="reuseDelayLock" val="true" />
+		<set name="reuseDelayType" val="S" />
+		<set name="targetType" val="SELF" />
+		<cond msgId="113" addName="1">
+			<target checkAbnormal="VOTE;1;false" /> <!-- Nevit's Hourglass -->
+		</cond>
+		<effects>
+			<effect name="Buff" />
+		</effects>
 	</skill>
 	<skill id="9150" levels="1" name="Freesia Bouquet - Event">
 		<!-- High Five Confirmed -->
@@ -1273,34 +1658,167 @@
 		</effects>
 	</skill>
 	<skill id="9167" levels="1" name="Nevit's Hourglass - 1 hour(s)">
-		<!-- Increases Nevit's blessing by 1 hour(s). -->
-		<set name="operateType" val="P" />
-		<set name="targetType" val="NONE" />
+		<!-- High Five Confirmed -->
+		<set name="abnormalLvl" val="1" />
+		<set name="abnormalTime" val="3600" />
+		<set name="abnormalType" val="VOTE" />
+		<set name="abnormalVisualEffect" val="VP_KEEP" />
+		<set name="affectScope" val="SINGLE" />
+		<set name="buffProtectLevel" val="2" />
+		<set name="hitCancelTime" val="500" />
+		<set name="icon" val="icon.etc_dragons_blood_i03" />
+		<set name="itemConsumeCount" val="1" />
+		<set name="itemConsumeId" val="17206" /> <!-- Nevit's Hourglass - 1 hour -->
+		<set name="irreplaceableBuff" val="true" />
+		<set name="isMagic" val="2" />
+		<set name="magicLvl" val="-1" />
+		<set name="operateType" val="A2" />
+		<set name="reuseDelay" val="86400" />
+		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
+		<set name="reuseDelayLock" val="true" />
+		<set name="reuseDelayType" val="S" />
+		<set name="targetType" val="SELF" />
+		<cond msgId="113" addName="1">
+			<target checkAbnormal="VOTE;1;false" /> <!-- Nevit's Hourglass -->
+		</cond>
+		<effects>
+			<effect name="Buff" />
+		</effects>
 	</skill>
 	<skill id="9168" levels="1" name="Nevit's Hourglass - 1.5 hour(s)">
-		<!-- Increases Nevit's blessing by 1.5 hour(s). -->
-		<set name="operateType" val="P" />
-		<set name="targetType" val="NONE" />
+		<!-- High Five Confirmed -->
+		<set name="abnormalLvl" val="1" />
+		<set name="abnormalTime" val="5400" />
+		<set name="abnormalType" val="VOTE" />
+		<set name="abnormalVisualEffect" val="VP_KEEP" />
+		<set name="affectScope" val="SINGLE" />
+		<set name="buffProtectLevel" val="2" />
+		<set name="hitCancelTime" val="500" />
+		<set name="icon" val="icon.etc_dragons_blood_i03" />
+		<set name="itemConsumeCount" val="1" />
+		<set name="itemConsumeId" val="17207" /> <!-- Nevit's Hourglass - 1.5 hour -->
+		<set name="irreplaceableBuff" val="true" />
+		<set name="isMagic" val="2" />
+		<set name="magicLvl" val="-1" />
+		<set name="operateType" val="A2" />
+		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
+		<set name="reuseDelayLock" val="true" />
+		<set name="reuseDelayType" val="S" />
+		<set name="targetType" val="SELF" />
+		<cond msgId="113" addName="1">
+			<target checkAbnormal="VOTE;1;false" /> <!-- Nevit's Hourglass -->
+		</cond>
+		<effects>
+			<effect name="Buff" />
+		</effects>
 	</skill>
 	<skill id="9169" levels="1" name="Nevit's Hourglass - 2 hour(s)">
-		<!-- Increases Nevit's blessing by 2 hour(s). -->
-		<set name="operateType" val="P" />
-		<set name="targetType" val="NONE" />
+		<!-- High Five Confirmed -->
+		<set name="abnormalLvl" val="1" />
+		<set name="abnormalTime" val="7200" />
+		<set name="abnormalType" val="VOTE" />
+		<set name="abnormalVisualEffect" val="VP_KEEP" />
+		<set name="affectScope" val="SINGLE" />
+		<set name="buffProtectLevel" val="2" />
+		<set name="hitCancelTime" val="500" />
+		<set name="icon" val="icon.etc_dragons_blood_i03" />
+		<set name="itemConsumeCount" val="1" />
+		<set name="itemConsumeId" val="17208" /> <!-- Nevit's Hourglass - 2 hour -->
+		<set name="irreplaceableBuff" val="true" />
+		<set name="isMagic" val="2" />
+		<set name="magicLvl" val="-1" />
+		<set name="operateType" val="A2" />
+		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
+		<set name="reuseDelayLock" val="true" />
+		<set name="reuseDelayType" val="S" />
+		<set name="targetType" val="SELF" />
+		<cond msgId="113" addName="1">
+			<target checkAbnormal="VOTE;1;false" /> <!-- Nevit's Hourglass -->
+		</cond>
+		<effects>
+			<effect name="Buff" />
+		</effects>
 	</skill>
 	<skill id="9170" levels="1" name="Nevit's Hourglass - 2.5 hour(s)">
-		<!-- Increases Nevit's blessing by 2.5 hour(s). -->
-		<set name="operateType" val="P" />
-		<set name="targetType" val="NONE" />
+		<!-- High Five Confirmed -->
+		<set name="abnormalLvl" val="1" />
+		<set name="abnormalTime" val="9000" />
+		<set name="abnormalType" val="VOTE" />
+		<set name="abnormalVisualEffect" val="VP_KEEP" />
+		<set name="affectScope" val="SINGLE" />
+		<set name="buffProtectLevel" val="2" />
+		<set name="hitCancelTime" val="500" />
+		<set name="icon" val="icon.etc_dragons_blood_i03" />
+		<set name="itemConsumeCount" val="1" />
+		<set name="itemConsumeId" val="17209" /> <!-- Nevit's Hourglass - 2.5 hour -->
+		<set name="irreplaceableBuff" val="true" />
+		<set name="isMagic" val="2" />
+		<set name="magicLvl" val="-1" />
+		<set name="operateType" val="A2" />
+		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
+		<set name="reuseDelayLock" val="true" />
+		<set name="reuseDelayType" val="S" />
+		<set name="targetType" val="SELF" />
+		<cond msgId="113" addName="1">
+			<target checkAbnormal="VOTE;1;false" /> <!-- Nevit's Hourglass -->
+		</cond>
+		<effects>
+			<effect name="Buff" />
+		</effects>
 	</skill>
 	<skill id="9171" levels="1" name="Nevit's Hourglass - 3 hour(s)">
-		<!-- Increases Nevit's blessing by 3 hour(s). -->
-		<set name="operateType" val="P" />
-		<set name="targetType" val="NONE" />
+		<!-- High Five Confirmed -->
+		<set name="abnormalLvl" val="1" />
+		<set name="abnormalTime" val="10800" />
+		<set name="abnormalType" val="VOTE" />
+		<set name="abnormalVisualEffect" val="VP_KEEP" />
+		<set name="affectScope" val="SINGLE" />
+		<set name="buffProtectLevel" val="2" />
+		<set name="hitCancelTime" val="500" />
+		<set name="icon" val="icon.etc_dragons_blood_i03" />
+		<set name="itemConsumeCount" val="1" />
+		<set name="itemConsumeId" val="17210" /> <!-- Nevit's Hourglass - 3 hour -->
+		<set name="irreplaceableBuff" val="true" />
+		<set name="isMagic" val="2" />
+		<set name="magicLvl" val="-1" />
+		<set name="operateType" val="A2" />
+		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
+		<set name="reuseDelayLock" val="true" />
+		<set name="reuseDelayType" val="S" />
+		<set name="targetType" val="SELF" />
+		<cond msgId="113" addName="1">
+			<target checkAbnormal="VOTE;1;false" /> <!-- Nevit's Hourglass -->
+		</cond>
+		<effects>
+			<effect name="Buff" />
+		</effects>
 	</skill>
 	<skill id="9172" levels="1" name="Nevit's Hourglass - 4 hour(s)">
-		<!-- Increases Nevit's blessing by 4 hour(s). -->
-		<set name="operateType" val="P" />
-		<set name="targetType" val="NONE" />
+		<!-- High Five Confirmed -->
+		<set name="abnormalLvl" val="1" />
+		<set name="abnormalTime" val="14400" />
+		<set name="abnormalType" val="VOTE" />
+		<set name="abnormalVisualEffect" val="VP_KEEP" />
+		<set name="affectScope" val="SINGLE" />
+		<set name="buffProtectLevel" val="2" />
+		<set name="hitCancelTime" val="500" />
+		<set name="icon" val="icon.etc_dragons_blood_i03" />
+		<set name="itemConsumeCount" val="1" />
+		<set name="itemConsumeId" val="17211" /> <!-- Nevit's Hourglass - 4 hour -->
+		<set name="irreplaceableBuff" val="true" />
+		<set name="isMagic" val="2" />
+		<set name="magicLvl" val="-1" />
+		<set name="operateType" val="A2" />
+		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
+		<set name="reuseDelayLock" val="true" />
+		<set name="reuseDelayType" val="S" />
+		<set name="targetType" val="SELF" />
+		<cond msgId="113" addName="1">
+			<target checkAbnormal="VOTE;1;false" /> <!-- Nevit's Hourglass -->
+		</cond>
+		<effects>
+			<effect name="Buff" />
+		</effects>
 	</skill>
 	<skill id="9173" levels="1" name="Nevit's Voice">
 		<!-- none -->
@@ -1419,14 +1937,56 @@
 		</effects>
 	</skill>
 	<skill id="9181" levels="1" name="Nevit's Hourglass - 4 hour(s)">
-		<!-- Increases Nevit's blessing by 4 hour(s). -->
-		<set name="operateType" val="P" />
-		<set name="targetType" val="NONE" />
+		<!-- High Five Confirmed -->
+		<set name="abnormalLvl" val="1" />
+		<set name="abnormalTime" val="14400" />
+		<set name="abnormalType" val="VOTE" />
+		<set name="abnormalVisualEffect" val="VP_KEEP" />
+		<set name="affectScope" val="SINGLE" />
+		<set name="buffProtectLevel" val="2" />
+		<set name="icon" val="icon.etc_dragons_blood_i03" />
+		<set name="itemConsumeCount" val="1" />
+		<set name="itemConsumeId" val="17283" /> <!-- Nevit's Hourglass - 4 hour -->
+		<set name="irreplaceableBuff" val="true" />
+		<set name="isMagic" val="2" />
+		<set name="magicLvl" val="-1" />
+		<set name="operateType" val="A2" />
+		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
+		<set name="reuseDelayLock" val="true" />
+		<set name="reuseDelayType" val="S" />
+		<set name="targetType" val="SELF" />
+		<cond msgId="113" addName="1">
+			<target checkAbnormal="VOTE;1;false" /> <!-- Nevit's Hourglass -->
+		</cond>
+		<effects>
+			<effect name="Buff" />
+		</effects>
 	</skill>
 	<skill id="9182" levels="1" name="Nevit's Hourglass - 4 hour(s)">
-		<!-- Increases Nevit's blessing by 4 hour(s). -->
-		<set name="operateType" val="P" />
-		<set name="targetType" val="NONE" />
+		<!-- High Five Confirmed -->
+		<set name="abnormalLvl" val="1" />
+		<set name="abnormalTime" val="14400" />
+		<set name="abnormalType" val="VOTE" />
+		<set name="abnormalVisualEffect" val="VP_KEEP" />
+		<set name="affectScope" val="SINGLE" />
+		<set name="buffProtectLevel" val="2" />
+		<set name="icon" val="icon.etc_dragons_blood_i03" />
+		<set name="itemConsumeCount" val="1" />
+		<set name="itemConsumeId" val="17284" /> <!-- Nevit's Hourglass - 4 hour - Event -->
+		<set name="irreplaceableBuff" val="true" />
+		<set name="isMagic" val="2" />
+		<set name="magicLvl" val="-1" />
+		<set name="operateType" val="A2" />
+		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
+		<set name="reuseDelayLock" val="true" />
+		<set name="reuseDelayType" val="S" />
+		<set name="targetType" val="SELF" />
+		<cond msgId="113" addName="1">
+			<target checkAbnormal="VOTE;1;false" /> <!-- Nevit's Hourglass -->
+		</cond>
+		<effects>
+			<effect name="Buff" />
+		</effects>
 	</skill>
 	<skill id="9183" levels="1" name="Freya's Refreshing Breeze - 4 hour(s)">
 		<!-- "For 4 hours, recovers vitality when Exp. is acquired through hunting." -->

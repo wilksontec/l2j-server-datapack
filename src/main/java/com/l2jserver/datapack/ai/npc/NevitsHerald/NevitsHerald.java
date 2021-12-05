@@ -83,7 +83,7 @@ public final class NevitsHerald extends AbstractNpcAI {
 		
 		if (npc.getId() == NEVITS_HERALD) {
 			if (event.equalsIgnoreCase("buff")) {
-				if (player.getEffectList().getFirstEffect(L2EffectType.NEVIT_HOURGLASS) != null) {
+				if (player.getEffectList().getFirstEffect(L2EffectType.BONUS_TIME_LIMIT_UP) != null) {
 					return "4326-1.html";
 				}
 				npc.setTarget(player);

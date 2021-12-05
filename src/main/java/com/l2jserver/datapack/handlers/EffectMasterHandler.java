@@ -193,6 +193,7 @@ public final class EffectMasterHandler {
 		Mp.class,
 		MpPerMax.class,
 		Mute.class,
+		NevitHourglass.class,
 		NoblesseBless.class,
 		OpenChest.class,
 		OpenCommonRecipeBook.class,

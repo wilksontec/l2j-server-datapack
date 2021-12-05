@@ -76,7 +76,8 @@ public class ItemSkillsTemplate implements IItemHandler {
 					hasConsumeSkill = true;
 				}
 				
-				if (!itemSkill.checkCondition(playable, playable.getTarget(), false)) {
+				//if (!itemSkill.checkCondition(playable, playable.getTarget(), false)) {
+				if (!itemSkill.checkCondition(playable, itemSkill.getTargetType().getTarget(itemSkill, playable, playable.getTarget()), false)) {
 					return false;
 				}
 				
