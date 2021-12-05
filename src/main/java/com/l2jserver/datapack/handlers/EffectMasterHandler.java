@@ -53,6 +53,7 @@ import com.l2jserver.datapack.handlers.effecthandlers.pump.BlockDamage;
 import com.l2jserver.datapack.handlers.effecthandlers.pump.BlockDebuff;
 import com.l2jserver.datapack.handlers.effecthandlers.pump.BlockParty;
 import com.l2jserver.datapack.handlers.effecthandlers.pump.BlockResurrection;
+import com.l2jserver.datapack.handlers.effecthandlers.pump.BonusTimeLimitUp;
 import com.l2jserver.datapack.handlers.effecthandlers.pump.ChangeFishingMastery;
 import com.l2jserver.datapack.handlers.effecthandlers.pump.CrystalGradeModify;
 import com.l2jserver.datapack.handlers.effecthandlers.pump.CubicMastery;
@@ -193,7 +194,8 @@ public final class EffectMasterHandler {
 		Mp.class,
 		MpPerMax.class,
 		Mute.class,
-		NevitHourglass.class,
+		BonusCountUp.class,
+		BonusTimeLimitUp.class,
 		NoblesseBless.class,
 		OpenChest.class,
 		OpenCommonRecipeBook.class,
