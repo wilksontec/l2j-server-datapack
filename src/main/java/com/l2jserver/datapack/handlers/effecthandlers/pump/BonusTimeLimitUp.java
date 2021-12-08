@@ -27,7 +27,7 @@ import com.l2jserver.gameserver.model.zone.ZoneId;
 import com.l2jserver.gameserver.network.serverpackets.UserInfo;
 
 /**
- * Nevit's Hourglass effect implementation.
+ * Bonus Time Limit Up effect implementation.
  * @author Maneco2
  * @since 2.6.3.0
  */
@@ -36,7 +36,7 @@ public final class BonusTimeLimitUp extends AbstractEffect {
 	
 	public BonusTimeLimitUp(Condition attachCond, Condition applyCond, StatsSet set, StatsSet params) {
 		super(attachCond, applyCond, set, params);
-		_time = set.getInt("time", 0);
+		_time = params.getInt("time", 0);
 	}
 	
 	@Override
@@ -47,6 +47,7 @@ public final class BonusTimeLimitUp extends AbstractEffect {
 	@Override
 	public void onStart(BuffInfo info) {
 		if ((info.getEffected() != null) && info.getEffected().isPlayer()) {
+			info.setAbnormalTime(_time);
 			info.getEffected().getActingPlayer().startHourglassEffect();
 			info.getEffected().getActingPlayer().sendPacket(new UserInfo(info.getEffected().getActingPlayer()));
 		}

@@ -369,7 +369,9 @@
 			<target checkAbnormal="VOTE;1;false" /> <!-- Nevit's Hourglass -->
 		</cond>
 		<effects>
-			<effect name="Buff" />
+			<effect name="BonusTimeLimitUp">
+				<param time="3600" />
+			</effect>
 		</effects>
 	</skill>
 	<skill id="9116" levels="1" name="Nevit's Hourglass - 1.5 hour">
@@ -396,7 +398,9 @@
 			<target checkAbnormal="VOTE;1;false" /> <!-- Nevit's Hourglass -->
 		</cond>
 		<effects>
-			<effect name="Buff" />
+			<effect name="BonusTimeLimitUp">
+				<param time="5400" />
+			</effect>
 		</effects>
 	</skill>
 	<skill id="9117" levels="1" name="Nevit's Hourglass - 2 hour">
@@ -423,7 +427,9 @@
 			<target checkAbnormal="VOTE;1;false" /> <!-- Nevit's Hourglass -->
 		</cond>
 		<effects>
-			<effect name="Buff" />
+			<effect name="BonusTimeLimitUp">
+				<param time="7200" />
+			</effect>
 		</effects>
 	</skill>
 	<skill id="9118" levels="1" name="Nevit's Hourglass - 2.5 hour">
@@ -450,7 +456,9 @@
 			<target checkAbnormal="VOTE;1;false" /> <!-- Nevit's Hourglass -->
 		</cond>
 		<effects>
-			<effect name="Buff" />
+			<effect name="BonusTimeLimitUp">
+				<param time="9000" />
+			</effect>
 		</effects>
 	</skill>
 	<skill id="9119" levels="1" name="Nevit's Hourglass - 3 hour">
@@ -477,7 +485,9 @@
 			<target checkAbnormal="VOTE;1;false" /> <!-- Nevit's Hourglass -->
 		</cond>
 		<effects>
-			<effect name="Buff" />
+			<effect name="BonusTimeLimitUp">
+				<param time="10800" />
+			</effect>
 		</effects>
 	</skill>
 	<skill id="9120" levels="1" name="Nevit's Hourglass - 1 hour">
@@ -504,7 +514,9 @@
 			<target checkAbnormal="VOTE;1;false" /> <!-- Nevit's Hourglass -->
 		</cond>
 		<effects>
-			<effect name="Buff" />
+			<effect name="BonusTimeLimitUp">
+				<param time="3600" />
+			</effect>
 		</effects>
 	</skill>
 	<skill id="9121" levels="1" name="Nevit's Hourglass - 1.5 hour">
@@ -531,7 +543,9 @@
 			<target checkAbnormal="VOTE;1;false" /> <!-- Nevit's Hourglass -->
 		</cond>
 		<effects>
-			<effect name="Buff" />
+			<effect name="BonusTimeLimitUp">
+				<param time="5400" />
+			</effect>
 		</effects>
 	</skill>
 	<skill id="9122" levels="1" name="Nevit's Hourglass - 2 hour">
@@ -558,7 +572,9 @@
 			<target checkAbnormal="VOTE;1;false" /> <!-- Nevit's Hourglass -->
 		</cond>
 		<effects>
-			<effect name="Buff" />
+			<effect name="BonusTimeLimitUp">
+				<param time="7200" />
+			</effect>
 		</effects>
 	</skill>
 	<skill id="9123" levels="1" name="Nevit's Hourglass - 2.5 hour">
@@ -585,7 +601,9 @@
 			<target checkAbnormal="VOTE;1;false" /> <!-- Nevit's Hourglass -->
 		</cond>
 		<effects>
-			<effect name="Buff" />
+			<effect name="BonusTimeLimitUp">
+				<param time="9000" />
+			</effect>
 		</effects>
 	</skill>
 	<skill id="9124" levels="1" name="Nevit's Hourglass - 3 hour">
@@ -612,7 +630,9 @@
 			<target checkAbnormal="VOTE;1;false" /> <!-- Nevit's Hourglass -->
 		</cond>
 		<effects>
-			<effect name="Buff" />
+			<effect name="BonusTimeLimitUp">
+				<param time="10800" />
+			</effect>
 		</effects>
 	</skill>
 	<skill id="9125" levels="1" name="Nevit's Hourglass - 1 hour">
@@ -639,7 +659,9 @@
 			<target checkAbnormal="VOTE;1;false" /> <!-- Nevit's Hourglass -->
 		</cond>
 		<effects>
-			<effect name="Buff" />
+			<effect name="BonusTimeLimitUp">
+				<param time="3600" />
+			</effect>
 		</effects>
 	</skill>
 	<skill id="9126" levels="1" name="Nevit's Hourglass - 1.5 hour">
@@ -666,7 +688,9 @@
 			<target checkAbnormal="VOTE;1;false" /> <!-- Nevit's Hourglass -->
 		</cond>
 		<effects>
-			<effect name="Buff" />
+			<effect name="BonusTimeLimitUp">
+				<param time="5400" />
+			</effect>
 		</effects>
 	</skill>
 	<skill id="9127" levels="1" name="Nevit's Hourglass - 2 hour">
@@ -693,7 +717,9 @@
 			<target checkAbnormal="VOTE;1;false" /> <!-- Nevit's Hourglass -->
 		</cond>
 		<effects>
-			<effect name="Buff" />
+			<effect name="BonusTimeLimitUp">
+				<param time="7200" />
+			</effect>
 		</effects>
 	</skill>
 	<skill id="9128" levels="1" name="Nevit's Hourglass - 2.5 hour">
@@ -720,7 +746,9 @@
 			<target checkAbnormal="VOTE;1;false" /> <!-- Nevit's Hourglass -->
 		</cond>
 		<effects>
-			<effect name="Buff" />
+			<effect name="BonusTimeLimitUp">
+				<param time="9000" />
+			</effect>
 		</effects>
 	</skill>
 	<skill id="9129" levels="1" name="Nevit's Hourglass - 3 hour">
@@ -747,7 +775,9 @@
 			<target checkAbnormal="VOTE;1;false" /> <!-- Nevit's Hourglass -->
 		</cond>
 		<effects>
-			<effect name="Buff" />
+			<effect name="BonusTimeLimitUp">
+				<param time="10800" />
+			</effect>
 		</effects>
 	</skill>
 	<skill id="9130" levels="1" name="Nevit's Hourglass - 1 hour">
@@ -774,7 +804,9 @@
 			<target checkAbnormal="VOTE;1;false" /> <!-- Nevit's Hourglass -->
 		</cond>
 		<effects>
-			<effect name="Buff" />
+			<effect name="BonusTimeLimitUp">
+				<param time="3600" />
+			</effect>
 		</effects>
 	</skill>
 	<skill id="9131" levels="1" name="Nevit's Hourglass - 1.5 hour">
@@ -801,7 +833,9 @@
 			<target checkAbnormal="VOTE;1;false" /> <!-- Nevit's Hourglass -->
 		</cond>
 		<effects>
-			<effect name="Buff" />
+			<effect name="BonusTimeLimitUp">
+				<param time="5400" />
+			</effect>
 		</effects>
 	</skill>
 	<skill id="9132" levels="1" name="Nevit's Hourglass - 2 hour">
@@ -828,7 +862,9 @@
 			<target checkAbnormal="VOTE;1;false" /> <!-- Nevit's Hourglass -->
 		</cond>
 		<effects>
-			<effect name="Buff" />
+			<effect name="BonusTimeLimitUp">
+				<param time="7200" />
+			</effect>
 		</effects>
 	</skill>
 	<skill id="9133" levels="1" name="Nevit's Hourglass - 2.5 hour">
@@ -855,7 +891,9 @@
 			<target checkAbnormal="VOTE;1;false" /> <!-- Nevit's Hourglass -->
 		</cond>
 		<effects>
-			<effect name="Buff" />
+			<effect name="BonusTimeLimitUp">
+				<param time="9000" />
+			</effect>
 		</effects>
 	</skill>
 	<skill id="9134" levels="1" name="Nevit's Hourglass - 3 hour">
@@ -882,7 +920,9 @@
 			<target checkAbnormal="VOTE;1;false" /> <!-- Nevit's Hourglass -->
 		</cond>
 		<effects>
-			<effect name="Buff" />
+			<effect name="BonusTimeLimitUp">
+				<param time="10800" />
+			</effect>
 		</effects>
 	</skill>
 	<skill id="9135" levels="1" name="Nevit's Hourglass - 1 hour">
@@ -909,7 +949,9 @@
 			<target checkAbnormal="VOTE;1;false" /> <!-- Nevit's Hourglass -->
 		</cond>
 		<effects>
-			<effect name="Buff" />
+			<effect name="BonusTimeLimitUp">
+				<param time="3600" />
+			</effect>
 		</effects>
 	</skill>
 	<skill id="9136" levels="1" name="Nevit's Hourglass - 1.5 hour">
@@ -936,7 +978,9 @@
 			<target checkAbnormal="VOTE;1;false" /> <!-- Nevit's Hourglass -->
 		</cond>
 		<effects>
-			<effect name="Buff" />
+			<effect name="BonusTimeLimitUp">
+				<param time="5400" />
+			</effect>
 		</effects>
 	</skill>
 	<skill id="9137" levels="1" name="Nevit's Hourglass - 2 hour">
@@ -963,7 +1007,9 @@
 			<target checkAbnormal="VOTE;1;false" /> <!-- Nevit's Hourglass -->
 		</cond>
 		<effects>
-			<effect name="Buff" />
+			<effect name="BonusTimeLimitUp">
+				<param time="7200" />
+			</effect>
 		</effects>
 	</skill>
 	<skill id="9138" levels="1" name="Nevit's Hourglass - 2.5 hour">
@@ -990,7 +1036,9 @@
 			<target checkAbnormal="VOTE;1;false" /> <!-- Nevit's Hourglass -->
 		</cond>
 		<effects>
-			<effect name="Buff" />
+			<effect name="BonusTimeLimitUp">
+				<param time="9000" />
+			</effect>
 		</effects>
 	</skill>
 	<skill id="9139" levels="1" name="Nevit's Hourglass - 3 hour">
@@ -1017,7 +1065,9 @@
 			<target checkAbnormal="VOTE;1;false" /> <!-- Nevit's Hourglass -->
 		</cond>
 		<effects>
-			<effect name="Buff" />
+			<effect name="BonusTimeLimitUp">
+				<param time="10800" />
+			</effect>
 		</effects>
 	</skill>
 	<skill id="9140" levels="1" name="Nevit's Hourglass - 1 hour">
@@ -1044,7 +1094,9 @@
 			<target checkAbnormal="VOTE;1;false" /> <!-- Nevit's Hourglass -->
 		</cond>
 		<effects>
-			<effect name="Buff" />
+			<effect name="BonusTimeLimitUp">
+				<param time="3600" />
+			</effect>
 		</effects>
 	</skill>
 	<skill id="9141" levels="1" name="Nevit's Hourglass - 1.5 hour">
@@ -1071,7 +1123,9 @@
 			<target checkAbnormal="VOTE;1;false" /> <!-- Nevit's Hourglass -->
 		</cond>
 		<effects>
-			<effect name="Buff" />
+			<effect name="BonusTimeLimitUp">
+				<param time="5400" />
+			</effect>
 		</effects>
 	</skill>
 	<skill id="9142" levels="1" name="Nevit's Hourglass - 2 hour">
@@ -1098,7 +1152,9 @@
 			<target checkAbnormal="VOTE;1;false" /> <!-- Nevit's Hourglass -->
 		</cond>
 		<effects>
-			<effect name="Buff" />
+			<effect name="BonusTimeLimitUp">
+				<param time="7200" />
+			</effect>
 		</effects>
 	</skill>
 	<skill id="9143" levels="1" name="Nevit's Hourglass - 2.5 hour">
@@ -1125,7 +1181,9 @@
 			<target checkAbnormal="VOTE;1;false" /> <!-- Nevit's Hourglass -->
 		</cond>
 		<effects>
-			<effect name="Buff" />
+			<effect name="BonusTimeLimitUp">
+				<param time="9000" />
+			</effect>
 		</effects>
 	</skill>
 	<skill id="9144" levels="1" name="Nevit's Hourglass - 3 hour">
@@ -1152,7 +1210,9 @@
 			<target checkAbnormal="VOTE;1;false" /> <!-- Nevit's Hourglass -->
 		</cond>
 		<effects>
-			<effect name="Buff" />
+			<effect name="BonusTimeLimitUp">
+				<param time="10800" />
+			</effect>
 		</effects>
 	</skill>
 	<skill id="9145" levels="1" name="Nevit's Hourglass - 1 hour">
@@ -1179,7 +1239,9 @@
 			<target checkAbnormal="VOTE;1;false" /> <!-- Nevit's Hourglass -->
 		</cond>
 		<effects>
-			<effect name="Buff" />
+			<effect name="BonusTimeLimitUp">
+				<param time="3600" />
+			</effect>
 		</effects>
 	</skill>
 	<skill id="9146" levels="1" name="Nevit's Hourglass - 1.5 hour">
@@ -1206,7 +1268,9 @@
 			<target checkAbnormal="VOTE;1;false" /> <!-- Nevit's Hourglass -->
 		</cond>
 		<effects>
-			<effect name="Buff" />
+			<effect name="BonusTimeLimitUp">
+				<param time="5400" />
+			</effect>
 		</effects>
 	</skill>
 	<skill id="9147" levels="1" name="Nevit's Hourglass - 2 hour">
@@ -1233,7 +1297,9 @@
 			<target checkAbnormal="VOTE;1;false" /> <!-- Nevit's Hourglass -->
 		</cond>
 		<effects>
-			<effect name="Buff" />
+			<effect name="BonusTimeLimitUp">
+				<param time="7200" />
+			</effect>
 		</effects>
 	</skill>
 	<skill id="9148" levels="1" name="Nevit's Hourglass - 2.5 hour">
@@ -1260,7 +1326,9 @@
 			<target checkAbnormal="VOTE;1;false" /> <!-- Nevit's Hourglass -->
 		</cond>
 		<effects>
-			<effect name="Buff" />
+			<effect name="BonusTimeLimitUp">
+				<param time="9000" />
+			</effect>
 		</effects>
 	</skill>
 	<skill id="9149" levels="1" name="Nevit's Hourglass - 3 hour">
@@ -1287,7 +1355,9 @@
 			<target checkAbnormal="VOTE;1;false" /> <!-- Nevit's Hourglass -->
 		</cond>
 		<effects>
-			<effect name="Buff" />
+			<effect name="BonusTimeLimitUp">
+				<param time="10800" />
+			</effect>
 		</effects>
 	</skill>
 	<skill id="9150" levels="1" name="Freesia Bouquet - Event">
@@ -1682,7 +1752,9 @@
 			<target checkAbnormal="VOTE;1;false" /> <!-- Nevit's Hourglass -->
 		</cond>
 		<effects>
-			<effect name="Buff" />
+			<effect name="BonusTimeLimitUp">
+				<param time="3600" />
+			</effect>
 		</effects>
 	</skill>
 	<skill id="9168" levels="1" name="Nevit's Hourglass - 1.5 hour(s)">
@@ -1709,7 +1781,9 @@
 			<target checkAbnormal="VOTE;1;false" /> <!-- Nevit's Hourglass -->
 		</cond>
 		<effects>
-			<effect name="Buff" />
+			<effect name="BonusTimeLimitUp">
+				<param time="5400" />
+			</effect>
 		</effects>
 	</skill>
 	<skill id="9169" levels="1" name="Nevit's Hourglass - 2 hour(s)">
@@ -1736,7 +1810,9 @@
 			<target checkAbnormal="VOTE;1;false" /> <!-- Nevit's Hourglass -->
 		</cond>
 		<effects>
-			<effect name="Buff" />
+			<effect name="BonusTimeLimitUp">
+				<param time="7200" />
+			</effect>
 		</effects>
 	</skill>
 	<skill id="9170" levels="1" name="Nevit's Hourglass - 2.5 hour(s)">
@@ -1763,7 +1839,9 @@
 			<target checkAbnormal="VOTE;1;false" /> <!-- Nevit's Hourglass -->
 		</cond>
 		<effects>
-			<effect name="Buff" />
+			<effect name="BonusTimeLimitUp">
+				<param time="9000" />
+			</effect>
 		</effects>
 	</skill>
 	<skill id="9171" levels="1" name="Nevit's Hourglass - 3 hour(s)">
@@ -1790,7 +1868,9 @@
 			<target checkAbnormal="VOTE;1;false" /> <!-- Nevit's Hourglass -->
 		</cond>
 		<effects>
-			<effect name="Buff" />
+			<effect name="BonusTimeLimitUp">
+				<param time="10800" />
+			</effect>
 		</effects>
 	</skill>
 	<skill id="9172" levels="1" name="Nevit's Hourglass - 4 hour(s)">
@@ -1817,7 +1897,9 @@
 			<target checkAbnormal="VOTE;1;false" /> <!-- Nevit's Hourglass -->
 		</cond>
 		<effects>
-			<effect name="Buff" />
+			<effect name="BonusTimeLimitUp">
+				<param time="14400" />
+			</effect>
 		</effects>
 	</skill>
 	<skill id="9173" levels="1" name="Nevit's Voice">
@@ -1959,7 +2041,9 @@
 			<target checkAbnormal="VOTE;1;false" /> <!-- Nevit's Hourglass -->
 		</cond>
 		<effects>
-			<effect name="Buff" />
+			<effect name="BonusTimeLimitUp">
+				<param time="14400" />
+			</effect>
 		</effects>
 	</skill>
 	<skill id="9182" levels="1" name="Nevit's Hourglass - 4 hour(s)">
@@ -1985,7 +2069,9 @@
 			<target checkAbnormal="VOTE;1;false" /> <!-- Nevit's Hourglass -->
 		</cond>
 		<effects>
-			<effect name="Buff" />
+			<effect name="BonusTimeLimitUp">
+				<param time="14400" />
+			</effect>
 		</effects>
 	</skill>
 	<skill id="9183" levels="1" name="Freya's Refreshing Breeze - 4 hour(s)">

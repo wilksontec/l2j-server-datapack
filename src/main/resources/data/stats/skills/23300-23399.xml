@@ -253,6 +253,11 @@
 		<set name="reuseDelayType" val="S" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="TARGET" />
+		<effects>
+			<effect name="BonusTimeLimitUp">
+				<param time="10800" />
+			</effect>
+		</effects>
 	</skill>
 	<skill id="23313" levels="5" name="Action Prohibit Immunity">
 		<!-- High Five Confirmed -->

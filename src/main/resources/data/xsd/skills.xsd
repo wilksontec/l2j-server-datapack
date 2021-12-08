@@ -522,6 +522,7 @@
 					<xs:enumeration value="BlockBuffSlot" />
 					<xs:enumeration value="BlockResurrection" />
 					<xs:enumeration value="Bluff" />
+					<xs:enumeration value="BonusTimeLimitUp" />
 					<xs:enumeration value="Buff" />
 					<xs:enumeration value="CallParty" />
 					<xs:enumeration value="CallPc" />
@@ -602,7 +603,6 @@
 					<xs:enumeration value="Mp" />
 					<xs:enumeration value="MpPerMax" />
 					<xs:enumeration value="Mute" />
-					<xs:enumeration value="NevitHourglass" />
 					<xs:enumeration value="NoblesseBless" />
 					<xs:enumeration value="OpenChest" />
 					<xs:enumeration value="Unsummon" />
