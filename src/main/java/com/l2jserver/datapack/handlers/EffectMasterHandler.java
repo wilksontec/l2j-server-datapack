@@ -161,7 +161,6 @@ public final class EffectMasterHandler {
 		FocusSouls.class,
 		FoodForPet.class,
 		GetAgro.class,
-		GiveRecommendation.class,
 		GiveSp.class,
 		Grow.class,
 		Harvesting.class,

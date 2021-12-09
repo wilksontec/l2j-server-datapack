@@ -522,6 +522,7 @@
 					<xs:enumeration value="BlockBuffSlot" />
 					<xs:enumeration value="BlockResurrection" />
 					<xs:enumeration value="Bluff" />
+					<xs:enumeration value="BonusCountUp" />
 					<xs:enumeration value="BonusTimeLimitUp" />
 					<xs:enumeration value="Buff" />
 					<xs:enumeration value="CallParty" />
@@ -570,7 +571,6 @@
 					<xs:enumeration value="FocusSouls" />
 					<xs:enumeration value="FoodForPet" />
 					<xs:enumeration value="GetAgro" />
-					<xs:enumeration value="GiveRecommendation" />
 					<xs:enumeration value="GiveSp" />
 					<xs:enumeration value="Grow" />
 					<xs:enumeration value="Harvesting" />

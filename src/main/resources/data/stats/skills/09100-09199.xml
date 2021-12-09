@@ -331,6 +331,8 @@
 		<set name="targetType" val="NONE" />
 	</skill>
 	<skill id="9114" levels="1" name="Nevit's Voice">
+		<!-- High Five Confirmed -->
+		<set name="affectScope" val="SINGLE" />
 		<set name="isMagic" val="2" />
 		<set name="itemConsumeCount" val="1" />
 		<set name="itemConsumeId" val="17094" /> <!-- Nevit's Voice -->
@@ -338,9 +340,10 @@
 		<set name="operateType" val="A1" />
 		<set name="reuseDelay" val="2000" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
+		<set name="reuseDelayLock" val="true" />
 		<set name="targetType" val="SELF" />
 		<effects>
-			<effect name="GiveRecommendation">
+			<effect name="BonusCountUp">
 				<param amount="10" />
 			</effect>
 		</effects>
@@ -1903,9 +1906,22 @@
 		</effects>
 	</skill>
 	<skill id="9173" levels="1" name="Nevit's Voice">
-		<!-- none -->
-		<set name="operateType" val="P" />
-		<set name="targetType" val="NONE" />
+		<!-- High Five Confirmed -->
+		<set name="affectScope" val="SINGLE" />
+		<set name="isMagic" val="2" />
+		<set name="itemConsumeCount" val="1" />
+		<set name="itemConsumeId" val="17212" /> <!-- Nevit's Voice -->
+		<set name="magicLvl" val="1" />
+		<set name="operateType" val="A1" />
+		<set name="reuseDelay" val="2000" />
+		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
+		<set name="reuseDelayLock" val="true" />
+		<set name="targetType" val="SELF" />
+		<effects>
+			<effect name="BonusCountUp">
+				<param amount="10" />
+			</effect>
+		</effects>
 	</skill>
 	<skill id="9174" levels="1" name="500,000 SP scroll">
 		<!-- High Five Skill -->

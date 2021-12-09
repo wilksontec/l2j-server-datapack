@@ -1404,7 +1404,6 @@
 		<set name="is_tradable" val="false" />
 		<set name="is_droppable" val="false" />
 		<set name="is_sellable" val="false" />
-		<set name="is_depositable" val="false" />
 		<set name="is_stackable" val="true" />
 		<set name="handler" val="ItemSkills" />
 		<set name="item_skill" val="9114-1" />
@@ -1418,7 +1417,6 @@
 		<set name="is_tradable" val="false" />
 		<set name="is_droppable" val="false" />
 		<set name="is_sellable" val="false" />
-		<set name="is_depositable" val="false" />
 		<set name="is_stackable" val="true" />
 		<set name="handler" val="ItemSkills" />
 		<set name="item_skill" val="9115-1" />
@@ -1435,7 +1433,6 @@
 		<set name="is_tradable" val="false" />
 		<set name="is_droppable" val="false" />
 		<set name="is_sellable" val="false" />
-		<set name="is_depositable" val="false" />
 		<set name="is_stackable" val="true" />
 		<set name="handler" val="ItemSkills" />
 		<set name="item_skill" val="9116-1" />
@@ -1452,7 +1449,6 @@
 		<set name="is_tradable" val="false" />
 		<set name="is_droppable" val="false" />
 		<set name="is_sellable" val="false" />
-		<set name="is_depositable" val="false" />
 		<set name="is_stackable" val="true" />
 		<set name="handler" val="ItemSkills" />
 		<set name="item_skill" val="9117-1" />
@@ -1469,7 +1465,6 @@
 		<set name="is_tradable" val="false" />
 		<set name="is_droppable" val="false" />
 		<set name="is_sellable" val="false" />
-		<set name="is_depositable" val="false" />
 		<set name="is_stackable" val="true" />
 		<set name="handler" val="ItemSkills" />
 		<set name="item_skill" val="9118-1" />
@@ -1486,7 +1481,6 @@
 		<set name="is_tradable" val="false" />
 		<set name="is_droppable" val="false" />
 		<set name="is_sellable" val="false" />
-		<set name="is_depositable" val="false" />
 		<set name="is_stackable" val="true" />
 		<set name="handler" val="ItemSkills" />
 		<set name="item_skill" val="9119-1" />

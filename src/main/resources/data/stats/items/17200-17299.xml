@@ -154,12 +154,16 @@
 		<set name="item_skill" val="9172-1" />
 	</item>
 	<item id="17212" type="EtcItem" name="Nevit's Voice">
-		<!-- Description: Seashell containing Nevit's voice. Item that raises your evaluation value by 10. Cannot be exchanged or dropped. -->
 		<set name="icon" val="icon.etc_fish_scale_i01" />
+		<set name="default_action" val="SKILL_REDUCE" />
+		<set name="etcitem_type" val="POTION" />
 		<set name="material" val="LIQUID" />
 		<set name="is_tradable" val="false" />
 		<set name="is_droppable" val="false" />
+		<set name="is_sellable" val="false" />
 		<set name="is_stackable" val="true" />
+		<set name="handler" val="ItemSkills" />
+		<set name="item_skill" val="9173-1" />
 	</item>
 	<item id="17213" type="EtcItem" name="Solina's Biography">
 		<!-- Description: A biography containing the life story of Solina, a saintess of the Elmore-Aden kingdom. This text has been banned throughout the kingdom and is incredibly difficult to find and intact copy. Double click for more information. -->
@@ -336,16 +340,26 @@
 		<set name="is_stackable" val="true" />
 	</item>
 	<item id="17236" type="EtcItem" name="Gift of Victory Box">
-		<!-- Description: Gift in commemoration of the World Cup victory. Can obtain Nevit's Hourglass and Voice by using it. -->
 		<set name="icon" val="icon.etc_pi_gift_box_i04" />
-		<set name="material" val="STEEL" />
+		<set name="default_action" val="PEEL" />
+		<set name="material" val="FISH" />
+		<set name="is_tradable" val="false" />
+		<set name="is_droppable" val="false" />
+		<set name="is_sellable" val="false" />
 		<set name="is_stackable" val="true" />
+		<set name="handler" val="ExtractableItems" />
+		<set name="capsuled_items" val="17208,1,1,100;17212,1,1,100" />
 	</item>
 	<item id="17237" type="EtcItem" name="Luxury Gift of Victory Box">
-		<!-- Description: Gift in commemoration of the World Cup victory. Can obtain Nevit's Hourglass and Voice by using it. -->
 		<set name="icon" val="icon.etc_pi_gift_box_i04" />
-		<set name="material" val="STEEL" />
+		<set name="default_action" val="PEEL" />
+		<set name="material" val="FISH" />
+		<set name="is_tradable" val="false" />
+		<set name="is_droppable" val="false" />
+		<set name="is_sellable" val="false" />
 		<set name="is_stackable" val="true" />
+		<set name="handler" val="ExtractableItems" />
+		<set name="capsuled_items" val="17211,1,1,100;17212,1,1,100" />
 	</item>
 	<item id="17238" type="EtcItem" name="Olympiad Match 3 Participation Certificate">
 		<!-- Description: Document that proves participation in the Olympiad Match 3. Take this document to the Olympiad Operator to receive the minimum reward. -->

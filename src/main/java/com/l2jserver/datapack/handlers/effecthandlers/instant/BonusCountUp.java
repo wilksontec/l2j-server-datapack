@@ -23,33 +23,49 @@ import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
 import com.l2jserver.gameserver.model.conditions.Condition;
 import com.l2jserver.gameserver.model.effects.AbstractEffect;
 import com.l2jserver.gameserver.model.skills.BuffInfo;
+import com.l2jserver.gameserver.network.SystemMessageId;
+import com.l2jserver.gameserver.network.serverpackets.ExVoteSystemInfo;
+import com.l2jserver.gameserver.network.serverpackets.SystemMessage;
+import com.l2jserver.gameserver.network.serverpackets.UserInfo;
 
 /**
- * This effect instantly raises recommendations to give out by the specified count.
+ * This effect instantly raises recommendations to give out by the specified amount.
  * @author HorridoJoho
  * @since 2.6.3.0
  */
-public class BonusCountUp extends AbstractEffect {
-	private final int _count;
+public final class BonusCountUp extends AbstractEffect {
+	private final int _amount;
 	
-	protected BonusCountUp(Condition attachCond, Condition applyCond, StatsSet set, StatsSet params) {
+	public BonusCountUp(Condition attachCond, Condition applyCond, StatsSet set, StatsSet params) {
 		super(attachCond, applyCond, set, params);
-		_count = set.getInt("count", 0);
+		_amount = params.getInt("amount", 0);
+	}
+	
+	@Override
+	public boolean isInstant() {
+		return true;
 	}
 	
 	@Override
 	public void onStart(BuffInfo info) {
 		super.onStart(info);
 		
-		L2PcInstance player = info.getEffected().getActingPlayer();
-		if (player != null)
-		{
-			player.setRecomLeft(player.getRecomLeft() + _count);
+		final L2PcInstance player = info.getEffector().getActingPlayer();
+		if (player != null) {
+			int recomHaveIncrease = _amount;
+			if ((player.getRecomHave() + _amount) >= 255) {
+				recomHaveIncrease = 255 - player.getRecomHave();
+			}
+			
+			if (recomHaveIncrease > 0) {
+				player.setRecomHave(player.getRecomHave() + recomHaveIncrease);
+				
+				SystemMessage sm = SystemMessage.getSystemMessage(SystemMessageId.YOU_OBTAINED_S1_RECOMMENDATIONS);
+				sm.addInt(recomHaveIncrease);
+				player.sendPacket(sm);
+				player.sendPacket(new UserInfo(player));
+				player.sendPacket(new ExVoteSystemInfo(player));
+			}
 		}
-	}
-
-	@Override
-	public boolean isInstant() {
-		return true;
 	}
 }
