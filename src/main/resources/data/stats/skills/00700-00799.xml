@@ -2947,7 +2947,7 @@
 				<param minDamage="1" />
 				<param chance="10" />
 				<param skillId="5600" skillLevel="1" /> <!-- Betrayal Mark -->
-				<param targetType="PARTY" />
+				<param targetType="SELF" />
 			</effect>
 		</effects>
 	</skill>

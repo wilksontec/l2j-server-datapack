@@ -407,7 +407,7 @@
 				<param isCritical="true" />
 				<param minDamage="1" chance="5" />
 				<param skillId="5547" skillLevel="1" /> <!-- Maximum Ability -->
-				<param targetType="PARTY" />
+				<param targetType="SELF" />
 				<param allowWeapons="ALL" />
 			</effect>
 		</effects>
@@ -442,7 +442,7 @@
 				<param isCritical="true" />
 				<param minDamage="1" chance="5" />
 				<param skillId="5547" skillLevel="1" /> <!-- Maximum Ability -->
-				<param targetType="PARTY" />
+				<param targetType="SELF" />
 				<param allowWeapons="ALL" />
 			</effect>
 		</effects>

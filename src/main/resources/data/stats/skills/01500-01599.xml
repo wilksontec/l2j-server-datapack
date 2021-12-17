@@ -1694,7 +1694,7 @@
 				<param castSkillId="927" /> <!-- Burning Chop -->
 				<param chance="30" />
 				<param skillId="6060" skillLevel="1" /> <!-- Great Fury -->
-				<param targetType="PARTY" />
+				<param targetType="SELF" />
 			</effect>
 		</effects>
 	</skill>
