@@ -1815,12 +1815,15 @@
 		</effects>
 	</skill>
 	<skill id="442" levels="1" name="Sonic Barrier">
+		<!-- High Five Confirmed -->
 		<set name="abnormalLvl" val="1" />
 		<set name="abnormalTime" val="10" />
 		<set name="abnormalType" val="INVINCIBILITY" />
 		<set name="abnormalVisualEffect" val="INVINCIBILITY" />
+		<set name="affectScope" val="SINGLE" />
 		<set name="chargeConsume" val="5" />
 		<set name="effectPoint" val="673" />
+		<set name="hitCancelTime" val="500" />
 		<set name="hitTime" val="2000" />
 		<set name="icon" val="icon.skill0442" />
 		<set name="magicLvl" val="79" />
@@ -1831,20 +1834,20 @@
 		<set name="targetType" val="SELF" />
 		<cond msgId="113" addName="1">
 			<and>
-				<using kind="DUAL" /> <!-- Requires a dualsword weapon -->
-				<player Charges="5" /> <!-- Requires 5th stage Sword Energy -->
+				<using kind="DUAL" />
+				<player Charges="5" />
 			</and>
 		</cond>
 		<effects>
+			<effect name="BlockDebuff" />
 			<effect name="BlockDamage">
 				<param block="HP" />
 			</effect>
 			<effect name="BlockDamage">
 				<param block="MP" />
 			</effect>
-			<effect name="BlockDebuff" />
 			<effect name="Buff">
-				<sub stat="cancelVuln" val="100" />
+				<mul stat="cancelVuln" val="0" />
 			</effect>
 		</effects>
 	</skill>
@@ -2101,6 +2104,7 @@
 		</enchant3Effects>
 	</skill>
 	<skill id="451" levels="2" name="Sonic Move">
+		<!-- High Five Confirmed -->
 		<table name="#chargeConsume"> 2 3 </table>
 		<table name="#effectPoint"> 582 624 </table>
 		<table name="#magicLvl"> 62 68 </table>
@@ -2109,8 +2113,10 @@
 		<set name="abnormalLvl" val="1" />
 		<set name="abnormalTime" val="15" />
 		<set name="abnormalType" val="SPEED_UP_SPECIAL" />
+		<set name="affectScope" val="SINGLE" />
 		<set name="chargeConsume" val="#chargeConsume" />
 		<set name="effectPoint" val="#effectPoint" />
+		<set name="hitCancelTime" val="500" />
 		<set name="hitTime" val="1000" />
 		<set name="icon" val="icon.skill0451" />
 		<set name="magicLvl" val="#magicLvl" />

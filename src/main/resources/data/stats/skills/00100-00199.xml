@@ -241,10 +241,13 @@
 		</effects>
 	</skill>
 	<skill id="104" levels="1" name="Detect Plant Weakness">
+		<!-- High Five Confirmed -->
 		<set name="abnormalLvl" val="1" />
 		<set name="abnormalTime" val="600" />
 		<set name="abnormalType" val="DETECT_WEAKNESS" />
+		<set name="affectScope" val="SINGLE" />
 		<set name="effectPoint" val="438" />
+		<set name="hitCancelTime" val="500" />
 		<set name="hitTime" val="1500" />
 		<set name="icon" val="icon.skill0104" />
 		<set name="magicLvl" val="46" />

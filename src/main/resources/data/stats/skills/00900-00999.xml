@@ -670,7 +670,9 @@
 	</skill>
 	<skill id="919" levels="1" name="Maximum Focus Sonic">
 		<!-- High Five Confirmed -->
+		<set name="affectScope" val="SINGLE" />
 		<set name="effectPoint" val="150" />
+		<set name="hitCancelTime" val="500" />
 		<set name="hitTime" val="900" />
 		<set name="hpConsume" val="80" />
 		<set name="icon" val="icon.skill0919" />

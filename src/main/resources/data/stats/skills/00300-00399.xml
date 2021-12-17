@@ -2387,14 +2387,17 @@
 		</enchant1Effects>
 	</skill>
 	<skill id="359" levels="1" name="Eye of Hunter" enchantGroup1="5" enchantGroup2="5">
-		<table name="#ench1Traits"> 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 </table>
-		<table name="#ench2AbnormalTimes"> 640 680 720 760 800 840 880 920 960 1000 1040 1080 1120 1160 1200 </table>
-		<table name="#ench2Traits"> 31 31 31 32 32 32 33 33 33 34 34 34 34 35 35 </table>
+		<!-- High Five Confirmed -->
 		<table name="#enchMagicLvl"> 81 81 81 82 82 82 83 83 83 84 84 84 85 85 85 </table>
+		<table name="#ench1Traits"> 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 </table>
+		<table name="#ench2AbnormalTime"> 640 680 720 760 800 840 880 920 960 1000 1040 1080 1120 1160 1200 </table>
+		<table name="#ench2Traits"> 31 31 31 32 32 32 33 33 33 34 34 34 34 35 35 </table>
 		<set name="abnormalLvl" val="2" />
 		<set name="abnormalTime" val="600" />
 		<set name="abnormalType" val="DETECT_WEAKNESS" />
+		<set name="affectScope" val="SINGLE" />
 		<set name="effectPoint" val="666" />
+		<set name="hitCancelTime" val="500" />
 		<set name="hitTime" val="2000" />
 		<set name="icon" val="icon.skill0359" />
 		<set name="magicLvl" val="77" />
@@ -2404,62 +2407,89 @@
 		<set name="rideState" val="NONE" />
 		<set name="targetType" val="SELF" />
 		<enchant1 name="magicLvl" val="#enchMagicLvl" />
-		<enchant2 name="abnormalTime" val="#ench2AbnormalTimes" />
+		<enchant2 name="abnormalTime" val="#ench2AbnormalTime" />
 		<enchant2 name="magicLvl" val="#enchMagicLvl" />
 		<effects>
 			<effect name="AttackTrait">
 				<param BUG_WEAKNESS="30" />
+			</effect>
+			<effect name="AttackTrait">
 				<param PLANT_WEAKNESS="30" />
+			</effect>
+			<effect name="AttackTrait">
 				<param ANIMAL_WEAKNESS="30" />
 			</effect>
 		</effects>
 		<enchant1Effects>
 			<effect name="AttackTrait">
 				<param BUG_WEAKNESS="#ench1Traits" />
+			</effect>
+			<effect name="AttackTrait">
 				<param PLANT_WEAKNESS="#ench1Traits" />
+			</effect>
+			<effect name="AttackTrait">
 				<param ANIMAL_WEAKNESS="#ench1Traits" />
 			</effect>
 		</enchant1Effects>
 		<enchant2Effects>
 			<effect name="AttackTrait">
 				<param BUG_WEAKNESS="#ench2Traits" />
+			</effect>
+			<effect name="AttackTrait">
 				<param PLANT_WEAKNESS="#ench2Traits" />
+			</effect>
+			<effect name="AttackTrait">
 				<param ANIMAL_WEAKNESS="#ench2Traits" />
 			</effect>
 		</enchant2Effects>
 	</skill>
 	<skill id="360" levels="1" name="Eye of Slayer" enchantGroup1="5" enchantGroup2="5">
-		<table name="#ench1Traits"> 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 </table>
-		<table name="#ench2AbnormalTimes"> 640 680 720 760 800 840 880 920 960 1000 1040 1080 1120 1160 1200 </table>
+		<!-- High Five Confirmed -->
 		<table name="#enchMagicLvl"> 81 81 81 82 82 82 83 83 83 84 84 84 85 85 85 </table>
+		<table name="#ench1Traits"> 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 </table>
+		<table name="#ench2AbnormalTime"> 640 680 720 760 800 840 880 920 960 1000 1040 1080 1120 1160 1200 </table>
 		<set name="abnormalLvl" val="2" />
 		<set name="abnormalTime" val="600" />
 		<set name="abnormalType" val="DETECT_WEAKNESS" />
+		<set name="affectScope" val="SINGLE" />
 		<set name="effectPoint" val="669" />
+		<set name="hitCancelTime" val="500" />
 		<set name="hitTime" val="2000" />
 		<set name="icon" val="icon.skill0360" />
-		<set name="magicLvl" val="77" />
+		<set name="magicLvl" val="78" />
 		<set name="mpConsume2" val="71" />
 		<set name="operateType" val="A2" />
 		<set name="reuseDelay" val="3000" />
 		<set name="rideState" val="NONE" />
 		<set name="targetType" val="SELF" />
 		<enchant1 name="magicLvl" val="#enchMagicLvl" />
-		<enchant2 name="abnormalTime" val="#ench2AbnormalTimes" />
+		<enchant2 name="abnormalTime" val="#ench2AbnormalTime" />
 		<enchant2 name="magicLvl" val="#enchMagicLvl" />
 		<effects>
 			<effect name="AttackTrait">
 				<param BEAST_WEAKNESS="30" />
+			</effect>
+			<effect name="AttackTrait">
 				<param CONSTRUCT_WEAKNESS="30" />
+			</effect>
+			<effect name="AttackTrait">
 				<param GIANT_WEAKNESS="30" />
+			</effect>
+			<effect name="AttackTrait">
 				<param DRAGON_WEAKNESS="30" />
 			</effect>
 		</effects>
 		<enchant1Effects>
 			<effect name="AttackTrait">
 				<param BEAST_WEAKNESS="#ench1Traits" />
+			</effect>
+			<effect name="AttackTrait">
 				<param CONSTRUCT_WEAKNESS="#ench1Traits" />
+			</effect>
+			<effect name="AttackTrait">
 				<param GIANT_WEAKNESS="#ench1Traits" />
+			</effect>
+			<effect name="AttackTrait">
 				<param DRAGON_WEAKNESS="#ench1Traits" />
 			</effect>
 		</enchant1Effects>
