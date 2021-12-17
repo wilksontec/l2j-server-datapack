@@ -137,7 +137,7 @@ public final class HellboundSpawns implements IXmlReader {
 	
 	/**
 	 * Gets the spawn minimum level.
-	 * @param npcId the NPC ID
+	 * @param spawn the spawn
 	 * @return the spawn minimum level
 	 */
 	public int getSpawnMinLevel(L2Spawn spawn) {
@@ -146,7 +146,7 @@ public final class HellboundSpawns implements IXmlReader {
 	
 	/**
 	 * Gets the spawn maximum level.
-	 * @param npcId the NPC ID
+	 * @param spawn the spawn
 	 * @return the spawn maximum level
 	 */
 	public int getSpawnMaxLevel(L2Spawn spawn) {

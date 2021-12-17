@@ -1292,15 +1292,20 @@
 		</effects>
 	</skill>
 	<skill id="528" levels="1" name="Shield of Faith" enchantGroup1="5" enchantGroup2="5" enchantGroup3="5">
+		<!-- High Five Confirmed -->
+		<table name="#enchMagicLvl"> 81 81 81 82 82 82 83 83 83 84 84 84 85 85 85 </table>
 		<table name="#ench1mDef"> 2790 2880 2970 3060 3150 3240 3330 3420 3510 3600 3690 3780 3870 3960 4050 </table>
 		<table name="#ench1pDef"> 3720 3840 3960 4080 4200 4320 4440 4560 4680 4800 4920 5040 5160 5280 5400 </table>
-		<table name="#ench2AbnormalTimes"> 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 </table>
-		<table name="#ench3Reuse"> 870000 840000 811000 781000 751000 722000 692000 662000 633000 603000 573000 544000 514000 484000 455000 </table>
+		<table name="#ench2AbnormalTime"> 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 </table>
+		<table name="#ench3ReuseDelay"> 870000 840000 811000 781000 751000 722000 692000 662000 633000 603000 573000 544000 514000 484000 455000 </table>
 		<set name="abnormalLvl" val="1" />
 		<set name="abnormalTime" val="15" />
 		<set name="abnormalType" val="TRANSFER_DAMAGE" />
+		<set name="affectObject" val="FRIEND" />
 		<set name="affectRange" val="1000" />
+		<set name="affectScope" val="PARTY" />
 		<set name="effectPoint" val="673" />
+		<set name="hitCancelTime" val="500" />
 		<set name="hitTime" val="1000" />
 		<set name="icon" val="icon.skill0528" />
 		<set name="magicLvl" val="79" />
@@ -1308,32 +1313,48 @@
 		<set name="operateType" val="A2" />
 		<set name="reuseDelay" val="900000" />
 		<set name="rideState" val="NONE" />
-		<set name="targetType" val="PARTY" />
-		<enchant2 name="abnormalTime" val="#ench2AbnormalTimes" />
-		<enchant3 name="reuseDelay" val="#ench3Reuse" />
+		<set name="targetType" val="SELF" />
+		<enchant1 name="magicLvl" val="#enchMagicLvl" />
+		<enchant2 name="abnormalTime" val="#ench2AbnormalTime" />
+		<enchant2 name="magicLvl" val="#enchMagicLvl" />
+		<enchant3 name="magicLvl" val="#enchMagicLvl" />
+		<enchant3 name="reuseDelay" val="#ench3ReuseDelay" />
 		<effects>
+			<effect name="Buff">
+				<add stat="mDef" val="2700" />
+			</effect>
+			<effect name="Buff">
+				<add stat="pDef" val="3600" />
+			</effect>
 			<effect name="TransferDamage">
 				<add stat="transDamToPlayer" val="90" />
-				<add stat="pDef" val="3600" />
-				<add stat="mDef" val="2700" />
 			</effect>
 		</effects>
 		<enchant1Effects>
+			<effect name="Buff">
+				<add stat="mDef" val="#ench1mDef" />
+			</effect>
+			<effect name="Buff">
+				<add stat="pDef" val="#ench1pDef" />
+			</effect>
 			<effect name="TransferDamage">
 				<add stat="transDamToPlayer" val="90" />
-				<add stat="pDef" val="#ench1pDef" />
-				<add stat="mDef" val="#ench1mDef" />
 			</effect>
 		</enchant1Effects>
 	</skill>
 	<skill id="529" levels="1" name="Song of Elemental" enchantGroup1="5" enchantGroup2="5">
-		<table name="#ench1AbnormalTimes"> 128 136 144 152 160 168 176 184 192 200 208 216 224 232 240 </table>
+		<!-- High Five Confirmed -->
+		<table name="#ench1AbnormalTime"> 128 136 144 152 160 168 176 184 192 200 208 216 224 232 240 </table>
+		<table name="#enchMagicLvl"> 81 81 81 82 82 82 83 83 83 84 84 84 85 85 85 </table>
 		<table name="#ench2MpConsume2"> 52 50 48 46 45 43 41 39 38 36 34 32 31 29 27 </table>
 		<set name="abnormalLvl" val="1" />
 		<set name="abnormalTime" val="120" />
 		<set name="abnormalType" val="SONG_OF_ELEMENTAL" />
+		<set name="affectObject" val="FRIEND" />
 		<set name="affectRange" val="1000" />
+		<set name="affectScope" val="PARTY" />
 		<set name="effectPoint" val="507" />
+		<set name="hitCancelTime" val="500" />
 		<set name="hitTime" val="2500" />
 		<set name="icon" val="icon.skill0529" />
 		<set name="isMagic" val="3" />
@@ -1342,26 +1363,39 @@
 		<set name="operateType" val="A2" />
 		<set name="reuseDelay" val="150000" />
 		<set name="rideState" val="NONE" />
-		<set name="targetType" val="PARTY" />
-		<enchant1 name="abnormalTime" val="#ench1AbnormalTimes" />
+		<set name="targetType" val="SELF" />
+		<enchant1 name="abnormalTime" val="#ench1AbnormalTime" />
+		<enchant1 name="magicLvl" val="#enchMagicLvl" />
+		<enchant2 name="magicLvl" val="#enchMagicLvl" />
 		<enchant2 name="mpConsume2" val="#ench2MpConsume2" />
 		<effects>
 			<effect name="Buff">
-				<add stat="fireRes" val="30" />
-				<add stat="waterRes" val="30" />
 				<add stat="earthRes" val="30" />
+			</effect>
+			<effect name="Buff">
+				<add stat="waterRes" val="30" />
+			</effect>
+			<effect name="Buff">
 				<add stat="windRes" val="30" />
+			</effect>
+			<effect name="Buff">
+				<add stat="fireRes" val="30" />
 			</effect>
 		</effects>
 	</skill>
 	<skill id="530" levels="1" name="Dance of Alignment" enchantGroup1="5" enchantGroup2="5">
-		<table name="#ench1AbnormalTimes"> 128 136 144 152 160 168 176 184 192 200 208 216 224 232 240 </table>
+		<!-- High Five Confirmed -->
+		<table name="#ench1AbnormalTime"> 128 136 144 152 160 168 176 184 192 200 208 216 224 232 240 </table>
+		<table name="#enchMagicLvl"> 81 81 81 82 82 82 83 83 83 84 84 84 85 85 85 </table>
 		<table name="#ench2MpConsume2"> 52 50 48 46 45 43 41 39 38 36 34 32 31 29 27 </table>
 		<set name="abnormalLvl" val="1" />
 		<set name="abnormalTime" val="120" />
 		<set name="abnormalType" val="DANCE_OF_ALIGNMENT" />
+		<set name="affectObject" val="FRIEND" />
 		<set name="affectRange" val="1000" />
+		<set name="affectScope" val="PARTY" />
 		<set name="effectPoint" val="507" />
+		<set name="hitCancelTime" val="500" />
 		<set name="hitTime" val="2500" />
 		<set name="icon" val="icon.skill0530" />
 		<set name="isMagic" val="3" />
@@ -1370,16 +1404,20 @@
 		<set name="operateType" val="A2" />
 		<set name="reuseDelay" val="150000" />
 		<set name="rideState" val="NONE" />
-		<set name="targetType" val="PARTY" />
-		<enchant1 name="abnormalTime" val="#ench1AbnormalTimes" />
+		<set name="targetType" val="SELF" />
+		<enchant1 name="abnormalTime" val="#ench1AbnormalTime" />
+		<enchant1 name="magicLvl" val="#enchMagicLvl" />
+		<enchant2 name="magicLvl" val="#enchMagicLvl" />
 		<enchant2 name="mpConsume2" val="#ench2MpConsume2" />
 		<cond msgId="113" addName="1">
 			<using kind="DUAL" />
 		</cond>
 		<effects>
 			<effect name="Buff">
-				<add stat="darkRes" val="30" />
 				<add stat="holyRes" val="30" />
+			</effect>
+			<effect name="Buff">
+				<add stat="darkRes" val="30" />
 			</effect>
 		</effects>
 	</skill>

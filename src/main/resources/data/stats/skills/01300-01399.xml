@@ -237,36 +237,40 @@
 		</enchant1Effects>
 	</skill>
 	<skill id="1307" levels="3" name="Prayer" enchantGroup1="1" enchantGroup2="1">
+		<!-- High Five Confirmed -->
 		<table name="#abnormalLvl"> 1 2 3 </table>
 		<table name="#effectPoint"> 611 635 655 </table>
 		<table name="#healEffect"> 1.08 1.1 1.12 </table>
 		<table name="#magicLvl"> 66 70 74 </table>
-		<table name="#mpConsume2"> 195 207 217 </table>
 		<table name="#mpConsume1"> 49 52 55 </table>
-		<table name="#ench1AbnormalTimes"> 1240 1280 1320 1360 1400 1440 1480 1520 1560 1600 1640 1680 1720 1760 1800 1840 1880 1920 1960 2000 2040 2080 2120 2160 2200 2240 2280 2320 2360 2400 </table>
-		<table name="#ench2MpConsume2"> 212 207 203 199 194 190 185 181 176 172 168 164 159 155 151 147 142 137 133 129 126 121 116 113 108 103 99 94 90 85 </table>
-		<table name="#ench2MpConsume1"> 55 55 55 55 54 54 54 54 54 53 53 53 53 53 52 52 52 52 52 51 50 50 50 50 50 50 50 50 50 50 </table>
+		<table name="#mpConsume2"> 195 207 217 </table>
 		<table name="#enchMagicLvl"> 76 76 76 77 77 77 78 78 78 79 79 79 80 80 80 81 81 81 82 82 82 83 83 83 84 84 84 85 85 85 </table>
+		<table name="#ench1AbnormalTime"> 1240 1280 1320 1360 1400 1440 1480 1520 1560 1600 1640 1680 1720 1760 1800 1840 1880 1920 1960 2000 2040 2080 2120 2160 2200 2240 2280 2320 2360 2400 </table>
+		<table name="#ench2MpConsume1"> 54 53 52 51 50 49 48 47 46 45 44 44 43 42 41 40 39 38 37 36 35 34 33 33 32 31 30 29 28 27 </table>
+		<table name="#ench2MpConsume2"> 213 209 206 202 198 195 191 188 184 180 177 173 169 166 162 159 155 151 148 144 141 137 133 130 126 122 119 115 112 108 </table>
 		<set name="abnormalLvl" val="#abnormalLvl" />
 		<set name="abnormalTime" val="1200" />
 		<set name="abnormalType" val="HEAL_EFFECT_UP" />
+		<set name="affectObject" val="FRIEND" />
 		<set name="affectRange" val="1000" />
+		<set name="affectScope" val="PARTY" />
 		<set name="effectPoint" val="#effectPoint" />
+		<set name="hitCancelTime" val="500" />
 		<set name="hitTime" val="4000" />
 		<set name="icon" val="icon.skill1307" />
 		<set name="isMagic" val="1" />
 		<set name="magicLvl" val="#magicLvl" />
-		<set name="mpConsume2" val="#mpConsume2" />
 		<set name="mpConsume1" val="#mpConsume1" />
+		<set name="mpConsume2" val="#mpConsume2" />
 		<set name="operateType" val="A2" />
 		<set name="reuseDelay" val="5000" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
-		<set name="targetType" val="PARTY" />
-		<enchant1 name="abnormalTime" val="#ench1AbnormalTimes" />
+		<set name="targetType" val="SELF" />
+		<enchant1 name="abnormalTime" val="#ench1AbnormalTime" />
 		<enchant1 name="magicLvl" val="#enchMagicLvl" />
 		<enchant2 name="magicLvl" val="#enchMagicLvl" />
-		<enchant2 name="mpConsume2" val="#ench2MpConsume2" />
 		<enchant2 name="mpConsume1" val="#ench2MpConsume1" />
+		<enchant2 name="mpConsume2" val="#ench2MpConsume2" />
 		<effects>
 			<effect name="Buff">
 				<mul stat="healEffect" val="#healEffect" />
@@ -274,73 +278,81 @@
 		</effects>
 	</skill>
 	<skill id="1308" levels="3" name="Chant of Predator" enchantGroup1="1" enchantGroup2="1">
+		<!-- High Five Confirmed -->
 		<table name="#abnormalLvl"> 1 2 3 </table>
+		<table name="#critRate"> 1.2 1.25 1.3 </table>
 		<table name="#effectPoint"> 457 566 624 </table>
 		<table name="#magicLvl"> 48 60 68 </table>
-		<table name="#mpConsume2"> 137 156 201 </table>
 		<table name="#mpConsume1"> 35 44 51 </table>
-		<table name="#rCrit"> 1.2 1.25 1.3 </table>
-		<table name="#ench1AbnormalTimes"> 1240 1280 1320 1360 1400 1440 1480 1520 1560 1600 1640 1680 1720 1760 1800 1840 1880 1920 1960 2000 2040 2080 2120 2160 2200 2240 2280 2320 2360 2400 </table>
-		<table name="#ench2MpConsume2"> 197 194 190 187 184 180 177 174 170 167 164 160 157 154 150 147 144 140 137 134 130 127 123 120 117 113 110 107 103 100 </table>
-		<table name="#ench2MpConsume1"> 50 49 48 47 46 45 45 44 43 42 41 40 39 39 38 37 36 35 34 34 33 32 31 30 29 28 28 27 26 25 </table>
+		<table name="#mpConsume2"> 137 176 201 </table>
 		<table name="#enchMagicLvl"> 76 76 76 77 77 77 78 78 78 79 79 79 80 80 80 81 81 81 82 82 82 83 83 83 84 84 84 85 85 85 </table>
+		<table name="#ench1AbnormalTime"> 1240 1280 1320 1360 1400 1440 1480 1520 1560 1600 1640 1680 1720 1760 1800 1840 1880 1920 1960 2000 2040 2080 2120 2160 2200 2240 2280 2320 2360 2400 </table>
+		<table name="#ench2MpConsume1"> 50 49 48 47 46 45 45 44 43 42 41 40 39 39 38 37 36 35 34 34 33 32 31 30 29 28 28 27 26 25 </table>
+		<table name="#ench2MpConsume2"> 197 194 190 187 184 180 177 174 170 167 164 160 157 154 150 147 144 140 137 134 130 127 123 120 117 113 110 107 103 100 </table>
 		<set name="abnormalLvl" val="#abnormalLvl" />
 		<set name="abnormalTime" val="1200" />
 		<set name="abnormalType" val="CRITICAL_PROB_UP" />
+		<set name="affectObject" val="FRIEND" />
 		<set name="affectRange" val="1000" />
+		<set name="affectScope" val="PARTY" />
 		<set name="effectPoint" val="#effectPoint" />
+		<set name="hitCancelTime" val="500" />
 		<set name="hitTime" val="2500" />
 		<set name="icon" val="icon.skill1308" />
 		<set name="isMagic" val="1" />
 		<set name="magicLvl" val="#magicLvl" />
-		<set name="mpConsume2" val="#mpConsume2" />
 		<set name="mpConsume1" val="#mpConsume1" />
+		<set name="mpConsume2" val="#mpConsume2" />
 		<set name="operateType" val="A2" />
 		<set name="reuseDelay" val="5000" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
-		<set name="targetType" val="PARTY" />
-		<enchant1 name="abnormalTime" val="#ench1AbnormalTimes" />
+		<set name="targetType" val="SELF" />
+		<enchant1 name="abnormalTime" val="#ench1AbnormalTime" />
 		<enchant1 name="magicLvl" val="#enchMagicLvl" />
 		<enchant2 name="magicLvl" val="#enchMagicLvl" />
-		<enchant2 name="mpConsume2" val="#ench2MpConsume2" />
 		<enchant2 name="mpConsume1" val="#ench2MpConsume1" />
+		<enchant2 name="mpConsume2" val="#ench2MpConsume2" />
 		<effects>
 			<effect name="Buff">
-				<mul stat="critRate" val="#rCrit" />
+				<mul stat="critRate" val="#critRate" />
 			</effect>
 		</effects>
 	</skill>
 	<skill id="1309" levels="3" name="Chant of Eagle" enchantGroup1="1" enchantGroup2="1">
+		<!-- High Five Confirmed -->
 		<table name="#abnormalLvl"> 1 2 3 </table>
 		<table name="#accCombat"> 2 3 4 </table>
 		<table name="#effectPoint"> 457 549 597 </table>
 		<table name="#magicLvl"> 48 58 64 </table>
-		<table name="#mpConsume2"> 137 170 189 </table>
 		<table name="#mpConsume1"> 35 43 48 </table>
-		<table name="#ench1AbnormalTimes"> 1240 1280 1320 1360 1400 1440 1480 1520 1560 1600 1640 1680 1720 1760 1800 1840 1880 1920 1960 2000 2040 2080 2120 2160 2200 2240 2280 2320 2360 2400 </table>
-		<table name="#ench2MpConsume2"> 185 182 179 176 173 170 166 163 160 157 154 151 148 144 141 138 135 132 129 126 122 119 116 113 110 107 103 100 97 94 </table>
-		<table name="#ench2MpConsume1"> 47 46 45 44 44 43 42 41 40 40 39 38 37 36 36 35 34 33 32 32 31 30 29 28 28 27 26 25 24 24 </table>
+		<table name="#mpConsume2"> 137 170 189 </table>
 		<table name="#enchMagicLvl"> 76 76 76 77 77 77 78 78 78 79 79 79 80 80 80 81 81 81 82 82 82 83 83 83 84 84 84 85 85 85 </table>
+		<table name="#ench1AbnormalTime"> 1240 1280 1320 1360 1400 1440 1480 1520 1560 1600 1640 1680 1720 1760 1800 1840 1880 1920 1960 2000 2040 2080 2120 2160 2200 2240 2280 2320 2360 2400 </table>
+		<table name="#ench2MpConsume1"> 47 46 45 44 44 43 42 41 40 40 39 38 37 36 36 35 34 33 32 32 31 30 29 28 28 27 26 25 24 24 </table>
+		<table name="#ench2MpConsume2"> 185 182 179 176 173 170 166 163 160 157 154 151 148 144 141 138 135 132 129 126 122 119 116 113 110 107 103 100 97 94 </table>
 		<set name="abnormalLvl" val="#abnormalLvl" />
 		<set name="abnormalTime" val="1200" />
 		<set name="abnormalType" val="HIT_UP" />
+		<set name="affectObject" val="FRIEND" />
 		<set name="affectRange" val="1000" />
+		<set name="affectScope" val="PARTY" />
 		<set name="effectPoint" val="#effectPoint" />
+		<set name="hitCancelTime" val="500" />
 		<set name="hitTime" val="2500" />
 		<set name="icon" val="icon.skill1309" />
 		<set name="isMagic" val="1" />
 		<set name="magicLvl" val="#magicLvl" />
-		<set name="mpConsume2" val="#mpConsume2" />
 		<set name="mpConsume1" val="#mpConsume1" />
+		<set name="mpConsume2" val="#mpConsume2" />
 		<set name="operateType" val="A2" />
 		<set name="reuseDelay" val="5000" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
-		<set name="targetType" val="PARTY" />
-		<enchant1 name="abnormalTime" val="#ench1AbnormalTimes" />
+		<set name="targetType" val="SELF" />
+		<enchant1 name="abnormalTime" val="#ench1AbnormalTime" />
 		<enchant1 name="magicLvl" val="#enchMagicLvl" />
 		<enchant2 name="magicLvl" val="#enchMagicLvl" />
-		<enchant2 name="mpConsume2" val="#ench2MpConsume2" />
 		<enchant2 name="mpConsume1" val="#ench2MpConsume1" />
+		<enchant2 name="mpConsume2" val="#ench2MpConsume2" />
 		<effects>
 			<effect name="Buff">
 				<add stat="accCombat" val="#accCombat" />
@@ -348,73 +360,84 @@
 		</effects>
 	</skill>
 	<skill id="1310" levels="4" name="Chant of Vampire" enchantGroup1="1" enchantGroup2="1">
+		<!-- High Five Confirmed -->
 		<table name="#abnormalLvl"> 1 2 3 4 </table>
 		<table name="#absorbDam"> 6 7 8 9 </table>
 		<table name="#effectPoint"> 418 549 611 655 </table>
 		<table name="#magicLvl"> 44 58 66 74 </table>
-		<table name="#mpConsume2"> 123 170 195 217 </table>
 		<table name="#mpConsume1"> 31 43 49 55 </table>
-		<table name="#ench1AbnormalTimes"> 1240 1280 1320 1360 1400 1440 1480 1520 1560 1600 1640 1680 1720 1760 1800 1840 1880 1920 1960 2000 2040 2080 2120 2160 2200 2240 2280 2320 2360 2400 </table>
-		<table name="#ench2MpConsume2"> 213 209 206 202 198 195 191 188 184 180 177 173 169 166 162 159 155 151 148 144 141 137 133 130 126 122 119 115 112 108 </table>
+		<table name="#mpConsume2"> 123 170 195 217 </table>
+		<table name="#enchMagicLvl"> 76 76 76 77 77 77 78 78 78 79 79 79 80 80 80 81 81 81 82 82 82 83 83 83 84 84 84 85 85 85 </table>
+		<table name="#ench1AbnormalTime"> 1240 1280 1320 1360 1400 1440 1480 1520 1560 1600 1640 1680 1720 1760 1800 1840 1880 1920 1960 2000 2040 2080 2120 2160 2200 2240 2280 2320 2360 2400 </table>
 		<table name="#ench2MpConsume1"> 54 53 52 51 50 49 48 47 46 45 44 44 43 42 41 40 39 38 37 36 35 34 33 33 32 31 30 29 28 27 </table>
+		<table name="#ench2MpConsume2"> 213 209 206 202 198 195 191 188 184 180 177 173 169 166 162 159 155 151 148 144 141 137 133 130 126 122 119 115 112 108 </table>
 		<set name="abnormalLvl" val="#abnormalLvl" />
 		<set name="abnormalTime" val="1200" />
 		<set name="abnormalType" val="VAMPIRIC_ATTACK" />
+		<set name="affectObject" val="FRIEND" />
 		<set name="affectRange" val="1000" />
+		<set name="affectScope" val="PARTY" />
 		<set name="effectPoint" val="#effectPoint" />
+		<set name="hitCancelTime" val="500" />
 		<set name="hitTime" val="2500" />
 		<set name="icon" val="icon.skill1310" />
 		<set name="isMagic" val="1" />
 		<set name="magicLvl" val="#magicLvl" />
-		<set name="mpConsume2" val="#mpConsume2" />
 		<set name="mpConsume1" val="#mpConsume1" />
+		<set name="mpConsume2" val="#mpConsume2" />
 		<set name="operateType" val="A2" />
 		<set name="reuseDelay" val="5000" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
-		<set name="targetType" val="PARTY" />
-		<enchant1 name="abnormalTime" val="#ench1AbnormalTimes" />
-		<enchant2 name="mpConsume2" val="#ench2MpConsume2" />
+		<set name="targetType" val="SELF" />
+		<enchant1 name="abnormalTime" val="#ench1AbnormalTime" />
+		<enchant1 name="magicLvl" val="#enchMagicLvl" />
+		<enchant2 name="magicLvl" val="#enchMagicLvl" />
 		<enchant2 name="mpConsume1" val="#ench2MpConsume1" />
+		<enchant2 name="mpConsume2" val="#ench2MpConsume2" />
 		<effects>
 			<effect name="Buff">
-				<add stat="absorbDam" val="#absorbDam" /> <!-- absorb HP from damage inflicted on enemies -->
+				<add stat="absorbDam" val="#absorbDam" />
 			</effect>
 		</effects>
 	</skill>
-	<skill id="1311" levels="6" name="Body Of Avatar" enchantGroup1="1" enchantGroup2="1">
+	<skill id="1311" levels="6" name="Body of Avatar" enchantGroup1="1" enchantGroup2="1">
+		<!-- High Five Confirmed -->
 		<table name="#abnormalLvl"> 1 2 3 4 5 6 </table>
-		<table name="#MaxHp"> 10 15 20 25 30 35 </table>
 		<table name="#effectPoint"> 457 532 566 597 624 646 </table>
 		<table name="#magicLvl"> 48 56 60 64 68 72 </table>
-		<table name="#mpConsume2"> 273 326 352 378 402 424 </table>
+		<table name="#maxHpPower"> 10 15 20 25 30 35 </table>
 		<table name="#mpConsume1"> 69 82 88 95 101 106 </table>
-		<table name="#ench1AbnormalTimes"> 1240 1280 1320 1360 1400 1440 1480 1520 1560 1600 1640 1680 1720 1760 1800 1840 1880 1920 1960 2000 2040 2080 2120 2160 2200 2240 2280 2320 2360 2400 </table>
-		<table name="#ench2MpConsume2"> 416 409 402 395 388 381 374 367 360 353 346 339 332 325 318 310 303 296 289 282 275 268 261 254 247 240 233 226 219 212 </table>
-		<table name="#ench2MpConsume1"> 104 102 100 98 97 95 93 91 90 88 86 84 83 81 79 77 75 74 72 70 68 67 65 63 61 60 58 56 54 53 </table>
+		<table name="#mpConsume2"> 273 326 352 378 402 424 </table>
 		<table name="#enchMagicLvl"> 76 76 76 77 77 77 78 78 78 79 79 79 80 80 80 81 81 81 82 82 82 83 83 83 84 84 84 85 85 85 </table>
+		<table name="#ench1AbnormalTime"> 1240 1280 1320 1360 1400 1440 1480 1520 1560 1600 1640 1680 1720 1760 1800 1840 1880 1920 1960 2000 2040 2080 2120 2160 2200 2240 2280 2320 2360 2400 </table>
+		<table name="#ench2MpConsume1"> 104 102 100 98 97 95 93 91 90 88 86 84 83 81 79 77 75 74 72 70 68 67 65 63 61 60 58 56 54 53 </table>
+		<table name="#ench2MpConsume2"> 416 409 402 395 388 381 374 367 360 353 346 339 332 325 318 310 303 296 289 282 275 268 261 254 247 240 233 226 219 212 </table>
 		<set name="abnormalLvl" val="#abnormalLvl" />
 		<set name="abnormalTime" val="1200" />
 		<set name="abnormalType" val="MAX_HP_UP" />
+		<set name="affectObject" val="FRIEND" />
 		<set name="affectRange" val="1000" />
+		<set name="affectScope" val="PARTY" />
 		<set name="effectPoint" val="#effectPoint" />
+		<set name="hitCancelTime" val="500" />
 		<set name="hitTime" val="4000" />
 		<set name="icon" val="icon.skill1311" />
 		<set name="isMagic" val="1" />
 		<set name="magicLvl" val="#magicLvl" />
-		<set name="mpConsume2" val="#mpConsume2" />
 		<set name="mpConsume1" val="#mpConsume1" />
+		<set name="mpConsume2" val="#mpConsume2" />
 		<set name="operateType" val="A2" />
 		<set name="reuseDelay" val="150000" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
-		<set name="targetType" val="PARTY" />
-		<enchant1 name="abnormalTime" val="#ench1AbnormalTimes" />
+		<set name="targetType" val="SELF" />
+		<enchant1 name="abnormalTime" val="#ench1AbnormalTime" />
 		<enchant1 name="magicLvl" val="#enchMagicLvl" />
 		<enchant2 name="magicLvl" val="#enchMagicLvl" />
-		<enchant2 name="mpConsume2" val="#ench2MpConsume2" />
 		<enchant2 name="mpConsume1" val="#ench2MpConsume1" />
+		<enchant2 name="mpConsume2" val="#ench2MpConsume2" />
 		<effects>
 			<effect name="MaxHp">
-				<param power="#MaxHp" />
+				<param power="#maxHpPower" />
 				<param type="PER" />
 				<param heal="true" />
 			</effect>
@@ -737,28 +760,31 @@
 		</effects>
 	</skill>
 	<skill id="1328" levels="8" name="Mass Summon Storm Cubic" enchantGroup1="2">
-		<!-- Confirmed CT2.5 -->
+		<!-- High Five Confirmed -->
 		<table name="#cubicPower"> 282 434 677 919 1141 1394 1673 1975 </table>
 		<table name="#itemConsumeCount"> 16 20 26 29 36 39 42 46 </table>
 		<table name="#magicLvl"> 40 46 52 58 62 66 70 74 </table>
-		<table name="#mpConsume2"> 111 130 150 170 183 195 207 217 </table>
 		<table name="#mpConsume1"> 28 33 38 43 46 49 52 55 </table>
+		<table name="#mpConsume2"> 111 130 150 170 183 195 207 217 </table>
+		<table name="#ench1MagicLvl"> 76 76 76 77 77 77 78 78 78 79 79 79 80 80 80 81 81 81 82 82 82 83 83 83 84 84 84 85 85 85 </table>
 		<table name="#ench1Power"> 2081 2133 2184 2234 2283 2331 2378 2423 2423 2423 2423 2423 2423 2423 2423 2423 2423 2423 2423 2423 2423 2423 2423 2423 2423 2423 2423 2423 2423 2423 </table>
-		<table name="#enchMagicLvl"> 76 76 76 77 77 77 78 78 78 79 79 79 80 80 80 81 81 81 82 82 82 83 83 83 84 84 84 85 85 85 </table>
+		<set name="affectObject" val="FRIEND" />
 		<set name="affectRange" val="1000" />
+		<set name="affectScope" val="PARTY" />
+		<set name="hitCancelTime" val="500" />
 		<set name="hitTime" val="6000" />
 		<set name="icon" val="icon.skill1328" />
 		<set name="isMagic" val="1" />
 		<set name="itemConsumeCount" val="#itemConsumeCount" />
 		<set name="itemConsumeId" val="3031" />
 		<set name="magicLvl" val="#magicLvl" />
-		<set name="mpConsume2" val="#mpConsume2" />
 		<set name="mpConsume1" val="#mpConsume1" />
+		<set name="mpConsume2" val="#mpConsume2" />
 		<set name="operateType" val="A1" />
 		<set name="reuseDelay" val="5000" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
-		<set name="targetType" val="PARTY" />
-		<enchant1 name="magicLvl" val="#enchMagicLvl" />
+		<set name="targetType" val="SELF" />
+		<enchant1 name="magicLvl" val="#ench1MagicLvl" />
 		<effects>
 			<effect name="SummonCubic">
 				<param cubicId="1" cubicDelay="10" cubicDuration="900" cubicMaxCount="30" cubicSkillChance="12" cubicPower="#cubicPower" />
@@ -771,28 +797,31 @@
 		</enchant1Effects>
 	</skill>
 	<skill id="1329" levels="9" name="Mass Summon Aqua Cubic" enchantGroup1="2">
-		<!-- Confirmed CT2.5 -->
+		<!-- High Five Confirmed -->
 		<table name="#cubicPower"> 282 377 497 644 820 1141 1394 1673 1975 </table>
 		<table name="#itemConsumeCount"> 7 10 10 13 13 16 20 20 23 </table>
 		<table name="#magicLvl"> 40 44 48 52 56 62 66 70 74 </table>
-		<table name="#mpConsume2"> 111 123 137 150 163 183 195 207 217 </table>
 		<table name="#mpConsume1"> 28 31 35 38 41 46 49 52 55 </table>
+		<table name="#mpConsume2"> 111 123 137 150 163 183 195 207 217 </table>
+		<table name="#ench1MagicLvl"> 76 76 76 77 77 77 78 78 78 79 79 79 80 80 80 81 81 81 82 82 82 83 83 83 84 84 84 85 85 85 </table>
 		<table name="#ench1Power"> 2081 2133 2184 2234 2283 2331 2378 2423 2423 2423 2423 2423 2423 2423 2423 2423 2423 2423 2423 2423 2423 2423 2423 2423 2423 2423 2423 2423 2423 2423 </table>
-		<table name="#enchMagicLvl"> 76 76 76 77 77 77 78 78 78 79 79 79 80 80 80 81 81 81 82 82 82 83 83 83 84 84 84 85 85 85 </table>
+		<set name="affectObject" val="FRIEND" />
 		<set name="affectRange" val="1000" />
+		<set name="affectScope" val="PARTY" />
+		<set name="hitCancelTime" val="500" />
 		<set name="hitTime" val="6000" />
 		<set name="icon" val="icon.skill1329" />
 		<set name="isMagic" val="1" />
 		<set name="itemConsumeCount" val="#itemConsumeCount" />
 		<set name="itemConsumeId" val="3031" />
 		<set name="magicLvl" val="#magicLvl" />
-		<set name="mpConsume2" val="#mpConsume2" />
 		<set name="mpConsume1" val="#mpConsume1" />
+		<set name="mpConsume2" val="#mpConsume2" />
 		<set name="operateType" val="A1" />
 		<set name="reuseDelay" val="5000" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
-		<set name="targetType" val="PARTY" />
-		<enchant1 name="magicLvl" val="#enchMagicLvl" />
+		<set name="targetType" val="SELF" />
+		<enchant1 name="magicLvl" val="#ench1MagicLvl" />
 		<effects>
 			<effect name="SummonCubic">
 				<param cubicId="7" cubicDelay="30" cubicDuration="900" cubicMaxCount="10" cubicSkillChance="30" cubicPower="#cubicPower" />
@@ -805,28 +834,31 @@
 		</enchant1Effects>
 	</skill>
 	<skill id="1330" levels="8" name="Mass Summon Phantom Cubic" enchantGroup1="2">
-		<!-- Confirmed CT2.5 -->
+		<!-- High Five Confirmed -->
 		<table name="#cubicPower"> 282 434 644 919 1141 1394 1673 1975 </table>
 		<table name="#itemConsumeCount"> 7 10 13 13 16 20 20 23 </table>
 		<table name="#magicLvl"> 40 46 52 58 62 66 70 74 </table>
-		<table name="#mpConsume2"> 111 130 150 170 183 195 207 217 </table>
 		<table name="#mpConsume1"> 28 33 38 43 46 49 52 55 </table>
+		<table name="#mpConsume2"> 111 130 150 170 183 195 207 217 </table>
+		<table name="#ench1MagicLvl"> 76 76 76 77 77 77 78 78 78 79 79 79 80 80 80 81 81 81 82 82 82 83 83 83 84 84 84 85 85 85 </table>
 		<table name="#ench1Power"> 2081 2133 2184 2234 2283 2331 2378 2423 2423 2423 2423 2423 2423 2423 2423 2423 2423 2423 2423 2423 2423 2423 2423 2423 2423 2423 2423 2423 2423 2423 </table>
-		<table name="#enchMagicLvl"> 76 76 76 77 77 77 78 78 78 79 79 79 80 80 80 81 81 81 82 82 82 83 83 83 84 84 84 85 85 85 </table>
+		<set name="affectObject" val="FRIEND" />
 		<set name="affectRange" val="1000" />
+		<set name="affectScope" val="PARTY" />
+		<set name="hitCancelTime" val="500" />
 		<set name="hitTime" val="6000" />
 		<set name="icon" val="icon.skill1330" />
 		<set name="isMagic" val="1" />
 		<set name="itemConsumeCount" val="#itemConsumeCount" />
 		<set name="itemConsumeId" val="3031" />
 		<set name="magicLvl" val="#magicLvl" />
-		<set name="mpConsume2" val="#mpConsume2" />
 		<set name="mpConsume1" val="#mpConsume1" />
+		<set name="mpConsume2" val="#mpConsume2" />
 		<set name="operateType" val="A1" />
 		<set name="reuseDelay" val="5000" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
-		<set name="targetType" val="PARTY" />
-		<enchant1 name="magicLvl" val="#enchMagicLvl" />
+		<set name="targetType" val="SELF" />
+		<enchant1 name="magicLvl" val="#ench1MagicLvl" />
 		<effects>
 			<effect name="SummonCubic">
 				<param cubicId="5" cubicDelay="8" cubicDuration="900" cubicMaxCount="30" cubicSkillChance="30" cubicPower="#cubicPower" />
@@ -2523,97 +2555,154 @@
 		</effects>
 	</skill>
 	<skill id="1362" levels="1" name="Chant of Spirit" enchantGroup1="5" enchantGroup2="5">
-		<table name="#ench1AbnormalTimes"> 1240 1280 1320 1360 1400 1440 1480 1520 1560 1600 1640 1680 1720 1760 1800 </table>
-		<table name="#ench2MpConsume2"> 218 210 202 194 188 180 172 165 157 150 142 134 126 120 112 </table>
-		<table name="#ench2MpConsume1"> 54 52 51 49 47 45 43 41 39 37 35 34 32 30 28 </table>
+		<!-- High Five Confirmed -->
+		<table name="#enchMagicLvl"> 81 81 81 82 82 82 83 83 83 84 84 84 85 85 85 </table>
+		<table name="#ench1AbnormalTime"> 1240 1280 1320 1360 1400 1440 1480 1520 1560 1600 1640 1680 1720 1760 1800 </table>
+		<table name="#ench2MpConsume1"> 54 52 50 48 47 45 43 41 39 37 35 33 31 30 28 </table>
+		<table name="#ench2MpConsume2"> 218 210 203 195 188 180 172 165 157 150 142 135 127 120 112 </table>
 		<set name="abnormalLvl" val="3" />
 		<set name="abnormalTime" val="1200" />
 		<set name="abnormalType" val="RESIST_DEBUFF_DISPEL" />
+		<set name="affectObject" val="FRIEND" />
 		<set name="affectRange" val="1000" />
+		<set name="affectScope" val="PARTY" />
 		<set name="effectPoint" val="666" />
+		<set name="hitCancelTime" val="500" />
 		<set name="hitTime" val="2500" />
 		<set name="icon" val="icon.skill1362" />
 		<set name="isMagic" val="1" />
 		<set name="magicLvl" val="77" />
-		<set name="mpConsume2" val="224" />
 		<set name="mpConsume1" val="56" />
+		<set name="mpConsume2" val="224" />
 		<set name="operateType" val="A2" />
 		<set name="reuseDelay" val="5000" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
-		<set name="targetType" val="PARTY" />
-		<enchant1 name="abnormalTime" val="#ench1AbnormalTimes" />
-		<enchant2 name="mpConsume2" val="#ench2MpConsume2" />
+		<set name="targetType" val="SELF" />
+		<enchant1 name="abnormalTime" val="#ench1AbnormalTime" />
+		<enchant1 name="magicLvl" val="#enchMagicLvl" />
+		<enchant2 name="magicLvl" val="#enchMagicLvl" />
 		<enchant2 name="mpConsume1" val="#ench2MpConsume1" />
+		<enchant2 name="mpConsume2" val="#ench2MpConsume2" />
 		<effects>
 			<effect name="Buff">
-				<sub stat="cancelVuln" val="30" />
-				<sub stat="debuffVuln" val="20" />
+				<mul stat="debuffVuln" val="0.8" />
+			</effect>
+			<effect name="Buff">
+				<mul stat="cancelVuln" val="0.7" />
 			</effect>
 		</effects>
 	</skill>
 	<skill id="1363" levels="1" name="Chant of Victory" enchantGroup1="5" enchantGroup2="5" enchantGroup3="5">
-		<table name="#ench1AbnormalTimes"> 320 340 360 380 400 420 440 460 480 500 520 540 560 580 600 </table>
-		<table name="#ench2MpConsume2"> 218 212 204 196 189 181 174 166 158 150 142 136 128 121 113 </table>
-		<table name="#ench2MpConsume1"> 55 53 51 49 47 45 43 41 40 38 36 34 32 30 28 </table>
-		<table name="#ench3Spd"> 0.83 0.85 0.87 0.89 0.9 0.91 0.92 0.93 0.94 0.95 0.96 0.97 0.98 0.99 1 </table>
+		<!-- High Five Confirmed -->
 		<table name="#enchMagicLvl"> 81 81 81 82 82 82 83 83 83 84 84 84 85 85 85 </table>
+		<table name="#ench1AbnormalTime"> 320 340 360 380 400 420 440 460 480 500 520 540 560 580 600 </table>
+		<table name="#ench2MpConsume1"> 54 53 51 49 47 45 43 41 39 37 35 34 32 30 28 </table>
+		<table name="#ench2MpConsume2"> 219 212 204 196 189 181 174 166 159 151 143 136 128 121 113 </table>
+		<table name="#ench3RunSpd"> 0.83 0.85 0.87 0.89 0.9 0.91 0.92 0.93 0.94 0.95 0.96 0.97 0.98 0.99 1 </table>
 		<set name="abnormalLvl" val="1" />
 		<set name="abnormalTime" val="300" />
 		<set name="abnormalType" val="MULTI_BUFF" />
+		<set name="affectObject" val="FRIEND" />
 		<set name="affectRange" val="1000" />
+		<set name="affectScope" val="PARTY" />
 		<set name="effectPoint" val="669" />
+		<set name="hitCancelTime" val="500" />
 		<set name="hitTime" val="2500" />
 		<set name="icon" val="icon.skill1363" />
 		<set name="isMagic" val="1" />
 		<set name="itemConsumeCount" val="40" />
-		<set name="itemConsumeId" val="3031" /> <!-- Spirit Ore -->
+		<set name="itemConsumeId" val="3031" />
 		<set name="magicLvl" val="78" />
-		<set name="mpConsume2" val="227" />
 		<set name="mpConsume1" val="57" />
+		<set name="mpConsume2" val="227" />
 		<set name="operateType" val="A2" />
 		<set name="reuseDelay" val="300000" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
-		<set name="targetType" val="PARTY" />
-		<enchant1 name="abnormalTime" val="#ench1AbnormalTimes" />
+		<set name="targetType" val="SELF" />
+		<enchant1 name="abnormalTime" val="#ench1AbnormalTime" />
 		<enchant1 name="magicLvl" val="#enchMagicLvl" />
 		<enchant2 name="magicLvl" val="#enchMagicLvl" />
-		<enchant2 name="mpConsume2" val="#ench2MpConsume2" />
 		<enchant2 name="mpConsume1" val="#ench2MpConsume1" />
+		<enchant2 name="mpConsume2" val="#ench2MpConsume2" />
 		<enchant3 name="magicLvl" val="#enchMagicLvl" />
 		<effects>
+			<effect name="Buff">
+				<mul stat="pAtkSpd" val="1.2" />
+			</effect>
+			<effect name="Buff">
+				<mul stat="critDmg" val="1.2" />
+			</effect>
+			<effect name="Buff">
+				<add stat="accCombat" val="4" />
+			</effect>
+			<effect name="Buff">
+				<add stat="mCritRate" val="2" />
+			</effect>
+			<effect name="Buff">
+				<mul stat="mAtkSpd" val="1.2" />
+			</effect>
+			<effect name="Buff">
+				<mul stat="mAtk" val="1.2" />
+			</effect>
+			<effect name="Buff">
+				<mul stat="mDef" val="1.2" />
+			</effect>
 			<effect name="MaxHp">
 				<param power="20" />
 				<param type="PER" />
 				<param heal="true" />
-				<add stat="mCritRate" val="2" />
-				<mul stat="critDmg" val="1.2" />
+			</effect>
+			<effect name="Buff">
 				<mul stat="pAtk" val="1.1" />
+			</effect>
+			<effect name="Buff">
 				<mul stat="pDef" val="1.2" />
-				<mul stat="pAtkSpd" val="1.2" />
-				<mul stat="mAtk" val="1.2" />
-				<mul stat="mDef" val="1.2" />
-				<mul stat="mAtkSpd" val="1.2" />
-				<sub stat="debuffVuln" val="10" />
-				<add stat="accCombat" val="4" />
+			</effect>
+			<effect name="Buff">
+				<mul stat="debuffVuln" val="0.9" />
+			</effect>
+			<effect name="Buff">
 				<mul stat="runSpd" val="0.8" />
 			</effect>
 		</effects>
 		<enchant3Effects>
+			<effect name="Buff">
+				<mul stat="pAtkSpd" val="1.2" />
+			</effect>
+			<effect name="Buff">
+				<mul stat="critDmg" val="1.2" />
+			</effect>
+			<effect name="Buff">
+				<add stat="accCombat" val="4" />
+			</effect>
+			<effect name="Buff">
+				<add stat="mCritRate" val="2" />
+			</effect>
+			<effect name="Buff">
+				<mul stat="mAtkSpd" val="1.2" />
+			</effect>
+			<effect name="Buff">
+				<mul stat="mAtk" val="1.2" />
+			</effect>
+			<effect name="Buff">
+				<mul stat="mDef" val="1.2" />
+			</effect>
 			<effect name="MaxHp">
 				<param power="20" />
 				<param type="PER" />
 				<param heal="true" />
-				<add stat="mCritRate" val="2" />
-				<mul stat="critDmg" val="1.2" />
+			</effect>
+			<effect name="Buff">
 				<mul stat="pAtk" val="1.1" />
+			</effect>
+			<effect name="Buff">
 				<mul stat="pDef" val="1.2" />
-				<mul stat="pAtkSpd" val="1.2" />
-				<mul stat="mAtk" val="1.2" />
-				<mul stat="mDef" val="1.2" />
-				<mul stat="mAtkSpd" val="1.2" />
-				<sub stat="debuffVuln" val="10" />
-				<add stat="accCombat" val="4" />
-				<mul stat="runSpd" val="#ench3Spd" />
+			</effect>
+			<effect name="Buff">
+				<mul stat="debuffVuln" val="0.9" />
+			</effect>
+			<effect name="Buff">
+				<mul stat="runSpd" val="0.8" />
 			</effect>
 		</enchant3Effects>
 	</skill>
@@ -3590,32 +3679,43 @@
 		</effects>
 	</skill>
 	<skill id="1390" levels="3" name="War Chant" enchantGroup1="1" enchantGroup2="1">
+		<!-- High Five Confirmed -->
 		<table name="#abnormalLvl"> 1 2 3 </table>
 		<table name="#effectPoint"> 549 611 655 </table>
 		<table name="#itemConsumeCount"> 4 8 12 </table>
 		<table name="#magicLvl"> 58 66 74 </table>
-		<table name="#mpConsume2"> 213 244 272 </table>
+		<table name="#mpConsume1"> 43 49 55 </table>
+		<table name="#mpConsume2"> 170 195 217 </table>
 		<table name="#pAtk"> 1.04 1.07 1.1 </table>
-		<table name="#ench1MpConsume2"> 269 265 263 259 257 254 250 248 244 242 238 235 232 229 225 223 219 217 213 210 207 204 202 198 195 192 189 185 183 179 </table>
-		<table name="#ench2AbnormalTimes"> 1240 1280 1320 1360 1400 1440 1480 1520 1560 1600 1640 1680 1720 1760 1800 1840 1880 1920 1960 2000 2040 2080 2120 2160 2200 2240 2280 2320 2360 2400 </table>
+		<table name="#enchMagicLvl"> 76 76 76 77 77 77 78 78 78 79 79 79 80 80 80 81 81 81 82 82 82 83 83 83 84 84 84 85 85 85 </table>
+		<table name="#ench1MpConsume1"> 54 53 53 52 52 51 50 50 49 49 48 47 47 46 45 45 44 44 43 42 42 41 41 40 39 39 38 37 37 36 </table>
+		<table name="#ench1MpConsume2"> 215 212 210 207 205 203 200 198 195 193 190 188 185 183 180 178 175 173 170 168 165 163 161 158 156 153 151 148 146 143 </table>
+		<table name="#ench2AbnormalTime"> 1240 1280 1320 1360 1400 1440 1480 1520 1560 1600 1640 1680 1720 1760 1800 1840 1880 1920 1960 2000 2040 2080 2120 2160 2200 2240 2280 2320 2360 2400 </table>
 		<set name="abnormalLvl" val="#abnormalLvl" />
 		<set name="abnormalTime" val="1200" />
 		<set name="abnormalType" val="PA_PD_UP" />
+		<set name="affectObject" val="FRIEND" />
 		<set name="affectRange" val="1000" />
+		<set name="affectScope" val="PARTY" />
 		<set name="effectPoint" val="#effectPoint" />
+		<set name="hitCancelTime" val="500" />
 		<set name="hitTime" val="2500" />
 		<set name="icon" val="icon.skill1390" />
 		<set name="isMagic" val="1" />
 		<set name="itemConsumeCount" val="#itemConsumeCount" />
 		<set name="itemConsumeId" val="3031" />
 		<set name="magicLvl" val="#magicLvl" />
+		<set name="mpConsume1" val="#mpConsume1" />
 		<set name="mpConsume2" val="#mpConsume2" />
 		<set name="operateType" val="A2" />
 		<set name="reuseDelay" val="5000" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
-		<set name="targetType" val="PARTY" />
+		<set name="targetType" val="SELF" />
+		<enchant1 name="magicLvl" val="#enchMagicLvl" />
+		<enchant1 name="mpConsume1" val="#ench1MpConsume1" />
 		<enchant1 name="mpConsume2" val="#ench1MpConsume2" />
-		<enchant2 name="abnormalTime" val="#ench2AbnormalTimes" />
+		<enchant2 name="abnormalTime" val="#ench2AbnormalTime" />
+		<enchant2 name="magicLvl" val="#enchMagicLvl" />
 		<effects>
 			<effect name="Buff">
 				<mul stat="pAtk" val="#pAtk" />
@@ -3623,32 +3723,43 @@
 		</effects>
 	</skill>
 	<skill id="1391" levels="3" name="Earth Chant" enchantGroup1="1" enchantGroup2="1">
+		<!-- High Five Confirmed -->
 		<table name="#abnormalLvl"> 1 2 3 </table>
 		<table name="#effectPoint"> 549 611 655 </table>
 		<table name="#itemConsumeCount"> 4 8 12 </table>
 		<table name="#magicLvl"> 58 66 74 </table>
-		<table name="#mpConsume2"> 213 244 272 </table>
+		<table name="#mpConsume1"> 43 49 55 </table>
+		<table name="#mpConsume2"> 170 195 217 </table>
 		<table name="#pDef"> 1.05 1.1 1.15 </table>
-		<table name="#ench1MpConsume2"> 269 265 263 259 257 254 250 248 244 242 238 235 232 229 225 223 219 217 213 210 207 204 202 198 195 192 189 185 183 179 </table>
-		<table name="#ench2AbnormalTimes"> 1240 1280 1320 1360 1400 1440 1480 1520 1560 1600 1640 1680 1720 1760 1800 1840 1880 1920 1960 2000 2040 2080 2120 2160 2200 2240 2280 2320 2360 2400 </table>
+		<table name="#enchMagicLvl"> 76 76 76 77 77 77 78 78 78 79 79 79 80 80 80 81 81 81 82 82 82 83 83 83 84 84 84 85 85 85 </table>
+		<table name="#ench1MpConsume1"> 54 53 53 52 52 51 50 50 49 49 48 47 47 46 45 45 44 44 43 42 42 41 41 40 39 39 38 37 37 36 </table>
+		<table name="#ench1MpConsume2"> 215 212 210 207 205 203 200 198 195 193 190 188 185 183 180 178 175 173 170 168 165 163 161 158 156 153 151 148 146 143 </table>
+		<table name="#ench2AbnormalTime"> 1240 1280 1320 1360 1400 1440 1480 1520 1560 1600 1640 1680 1720 1760 1800 1840 1880 1920 1960 2000 2040 2080 2120 2160 2200 2240 2280 2320 2360 2400 </table>
 		<set name="abnormalLvl" val="#abnormalLvl" />
 		<set name="abnormalTime" val="1200" />
 		<set name="abnormalType" val="PA_PD_UP" />
+		<set name="affectObject" val="FRIEND" />
 		<set name="affectRange" val="1000" />
+		<set name="affectScope" val="PARTY" />
 		<set name="effectPoint" val="#effectPoint" />
+		<set name="hitCancelTime" val="500" />
 		<set name="hitTime" val="2500" />
 		<set name="icon" val="icon.skill1391" />
 		<set name="isMagic" val="1" />
 		<set name="itemConsumeCount" val="#itemConsumeCount" />
 		<set name="itemConsumeId" val="3031" />
 		<set name="magicLvl" val="#magicLvl" />
+		<set name="mpConsume1" val="#mpConsume1" />
 		<set name="mpConsume2" val="#mpConsume2" />
 		<set name="operateType" val="A2" />
 		<set name="reuseDelay" val="5000" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
-		<set name="targetType" val="PARTY" />
+		<set name="targetType" val="SELF" />
+		<enchant1 name="magicLvl" val="#enchMagicLvl" />
+		<enchant1 name="mpConsume1" val="#ench1MpConsume1" />
 		<enchant1 name="mpConsume2" val="#ench1MpConsume2" />
-		<enchant2 name="abnormalTime" val="#ench2AbnormalTimes" />
+		<enchant2 name="abnormalTime" val="#ench2AbnormalTime" />
+		<enchant2 name="magicLvl" val="#enchMagicLvl" />
 		<effects>
 			<effect name="Buff">
 				<mul stat="pDef" val="#pDef" />
