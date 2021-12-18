@@ -954,18 +954,20 @@
 		</effects>
 	</skill>
 	<skill id="130" levels="2" name="Thrill Fight" enchantGroup1="1">
-		<!-- Confirmed CT2.5 -->
+		<!-- High Five Confirmed -->
 		<table name="#abnormalLvl"> 1 2 </table>
 		<table name="#effectPoint"> 438 523 </table>
 		<table name="#magicLvl"> 46 55 </table>
 		<table name="#mpConsume2"> 21 25 </table>
 		<table name="#pAtkSpd"> 1.05 1.1 </table>
-		<table name="#ench1runSpd"> 0.81 0.82 0.82 0.83 0.84 0.84 0.85 0.86 0.86 0.87 0.87 0.88 0.89 0.89 0.9 0.91 0.91 0.92 0.93 0.93 0.94 0.94 0.95 0.96 0.96 0.97 0.98 0.98 0.99 1 </table>
-		<table name="#enchMagicLvl"> 76 76 76 77 77 77 78 78 78 79 79 79 80 80 80 81 81 81 82 82 82 83 83 83 84 84 84 85 85 85 </table>
+		<table name="#ench1RunSpd"> 0.81 0.82 0.82 0.83 0.84 0.84 0.85 0.86 0.86 0.87 0.87 0.88 0.89 0.89 0.9 0.91 0.91 0.92 0.93 0.93 0.94 0.94 0.95 0.96 0.96 0.97 0.98 0.98 0.99 1 </table>
+		<table name="#ench1MagicLvl"> 76 76 76 77 77 77 78 78 78 79 79 79 80 80 80 81 81 81 82 82 82 83 83 83 84 84 84 85 85 85 </table>
 		<set name="abnormalLvl" val="#abnormalLvl" />
 		<set name="abnormalTime" val="300" />
 		<set name="abnormalType" val="THRILL_FIGHT" />
+		<set name="affectScope" val="SINGLE" />
 		<set name="effectPoint" val="#effectPoint" />
+		<set name="hitCancelTime" val="500" />
 		<set name="hitTime" val="1500" />
 		<set name="icon" val="icon.skill0130" />
 		<set name="magicLvl" val="#magicLvl" />
@@ -974,17 +976,22 @@
 		<set name="reuseDelay" val="3000" />
 		<set name="rideState" val="NONE" />
 		<set name="targetType" val="SELF" />
-		<enchant1 name="magicLvl" val="#enchMagicLvl" />
+		<enchant1 name="abnormalLvl" val="3" />
+		<enchant1 name="magicLvl" val="#ench1MagicLvl" />
 		<effects>
 			<effect name="Buff">
-				<mul stat="runSpd" val="0.8" />
 				<mul stat="pAtkSpd" val="#pAtkSpd" />
+			</effect>
+			<effect name="Buff">
+				<mul stat="runSpd" val="0.8" />
 			</effect>
 		</effects>
 		<enchant1Effects>
 			<effect name="Buff">
-				<mul stat="runSpd" val="#ench1runSpd" />
 				<mul stat="pAtkSpd" val="1.1" />
+			</effect>
+			<effect name="Buff">
+				<mul stat="runSpd" val="#ench1RunSpd" />
 			</effect>
 		</enchant1Effects>
 	</skill>

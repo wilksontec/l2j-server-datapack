@@ -2595,27 +2595,31 @@
 		</enchant1Effects>
 	</skill>
 	<skill id="281" levels="37" name="Soul Breaker" enchantGroup1="2" enchantGroup2="2" enchantGroup3="2" enchantGroup4="2">
-		<table name="#coolTime"> 440 440 440 440 440 440 440 440 440 440 440 440 440 440 440 440 440 440 440 440 341 341 341 341 341 341 341 341 341 341 341 341 341 341 341 341 341 </table>
+		<!-- High Five Confirmed -->
+		<table name="#coolTime"> 440 440 440 440 440 440 440 440 440 440 440 440 440 440 440 440 440 440 440 440 391 391 391 391 391 391 391 391 391 391 391 391 391 391 391 391 391 </table>
 		<table name="#effectPoint"> -183 -188 -193 -198 -203 -208 -213 -218 -223 -228 -233 -237 -242 -247 -252 -257 -261 -266 -271 -275 -279 -284 -288 -292 -296 -300 -304 -307 -311 -314 -317 -320 -323 -326 -328 -331 -333 </table>
 		<table name="#hitTime"> 1360 1360 1360 1360 1360 1360 1360 1360 1360 1360 1360 1360 1360 1360 1360 1360 1360 1360 1360 1360 1409 1409 1409 1409 1409 1409 1409 1409 1409 1409 1409 1409 1409 1409 1409 1409 1409 </table>
 		<table name="#magicLvl"> 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 </table>
 		<table name="#mpConsume2"> 35 36 37 37 38 39 40 42 43 44 45 46 47 48 49 50 51 52 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 </table>
-		<table name="#power"> 487 518 550 583 618 655 693 732 773 816 860 905 952 1001 1051 1102 1155 1210 1265 1322 1380 1440 1500 1561 1624 1687 1751 1816 1881 1947 2013 2080 2146 2213 2279 2345 2411 </table>
-		<table name="#ench1ActivateRates"> 51 52 53 54 55 56 57 58 59 60 61 63 64 65 66 67 68 69 70 71 72 73 74 76 77 78 79 80 81 82 </table>
-		<table name="#ench2MpConsume2"> 70 69 68 67 66 64 63 62 61 60 58 57 56 55 54 53 51 50 49 48 47 45 44 43 42 41 40 38 37 36 </table>
-		<table name="#ench2power"> 2432 2454 2476 2497 2519 2541 2563 2584 2606 2628 2650 2671 2693 2715 2737 2758 2780 2802 2823 2845 2867 2889 2910 2932 2954 2976 2997 3019 3041 3063 </table>
-		<table name="#ench34pmDef"> 0.99 0.99 0.99 0.98 0.98 0.98 0.97 0.97 0.97 0.96 0.96 0.96 0.96 0.95 0.95 0.95 0.94 0.94 0.94 0.93 0.93 0.93 0.93 0.92 0.92 0.92 0.91 0.91 0.91 0.9 </table>
+		<table name="#physicalAttackPower"> 487 518 550 583 618 655 693 732 773 816 860 905 952 1001 1051 1102 1155 1210 1265 1322 1380 1440 1500 1561 1624 1687 1751 1816 1881 1947 2013 2080 2146 2213 2279 2345 2411 </table>
 		<table name="#enchMagicLvl"> 76 76 76 77 77 77 78 78 78 79 79 79 80 80 80 81 81 81 82 82 82 83 83 83 84 84 84 85 85 85 </table>
+		<table name="#ench1ActivateRate"> 51 52 53 54 55 56 57 58 59 60 61 63 64 65 66 67 68 69 70 71 72 73 74 76 77 78 79 80 81 82 </table>
+		<table name="#ench2MpConsume2"> 70 69 68 67 66 64 63 62 61 60 58 57 56 55 54 53 51 50 49 48 47 45 44 43 42 41 40 38 37 36 </table>
+		<table name="#ench2PhysicalAttackPower"> 2432 2454 2476 2497 2519 2541 2563 2584 2606 2628 2650 2671 2693 2715 2737 2758 2780 2802 2823 2845 2867 2889 2910 2932 2954 2976 2997 3019 3041 3063 </table>
+		<table name="#ench3pDef"> 0.99 0.99 0.99 0.98 0.98 0.98 0.97 0.97 0.97 0.96 0.96 0.96 0.96 0.95 0.95 0.95 0.94 0.94 0.94 0.93 0.93 0.93 0.93 0.92 0.92 0.92 0.91 0.91 0.91 0.9 </table>
+		<table name="#ench4mDef"> 0.99 0.99 0.99 0.98 0.98 0.98 0.97 0.97 0.97 0.96 0.96 0.96 0.96 0.95 0.95 0.95 0.94 0.94 0.94 0.93 0.93 0.93 0.93 0.92 0.92 0.92 0.91 0.91 0.91 0.9 </table>
 		<set name="abnormalLvl" val="1" />
 		<set name="abnormalTime" val="9" />
 		<set name="abnormalType" val="STUN" />
 		<set name="abnormalVisualEffect" val="STUN" />
 		<set name="activateRate" val="50" />
+		<set name="affectScope" val="SINGLE" />
 		<set name="basicProperty" val="CON" />
 		<set name="castRange" val="40" />
 		<set name="coolTime" val="#coolTime" />
 		<set name="effectPoint" val="#effectPoint" />
 		<set name="effectRange" val="400" />
+		<set name="hitCancelTime" val="500" />
 		<set name="hitTime" val="#hitTime" />
 		<set name="icon" val="icon.skill0281" />
 		<set name="isDebuff" val="true" />
@@ -2627,9 +2631,9 @@
 		<set name="overHit" val="true" />
 		<set name="reuseDelay" val="3000" />
 		<set name="rideState" val="NONE" />
-		<set name="targetType" val="ONE" />
+		<set name="targetType" val="ENEMY" />
 		<set name="trait" val="SHOCK" />
-		<enchant1 name="activateRate" val="#ench1ActivateRates" />
+		<enchant1 name="activateRate" val="#ench1ActivateRate" />
 		<enchant1 name="magicLvl" val="#enchMagicLvl" />
 		<enchant2 name="magicLvl" val="#enchMagicLvl" />
 		<enchant2 name="mpConsume2" val="#ench2MpConsume2" />
@@ -2640,16 +2644,16 @@
 		</cond>
 		<effects>
 			<effect name="PhysicalAttack">
-				<param power="#power" />
-				<param criticalChance="15" />
+				<param power="#physicalAttackPower" />
+				<param criticalChance="10" />
 				<param ignoreShieldDefence="true" />
 			</effect>
 			<effect name="Stun" />
 		</effects>
 		<enchant2Effects>
 			<effect name="PhysicalAttack">
-				<param power="#ench2power" />
-				<param criticalChance="15" />
+				<param power="#ench2PhysicalAttackPower" />
+				<param criticalChance="10" />
 				<param ignoreShieldDefence="true" />
 			</effect>
 			<effect name="Stun" />
@@ -2657,21 +2661,23 @@
 		<enchant3Effects>
 			<effect name="PhysicalAttack">
 				<param power="2411" />
-				<param criticalChance="15" />
+				<param criticalChance="10" />
 				<param ignoreShieldDefence="true" />
 			</effect>
-			<effect name="Stun">
-				<mul stat="pDef" val="#ench34pmDef" />
+			<effect name="Stun" />
+			<effect name="Debuff">
+				<mul stat="pDef" val="#ench3pDef" />
 			</effect>
 		</enchant3Effects>
 		<enchant4Effects>
 			<effect name="PhysicalAttack">
 				<param power="2411" />
-				<param criticalChance="15" />
+				<param criticalChance="10" />
 				<param ignoreShieldDefence="true" />
 			</effect>
-			<effect name="Stun">
-				<mul stat="mDef" val="#ench34pmDef" />
+			<effect name="Stun" />
+			<effect name="Debuff">
+				<mul stat="mDef" val="#ench4mDef" />
 			</effect>
 		</enchant4Effects>
 	</skill>

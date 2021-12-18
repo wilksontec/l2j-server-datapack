@@ -1131,17 +1131,21 @@
 		</effects>
 	</skill>
 	<skill id="421" levels="5" name="Fell Swoop" enchantGroup1="1" enchantGroup2="1">
+		<!-- High Five Confirmed -->
 		<table name="#abnormalLvl"> 1 2 3 4 5 </table>
 		<table name="#atkCountMax"> 1 2 3 4 5 </table>
 		<table name="#effectPoint"> 549 582 611 635 655 </table>
 		<table name="#magicLvl"> 58 62 66 70 74 </table>
 		<table name="#mpConsume2"> 27 29 31 33 34 </table>
-		<table name="#ench1atkCountMax"> 6 6 6 6 6 6 6 6 6 6 6 6 6 6 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 8 </table>
-		<table name="#ench2AbnormalTimes"> 124 128 132 136 140 144 148 152 156 160 164 168 172 176 180 184 188 192 196 200 204 208 212 216 220 224 228 232 236 240 </table>
+		<table name="#enchMagicLvl"> 76 76 76 77 77 77 78 78 78 79 79 79 80 80 80 81 81 81 82 82 82 83 83 83 84 84 84 85 85 85 </table>
+		<table name="#ench1AtkCountMax"> 6 6 6 6 6 6 6 6 6 6 6 6 6 6 7 7 7 7 7 7 7 7 7 7 7 7 7 7 7 8 </table>
+		<table name="#ench2AbnormalTime"> 124 128 132 136 140 144 148 152 156 160 164 168 172 176 180 184 188 192 196 200 204 208 212 216 220 224 228 232 236 240 </table>
 		<set name="abnormalLvl" val="#abnormalLvl" />
 		<set name="abnormalTime" val="120" />
 		<set name="abnormalType" val="POLEARM_ATTACK" />
+		<set name="affectScope" val="SINGLE" />
 		<set name="effectPoint" val="#effectPoint" />
+		<set name="hitCancelTime" val="500" />
 		<set name="hitTime" val="2000" />
 		<set name="icon" val="icon.skill0421" />
 		<set name="magicLvl" val="#magicLvl" />
@@ -1150,7 +1154,9 @@
 		<set name="reuseDelay" val="75000" />
 		<set name="rideState" val="NONE" />
 		<set name="targetType" val="SELF" />
-		<enchant2 name="abnormalTime" val="#ench2AbnormalTimes" />
+		<enchant1 name="magicLvl" val="#enchMagicLvl" />
+		<enchant2 name="abnormalTime" val="#ench2AbnormalTime" />
+		<enchant2 name="magicLvl" val="#enchMagicLvl" />
 		<cond msgId="113" addName="1">
 			<using kind="POLE" />
 		</cond>
@@ -1161,7 +1167,7 @@
 		</effects>
 		<enchant1Effects>
 			<effect name="Buff">
-				<add stat="atkCountMax" val="#ench1atkCountMax" />
+				<add stat="atkCountMax" val="#ench1AtkCountMax" />
 			</effect>
 		</enchant1Effects>
 	</skill>
@@ -1852,12 +1858,15 @@
 		</effects>
 	</skill>
 	<skill id="443" levels="1" name="Force Barrier">
+		<!-- High Five Confirmed -->
 		<set name="abnormalLvl" val="1" />
 		<set name="abnormalTime" val="10" />
 		<set name="abnormalType" val="INVINCIBILITY" />
 		<set name="abnormalVisualEffect" val="INVINCIBILITY" />
+		<set name="affectScope" val="SINGLE" />
 		<set name="chargeConsume" val="4" />
 		<set name="effectPoint" val="676" />
+		<set name="hitCancelTime" val="500" />
 		<set name="hitTime" val="2000" />
 		<set name="icon" val="icon.skill0443" />
 		<set name="magicLvl" val="79" />
@@ -1868,20 +1877,20 @@
 		<set name="targetType" val="SELF" />
 		<cond msgId="113" addName="1">
 			<and>
-				<using kind="DUALFIST" /> <!-- Requires a hand-to-hand weapon -->
-				<player Charges="4" /> <!-- Requires 4th stage Energy -->
+				<using kind="DUALFIST" />
+				<player Charges="4" />
 			</and>
 		</cond>
 		<effects>
+			<effect name="BlockDebuff" />
 			<effect name="BlockDamage">
 				<param block="HP" />
 			</effect>
 			<effect name="BlockDamage">
 				<param block="MP" />
 			</effect>
-			<effect name="BlockDebuff" />
 			<effect name="Buff">
-				<sub stat="cancelVuln" val="100" />
+				<mul stat="cancelVuln" val="0" />
 			</effect>
 		</effects>
 	</skill>
@@ -2381,12 +2390,15 @@
 		</effects>
 	</skill>
 	<skill id="461" levels="2" name="Break Duress">
+		<!-- High Five Confirmed -->
 		<table name="#chargeConsume"> 2 3 </table>
 		<table name="#dispelAbnormals"> ROOT_PHYSICALLY,3;ROOT_MAGICALLY,3 SPEED_DOWN,3;ROOT_PHYSICALLY,3;ROOT_MAGICALLY,3 </table>
 		<table name="#magicLvl"> 60 66 </table>
 		<table name="#mpConsume2"> 33 37 </table>
+		<set name="affectScope" val="SINGLE" />
 		<set name="chargeConsume" val="#chargeConsume" />
 		<set name="effectPoint" val="1" />
+		<set name="hitCancelTime" val="500" />
 		<set name="hitTime" val="3000" />
 		<set name="icon" val="icon.skill0461" />
 		<set name="magicLvl" val="#magicLvl" />
@@ -2396,7 +2408,7 @@
 		<set name="rideState" val="NONE" />
 		<set name="targetType" val="SELF" />
 		<cond msgId="113" addName="1">
-			<player Charges="#chargeConsume" /> <!-- Level 2 3 Focused Force charge required. -->
+			<player Charges="#chargeConsume" />
 		</cond>
 		<effects>
 			<effect name="DispelBySlot">
@@ -2405,7 +2417,8 @@
 		</effects>
 	</skill>
 	<skill id="462" levels="1" name="Guilted Body">
-		<!-- Confirmed CT2.5 -->
+		<!-- High Five Confirmed -->
+		<set name="blockedInOlympiad" val="true" />
 		<set name="icon" val="icon.skill0462" />
 		<set name="magicLvl" val="1" />
 		<set name="operateType" val="P" />
