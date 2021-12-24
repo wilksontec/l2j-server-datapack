@@ -1196,7 +1196,9 @@
 	</skill>
 	<skill id="6752" levels="1" name="Revival">
 		<!-- High Five Confirmed -->
+		<set name="affectScope" val="SINGLE" />
 		<set name="effectPoint" val="562" />
+		<set name="hitCancelTime" val="500" />
 		<set name="hitTime" val="2000" />
 		<set name="magicLvl" val="85" />
 		<set name="mpConsume2" val="158" />

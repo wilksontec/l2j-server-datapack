@@ -1021,10 +1021,11 @@
 		</effects>
 	</skill>
 	<skill id="4245" levels="1" name="Mimic of Wrath">
-		<!-- Freya retail confirmed -->
+		<!-- High Five Confirmed -->
 		<set name="abnormalLvl" val="1" />
 		<set name="abnormalTime" val="1800" />
 		<set name="abnormalType" val="PUBLIC_SLOT" />
+		<set name="affectScope" val="SINGLE" />
 		<set name="isDebuff" val="true" />
 		<set name="magicLvl" val="-1" />
 		<set name="operateType" val="A2" />
@@ -1033,8 +1034,12 @@
 		<effects>
 			<effect name="Buff">
 				<mul stat="pAtkSpd" val="1.42" />
-				<mul stat="pDef" val="1.76" />
+			</effect>
+			<effect name="Buff">
 				<mul stat="mDef" val="1.76" />
+			</effect>
+			<effect name="Buff">
+				<mul stat="pDef" val="1.76" />
 			</effect>
 		</effects>
 	</skill>

@@ -441,24 +441,27 @@
 		</effects>
 	</skill>
 	<skill id="110" levels="2" name="Ultimate Defense" enchantGroup1="1" enchantGroup2="1" enchantGroup3="1">
+		<!-- High Five Confirmed -->
 		<table name="#abnormalLvl"> 1 2 </table>
 		<table name="#effectPoint"> 204 438 </table>
-		<table name="#magicLvl"> 20 46 </table>
 		<table name="#mDef"> 1620 3240 </table>
+		<table name="#magicLvl"> 20 46 </table>
 		<table name="#mpConsume2"> 10 21 </table>
 		<table name="#pDef"> 1800 3600 </table>
-		<table name="#ench1AbnormalTimes"> 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 </table>
-		<table name="#ench2reuseDelay"> 885000 870000 855000 840000 825000 810000 795000 780000 765000 750000 735000 720000 705000 690000 675000 660000 645000 630000 615000 600000 585000 570000 555000 540000 525000 510000 495000 480000 465000 450000 </table>
-		<table name="#ench3decreasePenalty"> 0.2 0.21 0.22 0.23 0.24 0.25 0.26 0.27 0.28 0.29 0.3 0.31 0.32 0.33 0.34 0.35 0.36 0.37 0.38 0.39 0.4 0.41 0.42 0.43 0.44 0.45 0.46 0.47 0.48 0.49 </table>
-		<table name="#enchabnormalLvl"> 2 2 2 2 2 2 2 2 2 3 3 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 4 4 4 5 </table>
+		<table name="#enchAbnormalLvl"> 2 2 2 2 2 2 2 2 2 3 3 3 3 3 3 3 3 3 3 4 4 4 4 4 4 4 4 4 4 5 </table>
 		<table name="#enchMagicLvl"> 76 76 76 77 77 77 78 78 78 79 79 79 80 80 80 81 81 81 82 82 82 83 83 83 84 84 84 85 85 85 </table>
 		<table name="#enchmDef"> 3272 3304 3337 3369 3402 3434 3466 3499 3531 3564 3596 3628 3661 3693 3726 3758 3790 3823 3855 3888 3920 3952 3985 4017 4050 4082 4114 4147 4179 4212 </table>
 		<table name="#enchpDef"> 3636 3672 3708 3744 3780 3816 3852 3888 3924 3960 3996 4032 4068 4104 4140 4176 4212 4248 4284 4320 4356 4392 4428 4464 4500 4536 4572 4608 4644 4680 </table>
+		<table name="#ench1AbnormalTime"> 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 </table>
+		<table name="#ench2ReuseDelay"> 885000 870000 855000 840000 825000 810000 795000 780000 765000 750000 735000 720000 705000 690000 675000 660000 645000 630000 615000 600000 585000 570000 555000 540000 525000 510000 495000 480000 465000 450000 </table>
+		<table name="#ench3runSpd"> 0.2 0.21 0.22 0.23 0.24 0.25 0.26 0.27 0.28 0.29 0.3 0.31 0.32 0.33 0.34 0.36 0.37 0.38 0.39 0.4 0.41 0.42 0.43 0.44 0.45 0.46 0.47 0.48 0.49 0.5 </table>
 		<set name="abnormalLvl" val="#abnormalLvl" />
 		<set name="abnormalTime" val="30" />
 		<set name="abnormalType" val="PD_UP_SPECIAL" />
 		<set name="abnormalVisualEffect" val="ULTIMATE_DEFENCE" />
+		<set name="affectScope" val="SINGLE" />
 		<set name="effectPoint" val="#effectPoint" />
+		<set name="hitCancelTime" val="500" />
 		<set name="hitTime" val="1000" />
 		<set name="icon" val="icon.skill0110" />
 		<set name="magicLvl" val="#magicLvl" />
@@ -467,38 +470,62 @@
 		<set name="reuseDelay" val="900000" />
 		<set name="rideState" val="NONE" />
 		<set name="targetType" val="SELF" />
-		<enchant1 name="abnormalTime" val="#ench1AbnormalTimes" />
+		<enchant1 name="abnormalLvl" val="#enchAbnormalLvl" />
+		<enchant1 name="abnormalTime" val="#ench1AbnormalTime" />
 		<enchant1 name="magicLvl" val="#enchMagicLvl" />
+		<enchant2 name="abnormalLvl" val="#enchAbnormalLvl" />
 		<enchant2 name="magicLvl" val="#enchMagicLvl" />
-		<enchant2 name="reuseDelay" val="#ench2reuseDelay" />
+		<enchant2 name="reuseDelay" val="#ench2ReuseDelay" />
+		<enchant3 name="abnormalLvl" val="#enchAbnormalLvl" />
 		<enchant3 name="magicLvl" val="#enchMagicLvl" />
 		<effects>
-			<effect name="ImmobileBuff">
-				<add stat="pDef" val="#pDef" />
+			<effect name="Root" />
+			<effect name="Buff">
 				<add stat="mDef" val="#mDef" />
-				<sub stat="cancelVuln" val="80" />
+			</effect>
+			<effect name="Buff">
+				<add stat="pDef" val="#pDef" />
+			</effect>
+			<effect name="Buff">
+				<mul stat="cancelVuln" val="0.2" />
 			</effect>
 		</effects>
 		<enchant1Effects>
-			<effect name="ImmobileBuff">
-				<add stat="pDef" val="#enchpDef" />
+			<effect name="Root" />
+			<effect name="Buff">
 				<add stat="mDef" val="#enchmDef" />
-				<sub stat="cancelVuln" val="80" />
+			</effect>
+			<effect name="Buff">
+				<add stat="pDef" val="#enchpDef" />
+			</effect>
+			<effect name="Buff">
+				<mul stat="cancelVuln" val="0.2" />
 			</effect>
 		</enchant1Effects>
 		<enchant2Effects>
-			<effect name="ImmobileBuff">
-				<add stat="pDef" val="#enchpDef" />
+			<effect name="Root" />
+			<effect name="Buff">
 				<add stat="mDef" val="#enchmDef" />
-				<sub stat="cancelVuln" val="80" />
+			</effect>
+			<effect name="Buff">
+				<add stat="pDef" val="#enchpDef" />
+			</effect>
+			<effect name="Buff">
+				<mul stat="cancelVuln" val="0.2" />
 			</effect>
 		</enchant2Effects>
 		<enchant3Effects>
 			<effect name="Buff">
-				<add stat="pDef" val="#enchpDef" />
 				<add stat="mDef" val="#enchmDef" />
-				<sub stat="cancelVuln" val="80" />
-				<mul stat="runSpd" val="#ench3decreasePenalty" />
+			</effect>
+			<effect name="Buff">
+				<add stat="pDef" val="#enchpDef" />
+			</effect>
+			<effect name="Buff">
+				<mul stat="cancelVuln" val="0.2" />
+			</effect>
+			<effect name="Buff">
+				<mul stat="runSpd" val="#ench3runSpd" />
 			</effect>
 		</enchant3Effects>
 	</skill>
@@ -544,20 +571,23 @@
 		</effects>
 	</skill>
 	<skill id="112" levels="4" name="Deflect Arrow" enchantGroup1="1" enchantGroup2="1">
+		<!-- High Five Confirmed -->
 		<table name="#abnormalLvl"> 1 2 3 4 </table>
 		<table name="#effectPoint"> 10 20 30 40 </table>
 		<table name="#magicLvl"> 24 32 43 49 </table>
 		<table name="#mpConsume2"> 11 14 19 22 </table>
-		<table name="#trait_bow"> 16 24 32 40 </table>
-		<table name="#trait_crossbow"> 8 12 16 20 </table>
-		<table name="#ench1AbnormalTimes"> 1240 1280 1320 1360 1400 1440 1480 1520 1560 1600 1640 1680 1720 1760 1800 1840 1880 1920 1960 2000 2040 2080 2120 2160 2200 2240 2280 2320 2360 2400 </table>
-		<table name="#ench2MpConsume2"> 21 21 20 20 19 19 18 18 17 17 16 16 16 15 15 14 14 14 13 13 12 12 12 11 11 10 10 10 9 9 </table>
-		<table name="#ench2sDef"> 1.01 1.01 1.01 1.02 1.02 1.02 1.03 1.03 1.03 1.04 1.04 1.04 1.04 1.05 1.05 1.05 1.06 1.06 1.06 1.07 1.07 1.07 1.07 1.08 1.08 1.08 1.09 1.09 1.09 1.1 </table>
+		<table name="#traitBow"> 16 24 32 40 </table>
+		<table name="#traitCrossbow"> 8 12 16 20 </table>
 		<table name="#enchMagicLvl"> 76 76 76 77 77 77 78 78 78 79 79 79 80 80 80 81 81 81 82 82 82 83 83 83 84 84 84 85 85 85 </table>
+		<table name="#ench1AbnormalTime"> 1240 1280 1320 1360 1400 1440 1480 1520 1560 1600 1640 1680 1720 1760 1800 1840 1880 1920 1960 2000 2040 2080 2120 2160 2200 2240 2280 2320 2360 2400 </table>
+		<table name="#ench2MpConsume2"> 21 21 20 20 20 19 19 19 18 18 17 17 17 16 16 16 15 15 15 14 14 13 13 13 12 12 12 11 11 11 </table>
+		<table name="#ench2sDef"> 1.01 1.01 1.01 1.02 1.02 1.02 1.03 1.03 1.03 1.04 1.04 1.04 1.04 1.05 1.05 1.05 1.06 1.06 1.06 1.07 1.07 1.07 1.07 1.08 1.08 1.08 1.09 1.09 1.09 1.1 </table>
 		<set name="abnormalLvl" val="#abnormalLvl" />
 		<set name="abnormalTime" val="1200" />
 		<set name="abnormalType" val="PD_UP_BOW" />
+		<set name="affectScope" val="SINGLE" />
 		<set name="effectPoint" val="#effectPoint" />
+		<set name="hitCancelTime" val="500" />
 		<set name="hitTime" val="1500" />
 		<set name="icon" val="icon.skill0112" />
 		<set name="magicLvl" val="#magicLvl" />
@@ -566,20 +596,26 @@
 		<set name="reuseDelay" val="3000" />
 		<set name="rideState" val="NONE" />
 		<set name="targetType" val="SELF" />
-		<enchant1 name="abnormalTime" val="#ench1AbnormalTimes" />
+		<enchant1 name="abnormalTime" val="#ench1AbnormalTime" />
 		<enchant1 name="magicLvl" val="#enchMagicLvl" />
 		<enchant2 name="magicLvl" val="#enchMagicLvl" />
 		<enchant2 name="mpConsume2" val="#ench2MpConsume2" />
 		<effects>
 			<effect name="DefenceTrait">
-				<param BOW="#trait_bow" />
-				<param CROSSBOW="#trait_crossbow" />
+				<param BOW="#traitBow" />
+			</effect>
+			<effect name="DefenceTrait">
+				<param CROSSBOW="#traitCrossbow" />
 			</effect>
 		</effects>
 		<enchant2Effects>
 			<effect name="DefenceTrait">
 				<param BOW="40" />
+			</effect>
+			<effect name="DefenceTrait">
 				<param CROSSBOW="20" />
+			</effect>
+			<effect name="Buff">
 				<mul stat="sDef" val="#ench2sDef" />
 			</effect>
 		</enchant2Effects>
@@ -1470,7 +1506,10 @@
 		</effects>
 	</skill>
 	<skill id="181" levels="1" name="Revival">
+		<!-- High Five Confirmed -->
+		<set name="affectScope" val="SINGLE" />
 		<set name="effectPoint" val="562" />
+		<set name="hitCancelTime" val="500" />
 		<set name="hitTime" val="1500" />
 		<set name="icon" val="icon.skill0181" />
 		<set name="magicLvl" val="55" />

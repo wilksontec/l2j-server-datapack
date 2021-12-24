@@ -402,10 +402,11 @@
 		</effects>
 	</skill>
 	<skill id="5425" levels="1" name="Iron Shield">
-		<!-- Confirmed CT2.5 -->
+		<!-- High Five Confirmed -->
 		<set name="abnormalLvl" val="1" />
 		<set name="abnormalTime" val="60" />
 		<set name="abnormalType" val="IRON_SHIELD_I" />
+		<set name="affectScope" val="SINGLE" />
 		<set name="icon" val="icon.skill0527" />
 		<set name="isMagic" val="4" />
 		<set name="magicLvl" val="79" />

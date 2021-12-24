@@ -171,9 +171,11 @@
 		</effects>
 	</skill>
 	<skill id="810" levels="1" name="Vanguard">
+		<!-- High Five Confirmed -->
 		<set name="abnormalLvl" val="1" />
 		<set name="abnormalTime" val="21600" />
 		<set name="abnormalType" val="TRANSFORM" />
+		<set name="affectScope" val="SINGLE" />
 		<set name="effectPoint" val="1" />
 		<set name="hitTime" val="5000" />
 		<set name="icon" val="icon.skill0810" />
@@ -183,28 +185,35 @@
 		<set name="mpConsume2" val="31" />
 		<set name="operateType" val="A2" />
 		<set name="reuseDelay" val="30000" />
+		<set name="reuseDelayLock" val="true" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
 		<cond>
 			<player canTransform="true" />
 		</cond>
 		<effects>
-			<effect name="Transformation">
-				<param id="312" />
-				<mul stat="sDef" val="0.5" />
+			<effect name="Buff">
 				<add stat="accCombat" val="1">
 					<and>
 						<using kind="SWORD" />
 						<using slot="lrhand" />
 					</and>
 				</add>
+			</effect>
+			<effect name="Buff">
+				<mul stat="sDef" val="0.5" />
+			</effect>
+			<effect name="Transformation">
+				<param id="312" />
 			</effect>
 		</effects>
 	</skill>
 	<skill id="811" levels="1" name="Vanguard">
+		<!-- High Five Confirmed -->
 		<set name="abnormalLvl" val="1" />
 		<set name="abnormalTime" val="21600" />
 		<set name="abnormalType" val="TRANSFORM" />
+		<set name="affectScope" val="SINGLE" />
 		<set name="effectPoint" val="1" />
 		<set name="hitTime" val="5000" />
 		<set name="icon" val="icon.skill0810" />
@@ -214,15 +223,14 @@
 		<set name="mpConsume2" val="31" />
 		<set name="operateType" val="A2" />
 		<set name="reuseDelay" val="30000" />
+		<set name="reuseDelayLock" val="true" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
 		<cond>
 			<player canTransform="true" />
 		</cond>
 		<effects>
-			<effect name="Transformation">
-				<param id="313" />
-				<mul stat="sDef" val="0.5" />
+			<effect name="Buff">
 				<mul stat="pAtkSpd" val="1.08">
 					<and>
 						<using kind="SWORD" />
@@ -230,12 +238,20 @@
 					</and>
 				</mul>
 			</effect>
+			<effect name="Buff">
+				<mul stat="sDef" val="0.5" />
+			</effect>
+			<effect name="Transformation">
+				<param id="313" />
+			</effect>
 		</effects>
 	</skill>
 	<skill id="812" levels="1" name="Vanguard">
+		<!-- High Five Confirmed -->
 		<set name="abnormalLvl" val="1" />
 		<set name="abnormalTime" val="21600" />
 		<set name="abnormalType" val="TRANSFORM" />
+		<set name="affectScope" val="SINGLE" />
 		<set name="effectPoint" val="1" />
 		<set name="hitTime" val="5000" />
 		<set name="icon" val="icon.skill0810" />
@@ -245,15 +261,14 @@
 		<set name="mpConsume2" val="31" />
 		<set name="operateType" val="A2" />
 		<set name="reuseDelay" val="30000" />
+		<set name="reuseDelayLock" val="true" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
 		<cond>
 			<player canTransform="true" />
 		</cond>
 		<effects>
-			<effect name="Transformation">
-				<param id="314" />
-				<mul stat="sDef" val="0.5" />
+			<effect name="Buff">
 				<add stat="accCombat" val="1">
 					<and>
 						<using kind="SWORD" />
@@ -261,12 +276,20 @@
 					</and>
 				</add>
 			</effect>
+			<effect name="Buff">
+				<mul stat="sDef" val="0.5" />
+			</effect>
+			<effect name="Transformation">
+				<param id="314" />
+			</effect>
 		</effects>
 	</skill>
 	<skill id="813" levels="1" name="Vanguard">
+		<!-- High Five Confirmed -->
 		<set name="abnormalLvl" val="1" />
 		<set name="abnormalTime" val="21600" />
 		<set name="abnormalType" val="TRANSFORM" />
+		<set name="affectScope" val="SINGLE" />
 		<set name="effectPoint" val="1" />
 		<set name="hitTime" val="5000" />
 		<set name="icon" val="icon.skill0810" />
@@ -276,18 +299,23 @@
 		<set name="mpConsume2" val="31" />
 		<set name="operateType" val="A2" />
 		<set name="reuseDelay" val="30000" />
+		<set name="reuseDelayLock" val="true" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
 		<cond>
 			<player canTransform="true" />
 		</cond>
 		<effects>
-			<effect name="Transformation">
-				<param id="315" />
-				<mul stat="sDef" val="0.5" />
+			<effect name="Buff">
 				<mul stat="pAtkSpd" val="1.08">
 					<using kind="DUAL" />
 				</mul>
+			</effect>
+			<effect name="Buff">
+				<mul stat="sDef" val="0.5" />
+			</effect>
+			<effect name="Transformation">
+				<param id="315" />
 			</effect>
 		</effects>
 	</skill>
@@ -1883,13 +1911,15 @@
 			<effect name="Fear" />
 		</effects>
 	</skill>
-	<skill id="880" levels="1" name="Knight Captain Mercenary Ultimate Defense">
-		<!-- Confirmed CT2.5 -->
+	<skill id="880" levels="1" name="Knight Captain Ultimate Defense">
+		<!-- High Five Confirmed -->
 		<set name="abnormalLvl" val="2" />
 		<set name="abnormalTime" val="30" />
 		<set name="abnormalType" val="PD_UP_SPECIAL" />
 		<set name="abnormalVisualEffect" val="ULTIMATE_DEFENCE" />
+		<set name="affectScope" val="SINGLE" />
 		<set name="effectPoint" val="438" />
+		<set name="hitCancelTime" val="500" />
 		<set name="hitTime" val="1000" />
 		<set name="icon" val="icon.skill0110" />
 		<set name="magicLvl" val="80" />
@@ -1899,10 +1929,15 @@
 		<set name="rideState" val="NONE" />
 		<set name="targetType" val="SELF" />
 		<effects>
-			<effect name="ImmobileBuff">
-				<add stat="pDef" val="3600" />
+			<effect name="Root" />
+			<effect name="Buff">
 				<add stat="mDef" val="2700" />
-				<sub stat="cancelVuln" val="80" />
+			</effect>
+			<effect name="Buff">
+				<add stat="pDef" val="3600" />
+			</effect>
+			<effect name="Buff">
+				<mul stat="cancelVuln" val="0.2" />
 			</effect>
 		</effects>
 	</skill>

@@ -466,14 +466,16 @@
 	</skill>
 	<skill id="912" levels="1" name="Summon Imperial Phoenix">
 		<!-- High Five Confirmed -->
+		<set name="affectScope" val="SINGLE" />
+		<set name="hitCancelTime" val="500" />
 		<set name="hitTime" val="15000" />
 		<set name="icon" val="icon.skill0912" />
 		<set name="isMagic" val="1" />
 		<set name="itemConsumeCount" val="2" />
-		<set name="itemConsumeId" val="1461" /> <!-- Crystal (A-Grade) -->
+		<set name="itemConsumeId" val="1461" />
 		<set name="magicLvl" val="81" />
-		<set name="mpConsume2" val="116" />
 		<set name="mpConsume1" val="29" />
+		<set name="mpConsume2" val="116" />
 		<set name="operateType" val="A1" />
 		<set name="reuseDelay" val="45000" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />

@@ -329,9 +329,37 @@
 		<set name="targetType" val="NONE" />
 	</skill>
 	<skill id="21223" levels="1" name="Ultimate Defense">
-		<!-- "For 30 seconds, increases one's own P. Def. by 3636, M. Def. by 2727, and resistance to buff canceling attacks by 80%, and becomes unable to move. Reuse delay is 1 hour." -->
-		<set name="operateType" val="P" />
-		<set name="targetType" val="NONE" />
+		<!-- High Five Confirmed -->
+		<set name="abnormalLvl" val="26" />
+		<set name="abnormalTime" val="30" />
+		<set name="abnormalType" val="PD_UP_SPECIAL" />
+		<set name="abnormalVisualEffect" val="ULTIMATE_DEFENCE" />
+		<set name="affectScope" val="SINGLE" />
+		<set name="blockedInOlympiad" val="true" />
+		<set name="buffProtectLevel" val="1" />
+		<set name="hitCancelTime" val="500" />
+		<set name="hitTime" val="1000" />
+		<set name="icon" val="BranchSys2.icon.br_polar_bear_wp_i00" />
+		<set name="irreplaceableBuff" val="true" />
+		<set name="magicLvl" val="-1" />
+		<set name="operateType" val="A2" />
+		<set name="reuseDelay" val="3600000" />
+		<set name="reuseDelayLock" val="true" />
+		<set name="reuseDelayType" val="S" />
+		<set name="rideState" val="NONE" />
+		<set name="targetType" val="SELF" />
+		<effects>
+			<effect name="Root" />
+			<effect name="Buff">
+				<add stat="mDef" val="2727" />
+			</effect>
+			<effect name="Buff">
+				<add stat="pDef" val="3636" />
+			</effect>
+			<effect name="Debuff">
+				<mul stat="cancelVuln" val="0.2" />
+			</effect>
+		</effects>
 	</skill>
 	<skill id="21224" levels="1" name="Soul of an Adventurer of Immortality's Ability">
 		<!-- "For 5 minutes, receives the soul's help to raise Max HP by 20%, Max MP by 20%, and Speed by 20%. Increases Resistance to de-buffs by 10%. Reuse delay is 1 hour." -->

@@ -1268,11 +1268,13 @@
 		</enchant4pveEffects>
 	</skill>
 	<skill id="527" levels="1" name="Iron Shield">
-		<!-- Confirmed CT2.5 -->
+		<!-- High Five Confirmed -->
 		<set name="abnormalLvl" val="1" />
 		<set name="abnormalTime" val="1200" />
 		<set name="abnormalType" val="IRON_SHIELD" />
+		<set name="affectScope" val="SINGLE" />
 		<set name="effectPoint" val="673" />
+		<set name="hitCancelTime" val="500" />
 		<set name="hitTime" val="1000" />
 		<set name="icon" val="icon.skill0527" />
 		<set name="magicLvl" val="79" />
@@ -1286,7 +1288,7 @@
 				<param attackerType="L2Character" minAttackerLevel="1" maxAttackerLevel="99" />
 				<param minDamage="100" />
 				<param chance="30" />
-				<param skillId="5425" skillLevel="1" /> <!-- Iron Shield -->
+				<param skillId="5425" skillLevel="1" />
 				<param targetType="SELF" />
 			</effect>
 		</effects>

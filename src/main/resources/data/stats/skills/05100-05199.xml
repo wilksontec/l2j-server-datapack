@@ -487,7 +487,8 @@
 		</effects>
 	</skill>
 	<skill id="5121" levels="1" name="Production - Corpse Revival">
-		<!-- Confirmed CT2.5 -->
+		<!-- High Five Confirmed -->
+		<set name="affectScope" val="SINGLE" />
 		<set name="isMagic" val="2" />
 		<set name="magicLvl" val="1" />
 		<set name="operateType" val="A1" />

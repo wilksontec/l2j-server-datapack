@@ -875,20 +875,21 @@
 		</effects>
 	</skill>
 	<skill id="5044" levels="3" name="NPC Ultimate Defense">
-		<!-- CT2.5 retail confirmed -->
+		<!-- High Five Confirmed -->
 		<table name="#abnormalLvl"> 1 2 2 </table>
 		<table name="#abnormalTime"> 30 30 5 </table>
-		<table name="#magicLvl"> 20 46 1 </table>
 		<table name="#mDef"> 1350 2700 9000 </table>
+		<table name="#magicLvl"> 20 46 1 </table>
 		<table name="#mpConsume2"> 10 21 0 </table>
 		<table name="#pDef"> 1800 3600 9000 </table>
 		<table name="#reuseDelay"> 1800000 1800000 5000 </table>
-		<table name="#time"> 30 30 5 </table>
 		<set name="abnormalLvl" val="#abnormalLvl" />
 		<set name="abnormalTime" val="#abnormalTime" />
 		<set name="abnormalType" val="PD_UP_SPECIAL" />
 		<set name="abnormalVisualEffect" val="ULTIMATE_DEFENCE" />
+		<set name="affectScope" val="SINGLE" />
 		<set name="effectPoint" val="100" />
+		<set name="hitCancelTime" val="500" />
 		<set name="hitTime" val="100" />
 		<set name="magicLvl" val="#magicLvl" />
 		<set name="mpConsume2" val="#mpConsume2" />
@@ -897,10 +898,15 @@
 		<set name="rideState" val="NONE" />
 		<set name="targetType" val="SELF" />
 		<effects>
-			<effect name="ImmobileBuff">
-				<add stat="pDef" val="#pDef" />
+			<effect name="Root" />
+			<effect name="Buff">
 				<add stat="mDef" val="#mDef" />
-				<sub stat="cancelVuln" val="80" />
+			</effect>
+			<effect name="Buff">
+				<add stat="pDef" val="#pDef" />
+			</effect>
+			<effect name="Buff">
+				<mul stat="cancelVuln" val="0.2" />
 			</effect>
 		</effects>
 	</skill>
