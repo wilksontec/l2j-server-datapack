@@ -159,36 +159,44 @@
 		<set name="targetType" val="NONE" />
 	</skill>
 	<skill id="2611" levels="1" name="Large Firework">
+		<!-- High Five Confirmed -->
+		<set name="affectScope" val="SINGLE" />
 		<set name="isMagic" val="2" />
 		<set name="magicLvl" val="1" />
 		<set name="operateType" val="A1" />
 		<set name="reuseDelay" val="3000" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
-		<set name="targetType" val="NONE" />
+		<set name="targetType" val="SELF" />
 	</skill>
 	<skill id="2612" levels="1" name="Large Firework">
+		<!-- High Five Confirmed -->
+		<set name="affectScope" val="SINGLE" />
 		<set name="isMagic" val="2" />
 		<set name="magicLvl" val="1" />
 		<set name="operateType" val="A1" />
 		<set name="reuseDelay" val="3000" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
-		<set name="targetType" val="NONE" />
+		<set name="targetType" val="SELF" />
 	</skill>
 	<skill id="2613" levels="1" name="Large Firework">
+		<!-- High Five Confirmed -->
+		<set name="affectScope" val="SINGLE" />
 		<set name="isMagic" val="2" />
 		<set name="magicLvl" val="1" />
 		<set name="operateType" val="A1" />
 		<set name="reuseDelay" val="3000" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
-		<set name="targetType" val="NONE" />
+		<set name="targetType" val="SELF" />
 	</skill>
 	<skill id="2614" levels="1" name="Large Firework">
+		<!-- High Five Confirmed -->
+		<set name="affectScope" val="SINGLE" />
 		<set name="isMagic" val="2" />
 		<set name="magicLvl" val="1" />
 		<set name="operateType" val="A1" />
 		<set name="reuseDelay" val="3000" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
-		<set name="targetType" val="NONE" />
+		<set name="targetType" val="SELF" />
 	</skill>
 	<skill id="2615" levels="1" name="Destroyed Darkness Fragment Powder">
 		<!-- Confirmed CT2.5 -->

@@ -928,29 +928,41 @@
 		</channelingEffects>
 	</skill>
 	<skill id="1421" levels="1" name="Raging Waves">
+		<!-- High Five Confirmed -->
 		<set name="affectLimit" val="15-25" />
+		<set name="affectObject" val="NOT_FRIEND" />
 		<set name="affectRange" val="200" />
+		<set name="affectScope" val="POINT_BLANK" />
+		<set name="attributePower" val="20" />
+		<set name="attributeType" val="WATER" />
 		<set name="blockedInOlympiad" val="true" />
 		<set name="castRange" val="900" />
 		<set name="channelingSkillId" val="1421" />
 		<set name="channelingTickInterval" val="2" />
 		<set name="effectPoint" val="-676" />
-		<set name="attributeType" val="WATER" />
-		<set name="attributePower" val="20" />
+		<set name="effectRange" val="1000" />
+		<set name="hitCancelTime" val="4000" />
 		<set name="hitTime" val="15000" />
 		<set name="icon" val="icon.skill1421" />
 		<set name="isMagic" val="1" />
 		<set name="itemConsumeCount" val="1" />
-		<set name="itemConsumeId" val="8876" /> <!-- Magic Symbol -->
+		<set name="itemConsumeId" val="8876" />
 		<set name="magicLvl" val="80" />
-		<set name="mpConsume2" val="36" />
 		<set name="mpConsume1" val="36" />
 		<set name="mpPerChanneling" val="80" />
 		<set name="operateType" val="CA1" />
 		<set name="reuseDelay" val="1800000" />
-		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="reuseDelayLock" val="true" />
+		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="GROUND" />
+		<startEffects>
+			<effect name="InstantDispelBySlotMyself">
+				<param dispel="MAGICAL_STANCE" />
+			</effect>
+			<effect name="MagicalAttack">
+				<param power="500" />
+			</effect>
+		</startEffects>
 		<channelingEffects>
 			<effect name="MagicalAttack">
 				<param power="500" />

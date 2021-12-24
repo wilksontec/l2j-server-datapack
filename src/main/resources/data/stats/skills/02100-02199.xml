@@ -1009,10 +1009,11 @@
 		</effects>
 	</skill>
 	<skill id="2171" levels="1" name="Spellbook Paper">
-		<!-- Confirmed CT2.5 -->
+		<!-- High Five Confirmed -->
 		<table name="#extractableItems">
 			5917,1,10;5918,1,10;5919,1,10;5920,1,10;736,1,60
 		</table>
+		<set name="affectScope" val="SINGLE" />
 		<set name="capsuled_items_skill" val="#extractableItems" />
 		<set name="isMagic" val="2" />
 		<set name="magicLvl" val="1" />

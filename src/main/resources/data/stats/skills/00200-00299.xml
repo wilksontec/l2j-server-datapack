@@ -1090,11 +1090,14 @@
 		</effects>
 	</skill>
 	<skill id="247" levels="1" name="Build Headquarters">
+		<!-- High Five Confirmed -->
+		<set name="affectScope" val="SINGLE" />
+		<set name="hitCancelTime" val="4000" />
 		<set name="hitTime" val="4000" />
 		<set name="icon" val="icon.skill0247" />
 		<set name="isMagic" val="2" />
 		<set name="itemConsumeCount" val="300" />
-		<set name="itemConsumeId" val="2131" /> <!-- Gemstone C -->
+		<set name="itemConsumeId" val="2131" />
 		<set name="magicLvl" val="30" />
 		<set name="mpConsume1" val="30" />
 		<set name="operateType" val="A1" />

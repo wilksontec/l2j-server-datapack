@@ -1702,11 +1702,13 @@
 		</effects>
 	</skill>
 	<skill id="2876" levels="1" name="Vampiric Rage">
-		<!-- Confirmed CT2.5 -->
-		<set name="abnormalLvl" val="4" />
+		<!-- High Five Confirmed -->
+		<set name="abnormalLvl" val="5" />
 		<set name="abnormalTime" val="3600" />
 		<set name="abnormalType" val="VAMPIRIC_ATTACK" />
+		<set name="affectScope" val="SINGLE" />
 		<set name="effectPoint" val="1" />
+		<set name="hitCancelTime" val="500" />
 		<set name="icon" val="icon.etc_fresh_milk_i00" />
 		<set name="isMagic" val="1" />
 		<set name="magicLvl" val="44" />

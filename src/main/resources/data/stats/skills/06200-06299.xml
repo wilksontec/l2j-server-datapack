@@ -1471,12 +1471,14 @@
 		</effects>
 	</skill>
 	<skill id="6285" levels="1" name="Rage of Ice">
-		<!-- Confirmed CT2.5 -->
+		<!-- High Five Confirmed -->
 		<!-- Freya Skills -->
 		<set name="abnormalLvl" val="1" />
 		<set name="abnormalTime" val="1800" />
 		<set name="abnormalType" val="CASTING_TIME_DOWN" />
+		<set name="affectScope" val="SINGLE" />
 		<set name="effectPoint" val="1" />
+		<set name="hitCancelTime" val="500" />
 		<set name="isMagic" val="1" />
 		<set name="magicLvl" val="85" />
 		<set name="operateType" val="A2" />

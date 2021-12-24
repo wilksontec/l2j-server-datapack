@@ -1349,29 +1349,32 @@
 		</effects>
 	</skill>
 	<skill id="3148" levels="10" name="Item Skill: Vampiric Rage">
-		<!-- Confirmed CT2.5 -->
+		<!-- High Five Confirmed -->
 		<table name="#absorbDam"> 3 3 3 4 4 4 5 5 5 6 </table>
 		<table name="#effectPoint"> 440 481 521 562 602 640 677 711 743 789 </table>
 		<table name="#magicLvl"> 46 49 52 55 58 61 64 67 70 75 </table>
-		<table name="#mpConsume2"> 38 42 44 47 51 52 55 58 61 65 </table>
 		<table name="#mpConsume1"> 10 11 11 12 13 13 14 15 16 17 </table>
+		<table name="#mpConsume2"> 38 42 44 47 51 52 55 58 61 65 </table>
 		<set name="abnormalLvl" val="1" />
 		<set name="abnormalTime" val="120" />
 		<set name="abnormalType" val="ABNORMAL_ITEM" />
+		<set name="affectScope" val="SINGLE" />
 		<set name="effectPoint" val="#effectPoint" />
+		<set name="hitCancelTime" val="500" />
 		<set name="hitTime" val="4000" />
 		<set name="icon" val="icon.skill3123" />
 		<set name="isMagic" val="2" />
 		<set name="magicLvl" val="#magicLvl" />
-		<set name="mpConsume2" val="#mpConsume2" />
 		<set name="mpConsume1" val="#mpConsume1" />
+		<set name="mpConsume2" val="#mpConsume2" />
 		<set name="operateType" val="A2" />
 		<set name="reuseDelay" val="300000" />
+		<set name="reuseDelayType" val="S" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
 		<effects>
 			<effect name="Buff">
-				<add stat="absorbDam" val="#absorbDam" /> <!-- absorb HP from damage inflicted on enemies -->
+				<add stat="absorbDam" val="#absorbDam" />
 			</effect>
 		</effects>
 	</skill>

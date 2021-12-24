@@ -557,7 +557,8 @@
 		</effects>
 	</skill>
 	<skill id="3842" levels="1" name="Two-handed Sword of Vampiric Rage">
-		<!-- CT2.5 retail confirmed -->
+		<!-- High Five Confirmed -->
+		<set name="blockedInOlympiad" val="true" />
 		<set name="icon" val="icon.skill1268" />
 		<set name="magicLvl" val="67" />
 		<set name="operateType" val="P" />
@@ -631,7 +632,8 @@
 		</effects>
 	</skill>
 	<skill id="3848" levels="1" name="Ancient Sword of Vampiric Rage">
-		<!-- CT2.5 retail confirmed -->
+		<!-- High Five Confirmed -->
+		<set name="blockedInOlympiad" val="true" />
 		<set name="icon" val="icon.skill1268" />
 		<set name="magicLvl" val="67" />
 		<set name="operateType" val="P" />
@@ -694,8 +696,9 @@
 		</effects>
 	</skill>
 	<skill id="3853" levels="2" name="Sword of Mana Regeneration">
-		<!-- CT2.5 retail confirmed -->
+		<!-- High Five Confirmed -->
 		<table name="#magicLvl"> 61 70 </table>
+		<set name="blockedInOlympiad" val="true" />
 		<set name="icon" val="icon.skill1047" />
 		<set name="magicLvl" val="#magicLvl" />
 		<set name="operateType" val="P" />
@@ -1210,7 +1213,8 @@
 		</effects>
 	</skill>
 	<skill id="3893" levels="1" name="Blunt Weapon of Mana Regeneration">
-		<!-- CT2.5 retail confirmed -->
+		<!-- High Five Confirmed -->
+		<set name="blockedInOlympiad" val="true" />
 		<set name="icon" val="icon.skill1047" />
 		<set name="magicLvl" val="70" />
 		<set name="operateType" val="P" />

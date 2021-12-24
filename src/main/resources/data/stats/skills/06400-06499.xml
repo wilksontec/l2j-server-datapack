@@ -561,10 +561,12 @@
 		</effects>
 	</skill>
 	<skill id="6421" levels="1" name="Rage of Soldier">
+		<!-- High Five Confirmed -->
 		<set name="affectScope" val="SINGLE" />
 		<set name="castRange" val="40" />
 		<set name="effectPoint" val="-100" />
 		<set name="effectRange" val="400" />
+		<set name="hitCancelTime" val="500" />
 		<set name="hitTime" val="1000" />
 		<set name="magicLvl" val="84" />
 		<set name="mpConsume2" val="121" />
@@ -1346,7 +1348,8 @@
 		<set name="targetType" val="SELF" />
 	</skill>
 	<skill id="6456" levels="1" name="Presentation - Freya Eternal Blizzard">
-		<!-- Confirmed CT2.5 -->
+		<!-- High Five Confirmed -->
+		<set name="affectScope" val="SINGLE" />
 		<set name="effectPoint" val="100" />
 		<set name="hitTime" val="1000" />
 		<set name="isMagic" val="2" />

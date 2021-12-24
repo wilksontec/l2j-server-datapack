@@ -982,12 +982,14 @@
 		</effects>
 	</skill>
 	<skill id="21058" levels="1" name="Mana Regeneration">
-		<!-- Confirmed CT2.5 -->
+		<!-- High Five Confirmed -->
 		<set name="abnormalLvl" val="26" />
 		<set name="abnormalTime" val="300" />
 		<set name="abnormalType" val="MP_REGEN_UP" />
 		<set name="activateRate" val="0" />
+		<set name="affectScope" val="SINGLE" />
 		<set name="blockedInOlympiad" val="true" />
+		<set name="buffProtectLevel" val="1" />
 		<set name="hitTime" val="3000" />
 		<set name="icon" val="BranchSys.icon.br_Eye_Visor_i00" />
 		<set name="irreplaceableBuff" val="true" />
@@ -995,6 +997,7 @@
 		<set name="magicLvl" val="-1" />
 		<set name="operateType" val="A2" />
 		<set name="reuseDelay" val="3600000" />
+		<set name="reuseDelayType" val="S" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
 		<set name="trait" val="ETC" />
@@ -1115,12 +1118,14 @@
 		</effects>
 	</skill>
 	<skill id="21064" levels="1" name="Mana Regeneration">
-		<!-- Confirmed CT2.5 -->
+		<!-- High Five Confirmed -->
 		<set name="abnormalLvl" val="26" />
 		<set name="abnormalTime" val="300" />
 		<set name="abnormalType" val="MP_REGEN_UP" />
 		<set name="activateRate" val="0" />
+		<set name="affectScope" val="SINGLE" />
 		<set name="blockedInOlympiad" val="true" />
+		<set name="buffProtectLevel" val="1" />
 		<set name="hitTime" val="3000" />
 		<set name="icon" val="BranchSys.icon.br_napoleonic_cap_i00" />
 		<set name="irreplaceableBuff" val="true" />
@@ -1128,6 +1133,7 @@
 		<set name="magicLvl" val="-1" />
 		<set name="operateType" val="A2" />
 		<set name="reuseDelay" val="3600000" />
+		<set name="reuseDelayType" val="S" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
 		<set name="trait" val="ETC" />
@@ -1317,12 +1323,14 @@
 		</effects>
 	</skill>
 	<skill id="21073" levels="1" name="Mana Regeneration">
-		<!-- Confirmed CT2.5 -->
+		<!-- High Five Confirmed -->
 		<set name="abnormalLvl" val="26" />
 		<set name="abnormalTime" val="300" />
 		<set name="abnormalType" val="MP_REGEN_UP" />
 		<set name="activateRate" val="0" />
+		<set name="affectScope" val="SINGLE" />
 		<set name="blockedInOlympiad" val="true" />
+		<set name="buffProtectLevel" val="1" />
 		<set name="hitTime" val="3000" />
 		<set name="icon" val="icon.accessory_worldcup_mask_i00" />
 		<set name="irreplaceableBuff" val="true" />
@@ -1330,6 +1338,7 @@
 		<set name="magicLvl" val="-1" />
 		<set name="operateType" val="A2" />
 		<set name="reuseDelay" val="3600000" />
+		<set name="reuseDelayType" val="S" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
 		<set name="trait" val="ETC" />
@@ -1496,12 +1505,14 @@
 		</effects>
 	</skill>
 	<skill id="21081" levels="1" name="Mana Regeneration">
-		<!-- Confirmed CT2.5 -->
+		<!-- High Five Confirmed -->
 		<set name="abnormalLvl" val="26" />
 		<set name="abnormalTime" val="300" />
 		<set name="abnormalType" val="MP_REGEN_UP" />
 		<set name="activateRate" val="0" />
+		<set name="affectScope" val="SINGLE" />
 		<set name="blockedInOlympiad" val="true" />
+		<set name="buffProtectLevel" val="1" />
 		<set name="hitTime" val="3000" />
 		<set name="icon" val="icon.accessory_hair_ring_i00" />
 		<set name="irreplaceableBuff" val="true" />
@@ -1509,6 +1520,7 @@
 		<set name="magicLvl" val="-1" />
 		<set name="operateType" val="A2" />
 		<set name="reuseDelay" val="3600000" />
+		<set name="reuseDelayType" val="S" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
 		<set name="trait" val="ETC" />

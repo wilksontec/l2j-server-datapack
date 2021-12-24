@@ -1057,15 +1057,19 @@
 		</effects>
 	</skill>
 	<skill id="326" levels="1" name="Build Advanced Headquarters">
+		<!-- High Five Confirmed -->
+		<set name="affectScope" val="SINGLE" />
+		<set name="hitCancelTime" val="4000" />
 		<set name="hitTime" val="4000" />
 		<set name="icon" val="icon.skill0326" />
 		<set name="isMagic" val="2" />
 		<set name="itemConsumeCount" val="300" />
-		<set name="itemConsumeId" val="2131" /> <!-- Gemstone C -->
+		<set name="itemConsumeId" val="2131" />
 		<set name="magicLvl" val="-1" />
 		<set name="mpConsume1" val="30" />
 		<set name="operateType" val="A1" />
 		<set name="reuseDelay" val="3600000" />
+		<set name="reuseDelayType" val="S" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
 		<cond>

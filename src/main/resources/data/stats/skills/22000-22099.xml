@@ -1375,10 +1375,14 @@
 		</effects>
 	</skill>
 	<skill id="22064" levels="1" name="Vampiric Rage">
+		<!-- High Five Confirmed -->
 		<set name="abnormalLvl" val="26" />
 		<set name="abnormalTime" val="3600" />
 		<set name="abnormalType" val="VAMPIRIC_ATTACK" />
+		<set name="affectScope" val="SINGLE" />
 		<set name="blockedInOlympiad" val="true" />
+		<set name="buffProtectLevel" val="1" />
+		<set name="hitCancelTime" val="500" />
 		<set name="icon" val="icon.etc_hot_spring_nectar_i00" />
 		<set name="irreplaceableBuff" val="true" />
 		<set name="isMagic" val="2" />
@@ -1388,7 +1392,7 @@
 		<set name="targetType" val="SELF" />
 		<effects>
 			<effect name="Buff">
-				<add stat="absorbDam" val="9" /> <!-- absorb 9% HP from damage inflicted on enemies -->
+				<add stat="absorbDam" val="9" />
 			</effect>
 		</effects>
 	</skill>
