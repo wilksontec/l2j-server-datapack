@@ -964,23 +964,25 @@
 		</effects>
 	</skill>
 	<skill id="521" levels="8" name="Sharpshooting" enchantGroup1="1" enchantGroup2="1">
-		<!-- Confirmed CT2.5 -->
+		<!-- High Five Confirmed -->
 		<table name="#abnormalLvl"> 1 2 3 4 5 6 7 8 </table>
 		<table name="#accCombat"> 3 3 4 4 5 5 6 6 </table>
 		<table name="#effectPoint"> 566 582 597 611 624 635 646 655 </table>
 		<table name="#magicLvl"> 60 62 64 66 68 70 72 74 </table>
 		<table name="#mpConsume2"> 28 29 30 31 32 33 34 34 </table>
 		<table name="#pAtk"> 124 134 145 155 166 177 188 199 </table>
-		<table name="#range"> 50 50 100 100 150 150 200 200 </table>
-		<table name="#ench1Acc"> 6 6 6 6 6 6 6 7 7 7 7 7 7 7 8 8 8 8 8 8 8 8 9 9 9 9 9 9 9 10 </table>
-		<table name="#ench1Power"> 211 213 214 215 217 218 220 221 223 224 226 227 228 230 231 233 234 236 237 239 240 241 243 244 246 247 249 250 252 253 </table>
-		<table name="#ench2AbnormalTimes"> 124 128 132 136 140 144 148 152 156 160 164 168 172 176 180 184 188 192 196 200 204 208 212 216 220 224 228 232 236 240 </table>
-		<table name="#enchabnormalLvl"> 8 8 8 8 8 8 8 9 9 9 9 9 9 9 10 10 10 10 10 10 10 10 11 11 11 11 11 11 11 12 </table>
+		<table name="#pAtkRange"> 50 50 100 100 150 150 200 200 </table>
 		<table name="#enchMagicLvl"> 76 76 76 77 77 77 78 78 78 79 79 79 80 80 80 81 81 81 82 82 82 83 83 83 84 84 84 85 85 85 </table>
+		<table name="#ench1AbnormalLvl"> 8 8 8 8 8 8 8 9 9 9 9 9 9 9 10 10 10 10 10 10 10 10 11 11 11 11 11 11 11 12 </table>
+		<table name="#ench1accCombat"> 6 6 6 6 6 6 6 7 7 7 7 7 7 7 8 8 8 8 8 8 8 8 9 9 9 9 9 9 9 10 </table>
+		<table name="#ench1pAtk"> 211 213 214 215 217 218 220 221 223 224 226 227 228 230 231 233 234 236 237 239 240 241 243 244 246 247 249 250 252 253 </table>
+		<table name="#ench2AbnormalTime"> 124 128 132 136 140 144 148 152 156 160 164 168 172 176 180 184 188 192 196 200 204 208 212 216 220 224 228 232 236 240 </table>
 		<set name="abnormalLvl" val="#abnormalLvl" />
 		<set name="abnormalTime" val="120" />
 		<set name="abnormalType" val="SNIPE" />
+		<set name="affectScope" val="SINGLE" />
 		<set name="effectPoint" val="#effectPoint" />
+		<set name="hitCancelTime" val="500" />
 		<set name="hitTime" val="2000" />
 		<set name="icon" val="icon.skill0521" />
 		<set name="magicLvl" val="#magicLvl" />
@@ -989,40 +991,55 @@
 		<set name="reuseDelay" val="75000" />
 		<set name="rideState" val="NONE" />
 		<set name="targetType" val="SELF" />
+		<enchant1 name="abnormalLvl" val="#ench1AbnormalLvl" />
 		<enchant1 name="magicLvl" val="#enchMagicLvl" />
-		<enchant2 name="abnormalTime" val="#ench2AbnormalTimes" />
+		<enchant2 name="abnormalTime" val="#ench2AbnormalTime" />
 		<enchant2 name="magicLvl" val="#enchMagicLvl" />
 		<cond msgId="113" addName="1">
 			<using kind="CROSSBOW" />
 		</cond>
 		<effects>
-			<effect name="ImmobileBuff">
-				<add stat="pAtk" val="#pAtk">
+			<effect name="Buff">
+				<add stat="pAtkRange" val="#pAtkRange">
 					<using kind="CROSSBOW" />
 				</add>
-				<add stat="accCombat" val="#accCombat">
-					<using kind="CROSSBOW" />
-				</add>
+			</effect>
+			<effect name="Root" />
+			<effect name="Buff">
 				<mul stat="critRate" val="1.2">
 					<using kind="CROSSBOW" />
 				</mul>
-				<add stat="pAtkRange" val="#range">
+			</effect>
+			<effect name="Buff">
+				<add stat="accCombat" val="#accCombat">
+					<using kind="CROSSBOW" />
+				</add>
+			</effect>
+			<effect name="Buff">
+				<add stat="pAtk" val="#pAtk">
 					<using kind="CROSSBOW" />
 				</add>
 			</effect>
 		</effects>
 		<enchant1Effects>
-			<effect name="ImmobileBuff">
-				<add stat="pAtk" val="#ench1Power">
+			<effect name="Buff">
+				<add stat="pAtkRange" val="200">
 					<using kind="CROSSBOW" />
 				</add>
-				<add stat="accCombat" val="#ench1Acc">
-					<using kind="CROSSBOW" />
-				</add>
+			</effect>
+			<effect name="Root" />
+			<effect name="Buff">
 				<mul stat="critRate" val="1.2">
 					<using kind="CROSSBOW" />
 				</mul>
-				<add stat="pAtkRange" val="200">
+			</effect>
+			<effect name="Buff">
+				<add stat="accCombat" val="#ench1accCombat">
+					<using kind="CROSSBOW" />
+				</add>
+			</effect>
+			<effect name="Buff">
+				<add stat="pAtk" val="#ench1pAtk">
 					<using kind="CROSSBOW" />
 				</add>
 			</effect>
@@ -2769,17 +2786,21 @@
 		</effects>
 	</skill>
 	<skill id="579" levels="4" name="Fire Armor">
-		<!-- Confirmed CT2.5 -->
+		<!-- High Five Confirmed -->
 		<table name="#abnormalLvl"> 1 2 3 4 </table>
 		<table name="#effectPoint"> 477 532 582 630 </table>
-		<table name="#magicLvl"> 60 63 66 69 </table>
 		<table name="#mDef"> 800 900 1000 1100 </table>
+		<table name="#magicLvl"> 60 63 66 69 </table>
 		<table name="#mpConsume2"> 61 63 67 70 </table>
 		<table name="#pDef"> 1000 1100 1200 1300 </table>
 		<set name="abnormalLvl" val="#abnormalLvl" />
 		<set name="abnormalTime" val="30" />
 		<set name="abnormalType" val="PD_UP_SPECIAL" />
+		<set name="affectScope" val="SINGLE" />
+		<set name="attributePower" val="20" />
+		<set name="attributeType" val="FIRE" />
 		<set name="effectPoint" val="#effectPoint" />
+		<set name="hitCancelTime" val="500" />
 		<set name="hitTime" val="1000" />
 		<set name="icon" val="icon.skill_transform_buff" />
 		<set name="magicLvl" val="#magicLvl" />
@@ -2789,10 +2810,15 @@
 		<set name="rideState" val="NONE" />
 		<set name="targetType" val="SELF" />
 		<effects>
-			<effect name="ImmobileBuff">
-				<add stat="pDef" val="#pDef" />
+			<effect name="Root" />
+			<effect name="Buff">
 				<add stat="mDef" val="#mDef" />
-				<sub stat="cancelVuln" val="80" />
+			</effect>
+			<effect name="Buff">
+				<add stat="pDef" val="#pDef" />
+			</effect>
+			<effect name="Buff">
+				<mul stat="cancelVuln" val="0.2" />
 			</effect>
 		</effects>
 	</skill>

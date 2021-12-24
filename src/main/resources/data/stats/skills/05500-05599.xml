@@ -101,13 +101,15 @@
 		</effects>
 	</skill>
 	<skill id="5503" levels="1" name="Ultimate Guard">
-		<!-- Confirmed CT2.5 -->
+		<!-- High Five Confirmed -->
 		<!-- Darion Skills -->
 		<set name="abnormalLvl" val="1" />
 		<set name="abnormalTime" val="30" />
 		<set name="abnormalType" val="PD_UP_SPECIAL" />
 		<set name="abnormalVisualEffect" val="ULTIMATE_DEFENCE" />
+		<set name="affectScope" val="SINGLE" />
 		<set name="effectPoint" val="100" />
+		<set name="hitCancelTime" val="500" />
 		<set name="hitTime" val="2000" />
 		<set name="magicLvl" val="85" />
 		<set name="operateType" val="A2" />
@@ -115,11 +117,18 @@
 		<set name="rideState" val="NONE" />
 		<set name="targetType" val="SELF" />
 		<effects>
-			<effect name="ImmobileBuff">
-				<add stat="pDef" val="1800" />
-				<add stat="mDef" val="1350" />
-				<sub stat="cancelVuln" val="80" />
+			<effect name="Root" />
+			<effect name="Buff">
 				<mul stat="regHp" val="1.8" />
+			</effect>
+			<effect name="Buff">
+				<add stat="mDef" val="1350" />
+			</effect>
+			<effect name="Buff">
+				<add stat="pDef" val="1800" />
+			</effect>
+			<effect name="Buff">
+				<mul stat="cancelVuln" val="0.2" />
 			</effect>
 		</effects>
 	</skill>

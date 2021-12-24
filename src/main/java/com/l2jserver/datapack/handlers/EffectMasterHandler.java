@@ -34,7 +34,6 @@ import com.l2jserver.datapack.handlers.effecthandlers.custom.Debuff;
 import com.l2jserver.datapack.handlers.effecthandlers.custom.Detection;
 import com.l2jserver.datapack.handlers.effecthandlers.custom.Flag;
 import com.l2jserver.datapack.handlers.effecthandlers.custom.Grow;
-import com.l2jserver.datapack.handlers.effecthandlers.custom.ImmobileBuff;
 import com.l2jserver.datapack.handlers.effecthandlers.custom.Mute;
 import com.l2jserver.datapack.handlers.effecthandlers.custom.OpenChest;
 import com.l2jserver.datapack.handlers.effecthandlers.custom.OpenDoor;
@@ -171,7 +170,6 @@ public final class EffectMasterHandler {
 		Hp.class,
 		HpDrain.class,
 		HpPerMax.class,
-		ImmobileBuff.class,
 		InstantAgathionEnergy.class,
 		InstantBetray.class,
 		InstantCallTargetParty.class,

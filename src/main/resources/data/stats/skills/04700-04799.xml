@@ -417,7 +417,7 @@
 		<set name="rideState" val="NONE" />
 		<set name="targetType" val="TARGET" />
 		<effects>
-			<effect name="ImmobileBuff">
+			<effect name="Buff">
 				<mul stat="pAtkSpd" val="0.3" />
 			</effect>
 			<effect name="Buff">

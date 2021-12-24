@@ -695,17 +695,20 @@
 		</effects>
 	</skill>
 	<skill id="3632" levels="1" name="Clan Gate">
-		<!-- CT2.5 retail confirmed -->
+		<!-- High Five Confirmed -->
 		<set name="abnormalLvl" val="1" />
 		<set name="abnormalTime" val="120" />
 		<set name="abnormalType" val="ABNORMAL_ITEM" />
 		<set name="abnormalVisualEffect" val="MAGIC_SQUARE" />
+		<set name="affectScope" val="SINGLE" />
 		<set name="blockedInOlympiad" val="true" />
+		<set name="hitCancelTime" val="500" />
 		<set name="hitTime" val="10000" />
 		<set name="icon" val="icon.accessory_crown_i00" />
 		<set name="magicLvl" val="60" />
 		<set name="operateType" val="A2" />
 		<set name="reuseDelay" val="3600000" />
+		<set name="reuseDelayType" val="S" />
 		<set name="rideState" val="NONE" />
 		<set name="targetType" val="SELF" />
 		<cond msgId="113" addName="1">
@@ -715,7 +718,7 @@
 		</cond>
 		<effects>
 			<effect name="ClanGate" />
-			<effect name="ImmobileBuff" />
+			<effect name="Stun" />
 		</effects>
 	</skill>
 	<skill id="3633" levels="2" name="Residential Shock Immunity">

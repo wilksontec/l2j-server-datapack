@@ -579,7 +579,6 @@
 					<xs:enumeration value="Hp" />
 					<xs:enumeration value="HpDrain" />
 					<xs:enumeration value="HpPerMax" />
-					<xs:enumeration value="ImmobileBuff" />
 					<xs:enumeration value="InstantAgathionEnergy" />
 					<xs:enumeration value="InstantBetray" />
 					<xs:enumeration value="InstantCallTargetParty" />
