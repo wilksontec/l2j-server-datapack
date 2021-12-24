@@ -1,29 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <list xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../xsd/skills.xsd">
 	<skill id="400" levels="10" name="Tribunal" enchantGroup1="2" enchantGroup2="2" enchantGroup3="2" enchantGroup4="2">
+		<!-- High Five Confirmed -->
 		<table name="#abnormalLvl"> 1 1 1 1 1 2 2 2 2 3 </table>
-		<table name="#effectPoint"> -1046 -1098 -1132 -1163 -1193 -1221 -1247 -1270 -1291 -1309 </table>
+		<table name="#critRate"> 0.7 0.7 0.7 0.7 0.7 0.6 0.6 0.6 0.6 0.5 </table>
+		<table name="#effectPoint"> -1255 -1318 -1358 -1396 -1432 -1465 -1496 -1524 -1549 -1570 </table>
 		<table name="#magicLvl"> 55 58 60 62 64 66 68 70 72 74 </table>
 		<table name="#mpConsume2"> 52 56 58 60 62 64 66 68 70 72 </table>
-		<table name="#power"> 924 1054 1146 1240 1337 1437 1538 1639 1741 1841 </table>
-		<table name="#rCrit"> 0.7 0.7 0.7 0.7 0.7 0.6 0.6 0.6 0.6 0.5 </table>
+		<table name="#physicalAttackPower"> 924 1054 1146 1240 1337 1437 1538 1639 1741 1841 </table>
 		<table name="#traits"> -12 -12 -12 -12 -12 -16 -16 -16 -16 -20 </table>
-		<table name="#ench1Power"> 1881 1921 1961 2001 2041 2081 2121 2161 2201 2241 2281 2321 2361 2401 2441 2481 2521 2561 2601 2641 2681 2721 2761 2801 2841 2881 2921 2961 3001 3041 </table>
-		<table name="#ench2ActivateRates"> 81 82 82 83 84 84 85 86 86 87 87 88 89 89 90 91 91 92 93 93 94 94 95 96 96 97 98 98 99 100 </table>
-		<table name="#ench3cAtk"> 0.95 0.95 0.94 0.94 0.94 0.93 0.93 0.93 0.92 0.92 0.92 0.91 0.91 0.91 0.9 0.9 0.9 0.89 0.89 0.89 0.88 0.88 0.88 0.87 0.87 0.87 0.86 0.86 0.86 0.85 </table>
-		<table name="#enchAttributePower"> 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 </table>
 		<table name="#enchMagicLvl"> 76 76 76 77 77 77 78 78 78 79 79 79 80 80 80 81 81 81 82 82 82 83 83 83 84 84 84 85 85 85 </table>
+		<table name="#ench1PhysicalAttackPower"> 1881 1921 1961 2001 2041 2081 2121 2161 2201 2241 2281 2321 2361 2401 2441 2481 2521 2561 2601 2641 2681 2721 2761 2801 2841 2881 2921 2961 3001 3041 </table>
+		<table name="#ench2ActivateRate"> 81 82 82 83 84 84 85 86 86 87 87 88 89 89 90 91 91 92 93 93 94 94 95 96 96 97 98 98 99 100 </table>
+		<table name="#ench3critDmg"> 0.95 0.95 0.94 0.94 0.94 0.93 0.93 0.93 0.92 0.92 0.92 0.91 0.91 0.91 0.9 0.9 0.9 0.89 0.89 0.89 0.88 0.88 0.88 0.87 0.87 0.87 0.86 0.86 0.86 0.85 </table>
+		<table name="#ench4AttributePower"> 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 </table>
 		<set name="abnormalLvl" val="#abnormalLvl" />
 		<set name="abnormalTime" val="30" />
 		<set name="abnormalType" val="CRITICAL_PROB_DOWN" />
 		<set name="activateRate" val="80" />
+		<set name="affectScope" val="SINGLE" />
+		<set name="attributePower" val="20" />
+		<set name="attributeType" val="HOLY" />
 		<set name="basicProperty" val="MEN" />
 		<set name="castRange" val="40" />
 		<set name="coolTime" val="700" />
 		<set name="effectPoint" val="#effectPoint" />
 		<set name="effectRange" val="400" />
-		<set name="attributeType" val="HOLY" />
-		<set name="attributePower" val="20" />
+		<set name="hitCancelTime" val="500" />
 		<set name="hitTime" val="1300" />
 		<set name="icon" val="icon.skill0400" />
 		<set name="isDebuff" val="true" />
@@ -35,40 +38,55 @@
 		<set name="overHit" val="true" />
 		<set name="reuseDelay" val="4000" />
 		<set name="rideState" val="NONE" />
-		<set name="targetType" val="ONE" />
+		<set name="targetType" val="ENEMY" />
 		<enchant1 name="magicLvl" val="#enchMagicLvl" />
-		<enchant2 name="activateRate" val="#ench2ActivateRates" />
+		<enchant2 name="activateRate" val="#ench2ActivateRate" />
 		<enchant2 name="magicLvl" val="#enchMagicLvl" />
 		<enchant3 name="magicLvl" val="#enchMagicLvl" />
-		<enchant4 name="attributePower" val="#enchAttributePower" />
+		<enchant4 name="attributePower" val="#ench4AttributePower" />
 		<enchant4 name="magicLvl" val="#enchMagicLvl" />
 		<cond msgId="113" addName="1">
 			<using kind="SWORD,BLUNT" />
 		</cond>
 		<effects>
 			<effect name="PhysicalAttack">
-				<param power="#power" />
+				<param power="#physicalAttackPower" />
 				<param criticalChance="10" />
 			</effect>
 			<effect name="Debuff">
-				<mul stat="critRate" val="#rCrit" />
+				<mul stat="critRate" val="#critRate" />
 			</effect>
 			<effect name="DefenceTrait">
 				<param SWORD="#traits" />
+			</effect>
+			<effect name="DefenceTrait">
 				<param BLUNT="#traits" />
+			</effect>
+			<effect name="DefenceTrait">
 				<param DAGGER="#traits" />
+			</effect>
+			<effect name="DefenceTrait">
 				<param DUAL="#traits" />
+			</effect>
+			<effect name="DefenceTrait">
 				<param DUALFIST="#traits" />
+			</effect>
+			<effect name="DefenceTrait">
 				<param POLE="#traits" />
+			</effect>
+			<effect name="DefenceTrait">
 				<param ANCIENTSWORD="#traits" />
+			</effect>
+			<effect name="DefenceTrait">
 				<param RAPIER="#traits" />
+			</effect>
+			<effect name="DefenceTrait">
 				<param DUALDAGGER="#traits" />
 			</effect>
-			<effect name="GetAgro" />
 		</effects>
 		<enchant1Effects>
 			<effect name="PhysicalAttack">
-				<param power="#ench1Power" />
+				<param power="#ench1PhysicalAttackPower" />
 				<param criticalChance="10" />
 			</effect>
 			<effect name="Debuff">
@@ -76,16 +94,31 @@
 			</effect>
 			<effect name="DefenceTrait">
 				<param SWORD="-20" />
+			</effect>
+			<effect name="DefenceTrait">
 				<param BLUNT="-20" />
+			</effect>
+			<effect name="DefenceTrait">
 				<param DAGGER="-20" />
+			</effect>
+			<effect name="DefenceTrait">
 				<param DUAL="-20" />
+			</effect>
+			<effect name="DefenceTrait">
 				<param DUALFIST="-20" />
+			</effect>
+			<effect name="DefenceTrait">
 				<param POLE="-20" />
+			</effect>
+			<effect name="DefenceTrait">
 				<param ANCIENTSWORD="-20" />
+			</effect>
+			<effect name="DefenceTrait">
 				<param RAPIER="-20" />
+			</effect>
+			<effect name="DefenceTrait">
 				<param DUALDAGGER="-20" />
 			</effect>
-			<effect name="GetAgro" />
 		</enchant1Effects>
 		<enchant3Effects>
 			<effect name="PhysicalAttack">
@@ -93,21 +126,38 @@
 				<param criticalChance="10" />
 			</effect>
 			<effect name="Debuff">
-				<mul stat="critDmg" val="#ench3cAtk" />
 				<mul stat="critRate" val="0.5" />
+			</effect>
+			<effect name="Debuff">
+				<mul stat="critDmg" val="#ench3critDmg" />
 			</effect>
 			<effect name="DefenceTrait">
 				<param SWORD="-20" />
+			</effect>
+			<effect name="DefenceTrait">
 				<param BLUNT="-20" />
+			</effect>
+			<effect name="DefenceTrait">
 				<param DAGGER="-20" />
+			</effect>
+			<effect name="DefenceTrait">
 				<param DUAL="-20" />
+			</effect>
+			<effect name="DefenceTrait">
 				<param DUALFIST="-20" />
+			</effect>
+			<effect name="DefenceTrait">
 				<param POLE="-20" />
+			</effect>
+			<effect name="DefenceTrait">
 				<param ANCIENTSWORD="-20" />
+			</effect>
+			<effect name="DefenceTrait">
 				<param RAPIER="-20" />
+			</effect>
+			<effect name="DefenceTrait">
 				<param DUALDAGGER="-20" />
 			</effect>
-			<effect name="GetAgro" />
 		</enchant3Effects>
 	</skill>
 	<skill id="401" levels="10" name="Judgment" enchantGroup1="2" enchantGroup2="2" enchantGroup3="2" enchantGroup4="2">

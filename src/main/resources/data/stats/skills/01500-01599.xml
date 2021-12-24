@@ -449,156 +449,174 @@
 		</effects>
 	</skill>
 	<skill id="1512" levels="1" name="Soul Vortex" enchantGroup1="6" enchantGroup2="6" enchantGroup3="6" enchantGroup4="6">
-		<!-- Confirmed CT2.5 and Updated to H5 -->
-		<table name="#ench1Power"> 113 114 115 116 117 118 119 119 120 121 122 123 124 125 126 </table>
-		<table name="#ench2MpConsume2"> 64 62 60 58 56 53 51 49 47 45 42 40 38 36 33 </table>
-		<table name="#ench2MpConsume1"> 16 15 15 14 14 13 12 12 11 11 10 10 9 9 8 </table>
-		<table name="#ench3ActivateRates"> 80 81 82 82 83 84 84 85 86 86 87 88 88 89 90 </table>
-		<table name="#ench4Duel"> 114 116 118 119 121 123 124 126 128 130 131 133 135 136 138 </table>
+		<!-- High Five Confirmed -->
 		<table name="#enchMagicLvl"> 81 81 81 82 82 82 83 83 83 84 84 84 85 85 85 </table>
+		<table name="#ench1MagicalSoulAttackPower"> 113 114 115 116 117 118 119 119 120 121 122 123 124 125 126 </table>
+		<table name="#ench2MpConsume1"> 16 15 15 14 14 13 12 12 11 11 10 10 9 9 8 </table>
+		<table name="#ench2MpConsume2"> 64 62 60 58 56 53 51 49 47 45 42 40 38 36 33 </table>
+		<table name="#ench3ActivateRate"> 80 81 82 82 83 84 84 85 86 86 87 88 88 89 90 </table>
+		<table name="#ench4PvpMagicalSoulAttackPower"> 114 116 118 119 121 123 124 126 128 130 131 133 135 136 138 </table>
 		<set name="abnormalLvl" val="1" />
 		<set name="abnormalTime" val="30" />
 		<set name="abnormalType" val="MULTI_DEBUFF_SOUL" />
 		<set name="activateRate" val="80" />
+		<set name="affectScope" val="SINGLE" />
 		<set name="basicProperty" val="MEN" />
 		<set name="castRange" val="900" />
 		<set name="effectPoint" val="-999" />
 		<set name="effectRange" val="1400" />
+		<set name="hitCancelTime" val="500" />
 		<set name="hitTime" val="3000" />
 		<set name="icon" val="icon.skill1512" />
 		<set name="isDebuff" val="true" />
 		<set name="isMagic" val="1" />
 		<set name="lvlBonusRate" val="2" />
 		<set name="magicLvl" val="78" />
-		<set name="mpConsume2" val="68" />
 		<set name="mpConsume1" val="17" />
+		<set name="mpConsume2" val="68" />
 		<set name="operateType" val="A2" />
 		<set name="overHit" val="true" />
 		<set name="reuseDelay" val="15000" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="soulMaxConsumeCount" val="5" />
-		<set name="targetType" val="ONE" />
+		<set name="targetType" val="ENEMY" />
 		<enchant1 name="magicLvl" val="#enchMagicLvl" />
 		<enchant2 name="magicLvl" val="#enchMagicLvl" />
-		<enchant2 name="mpConsume2" val="#ench2MpConsume2" />
 		<enchant2 name="mpConsume1" val="#ench2MpConsume1" />
-		<enchant3 name="activateRate" val="#ench3ActivateRates" />
+		<enchant2 name="mpConsume2" val="#ench2MpConsume2" />
+		<enchant3 name="activateRate" val="#ench3ActivateRate" />
 		<enchant3 name="magicLvl" val="#enchMagicLvl" />
 		<enchant4 name="magicLvl" val="#enchMagicLvl" />
 		<effects>
 			<effect name="MagicalSoulAttack">
 				<param power="112" />
 			</effect>
+			<effect name="Debuff">
+				<mul stat="pAtkSpd" val="0.7" />
+			</effect>
+			<effect name="Debuff">
+				<mul stat="mAtkSpd" val="0.7" />
+			</effect>
+			<effect name="Debuff">
+				<mul stat="runSpd" val="0.8" />
+			</effect>
 			<effect name="TickMp">
 				<param power="-12" />
 				<param ticks="5" />
-				<mul stat="runSpd" val="0.8" />
-				<mul stat="pAtkSpd" val="0.7" />
-				<mul stat="mAtkSpd" val="0.7" />
+				<param mode="DIFF" />
 			</effect>
 		</effects>
 		<enchant1Effects>
 			<effect name="MagicalSoulAttack">
-				<param power="#ench1Power" />
+				<param power="#ench1MagicalSoulAttackPower" />
+			</effect>
+			<effect name="Debuff">
+				<mul stat="pAtkSpd" val="0.7" />
+			</effect>
+			<effect name="Debuff">
+				<mul stat="mAtkSpd" val="0.7" />
+			</effect>
+			<effect name="Debuff">
+				<mul stat="runSpd" val="0.8" />
 			</effect>
 			<effect name="TickMp">
 				<param power="-12" />
 				<param ticks="5" />
-				<mul stat="runSpd" val="0.8" />
-				<mul stat="pAtkSpd" val="0.7" />
-				<mul stat="mAtkSpd" val="0.7" />
+				<param mode="DIFF" />
 			</effect>
 		</enchant1Effects>
 		<enchant4Effects>
-		</enchant4Effects>
-		<enchant4pvpEffects>
-			<effect name="MagicalSoulAttack">
-				<param power="#ench4Duel" />
+			<effect name="Debuff">
+				<mul stat="pAtkSpd" val="0.7" />
+			</effect>
+			<effect name="Debuff">
+				<mul stat="mAtkSpd" val="0.7" />
+			</effect>
+			<effect name="Debuff">
+				<mul stat="runSpd" val="0.8" />
 			</effect>
 			<effect name="TickMp">
 				<param power="-12" />
 				<param ticks="5" />
-				<mul stat="runSpd" val="0.8" />
-				<mul stat="pAtkSpd" val="0.7" />
-				<mul stat="mAtkSpd" val="0.7" />
+				<param mode="DIFF" />
 			</effect>
-		</enchant4pvpEffects>
+		</enchant4Effects>
 		<enchant4pveEffects>
 			<effect name="MagicalSoulAttack">
 				<param power="112" />
 			</effect>
-			<effect name="TickMp">
-				<param power="-12" />
-				<param ticks="5" />
-				<mul stat="runSpd" val="0.8" />
-				<mul stat="pAtkSpd" val="0.7" />
-				<mul stat="mAtkSpd" val="0.7" />
-			</effect>
 		</enchant4pveEffects>
+		<enchant4pvpEffects>
+			<effect name="MagicalSoulAttack">
+				<param power="#ench4PvpMagicalSoulAttackPower" />
+			</effect>
+		</enchant4pvpEffects>
 	</skill>
 	<skill id="1513" levels="1" name="Soul Vortex Extinction" enchantGroup1="6" enchantGroup2="6" enchantGroup3="6">
-		<!-- Confirmed CT2.5 and Updated to H5 -->
-		<table name="#ench1Power"> 197 198 198 199 199 200 200 201 202 202 203 203 204 204 205 </table>
-		<table name="#ench2MpConsume2"> 66 63 61 59 57 54 52 50 48 45 43 41 39 36 34 </table>
-		<table name="#ench2MpConsume1"> 16 15 15 14 14 13 13 12 12 11 10 10 9 9 8 </table>
-		<table name="#ench3Duel"> 198 199 201 202 204 205 206 208 209 211 212 213 215 216 218 </table>
+		<!-- High Five Confirmed -->
 		<table name="#enchMagicLvl"> 81 81 81 82 82 82 83 83 83 84 84 84 85 85 85 </table>
+		<table name="#ench1MagicalSoulAttackPower"> 197 198 198 199 199 200 200 201 202 202 203 203 204 204 205 </table>
+		<table name="#ench2MpConsume1"> 16 15 15 14 14 13 13 12 12 11 10 10 9 9 8 </table>
+		<table name="#ench2MpConsume2"> 66 63 61 59 57 54 52 50 48 45 43 41 39 36 34 </table>
+		<table name="#ench3PvpMagicalSoulAttackPower"> 198 199 201 202 204 205 206 208 209 211 212 213 215 216 218 </table>
+		<set name="affectScope" val="SINGLE" />
 		<set name="castRange" val="900" />
 		<set name="effectPoint" val="-1009" />
 		<set name="effectRange" val="1400" />
+		<set name="hitCancelTime" val="500" />
 		<set name="hitTime" val="2000" />
 		<set name="icon" val="icon.skill1513" />
 		<set name="isMagic" val="1" />
 		<set name="magicLvl" val="79" />
-		<set name="mpConsume2" val="68" />
-		<set name="mpConsume1" val="17" />
+		<set name="mpConsume1" val="18" />
+		<set name="mpConsume2" val="69" />
 		<set name="operateType" val="A1" />
 		<set name="reuseDelay" val="15000" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="soulMaxConsumeCount" val="5" />
-		<set name="targetType" val="ONE" />
+		<set name="targetType" val="ENEMY" />
 		<enchant1 name="magicLvl" val="#enchMagicLvl" />
 		<enchant2 name="magicLvl" val="#enchMagicLvl" />
-		<enchant2 name="mpConsume2" val="#ench2MpConsume2" />
 		<enchant2 name="mpConsume1" val="#ench2MpConsume1" />
+		<enchant2 name="mpConsume2" val="#ench2MpConsume2" />
 		<enchant3 name="magicLvl" val="#enchMagicLvl" />
 		<cond msgId="109">
 			<target active_effect_id="1512" />
 		</cond>
 		<effects>
+			<effect name="DispelBySlot">
+				<param dispel="MULTI_DEBUFF_SOUL,9" />
+			</effect>
 			<effect name="MagicalSoulAttack">
 				<param power="195" />
 			</effect>
-			<effect name="DispelBySlot">
-				<param dispel="MULTI_DEBUFF_SOUL,9" />
-			</effect>
 		</effects>
 		<enchant1Effects>
-			<effect name="MagicalSoulAttack">
-				<param power="#ench1Power" />
-			</effect>
 			<effect name="DispelBySlot">
 				<param dispel="MULTI_DEBUFF_SOUL,9" />
+			</effect>
+			<effect name="MagicalSoulAttack">
+				<param power="#ench1MagicalSoulAttackPower" />
 			</effect>
 		</enchant1Effects>
 		<enchant3Effects>
 		</enchant3Effects>
-		<enchant3pvpEffects>
-			<effect name="MagicalSoulAttack">
-				<param power="#ench3Duel" />
-			</effect>
+		<enchant3pveEffects>
 			<effect name="DispelBySlot">
 				<param dispel="MULTI_DEBUFF_SOUL,9" />
 			</effect>
-		</enchant3pvpEffects>
-		<enchant3pveEffects>
 			<effect name="MagicalSoulAttack">
 				<param power="195" />
 			</effect>
+		</enchant3pveEffects>
+		<enchant3pvpEffects>
 			<effect name="DispelBySlot">
 				<param dispel="MULTI_DEBUFF_SOUL,9" />
 			</effect>
-		</enchant3pveEffects>
+			<effect name="MagicalSoulAttack">
+				<param power="#ench3PvpMagicalSoulAttackPower" />
+			</effect>
+		</enchant3pvpEffects>
 	</skill>
 	<skill id="1514" levels="1" name="Soul Barrier" enchantGroup1="1" enchantGroup2="1">
 		<!-- Confirmed CT2.5 and Updated to H5 -->

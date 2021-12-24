@@ -858,20 +858,23 @@
 		</enchant1Effects>
 	</skill>
 	<skill id="321" levels="10" name="Blinding Blow" enchantGroup1="2" enchantGroup2="2">
+		<!-- High Five Confirmed -->
 		<table name="#effectPoint"> -307 -311 -314 -317 -320 -323 -326 -328 -331 -333 </table>
+		<table name="#fatalBlowPower"> 2751 2850 2950 3050 3151 3252 3353 3453 3553 3653 </table>
 		<table name="#magicLvl"> 65 66 67 68 69 70 71 72 73 74 </table>
 		<table name="#mpConsume2"> 63 64 65 66 67 68 69 70 71 72 </table>
-		<table name="#power"> 2751 2850 2950 3050 3151 3252 3353 3453 3553 3653 </table>
-		<table name="#ench1Power"> 3875 3902 3928 3955 3981 4007 4034 4060 4086 4113 4139 4166 4192 4218 4245 4271 4298 4324 4350 4377 4403 4429 4456 4482 4509 4535 4561 4588 4614 4640 </table>
-		<table name="#ench2MpConsume2"> 71 70 69 68 67 66 65 64 63 62 61 60 59 58 57 56 55 54 53 52 51 49 48 47 46 45 44 43 42 41 </table>
 		<table name="#enchMagicLvl"> 76 76 76 77 77 77 78 78 78 79 79 79 80 80 80 81 81 81 82 82 82 83 83 83 84 84 84 85 85 85 </table>
+		<table name="#ench1FatalBlowPower"> 3875 3902 3928 3955 3981 4007 4034 4060 4086 4113 4139 4166 4192 4218 4245 4271 4298 4324 4350 4377 4403 4429 4456 4482 4509 4535 4561 4588 4614 4640 </table>
+		<table name="#ench2MpConsume2"> 71 70 69 67 66 65 63 62 61 60 58 57 56 54 53 52 50 49 48 47 45 44 43 41 40 39 37 36 35 34 </table>
 		<set name="abnormalLvl" val="1" />
 		<set name="abnormalTime" val="15" />
 		<set name="abnormalType" val="SPEED_UP_SPECIAL" />
+		<set name="affectScope" val="SINGLE" />
 		<set name="castRange" val="40" />
 		<set name="coolTime" val="720" />
 		<set name="effectPoint" val="#effectPoint" />
 		<set name="effectRange" val="400" />
+		<set name="hitCancelTime" val="500" />
 		<set name="hitTime" val="1080" />
 		<set name="icon" val="icon.skill0321" />
 		<set name="magicLvl" val="#magicLvl" />
@@ -881,7 +884,7 @@
 		<set name="overHit" val="true" />
 		<set name="reuseDelay" val="30000" />
 		<set name="rideState" val="NONE" />
-		<set name="targetType" val="ONE" />
+		<set name="targetType" val="ENEMY" />
 		<enchant1 name="magicLvl" val="#enchMagicLvl" />
 		<enchant2 name="magicLvl" val="#enchMagicLvl" />
 		<enchant2 name="mpConsume2" val="#ench2MpConsume2" />
@@ -889,32 +892,33 @@
 			<using kind="DAGGER,DUALDAGGER" />
 		</cond>
 		<effects>
-			<effect name="FatalBlow">
-				<param power="#power" />
-				<param blowChance="25" />
-			</effect>
 			<effect name="Bluff">
 				<param chance="80" />
 			</effect>
 			<effect name="Lethal">
 				<param halfLethal="5" />
 			</effect>
+			<effect name="FatalBlow">
+				<param power="#fatalBlowPower" />
+				<param blowChance="25" />
+			</effect>
 		</effects>
+		<!-- TODO(Zoey76): This is not a self effect. -->
 		<selfEffects>
 			<effect name="Buff">
 				<add stat="runSpd" val="40" />
 			</effect>
 		</selfEffects>
 		<enchant1Effects>
-			<effect name="FatalBlow">
-				<param power="#ench1Power" />
-				<param blowChance="25" />
-			</effect>
 			<effect name="Bluff">
 				<param chance="80" />
 			</effect>
 			<effect name="Lethal">
 				<param halfLethal="5" />
+			</effect>
+			<effect name="FatalBlow">
+				<param power="#ench1FatalBlowPower" />
+				<param blowChance="25" />
 			</effect>
 		</enchant1Effects>
 	</skill>
@@ -1430,18 +1434,20 @@
 		</effects>
 	</skill>
 	<skill id="341" levels="1" name="Touch of Life" enchantGroup1="6" enchantGroup2="6">
-		<!-- Confirmed CT2.5 -->
-		<table name="#ench1Cost"> 1184 1154 1123 1093 1062 1032 1001 971 940 910 879 849 818 788 757 </table>
-		<table name="#ench2AbnormalTimes"> 124 128 132 136 140 144 148 152 156 160 164 168 172 176 180 </table>
+		<!-- High Five Confirmed -->
 		<table name="#enchMagicLvl"> 81 81 81 82 82 82 83 83 83 84 84 84 85 85 85 </table>
+		<table name="#ench1HpConsume"> 1184 1154 1123 1093 1062 1032 1001 971 940 910 879 849 818 788 757 </table>
+		<table name="#ench2AbnormalTime"> 124 128 132 136 140 144 148 152 156 160 164 168 172 176 180 </table>
 		<set name="abnormalLvl" val="1" />
 		<set name="abnormalTime" val="120" />
 		<set name="abnormalType" val="TOUCH_OF_LIFE" />
+		<set name="affectScope" val="SINGLE" />
+		<set name="attributePower" val="20" />
+		<set name="attributeType" val="HOLY" />
 		<set name="castRange" val="40" />
 		<set name="effectPoint" val="810" />
 		<set name="effectRange" val="400" />
-		<set name="attributeType" val="HOLY" />
-		<set name="attributePower" val="20" />
+		<set name="hitCancelTime" val="500" />
 		<set name="hitTime" val="1800" />
 		<set name="hpConsume" val="1215" />
 		<set name="icon" val="icon.skill0341" />
@@ -1449,28 +1455,28 @@
 		<set name="operateType" val="A2" />
 		<set name="reuseDelay" val="300000" />
 		<set name="rideState" val="NONE" />
-		<set name="targetType" val="ONE" />
-		<enchant1 name="hpConsume" val="#ench1Cost" />
+		<set name="targetType" val="ENEMY_NOT" />
+		<enchant1 name="hpConsume" val="#ench1HpConsume" />
 		<enchant1 name="magicLvl" val="#enchMagicLvl" />
-		<enchant2 name="abnormalTime" val="#ench2AbnormalTimes" />
+		<enchant2 name="abnormalTime" val="#ench2AbnormalTime" />
 		<enchant2 name="magicLvl" val="#enchMagicLvl" />
-		<cond msgId="113" addName="1">
-			<not>
-				<target npcType="L2Attackable" />
-			</not>
-		</cond>
 		<effects>
+			<effect name="HpPerMax">
+				<param power="50" />
+			</effect>
 			<effect name="Buff">
-				<sub stat="cancelVuln" val="100" />
-				<sub stat="debuffVuln" val="30" />
 				<mul stat="healEffect" val="1.3" />
+			</effect>
+			<effect name="Buff">
+				<mul stat="debuffVuln" val="0.7" />
+			</effect>
+			<effect name="Buff">
+				<mul stat="cancelVuln" val="0" />
 			</effect>
 			<effect name="TickHp">
 				<param power="50" />
 				<param ticks="5" />
-			</effect>
-			<effect name="HpPerMax">
-				<param power="50" />
+				<param mode="DIFF" />
 			</effect>
 		</effects>
 	</skill>
@@ -1540,14 +1546,17 @@
 		</enchant2Effects>
 	</skill>
 	<skill id="343" levels="1" name="Lethal Shot" enchantGroup1="6" enchantGroup2="6" enchantGroup3="6" enchantGroup4="6" enchantGroup5="6" enchantGroup6="6" enchantGroup7="6">
-		<table name="#ench1Power"> 8475 8503 8530 8558 8586 8614 8641 8669 8697 8725 8753 8780 8808 8836 8864 </table>
-		<table name="#ench2MpConsume2"> 148 143 138 133 128 123 118 113 108 103 98 93 88 83 79 </table>
-		<table name="#ench7Duel"> 7905 8113 8321 8528 8736 8944 9151 9359 9567 9774 9982 10190 10397 10605 10813 </table>
+		<!-- High Five Confirmed -->
 		<table name="#enchAttributePower"> 3 6 10 13 16 20 23 26 30 33 36 40 43 46 50 </table>
 		<table name="#enchMagicLvl"> 81 81 81 82 82 82 83 83 83 84 84 84 85 85 85 </table>
+		<table name="#ench1PhysicalAttackPower"> 8475 8503 8530 8558 8586 8614 8641 8669 8697 8725 8753 8780 8808 8836 8864 </table>
+		<table name="#ench2MpConsume2"> 148 143 138 133 128 123 118 113 108 103 98 93 88 83 79 </table>
+		<table name="#ench7PvpPhysicalAttackPower"> 7905 8113 8321 8528 8736 8944 9151 9359 9567 9774 9982 10190 10397 10605 10813 </table>
+		<set name="affectScope" val="SINGLE" />
 		<set name="castRange" val="900" />
 		<set name="effectPoint" val="-897" />
 		<set name="effectRange" val="1400" />
+		<set name="hitCancelTime" val="500" />
 		<set name="hitTime" val="4000" />
 		<set name="icon" val="icon.skill0343" />
 		<set name="magicLvl" val="76" />
@@ -1556,7 +1565,7 @@
 		<set name="overHit" val="true" />
 		<set name="reuseDelay" val="8000" />
 		<set name="rideState" val="NONE" />
-		<set name="targetType" val="ONE" />
+		<set name="targetType" val="ENEMY" />
 		<set name="trait" val="DEATH" />
 		<enchant1 name="magicLvl" val="#enchMagicLvl" />
 		<enchant2 name="magicLvl" val="#enchMagicLvl" />
@@ -1578,54 +1587,56 @@
 			<using kind="BOW" />
 		</cond>
 		<effects>
+			<effect name="Lethal">
+				<param halfLethal="10" />
+			</effect>
 			<effect name="PhysicalAttack">
 				<param power="7698" />
 				<param criticalChance="15" />
 			</effect>
-			<effect name="Lethal">
-				<param halfLethal="10" />
-			</effect>
 		</effects>
 		<enchant1Effects>
-			<effect name="PhysicalAttack">
-				<param power="#ench1Power" />
-				<param criticalChance="15" />
-			</effect>
 			<effect name="Lethal">
 				<param halfLethal="10" />
+			</effect>
+			<effect name="PhysicalAttack">
+				<param power="#ench1PhysicalAttackPower" />
+				<param criticalChance="15" />
 			</effect>
 		</enchant1Effects>
 		<enchant7Effects>
 		</enchant7Effects>
-		<enchant7pvpEffects>
-			<effect name="PhysicalAttack">
-				<param power="#ench7Duel" />
-				<param criticalChance="15" />
-			</effect>
+		<enchant7pveEffects>
 			<effect name="Lethal">
 				<param halfLethal="10" />
 			</effect>
-		</enchant7pvpEffects>
-		<enchant7pveEffects>
 			<effect name="PhysicalAttack">
 				<param power="7698" />
 				<param criticalChance="15" />
 			</effect>
+		</enchant7pveEffects>
+		<enchant7pvpEffects>
 			<effect name="Lethal">
 				<param halfLethal="10" />
 			</effect>
-		</enchant7pveEffects>
+			<effect name="PhysicalAttack">
+				<param power="#ench7PvpPhysicalAttackPower" />
+				<param criticalChance="15" />
+			</effect>
+		</enchant7pvpEffects>
 	</skill>
 	<skill id="344" levels="1" name="Lethal Blow" enchantGroup1="6" enchantGroup2="6" enchantGroup3="6" enchantGroup4="6" enchantGroup5="6" enchantGroup6="6" enchantGroup7="6">
-		<!-- Confirmed CT2.5 -->
-		<table name="#ench1Power"> 6502 6535 6568 6601 6634 6667 6700 6733 6766 6799 6833 6866 6899 6932 6965 </table>
-		<table name="#ench2CriticalChance"> 21 21 21 21 21 21 21 22 22 22 22 22 22 22 23 </table>
-		<table name="#ench7Duel"> 5880 5986 6092 6198 6304 6410 6516 6622 6728 6834 6940 7046 7152 7258 7364 </table>
+		<!-- High Five Confirmed -->
+		<table name="#ench1FatalBlowPower"> 6502 6535 6568 6601 6634 6667 6700 6733 6766 6799 6833 6866 6899 6932 6965 </table>
+		<table name="#ench2FatalBlowCriticalChance"> 21 21 21 21 21 21 21 22 22 22 22 22 22 22 23 </table>
+		<table name="#ench7PvpFatalBlowPower"> 5880 5986 6092 6198 6304 6410 6516 6622 6728 6834 6940 7046 7152 7258 7364 </table>
 		<table name="#enchAttributePower"> 3 6 10 13 16 20 23 26 30 33 36 40 43 46 50 </table>
 		<table name="#enchMagicLvl"> 81 81 81 82 82 82 83 83 83 84 84 84 85 85 85 </table>
+		<set name="affectScope" val="SINGLE" />
 		<set name="castRange" val="40" />
 		<set name="effectPoint" val="-337" />
 		<set name="effectRange" val="400" />
+		<set name="hitCancelTime" val="500" />
 		<set name="hitTime" val="1800" />
 		<set name="icon" val="icon.skill0344" />
 		<set name="magicLvl" val="76" />
@@ -1635,7 +1646,7 @@
 		<set name="overHit" val="true" />
 		<set name="reuseDelay" val="4000" />
 		<set name="rideState" val="NONE" />
-		<set name="targetType" val="ONE" />
+		<set name="targetType" val="ENEMY" />
 		<set name="trait" val="DEATH" />
 		<enchant1 name="magicLvl" val="#enchMagicLvl" />
 		<enchant2 name="magicLvl" val="#enchMagicLvl" />
@@ -1656,57 +1667,57 @@
 			<using kind="DAGGER,DUALDAGGER" />
 		</cond>
 		<effects>
+			<effect name="Lethal">
+				<param halfLethal="15" />
+			</effect>
 			<effect name="FatalBlow">
 				<param power="5773" />
 				<param blowChance="30" />
 				<param criticalChance="20" />
-			</effect>
-			<effect name="Lethal">
-				<param halfLethal="15" />
 			</effect>
 		</effects>
 		<enchant1Effects>
+			<effect name="Lethal">
+				<param halfLethal="15" />
+			</effect>
 			<effect name="FatalBlow">
-				<param power="#ench1Power" />
+				<param power="#ench1FatalBlowPower" />
 				<param blowChance="30" />
 				<param criticalChance="20" />
 			</effect>
+		</enchant1Effects>
+		<enchant2Effects>
 			<effect name="Lethal">
 				<param halfLethal="15" />
 			</effect>
-		</enchant1Effects>
-		<enchant2Effects>
 			<effect name="FatalBlow">
 				<param power="5773" />
 				<param blowChance="30" />
-				<param criticalChance="#ench2CriticalChance" />
-			</effect>
-			<effect name="Lethal">
-				<param halfLethal="15" />
+				<param criticalChance="#ench2FatalBlowCriticalChance" />
 			</effect>
 		</enchant2Effects>
 		<enchant7Effects>
 		</enchant7Effects>
-		<enchant7pvpEffects>
-			<effect name="FatalBlow">
-				<param power="#ench7Duel" />
-				<param blowChance="30" />
-				<param criticalChance="20" />
-			</effect>
+		<enchant7pveEffects>
 			<effect name="Lethal">
 				<param halfLethal="15" />
 			</effect>
-		</enchant7pvpEffects>
-		<enchant7pveEffects>
 			<effect name="FatalBlow">
 				<param power="5773" />
 				<param blowChance="30" />
 				<param criticalChance="20" />
 			</effect>
+		</enchant7pveEffects>
+		<enchant7pvpEffects>
 			<effect name="Lethal">
 				<param halfLethal="15" />
 			</effect>
-		</enchant7pveEffects>
+			<effect name="FatalBlow">
+				<param power="#ench7PvpFatalBlowPower" />
+				<param blowChance="30" />
+				<param criticalChance="20" />
+			</effect>
+		</enchant7pvpEffects>
 	</skill>
 	<skill id="345" levels="1" name="Sonic Rage">
 		<!-- High Five Confirmed -->
@@ -2086,17 +2097,20 @@
 		</enchant3Effects>
 	</skill>
 	<skill id="354" levels="1" name="Hamstring Shot" enchantGroup1="6" enchantGroup2="6">
-		<table name="#ench1Power"> 2168 2179 2190 2201 2212 2223 2234 2245 2256 2267 2278 2289 2300 2311 2322 </table>
-		<table name="#ench2ActivateRates"> 42 44 46 48 50 52 54 56 58 60 62 64 66 68 70 </table>
+		<!-- High Five Confirmed -->
 		<table name="#enchMagicLvl"> 81 81 81 82 82 82 83 83 83 84 84 84 85 85 85 </table>
+		<table name="#ench1PhysicalAttackPower"> 2168 2179 2190 2201 2212 2223 2234 2245 2256 2267 2278 2289 2300 2311 2322 </table>
+		<table name="#ench2ActivateRate"> 42 44 46 48 50 52 54 56 58 60 62 64 66 68 70 </table>
 		<set name="abnormalLvl" val="3" />
 		<set name="abnormalTime" val="60" />
 		<set name="abnormalType" val="SPEED_DOWN" />
 		<set name="activateRate" val="40" />
+		<set name="affectScope" val="SINGLE" />
 		<set name="basicProperty" val="MEN" />
 		<set name="castRange" val="900" />
 		<set name="effectPoint" val="-507" />
 		<set name="effectRange" val="1400" />
+		<set name="hitCancelTime" val="500" />
 		<set name="hitTime" val="4000" />
 		<set name="icon" val="icon.skill0354" />
 		<set name="isDebuff" val="true" />
@@ -2107,9 +2121,9 @@
 		<set name="overHit" val="true" />
 		<set name="reuseDelay" val="15000" />
 		<set name="rideState" val="NONE" />
-		<set name="targetType" val="ONE" />
+		<set name="targetType" val="ENEMY" />
 		<enchant1 name="magicLvl" val="#enchMagicLvl" />
-		<enchant2 name="activateRate" val="#ench2ActivateRates" />
+		<enchant2 name="activateRate" val="#ench2ActivateRate" />
 		<enchant2 name="magicLvl" val="#enchMagicLvl" />
 		<cond msgId="113" addName="1">
 			<using kind="BOW" />
@@ -2125,7 +2139,7 @@
 		</effects>
 		<enchant1Effects>
 			<effect name="PhysicalAttack">
-				<param power="#ench1Power" />
+				<param power="#ench1PhysicalAttackPower" />
 				<param criticalChance="15" />
 			</effect>
 			<effect name="Debuff">
@@ -2903,18 +2917,21 @@
 		</enchant2Effects>
 	</skill>
 	<skill id="369" levels="1" name="Evade Shot" enchantGroup1="6" enchantGroup2="6" enchantGroup3="6" enchantGroup4="6" enchantGroup5="6" enchantGroup6="6" enchantGroup7="6" enchantGroup8="6">
-		<table name="#ench1Power"> 2168 2179 2190 2201 2212 2223 2234 2245 2256 2267 2278 2289 2300 2311 2322 </table>
-		<table name="#ench2rEvas"> 7 7 7 7 8 8 8 8 8 9 9 9 9 9 10 </table>
-		<table name="#ench3MpConsume2"> 110 106 102 98 95 91 87 83 80 76 72 68 65 61 57 </table>
-		<table name="#enchDuel"> 2077 2134 2191 2248 2305 2362 2419 2476 2533 2590 2647 2704 2761 2818 2875 </table>
+		<!-- High Five Confirmed -->
 		<table name="#enchAttributePower"> 3 6 10 13 16 20 23 26 30 33 36 40 43 46 50 </table>
 		<table name="#enchMagicLvl"> 81 81 81 82 82 82 83 83 83 84 84 84 85 85 85 </table>
+		<table name="#ench1PhysicalAttackPower"> 2168 2179 2190 2201 2212 2223 2234 2245 2256 2267 2278 2289 2300 2311 2322 </table>
+		<table name="#ench2rEvas"> 7 7 7 7 8 8 8 8 8 9 9 9 9 9 10 </table>
+		<table name="#ench3MpConsume2"> 110 106 102 98 95 91 87 83 80 76 72 68 65 61 57 </table>
+		<table name="#ench8PvpPhysicalAttackPower"> 2077 2134 2191 2248 2305 2362 2419 2476 2533 2590 2647 2704 2761 2818 2875 </table>
 		<set name="abnormalLvl" val="2" />
 		<set name="abnormalTime" val="30" />
 		<set name="abnormalType" val="SPEED_UP_SPECIAL" />
+		<set name="affectScope" val="SINGLE" />
 		<set name="castRange" val="900" />
 		<set name="effectPoint" val="-337" />
 		<set name="effectRange" val="1400" />
+		<set name="hitCancelTime" val="500" />
 		<set name="hitTime" val="4000" />
 		<set name="icon" val="icon.skill0369" />
 		<set name="magicLvl" val="78" />
@@ -2923,7 +2940,7 @@
 		<set name="overHit" val="true" />
 		<set name="reuseDelay" val="75000" />
 		<set name="rideState" val="NONE" />
-		<set name="targetType" val="ONE" />
+		<set name="targetType" val="ENEMY" />
 		<enchant1 name="magicLvl" val="#enchMagicLvl" />
 		<enchant2 name="magicLvl" val="#enchMagicLvl" />
 		<enchant3 name="magicLvl" val="#enchMagicLvl" />
@@ -2949,6 +2966,7 @@
 				<param power="2020" />
 			</effect>
 		</effects>
+		<!-- TODO(Zoey76): This is not a self effect. -->
 		<selfEffects>
 			<effect name="Buff">
 				<add stat="rEvas" val="6" />
@@ -2956,7 +2974,7 @@
 		</selfEffects>
 		<enchant1Effects>
 			<effect name="PhysicalAttack">
-				<param power="#ench1Power" />
+				<param power="#ench1PhysicalAttackPower" />
 			</effect>
 		</enchant1Effects>
 		<enchant1selfEffects>
@@ -2976,16 +2994,16 @@
 		</enchant2selfEffects>
 		<enchant8Effects>
 		</enchant8Effects>
-		<enchant8pvpEffects>
-			<effect name="PhysicalAttack">
-				<param power="#enchDuel" />
-			</effect>
-		</enchant8pvpEffects>
 		<enchant8pveEffects>
 			<effect name="PhysicalAttack">
 				<param power="2020" />
 			</effect>
 		</enchant8pveEffects>
+		<enchant8pvpEffects>
+			<effect name="PhysicalAttack">
+				<param power="#ench8PvpPhysicalAttackPower" />
+			</effect>
+		</enchant8pvpEffects>
 		<enchant8selfEffects>
 			<effect name="Buff">
 				<add stat="rEvas" val="6" />
