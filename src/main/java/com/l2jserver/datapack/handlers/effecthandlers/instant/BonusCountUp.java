@@ -30,6 +30,7 @@ import com.l2jserver.gameserver.network.serverpackets.UserInfo;
 
 /**
  * This effect instantly raises recommendations to give out by the specified amount.
+ * @author NosBit
  * @author HorridoJoho
  * @since 2.6.3.0
  */

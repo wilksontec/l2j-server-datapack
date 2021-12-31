@@ -24,6 +24,7 @@ import com.l2jserver.gameserver.model.effects.AbstractEffect;
 import com.l2jserver.gameserver.model.effects.L2EffectType;
 import com.l2jserver.gameserver.model.skills.BuffInfo;
 import com.l2jserver.gameserver.model.zone.ZoneId;
+import com.l2jserver.gameserver.network.serverpackets.ExVoteSystemInfo;
 import com.l2jserver.gameserver.network.serverpackets.UserInfo;
 
 /**
@@ -48,7 +49,8 @@ public final class BonusTimeLimitUp extends AbstractEffect {
 	public void onStart(BuffInfo info) {
 		if ((info.getEffected() != null) && info.getEffected().isPlayer()) {
 			info.setAbnormalTime(_time);
-			info.getEffected().getActingPlayer().startHourglassEffect();
+			info.getEffected().getActingPlayer().stopRecomBonusTask();
+			info.getEffected().getActingPlayer().sendPacket(new ExVoteSystemInfo(info.getEffected().getActingPlayer()));
 			info.getEffected().getActingPlayer().sendPacket(new UserInfo(info.getEffected().getActingPlayer()));
 		}
 	}
@@ -56,7 +58,8 @@ public final class BonusTimeLimitUp extends AbstractEffect {
 	@Override
 	public void onExit(BuffInfo info) {
 		if (!info.getEffected().getActingPlayer().isInsideZone(ZoneId.PEACE)) {
-			info.getEffected().getActingPlayer().stopHourglassEffect();
+			info.getEffected().getActingPlayer().startRecomBonusTask();
+			info.getEffected().getActingPlayer().sendPacket(new ExVoteSystemInfo(info.getEffected().getActingPlayer()));
 		}
 	}
 }
