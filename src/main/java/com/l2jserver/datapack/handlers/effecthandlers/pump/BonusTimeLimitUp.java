@@ -19,15 +19,17 @@
 package com.l2jserver.datapack.handlers.effecthandlers.pump;
 
 import com.l2jserver.gameserver.model.StatsSet;
+import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
 import com.l2jserver.gameserver.model.conditions.Condition;
 import com.l2jserver.gameserver.model.effects.AbstractEffect;
 import com.l2jserver.gameserver.model.effects.L2EffectType;
 import com.l2jserver.gameserver.model.skills.BuffInfo;
-import com.l2jserver.gameserver.network.serverpackets.UserInfo;
+import com.l2jserver.gameserver.model.zone.ZoneId;
 
 /**
  * Bonus Time Limit Up effect implementation.
  * @author Maneco2
+ * @author HorridoJoho
  * @since 2.6.3.0
  */
 public final class BonusTimeLimitUp extends AbstractEffect {
@@ -45,10 +47,18 @@ public final class BonusTimeLimitUp extends AbstractEffect {
 	
 	@Override
 	public void onStart(BuffInfo info) {
-		if ((info.getEffected() != null) && info.getEffected().isPlayer()) {
+		L2PcInstance activeChar = info.getEffected().getActingPlayer();
+		if ((activeChar != null) && activeChar.isPlayer()) {
 			info.setAbnormalTime(_time);
-			info.getEffected().getActingPlayer().stopRecomBonusTask();
-			info.getEffected().getActingPlayer().sendPacket(new UserInfo(info.getEffected().getActingPlayer()));
+			activeChar.setRecomTimerActive(false);
+		}
+	}
+	
+	@Override
+	public void onExit(BuffInfo info) {
+		L2PcInstance activeChar = info.getEffected().getActingPlayer();
+		if ((activeChar.isRecomTimerResume()) && (!activeChar.isInsideZone(ZoneId.PEACE))) {
+			activeChar.setRecomTimerActive(true);
 		}
 	}
 }
