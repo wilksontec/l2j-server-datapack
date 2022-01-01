@@ -57,7 +57,7 @@ public final class BonusTimeLimitUp extends AbstractEffect {
 	@Override
 	public void onExit(BuffInfo info) {
 		L2PcInstance activeChar = info.getEffected().getActingPlayer();
-		if ((activeChar.isRecomTimerResume()) && (!activeChar.isInsideZone(ZoneId.PEACE))) {
+		if (!activeChar.isInsideZone(ZoneId.PEACE)) {
 			activeChar.setRecomTimerActive(true);
 		}
 	}
