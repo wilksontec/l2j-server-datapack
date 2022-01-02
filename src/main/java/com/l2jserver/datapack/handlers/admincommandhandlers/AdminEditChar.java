@@ -251,7 +251,7 @@ public class AdminEditChar implements IAdminCommandHandler {
 				L2Object target = activeChar.getTarget();
 				if (target instanceof L2PcInstance) {
 					L2PcInstance player = (L2PcInstance) target;
-					player.setRecomHave(recVal);
+					player.getRecSystem().setHave(recVal);
 					player.broadcastUserInfo();
 					player.sendPacket(new UserInfo(player));
 					player.sendPacket(new ExBrExtraUserInfo(player));

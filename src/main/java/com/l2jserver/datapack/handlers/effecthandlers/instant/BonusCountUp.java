@@ -54,12 +54,12 @@ public final class BonusCountUp extends AbstractEffect {
 		final L2PcInstance player = info.getEffector().getActingPlayer();
 		if (player != null) {
 			int recomHaveIncrease = _amount;
-			if ((player.getRecomHave() + _amount) >= 255) {
-				recomHaveIncrease = 255 - player.getRecomHave();
+			if ((player.getRecSystem().getHave() + _amount) >= 255) {
+				recomHaveIncrease = 255 - player.getRecSystem().getHave();
 			}
 			
 			if (recomHaveIncrease > 0) {
-				player.setRecomHave(player.getRecomHave() + recomHaveIncrease);
+				player.getRecSystem().setHave(player.getRecSystem().getHave() + recomHaveIncrease);
 				
 				SystemMessage sm = SystemMessage.getSystemMessage(SystemMessageId.YOU_OBTAINED_S1_RECOMMENDATIONS);
 				sm.addInt(recomHaveIncrease);

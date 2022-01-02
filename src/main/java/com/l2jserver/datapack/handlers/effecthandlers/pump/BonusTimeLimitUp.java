@@ -25,6 +25,7 @@ import com.l2jserver.gameserver.model.effects.AbstractEffect;
 import com.l2jserver.gameserver.model.effects.L2EffectType;
 import com.l2jserver.gameserver.model.skills.BuffInfo;
 import com.l2jserver.gameserver.model.zone.ZoneId;
+import com.l2jserver.gameserver.network.serverpackets.UserInfo;
 
 /**
  * Bonus Time Limit Up effect implementation.
@@ -47,18 +48,15 @@ public final class BonusTimeLimitUp extends AbstractEffect {
 	
 	@Override
 	public void onStart(BuffInfo info) {
-		L2PcInstance activeChar = info.getEffected().getActingPlayer();
-		if ((activeChar != null) && activeChar.isPlayer()) {
+		if (info.getEffected().isPlayer()) {
 			info.setAbnormalTime(_time);
-			activeChar.setRecomTimerActive(false);
+			info.getEffected().getActingPlayer().getRecSystem().stopBonusTask(false);
+			info.getEffected().getActingPlayer().sendPacket(new UserInfo(info.getEffected().getActingPlayer()));
 		}
 	}
 	
 	@Override
 	public void onExit(BuffInfo info) {
-		L2PcInstance activeChar = info.getEffected().getActingPlayer();
-		if (!activeChar.isInsideZone(ZoneId.PEACE)) {
-			activeChar.setRecomTimerActive(true);
-		}
+		info.getEffected().getActingPlayer().getRecSystem().startBonusTask(false);
 	}
 }
