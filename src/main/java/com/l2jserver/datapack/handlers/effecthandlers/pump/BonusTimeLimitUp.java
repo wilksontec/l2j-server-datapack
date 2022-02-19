@@ -1,5 +1,5 @@
 /*
- * Copyright © 2004-2021 L2J DataPack
+ * Copyright © 2004-2022 L2J DataPack
  * 
  * This file is part of L2J DataPack.
  * 
@@ -19,12 +19,10 @@
 package com.l2jserver.datapack.handlers.effecthandlers.pump;
 
 import com.l2jserver.gameserver.model.StatsSet;
-import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
 import com.l2jserver.gameserver.model.conditions.Condition;
 import com.l2jserver.gameserver.model.effects.AbstractEffect;
 import com.l2jserver.gameserver.model.effects.L2EffectType;
 import com.l2jserver.gameserver.model.skills.BuffInfo;
-import com.l2jserver.gameserver.model.zone.ZoneId;
 import com.l2jserver.gameserver.network.serverpackets.UserInfo;
 
 /**
