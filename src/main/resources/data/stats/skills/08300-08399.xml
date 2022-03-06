@@ -290,6 +290,7 @@
 	</skill>
 	<skill id="8314" levels="1" name="Release Seal on Agathion - Saerom">
 		<!-- Confirmed CT2.5 -->
+		<set name="affectScope" val="SINGLE" />
 		<set name="hitTime" val="3000" />
 		<set name="icon" val="icon.etc_summon_aga_agit_i00" />
 		<set name="isMagic" val="2" />
@@ -495,6 +496,7 @@
 	</skill>
 	<skill id="8327" levels="1" name="Release Seal on Agathion - Juju">
 		<!-- Confirmed CT2.5 -->
+		<set name="affectScope" val="SINGLE" />
 		<set name="hitTime" val="3000" />
 		<set name="icon" val="icon.etc_summon_aga_agit_i00" />
 		<set name="isMagic" val="2" />
@@ -510,6 +512,7 @@
 	</skill>
 	<skill id="8328" levels="1" name="Release Seal on Agathion - Oink oink">
 		<!-- Confirmed CT2.5 -->
+		<set name="affectScope" val="SINGLE" />
 		<set name="hitTime" val="3000" />
 		<set name="icon" val="icon.etc_summon_aga_agit_i00" />
 		<set name="isMagic" val="2" />
@@ -555,6 +558,7 @@
 	</skill>
 	<skill id="8330" levels="1" name="Release Seal on Agathion - Dawn">
 		<!-- Confirmed CT2.5 -->
+		<set name="affectScope" val="SINGLE" />
 		<set name="hitTime" val="3000" />
 		<set name="icon" val="icon.etc_summon_aga_agit_i00" />
 		<set name="isMagic" val="2" />
@@ -1084,6 +1088,7 @@
 	</skill>
 	<skill id="8358" levels="1" name="Remove the seal of an Agathion - Towbat">
 		<!-- Confirmed CT2.5 -->
+		<set name="affectScope" val="SINGLE" />
 		<set name="hitTime" val="3000" />
 		<set name="icon" val="icon.etc_summon_aga_agit_i00" />
 		<set name="isMagic" val="2" />

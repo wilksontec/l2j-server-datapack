@@ -926,6 +926,7 @@
 	</skill>
 	<skill id="3361" levels="1" name="Summon Agathion - Fortress">
 		<!-- Confirmed CT2.5 -->
+		<set name="affectScope" val="SINGLE" />
 		<set name="hitTime" val="3000" />
 		<set name="icon" val="icon.etc_summon_aga_agit_i00" />
 		<set name="isMagic" val="2" />

@@ -36,6 +36,7 @@
 	</skill>
 	<skill id="21202" levels="1" name="Agathion Seal Cancel - Ball Trapping Gnocian">
 		<!-- Confirmed CT2.5 -->
+		<set name="affectScope" val="SINGLE" />
 		<set name="hitTime" val="3000" />
 		<set name="icon" val="icon.etc_summon_aga_agit_i00" />
 		<set name="isMagic" val="2" />
@@ -51,6 +52,7 @@
 	</skill>
 	<skill id="21203" levels="1" name="Agathion Seal Cancel - Ball Trapping Orodriel">
 		<!-- Confirmed CT2.5 -->
+		<set name="affectScope" val="SINGLE" />
 		<set name="hitTime" val="3000" />
 		<set name="icon" val="icon.etc_summon_aga_agit_i00" />
 		<set name="isMagic" val="2" />
@@ -66,6 +68,7 @@
 	</skill>
 	<skill id="21204" levels="1" name="Agathion Seal Cancel - Penalty Kick">
 		<!-- Confirmed CT2.5 -->
+		<set name="affectScope" val="SINGLE" />
 		<set name="hitTime" val="3000" />
 		<set name="icon" val="icon.etc_summon_aga_agit_i00" />
 		<set name="isMagic" val="2" />
@@ -81,6 +84,7 @@
 	</skill>
 	<skill id="21205" levels="1" name="Agathion Seal Cancel - Ball Trapping Gnocian">
 		<!-- Confirmed CT2.5 -->
+		<set name="affectScope" val="SINGLE" />
 		<set name="hitTime" val="3000" />
 		<set name="icon" val="icon.etc_summon_aga_agit_i00" />
 		<set name="isMagic" val="2" />
@@ -96,6 +100,7 @@
 	</skill>
 	<skill id="21206" levels="1" name="Agathion Seal Cancel - Ball Trapping Orodriel">
 		<!-- Confirmed CT2.5 -->
+		<set name="affectScope" val="SINGLE" />
 		<set name="hitTime" val="3000" />
 		<set name="icon" val="icon.etc_summon_aga_agit_i00" />
 		<set name="isMagic" val="2" />
@@ -111,6 +116,7 @@
 	</skill>
 	<skill id="21207" levels="1" name="Agathion Seal Cancel - Penalty Kick">
 		<!-- Confirmed CT2.5 -->
+		<set name="affectScope" val="SINGLE" />
 		<set name="hitTime" val="3000" />
 		<set name="icon" val="icon.etc_summon_aga_agit_i00" />
 		<set name="isMagic" val="2" />
@@ -126,6 +132,7 @@
 	</skill>
 	<skill id="21208" levels="1" name="Agathion Seal Cancel - Ball Trapping Gnocian">
 		<!-- Confirmed CT2.5 -->
+		<set name="affectScope" val="SINGLE" />
 		<set name="hitTime" val="3000" />
 		<set name="icon" val="icon.etc_summon_aga_agit_i00" />
 		<set name="isMagic" val="2" />
@@ -141,6 +148,7 @@
 	</skill>
 	<skill id="21209" levels="1" name="Agathion Seal Cancel - Ball Trapping Orodriel">
 		<!-- Confirmed CT2.5 -->
+		<set name="affectScope" val="SINGLE" />
 		<set name="hitTime" val="3000" />
 		<set name="icon" val="icon.etc_summon_aga_agit_i00" />
 		<set name="isMagic" val="2" />
@@ -156,6 +164,7 @@
 	</skill>
 	<skill id="21210" levels="1" name="Agathion Seal Cancel - Penalty Kick">
 		<!-- Confirmed CT2.5 -->
+		<set name="affectScope" val="SINGLE" />
 		<set name="hitTime" val="3000" />
 		<set name="icon" val="icon.etc_summon_aga_agit_i00" />
 		<set name="isMagic" val="2" />
@@ -178,6 +187,7 @@
 	</skill>
 	<skill id="21212" levels="1" name="Agathion Seal Cancel - Granny Tiger">
 		<!-- Confirmed CT2.5 -->
+		<set name="affectScope" val="SINGLE" />
 		<set name="hitTime" val="3000" />
 		<set name="icon" val="icon.etc_summon_aga_agit_i00" />
 		<set name="isMagic" val="2" />
@@ -193,6 +203,7 @@
 	</skill>
 	<skill id="21213" levels="1" name="Agathion Seal Cancel - Flower Fairy Spirit">
 		<!-- Confirmed CT2.5 -->
+		<set name="affectScope" val="SINGLE" />
 		<set name="hitTime" val="3000" />
 		<set name="icon" val="icon.etc_summon_aga_agit_i00" />
 		<set name="isMagic" val="2" />
@@ -208,6 +219,7 @@
 	</skill>
 	<skill id="21214" levels="1" name="Agathion Seal Cancel - Cheerleader Orodriel">
 		<!-- Confirmed CT2.5 -->
+		<set name="affectScope" val="SINGLE" />
 		<set name="hitTime" val="3000" />
 		<set name="icon" val="icon.etc_summon_aga_agit_i00" />
 		<set name="isMagic" val="2" />
@@ -223,6 +235,7 @@
 	</skill>
 	<skill id="21215" levels="1" name="Agathion Seal Cancel - Cheerleader Lana">
 		<!-- Confirmed CT2.5 -->
+		<set name="affectScope" val="SINGLE" />
 		<set name="hitTime" val="3000" />
 		<set name="icon" val="icon.etc_summon_aga_agit_i00" />
 		<set name="isMagic" val="2" />
@@ -238,6 +251,7 @@
 	</skill>
 	<skill id="21216" levels="1" name="Agathion Seal Cancel - Cheerleader Naonin">
 		<!-- Confirmed CT2.5 -->
+		<set name="affectScope" val="SINGLE" />
 		<set name="hitTime" val="3000" />
 		<set name="icon" val="icon.etc_summon_aga_agit_i00" />
 		<set name="isMagic" val="2" />
@@ -253,6 +267,7 @@
 	</skill>
 	<skill id="21217" levels="1" name="Agathion Seal Cancel - Cheerleader Mortia">
 		<!-- Confirmed CT2.5 -->
+		<set name="affectScope" val="SINGLE" />
 		<set name="hitTime" val="3000" />
 		<set name="icon" val="icon.etc_summon_aga_agit_i00" />
 		<set name="isMagic" val="2" />
@@ -268,6 +283,7 @@
 	</skill>
 	<skill id="21218" levels="1" name="Agathion Seal Cancel - Cheerleader Kaurin">
 		<!-- Confirmed CT2.5 -->
+		<set name="affectScope" val="SINGLE" />
 		<set name="hitTime" val="3000" />
 		<set name="icon" val="icon.etc_summon_aga_agit_i00" />
 		<set name="isMagic" val="2" />
@@ -283,6 +299,7 @@
 	</skill>
 	<skill id="21219" levels="1" name="Agathion Seal Cancel - Cheerleader Meruril">
 		<!-- Confirmed CT2.5 -->
+		<set name="affectScope" val="SINGLE" />
 		<set name="hitTime" val="3000" />
 		<set name="icon" val="icon.etc_summon_aga_agit_i00" />
 		<set name="isMagic" val="2" />
@@ -298,6 +315,7 @@
 	</skill>
 	<skill id="21220" levels="1" name="Agathion Seal Cancel - Handy">
 		<!-- Confirmed CT2.5 -->
+		<set name="affectScope" val="SINGLE" />
 		<set name="hitTime" val="3000" />
 		<set name="icon" val="icon.etc_summon_aga_agit_i00" />
 		<set name="isMagic" val="2" />

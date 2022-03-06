@@ -42,6 +42,7 @@ import com.l2jserver.datapack.handlers.actionshifthandlers.L2PcInstanceActionShi
 import com.l2jserver.datapack.handlers.actionshifthandlers.L2StaticObjectInstanceActionShift;
 import com.l2jserver.datapack.handlers.actionshifthandlers.L2SummonActionShift;
 import com.l2jserver.datapack.handlers.admincommandhandlers.AdminAdmin;
+import com.l2jserver.datapack.handlers.admincommandhandlers.AdminAgathion;
 import com.l2jserver.datapack.handlers.admincommandhandlers.AdminAnnouncements;
 import com.l2jserver.datapack.handlers.admincommandhandlers.AdminBBS;
 import com.l2jserver.datapack.handlers.admincommandhandlers.AdminBuffs;
@@ -275,6 +276,7 @@ public class MasterHandler {
 	
 	private static final Class<?>[] ADMIN_HANDLERS = {
 		AdminAdmin.class,
+		AdminAgathion.class,
 		AdminAnnouncements.class,
 		AdminBBS.class,
 		AdminBuffs.class,
