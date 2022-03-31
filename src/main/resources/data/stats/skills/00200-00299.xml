@@ -2477,6 +2477,7 @@
 		<set name="reuseDelay" val="5000" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
+		<set name="affectScope" val="SINGLE" />
 		<enchant1 name="magicLvl" val="#enchMagicLvl" />
 		<effects>
 			<effect name="SummonCubic">
@@ -2762,6 +2763,7 @@
 		<set name="reuseDelay" val="5000" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
+		<set name="affectScope" val="SINGLE" />
 		<cond>
 			<player canSummon="true" />
 		</cond>
@@ -3361,6 +3363,7 @@
 		<set name="reuseDelay" val="5000" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
+		<set name="affectScope" val="SINGLE" />
 		<cond>
 			<and>
 				<player canSummon="true" />

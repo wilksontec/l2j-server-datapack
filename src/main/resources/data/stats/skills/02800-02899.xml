@@ -1625,6 +1625,7 @@
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
+		<set name="affectScope" val="SINGLE" />
 		<effects>
 			<effect name="SummonNpc">
 				<param npcId="13191" npcCount="1" />
@@ -1641,6 +1642,7 @@
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
+		<set name="affectScope" val="SINGLE" />
 		<effects>
 			<effect name="SummonNpc">
 				<param npcId="13192" npcCount="1" />

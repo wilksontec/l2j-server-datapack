@@ -1930,6 +1930,7 @@
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
+		<set name="affectScope" val="SINGLE" />
 		<effects>
 			<effect name="SummonNpc">
 				<param npcId="8" npcCount="1" despawnDelay="60000" isSummonSpawn="true" />
@@ -1947,6 +1948,7 @@
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
+		<set name="affectScope" val="SINGLE" />
 		<effects>
 			<effect name="SummonNpc">
 				<param npcId="9" npcCount="1" despawnDelay="60000" isSummonSpawn="true" />
