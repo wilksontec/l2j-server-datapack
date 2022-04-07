@@ -1269,7 +1269,9 @@
 		<set name="abnormalLvl" val="#abnormalLvl" />
 		<set name="abnormalTime" val="1200" />
 		<set name="abnormalType" val="PA_UP" />
+		<set name="affectScope" val="SINGLE" />
 		<set name="effectPoint" val="#effectPoint" />
+		<set name="hitCancelTime" val="500" />
 		<set name="hitTime" val="2000" />
 		<set name="icon" val="icon.skill1432" />
 		<set name="isMagic" val="1" />
@@ -3074,6 +3076,7 @@
 	</skill>
 	<skill id="1473" levels="1" name="Change Weapon">
 		<!-- Confirmed CT2.5 -->
+		<set name="affectScope" val="SINGLE" />
 		<set name="effectPoint" val="10" />
 		<set name="hitTime" val="5000" />
 		<set name="icon" val="icon.skill1473" />
