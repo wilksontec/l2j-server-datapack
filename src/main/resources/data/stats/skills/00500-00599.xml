@@ -175,7 +175,8 @@
 		<set name="reuseDelay" val="3000" />
 		<set name="rideState" val="NONE" />
 		<set name="soulMaxConsumeCount" val="5" />
-		<set name="targetType" val="ONE" />
+		<set name="targetType" val="ENEMY" />
+		<set name="affectScope" val="SINGLE" />
 		<enchant1 name="magicLvl" val="#enchMagicLvl" />
 		<enchant2 name="magicLvl" val="#enchMagicLvl" />
 		<enchant2 name="mpConsume2" val="#ench2MpConsume2" />
@@ -249,7 +250,8 @@
 		<set name="reuseDelay" val="3000" />
 		<set name="rideState" val="NONE" />
 		<set name="soulMaxConsumeCount" val="5" />
-		<set name="targetType" val="ONE" />
+		<set name="targetType" val="ENEMY" />
+		<set name="affectScope" val="SINGLE" />
 		<enchant1 name="magicLvl" val="#enchMagicLvl" />
 		<enchant2 name="magicLvl" val="#enchMagicLvl" />
 		<enchant2 name="mpConsume2" val="#ench2MpConsume2" />
@@ -327,7 +329,8 @@
 		<set name="reuseDelay" val="3000" />
 		<set name="rideState" val="NONE" />
 		<set name="soulMaxConsumeCount" val="5" />
-		<set name="targetType" val="ONE" />
+		<set name="targetType" val="ENEMY" />
+		<set name="affectScope" val="SINGLE" />
 		<enchant1 name="magicLvl" val="#enchMagicLvl" />
 		<enchant2 name="magicLvl" val="#enchMagicLvl" />
 		<enchant2 name="mpConsume2" val="#ench2MpConsume2" />
@@ -403,7 +406,8 @@
 		<set name="reuseDelay" val="3000" />
 		<set name="rideState" val="NONE" />
 		<set name="soulMaxConsumeCount" val="5" />
-		<set name="targetType" val="ONE" />
+		<set name="targetType" val="ENEMY" />
+		<set name="affectScope" val="SINGLE" />
 		<enchant1 name="magicLvl" val="#enchMagicLvl" />
 		<enchant2 name="magicLvl" val="#enchMagicLvl" />
 		<enchant2 name="mpConsume2" val="#ench2MpConsume2" />
@@ -556,7 +560,8 @@
 		<set name="reuseDelay" val="8000" />
 		<set name="rideState" val="NONE" />
 		<set name="soulMaxConsumeCount" val="5" />
-		<set name="targetType" val="ONE" />
+		<set name="targetType" val="ENEMY" />
+		<set name="affectScope" val="SINGLE" />
 		<set name="trait" val="BLEED" />
 		<enchant1 name="magicLvl" val="#enchMagicLvl" />
 		<enchant2 name="magicLvl" val="#enchMagicLvl" />
@@ -607,7 +612,8 @@
 		<set name="operateType" val="A1" />
 		<set name="reuseDelay" val="150000" />
 		<set name="rideState" val="NONE" />
-		<set name="targetType" val="ONE" />
+		<set name="targetType" val="ENEMY" />
+		<set name="affectScope" val="SINGLE" />
 		<set name="trait" val="DEATH" />
 		<enchant1 name="lethalStrikeRate" val="#ench1LethalStrikeRate" />
 		<enchant1 name="magicLvl" val="#enchMagicLvl" />
@@ -1072,7 +1078,8 @@
 		<set name="operateType" val="A2" />
 		<set name="reuseDelay" val="3000" />
 		<set name="rideState" val="NONE" />
-		<set name="targetType" val="ONE" />
+		<set name="targetType" val="ENEMY" />
+		<set name="affectScope" val="SINGLE" />
 		<enchant1 name="magicLvl" val="#enchMagicLvl" />
 		<enchant2 name="magicLvl" val="#enchMagicLvl" />
 		<enchant3 name="magicLvl" val="#enchMagicLvl" />

@@ -932,7 +932,8 @@
 		<set name="operateType" val="A1" />
 		<set name="reuseDelay" val="1200" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
-		<set name="targetType" val="ONE" />
+		<set name="targetType" val="ENEMY" />
+		<set name="affectScope" val="SINGLE" />
 		<enchant1 name="magicLvl" val="#enchMagicLvl" />
 		<enchant2 name="magicLvl" val="#enchMagicLvl" />
 		<enchant2 name="mpConsume2" val="#ench2MpConsume2" />
@@ -1717,7 +1718,8 @@
 		<set name="operateType" val="A1" />
 		<set name="reuseDelay" val="2000" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
-		<set name="targetType" val="ONE" />
+		<set name="targetType" val="ENEMY" />
+		<set name="affectScope" val="SINGLE" />
 		<enchant1 name="magicLvl" val="#enchMagicLvl" />
 		<enchant2 name="magicLvl" val="#enchMagicLvl" />
 		<enchant2 name="mpConsume2" val="#ench2MpConsume2" />
@@ -2292,7 +2294,8 @@
 		<set name="operateType" val="A1" />
 		<set name="reuseDelay" val="30000" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
-		<set name="targetType" val="ONE" />
+		<set name="targetType" val="ENEMY_NOT" />
+		<set name="affectScope" val="SINGLE" />
 		<enchant1 name="magicLvl" val="#enchMagicLvl" />
 		<enchant2 name="magicLvl" val="#enchMagicLvl" />
 		<enchant2 name="mpConsume2" val="#ench2MpConsume2" />
@@ -3528,7 +3531,8 @@
 		<set name="operateType" val="A2" />
 		<set name="reuseDelay" val="300000" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
-		<set name="targetType" val="ONE" />
+		<set name="targetType" val="ENEMY" />
+		<set name="affectScope" val="SINGLE" />
 		<enchant1 name="magicLvl" val="#enchMagicLvl" />
 		<enchant2 name="magicLvl" val="#enchMagicLvl" />
 		<enchant2 name="mpConsume2" val="#ench2MpConsume2" />
@@ -3678,7 +3682,8 @@
 		<set name="overHit" val="true" />
 		<set name="reuseDelay" val="300000" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
-		<set name="targetType" val="ONE" />
+		<set name="targetType" val="ENEMY" />
+		<set name="affectScope" val="SINGLE" />
 		<enchant1 name="magicLvl" val="#enchMagicLvl" />
 		<enchant2 name="magicLvl" val="#enchMagicLvl" />
 		<enchant2 name="mpConsume2" val="#ench2MpConsume2" />
