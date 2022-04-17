@@ -20,6 +20,7 @@ package com.l2jserver.datapack.quests.Q00303_CollectArrowheads;
 
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
+import com.l2jserver.gameserver.model.holders.QuestItemChanceHolder;
 import com.l2jserver.gameserver.model.quest.Quest;
 import com.l2jserver.gameserver.model.quest.QuestState;
 import com.l2jserver.gameserver.model.quest.State;
@@ -32,10 +33,9 @@ public final class Q00303_CollectArrowheads extends Quest {
 	// NPC
 	private static final int MINIA = 30029;
 	// Item
-	private static final int ORCISH_ARROWHEAD = 963;
+	private static final QuestItemChanceHolder ORCISH_ARROWHEAD = new QuestItemChanceHolder(963, 40.0, 10L);
 	// Misc
 	private static final int MIN_LEVEL = 10;
-	private static final int REQUIRED_ITEM_COUNT = 10;
 	// Monster
 	private static final int TUNATH_ORC_MARKSMAN = 20361;
 	
@@ -44,7 +44,7 @@ public final class Q00303_CollectArrowheads extends Quest {
 		addStartNpc(MINIA);
 		addTalkId(MINIA);
 		addKillId(TUNATH_ORC_MARKSMAN);
-		registerQuestItems(ORCISH_ARROWHEAD);
+		registerQuestItems(ORCISH_ARROWHEAD.getId());
 	}
 	
 	@Override
@@ -58,15 +58,14 @@ public final class Q00303_CollectArrowheads extends Quest {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance player, boolean isSummon) {
-		final L2PcInstance partyMember = getRandomPartyMember(player, 1);
-		if (partyMember != null) {
-			final QuestState st = getQuestState(partyMember, false);
-			if (st.giveItemRandomly(npc, ORCISH_ARROWHEAD, 1, REQUIRED_ITEM_COUNT, 0.4, true)) {
+	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
+		QuestState st = getRandomPartyMemberState(killer, 1, 1, npc);
+		if (st != null) {
+			if (giveItemRandomly(st.getPlayer(), npc, ORCISH_ARROWHEAD, true)) {
 				st.setCond(2);
 			}
 		}
-		return super.onKill(npc, player, isSummon);
+		return super.onKill(npc, killer, isSummon);
 	}
 	
 	@Override
@@ -81,13 +80,13 @@ public final class Q00303_CollectArrowheads extends Quest {
 			case State.STARTED: {
 				switch (st.getCond()) {
 					case 1: {
-						if (st.getQuestItemsCount(ORCISH_ARROWHEAD) < REQUIRED_ITEM_COUNT) {
+						if (!hasItemsAtLimit(st.getPlayer(), ORCISH_ARROWHEAD)) {
 							htmltext = "30029-05.html";
 						}
 						break;
 					}
 					case 2: {
-						if (st.getQuestItemsCount(ORCISH_ARROWHEAD) >= REQUIRED_ITEM_COUNT) {
+						if (hasItemsAtLimit(st.getPlayer(), ORCISH_ARROWHEAD)) {
 							st.giveAdena(1000, true);
 							st.addExpAndSp(2000, 0);
 							st.exitQuest(true, true);

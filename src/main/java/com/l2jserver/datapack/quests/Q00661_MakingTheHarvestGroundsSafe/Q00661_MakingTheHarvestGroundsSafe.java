@@ -18,13 +18,10 @@
  */
 package com.l2jserver.datapack.quests.Q00661_MakingTheHarvestGroundsSafe;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
-import com.l2jserver.gameserver.model.holders.ItemChanceHolder;
 import com.l2jserver.gameserver.model.quest.Quest;
+import com.l2jserver.gameserver.model.quest.QuestDroplist;
 import com.l2jserver.gameserver.model.quest.QuestState;
 import com.l2jserver.gameserver.model.quest.State;
 
@@ -39,13 +36,12 @@ public final class Q00661_MakingTheHarvestGroundsSafe extends Quest {
 	private static final int BIG_HORNET_STING = 8283;
 	private static final int CLOUD_GEM = 8284;
 	private static final int YOUNG_ARANEID_CLAW = 8285;
-	// Monsters
-	private final Map<Integer, ItemChanceHolder> MONSTER_CHANCES = new HashMap<>();
-	{
-		MONSTER_CHANCES.put(21095, new ItemChanceHolder(BIG_HORNET_STING, 0.508)); // Giant Poison Bee
-		MONSTER_CHANCES.put(21096, new ItemChanceHolder(CLOUD_GEM, 0.5)); // Cloudy Beast
-		MONSTER_CHANCES.put(21097, new ItemChanceHolder(YOUNG_ARANEID_CLAW, 0.516)); // Young Araneid
-	}
+	// Droplist
+	private static final QuestDroplist DROPLIST = QuestDroplist.builder()
+			.addSingleDrop(21095, BIG_HORNET_STING, 50.8) // Giant Poison Bee
+			.addSingleDrop(21096, CLOUD_GEM, 50.0) // Cloudy Beast
+			.addSingleDrop(21097, YOUNG_ARANEID_CLAW, 51.6) // Young Araneid
+			.build();
 	// Misc
 	private static final int MIN_LVL = 21;
 	
@@ -53,7 +49,7 @@ public final class Q00661_MakingTheHarvestGroundsSafe extends Quest {
 		super(661, Q00661_MakingTheHarvestGroundsSafe.class.getSimpleName(), "Making the Harvest Grounds Safe");
 		addStartNpc(NORMAN);
 		addTalkId(NORMAN);
-		addKillId(MONSTER_CHANCES.keySet());
+		addKillId(DROPLIST.getNpcIds());
 		registerQuestItems(BIG_HORNET_STING, CLOUD_GEM, YOUNG_ARANEID_CLAW);
 	}
 	
@@ -129,8 +125,7 @@ public final class Q00661_MakingTheHarvestGroundsSafe extends Quest {
 	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
 		final QuestState qs = getRandomPartyMemberState(killer, -1, 3, npc);
 		if (qs != null) {
-			final ItemChanceHolder item = MONSTER_CHANCES.get(npc.getId());
-			giveItemRandomly(qs.getPlayer(), npc, item.getId(), item.getCount(), 0, item.getChance(), true);
+			giveItemRandomly(qs.getPlayer(), npc, DROPLIST.get(npc), true);
 		}
 		return super.onKill(npc, killer, isSummon);
 	}

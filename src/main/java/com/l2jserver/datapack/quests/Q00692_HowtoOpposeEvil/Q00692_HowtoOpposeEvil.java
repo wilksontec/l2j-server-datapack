@@ -18,16 +18,10 @@
  */
 package com.l2jserver.datapack.quests.Q00692_HowtoOpposeEvil;
 
-import static com.l2jserver.gameserver.config.Configuration.rates;
-
-import java.util.HashMap;
-import java.util.Map;
-
-import com.l2jserver.gameserver.enums.audio.Sound;
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
-import com.l2jserver.gameserver.model.holders.ItemHolder;
 import com.l2jserver.gameserver.model.quest.Quest;
+import com.l2jserver.gameserver.model.quest.QuestDroplist;
 import com.l2jserver.gameserver.model.quest.QuestState;
 
 /**
@@ -35,76 +29,40 @@ import com.l2jserver.gameserver.model.quest.QuestState;
  * @author Gigiikun
  */
 public final class Q00692_HowtoOpposeEvil extends Quest {
+	// NPCs
 	private static final int DILIOS = 32549;
 	private static final int KIRKLAN = 32550;
+	// Items
 	private static final int LEKONS_CERTIFICATE = 13857;
+	private static final int FREED_SOUL_FRAGMENT = 13863;
+	private static final int DRAGONKIN_CHARM_FRAGMENT = 13865;
+	private static final int SPIRIT_STONE_DUST = 15536;
 	private static final int[] QUEST_ITEMS = {
-		13863,
-		13864,
-		13865,
-		13866,
-		13867,
-		15535,
-		15536
+			FREED_SOUL_FRAGMENT,
+			13864, // Seal of Tiat
+			DRAGONKIN_CHARM_FRAGMENT,
+			13866, // Restless Soul
+			13867, // Tiat Charm
+			15535, // Concentrated Spirit Energy
+			SPIRIT_STONE_DUST
 	};
-	
-	private static final Map<Integer, ItemHolder> QUEST_MOBS = new HashMap<>();
-	static {
-		// Seed of Infinity
-		QUEST_MOBS.put(22509, new ItemHolder(13863, 500));
-		QUEST_MOBS.put(22510, new ItemHolder(13863, 500));
-		QUEST_MOBS.put(22511, new ItemHolder(13863, 500));
-		QUEST_MOBS.put(22512, new ItemHolder(13863, 500));
-		QUEST_MOBS.put(22513, new ItemHolder(13863, 500));
-		QUEST_MOBS.put(22514, new ItemHolder(13863, 500));
-		QUEST_MOBS.put(22515, new ItemHolder(13863, 500));
-		// Seed of Destruction
-		QUEST_MOBS.put(22537, new ItemHolder(13865, 250));
-		QUEST_MOBS.put(22538, new ItemHolder(13865, 250));
-		QUEST_MOBS.put(22539, new ItemHolder(13865, 250));
-		QUEST_MOBS.put(22540, new ItemHolder(13865, 250));
-		QUEST_MOBS.put(22541, new ItemHolder(13865, 250));
-		QUEST_MOBS.put(22542, new ItemHolder(13865, 250));
-		QUEST_MOBS.put(22543, new ItemHolder(13865, 250));
-		QUEST_MOBS.put(22544, new ItemHolder(13865, 250));
-		QUEST_MOBS.put(22546, new ItemHolder(13865, 250));
-		QUEST_MOBS.put(22547, new ItemHolder(13865, 250));
-		QUEST_MOBS.put(22548, new ItemHolder(13865, 250));
-		QUEST_MOBS.put(22549, new ItemHolder(13865, 250));
-		QUEST_MOBS.put(22550, new ItemHolder(13865, 250));
-		QUEST_MOBS.put(22551, new ItemHolder(13865, 250));
-		QUEST_MOBS.put(22552, new ItemHolder(13865, 250));
-		QUEST_MOBS.put(22593, new ItemHolder(13865, 250));
-		QUEST_MOBS.put(22596, new ItemHolder(13865, 250));
-		QUEST_MOBS.put(22597, new ItemHolder(13865, 250));
-		// Seed of Annihilation
-		QUEST_MOBS.put(22746, new ItemHolder(15536, 125));
-		QUEST_MOBS.put(22747, new ItemHolder(15536, 125));
-		QUEST_MOBS.put(22748, new ItemHolder(15536, 125));
-		QUEST_MOBS.put(22749, new ItemHolder(15536, 125));
-		QUEST_MOBS.put(22750, new ItemHolder(15536, 125));
-		QUEST_MOBS.put(22751, new ItemHolder(15536, 125));
-		QUEST_MOBS.put(22752, new ItemHolder(15536, 125));
-		QUEST_MOBS.put(22753, new ItemHolder(15536, 125));
-		QUEST_MOBS.put(22754, new ItemHolder(15536, 125));
-		QUEST_MOBS.put(22755, new ItemHolder(15536, 125));
-		QUEST_MOBS.put(22756, new ItemHolder(15536, 125));
-		QUEST_MOBS.put(22757, new ItemHolder(15536, 125));
-		QUEST_MOBS.put(22758, new ItemHolder(15536, 125));
-		QUEST_MOBS.put(22759, new ItemHolder(15536, 125));
-		QUEST_MOBS.put(22760, new ItemHolder(15536, 125));
-		QUEST_MOBS.put(22761, new ItemHolder(15536, 125));
-		QUEST_MOBS.put(22762, new ItemHolder(15536, 125));
-		QUEST_MOBS.put(22763, new ItemHolder(15536, 125));
-		QUEST_MOBS.put(22764, new ItemHolder(15536, 125));
-		QUEST_MOBS.put(22765, new ItemHolder(15536, 125));
-	}
+	// Droplist
+	private static final QuestDroplist DROPLIST = QuestDroplist.builder()
+			.bulkAddSingleDrop(FREED_SOUL_FRAGMENT, 50.0) // Seed of Infinity
+				.withNpcs(22509, 22510, 22511, 22512, 22513, 22514, 22515).build()
+			.bulkAddSingleDrop(DRAGONKIN_CHARM_FRAGMENT, 25.0) // Seed of Destruction
+				.withNpcs(22537, 22538, 22539, 22540, 22541, 22542, 22543, 22544, 22546)
+				.withNpcs(22547, 22548, 22549, 22550, 22551, 22552, 22593, 22596, 22597).build()
+			.bulkAddSingleDrop(SPIRIT_STONE_DUST, 12.5) // Seed of Annihilation
+				.withNpcs(22746, 22747, 22748, 22749, 22750, 22751, 22752, 22753, 22754, 22755)
+				.withNpcs(22756, 22757, 22758, 22759, 22760, 22761, 22762, 22763, 22764, 22765).build()
+			.build();
 	
 	public Q00692_HowtoOpposeEvil() {
 		super(692, Q00692_HowtoOpposeEvil.class.getSimpleName(), "How to Oppose Evil");
 		addStartNpc(DILIOS);
 		addTalkId(DILIOS, KIRKLAN);
-		addKillId(QUEST_MOBS.keySet());
+		addKillId(DROPLIST.getNpcIds());
 	}
 	
 	@Override
@@ -118,7 +76,7 @@ public final class Q00692_HowtoOpposeEvil extends Quest {
 		} else if (event.equalsIgnoreCase("32550-04.htm")) {
 			st.setCond(3);
 		} else if (event.equalsIgnoreCase("32550-07.htm")) {
-			if (!giveReward(st, 13863, 5, 13796, 1)) {
+			if (!giveReward(st, FREED_SOUL_FRAGMENT, 5, 13796, 1)) {
 				return "32550-08.htm";
 			}
 		} else if (event.equalsIgnoreCase("32550-09.htm")) {
@@ -126,7 +84,7 @@ public final class Q00692_HowtoOpposeEvil extends Quest {
 				return "32550-10.htm";
 			}
 		} else if (event.equalsIgnoreCase("32550-12.htm")) {
-			if (!giveReward(st, 13865, 5, 13841, 1)) {
+			if (!giveReward(st, DRAGONKIN_CHARM_FRAGMENT, 5, 13841, 1)) {
 				return "32550-13.htm";
 			}
 		} else if (event.equalsIgnoreCase("32550-14.htm")) {
@@ -134,7 +92,7 @@ public final class Q00692_HowtoOpposeEvil extends Quest {
 				return "32550-15.htm";
 			}
 		} else if (event.equalsIgnoreCase("32550-17.htm")) {
-			if (!giveReward(st, 15536, 5, 15486, 1)) {
+			if (!giveReward(st, SPIRIT_STONE_DUST, 5, 15486, 1)) {
 				return "32550-18.htm";
 			}
 		} else if (event.equalsIgnoreCase("32550-19.htm")) {
@@ -147,23 +105,9 @@ public final class Q00692_HowtoOpposeEvil extends Quest {
 	
 	@Override
 	public String onKill(L2Npc npc, L2PcInstance player, boolean isSummon) {
-		final L2PcInstance partyMember = getRandomPartyMember(player, 3);
-		if (partyMember == null) {
-			return null;
-		}
-		final QuestState st = getQuestState(partyMember, false);
-		final int npcId = npc.getId();
-		if ((st != null) && QUEST_MOBS.containsKey(npcId)) {
-			int chance = (int) (QUEST_MOBS.get(npcId).getCount() * rates().getRateQuestDrop());
-			int numItems = chance / 1000;
-			chance = chance % 1000;
-			if (getRandom(1000) < chance) {
-				numItems++;
-			}
-			if (numItems > 0) {
-				st.giveItems(QUEST_MOBS.get(npcId).getId(), numItems);
-				st.playSound(Sound.ITEMSOUND_QUEST_ITEMGET);
-			}
+		QuestState st = getRandomPartyMemberState(player, 3, 1, npc);
+		if (st != null) {
+			giveItemRandomly(st.getPlayer(), npc, DROPLIST.get(npc), true);
 		}
 		return null;
 	}

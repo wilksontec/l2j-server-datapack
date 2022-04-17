@@ -18,11 +18,9 @@
  */
 package com.l2jserver.datapack.quests.Q00052_WilliesSpecialBait;
 
-import static com.l2jserver.gameserver.config.Configuration.rates;
-
-import com.l2jserver.gameserver.enums.audio.Sound;
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
+import com.l2jserver.gameserver.model.holders.QuestItemChanceHolder;
 import com.l2jserver.gameserver.model.quest.Quest;
 import com.l2jserver.gameserver.model.quest.QuestState;
 import com.l2jserver.gameserver.model.quest.State;
@@ -37,15 +35,15 @@ public class Q00052_WilliesSpecialBait extends Quest {
 	private static final int WILLIE = 31574;
 	private static final int TARLK_BASILISK = 20573;
 	// Items
-	private static final int TARLK_EYE = 7623;
 	private static final int EARTH_FISHING_LURE = 7612;
-	
+	private static final QuestItemChanceHolder TARLK_EYE = new QuestItemChanceHolder(7623, 33.0, 100L);
+
 	public Q00052_WilliesSpecialBait() {
 		super(52, Q00052_WilliesSpecialBait.class.getSimpleName(), "Willie's Special Bait");
 		addStartNpc(WILLIE);
 		addTalkId(WILLIE);
 		addKillId(TARLK_BASILISK);
-		registerQuestItems(TARLK_EYE);
+		registerQuestItems(TARLK_EYE.getId());
 	}
 	
 	@Override
@@ -61,7 +59,7 @@ public class Q00052_WilliesSpecialBait extends Quest {
 				st.startQuest();
 				break;
 			case "31574-07.html":
-				if (st.isCond(2) && (st.getQuestItemsCount(TARLK_EYE) >= 100)) {
+				if (st.isCond(2) && hasItemsAtLimit(st.getPlayer(), TARLK_EYE)) {
 					htmltext = "31574-06.htm";
 					st.giveItems(EARTH_FISHING_LURE, 4);
 					st.exitQuest(false, true);
@@ -73,22 +71,9 @@ public class Q00052_WilliesSpecialBait extends Quest {
 	
 	@Override
 	public String onKill(L2Npc npc, L2PcInstance player, boolean isSummon) {
-		final L2PcInstance partyMember = getRandomPartyMember(player, 1);
-		if (partyMember == null) {
-			return null;
-		}
-		
-		final QuestState st = getQuestState(partyMember, false);
-		if (st.getQuestItemsCount(TARLK_EYE) < 100) {
-			double chance = 33 * rates().getRateQuestDrop();
-			if (getRandom(100) < chance) {
-				st.rewardItems(TARLK_EYE, 1);
-				st.playSound(Sound.ITEMSOUND_QUEST_ITEMGET);
-			}
-		}
-		
-		if (st.getQuestItemsCount(TARLK_EYE) >= 100) {
-			st.setCond(2, true);
+		QuestState st = getRandomPartyMemberState(player, 1, 1, npc);
+		if (st != null && giveItemRandomly(st.getPlayer(), npc, TARLK_EYE, true)) {
+			st.setCond(2);
 		}
 		return super.onKill(npc, player, isSummon);
 	}

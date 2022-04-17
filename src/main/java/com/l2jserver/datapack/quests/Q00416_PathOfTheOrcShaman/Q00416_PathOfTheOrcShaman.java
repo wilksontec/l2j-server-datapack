@@ -18,20 +18,20 @@
  */
 package com.l2jserver.datapack.quests.Q00416_PathOfTheOrcShaman;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import com.l2jserver.gameserver.enums.audio.Sound;
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
 import com.l2jserver.gameserver.model.base.ClassId;
-import com.l2jserver.gameserver.model.holders.ItemChanceHolder;
+import com.l2jserver.gameserver.model.holders.QuestItemChanceHolder;
 import com.l2jserver.gameserver.model.quest.Quest;
+import com.l2jserver.gameserver.model.quest.QuestDroplist;
 import com.l2jserver.gameserver.model.quest.QuestState;
 import com.l2jserver.gameserver.network.NpcStringId;
 import com.l2jserver.gameserver.network.clientpackets.Say2;
 import com.l2jserver.gameserver.network.serverpackets.NpcSay;
 import com.l2jserver.gameserver.network.serverpackets.SocialAction;
+
+import java.util.Map;
 
 /**
  * Path of the Orc Shaman (416)
@@ -46,47 +46,57 @@ public final class Q00416_PathOfTheOrcShaman extends Quest {
 	private static final int MOIRA = 31979;
 	private static final int TOTEM_SPIRIT_OF_GANDI = 32057;
 	private static final int DEAD_LEOPARDS_CARCASS = 32090;
+	// Monsters
+	private static final int GRIZZLY_BEAR = 20335;
+	private static final int SCARLET_SALAMANDER = 20415;
+	private static final int KASHA_BLADE_SPIDER = 20478;
+	private static final int KASHA_BEAR = 20479;
+	// Quest Monsters
+	private static final int DURKA_SPIRIT = 27056;
+	private static final int BLACK_LEOPARD = 27319;
 	// Items
 	private static final int FIRE_CHARM = 1616;
-	private static final int KASHA_BEAR_PELT = 1617;
-	private static final int KASHA_BLADE_SPIDER_HUSK = 1618;
-	private static final int FIRST_FIERY_EGG = 1619;
 	private static final int HESTUI_MASK = 1620;
 	private static final int SECOND_FIERY_EGG = 1621;
 	private static final int TOTEM_SPIRIT_CLAW = 1622;
 	private static final int TATARUS_LETTER = 1623;
 	private static final int FLAME_CHARM = 1624;
-	private static final int GRIZZLY_BLOOD = 1625;
 	private static final int BLOOD_CAULDRON = 1626;
 	private static final int SPIRIT_NET = 1627;
 	private static final int BOUND_DURKA_SPIRIT = 1628;
 	private static final int DURKA_PARASITE = 1629;
 	private static final int TOTEM_SPIRIT_BLOOD = 1630;
 	private static final int MASK_OF_MEDIUM = 1631;
-	// Quest Monsters
-	private static final int DURKA_SPIRIT = 27056;
-	private static final int BLACK_LEOPARD = 27319;
+	private static final QuestItemChanceHolder KASHA_BEAR_PELT = new QuestItemChanceHolder(1617, 1L);
+	private static final QuestItemChanceHolder KASHA_BLADE_SPIDER_HUSK = new QuestItemChanceHolder(1618, 1L);
+	private static final QuestItemChanceHolder FIRST_FIERY_EGG = new QuestItemChanceHolder(1619, 1L);
+	private static final QuestItemChanceHolder GRIZZLY_BLOOD = new QuestItemChanceHolder(1625, 3L);
+	// Droplist
+	private static final QuestDroplist DROPLIST = QuestDroplist.builder()
+			.addSingleDrop(SCARLET_SALAMANDER, FIRST_FIERY_EGG)
+			.addSingleDrop(KASHA_BLADE_SPIDER, KASHA_BLADE_SPIDER_HUSK)
+			.addSingleDrop(KASHA_BEAR, KASHA_BEAR_PELT)
+			.addSingleDrop(GRIZZLY_BEAR, GRIZZLY_BLOOD)
+			.build();
 	// Misc
 	private static final int MIN_LEVEL = 18;
 	// Mobs
-	private static final Map<Integer, ItemChanceHolder> MOBS = new HashMap<>();
-	static {
-		MOBS.put(20415, new ItemChanceHolder(FIRST_FIERY_EGG, 1.0, 1)); // scarlet_salamander
-		MOBS.put(20478, new ItemChanceHolder(KASHA_BLADE_SPIDER_HUSK, 1.0, 1)); // kasha_blade_spider
-		MOBS.put(20479, new ItemChanceHolder(KASHA_BEAR_PELT, 1.0, 1)); // kasha_bear
-		MOBS.put(20335, new ItemChanceHolder(GRIZZLY_BLOOD, 1.0, 6)); // grizzly_bear
-		MOBS.put(20038, new ItemChanceHolder(DURKA_PARASITE, 1.0, 9)); // poison_spider
-		MOBS.put(20043, new ItemChanceHolder(DURKA_PARASITE, 1.0, 9)); // bind_poison_spider
-		MOBS.put(27056, new ItemChanceHolder(DURKA_PARASITE, 1.0, 9)); // durka_spirit
-	}
-	
+	private static final Map<Integer, Integer> MOBS_CONDITIONS = Map.of(
+			SCARLET_SALAMANDER, 1,
+			KASHA_BLADE_SPIDER, 1,
+			KASHA_BEAR, 1,
+			GRIZZLY_BEAR, 6,
+			20038, 9, // poison_spider
+			20043, 9, // bind_poison_spider
+			DURKA_SPIRIT, 9);
+
 	public Q00416_PathOfTheOrcShaman() {
 		super(416, Q00416_PathOfTheOrcShaman.class.getSimpleName(), "Path of the Orc Shaman");
 		addStartNpc(TATARU_ZU_HESTUI);
 		addTalkId(TATARU_ZU_HESTUI, UMOS, MOIRA, DEAD_LEOPARDS_CARCASS, DUDA_MARA_TOTEM_SPIRIT, HESTUI_TOTEM_SPIRIT, TOTEM_SPIRIT_OF_GANDI);
-		addKillId(MOBS.keySet());
+		addKillId(MOBS_CONDITIONS.keySet());
 		addKillId(BLACK_LEOPARD);
-		registerQuestItems(FIRE_CHARM, KASHA_BEAR_PELT, KASHA_BLADE_SPIDER_HUSK, FIRST_FIERY_EGG, HESTUI_MASK, SECOND_FIERY_EGG, TOTEM_SPIRIT_CLAW, TATARUS_LETTER, FLAME_CHARM, GRIZZLY_BLOOD, BLOOD_CAULDRON, SPIRIT_NET, BOUND_DURKA_SPIRIT, DURKA_PARASITE, TOTEM_SPIRIT_BLOOD);
+		registerQuestItems(FIRE_CHARM, KASHA_BEAR_PELT.getId(), KASHA_BLADE_SPIDER_HUSK.getId(), FIRST_FIERY_EGG.getId(), HESTUI_MASK, SECOND_FIERY_EGG, TOTEM_SPIRIT_CLAW, TATARUS_LETTER, FLAME_CHARM, GRIZZLY_BLOOD.getId(), BLOOD_CAULDRON, SPIRIT_NET, BOUND_DURKA_SPIRIT, DURKA_PARASITE, TOTEM_SPIRIT_BLOOD);
 	}
 	
 	@Override
@@ -238,44 +248,38 @@ public final class Q00416_PathOfTheOrcShaman extends Quest {
 		
 		if (npc.getId() == BLACK_LEOPARD) {
 			switch (st.getMemoState()) {
-				case 102: {
-					st.setMemoState(103);
-					break;
-				}
-				case 103: {
+				case 102 -> st.setMemoState(103);
+				case 103 -> {
 					st.setMemoState(104);
 					st.setCond(15, true);
 					if (getRandom(100) < 66) {
 						npc.broadcastPacket(new NpcSay(npc.getObjectId(), Say2.NPC_ALL, npc.getId(), NpcStringId.MY_DEAR_FRIEND_OF_S1_WHO_HAS_GONE_ON_AHEAD_OF_ME).addStringParameter(st.getPlayer().getName()));
 					}
-					break;
 				}
-				case 105: {
+				case 105 -> {
 					st.setMemoState(106);
 					st.setCond(17, true);
 					if (getRandom(100) < 66) {
 						npc.broadcastPacket(new NpcSay(npc.getObjectId(), Say2.NPC_ALL, npc.getId(), NpcStringId.LISTEN_TO_TEJAKAR_GANDI_YOUNG_OROKA_THE_SPIRIT_OF_THE_SLAIN_LEOPARD_IS_CALLING_YOU_S1).addStringParameter(st.getPlayer().getName()));
 					}
-					break;
 				}
-				case 107: {
+				case 107 -> {
 					st.setMemoState(108);
 					st.setCond(19, true);
-					break;
 				}
 			}
 			return super.onKill(npc, player, isSummon);
 		}
 		
-		final ItemChanceHolder item = MOBS.get(npc.getId());
-		if (item.getCount() == st.getCond()) {
+		final int mobCond = MOBS_CONDITIONS.get(npc.getId());
+		if (mobCond == st.getCond()) {
 			if (st.isCond(1) && hasQuestItems(st.getPlayer(), FIRE_CHARM)) {
-				if (giveItemRandomly(st.getPlayer(), npc, item.getId(), 1, 1, item.getChance(), true) //
-					&& hasQuestItems(st.getPlayer(), FIRST_FIERY_EGG, KASHA_BLADE_SPIDER_HUSK, KASHA_BEAR_PELT)) {
-					st.setCond(2, true);
+				if (giveItemRandomly(st.getPlayer(), npc, DROPLIST.get(npc), true)
+					&& hasQuestItems(st.getPlayer(), FIRST_FIERY_EGG.getId(), KASHA_BLADE_SPIDER_HUSK.getId(), KASHA_BEAR_PELT.getId())) {
+					st.setCond(2);
 				}
 			} else if (st.isCond(6) && hasQuestItems(st.getPlayer(), FLAME_CHARM)) {
-				if (giveItemRandomly(st.getPlayer(), npc, item.getId(), 1, 3, item.getChance(), true)) {
+				if (giveItemRandomly(st.getPlayer(), npc, DROPLIST.get(npc), true)) {
 					st.setCond(7);
 				}
 			} else if (st.isCond(9) && hasQuestItems(st.getPlayer(), SPIRIT_NET) //
@@ -317,10 +321,10 @@ public final class Q00416_PathOfTheOrcShaman extends Quest {
 				case TATARU_ZU_HESTUI: {
 					if (st.isMemoState(1)) {
 						if (hasQuestItems(player, FIRE_CHARM)) {
-							if (getQuestItemsCount(player, KASHA_BEAR_PELT, KASHA_BLADE_SPIDER_HUSK, FIRST_FIERY_EGG) < 3) {
+							if (!hasItemsAtLimit(player, KASHA_BEAR_PELT, KASHA_BLADE_SPIDER_HUSK, FIRST_FIERY_EGG)) {
 								htmltext = "30585-08.html";
 							} else {
-								takeItems(player, -1, FIRE_CHARM, KASHA_BEAR_PELT, KASHA_BLADE_SPIDER_HUSK, FIRST_FIERY_EGG);
+								takeItems(player, -1, FIRE_CHARM, KASHA_BEAR_PELT.getId(), KASHA_BLADE_SPIDER_HUSK.getId(), FIRST_FIERY_EGG.getId());
 								giveItems(player, HESTUI_MASK, 1);
 								giveItems(player, SECOND_FIERY_EGG, 1);
 								st.setCond(3, true);
@@ -332,7 +336,7 @@ public final class Q00416_PathOfTheOrcShaman extends Quest {
 							htmltext = "30585-11.html";
 						} else if (hasQuestItems(player, TATARUS_LETTER)) {
 							htmltext = "30585-15.html";
-						} else if (hasAtLeastOneQuestItem(player, GRIZZLY_BLOOD, FLAME_CHARM, BLOOD_CAULDRON, SPIRIT_NET, BOUND_DURKA_SPIRIT, TOTEM_SPIRIT_BLOOD)) {
+						} else if (hasAtLeastOneQuestItem(player, GRIZZLY_BLOOD.getId(), FLAME_CHARM, BLOOD_CAULDRON, SPIRIT_NET, BOUND_DURKA_SPIRIT, TOTEM_SPIRIT_BLOOD)) {
 							htmltext = "30585-16.html";
 						}
 					} else if (st.isMemoState(100)) {
@@ -348,10 +352,10 @@ public final class Q00416_PathOfTheOrcShaman extends Quest {
 							st.setCond(6, true);
 							htmltext = "30502-01.html";
 						} else if (hasQuestItems(player, FLAME_CHARM)) {
-							if (getQuestItemsCount(player, GRIZZLY_BLOOD) < 3) {
+							if (!hasItemsAtLimit(player, GRIZZLY_BLOOD)) {
 								htmltext = "30502-02.html";
 							} else {
-								takeItems(player, -1, FLAME_CHARM, GRIZZLY_BLOOD);
+								takeItems(player, -1, FLAME_CHARM, GRIZZLY_BLOOD.getId());
 								giveItems(player, BLOOD_CAULDRON, 1);
 								st.setCond(8, true);
 								htmltext = "30502-03.html";
@@ -449,7 +453,7 @@ public final class Q00416_PathOfTheOrcShaman extends Quest {
 							htmltext = "30592-01.html";
 						} else if (hasQuestItems(player, TOTEM_SPIRIT_CLAW)) {
 							htmltext = "30592-04.html";
-						} else if (hasAtLeastOneQuestItem(player, GRIZZLY_BLOOD, FLAME_CHARM, BLOOD_CAULDRON, SPIRIT_NET, BOUND_DURKA_SPIRIT, TOTEM_SPIRIT_BLOOD, TATARUS_LETTER)) {
+						} else if (hasAtLeastOneQuestItem(player, GRIZZLY_BLOOD.getId(), FLAME_CHARM, BLOOD_CAULDRON, SPIRIT_NET, BOUND_DURKA_SPIRIT, TOTEM_SPIRIT_BLOOD, TATARUS_LETTER)) {
 							htmltext = "30592-05.html";
 						}
 					}

@@ -18,12 +18,10 @@
  */
 package com.l2jserver.datapack.quests.Q00371_ShrieksOfGhosts;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
 import com.l2jserver.gameserver.model.quest.Quest;
+import com.l2jserver.gameserver.model.quest.QuestDroplist;
 import com.l2jserver.gameserver.model.quest.QuestState;
 import com.l2jserver.gameserver.util.Util;
 
@@ -32,24 +30,6 @@ import com.l2jserver.gameserver.util.Util;
  * @author Adry_85
  */
 public final class Q00371_ShrieksOfGhosts extends Quest {
-	private static final class DropInfo {
-		public final int _firstChance;
-		public final int _secondChance;
-		
-		public DropInfo(int firstChance, int secondChance) {
-			_firstChance = firstChance;
-			_secondChance = secondChance;
-		}
-		
-		public int getFirstChance() {
-			return _firstChance;
-		}
-		
-		public int getSecondChance() {
-			return _secondChance;
-		}
-	}
-	
 	// NPCs
 	private static final int REVA = 30867;
 	private static final int PATRIN = 30929;
@@ -60,21 +40,30 @@ public final class Q00371_ShrieksOfGhosts extends Quest {
 	private static final int ANCIENT_PORCELAIN_HIGH_QUALITY = 6004;
 	private static final int ANCIENT_PORCELAIN_LOW_QUALITY = 6005;
 	private static final int ANCIENT_PORCELAIN_LOWEST_QUALITY = 6006;
+	// Droplist
+	private static final QuestDroplist DROPLIST = QuestDroplist.builder()
+			.addGroupedDrop(20818, 40.0) // hallates_warrior
+				.withDropItem(ANCIENT_ASH_URN, 87.5)
+				.withDropItem(ANCIENT_PORCELAIN, 12.5)
+				.build()
+			.addGroupedDrop(20820, 67.3) // hallates_knight
+				.withDropItem(ANCIENT_ASH_URN, 86.63)
+				.withDropItem(ANCIENT_PORCELAIN, 13.37)
+				.build()
+			.addGroupedDrop(20824, 53.8) // hallates_commander
+				.withDropItem(ANCIENT_ASH_URN, 85.13)
+				.withDropItem(ANCIENT_PORCELAIN, 14.87)
+				.build()
+			.build();
 	// Misc
 	private static final int MIN_LEVEL = 59;
-	
-	private static final Map<Integer, DropInfo> MOBS = new HashMap<>();
-	static {
-		MOBS.put(20818, new DropInfo(350, 400)); // hallates_warrior
-		MOBS.put(20820, new DropInfo(583, 673)); // hallates_knight
-		MOBS.put(20824, new DropInfo(458, 538)); // hallates_commander
-	}
-	
+
+
 	public Q00371_ShrieksOfGhosts() {
 		super(371, Q00371_ShrieksOfGhosts.class.getSimpleName(), "Shrieks of Ghosts");
 		addStartNpc(REVA);
 		addTalkId(REVA, PATRIN);
-		addKillId(MOBS.keySet());
+		addKillId(DROPLIST.getNpcIds());
 		registerQuestItems(ANCIENT_ASH_URN);
 	}
 	
@@ -155,18 +144,12 @@ public final class Q00371_ShrieksOfGhosts extends Quest {
 	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
 		final QuestState qs = getQuestState(killer, false);
 		
-		if ((qs == null) || !Util.checkIfInRange(1500, npc, killer, true)) {
+		if ((qs == null) || !Util.checkIfInRange(1500, npc, qs.getPlayer(), true)) {
 			return null;
 		}
-		
-		final DropInfo info = MOBS.get(npc.getId());
-		final int random = getRandom(1000);
-		
-		if (random < info.getFirstChance()) {
-			qs.giveItemRandomly(npc, ANCIENT_ASH_URN, 1, 0, 1.0, true);
-		} else if (random < info.getSecondChance()) {
-			qs.giveItemRandomly(npc, ANCIENT_PORCELAIN, 1, 0, 1.0, true);
-		}
+
+		giveItemRandomly(qs.getPlayer(), npc, DROPLIST.get(npc), true);
+
 		return super.onKill(npc, killer, isSummon);
 	}
 	

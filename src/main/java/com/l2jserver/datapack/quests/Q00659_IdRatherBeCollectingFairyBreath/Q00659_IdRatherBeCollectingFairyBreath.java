@@ -18,12 +18,10 @@
  */
 package com.l2jserver.datapack.quests.Q00659_IdRatherBeCollectingFairyBreath;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
 import com.l2jserver.gameserver.model.quest.Quest;
+import com.l2jserver.gameserver.model.quest.QuestDroplist;
 import com.l2jserver.gameserver.model.quest.QuestState;
 
 /**
@@ -35,23 +33,22 @@ public final class Q00659_IdRatherBeCollectingFairyBreath extends Quest {
 	private static final int GALATEA = 30634;
 	// Item
 	private static final int FAIRY_BREATH = 8286;
+	// Droplist
+	private static final QuestDroplist DROPLIST = QuestDroplist.builder()
+			.addSingleDrop(20078, FAIRY_BREATH, 98.0) // whispering_wind
+			.addSingleDrop(21023, FAIRY_BREATH, 82.0) // sobing_wind
+			.addSingleDrop(21024, FAIRY_BREATH, 86.0) // babbleing_wind
+			.addSingleDrop(21025, FAIRY_BREATH, 90.0) // giggleing_wind
+			.addSingleDrop(21026, FAIRY_BREATH, 96.0) // singing_wind
+			.build();
 	// Misc
 	private static final int MIN_LEVEL = 26;
-	// Mobs
-	private static final Map<Integer, Double> MOBS = new HashMap<>();
-	static {
-		MOBS.put(20078, 0.98); // whispering_wind
-		MOBS.put(21023, 0.82); // sobing_wind
-		MOBS.put(21024, 0.86); // babbleing_wind
-		MOBS.put(21025, 0.90); // giggleing_wind
-		MOBS.put(21026, 0.96); // singing_wind
-	}
-	
+
 	public Q00659_IdRatherBeCollectingFairyBreath() {
 		super(659, Q00659_IdRatherBeCollectingFairyBreath.class.getSimpleName(), "I'd Rather Be Collecting Fairy Breath");
 		addStartNpc(GALATEA);
 		addTalkId(GALATEA);
-		addKillId(MOBS.keySet());
+		addKillId(DROPLIST.getNpcIds());
 		registerQuestItems(FAIRY_BREATH);
 	}
 	
@@ -98,7 +95,7 @@ public final class Q00659_IdRatherBeCollectingFairyBreath extends Quest {
 	public String onKill(L2Npc npc, L2PcInstance player, boolean isSummon) {
 		final QuestState st = getRandomPartyMemberState(player, -1, 3, npc);
 		if (st != null) {
-			st.giveItemRandomly(npc, FAIRY_BREATH, 1, 0, MOBS.get(npc.getId()), true);
+			giveItemRandomly(st.getPlayer(), npc, DROPLIST.get(npc), true);
 		}
 		return super.onKill(npc, player, isSummon);
 	}

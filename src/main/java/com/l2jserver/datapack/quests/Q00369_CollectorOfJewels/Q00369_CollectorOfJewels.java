@@ -18,13 +18,10 @@
  */
 package com.l2jserver.datapack.quests.Q00369_CollectorOfJewels;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
-import com.l2jserver.gameserver.model.holders.QuestItemHolder;
 import com.l2jserver.gameserver.model.quest.Quest;
+import com.l2jserver.gameserver.model.quest.QuestDroplist;
 import com.l2jserver.gameserver.model.quest.QuestState;
 
 /**
@@ -37,24 +34,25 @@ public final class Q00369_CollectorOfJewels extends Quest {
 	// Items
 	private static final int FLARE_SHARD = 5882;
 	private static final int FREEZING_SHARD = 5883;
+	// Mobs
+	private static final QuestDroplist DROPLIST = QuestDroplist.builder()
+			.addSingleDrop(20609, FLARE_SHARD, 75.0) // salamander_lakin
+			.addSingleDrop(20612, FLARE_SHARD, 91.0) // salamander_rowin
+			.addSingleDrop(20749, FLARE_SHARD, 2L) // death_fire
+			.addSingleDrop(20616, FREEZING_SHARD, 81.0) // undine_lakin
+			.addSingleDrop(20619, FREEZING_SHARD, 87.0) // undine_rowin
+			.addSingleDrop(20747, FREEZING_SHARD, 2L) // roxide
+			.build();
 	// Misc
 	private static final int MIN_LEVEL = 25;
-	// Mobs
-	private static final Map<Integer, QuestItemHolder> MOBS_DROP_CHANCES = new HashMap<>();
-	static {
-		MOBS_DROP_CHANCES.put(20609, new QuestItemHolder(FLARE_SHARD, 75, 1)); // salamander_lakin
-		MOBS_DROP_CHANCES.put(20612, new QuestItemHolder(FLARE_SHARD, 91, 1)); // salamander_rowin
-		MOBS_DROP_CHANCES.put(20749, new QuestItemHolder(FLARE_SHARD, 100, 2)); // death_fire
-		MOBS_DROP_CHANCES.put(20616, new QuestItemHolder(FREEZING_SHARD, 81, 1)); // undine_lakin
-		MOBS_DROP_CHANCES.put(20619, new QuestItemHolder(FREEZING_SHARD, 87, 1)); // undine_rowin
-		MOBS_DROP_CHANCES.put(20747, new QuestItemHolder(FREEZING_SHARD, 100, 2)); // roxide
-	}
-	
+	private static final int FIRST_STEP_LIMIT = 50;
+	private static final int SECOND_STEP_LIMIT = 200;
+
 	public Q00369_CollectorOfJewels() {
 		super(369, Q00369_CollectorOfJewels.class.getSimpleName(), "Collector of Jewels");
 		addStartNpc(NELL);
 		addTalkId(NELL);
-		addKillId(MOBS_DROP_CHANCES.keySet());
+		addKillId(DROPLIST.getNpcIds());
 		registerQuestItems(FLARE_SHARD, FREEZING_SHARD);
 	}
 	
@@ -101,21 +99,16 @@ public final class Q00369_CollectorOfJewels extends Quest {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance player, boolean isSummon) {
-		final QuestItemHolder item = MOBS_DROP_CHANCES.get(npc.getId());
-		if (getRandom(100) < item.getChance()) {
-			L2PcInstance luckyPlayer = getRandomPartyMember(player, npc);
-			if (luckyPlayer != null) {
-				final QuestState st = getQuestState(luckyPlayer, false);
-				final int itemCount = (st.isMemoState(1) ? 50 : 200);
-				final int cond = (st.isMemoState(1) ? 2 : 4);
-				if (giveItemRandomly(luckyPlayer, npc, item.getId(), item.getCount(), itemCount, 1.0, true) //
-					&& (getQuestItemsCount(luckyPlayer, FLARE_SHARD, FREEZING_SHARD) >= (itemCount * 2))) {
-					st.setCond(cond);
-				}
-			}
+	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
+		L2PcInstance luckyPlayer = getRandomPartyMember(killer, npc);
+		final QuestState st = getQuestState(luckyPlayer, false);
+
+		final int itemLimit = (st.isMemoState(1) ? FIRST_STEP_LIMIT : SECOND_STEP_LIMIT);
+		if (giveItemRandomly(st.getPlayer(), npc, DROPLIST.get(npc).drop(), itemLimit, true)
+			&& (getQuestItemsCount(luckyPlayer, FLARE_SHARD, FREEZING_SHARD) >= (itemLimit * 2))) {
+			st.setCond((st.isMemoState(1) ? 2 : 4));
 		}
-		return super.onKill(npc, player, isSummon);
+		return super.onKill(npc, killer, isSummon);
 	}
 	
 	@Override
@@ -127,7 +120,7 @@ public final class Q00369_CollectorOfJewels extends Quest {
 		} else if (st.isStarted()) {
 			switch (st.getMemoState()) {
 				case 1: {
-					if (getQuestItemsCount(player, FLARE_SHARD, FREEZING_SHARD) >= 100) {
+					if (getQuestItemsCount(player, FLARE_SHARD, FREEZING_SHARD) >= FIRST_STEP_LIMIT * 2) {
 						giveAdena(player, 31810, true);
 						takeItems(player, -1, FLARE_SHARD, FREEZING_SHARD);
 						st.setMemoState(2);
@@ -142,7 +135,7 @@ public final class Q00369_CollectorOfJewels extends Quest {
 					break;
 				}
 				case 3: {
-					if (getQuestItemsCount(player, FLARE_SHARD, FREEZING_SHARD) >= 400) {
+					if (getQuestItemsCount(player, FLARE_SHARD, FREEZING_SHARD) >= SECOND_STEP_LIMIT * 2) {
 						giveAdena(player, 84415, true);
 						takeItems(player, -1, FLARE_SHARD, FREEZING_SHARD);
 						st.exitQuest(true, true);

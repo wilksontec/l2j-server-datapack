@@ -18,17 +18,15 @@
  */
 package com.l2jserver.datapack.quests.Q00384_WarehouseKeepersPastime;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
-
 import com.l2jserver.gameserver.enums.audio.Sound;
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
 import com.l2jserver.gameserver.model.quest.Quest;
+import com.l2jserver.gameserver.model.quest.QuestDroplist;
 import com.l2jserver.gameserver.model.quest.QuestState;
-import com.l2jserver.gameserver.util.Util;
+
+import java.util.Arrays;
+import java.util.Collections;
 
 /**
  * Warehouse Keeper's Pastime (384)
@@ -39,7 +37,6 @@ public final class Q00384_WarehouseKeepersPastime extends Quest {
 	// NPCs
 	private static final int CLIFF = 30182;
 	private static final int WAREHOUSE_CHIEF_BAXT = 30685;
-	
 	// Monsters
 	private static final int DUST_WIND = 20242;
 	private static final int INNERSEN = 20950;
@@ -69,6 +66,35 @@ public final class Q00384_WarehouseKeepersPastime extends Quest {
 	private static final int THUNDER_WYRM = 20243;
 	// Items
 	private static final int Q_IRONGATE_MEDAL = 5964;
+	// Droplist
+	private static final QuestDroplist DROPLIST = QuestDroplist.builder()
+			.addSingleDrop(HUNTER_GARGOYLE, Q_IRONGATE_MEDAL, 32.8)
+			.addSingleDrop(DUST_WIND, Q_IRONGATE_MEDAL, 35.0)
+			.addSingleDrop(THUNDER_WYRM, Q_IRONGATE_MEDAL, 31.2)
+			.addSingleDrop(DUST_WIND_HOLD, Q_IRONGATE_MEDAL, 35.0)
+			.addSingleDrop(THUNDER_WYRM_HOLD, Q_IRONGATE_MEDAL, 31.2)
+			.addSingleDrop(HUNTER_GARGOYLE_HOLD, Q_IRONGATE_MEDAL, 32.8)
+			.addSingleDrop(GIANT_MONSTEREYE, Q_IRONGATE_MEDAL, 17.6)
+			.addSingleDrop(ROT_GOLEM, Q_IRONGATE_MEDAL, 22.6)
+			.addSingleDrop(WEIRD_DRAKE, Q_IRONGATE_MEDAL, 21.8)
+			.addSingleDrop(CARINKAIN, Q_IRONGATE_MEDAL, 21.6)
+			.addSingleDrop(GRAVE_GUARD, Q_IRONGATE_MEDAL, 31.2)
+			.addSingleDrop(TULBEN, Q_IRONGATE_MEDAL, 52.2)
+			.addSingleDrop(DRAGON_BEARER_CHIEF, Q_IRONGATE_MEDAL, 38.0)
+			.addSingleDrop(DRAGON_BEARER_WARRIOR, Q_IRONGATE_MEDAL, 39.0)
+			.addSingleDrop(DRAGON_BEARER_ARCHER, Q_IRONGATE_MEDAL, 37.2)
+			.addSingleDrop(CONGERER_LORD, Q_IRONGATE_MEDAL, 80.2)
+			.addSingleDrop(CONGERER, Q_IRONGATE_MEDAL, 84.4)
+			.addSingleDrop(NIGHTMARE_GUIDE, Q_IRONGATE_MEDAL, 11.8)
+			.addSingleDrop(NIGHTMARE_KEEPER, Q_IRONGATE_MEDAL, 17.0)
+			.addSingleDrop(NIGHTMARE_LORD, Q_IRONGATE_MEDAL, 14.4)
+			.addSingleDrop(CADEINE, Q_IRONGATE_MEDAL, 16.2)
+			.addSingleDrop(SANHIDRO, Q_IRONGATE_MEDAL,  25.0)
+			.addSingleDrop(CONNABI, Q_IRONGATE_MEDAL, 27.2)
+			.addSingleDrop(BARTAL, Q_IRONGATE_MEDAL, 27.0)
+			.addSingleDrop(LUMINUN, Q_IRONGATE_MEDAL, 32.0)
+			.addSingleDrop(INNERSEN, Q_IRONGATE_MEDAL, 34.6)
+			.build();
 	// Reward
 	private static final int MOONSTONE_EARING = 852;
 	private static final int DRAKE_LEATHER_BOOTS = 2437;
@@ -413,10 +439,7 @@ public final class Q00384_WarehouseKeepersPastime extends Quest {
 			}
 		}
 	}
-	
-	/**
-	 * @param qs
-	 */
+
 	private void createBingoBoard(QuestState qs) {
 		//@formatter:off
 		Integer[] arr = {1,2,3,4,5,6,7,8,9};
@@ -425,11 +448,7 @@ public final class Q00384_WarehouseKeepersPastime extends Quest {
 		qs.set("numbers", Arrays.asList(arr).toString().replaceAll("[^\\d ]", ""));
 		qs.set("selected", "? ? ? ? ? ? ? ? ?");
 	}
-	
-	/**
-	 * @param qs
-	 * @return
-	 */
+
 	private int getMatchedBingoLineCount(QuestState qs) {
 		String[] q = qs.get("selected").split(" ");
 		int found = 0;
@@ -462,11 +481,7 @@ public final class Q00384_WarehouseKeepersPastime extends Quest {
 		}
 		return found;
 	}
-	
-	/**
-	 * @param qs
-	 * @param num
-	 */
+
 	private void selectBingoNumber(QuestState qs, int num) {
 		String[] numbers = qs.get("numbers").split(" ");
 		int pos = 0;
@@ -483,35 +498,21 @@ public final class Q00384_WarehouseKeepersPastime extends Quest {
 				continue;
 			}
 		}
-		String result = selected[0];
+		StringBuilder result = new StringBuilder(selected[0]);
 		for (int i = 1; i < selected.length; i++) {
-			result += " " + selected[i];
+			result.append(" ").append(selected[i]);
 		}
-		qs.set("selected", result);
+		qs.set("selected", result.toString());
 	}
-	
-	/**
-	 * @param qs
-	 * @param num
-	 * @return
-	 */
+
 	private boolean isSelectedBingoNumber(QuestState qs, int num) {
 		return qs.get("selected").contains(num + "");
 	}
-	
-	/**
-	 * @param qs
-	 * @param num
-	 * @return
-	 */
+
 	private int getNumberFromBingoBoard(QuestState qs, int num) {
 		return Integer.parseInt(qs.get("numbers").split(" ")[num]);
 	}
-	
-	/**
-	 * @param qs
-	 * @return
-	 */
+
 	private int getBingoSelectCount(QuestState qs) {
 		String current = qs.get("selected");
 		return current.replaceAll("\\D", "").length();
@@ -519,163 +520,10 @@ public final class Q00384_WarehouseKeepersPastime extends Quest {
 	
 	@Override
 	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
-		final QuestState qs = getRandomPlayerFromParty(killer, npc);
+		final QuestState qs = getRandomPartyMemberState(killer, -1, 2, npc);
 		if (qs != null) {
-			switch (npc.getId()) {
-				case HUNTER_GARGOYLE:
-					if (getRandom(1000) < 328) {
-						giveItemRandomly(qs.getPlayer(), npc, Q_IRONGATE_MEDAL, 1, 0, 1, true);
-					}
-					break;
-				case DUST_WIND:
-					if (getRandom(100) < 35) {
-						giveItemRandomly(qs.getPlayer(), npc, Q_IRONGATE_MEDAL, 1, 0, 1, true);
-					}
-					break;
-				case THUNDER_WYRM:
-					if (getRandom(1000) < 312) {
-						giveItemRandomly(qs.getPlayer(), npc, Q_IRONGATE_MEDAL, 1, 0, 1, true);
-					}
-					break;
-				case DUST_WIND_HOLD:
-					if (getRandom(100) < 35) {
-						giveItemRandomly(qs.getPlayer(), npc, Q_IRONGATE_MEDAL, 1, 0, 1, true);
-					}
-					break;
-				case THUNDER_WYRM_HOLD:
-					if (getRandom(1000) < 312) {
-						giveItemRandomly(qs.getPlayer(), npc, Q_IRONGATE_MEDAL, 1, 0, 1, true);
-					}
-					break;
-				case HUNTER_GARGOYLE_HOLD:
-					if (getRandom(1000) < 328) {
-						giveItemRandomly(qs.getPlayer(), npc, Q_IRONGATE_MEDAL, 1, 0, 1, true);
-					}
-					break;
-				case GIANT_MONSTEREYE:
-					if (getRandom(1000) < 176) {
-						giveItemRandomly(qs.getPlayer(), npc, Q_IRONGATE_MEDAL, 1, 0, 1, true);
-					}
-					break;
-				case ROT_GOLEM:
-					if (getRandom(1000) < 226) {
-						giveItemRandomly(qs.getPlayer(), npc, Q_IRONGATE_MEDAL, 1, 0, 1, true);
-					}
-					break;
-				case WEIRD_DRAKE:
-					if (getRandom(1000) < 218) {
-						giveItemRandomly(qs.getPlayer(), npc, Q_IRONGATE_MEDAL, 1, 0, 1, true);
-					}
-					break;
-				case CARINKAIN:
-					if (getRandom(1000) < 216) {
-						giveItemRandomly(qs.getPlayer(), npc, Q_IRONGATE_MEDAL, 1, 0, 1, true);
-					}
-					break;
-				case GRAVE_GUARD:
-					if (getRandom(1000) < 312) {
-						giveItemRandomly(qs.getPlayer(), npc, Q_IRONGATE_MEDAL, 1, 0, 1, true);
-					}
-					break;
-				case TULBEN:
-					if (getRandom(1000) < 522) {
-						giveItemRandomly(qs.getPlayer(), npc, Q_IRONGATE_MEDAL, 1, 0, 1, true);
-					}
-					break;
-				case DRAGON_BEARER_CHIEF:
-					if (getRandom(100) < 38) {
-						giveItemRandomly(qs.getPlayer(), npc, Q_IRONGATE_MEDAL, 1, 0, 1, true);
-					}
-					break;
-				case DRAGON_BEARER_WARRIOR:
-					if (getRandom(100) < 39) {
-						giveItemRandomly(qs.getPlayer(), npc, Q_IRONGATE_MEDAL, 1, 0, 1, true);
-					}
-					break;
-				case DRAGON_BEARER_ARCHER:
-					if (getRandom(1000) < 372) {
-						giveItemRandomly(qs.getPlayer(), npc, Q_IRONGATE_MEDAL, 1, 0, 1, true);
-					}
-					break;
-				case CONGERER_LORD:
-					if (getRandom(1000) < 802) {
-						giveItemRandomly(qs.getPlayer(), npc, Q_IRONGATE_MEDAL, 1, 0, 1, true);
-					}
-					break;
-				case CONGERER:
-					if (getRandom(1000) < 844) {
-						giveItemRandomly(qs.getPlayer(), npc, Q_IRONGATE_MEDAL, 1, 0, 1, true);
-					}
-					break;
-				case NIGHTMARE_GUIDE:
-					if (getRandom(1000) < 118) {
-						giveItemRandomly(qs.getPlayer(), npc, Q_IRONGATE_MEDAL, 1, 0, 1, true);
-					}
-					break;
-				case NIGHTMARE_KEEPER:
-					if (getRandom(100) < 17) {
-						giveItemRandomly(qs.getPlayer(), npc, Q_IRONGATE_MEDAL, 1, 0, 1, true);
-					}
-					break;
-				case NIGHTMARE_LORD:
-					if (getRandom(1000) < 144) {
-						giveItemRandomly(qs.getPlayer(), npc, Q_IRONGATE_MEDAL, 1, 0, 1, true);
-					}
-					break;
-				case CADEINE:
-					if (getRandom(1000) < 162) {
-						giveItemRandomly(qs.getPlayer(), npc, Q_IRONGATE_MEDAL, 1, 0, 1, true);
-					}
-					break;
-				case SANHIDRO:
-					if (getRandom(100) < 25) {
-						giveItemRandomly(qs.getPlayer(), npc, Q_IRONGATE_MEDAL, 1, 0, 1, true);
-					}
-					break;
-				case CONNABI:
-					if (getRandom(1000) < 272) {
-						giveItemRandomly(qs.getPlayer(), npc, Q_IRONGATE_MEDAL, 1, 0, 1, true);
-					}
-					break;
-				case BARTAL:
-					if (getRandom(100) < 27) {
-						giveItemRandomly(qs.getPlayer(), npc, Q_IRONGATE_MEDAL, 1, 0, 1, true);
-					}
-					break;
-				case LUMINUN:
-					if (getRandom(100) < 32) {
-						giveItemRandomly(qs.getPlayer(), npc, Q_IRONGATE_MEDAL, 1, 0, 1, true);
-					}
-					break;
-				case INNERSEN:
-					if (getRandom(1000) < 346) {
-						giveItemRandomly(qs.getPlayer(), npc, Q_IRONGATE_MEDAL, 1, 0, 1, true);
-					}
-					break;
-			}
-			
+			giveItemRandomly(qs.getPlayer(), npc, DROPLIST.get(npc), true);
 		}
 		return super.onKill(npc, killer, isSummon);
-	}
-	
-	private QuestState getRandomPlayerFromParty(L2PcInstance player, L2Npc npc) {
-		QuestState qs = getQuestState(player, false);
-		final List<QuestState> candidates = new ArrayList<>();
-		
-		if ((qs != null) && qs.isStarted()) {
-			candidates.add(qs);
-			candidates.add(qs);
-		}
-		
-		if (player.isInParty()) {
-			player.getParty().getMembers().stream().forEach(pm -> {
-				
-				QuestState qss = getQuestState(pm, false);
-				if ((qss != null) && qss.isStarted() && Util.checkIfInRange(1500, npc, pm, true)) {
-					candidates.add(qss);
-				}
-			});
-		}
-		return candidates.isEmpty() ? null : candidates.get(getRandom(candidates.size()));
 	}
 }

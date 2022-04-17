@@ -18,17 +18,15 @@
  */
 package com.l2jserver.datapack.quests.Q00380_BringOutTheFlavorOfIngredients;
 
-import static com.l2jserver.gameserver.enums.audio.Sound.ITEMSOUND_QUEST_ITEMGET;
-
-import java.util.HashMap;
-import java.util.Map;
-
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
-import com.l2jserver.gameserver.model.holders.ItemChanceHolder;
+import com.l2jserver.gameserver.model.holders.QuestItemChanceHolder;
 import com.l2jserver.gameserver.model.quest.Quest;
+import com.l2jserver.gameserver.model.quest.QuestDroplist;
 import com.l2jserver.gameserver.model.quest.QuestState;
 import com.l2jserver.gameserver.model.quest.State;
+
+import static com.l2jserver.gameserver.enums.audio.Sound.ITEMSOUND_QUEST_ITEMGET;
 
 /**
  * Bring Out the Flavor of Ingredients! (380)
@@ -39,16 +37,15 @@ public final class Q00380_BringOutTheFlavorOfIngredients extends Quest {
 	private static final int ROLLAND = 30069;
 	// Items
 	private static final int ANTIDOTE = 1831;
-	private static final int RITRON_FRUIT = 5895;
-	private static final int MOON_FLOWER = 5896;
-	private static final int LEECH_FLUIDS = 5897;
-	// Monsters
-	private static final Map<Integer, ItemChanceHolder> MONSTER_CHANCES = new HashMap<>();
-	{
-		MONSTER_CHANCES.put(20205, new ItemChanceHolder(RITRON_FRUIT, 0.1, 4)); // Dire Wolf
-		MONSTER_CHANCES.put(20206, new ItemChanceHolder(MOON_FLOWER, 0.5, 20)); // Kadif Werewolf
-		MONSTER_CHANCES.put(20225, new ItemChanceHolder(LEECH_FLUIDS, 0.5, 10)); // Giant Mist Leech
-	}
+	private static final QuestItemChanceHolder RITRON_FRUIT = new QuestItemChanceHolder(5895, 10.0, 4L);
+	private static final QuestItemChanceHolder MOON_FLOWER = new QuestItemChanceHolder(5896, 50.0, 20L);
+	private static final QuestItemChanceHolder LEECH_FLUIDS = new QuestItemChanceHolder(5897, 50.0, 10L);
+	// Droplist
+	private static final QuestDroplist DROPLIST = QuestDroplist.builder()
+			.addSingleDrop(20205, RITRON_FRUIT) // Dire Wolf
+			.addSingleDrop(20206, MOON_FLOWER) // Kadif Werewolf
+			.addSingleDrop(20225, LEECH_FLUIDS) // Giant Mist Leech
+			.build();
 	// Rewards
 	private static final int RITRON_RECIPE = 5959;
 	private static final int RITRON_DESSERT = 5960;
@@ -59,8 +56,8 @@ public final class Q00380_BringOutTheFlavorOfIngredients extends Quest {
 		super(380, Q00380_BringOutTheFlavorOfIngredients.class.getSimpleName(), "Bring Out the Flavor of Ingredients!");
 		addStartNpc(ROLLAND);
 		addTalkId(ROLLAND);
-		addKillId(MONSTER_CHANCES.keySet());
-		registerQuestItems(RITRON_FRUIT, MOON_FLOWER, LEECH_FLUIDS);
+		addKillId(DROPLIST.getNpcIds());
+		registerQuestItems(RITRON_FRUIT.getId(), MOON_FLOWER.getId(), LEECH_FLUIDS.getId());
 	}
 	
 	@Override
@@ -110,9 +107,9 @@ public final class Q00380_BringOutTheFlavorOfIngredients extends Quest {
 					case 2:
 					case 3:
 					case 4: {
-						if ((getQuestItemsCount(talker, ANTIDOTE) >= 2) && (getQuestItemsCount(talker, RITRON_FRUIT) >= 4) && (getQuestItemsCount(talker, MOON_FLOWER) >= 20) && (getQuestItemsCount(talker, LEECH_FLUIDS) >= 10)) {
+						if ((getQuestItemsCount(talker, ANTIDOTE) >= 2) && hasItemsAtLimit(talker, RITRON_FRUIT, MOON_FLOWER, LEECH_FLUIDS)) {
 							takeItems(talker, ANTIDOTE, 2);
-							takeItems(talker, -1, RITRON_FRUIT, MOON_FLOWER, LEECH_FLUIDS);
+							takeItems(talker, -1, RITRON_FRUIT.getId(), MOON_FLOWER.getId(), LEECH_FLUIDS.getId());
 							qs.setCond(5, true);
 							htmltext = "30069-08.html";
 						} else {
@@ -165,9 +162,8 @@ public final class Q00380_BringOutTheFlavorOfIngredients extends Quest {
 	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
 		final QuestState qs = getRandomPartyMemberState(killer, -1, 3, npc);
 		if ((qs != null) && (qs.getCond() < 4)) {
-			final ItemChanceHolder item = MONSTER_CHANCES.get(npc.getId());
-			if (giveItemRandomly(qs.getPlayer(), npc, item.getId(), 1, item.getCount(), item.getChance(), false)) {
-				if ((getQuestItemsCount(killer, RITRON_FRUIT) >= 3) && (getQuestItemsCount(killer, MOON_FLOWER) >= 20) && (getQuestItemsCount(killer, LEECH_FLUIDS) >= 10)) {
+			if (giveItemRandomly(qs.getPlayer(), npc, DROPLIST.get(npc), false)) {
+				if (hasItemsAtLimit(killer, RITRON_FRUIT, MOON_FLOWER, LEECH_FLUIDS)) {
 					qs.setCond(qs.getCond() + 1, true);
 				} else {
 					playSound(killer, ITEMSOUND_QUEST_ITEMGET);

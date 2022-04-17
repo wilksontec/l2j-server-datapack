@@ -18,14 +18,12 @@
  */
 package com.l2jserver.datapack.quests.Q00316_DestroyPlagueCarriers;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import com.l2jserver.gameserver.enums.Race;
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
-import com.l2jserver.gameserver.model.holders.ItemHolder;
+import com.l2jserver.gameserver.model.holders.QuestItemChanceHolder;
 import com.l2jserver.gameserver.model.quest.Quest;
+import com.l2jserver.gameserver.model.quest.QuestDroplist;
 import com.l2jserver.gameserver.model.quest.QuestState;
 import com.l2jserver.gameserver.network.NpcStringId;
 import com.l2jserver.gameserver.network.clientpackets.Say2;
@@ -40,30 +38,30 @@ public final class Q00316_DestroyPlagueCarriers extends Quest {
 	private static final int ELLENIA = 30155;
 	// Items
 	private static final int WERERAT_FANG = 1042;
-	private static final int VAROOL_FOULCLAW_FANG = 1043;
+	private static final QuestItemChanceHolder VAROOL_FOULCLAW_FANG = new QuestItemChanceHolder(1043, 1L);
 	// Misc
 	private static final int MIN_LEVEL = 18;
 	// Monsters
 	private static final int VAROOL_FOULCLAW = 27020;
-	private static final Map<Integer, ItemHolder> MONSTER_DROPS = new HashMap<>();
-	static {
-		MONSTER_DROPS.put(20040, new ItemHolder(WERERAT_FANG, 5)); // Sukar Wererat
-		MONSTER_DROPS.put(20047, new ItemHolder(WERERAT_FANG, 5)); // Sukar Wererat Leader
-		MONSTER_DROPS.put(VAROOL_FOULCLAW, new ItemHolder(VAROOL_FOULCLAW_FANG, 7)); // Varool Foulclaw
-	}
+	// Droplist
+	private static final QuestDroplist DROPLIST = QuestDroplist.builder()
+			.addSingleDrop(20040, WERERAT_FANG, 50.0) // Sukar Wererat
+			.addSingleDrop(20047, WERERAT_FANG, 50.0) // Sukar Wererat Leader
+			.addSingleDrop(VAROOL_FOULCLAW, VAROOL_FOULCLAW_FANG, 70.0) // Varool Foulclaw
+			.build();
 	
 	public Q00316_DestroyPlagueCarriers() {
 		super(316, Q00316_DestroyPlagueCarriers.class.getSimpleName(), "Destroy Plague Carriers");
 		addStartNpc(ELLENIA);
 		addTalkId(ELLENIA);
 		addAttackId(VAROOL_FOULCLAW);
-		addKillId(MONSTER_DROPS.keySet());
-		registerQuestItems(WERERAT_FANG, VAROOL_FOULCLAW_FANG);
+		addKillId(DROPLIST.getNpcIds());
+		registerQuestItems(WERERAT_FANG, VAROOL_FOULCLAW_FANG.getId());
 	}
 	
 	@Override
 	public boolean checkPartyMember(QuestState qs, L2Npc npc) {
-		return ((npc.getId() != VAROOL_FOULCLAW) || !qs.hasQuestItems(VAROOL_FOULCLAW_FANG));
+		return ((npc.getId() != VAROOL_FOULCLAW) || !qs.hasQuestItems(VAROOL_FOULCLAW_FANG.getId()));
 	}
 	
 	@Override
@@ -108,9 +106,7 @@ public final class Q00316_DestroyPlagueCarriers extends Quest {
 	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
 		final QuestState qs = getRandomPartyMemberState(killer, -1, 3, npc);
 		if (qs != null) {
-			final ItemHolder item = MONSTER_DROPS.get(npc.getId());
-			final int limit = (npc.getId() == VAROOL_FOULCLAW ? 1 : 0);
-			giveItemRandomly(qs.getPlayer(), npc, item.getId(), 1, limit, 10.0 / item.getCount(), true);
+			giveItemRandomly(qs.getPlayer(), npc, DROPLIST.get(npc), true);
 		}
 		return super.onKill(npc, killer, isSummon);
 	}
@@ -129,9 +125,9 @@ public final class Q00316_DestroyPlagueCarriers extends Quest {
 			}
 		} else if (qs.isStarted()) {
 			if (hasAtLeastOneQuestItem(player, getRegisteredItemIds())) {
-				final long wererars = getQuestItemsCount(player, WERERAT_FANG);
-				final long foulclaws = getQuestItemsCount(player, VAROOL_FOULCLAW_FANG);
-				giveAdena(player, ((wererars * 30) + (foulclaws * 10000) + ((wererars + foulclaws) >= 10 ? 5000 : 0)), true);
+				final long wererats = getQuestItemsCount(player, WERERAT_FANG);
+				final long foulclaws = getQuestItemsCount(player, VAROOL_FOULCLAW_FANG.getId());
+				giveAdena(player, ((wererats * 30) + (foulclaws * 10000) + ((wererats + foulclaws) >= 10 ? 5000 : 0)), true);
 				takeItems(player, -1, getRegisteredItemIds());
 				htmltext = "30155-07.html";
 			} else {

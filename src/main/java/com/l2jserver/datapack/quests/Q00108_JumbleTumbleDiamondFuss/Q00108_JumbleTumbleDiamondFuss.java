@@ -18,16 +18,15 @@
  */
 package com.l2jserver.datapack.quests.Q00108_JumbleTumbleDiamondFuss;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import com.l2jserver.datapack.quests.Q00281_HeadForTheHills.Q00281_HeadForTheHills;
 import com.l2jserver.gameserver.enums.Race;
 import com.l2jserver.gameserver.enums.audio.Sound;
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
 import com.l2jserver.gameserver.model.holders.ItemHolder;
+import com.l2jserver.gameserver.model.holders.QuestItemChanceHolder;
 import com.l2jserver.gameserver.model.quest.Quest;
+import com.l2jserver.gameserver.model.quest.QuestDroplist;
 import com.l2jserver.gameserver.model.quest.QuestState;
 import com.l2jserver.gameserver.model.quest.State;
 import com.l2jserver.gameserver.network.serverpackets.SocialAction;
@@ -38,6 +37,9 @@ import com.l2jserver.gameserver.util.Util;
  * @author Janiko
  */
 public final class Q00108_JumbleTumbleDiamondFuss extends Quest {
+	// Misc
+	private static final int MIN_LVL = 10;
+	private static final int MAX_GEM_COUNT = 10;
 	// NPCs
 	private static final int COLLECTOR_GOUPH = 30523;
 	private static final int TRADER_REEP = 30516;
@@ -56,14 +58,21 @@ public final class Q00108_JumbleTumbleDiamondFuss extends Quest {
 	private static final int ELVEN_WINE = 1561;
 	private static final int BRUNONS_DICE = 1562;
 	private static final int BRUNONS_CONTRACT = 1563;
-	private static final int AQUAMARINE = 1564;
-	private static final int CHRYSOBERYL = 1565;
 	private static final int GEM_BOX = 1566;
 	private static final int COAL_PIECE = 1567;
 	private static final int BRUNONS_LETTER = 1568;
 	private static final int BERRY_TART = 1569;
 	private static final int BAT_DIAGRAM = 1570;
-	private static final int STAR_DIAMOND = 1571;
+	private static final QuestItemChanceHolder AQUAMARINE = new QuestItemChanceHolder(1564, MAX_GEM_COUNT);
+	private static final QuestItemChanceHolder CHRYSOBERYL = new QuestItemChanceHolder(1565, MAX_GEM_COUNT);
+	private static final QuestItemChanceHolder STAR_DIAMOND = new QuestItemChanceHolder(1571, 20.0, 1L);
+	// Droplist
+	private static final QuestDroplist DROPLIST = QuestDroplist.builder()
+			.addSingleDrop(GOBLIN_BRIGAND_LEADER, AQUAMARINE, 80.0)
+			.addSingleDrop(GOBLIN_BRIGAND_LEADER, CHRYSOBERYL, 80.0)
+			.addSingleDrop(GOBLIN_BRIGAND_LIEUTENANT, AQUAMARINE, 60.0)
+			.addSingleDrop(GOBLIN_BRIGAND_LIEUTENANT, CHRYSOBERYL, 60.0)
+			.build();
 	// Rewards
 	private static final ItemHolder[] REWARDS = {
 		new ItemHolder(1060, 100), // Lesser Healing Potion
@@ -74,21 +83,13 @@ public final class Q00108_JumbleTumbleDiamondFuss extends Quest {
 		new ItemHolder(4416, 10), // Echo Crystal - Theme of Celebration
 	};
 	private static final int SILVERSMITH_HAMMER = 1511;
-	// Misc
-	private static final int MIN_LVL = 10;
-	private static final int MAX_GEM_COUNT = 10;
-	private static final Map<Integer, Double> GOBLIN_DROP_CHANCES = new HashMap<>();
-	static {
-		GOBLIN_DROP_CHANCES.put(GOBLIN_BRIGAND_LEADER, 0.8);
-		GOBLIN_DROP_CHANCES.put(GOBLIN_BRIGAND_LIEUTENANT, 0.6);
-	}
 	
 	public Q00108_JumbleTumbleDiamondFuss() {
 		super(108, Q00108_JumbleTumbleDiamondFuss.class.getSimpleName(), "Jumble, Tumble, Diamond Fuss");
 		addStartNpc(COLLECTOR_GOUPH);
 		addTalkId(COLLECTOR_GOUPH, TRADER_REEP, CARRIER_TOROCCO, MINER_MARON, BLACKSMITH_BRUNON, WAREHOUSE_KEEPER_MURDOC, WAREHOUSE_KEEPER_AIRY);
 		addKillId(GOBLIN_BRIGAND_LEADER, GOBLIN_BRIGAND_LIEUTENANT, BLADE_BAT);
-		registerQuestItems(GOUPHS_CONTRACT, REEPS_CONTRACT, ELVEN_WINE, BRUNONS_DICE, BRUNONS_CONTRACT, AQUAMARINE, CHRYSOBERYL, GEM_BOX, COAL_PIECE, BRUNONS_LETTER, BERRY_TART, BAT_DIAGRAM, STAR_DIAMOND);
+		registerQuestItems(GOUPHS_CONTRACT, REEPS_CONTRACT, ELVEN_WINE, BRUNONS_DICE, BRUNONS_CONTRACT, AQUAMARINE.getId(), CHRYSOBERYL.getId(), GEM_BOX, COAL_PIECE, BRUNONS_LETTER, BERRY_TART, BAT_DIAGRAM, STAR_DIAMOND.getId());
 	}
 	
 	@Override
@@ -183,7 +184,7 @@ public final class Q00108_JumbleTumbleDiamondFuss extends Quest {
 								break;
 							}
 							case 12: {
-								if (st.hasQuestItems(STAR_DIAMOND)) {
+								if (st.hasQuestItems(STAR_DIAMOND.getId())) {
 									Q00281_HeadForTheHills.giveNewbieReward(talker);
 									st.addExpAndSp(34565, 2962);
 									st.giveAdena(14666, true);
@@ -304,8 +305,8 @@ public final class Q00108_JumbleTumbleDiamondFuss extends Quest {
 						break;
 					}
 					case 6: {
-						if (st.hasQuestItems(BRUNONS_CONTRACT) && (st.getQuestItemsCount(AQUAMARINE) >= MAX_GEM_COUNT) && (st.getQuestItemsCount(CHRYSOBERYL) >= MAX_GEM_COUNT)) {
-							takeItems(talker, -1, BRUNONS_CONTRACT, AQUAMARINE, CHRYSOBERYL);
+						if (st.hasQuestItems(BRUNONS_CONTRACT) && hasItemsAtLimit(st.getPlayer(), AQUAMARINE, CHRYSOBERYL)) {
+							takeItems(talker, -1, BRUNONS_CONTRACT, AQUAMARINE.getId(), CHRYSOBERYL.getId());
 							st.giveItems(GEM_BOX, 1);
 							st.setCond(7, true);
 							htmltext = "30526-04.html";
@@ -336,7 +337,7 @@ public final class Q00108_JumbleTumbleDiamondFuss extends Quest {
 					case 10:
 					case 11:
 					case 12: {
-						if (hasAtLeastOneQuestItem(talker, BERRY_TART, BAT_DIAGRAM, STAR_DIAMOND)) {
+						if (hasAtLeastOneQuestItem(talker, BERRY_TART, BAT_DIAGRAM, STAR_DIAMOND.getId())) {
 							htmltext = "30526-08.html";
 						}
 						break;
@@ -387,7 +388,7 @@ public final class Q00108_JumbleTumbleDiamondFuss extends Quest {
 						break;
 					}
 					case 12: {
-						if (st.hasQuestItems(STAR_DIAMOND)) {
+						if (st.hasQuestItems(STAR_DIAMOND.getId())) {
 							htmltext = "30522-03.html";
 						}
 						break;
@@ -408,44 +409,40 @@ public final class Q00108_JumbleTumbleDiamondFuss extends Quest {
 	@Override
 	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
 		final QuestState st = getQuestState(killer, false);
-		if ((st != null) && Util.checkIfInRange(1500, npc, killer, true)) {
+		if ((st != null) && Util.checkIfInRange(1500, npc, st.getPlayer(), true)) {
 			switch (npc.getId()) {
-				case GOBLIN_BRIGAND_LEADER:
-				case GOBLIN_BRIGAND_LIEUTENANT: {
+				case GOBLIN_BRIGAND_LEADER, GOBLIN_BRIGAND_LIEUTENANT -> {
 					if (st.isCond(5) && st.hasQuestItems(BRUNONS_CONTRACT)) {
-						final double dropChance = GOBLIN_DROP_CHANCES.get(npc.getId());
 						boolean playSound = false;
-						if (st.giveItemRandomly(npc, AQUAMARINE, 1, MAX_GEM_COUNT, dropChance, false)) {
-							if (st.getQuestItemsCount(CHRYSOBERYL) >= MAX_GEM_COUNT) {
+						if (giveItemRandomly(st.getPlayer(), npc, DROPLIST.get(npc, AQUAMARINE), false)) {
+							if (hasItemsAtLimit(st.getPlayer(), CHRYSOBERYL)) {
 								st.setCond(6, true);
 								break;
 							}
-							
+
 							playSound = true;
 						}
-						if (st.giveItemRandomly(npc, CHRYSOBERYL, 1, MAX_GEM_COUNT, dropChance, false)) {
-							if (st.getQuestItemsCount(AQUAMARINE) >= MAX_GEM_COUNT) {
+						if (giveItemRandomly(st.getPlayer(), npc, DROPLIST.get(npc, CHRYSOBERYL), false)) {
+							if (hasItemsAtLimit(st.getPlayer(), AQUAMARINE)) {
 								st.setCond(6, true);
 								break;
 							}
-							
+
 							playSound = true;
 						}
-						
+
 						if (playSound) {
 							st.playSound(Sound.ITEMSOUND_QUEST_ITEMGET);
 						}
 					}
-					break;
 				}
-				case BLADE_BAT: {
+				case BLADE_BAT -> {
 					if (st.isCond(11) && st.hasQuestItems(BAT_DIAGRAM)) {
-						if (st.giveItemRandomly(npc, STAR_DIAMOND, 1, 1, 0.2, true)) {
+						if (giveItemRandomly(st.getPlayer(), npc, STAR_DIAMOND, true)) {
 							st.takeItems(BAT_DIAGRAM, -1);
 							st.setCond(12);
 						}
 					}
-					break;
 				}
 			}
 		}

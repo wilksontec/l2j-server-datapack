@@ -18,13 +18,11 @@
  */
 package com.l2jserver.datapack.quests.Q00298_LizardmensConspiracy;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
-import com.l2jserver.gameserver.model.holders.ItemChanceHolder;
+import com.l2jserver.gameserver.model.holders.QuestItemChanceHolder;
 import com.l2jserver.gameserver.model.quest.Quest;
+import com.l2jserver.gameserver.model.quest.QuestDroplist;
 import com.l2jserver.gameserver.model.quest.QuestState;
 
 /**
@@ -32,31 +30,30 @@ import com.l2jserver.gameserver.model.quest.QuestState;
  * @author xban1x
  */
 public final class Q00298_LizardmensConspiracy extends Quest {
+	// Misc
+	private static final int MIN_LVL = 25;
+	private static final long GEMS_LIMIT = 50L;
 	// NPCs
 	private static final int GUARD_PRAGA = 30333;
 	private static final int MAGISTER_ROHMER = 30344;
 	// Items
 	private static final int PATROLS_REPORT = 7182;
-	private static final int SHINING_GEM = 7183;
-	private static final int SHINING_RED_GEM = 7184;
-	// Monsters
-	private static final Map<Integer, ItemChanceHolder> MONSTERS = new HashMap<>();
-	static {
-		MONSTERS.put(20922, new ItemChanceHolder(SHINING_GEM, 0.49, 1));
-		MONSTERS.put(20924, new ItemChanceHolder(SHINING_GEM, 0.75, 1));
-		MONSTERS.put(20926, new ItemChanceHolder(SHINING_RED_GEM, 0.54, 1));
-		MONSTERS.put(20927, new ItemChanceHolder(SHINING_RED_GEM, 0.54, 1));
-		MONSTERS.put(20922, new ItemChanceHolder(SHINING_GEM, 0.70, 1));
-	}
-	// Misc
-	private static final int MIN_LVL = 25;
-	
+	private static final QuestItemChanceHolder SHINING_GEM = new QuestItemChanceHolder(7183, GEMS_LIMIT);
+	private static final QuestItemChanceHolder SHINING_RED_GEM = new QuestItemChanceHolder(7184, 54.0, GEMS_LIMIT);
+	// Droplist
+	private static final QuestDroplist DROPLIST = QuestDroplist.builder()
+			.addSingleDrop(20922, SHINING_GEM, 70.0)
+			.addSingleDrop(20924, SHINING_GEM, 75.0)
+			.addSingleDrop(20926, SHINING_RED_GEM)
+			.addSingleDrop(20927, SHINING_RED_GEM)
+			.build();
+
 	public Q00298_LizardmensConspiracy() {
 		super(298, Q00298_LizardmensConspiracy.class.getSimpleName(), "Lizardmen's Conspiracy");
 		addStartNpc(GUARD_PRAGA);
 		addTalkId(GUARD_PRAGA, MAGISTER_ROHMER);
-		addKillId(MONSTERS.keySet());
-		registerQuestItems(PATROLS_REPORT, SHINING_GEM, SHINING_RED_GEM);
+		addKillId(DROPLIST.getNpcIds());
+		registerQuestItems(PATROLS_REPORT, SHINING_GEM.getId(), SHINING_RED_GEM.getId());
 	}
 	
 	@Override
@@ -104,11 +101,9 @@ public final class Q00298_LizardmensConspiracy extends Quest {
 	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
 		final QuestState qs = getRandomPartyMemberState(killer, 2, 3, npc);
 		if (qs != null) {
-			final ItemChanceHolder item = MONSTERS.get(npc.getId());
-			if (giveItemRandomly(qs.getPlayer(), npc, item.getId(), item.getCount(), 50, item.getChance(), true) //
-				&& (getQuestItemsCount(qs.getPlayer(), SHINING_GEM) >= 50) //
-				&& (getQuestItemsCount(qs.getPlayer(), SHINING_RED_GEM) >= 50)) {
-				qs.setCond(3, true);
+			if (giveItemRandomly(qs.getPlayer(), npc, DROPLIST.get(npc), true)
+					&& hasItemsAtLimit(qs.getPlayer(), SHINING_GEM, SHINING_RED_GEM)) {
+				qs.setCond(3);
 			}
 		}
 		return super.onKill(npc, killer, isSummon);

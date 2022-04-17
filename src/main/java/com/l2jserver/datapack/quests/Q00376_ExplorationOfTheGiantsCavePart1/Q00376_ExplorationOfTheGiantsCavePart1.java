@@ -18,12 +18,10 @@
  */
 package com.l2jserver.datapack.quests.Q00376_ExplorationOfTheGiantsCavePart1;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
 import com.l2jserver.gameserver.model.quest.Quest;
+import com.l2jserver.gameserver.model.quest.QuestDroplist;
 import com.l2jserver.gameserver.model.quest.QuestState;
 
 /**
@@ -41,24 +39,23 @@ public class Q00376_ExplorationOfTheGiantsCavePart1 extends Quest {
 	private static final int BOOK3 = 14838;
 	private static final int BOOK4 = 14839;
 	private static final int BOOK5 = 14840;
-	// Mobs
-	private static final Map<Integer, Double> MOBS = new HashMap<>();
-	static {
-		MOBS.put(22670, 0.314); // const_lord
-		MOBS.put(22671, 0.302); // const_gaurdian
-		MOBS.put(22672, 0.300); // const_seer
-		MOBS.put(22673, 0.258); // hirokai
-		MOBS.put(22674, 0.248); // imagro
-		MOBS.put(22675, 0.264); // palite
-		MOBS.put(22676, 0.258); // hamrit
-		MOBS.put(22677, 0.266); // kranout
-	}
-	
+	// Droplist
+	private static final QuestDroplist DROPLIST = QuestDroplist.builder()
+			.addSingleDrop(22670, ANCIENT_PARCHMENT, 31.4) // const_lord
+			.addSingleDrop(22671, ANCIENT_PARCHMENT, 30.2) // const_gaurdian
+			.addSingleDrop(22672, ANCIENT_PARCHMENT, 30.0) // const_seer
+			.addSingleDrop(22673, ANCIENT_PARCHMENT, 25.8) // hirokai
+			.addSingleDrop(22674, ANCIENT_PARCHMENT, 24.8) // imagro
+			.addSingleDrop(22675, ANCIENT_PARCHMENT, 26.4) // palite
+			.addSingleDrop(22676, ANCIENT_PARCHMENT, 25.8) // hamrit
+			.addSingleDrop(22677, ANCIENT_PARCHMENT, 26.6) // kranout
+			.build();
+
 	public Q00376_ExplorationOfTheGiantsCavePart1() {
 		super(376, Q00376_ExplorationOfTheGiantsCavePart1.class.getSimpleName(), "Exploration of the Giants' Cave - Part 1");
 		addStartNpc(SOBLING);
 		addTalkId(SOBLING);
-		addKillId(MOBS.keySet());
+		addKillId(DROPLIST.getNpcIds());
 		registerQuestItems(ANCIENT_PARCHMENT);
 	}
 	
@@ -94,7 +91,7 @@ public class Q00376_ExplorationOfTheGiantsCavePart1 extends Quest {
 	public String onKill(L2Npc npc, L2PcInstance player, boolean isSummon) {
 		final QuestState qs = getRandomPartyMemberState(player, -1, 3, npc);
 		if (qs != null) {
-			giveItemRandomly(qs.getPlayer(), npc, ANCIENT_PARCHMENT, 1, 0, MOBS.get(npc.getId()), true);
+			giveItemRandomly(qs.getPlayer(), npc, DROPLIST.get(npc), true);
 		}
 		return super.onKill(npc, player, isSummon);
 	}

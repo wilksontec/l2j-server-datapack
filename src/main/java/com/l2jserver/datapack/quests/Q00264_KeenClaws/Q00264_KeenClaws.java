@@ -18,18 +18,18 @@
  */
 package com.l2jserver.datapack.quests.Q00264_KeenClaws;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
 import com.l2jserver.gameserver.enums.audio.Sound;
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
 import com.l2jserver.gameserver.model.holders.ItemHolder;
+import com.l2jserver.gameserver.model.holders.QuestItemChanceHolder;
 import com.l2jserver.gameserver.model.quest.Quest;
+import com.l2jserver.gameserver.model.quest.QuestDroplist;
 import com.l2jserver.gameserver.model.quest.QuestState;
 import com.l2jserver.gameserver.model.quest.State;
+
+import java.util.List;
+import java.util.Map;
 
 /**
  * Keen Claws (264)
@@ -39,33 +39,32 @@ public final class Q00264_KeenClaws extends Quest {
 	// Npc
 	private static final int PAINT = 30136;
 	// Item
-	private static final int WOLF_CLAW = 1367;
-	// Monsters
-	private static final Map<Integer, List<ItemHolder>> MONSTER_CHANCES = new HashMap<>();
+	private static final QuestItemChanceHolder WOLF_CLAW = new QuestItemChanceHolder(1367, 50L);
+	// Droplists
+	private static final QuestDroplist DROPLIST = QuestDroplist.builder()
+			.addGroupedDropForSingleItem(20003, WOLF_CLAW, 50.0)
+				.withAmount(2, 50.0).orElse(8)
+			.addSingleDrop(20456, WOLF_CLAW, 125.0)
+			.build();
 	// Rewards
-	private static final Map<Integer, List<ItemHolder>> REWARDS = new HashMap<>();
+	private static final Map<Integer, List<ItemHolder>> REWARDS = Map.of(
+			1, List.of(new ItemHolder(4633, 1)),
+			2, List.of(new ItemHolder(57, 2000)),
+			5, List.of(new ItemHolder(5140, 1)),
+			8, List.of(new ItemHolder(735, 1), new ItemHolder(57, 50)),
+			11, List.of(new ItemHolder(737, 1)),
+			14, List.of(new ItemHolder(734, 1)),
+			17, List.of(new ItemHolder(35, 1), new ItemHolder(57, 50))
+	);
 	// Misc
 	private static final int MIN_LVL = 3;
-	private static final int WOLF_CLAW_COUNT = 50;
-	static {
-		MONSTER_CHANCES.put(20003, Arrays.asList(new ItemHolder(2, 25), new ItemHolder(8, 50)));
-		MONSTER_CHANCES.put(20456, Arrays.asList(new ItemHolder(1, 80), new ItemHolder(2, 100)));
-		
-		REWARDS.put(1, Arrays.asList(new ItemHolder(4633, 1)));
-		REWARDS.put(2, Arrays.asList(new ItemHolder(57, 2000)));
-		REWARDS.put(5, Arrays.asList(new ItemHolder(5140, 1)));
-		REWARDS.put(8, Arrays.asList(new ItemHolder(735, 1), new ItemHolder(57, 50)));
-		REWARDS.put(11, Arrays.asList(new ItemHolder(737, 1)));
-		REWARDS.put(14, Arrays.asList(new ItemHolder(734, 1)));
-		REWARDS.put(17, Arrays.asList(new ItemHolder(35, 1), new ItemHolder(57, 50)));
-	}
 	
 	public Q00264_KeenClaws() {
 		super(264, Q00264_KeenClaws.class.getSimpleName(), "Keen Claws");
 		addStartNpc(PAINT);
 		addTalkId(PAINT);
-		addKillId(MONSTER_CHANCES.keySet());
-		registerQuestItems(WOLF_CLAW);
+		addKillId(DROPLIST.getNpcIds());
+		registerQuestItems(WOLF_CLAW.getId());
 	}
 	
 	@Override
@@ -82,14 +81,8 @@ public final class Q00264_KeenClaws extends Quest {
 	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
 		final QuestState st = getQuestState(killer, false);
 		if ((st != null) && st.isCond(1)) {
-			final int random = getRandom(100);
-			for (ItemHolder drop : MONSTER_CHANCES.get(npc.getId())) {
-				if (random < drop.getCount()) {
-					if (st.giveItemRandomly(WOLF_CLAW, drop.getId(), WOLF_CLAW_COUNT, 1, true)) {
-						st.setCond(2);
-					}
-					break;
-				}
+			if (giveItemRandomly(st.getPlayer(), npc, DROPLIST.get(npc), true)) {
+				st.setCond(2);
 			}
 		}
 		return super.onKill(npc, killer, isSummon);
@@ -111,7 +104,7 @@ public final class Q00264_KeenClaws extends Quest {
 						break;
 					}
 					case 2: {
-						if (st.getQuestItemsCount(WOLF_CLAW) >= WOLF_CLAW_COUNT) {
+						if (hasItemsAtLimit(st.getPlayer(), WOLF_CLAW)) {
 							final int chance = getRandom(17);
 							for (Map.Entry<Integer, List<ItemHolder>> reward : REWARDS.entrySet()) {
 								if (chance < reward.getKey()) {

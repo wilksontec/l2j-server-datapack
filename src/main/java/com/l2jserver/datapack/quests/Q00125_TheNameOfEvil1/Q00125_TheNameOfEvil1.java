@@ -18,16 +18,13 @@
  */
 package com.l2jserver.datapack.quests.Q00125_TheNameOfEvil1;
 
-import static com.l2jserver.gameserver.config.Configuration.rates;
-
-import java.util.HashMap;
-import java.util.Map;
-
 import com.l2jserver.datapack.quests.Q00124_MeetingTheElroki.Q00124_MeetingTheElroki;
 import com.l2jserver.gameserver.enums.audio.Sound;
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
+import com.l2jserver.gameserver.model.holders.QuestItemChanceHolder;
 import com.l2jserver.gameserver.model.quest.Quest;
+import com.l2jserver.gameserver.model.quest.QuestDroplist;
 import com.l2jserver.gameserver.model.quest.QuestState;
 import com.l2jserver.gameserver.model.quest.State;
 import com.l2jserver.gameserver.network.serverpackets.MagicSkillUse;
@@ -44,36 +41,32 @@ public class Q00125_TheNameOfEvil1 extends Quest {
 	private static final int BALU_KAIMU = 32120;
 	private static final int CHUTA_KAIMU = 32121;
 	// Items
-	private static final int ORNITHOMIMUS_CLAW = 8779;
-	private static final int DEINONYCHUS_BONE = 8780;
 	private static final int EPITAPH_OF_WISDOM = 8781;
 	private static final int GAZKH_FRAGMENT = 8782;
+	private static final QuestItemChanceHolder ORNITHOMIMUS_CLAW = new QuestItemChanceHolder(8779, 2L);
+	private static final QuestItemChanceHolder DEINONYCHUS_BONE = new QuestItemChanceHolder(8780, 2L);
+	// Droplist
+	private static final QuestDroplist DROPLIST = QuestDroplist.builder()
+			.addSingleDrop(22200, ORNITHOMIMUS_CLAW, 66.1)
+			.addSingleDrop(22201, ORNITHOMIMUS_CLAW, 33.0)
+			.addSingleDrop(22202, ORNITHOMIMUS_CLAW, 66.1)
+			.addSingleDrop(22219, ORNITHOMIMUS_CLAW, 32.7)
+			.addSingleDrop(22224, ORNITHOMIMUS_CLAW, 32.7)
+			.addSingleDrop(22203, DEINONYCHUS_BONE, 65.1)
+			.addSingleDrop(22204, DEINONYCHUS_BONE, 32.6)
+			.addSingleDrop(22205, DEINONYCHUS_BONE, 65.1)
+			.addSingleDrop(22220, DEINONYCHUS_BONE, 31.9)
+			.addSingleDrop(22225, DEINONYCHUS_BONE, 31.9)
+			.build();
 	// Skills
 	private static final int REPRESENTATION_ENTER_THE_SAILREN_NEST_QUEST_ID = 5089;
-	
-	private static final Map<Integer, Integer> ORNITHOMIMUS = new HashMap<>();
-	private static final Map<Integer, Integer> DEINONYCHUS = new HashMap<>();
-	
-	static {
-		ORNITHOMIMUS.put(22200, 661);
-		ORNITHOMIMUS.put(22201, 330);
-		ORNITHOMIMUS.put(22202, 661);
-		ORNITHOMIMUS.put(22219, 327);
-		ORNITHOMIMUS.put(22224, 327);
-		DEINONYCHUS.put(22203, 651);
-		DEINONYCHUS.put(22204, 326);
-		DEINONYCHUS.put(22205, 651);
-		DEINONYCHUS.put(22220, 319);
-		DEINONYCHUS.put(22225, 319);
-	}
 	
 	public Q00125_TheNameOfEvil1() {
 		super(125, Q00125_TheNameOfEvil1.class.getSimpleName(), "The Name of Evil - 1");
 		addStartNpc(MUSHIKA);
 		addTalkId(MUSHIKA, KARAKAWEI, ULU_KAIMU, BALU_KAIMU, CHUTA_KAIMU);
-		addKillId(ORNITHOMIMUS.keySet());
-		addKillId(DEINONYCHUS.keySet());
-		registerQuestItems(ORNITHOMIMUS_CLAW, DEINONYCHUS_BONE, EPITAPH_OF_WISDOM, GAZKH_FRAGMENT);
+		addKillId(DROPLIST.getNpcIds());
+		registerQuestItems(ORNITHOMIMUS_CLAW.getId(), DEINONYCHUS_BONE.getId(), EPITAPH_OF_WISDOM, GAZKH_FRAGMENT);
 	}
 	
 	@Override
@@ -228,33 +221,13 @@ public class Q00125_TheNameOfEvil1 extends Quest {
 	
 	@Override
 	public String onKill(L2Npc npc, L2PcInstance player, boolean isSummon) {
-		final L2PcInstance partyMember = getRandomPartyMember(player, 3);
-		if (partyMember == null) {
-			return null;
-		}
-		
-		final QuestState st = getQuestState(partyMember, false);
-		int npcId = npc.getId();
-		if (ORNITHOMIMUS.containsKey(npcId)) {
-			if (st.getQuestItemsCount(ORNITHOMIMUS_CLAW) < 2) {
-				double chance = ORNITHOMIMUS.get(npcId) * rates().getRateQuestDrop();
-				if (getRandom(1000) < chance) {
-					st.giveItems(ORNITHOMIMUS_CLAW, 1);
-					st.playSound(Sound.ITEMSOUND_QUEST_ITEMGET);
-				}
+		QuestState st = getRandomPartyMemberState(player, 3, 1, npc);
+		if (st != null && giveItemRandomly(st.getPlayer(), npc, DROPLIST.get(npc), false)) {
+			if (hasItemsAtLimit(st.getPlayer(), ORNITHOMIMUS_CLAW, DEINONYCHUS_BONE)) {
+				st.setCond(4, true);
+			} else {
+				playSound(st.getPlayer(), Sound.ITEMSOUND_QUEST_ITEMGET);
 			}
-		} else if (DEINONYCHUS.containsKey(npcId)) {
-			if (st.getQuestItemsCount(DEINONYCHUS_BONE) < 2) {
-				double chance = DEINONYCHUS.get(npcId) * rates().getRateQuestDrop();
-				if (getRandom(1000) < chance) {
-					st.giveItems(DEINONYCHUS_BONE, 1);
-					st.playSound(Sound.ITEMSOUND_QUEST_ITEMGET);
-				}
-			}
-		}
-		
-		if ((st.getQuestItemsCount(ORNITHOMIMUS_CLAW) == 2) && (st.getQuestItemsCount(DEINONYCHUS_BONE) == 2)) {
-			st.setCond(4, true);
 		}
 		return super.onKill(npc, player, isSummon);
 	}
@@ -315,9 +288,9 @@ public class Q00125_TheNameOfEvil1 extends Quest {
 							htmltext = "32117-10.html";
 							break;
 						case 4:
-							if ((st.getQuestItemsCount(ORNITHOMIMUS_CLAW) >= 2) && (st.getQuestItemsCount(DEINONYCHUS_BONE) >= 2)) {
-								st.takeItems(ORNITHOMIMUS_CLAW, -1);
-								st.takeItems(DEINONYCHUS_BONE, -1);
+							if (hasItemsAtLimit(st.getPlayer(), ORNITHOMIMUS_CLAW, DEINONYCHUS_BONE)) {
+								st.takeItems(ORNITHOMIMUS_CLAW.getId(), -1);
+								st.takeItems(DEINONYCHUS_BONE.getId(), -1);
 								htmltext = "32117-11.html";
 							}
 							break;

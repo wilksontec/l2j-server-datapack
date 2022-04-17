@@ -18,15 +18,10 @@
  */
 package com.l2jserver.datapack.quests.Q00691_MatrasSuspiciousRequest;
 
-import static com.l2jserver.gameserver.config.Configuration.rates;
-
-import java.util.HashMap;
-import java.util.Map;
-
-import com.l2jserver.gameserver.enums.audio.Sound;
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
 import com.l2jserver.gameserver.model.quest.Quest;
+import com.l2jserver.gameserver.model.quest.QuestDroplist;
 import com.l2jserver.gameserver.model.quest.QuestState;
 import com.l2jserver.gameserver.model.quest.State;
 
@@ -40,20 +35,19 @@ public final class Q00691_MatrasSuspiciousRequest extends Quest {
 	// Items
 	private static final int RED_GEM = 10372;
 	private static final int DYNASTY_SOUL_II = 10413;
-	// Reward
-	private static final Map<Integer, Integer> REWARD_CHANCES = new HashMap<>();
-	static {
-		REWARD_CHANCES.put(22363, 890);
-		REWARD_CHANCES.put(22364, 261);
-		REWARD_CHANCES.put(22365, 560);
-		REWARD_CHANCES.put(22366, 560);
-		REWARD_CHANCES.put(22367, 190);
-		REWARD_CHANCES.put(22368, 129);
-		REWARD_CHANCES.put(22369, 210);
-		REWARD_CHANCES.put(22370, 787);
-		REWARD_CHANCES.put(22371, 257);
-		REWARD_CHANCES.put(22372, 656);
-	}
+	// Droplist
+	private static final QuestDroplist DROPLIST = QuestDroplist.builder()
+			.addSingleDrop(22363, RED_GEM, 89.0)
+			.addSingleDrop(22364, RED_GEM, 26.1)
+			.addSingleDrop(22365, RED_GEM, 56.0)
+			.addSingleDrop(22366, RED_GEM, 56.0)
+			.addSingleDrop(22367, RED_GEM, 19.0)
+			.addSingleDrop(22368, RED_GEM, 12.9)
+			.addSingleDrop(22369, RED_GEM, 21.0)
+			.addSingleDrop(22370, RED_GEM, 78.7)
+			.addSingleDrop(22371, RED_GEM, 25.7)
+			.addSingleDrop(22372, RED_GEM, 65.6)
+			.build();
 	// Misc
 	private static final int MIN_LEVEL = 76;
 	
@@ -61,7 +55,7 @@ public final class Q00691_MatrasSuspiciousRequest extends Quest {
 		super(691, Q00691_MatrasSuspiciousRequest.class.getSimpleName(), "Matras' Suspicious Request");
 		addStartNpc(MATRAS);
 		addTalkId(MATRAS);
-		addKillId(REWARD_CHANCES.keySet());
+		addKillId(DROPLIST.getNpcIds());
 	}
 	
 	@Override
@@ -116,18 +110,9 @@ public final class Q00691_MatrasSuspiciousRequest extends Quest {
 	
 	@Override
 	public String onKill(L2Npc npc, L2PcInstance player, boolean isSummon) {
-		final L2PcInstance pl = getRandomPartyMember(player, 1);
-		if (pl == null) {
-			return super.onKill(npc, player, isSummon);
-		}
-		
-		final QuestState st = getQuestState(pl, false);
-		int chance = (int) (rates().getRateQuestDrop() * REWARD_CHANCES.get(npc.getId()));
-		int numItems = Math.max((chance / 1000), 1);
-		chance = chance % 1000;
-		if (getRandom(1000) <= chance) {
-			st.giveItems(RED_GEM, numItems);
-			st.playSound(Sound.ITEMSOUND_QUEST_ITEMGET);
+		QuestState st = getRandomPartyMemberState(player, 1, 1, npc);
+		if (st != null) {
+			giveItemRandomly(st.getPlayer(), npc, DROPLIST.get(npc), true);
 		}
 		return super.onKill(npc, player, isSummon);
 	}

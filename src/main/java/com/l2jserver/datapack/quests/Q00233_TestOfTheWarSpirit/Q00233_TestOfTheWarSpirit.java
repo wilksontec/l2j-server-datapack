@@ -23,7 +23,9 @@ import com.l2jserver.gameserver.enums.audio.Sound;
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
 import com.l2jserver.gameserver.model.base.ClassId;
+import com.l2jserver.gameserver.model.holders.QuestItemChanceHolder;
 import com.l2jserver.gameserver.model.quest.Quest;
+import com.l2jserver.gameserver.model.quest.QuestDroplist;
 import com.l2jserver.gameserver.model.quest.QuestState;
 import com.l2jserver.gameserver.network.serverpackets.SocialAction;
 import com.l2jserver.gameserver.util.Util;
@@ -42,14 +44,21 @@ public final class Q00233_TestOfTheWarSpirit extends Quest {
 	private static final int SHADOW_ORIM = 30630;
 	private static final int ANCESTOR_MARTANKUS = 30649;
 	private static final int SEER_PEKIRON = 30682;
+	// Monster
+	private static final int NOBLE_ANT = 20089;
+	private static final int NOBLE_ANT_LEADER = 20090;
+	private static final int MEDUSA = 20158;
+	private static final int PORTA = 20213;
+	private static final int EXCURO = 20214;
+	private static final int MORDERO = 20215;
+	private static final int LETO_LIZARDMAN_SHAMAN = 20581;
+	private static final int LETO_LIZARDMAN_OVERLORD = 20582;
+	private static final int TAMLIN_ORC = 20601;
+	private static final int TAMLIN_ORC_ARCHER = 20602;
 	// Items
 	private static final int VENDETTA_TOTEM = 2880;
-	private static final int TAMLIN_ORC_HEAD = 2881;
 	private static final int WARSPIRIT_TOTEM = 2882;
 	private static final int ORIMS_CONTRACT = 2883;
-	private static final int PORTAS_EYE = 2884;
-	private static final int EXCUROS_SCALE = 2885;
-	private static final int MORDEOS_TALON = 2886;
 	private static final int BRAKIS_REMAINS1 = 2887;
 	private static final int PEKIRONS_TOTEM = 2888;
 	private static final int TONARS_SKULL = 2889;
@@ -78,20 +87,19 @@ public final class Q00233_TestOfTheWarSpirit extends Quest {
 	private static final int TONARS_REMAINS2 = 2912;
 	private static final int HERMODTS_REMAINS2 = 2913;
 	private static final int KIRUNAS_REMAINS2 = 2914;
+	private static final QuestItemChanceHolder TAMLIN_ORC_HEAD = new QuestItemChanceHolder(2881, 13L);
+	private static final QuestItemChanceHolder PORTAS_EYE = new QuestItemChanceHolder(2884, 2L, 10L);
+	private static final QuestItemChanceHolder EXCUROS_SCALE = new QuestItemChanceHolder(2885, 5L, 10L);
+	private static final QuestItemChanceHolder MORDEOS_TALON = new QuestItemChanceHolder(2886, 5L, 10L);
+	// Droplist
+	private static final QuestDroplist DROPLIST = QuestDroplist.builder()
+			.addSingleDrop(PORTA, PORTAS_EYE)
+			.addSingleDrop(EXCURO, EXCUROS_SCALE)
+			.addSingleDrop(MORDERO, MORDEOS_TALON)
+			.build();
 	// Reward
 	private static final int MARK_OF_WARSPIRIT = 2879;
 	private static final int DIMENSIONAL_DIAMOND = 7562;
-	// Monster
-	private static final int NOBLE_ANT = 20089;
-	private static final int NOBLE_ANT_LEADER = 20090;
-	private static final int MEDUSA = 20158;
-	private static final int PORTA = 20213;
-	private static final int EXCURO = 20214;
-	private static final int MORDERO = 20215;
-	private static final int LETO_LIZARDMAN_SHAMAN = 20581;
-	private static final int LETO_LIZARDMAN_OVERLORD = 20582;
-	private static final int TAMLIN_ORC = 20601;
-	private static final int TAMLIN_ORC_ARCHER = 20602;
 	// Quest Monster
 	private static final int STENOA_GORGON_QUEEN = 27108;
 	// Misc
@@ -102,7 +110,7 @@ public final class Q00233_TestOfTheWarSpirit extends Quest {
 		addStartNpc(SEER_SOMAK);
 		addTalkId(SEER_SOMAK, PRIESTESS_VIVYAN, TRADER_SARIEN, SEER_RACOY, SEER_MANAKIA, SHADOW_ORIM, ANCESTOR_MARTANKUS, SEER_PEKIRON);
 		addKillId(NOBLE_ANT, NOBLE_ANT_LEADER, MEDUSA, PORTA, EXCURO, MORDERO, LETO_LIZARDMAN_SHAMAN, LETO_LIZARDMAN_OVERLORD, TAMLIN_ORC, TAMLIN_ORC_ARCHER, STENOA_GORGON_QUEEN);
-		registerQuestItems(VENDETTA_TOTEM, TAMLIN_ORC_HEAD, WARSPIRIT_TOTEM, ORIMS_CONTRACT, PORTAS_EYE, EXCUROS_SCALE, MORDEOS_TALON, BRAKIS_REMAINS1, PEKIRONS_TOTEM, TONARS_SKULL, TONARS_RIB_BONE, TONARS_SPINE, TONARS_ARM_BONE, TONARS_THIGH_BONE, TONARS_REMAINS1, MANAKIAS_TOTEM, HERMODTS_SKULL, HERMODTS_RIB_BONE, HERMODTS_SPINE, HERMODTS_ARM_BONE, HERMODTS_THIGH_BONE, HERMODTS_REMAINS1, RACOYS_TOTEM, VIVIANTES_LETTER, INSECT_DIAGRAM_BOOK, KIRUNAS_SKULL, KIRUNAS_RIB_BONE, KIRUNAS_SPINE, KIRUNAS_ARM_BONE, KIRUNAS_THIGH_BONE, KIRUNAS_REMAINS1, BRAKIS_REMAINS2, TONARS_REMAINS2, HERMODTS_REMAINS2, KIRUNAS_REMAINS2);
+		registerQuestItems(VENDETTA_TOTEM, TAMLIN_ORC_HEAD.getId(), WARSPIRIT_TOTEM, ORIMS_CONTRACT, PORTAS_EYE.getId(), EXCUROS_SCALE.getId(), MORDEOS_TALON.getId(), BRAKIS_REMAINS1, PEKIRONS_TOTEM, TONARS_SKULL, TONARS_RIB_BONE, TONARS_SPINE, TONARS_ARM_BONE, TONARS_THIGH_BONE, TONARS_REMAINS1, MANAKIAS_TOTEM, HERMODTS_SKULL, HERMODTS_RIB_BONE, HERMODTS_SPINE, HERMODTS_ARM_BONE, HERMODTS_THIGH_BONE, HERMODTS_REMAINS1, RACOYS_TOTEM, VIVIANTES_LETTER, INSECT_DIAGRAM_BOOK, KIRUNAS_SKULL, KIRUNAS_RIB_BONE, KIRUNAS_SPINE, KIRUNAS_ARM_BONE, KIRUNAS_THIGH_BONE, KIRUNAS_REMAINS1, BRAKIS_REMAINS2, TONARS_REMAINS2, HERMODTS_REMAINS2, KIRUNAS_REMAINS2);
 	}
 	
 	@Override
@@ -185,8 +193,7 @@ public final class Q00233_TestOfTheWarSpirit extends Quest {
 		final QuestState qs = getQuestState(killer, false);
 		if ((qs != null) && qs.isStarted() && Util.checkIfInRange(1500, npc, killer, true)) {
 			switch (npc.getId()) {
-				case NOBLE_ANT:
-				case NOBLE_ANT_LEADER: {
+				case NOBLE_ANT, NOBLE_ANT_LEADER -> {
 					if (hasQuestItems(killer, RACOYS_TOTEM, INSECT_DIAGRAM_BOOK)) {
 						final int i0 = getRandom(100);
 						if (i0 > 65) {
@@ -212,9 +219,8 @@ public final class Q00233_TestOfTheWarSpirit extends Quest {
 							}
 						}
 					}
-					break;
 				}
-				case MEDUSA: {
+				case MEDUSA -> {
 					if (hasQuestItems(killer, MANAKIAS_TOTEM)) {
 						if (!hasQuestItems(killer, HERMODTS_RIB_BONE)) {
 							giveItems(killer, HERMODTS_RIB_BONE, 1);
@@ -230,28 +236,13 @@ public final class Q00233_TestOfTheWarSpirit extends Quest {
 							playSound(killer, Sound.ITEMSOUND_QUEST_MIDDLE);
 						}
 					}
-					break;
 				}
-				case PORTA: {
+				case PORTA, EXCURO, MORDERO -> {
 					if (hasQuestItems(killer, ORIMS_CONTRACT)) {
-						giveItemRandomly(killer, npc, PORTAS_EYE, 2, 10, 1.0, true);
+						giveItemRandomly(qs.getPlayer(), npc, DROPLIST.get(npc), true);
 					}
-					break;
 				}
-				case EXCURO: {
-					if (hasQuestItems(killer, ORIMS_CONTRACT)) {
-						giveItemRandomly(killer, npc, EXCUROS_SCALE, 5, 10, 1.0, true);
-					}
-					break;
-				}
-				case MORDERO: {
-					if (hasQuestItems(killer, ORIMS_CONTRACT)) {
-						giveItemRandomly(killer, npc, MORDEOS_TALON, 5, 10, 1.0, true);
-					}
-					break;
-				}
-				case LETO_LIZARDMAN_SHAMAN:
-				case LETO_LIZARDMAN_OVERLORD: {
+				case LETO_LIZARDMAN_SHAMAN, LETO_LIZARDMAN_OVERLORD -> {
 					if (hasQuestItems(killer, PEKIRONS_TOTEM)) {
 						if (!hasQuestItems(killer, TONARS_SKULL)) {
 							giveItems(killer, TONARS_SKULL, 1);
@@ -270,23 +261,17 @@ public final class Q00233_TestOfTheWarSpirit extends Quest {
 							playSound(killer, Sound.ITEMSOUND_QUEST_MIDDLE);
 						}
 					}
-					break;
 				}
-				case TAMLIN_ORC:
-				case TAMLIN_ORC_ARCHER: {
-					if (hasQuestItems(killer, VENDETTA_TOTEM)) {
-						if (giveItemRandomly(killer, npc, TAMLIN_ORC_HEAD, 1, 13, 1.0, true)) {
-							qs.setCond(4, true);
-						}
+				case TAMLIN_ORC, TAMLIN_ORC_ARCHER -> {
+					if (hasQuestItems(killer, VENDETTA_TOTEM) && giveItemRandomly(qs.getPlayer(), npc, TAMLIN_ORC_HEAD, true)) {
+						qs.setCond(4);
 					}
-					break;
 				}
-				case STENOA_GORGON_QUEEN: {
+				case STENOA_GORGON_QUEEN -> {
 					if (hasQuestItems(killer, MANAKIAS_TOTEM) && !hasQuestItems(killer, HERMODTS_SKULL)) {
 						giveItems(killer, HERMODTS_SKULL, 1);
 						playSound(killer, Sound.ITEMSOUND_QUEST_MIDDLE);
 					}
-					break;
 				}
 			}
 		}
@@ -329,7 +314,7 @@ public final class Q00233_TestOfTheWarSpirit extends Quest {
 							htmltext = "30510-06.html";
 						}
 					} else if (hasQuestItems(player, VENDETTA_TOTEM)) {
-						if (getQuestItemsCount(player, TAMLIN_ORC_HEAD) < 13) {
+						if (!hasItemsAtLimit(player, TAMLIN_ORC_HEAD)) {
 							htmltext = "30510-08.html";
 						} else {
 							takeItems(player, VENDETTA_TOTEM, 1);
@@ -427,13 +412,13 @@ public final class Q00233_TestOfTheWarSpirit extends Quest {
 					if (!hasAtLeastOneQuestItem(player, ORIMS_CONTRACT, BRAKIS_REMAINS1, BRAKIS_REMAINS2, VENDETTA_TOTEM)) {
 						htmltext = "30630-01.html";
 					} else if (hasQuestItems(player, ORIMS_CONTRACT)) {
-						if ((getQuestItemsCount(player, PORTAS_EYE) + getQuestItemsCount(player, EXCUROS_SCALE) + getQuestItemsCount(player, MORDEOS_TALON)) < 30) {
+						if (!hasItemsAtLimit(player, PORTAS_EYE, EXCUROS_SCALE, MORDEOS_TALON)) {
 							htmltext = "30630-05.html";
 						} else {
 							takeItems(player, ORIMS_CONTRACT, 1);
-							takeItems(player, PORTAS_EYE, -1);
-							takeItems(player, EXCUROS_SCALE, -1);
-							takeItems(player, MORDEOS_TALON, -1);
+							takeItems(player, PORTAS_EYE.getId(), -1);
+							takeItems(player, EXCUROS_SCALE.getId(), -1);
+							takeItems(player, MORDEOS_TALON.getId(), -1);
 							giveItems(player, BRAKIS_REMAINS1, 1);
 							if (hasQuestItems(player, HERMODTS_REMAINS1, KIRUNAS_REMAINS1, TONARS_REMAINS1)) {
 								qs.setCond(2);

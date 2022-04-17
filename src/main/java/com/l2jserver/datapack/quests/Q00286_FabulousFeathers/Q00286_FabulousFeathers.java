@@ -18,13 +18,11 @@
  */
 package com.l2jserver.datapack.quests.Q00286_FabulousFeathers;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
-import com.l2jserver.gameserver.model.holders.ItemHolder;
+import com.l2jserver.gameserver.model.holders.QuestItemChanceHolder;
 import com.l2jserver.gameserver.model.quest.Quest;
+import com.l2jserver.gameserver.model.quest.QuestDroplist;
 import com.l2jserver.gameserver.model.quest.QuestState;
 
 /**
@@ -35,16 +33,15 @@ public final class Q00286_FabulousFeathers extends Quest {
 	// NPC
 	private static final int ERINU = 32164;
 	// Item
-	private static final ItemHolder COMMANDERS_FEATHER = new ItemHolder(9746, 80);
-	// Monsters
-	private static final Map<Integer, Double> MOB_DROP_CHANCES = new HashMap<>();
-	static {
-		MOB_DROP_CHANCES.put(22251, 0.748); // Shady Muertos Captain
-		MOB_DROP_CHANCES.put(22253, 0.772); // Shady Muertos Warrior
-		MOB_DROP_CHANCES.put(22254, 0.772); // Shady Muertos Archer
-		MOB_DROP_CHANCES.put(22255, 0.796); // Shady Muertos Commander
-		MOB_DROP_CHANCES.put(22256, 0.952); // Shady Muertos Wizard
-	}
+	private static final QuestItemChanceHolder COMMANDERS_FEATHER = new QuestItemChanceHolder(9746, 80L);
+	// Droplists
+	private static final QuestDroplist DROPLIST = QuestDroplist.builder()
+			.addSingleDrop(22251, COMMANDERS_FEATHER, 74.8) // Shady Muertos Captain
+			.addSingleDrop(22253, COMMANDERS_FEATHER, 77.2) // Shady Muertos Warrior
+			.addSingleDrop(22254, COMMANDERS_FEATHER, 77.2) // Shady Muertos Archer
+			.addSingleDrop(22255, COMMANDERS_FEATHER, 79.6) // Shady Muertos Commander
+			.addSingleDrop(22256, COMMANDERS_FEATHER, 95.2) // Shady Muertos Wizard
+			.build();
 	// Misc
 	private static final int MIN_LVL = 17;
 	
@@ -52,7 +49,7 @@ public final class Q00286_FabulousFeathers extends Quest {
 		super(286, Q00286_FabulousFeathers.class.getSimpleName(), "Fabulous Feathers");
 		addStartNpc(ERINU);
 		addTalkId(ERINU);
-		addKillId(MOB_DROP_CHANCES.keySet());
+		addKillId(DROPLIST.getNpcIds());
 		registerQuestItems(COMMANDERS_FEATHER.getId());
 	}
 	
@@ -70,8 +67,8 @@ public final class Q00286_FabulousFeathers extends Quest {
 				break;
 			}
 			case "32164-06.html": {
-				if (qs.isCond(2) && hasItem(player, COMMANDERS_FEATHER)) {
-					takeItem(player, COMMANDERS_FEATHER);
+				if (qs.isCond(2) && hasItemsAtLimit(player, COMMANDERS_FEATHER)) {
+					takeItems(player, COMMANDERS_FEATHER.getId(), -1);
 					giveAdena(player, 4160, true);
 					qs.exitQuest(true, true);
 					html = event;
@@ -87,10 +84,8 @@ public final class Q00286_FabulousFeathers extends Quest {
 	@Override
 	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
 		final QuestState qs = getRandomPartyMemberState(killer, 1, 3, npc);
-		if (qs != null) {
-			if (giveItemRandomly(qs.getPlayer(), npc, COMMANDERS_FEATHER.getId(), 1, COMMANDERS_FEATHER.getCount(), MOB_DROP_CHANCES.get(npc.getId()), true)) {
-				qs.setCond(2);
-			}
+		if (qs != null && giveItemRandomly(qs.getPlayer(), npc, DROPLIST.get(npc), true)) {
+			qs.setCond(2);
 		}
 		return super.onKill(npc, killer, isSummon);
 	}
@@ -102,7 +97,7 @@ public final class Q00286_FabulousFeathers extends Quest {
 		if (qs.isCreated()) {
 			html = ((player.getLevel() >= MIN_LVL) ? "32164-01.htm" : "32164-02.htm");
 		} else if (qs.isStarted()) {
-			html = ((qs.isCond(2) && hasItem(player, COMMANDERS_FEATHER)) ? "32164-04.html" : "32164-05.html");
+			html = ((qs.isCond(2) && hasItemsAtLimit(player, COMMANDERS_FEATHER)) ? "32164-04.html" : "32164-05.html");
 		}
 		return html;
 	}

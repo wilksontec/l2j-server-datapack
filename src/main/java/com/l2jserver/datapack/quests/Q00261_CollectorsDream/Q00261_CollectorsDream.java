@@ -20,6 +20,7 @@ package com.l2jserver.datapack.quests.Q00261_CollectorsDream;
 
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
+import com.l2jserver.gameserver.model.holders.QuestItemChanceHolder;
 import com.l2jserver.gameserver.model.quest.Quest;
 import com.l2jserver.gameserver.model.quest.QuestState;
 import com.l2jserver.gameserver.model.quest.State;
@@ -42,10 +43,9 @@ public final class Q00261_CollectorsDream extends Quest {
 		20466, // Pincer Spider
 	};
 	// Item
-	private static final int SPIDER_LEG = 1087;
+	private static final QuestItemChanceHolder SPIDER_LEG = new QuestItemChanceHolder(1087, 8L);
 	// Misc
 	private static final int MIN_LVL = 15;
-	private static final int MAX_LEG_COUNT = 8;
 	// Message
 	private static final ExShowScreenMessage MESSAGE = new ExShowScreenMessage(NpcStringId.LAST_DUTY_COMPLETE_N_GO_FIND_THE_NEWBIE_GUIDE, 2, 5000);
 	
@@ -54,7 +54,7 @@ public final class Q00261_CollectorsDream extends Quest {
 		addStartNpc(ALSHUPES);
 		addTalkId(ALSHUPES);
 		addKillId(MONSTERS);
-		registerQuestItems(SPIDER_LEG);
+		registerQuestItems(SPIDER_LEG.getId());
 	}
 	
 	@Override
@@ -71,7 +71,7 @@ public final class Q00261_CollectorsDream extends Quest {
 	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
 		final QuestState st = getQuestState(killer, false);
 		if ((st != null) && st.isCond(1) && Util.checkIfInRange(1500, npc, killer, true)) {
-			if (st.giveItemRandomly(SPIDER_LEG, 1, MAX_LEG_COUNT, 1, true)) {
+			if (giveItemRandomly(st.getPlayer(), npc, SPIDER_LEG, true)) {
 				st.setCond(2);
 			}
 		}
@@ -94,7 +94,7 @@ public final class Q00261_CollectorsDream extends Quest {
 						break;
 					}
 					case 2: {
-						if (st.getQuestItemsCount(SPIDER_LEG) >= MAX_LEG_COUNT) {
+						if (hasItemsAtLimit(player, SPIDER_LEG)) {
 							giveNewbieReward(player);
 							st.giveAdena(1000, true);
 							st.addExpAndSp(2000, 0);

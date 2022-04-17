@@ -23,6 +23,7 @@ import com.l2jserver.gameserver.enums.Race;
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
 import com.l2jserver.gameserver.model.holders.ItemHolder;
+import com.l2jserver.gameserver.model.holders.QuestItemChanceHolder;
 import com.l2jserver.gameserver.model.quest.Quest;
 import com.l2jserver.gameserver.model.quest.QuestState;
 import com.l2jserver.gameserver.network.serverpackets.SocialAction;
@@ -45,7 +46,7 @@ public final class Q00103_SpiritOfCraftsman extends Quest {
 	private static final int PRESERVE_OIL = 972;
 	private static final int ZOMBIE_HEAD = 973;
 	private static final int STEELBENDERS_HEAD = 974;
-	private static final int BONE_FRAGMENT = 1107;
+	private static final QuestItemChanceHolder BONE_FRAGMENT = new QuestItemChanceHolder(1107, 10L);
 	// Monsters
 	private static final int MARSH_ZOMBIE = 20015;
 	private static final int DOOM_SOLDIER = 20455;
@@ -69,7 +70,7 @@ public final class Q00103_SpiritOfCraftsman extends Quest {
 		addStartNpc(BLACKSMITH_KAROYD);
 		addTalkId(BLACKSMITH_KAROYD, CECON, HARNE);
 		addKillId(MARSH_ZOMBIE, DOOM_SOLDIER, SKELETON_HUNTER, SKELETON_HUNTER_ARCHER);
-		registerQuestItems(KAROYDS_LETTER, CECKTINONS_VOUCHER1, CECKTINONS_VOUCHER2, SOUL_CATCHER, PRESERVE_OIL, ZOMBIE_HEAD, STEELBENDERS_HEAD, BONE_FRAGMENT);
+		registerQuestItems(KAROYDS_LETTER, CECKTINONS_VOUCHER1, CECKTINONS_VOUCHER2, SOUL_CATCHER, PRESERVE_OIL, ZOMBIE_HEAD, STEELBENDERS_HEAD, BONE_FRAGMENT.getId());
 	}
 	
 	@Override
@@ -165,10 +166,10 @@ public final class Q00103_SpiritOfCraftsman extends Quest {
 						giveItems(talker, CECKTINONS_VOUCHER2, 1);
 						htmltext = "30144-01.html";
 					} else if (hasQuestItems(talker, CECKTINONS_VOUCHER2)) {
-						if (getQuestItemsCount(talker, BONE_FRAGMENT) >= 10) {
+						if (hasItemsAtLimit(talker, BONE_FRAGMENT)) {
 							qs.setCond(5, true);
 							takeItems(talker, CECKTINONS_VOUCHER2, 1);
-							takeItems(talker, BONE_FRAGMENT, 10);
+							takeItems(talker, BONE_FRAGMENT.getId(), -1);
 							giveItems(talker, SOUL_CATCHER, 1);
 							htmltext = "30144-03.html";
 						} else {
@@ -190,23 +191,19 @@ public final class Q00103_SpiritOfCraftsman extends Quest {
 		if (qs == null) {
 			return super.onKill(npc, killer, isSummon);
 		}
-		
+
 		switch (npc.getId()) {
-			case MARSH_ZOMBIE: {
-				if (hasQuestItems(killer, PRESERVE_OIL) && (getRandom(10) < 5) && Util.checkIfInRange(1500, npc, killer, true)) {
-					giveItems(killer, ZOMBIE_HEAD, 1);
-					takeItems(killer, PRESERVE_OIL, -1);
+			case MARSH_ZOMBIE -> {
+				if (hasQuestItems(qs.getPlayer(), PRESERVE_OIL) && (getRandom(10) < 5) && Util.checkIfInRange(1500, npc, qs.getPlayer(), true)) {
+					giveItems(qs.getPlayer(), ZOMBIE_HEAD, 1);
+					takeItems(qs.getPlayer(), PRESERVE_OIL, -1);
 					qs.setCond(7, true);
 				}
-				break;
 			}
-			case DOOM_SOLDIER:
-			case SKELETON_HUNTER:
-			case SKELETON_HUNTER_ARCHER: {
-				if (hasQuestItems(killer, CECKTINONS_VOUCHER2) && giveItemRandomly(qs.getPlayer(), npc, BONE_FRAGMENT, 1, 10, 1.0, true)) {
-					qs.setCond(4, true);
+			case DOOM_SOLDIER, SKELETON_HUNTER, SKELETON_HUNTER_ARCHER -> {
+				if (hasQuestItems(qs.getPlayer(), CECKTINONS_VOUCHER2) && giveItemRandomly(qs.getPlayer(), npc, BONE_FRAGMENT, true)) {
+					qs.setCond(4);
 				}
-				break;
 			}
 		}
 		return super.onKill(npc, killer, isSummon);

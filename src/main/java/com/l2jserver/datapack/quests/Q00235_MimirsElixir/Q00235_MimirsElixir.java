@@ -18,17 +18,17 @@
  */
 package com.l2jserver.datapack.quests.Q00235_MimirsElixir;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import com.l2jserver.gameserver.enums.Race;
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
-import com.l2jserver.gameserver.model.holders.QuestItemHolder;
+import com.l2jserver.gameserver.model.holders.QuestItemChanceHolder;
 import com.l2jserver.gameserver.model.holders.SkillHolder;
 import com.l2jserver.gameserver.model.quest.Quest;
+import com.l2jserver.gameserver.model.quest.QuestDroplist;
 import com.l2jserver.gameserver.model.quest.QuestState;
 import com.l2jserver.gameserver.network.serverpackets.SocialAction;
+
+import java.util.Map;
 
 /**
  * Mimir's Elixir (235)
@@ -42,30 +42,33 @@ public final class Q00235_MimirsElixir extends Quest {
 	// Items
 	private static final int STAR_OF_DESTINY = 5011;
 	private static final int MAGISTERS_MIXING_STONE = 5905;
-	private static final int BLOOD_FIRE = 6318;
 	private static final int MIMIRS_ELIXIR = 6319;
 	private static final int PURE_SILVER = 6320;
 	private static final int TRUE_GOLD = 6321;
-	private static final int SAGES_STONE = 6322;
+	private static final QuestItemChanceHolder BLOOD_FIRE = new QuestItemChanceHolder(6318, 1L);
+	private static final QuestItemChanceHolder SAGES_STONE = new QuestItemChanceHolder(6322, 1L);
+	// Droplist
+	private static final QuestDroplist DROPLIST = QuestDroplist.builder()
+			.addSingleDrop(20965, SAGES_STONE) // chimera_piece
+			.addSingleDrop(21090, BLOOD_FIRE) // bloody_guardian
+			.build();
 	// Reward
 	private static final int ENCHANT_WEAPON_A = 729;
 	// Misc
 	private static final int MIN_LEVEL = 75;
+	private static final Map<Integer, Integer> ITEM_STATE = Map.of(
+			SAGES_STONE.getId(), 4,
+			BLOOD_FIRE.getId(), 1
+	);
 	// Skill
 	private static final SkillHolder QUEST_MIMIRS_ELIXIR = new SkillHolder(4339);
-	// Mobs
-	private static final Map<Integer, QuestItemHolder> MOBS = new HashMap<>();
-	static {
-		MOBS.put(20965, new QuestItemHolder(SAGES_STONE, 4, 1)); // chimera_piece
-		MOBS.put(21090, new QuestItemHolder(BLOOD_FIRE, 7, 1)); // bloody_guardian
-	}
-	
+
 	public Q00235_MimirsElixir() {
 		super(235, Q00235_MimirsElixir.class.getSimpleName(), "Mimir's Elixir");
 		addStartNpc(LADD);
 		addTalkId(LADD, JOAN, ALCHEMISTS_MIXING_URN);
-		addKillId(MOBS.keySet());
-		registerQuestItems(MAGISTERS_MIXING_STONE, BLOOD_FIRE, MIMIRS_ELIXIR, TRUE_GOLD, SAGES_STONE);
+		addKillId(DROPLIST.getNpcIds());
+		registerQuestItems(MAGISTERS_MIXING_STONE, BLOOD_FIRE.getId(), MIMIRS_ELIXIR, TRUE_GOLD, SAGES_STONE.getId());
 	}
 	
 	@Override
@@ -146,9 +149,9 @@ public final class Q00235_MimirsElixir extends Quest {
 				break;
 			}
 			case "30718-06.html": {
-				if (st.isMemoState(4) && hasQuestItems(player, SAGES_STONE)) {
+				if (st.isMemoState(4) && hasQuestItems(player, SAGES_STONE.getId())) {
 					giveItems(player, TRUE_GOLD, 1);
-					takeItems(player, SAGES_STONE, -1);
+					takeItems(player, SAGES_STONE.getId(), -1);
 					st.setMemoState(5);
 					st.setCond(5, true);
 					htmltext = event;
@@ -179,14 +182,14 @@ public final class Q00235_MimirsElixir extends Quest {
 			}
 			case "BLOOD_FIRE": {
 				if (st.isMemoState(7)) {
-					htmltext = ((hasQuestItems(player, BLOOD_FIRE)) ? "31149-08.html" : "31149-03.html");
+					htmltext = ((hasQuestItems(player, BLOOD_FIRE.getId())) ? "31149-08.html" : "31149-03.html");
 				}
 				break;
 			}
 			case "31149-11.html": {
-				if (st.isMemoState(7) && hasQuestItems(player, BLOOD_FIRE, PURE_SILVER, TRUE_GOLD)) {
+				if (st.isMemoState(7) && hasQuestItems(player, BLOOD_FIRE.getId(), PURE_SILVER, TRUE_GOLD)) {
 					giveItems(player, MIMIRS_ELIXIR, 1);
-					takeItems(player, -1, BLOOD_FIRE, PURE_SILVER, TRUE_GOLD);
+					takeItems(player, -1, BLOOD_FIRE.getId(), PURE_SILVER, TRUE_GOLD);
 					st.setMemoState(8);
 					st.setCond(8, true);
 					htmltext = event;
@@ -198,19 +201,19 @@ public final class Q00235_MimirsElixir extends Quest {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance player, boolean isSummon) {
+	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
 		if (getRandom(5) == 0) {
-			L2PcInstance luckyPlayer = getRandomPartyMember(player, npc);
+			L2PcInstance luckyPlayer = getRandomPartyMember(killer, npc);
 			if (luckyPlayer != null) {
-				final QuestItemHolder item = MOBS.get(npc.getId());
-				if (giveItemRandomly(luckyPlayer, npc, item.getId(), item.getCount(), item.getCount(), 1.0, true)) {
-					final QuestState st = luckyPlayer.getQuestState(getName());
-					st.setMemoState(item.getChance());
-					st.setCond(item.getChance());
+				final QuestState st = luckyPlayer.getQuestState(getName());
+				if (giveItemRandomly(st.getPlayer(), npc, DROPLIST.get(npc), true)) {
+					int itemId = DROPLIST.get(npc).item().getId();
+					st.setMemoState(ITEM_STATE.get(itemId));
+					st.setCond(ITEM_STATE.get(itemId));
 				}
 			}
 		}
-		return super.onKill(npc, player, isSummon);
+		return super.onKill(npc, killer, isSummon);
 	}
 	
 	@Override

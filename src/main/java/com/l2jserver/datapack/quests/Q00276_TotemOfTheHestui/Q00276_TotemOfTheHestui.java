@@ -18,18 +18,18 @@
  */
 package com.l2jserver.datapack.quests.Q00276_TotemOfTheHestui;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import com.l2jserver.datapack.quests.Q00261_CollectorsDream.Q00261_CollectorsDream;
 import com.l2jserver.gameserver.enums.Race;
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
 import com.l2jserver.gameserver.model.holders.ItemHolder;
+import com.l2jserver.gameserver.model.holders.QuestItemChanceHolder;
 import com.l2jserver.gameserver.model.quest.Quest;
 import com.l2jserver.gameserver.model.quest.QuestState;
 import com.l2jserver.gameserver.model.quest.State;
 import com.l2jserver.gameserver.util.Util;
+
+import java.util.List;
 
 /**
  * Totem of the Hestui (276)
@@ -40,7 +40,7 @@ public final class Q00276_TotemOfTheHestui extends Quest {
 	private static final int TANAPI = 30571;
 	// Items
 	private static final int KASHA_PARASITE = 1480;
-	private static final int KASHA_CRYSTAL = 1481;
+	private static final QuestItemChanceHolder KASHA_CRYSTAL = new QuestItemChanceHolder(1481, 1L);
 	// Monsters
 	private static final int KASHA_BEAR = 20479;
 	private static final int KASHA_BEAR_TOTEM = 27044;
@@ -50,23 +50,20 @@ public final class Q00276_TotemOfTheHestui extends Quest {
 		1500,
 	};
 	// Misc
-	private static final List<ItemHolder> SPAWN_CHANCES = new ArrayList<>();
+	private static final List<ItemHolder> SPAWN_CHANCES = List.of(
+		new ItemHolder(79, 100),
+		new ItemHolder(69, 20),
+		new ItemHolder(59, 15),
+		new ItemHolder(49, 10),
+		new ItemHolder(39, 2));
 	private static final int MIN_LVL = 15;
-	
-	static {
-		SPAWN_CHANCES.add(new ItemHolder(79, 100));
-		SPAWN_CHANCES.add(new ItemHolder(69, 20));
-		SPAWN_CHANCES.add(new ItemHolder(59, 15));
-		SPAWN_CHANCES.add(new ItemHolder(49, 10));
-		SPAWN_CHANCES.add(new ItemHolder(39, 2));
-	}
 	
 	public Q00276_TotemOfTheHestui() {
 		super(276, Q00276_TotemOfTheHestui.class.getSimpleName(), "Totem of the Hestui");
 		addStartNpc(TANAPI);
 		addTalkId(TANAPI);
 		addKillId(KASHA_BEAR, KASHA_BEAR_TOTEM);
-		registerQuestItems(KASHA_PARASITE, KASHA_CRYSTAL);
+		registerQuestItems(KASHA_PARASITE, KASHA_CRYSTAL.getId());
 	}
 	
 	@Override
@@ -84,7 +81,7 @@ public final class Q00276_TotemOfTheHestui extends Quest {
 		final QuestState st = getQuestState(killer, false);
 		if ((st != null) && st.isCond(1) && Util.checkIfInRange(1500, killer, npc, true)) {
 			switch (npc.getId()) {
-				case KASHA_BEAR: {
+				case KASHA_BEAR -> {
 					final long chance1 = st.getQuestItemsCount(KASHA_PARASITE);
 					final int chance2 = getRandom(100);
 					boolean chance3 = true;
@@ -97,15 +94,13 @@ public final class Q00276_TotemOfTheHestui extends Quest {
 						}
 					}
 					if (chance3) {
-						st.giveItemRandomly(KASHA_PARASITE, 1, 0, 1, true);
+						giveItemRandomly(st.getPlayer(), npc, KASHA_PARASITE, true);
 					}
-					break;
 				}
-				case KASHA_BEAR_TOTEM: {
-					if (st.giveItemRandomly(KASHA_CRYSTAL, 1, 1, 1, true)) {
+				case KASHA_BEAR_TOTEM -> {
+					if (giveItemRandomly(st.getPlayer(), npc, KASHA_CRYSTAL, true)) {
 						st.setCond(2);
 					}
-					break;
 				}
 			}
 		}
@@ -128,7 +123,7 @@ public final class Q00276_TotemOfTheHestui extends Quest {
 						break;
 					}
 					case 2: {
-						if (st.hasQuestItems(KASHA_CRYSTAL)) {
+						if (st.hasQuestItems(KASHA_CRYSTAL.getId())) {
 							Q00261_CollectorsDream.giveNewbieReward(player);
 							for (int reward : REWARDS) {
 								st.rewardItems(reward, 1);

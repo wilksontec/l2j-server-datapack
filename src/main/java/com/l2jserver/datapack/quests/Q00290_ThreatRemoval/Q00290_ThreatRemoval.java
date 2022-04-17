@@ -18,16 +18,11 @@
  */
 package com.l2jserver.datapack.quests.Q00290_ThreatRemoval;
 
-import static com.l2jserver.gameserver.config.Configuration.rates;
-
-import java.util.HashMap;
-import java.util.Map;
-
 import com.l2jserver.datapack.quests.Q00251_NoSecrets.Q00251_NoSecrets;
-import com.l2jserver.gameserver.enums.audio.Sound;
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
 import com.l2jserver.gameserver.model.quest.Quest;
+import com.l2jserver.gameserver.model.quest.QuestDroplist;
 import com.l2jserver.gameserver.model.quest.QuestState;
 import com.l2jserver.gameserver.model.quest.State;
 
@@ -43,29 +38,23 @@ public class Q00290_ThreatRemoval extends Quest {
 	private static final int ENCHANT_ARMOR_S = 960;
 	private static final int FIRE_CRYSTAL = 9552;
 	private static final int SEL_MAHUM_ID_TAG = 15714;
+	// Droplist
+	private static final QuestDroplist DROPLIST = QuestDroplist.builder()
+			.bulkAddSingleDrop(SEL_MAHUM_ID_TAG, 93.2).withNpcs(22775, 22777, 22778).build() // Sel Mahum Drill Sergeant
+			.bulkAddSingleDrop(SEL_MAHUM_ID_TAG, 36.3).withNpcs(22780, 22782, 22784).build() // Sel Mahum Recruit
+			.addSingleDrop(22776, SEL_MAHUM_ID_TAG, 39.7) // Sel Mahum Training Officer
+			.addSingleDrop(22781, SEL_MAHUM_ID_TAG, 48.3) // Sel Mahum Soldier
+			.addSingleDrop(22783, SEL_MAHUM_ID_TAG, 35.2) // Sel Mahum Soldier
+			.addSingleDrop(22785, SEL_MAHUM_ID_TAG, 16.9) // Sel Mahum Soldier
+			.build();
 	// Misc
 	private static final int MIN_LEVEL = 82;
-	
-	private static final Map<Integer, Integer> MOBS_TAG = new HashMap<>();
-	
-	static {
-		MOBS_TAG.put(22775, 932); // Sel Mahum Drill Sergeant
-		MOBS_TAG.put(22776, 397); // Sel Mahum Training Officer
-		MOBS_TAG.put(22777, 932); // Sel Mahum Drill Sergeant
-		MOBS_TAG.put(22778, 932); // Sel Mahum Drill Sergeant
-		MOBS_TAG.put(22780, 363); // Sel Mahum Recruit
-		MOBS_TAG.put(22781, 483); // Sel Mahum Soldier
-		MOBS_TAG.put(22782, 363); // Sel Mahum Recruit
-		MOBS_TAG.put(22783, 352); // Sel Mahum Soldier
-		MOBS_TAG.put(22784, 363); // Sel Mahum Recruit
-		MOBS_TAG.put(22785, 169); // Sel Mahum Soldier
-	}
-	
+
 	public Q00290_ThreatRemoval() {
 		super(290, Q00290_ThreatRemoval.class.getSimpleName(), "Threat Removal");
 		addStartNpc(PINAPS);
 		addTalkId(PINAPS);
-		addKillId(MOBS_TAG.keySet());
+		addKillId(DROPLIST.getNpcIds());
 		registerQuestItems(SEL_MAHUM_ID_TAG);
 	}
 	
@@ -151,17 +140,9 @@ public class Q00290_ThreatRemoval extends Quest {
 	
 	@Override
 	public String onKill(L2Npc npc, L2PcInstance player, boolean isSummon) {
-		final L2PcInstance partyMember = getRandomPartyMember(player, 1);
-		if (partyMember == null) {
-			return super.onKill(npc, player, isSummon);
-		}
-		
-		final QuestState st = getQuestState(partyMember, false);
-		int npcId = npc.getId();
-		double chance = MOBS_TAG.get(npcId) * rates().getRateQuestDrop();
-		if (getRandom(1000) < chance) {
-			st.rewardItems(SEL_MAHUM_ID_TAG, 1);
-			st.playSound(Sound.ITEMSOUND_QUEST_ITEMGET);
+		QuestState st = getRandomPartyMemberState(player, 1, 1, npc);
+		if (st != null) {
+			giveItemRandomly(st.getPlayer(), npc, DROPLIST.get(npc), true);
 		}
 		return super.onKill(npc, player, isSummon);
 	}

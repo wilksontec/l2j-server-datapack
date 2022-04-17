@@ -20,6 +20,7 @@ package com.l2jserver.datapack.quests.Q00347_GoGetTheCalculator;
 
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
+import com.l2jserver.gameserver.model.holders.QuestItemChanceHolder;
 import com.l2jserver.gameserver.model.itemcontainer.Inventory;
 import com.l2jserver.gameserver.model.quest.Quest;
 import com.l2jserver.gameserver.model.quest.QuestState;
@@ -37,7 +38,7 @@ public final class Q00347_GoGetTheCalculator extends Quest {
 	private static final int BALANKI = 30533;
 	// Items
 	private static final int STOLEN_CALCULATOR = 4285;
-	private static final int GEMSTONE = 4286;
+	private static final QuestItemChanceHolder GEMSTONE = new QuestItemChanceHolder(4286, 40.0, 10L);
 	// Monster
 	private static final int GEMSTONE_BEAST = 20540;
 	// Reward
@@ -51,7 +52,7 @@ public final class Q00347_GoGetTheCalculator extends Quest {
 		addStartNpc(BRUNON);
 		addTalkId(BRUNON, SILVERA, SPIRON, BALANKI);
 		addKillId(GEMSTONE_BEAST);
-		registerQuestItems(STOLEN_CALCULATOR, GEMSTONE);
+		registerQuestItems(STOLEN_CALCULATOR, GEMSTONE.getId());
 	}
 	
 	@Override
@@ -189,7 +190,7 @@ public final class Q00347_GoGetTheCalculator extends Quest {
 								break;
 							}
 							case 5: {
-								takeItems(talker, GEMSTONE, -1);
+								takeItems(talker, GEMSTONE.getId(), -1);
 								giveItems(talker, STOLEN_CALCULATOR, 1);
 								qs.setCond(6, true);
 								htmltext = "30527-03.html";
@@ -217,7 +218,7 @@ public final class Q00347_GoGetTheCalculator extends Quest {
 	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
 		final QuestState qs = getRandomPartyMemberState(killer, 4, 3, npc);
 		if (qs != null) {
-			if (giveItemRandomly(qs.getPlayer(), npc, GEMSTONE, 1, 10, 0.4, true)) {
+			if (giveItemRandomly(qs.getPlayer(), npc, GEMSTONE, true)) {
 				qs.setCond(5);
 			}
 		}

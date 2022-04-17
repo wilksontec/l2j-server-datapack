@@ -18,12 +18,10 @@
  */
 package com.l2jserver.datapack.quests.Q10272_LightFragment;
 
-import static com.l2jserver.gameserver.config.Configuration.rates;
-
 import com.l2jserver.datapack.quests.Q10271_TheEnvelopingDarkness.Q10271_TheEnvelopingDarkness;
-import com.l2jserver.gameserver.enums.audio.Sound;
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
+import com.l2jserver.gameserver.model.holders.QuestItemChanceHolder;
 import com.l2jserver.gameserver.model.itemcontainer.Inventory;
 import com.l2jserver.gameserver.model.quest.Quest;
 import com.l2jserver.gameserver.model.quest.QuestState;
@@ -34,11 +32,17 @@ import com.l2jserver.gameserver.model.quest.State;
  * @author Gladicek
  */
 public class Q10272_LightFragment extends Quest {
+	// NPCs
 	private static final int ORBYU = 32560;
 	private static final int ARTIUS = 32559;
 	private static final int GINBY = 32566;
 	private static final int LELRIKIA = 32567;
 	private static final int LEKON = 32557;
+	// Items
+	private static final int LIGHT_FRAGMENT_POWDER = 13854;
+	private static final int LIGHT_FRAGMENT = 13855;
+	private static final QuestItemChanceHolder FRAGMENT_POWDER = new QuestItemChanceHolder(13853, 60.0, 100L);
+	// Monsters
 	private static final int[] MOBS = {
 		22536, // Royal Guard Captain
 		22537, // Dragon Steed Troop Grand Magician
@@ -53,20 +57,15 @@ public class Q10272_LightFragment extends Quest {
 		22550, // Savage Warrior
 		22551, // Priest of Darkness
 		22552, // Mutation Drake
-		22596
-		// White Dragon Leader
+		22596 // White Dragon Leader
 	};
-	private static final int FRAGMENT_POWDER = 13853;
-	private static final int LIGHT_FRAGMENT_POWDER = 13854;
-	private static final int LIGHT_FRAGMENT = 13855;
-	private static final double DROP_CHANCE = 60;
-	
+
 	public Q10272_LightFragment() {
 		super(10272, Q10272_LightFragment.class.getSimpleName(), "Light Fragment");
 		addStartNpc(ORBYU);
 		addTalkId(ORBYU, ARTIUS, GINBY, LELRIKIA, LEKON);
 		addKillId(MOBS);
-		registerQuestItems(FRAGMENT_POWDER, LIGHT_FRAGMENT_POWDER);
+		registerQuestItems(FRAGMENT_POWDER.getId(), LIGHT_FRAGMENT_POWDER);
 	}
 	
 	@Override
@@ -125,24 +124,7 @@ public class Q10272_LightFragment extends Quest {
 	public final String onKill(L2Npc npc, L2PcInstance player, boolean isSummon) {
 		final QuestState st = getQuestState(player, false);
 		if ((st != null) && st.isCond(5)) {
-			final long count = st.getQuestItemsCount(FRAGMENT_POWDER);
-			if (count < 100) {
-				int chance = (int) (rates().getRateQuestDrop() * DROP_CHANCE);
-				int numItems = chance / 100;
-				chance = chance % 100;
-				if (getRandom(100) < chance) {
-					numItems++;
-				}
-				if (numItems > 0) {
-					if ((count + numItems) > 100) {
-						numItems = 100 - (int) count;
-					}
-					if (numItems > 0) {
-						st.giveItems(FRAGMENT_POWDER, numItems);
-						st.playSound(Sound.ITEMSOUND_QUEST_ITEMGET);
-					}
-				}
-			}
+			giveItemRandomly(player, npc, FRAGMENT_POWDER, true);
 		}
 		return null;
 	}
@@ -188,11 +170,11 @@ public class Q10272_LightFragment extends Quest {
 							htmltext = "32559-10.html";
 							break;
 						case 5:
-							if (st.getQuestItemsCount(FRAGMENT_POWDER) >= 100) {
+							if (hasItemsAtLimit(st.getPlayer(), FRAGMENT_POWDER)) {
 								htmltext = "32559-15.html";
 								st.setCond(6, true);
 							} else {
-								htmltext = st.hasQuestItems(FRAGMENT_POWDER) ? "32559-14.html" : "32559-13.html";
+								htmltext = st.hasQuestItems(FRAGMENT_POWDER.getId()) ? "32559-14.html" : "32559-13.html";
 							}
 							break;
 						case 6:

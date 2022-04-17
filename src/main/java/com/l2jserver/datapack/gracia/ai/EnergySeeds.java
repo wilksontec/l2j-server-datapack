@@ -509,12 +509,13 @@ public class EnergySeeds extends AbstractNpcAI {
 	}
 	
 	private void handleQuestDrop(L2PcInstance player, int itemId) {
-		double chance = HOWTOOPPOSEEVIL_CHANCE * rates().getRateQuestDrop();
+		double chance = HOWTOOPPOSEEVIL_CHANCE * rates().getQuestDropChanceMultiplier();
 		int numItems = (int) (chance / 100);
 		chance = chance % 100;
 		if (getRandom(100) < chance) {
 			numItems++;
 		}
+		numItems *= rates().getQuestDropAmountMultiplier();
 		if (numItems > 0) {
 			giveItems(player, itemId, numItems);
 			playSound(player, Sound.ITEMSOUND_QUEST_ITEMGET);

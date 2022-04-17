@@ -20,6 +20,7 @@ package com.l2jserver.datapack.quests.Q00252_ItSmellsDelicious;
 
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
+import com.l2jserver.gameserver.model.holders.QuestItemChanceHolder;
 import com.l2jserver.gameserver.model.quest.Quest;
 import com.l2jserver.gameserver.model.quest.QuestState;
 
@@ -32,8 +33,8 @@ public class Q00252_ItSmellsDelicious extends Quest {
 	// NPC
 	public static final int STAN = 30200;
 	// Items
-	public static final int DIARY = 15500;
-	public static final int COOKBOOK_PAGE = 15501;
+	private static final QuestItemChanceHolder DIARY = new QuestItemChanceHolder(15500, 59.9, 10L);
+	private static final QuestItemChanceHolder COOKBOOK_PAGE = new QuestItemChanceHolder(15501, 36L, 5L);
 	// Monsters
 	private static final int[] MOBS = {
 		22786,
@@ -41,11 +42,6 @@ public class Q00252_ItSmellsDelicious extends Quest {
 		22788
 	};
 	private static final int CHEF = 18908;
-	// Misc
-	private static final double DIARY_CHANCE = 0.599;
-	private static final int DIARY_MAX_COUNT = 10;
-	private static final double COOKBOOK_PAGE_CHANCE = 0.36;
-	private static final int COOKBOOK_PAGE_MAX_COUNT = 5;
 	
 	public Q00252_ItSmellsDelicious() {
 		super(252, Q00252_ItSmellsDelicious.class.getSimpleName(), "It Smells Delicious!");
@@ -53,7 +49,7 @@ public class Q00252_ItSmellsDelicious extends Quest {
 		addTalkId(STAN);
 		addKillId(CHEF);
 		addKillId(MOBS);
-		registerQuestItems(DIARY, COOKBOOK_PAGE);
+		registerQuestItems(DIARY.getId(), COOKBOOK_PAGE.getId());
 	}
 	
 	@Override
@@ -89,24 +85,17 @@ public class Q00252_ItSmellsDelicious extends Quest {
 	@Override
 	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
 		final QuestState qs;
-		if (npc.getId() == CHEF) // only the killer gets quest items from the chef
-		{
+		if (npc.getId() == CHEF) { // only the killer gets quest items from the chef
 			qs = getQuestState(killer, false);
 			if ((qs != null) && qs.isCond(1)) {
-				if (giveItemRandomly(killer, npc, COOKBOOK_PAGE, 1, COOKBOOK_PAGE_MAX_COUNT, COOKBOOK_PAGE_CHANCE, true)) {
-					if (hasMaxDiaries(qs)) {
-						qs.setCond(2, true);
-					}
+				if (giveItemRandomly(qs.getPlayer(), npc, COOKBOOK_PAGE, true) && hasItemsAtLimit(qs.getPlayer(), DIARY)) {
+					qs.setCond(2);
 				}
 			}
 		} else {
 			qs = getRandomPartyMemberState(killer, 1, 3, npc);
-			if (qs != null) {
-				if (giveItemRandomly(qs.getPlayer(), npc, DIARY, 1, DIARY_MAX_COUNT, DIARY_CHANCE, true)) {
-					if (hasMaxCookbookPages(qs)) {
-						qs.setCond(2, true);
-					}
-				}
+			if (qs != null && giveItemRandomly(qs.getPlayer(), npc, DIARY, true) && hasItemsAtLimit(qs.getPlayer(), COOKBOOK_PAGE)) {
+				qs.setCond(2);
 			}
 		}
 		return super.onKill(npc, killer, isSummon);
@@ -114,7 +103,7 @@ public class Q00252_ItSmellsDelicious extends Quest {
 	
 	@Override
 	public boolean checkPartyMember(QuestState qs, L2Npc npc) {
-		return !hasMaxDiaries(qs);
+		return !hasItemsAtLimit(qs.getPlayer(), DIARY);
 	}
 	
 	@Override
@@ -130,7 +119,7 @@ public class Q00252_ItSmellsDelicious extends Quest {
 					htmltext = "30200-06.html";
 					break;
 				case 2:
-					if (hasMaxDiaries(qs) && hasMaxCookbookPages(qs)) {
+					if (hasItemsAtLimit(qs.getPlayer(), DIARY, COOKBOOK_PAGE)) {
 						htmltext = "30200-07.html";
 					}
 					break;
@@ -139,13 +128,5 @@ public class Q00252_ItSmellsDelicious extends Quest {
 			htmltext = "30200-03.html";
 		}
 		return htmltext;
-	}
-	
-	private static boolean hasMaxDiaries(QuestState qs) {
-		return (getQuestItemsCount(qs.getPlayer(), DIARY) >= DIARY_MAX_COUNT);
-	}
-	
-	private static boolean hasMaxCookbookPages(QuestState qs) {
-		return (getQuestItemsCount(qs.getPlayer(), COOKBOOK_PAGE) >= COOKBOOK_PAGE_MAX_COUNT);
 	}
 }

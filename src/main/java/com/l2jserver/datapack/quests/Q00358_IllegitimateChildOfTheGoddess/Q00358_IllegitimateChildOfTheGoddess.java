@@ -18,12 +18,11 @@
  */
 package com.l2jserver.datapack.quests.Q00358_IllegitimateChildOfTheGoddess;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
+import com.l2jserver.gameserver.model.holders.QuestItemChanceHolder;
 import com.l2jserver.gameserver.model.quest.Quest;
+import com.l2jserver.gameserver.model.quest.QuestDroplist;
 import com.l2jserver.gameserver.model.quest.QuestState;
 
 /**
@@ -34,10 +33,14 @@ public final class Q00358_IllegitimateChildOfTheGoddess extends Quest {
 	// NPC
 	private static final int OLTRAN = 30862;
 	// Item
-	private static final int SNAKE_SCALE = 5868;
+	private static final QuestItemChanceHolder SNAKE_SCALE = new QuestItemChanceHolder(5868, 108L);
+	// Droplist
+	private static final QuestDroplist DROPLIST = QuestDroplist.builder()
+			.addSingleDrop(20672, SNAKE_SCALE, 71.0) // trives
+			.addSingleDrop(20673, SNAKE_SCALE, 74.0) // falibati
+			.build();
 	// Misc
 	private static final int MIN_LEVEL = 63;
-	private static final int SNAKE_SCALE_COUNT = 108;
 	// Rewards
 	private static final int[] REWARDS = new int[] {
 		5364, // Recipe: Sealed Dark Crystal Shield(60%)
@@ -49,19 +52,13 @@ public final class Q00358_IllegitimateChildOfTheGoddess extends Quest {
 		6337, // Recipe: Sealed Majestic Earring(70%)
 		6339, // Recipe: Sealed Majestic Ring(70%)
 	};
-	// Mobs
-	private static final Map<Integer, Double> MOBS = new HashMap<>();
-	static {
-		MOBS.put(20672, 0.71); // trives
-		MOBS.put(20673, 0.74); // falibati
-	}
-	
+
 	public Q00358_IllegitimateChildOfTheGoddess() {
 		super(358, Q00358_IllegitimateChildOfTheGoddess.class.getSimpleName(), "Illegitimate Child of the Goddess");
 		addStartNpc(OLTRAN);
 		addTalkId(OLTRAN);
-		addKillId(MOBS.keySet());
-		registerQuestItems(SNAKE_SCALE);
+		addKillId(DROPLIST.getNpcIds());
+		registerQuestItems(SNAKE_SCALE.getId());
 	}
 	
 	@Override
@@ -88,12 +85,12 @@ public final class Q00358_IllegitimateChildOfTheGoddess extends Quest {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance player, boolean isSummon) {
-		final QuestState st = getRandomPartyMemberState(player, 1, 3, npc);
-		if ((st != null) && st.giveItemRandomly(npc, SNAKE_SCALE, 1, SNAKE_SCALE_COUNT, MOBS.get(npc.getId()), true)) {
-			st.setCond(2, true);
+	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
+		final QuestState st = getRandomPartyMemberState(killer, 1, 3, npc);
+		if ((st != null) && giveItemRandomly(st.getPlayer(), npc, DROPLIST.get(npc), true)) {
+			st.setCond(2);
 		}
-		return super.onKill(npc, player, isSummon);
+		return super.onKill(npc, killer, isSummon);
 	}
 	
 	@Override
@@ -103,7 +100,7 @@ public final class Q00358_IllegitimateChildOfTheGoddess extends Quest {
 		if (st.isCreated()) {
 			htmltext = ((player.getLevel() >= MIN_LEVEL) ? "30862-01.htm" : "30862-05.html");
 		} else if (st.isStarted()) {
-			if (getQuestItemsCount(player, SNAKE_SCALE) < SNAKE_SCALE_COUNT) {
+			if (!hasItemsAtLimit(player, SNAKE_SCALE)) {
 				htmltext = "30862-06.html";
 			} else {
 				rewardItems(player, REWARDS[getRandom(REWARDS.length)], 1);

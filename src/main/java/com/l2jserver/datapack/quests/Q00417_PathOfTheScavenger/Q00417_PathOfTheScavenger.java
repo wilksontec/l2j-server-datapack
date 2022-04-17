@@ -22,6 +22,7 @@ import com.l2jserver.gameserver.model.actor.L2Attackable;
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
 import com.l2jserver.gameserver.model.base.ClassId;
+import com.l2jserver.gameserver.model.holders.QuestItemChanceHolder;
 import com.l2jserver.gameserver.model.quest.Quest;
 import com.l2jserver.gameserver.model.quest.QuestState;
 import com.l2jserver.gameserver.model.skills.Skill;
@@ -56,10 +57,10 @@ public final class Q00417_PathOfTheScavenger extends Quest {
 	private static final int ZIMENFS_PAY = 1652;
 	private static final int BEAR_PICTURE = 1653;
 	private static final int TARANTULA_PICTURE = 1654;
-	private static final int HONEY_JAR = 1655;
-	private static final int BEAD = 1656;
 	private static final int BEAD_PARCEL = 1657;
 	private static final int BEAD_PARCEL2 = 8543;
+	private static final QuestItemChanceHolder HONEY_JAR = new QuestItemChanceHolder(1655, 5L);
+	private static final QuestItemChanceHolder BEAD = new QuestItemChanceHolder(1656, 20L);
 	// Reward
 	private static final int RING_OF_RAVEN = 1642;
 	// Monster
@@ -81,7 +82,7 @@ public final class Q00417_PathOfTheScavenger extends Quest {
 		addTalkId(COLLECTOR_PIPI, WAREHOUSE_KEEPER_RAUT, TRADER_MION, TRADER_SHARI, HEAD_BLACKSMITH_BRONK, PRIEST_OF_THE_EARTH_ZIMENF, MASTER_TOMA, TORAI, WAREHOUSE_CHIEF_YASENI);
 		addAttackId(HUNTER_TARANTULA, PLUNDER_TARANTULA, HUNTER_BEAR, HONEY_BEAR);
 		addKillId(HUNTER_TARANTULA, PLUNDER_TARANTULA, HUNTER_BEAR, HONEY_BEAR);
-		registerQuestItems(PIPPIS_LETTER_OF_RECOMMENDATION, ROUTS_TELEPORT_SCROLL, SUCCUBUS_UNDIES, MIONS_LETTER, BRONKS_INGOT, SHARIS_AXE, ZIMENFS_POTION, BRONKS_PAY, SHARIS_PAY, ZIMENFS_PAY, BEAR_PICTURE, TARANTULA_PICTURE, HONEY_JAR, BEAD, BEAD_PARCEL, BEAD_PARCEL2);
+		registerQuestItems(PIPPIS_LETTER_OF_RECOMMENDATION, ROUTS_TELEPORT_SCROLL, SUCCUBUS_UNDIES, MIONS_LETTER, BRONKS_INGOT, SHARIS_AXE, ZIMENFS_POTION, BRONKS_PAY, SHARIS_PAY, ZIMENFS_PAY, BEAR_PICTURE, TARANTULA_PICTURE, HONEY_JAR.getId(), BEAD.getId(), BEAD_PARCEL, BEAD_PARCEL2);
 	}
 	
 	@Override
@@ -204,9 +205,9 @@ public final class Q00417_PathOfTheScavenger extends Quest {
 				break;
 			}
 			case "30556-05b.html": {
-				if (hasQuestItems(player, TARANTULA_PICTURE) && (getQuestItemsCount(player, BEAD) >= 20)) {
+				if (hasQuestItems(player, TARANTULA_PICTURE) && hasItemsAtLimit(player, BEAD)) {
 					takeItems(player, TARANTULA_PICTURE, 1);
-					takeItems(player, BEAD, -1);
+					takeItems(player, BEAD.getId(), -1);
 					giveItems(player, BEAD_PARCEL, 1);
 					qs.setCond(9, true);
 					htmltext = event;
@@ -214,9 +215,9 @@ public final class Q00417_PathOfTheScavenger extends Quest {
 				break;
 			}
 			case "30556-06b.html": {
-				if (hasQuestItems(player, TARANTULA_PICTURE) && (getQuestItemsCount(player, BEAD) >= 20)) {
+				if (hasQuestItems(player, TARANTULA_PICTURE) && hasItemsAtLimit(player, BEAD)) {
 					takeItems(player, TARANTULA_PICTURE, 1);
-					takeItems(player, BEAD, -1);
+					takeItems(player, BEAD.getId(), -1);
 					giveItems(player, BEAD_PARCEL2, 1);
 					qs.setMemoState(2);
 					qs.setCond(12, true);
@@ -323,8 +324,8 @@ public final class Q00417_PathOfTheScavenger extends Quest {
 		if ((qs != null) && qs.isStarted() && Util.checkIfInRange(1500, npc, killer, true) && npc.isAttackable()) {
 			final boolean firstAttacker = (killer.getObjectId() == npc.getVariables().getInt(FIRST_ATTACKER));
 			switch (npc.getId()) {
-				case HUNTER_BEAR: {
-					if (npc.isScriptValue(1) && firstAttacker && hasQuestItems(killer, BEAR_PICTURE) && (getQuestItemsCount(killer, HONEY_JAR) < 5)) {
+				case HUNTER_BEAR -> {
+					if (npc.isScriptValue(1) && firstAttacker && hasQuestItems(killer, BEAR_PICTURE) && !hasItemsAtLimit(killer, HONEY_JAR)) {
 						final int flag = qs.getInt(FLAG);
 						if ((flag > 0) && (getRandom(100) < (20 * flag))) {
 							addSpawn(HONEY_BEAR, npc, true, 0, true);
@@ -333,24 +334,20 @@ public final class Q00417_PathOfTheScavenger extends Quest {
 							qs.set(FLAG, flag + 1);
 						}
 					}
-					break;
 				}
-				case HONEY_BEAR: {
+				case HONEY_BEAR -> {
 					if (npc.isScriptValue(2) && firstAttacker && ((L2Attackable) npc).isSpoiled() && hasQuestItems(killer, BEAR_PICTURE)) {
-						if (giveItemRandomly(killer, npc, HONEY_JAR, 1, 5, 1.0, true)) {
+						if (giveItemRandomly(killer, npc, HONEY_JAR, true)) {
 							qs.setCond(6);
 						}
 					}
-					break;
 				}
-				case HUNTER_TARANTULA:
-				case PLUNDER_TARANTULA: {
+				case HUNTER_TARANTULA, PLUNDER_TARANTULA -> {
 					if (npc.isScriptValue(2) && firstAttacker && ((L2Attackable) npc).isSpoiled() && hasQuestItems(killer, TARANTULA_PICTURE)) {
-						if (giveItemRandomly(killer, npc, BEAD, 1, 20, 1.0, true)) {
+						if (giveItemRandomly(killer, npc, BEAD, true)) {
 							qs.setCond(8);
 						}
 					}
-					break;
 				}
 			}
 		}
@@ -471,17 +468,17 @@ public final class Q00417_PathOfTheScavenger extends Quest {
 						qs.set(FLAG, 0);
 						htmltext = "30556-01.html";
 					} else if (hasQuestItems(player, BEAR_PICTURE)) {
-						if (getQuestItemsCount(player, HONEY_JAR) < 5) {
+						if (!hasItemsAtLimit(player, HONEY_JAR)) {
 							htmltext = "30556-02.html";
 						} else {
 							takeItems(player, BEAR_PICTURE, 1);
 							giveItems(player, TARANTULA_PICTURE, 1);
-							takeItems(player, HONEY_JAR, -1);
+							takeItems(player, HONEY_JAR.getId(), -1);
 							qs.setCond(7, true);
 							htmltext = "30556-03.html";
 						}
 					} else if (hasQuestItems(player, TARANTULA_PICTURE)) {
-						if (getQuestItemsCount(player, BEAD) < 20) {
+						if (!hasItemsAtLimit(player, BEAD)) {
 							htmltext = "30556-04.html";
 						} else {
 							htmltext = "30556-05a.html";

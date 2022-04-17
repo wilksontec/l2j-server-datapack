@@ -18,14 +18,13 @@
  */
 package com.l2jserver.datapack.quests.Q00292_BrigandsSweep;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import com.l2jserver.gameserver.enums.Race;
 import com.l2jserver.gameserver.enums.audio.Sound;
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
+import com.l2jserver.gameserver.model.holders.QuestItemChanceHolder;
 import com.l2jserver.gameserver.model.quest.Quest;
+import com.l2jserver.gameserver.model.quest.QuestDroplist;
 import com.l2jserver.gameserver.model.quest.QuestState;
 import com.l2jserver.gameserver.model.quest.State;
 import com.l2jserver.gameserver.util.Util;
@@ -42,17 +41,16 @@ public final class Q00292_BrigandsSweep extends Quest {
 	private static final int GOBLIN_NECKLACE = 1483;
 	private static final int GOBLIN_PENDANT = 1484;
 	private static final int GOBLIN_LORD_PENDANT = 1485;
-	private static final int SUSPICIOUS_MEMO = 1486;
 	private static final int SUSPICIOUS_CONTRACT = 1487;
-	// Monsters
-	private static final Map<Integer, Integer> MOB_ITEM_DROP = new HashMap<>();
-	static {
-		MOB_ITEM_DROP.put(20322, GOBLIN_NECKLACE); // Goblin Brigand
-		MOB_ITEM_DROP.put(20323, GOBLIN_PENDANT); // Goblin Brigand Leader
-		MOB_ITEM_DROP.put(20324, GOBLIN_NECKLACE); // Goblin Brigand Lieutenant
-		MOB_ITEM_DROP.put(20327, GOBLIN_NECKLACE); // Goblin Snooper
-		MOB_ITEM_DROP.put(20528, GOBLIN_LORD_PENDANT); // Goblin Lord
-	}
+	private static final QuestItemChanceHolder SUSPICIOUS_MEMO = new QuestItemChanceHolder(1486, 3L);
+	// Droplist
+	private static final QuestDroplist DROPLIST = QuestDroplist.builder()
+			.addSingleDrop(20322, GOBLIN_NECKLACE) // Goblin Brigand
+			.addSingleDrop(20323, GOBLIN_PENDANT) // Goblin Brigand Leader
+			.addSingleDrop(20324, GOBLIN_NECKLACE) // Goblin Brigand Lieutenant
+			.addSingleDrop(20327, GOBLIN_NECKLACE) // Goblin Snooper
+			.addSingleDrop(20528, GOBLIN_LORD_PENDANT) // Goblin Lord
+			.build();
 	// Misc
 	private static final int MIN_LVL = 5;
 	
@@ -60,8 +58,8 @@ public final class Q00292_BrigandsSweep extends Quest {
 		super(292, Q00292_BrigandsSweep.class.getSimpleName(), "Brigands Sweep");
 		addStartNpc(SPIRON);
 		addTalkId(SPIRON, BALANKI);
-		addKillId(MOB_ITEM_DROP.keySet());
-		registerQuestItems(GOBLIN_NECKLACE, GOBLIN_PENDANT, GOBLIN_LORD_PENDANT, SUSPICIOUS_MEMO, SUSPICIOUS_CONTRACT);
+		addKillId(DROPLIST.getNpcIds());
+		registerQuestItems(GOBLIN_NECKLACE, GOBLIN_PENDANT, GOBLIN_LORD_PENDANT, SUSPICIOUS_MEMO.getId(), SUSPICIOUS_CONTRACT);
 	}
 	
 	@Override
@@ -100,17 +98,17 @@ public final class Q00292_BrigandsSweep extends Quest {
 	@Override
 	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
 		final QuestState qs = getQuestState(killer, false);
-		if ((qs != null) && qs.isStarted() && Util.checkIfInRange(1500, npc, killer, true)) {
+		if ((qs != null) && qs.isStarted() && Util.checkIfInRange(1500, npc, qs.getPlayer(), true)) {
 			final int chance = getRandom(10);
 			if (chance > 5) {
-				giveItemRandomly(killer, npc, MOB_ITEM_DROP.get(npc.getId()), 1, 0, 1.0, true);
+				giveItemRandomly(qs.getPlayer(), npc, DROPLIST.get(npc), true);
 			} else if (qs.isCond(1) && (chance > 4) && !hasQuestItems(killer, SUSPICIOUS_CONTRACT)) {
-				final long memos = getQuestItemsCount(killer, SUSPICIOUS_MEMO);
+				final long memos = getQuestItemsCount(killer, SUSPICIOUS_MEMO.getId());
 				if (memos < 3) {
-					if (giveItemRandomly(killer, npc, SUSPICIOUS_MEMO, 1, 3, 1.0, false)) {
+					if (giveItemRandomly(qs.getPlayer(), npc, SUSPICIOUS_MEMO, false)) {
 						playSound(killer, Sound.ITEMSOUND_QUEST_ITEMGET);
 						giveItems(killer, SUSPICIOUS_CONTRACT, 1);
-						takeItems(killer, SUSPICIOUS_MEMO, -1);
+						takeItems(killer, SUSPICIOUS_MEMO.getId(), -1);
 						qs.setCond(2, true);
 					} else {
 						playSound(killer, Sound.ITEMSOUND_QUEST_ITEMGET);
@@ -144,10 +142,10 @@ public final class Q00292_BrigandsSweep extends Quest {
 								giveAdena(talker, (necklaces * 12) + (pendants * 36) + (lordPendants * 33) + (sum >= 10 ? 1000 : 0), true);
 								takeItems(talker, -1, GOBLIN_NECKLACE, GOBLIN_PENDANT, GOBLIN_LORD_PENDANT);
 							}
-							if ((sum > 0) && !hasAtLeastOneQuestItem(talker, SUSPICIOUS_MEMO, SUSPICIOUS_CONTRACT)) {
+							if ((sum > 0) && !hasAtLeastOneQuestItem(talker, SUSPICIOUS_MEMO.getId(), SUSPICIOUS_CONTRACT)) {
 								html = "30532-05.html";
 							} else {
-								final long memos = getQuestItemsCount(talker, SUSPICIOUS_MEMO);
+								final long memos = getQuestItemsCount(talker, SUSPICIOUS_MEMO.getId());
 								if ((memos == 0) && hasQuestItems(talker, SUSPICIOUS_CONTRACT)) {
 									giveAdena(talker, 1120, true);
 									takeItems(talker, -1, SUSPICIOUS_CONTRACT); // Retail like, reward is given in 2 pieces if both conditions are meet.

@@ -21,10 +21,11 @@ package com.l2jserver.datapack.quests.Q10292_SevenSignsGirlOfDoubt;
 import com.l2jserver.datapack.quests.Q00198_SevenSignsEmbryo.Q00198_SevenSignsEmbryo;
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
-import com.l2jserver.gameserver.model.holders.ItemHolder;
+import com.l2jserver.gameserver.model.holders.QuestItemChanceHolder;
 import com.l2jserver.gameserver.model.quest.Quest;
+import com.l2jserver.gameserver.model.quest.QuestDroplist;
+import com.l2jserver.gameserver.model.quest.QuestDroplist.QuestDropInfo;
 import com.l2jserver.gameserver.model.quest.QuestState;
-import com.l2jserver.gameserver.util.Util;
 
 /**
  * Seven Signs, Girl of Doubt (10292)
@@ -38,7 +39,13 @@ public final class Q10292_SevenSignsGirlOfDoubt extends Quest {
 	private static final int FRANZ = 32597;
 	private static final int ELCADIA = 32784;
 	// Item
-	private static final ItemHolder ELCADIAS_MARK = new ItemHolder(17226, 10);
+	private static final QuestItemChanceHolder ELCADIAS_MARK = new QuestItemChanceHolder(17226, 70.0, 10L);
+	private static final QuestDroplist DROPLIST = QuestDroplist.builder()
+			.bulkAddSingleDrop(ELCADIAS_MARK)
+				.withNpcs(22801, 22802, 22803) // Cruel Pincer Golem
+				.withNpcs(22804, 22805, 22806) // Horrifying Jackhammer Golem
+				.build()
+			.build();
 	// Misc
 	private static final int MIN_LEVEL = 81;
 	// Variables
@@ -46,21 +53,13 @@ public final class Q10292_SevenSignsGirlOfDoubt extends Quest {
 	// Monster
 	private static final int CREATURE_OF_THE_DUSK1 = 27422;
 	private static final int CREATURE_OF_THE_DUSK2 = 27424;
-	private static final int[] MOBS = {
-		22801, // Cruel Pincer Golem
-		22802, // Cruel Pincer Golem
-		22803, // Cruel Pincer Golem
-		22804, // Horrifying Jackhammer Golem
-		22805, // Horrifying Jackhammer Golem
-		22806, // Horrifying Jackhammer Golem
-	};
-	
+
 	public Q10292_SevenSignsGirlOfDoubt() {
 		super(10292, Q10292_SevenSignsGirlOfDoubt.class.getSimpleName(), "Seven Signs, Girl of Doubt");
 		addStartNpc(WOOD);
 		addSpawnId(ELCADIA);
 		addTalkId(WOOD, FRANZ, ELCADIA, HARDIN);
-		addKillId(MOBS);
+		addKillId(DROPLIST.getNpcIds());
 		addKillId(CREATURE_OF_THE_DUSK1, CREATURE_OF_THE_DUSK2);
 		registerQuestItems(ELCADIAS_MARK.getId());
 	}
@@ -169,10 +168,9 @@ public final class Q10292_SevenSignsGirlOfDoubt extends Quest {
 	public String onKill(L2Npc npc, L2PcInstance player, boolean isSummon) {
 		final QuestState st = getRandomPartyMemberState(player, -1, 3, npc);
 		if (st != null) {
-			if (Util.contains(MOBS, npc.getId())) {
-				if (giveItemRandomly(st.getPlayer(), npc, ELCADIAS_MARK.getId(), 1, ELCADIAS_MARK.getCount(), 0.7, true) && st.isMemoState(3)) {
-					st.setCond(4, true);
-				}
+			QuestDropInfo markDropInfo = DROPLIST.get(npc);
+			if (markDropInfo != null && giveItemRandomly(st.getPlayer(), npc, markDropInfo, true) && st.isMemoState(3)) {
+				st.setCond(4);
 			} else {
 				int killCount = st.getInt("killCount");
 				st.set("killCount", ++killCount);
@@ -227,10 +225,10 @@ public final class Q10292_SevenSignsGirlOfDoubt extends Quest {
 							break;
 						}
 						case 3: {
-							if (!hasItem(player, ELCADIAS_MARK)) {
+							if (!hasItemsAtLimit(player, ELCADIAS_MARK)) {
 								htmltext = "32784-03.html";
 							} else {
-								takeItem(player, ELCADIAS_MARK);
+								takeItems(player, ELCADIAS_MARK.getId(), -1);
 								st.setMemoState(4);
 								st.setCond(4, true);
 								htmltext = "32784-04.html";

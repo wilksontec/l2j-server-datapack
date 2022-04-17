@@ -18,15 +18,17 @@
  */
 package com.l2jserver.datapack.quests.Q00644_GraveRobberAnnihilation;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
 import com.l2jserver.gameserver.model.holders.ItemHolder;
+import com.l2jserver.gameserver.model.holders.QuestItemChanceHolder;
 import com.l2jserver.gameserver.model.quest.Quest;
+import com.l2jserver.gameserver.model.quest.QuestDroplist;
 import com.l2jserver.gameserver.model.quest.QuestState;
 import com.l2jserver.gameserver.model.quest.State;
+
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Grave Robber Annihilation (644)
@@ -36,22 +38,21 @@ public final class Q00644_GraveRobberAnnihilation extends Quest {
 	// NPC
 	private static final int KARUDA = 32017;
 	// Item
-	private static final int ORC_GOODS = 8088;
+	private static final QuestItemChanceHolder ORC_GOODS = new QuestItemChanceHolder(8088, 120L);
+	// Droplist
+	private static final QuestDroplist DROPLIST = QuestDroplist.builder()
+			.addSingleDrop(22003, ORC_GOODS, 71.4) // Grave Robber Scout
+			.addSingleDrop(22004, ORC_GOODS, 84.1) // Grave Robber Lookout
+			.addSingleDrop(22005, ORC_GOODS, 77.8) // Grave Robber Ranger
+			.addSingleDrop(22006, ORC_GOODS, 74.6) // Grave Robber Guard
+			.addSingleDrop(22008, ORC_GOODS, 81.0) // Grave Robber Fighter
+			.build();
 	// Misc
 	private static final int MIN_LVL = 20;
 	private static final int ORC_GOODS_REQUIRED_COUNT = 120;
-	// Monsters
-	private static final Map<Integer, Double> MONSTER_DROP_CHANCES = new HashMap<>();
 	// Rewards
 	private static final Map<String, ItemHolder> REWARDS = new HashMap<>();
-	
 	static {
-		MONSTER_DROP_CHANCES.put(22003, 0.714); // Grave Robber Scout
-		MONSTER_DROP_CHANCES.put(22004, 0.841); // Grave Robber Lookout
-		MONSTER_DROP_CHANCES.put(22005, 0.778); // Grave Robber Ranger
-		MONSTER_DROP_CHANCES.put(22006, 0.746); // Grave Robber Guard
-		MONSTER_DROP_CHANCES.put(22008, 0.810); // Grave Robber Fighter
-		
 		REWARDS.put("varnish", new ItemHolder(1865, 30)); // Varnish
 		REWARDS.put("animalskin", new ItemHolder(1867, 40)); // Animal Skin
 		REWARDS.put("animalbone", new ItemHolder(1872, 40)); // Animal Bone
@@ -64,8 +65,8 @@ public final class Q00644_GraveRobberAnnihilation extends Quest {
 		super(644, Q00644_GraveRobberAnnihilation.class.getSimpleName(), "Grave Robber Annihilation");
 		addStartNpc(KARUDA);
 		addTalkId(KARUDA);
-		addKillId(MONSTER_DROP_CHANCES.keySet());
-		registerQuestItems(ORC_GOODS);
+		addKillId(DROPLIST.getNpcIds());
+		registerQuestItems(ORC_GOODS.getId());
 	}
 	
 	@Override
@@ -85,7 +86,7 @@ public final class Q00644_GraveRobberAnnihilation extends Quest {
 				break;
 			}
 			case "32017-06.html": {
-				if (st.isCond(2) && (st.getQuestItemsCount(ORC_GOODS) >= ORC_GOODS_REQUIRED_COUNT)) {
+				if (st.isCond(2) && hasItemsAtLimit(st.getPlayer(), ORC_GOODS)) {
 					htmltext = event;
 				}
 				break;
@@ -111,8 +112,8 @@ public final class Q00644_GraveRobberAnnihilation extends Quest {
 	@Override
 	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
 		final QuestState qs = getRandomPartyMemberState(killer, 1, 3, npc);
-		if ((qs != null) && qs.giveItemRandomly(npc, ORC_GOODS, 1, ORC_GOODS_REQUIRED_COUNT, MONSTER_DROP_CHANCES.get(npc.getId()), true)) {
-			qs.setCond(2, true);
+		if ((qs != null) && giveItemRandomly(qs.getPlayer(), npc, DROPLIST.get(npc), true)) {
+			qs.setCond(2);
 		}
 		return super.onKill(npc, killer, isSummon);
 	}
@@ -127,7 +128,7 @@ public final class Q00644_GraveRobberAnnihilation extends Quest {
 				break;
 			}
 			case State.STARTED: {
-				if (st.isCond(2) && (st.getQuestItemsCount(ORC_GOODS) >= ORC_GOODS_REQUIRED_COUNT)) {
+				if (st.isCond(2) && hasItemsAtLimit(st.getPlayer(), ORC_GOODS)) {
 					htmltext = "32017-04.html";
 				} else {
 					htmltext = "32017-05.html";

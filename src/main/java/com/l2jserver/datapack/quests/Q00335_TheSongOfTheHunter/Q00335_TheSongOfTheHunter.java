@@ -18,10 +18,6 @@
  */
 package com.l2jserver.datapack.quests.Q00335_TheSongOfTheHunter;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
-
 import com.l2jserver.gameserver.enums.audio.Sound;
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
@@ -31,6 +27,10 @@ import com.l2jserver.gameserver.model.quest.QuestState;
 import com.l2jserver.gameserver.network.NpcStringId;
 import com.l2jserver.gameserver.network.clientpackets.Say2;
 import com.l2jserver.gameserver.network.serverpackets.CreatureSay;
+
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * The Song of the Hunter (335)
@@ -1079,14 +1079,14 @@ public class Q00335_TheSongOfTheHunter extends Quest {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance player, boolean isSummon) {
-		final QuestState qs = getRandomPartyMemberState(player, -1, 3, npc);
+	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
+		final QuestState qs = getRandomPartyMemberState(killer, -1, 3, npc);
 		if (qs != null) {
 			for (int i = DROPLIST.length - 1; i >= 0; i--) {
 				final int[] droplist = DROPLIST[i];
 				if (npc.getId() == droplist[0]) {
 					if (hasQuestItems(qs.getPlayer(), droplist[1]) && giveItemRandomly(qs.getPlayer(), npc, droplist[2], droplist[3], droplist[4], droplist[5] / 100d, true)) {
-						playSound(player, Sound.ITEMSOUND_QUEST_MIDDLE);
+						playSound(killer, Sound.ITEMSOUND_QUEST_MIDDLE);
 					}
 				}
 			}
@@ -1225,41 +1225,31 @@ public class Q00335_TheSongOfTheHunter extends Quest {
 				}
 				case GREMLIN_FILCHER: {
 					if (hasQuestItems(qs.getPlayer(), SECOND_CIRCLE_REQUEST_7C) && (getQuestItemsCount(qs.getPlayer(), TEMPEST_SHARD) < 40)) {
-						if (giveItemRandomly(qs.getPlayer(), npc, TEMPEST_SHARD, 5, 40, 1.0, true)) {
-							playSound(player, Sound.ITEMSOUND_QUEST_MIDDLE);
-						}
+						giveItemRandomly(qs.getPlayer(), npc, TEMPEST_SHARD, 5, 40, 1.0, true);
 						
 						npc.broadcastPacket(new CreatureSay(npc.getObjectId(), Say2.NPC_ALL, npc.getName(), NpcStringId.PRETTY_GOOD));
 					}
 					
 					if (hasQuestItems(qs.getPlayer(), SECOND_CIRCLE_REQUEST_8C) && (getQuestItemsCount(qs.getPlayer(), TSUNAMI_SHARD) < 40)) {
-						if (giveItemRandomly(qs.getPlayer(), npc, TSUNAMI_SHARD, 5, 40, 1.0, true)) {
-							playSound(player, Sound.ITEMSOUND_QUEST_MIDDLE);
-						}
+						giveItemRandomly(qs.getPlayer(), npc, TSUNAMI_SHARD, 5, 40, 1.0, true);
 						
 						npc.broadcastPacket(new CreatureSay(npc.getObjectId(), Say2.NPC_ALL, npc.getName(), NpcStringId.PRETTY_GOOD));
 					}
 					
 					if (hasQuestItems(qs.getPlayer(), SECOND_CIRCLE_REQUEST_10C) && (getQuestItemsCount(qs.getPlayer(), HAMADRYAD_SHARD) < 40)) {
-						if (giveItemRandomly(qs.getPlayer(), npc, HAMADRYAD_SHARD, 5, 40, 1.0, true)) {
-							playSound(player, Sound.ITEMSOUND_QUEST_MIDDLE);
-						}
+						giveItemRandomly(qs.getPlayer(), npc, HAMADRYAD_SHARD, 5, 40, 1.0, true);
 						
 						npc.broadcastPacket(new CreatureSay(npc.getObjectId(), Say2.NPC_ALL, npc.getName(), NpcStringId.PRETTY_GOOD));
 					}
 					
 					if (hasQuestItems(qs.getPlayer(), SECOND_CIRCLE_REQUEST_3B) && (getQuestItemsCount(qs.getPlayer(), NARCISSUSS_SOULSTONE) < 40)) {
-						if (giveItemRandomly(qs.getPlayer(), npc, NARCISSUSS_SOULSTONE, 5, 40, 1.0, true)) {
-							playSound(player, Sound.ITEMSOUND_QUEST_MIDDLE);
-						}
+						giveItemRandomly(qs.getPlayer(), npc, NARCISSUSS_SOULSTONE, 5, 40, 1.0, true);
 						
 						npc.broadcastPacket(new CreatureSay(npc.getObjectId(), Say2.NPC_ALL, npc.getName(), NpcStringId.PRETTY_GOOD));
 					}
 					
 					if (hasQuestItems(qs.getPlayer(), SECOND_CIRCLE_REQUEST_5C) && (getQuestItemsCount(qs.getPlayer(), COIN_OF_OLD_EMPIRE) < 20)) {
-						if (giveItemRandomly(qs.getPlayer(), npc, COIN_OF_OLD_EMPIRE, 3, 20, 1.0, true)) {
-							playSound(player, Sound.ITEMSOUND_QUEST_MIDDLE);
-						}
+						giveItemRandomly(qs.getPlayer(), npc, COIN_OF_OLD_EMPIRE, 3, 20, 1.0, true);
 						
 						npc.broadcastPacket(new CreatureSay(npc.getObjectId(), Say2.NPC_ALL, npc.getName(), NpcStringId.PRETTY_GOOD));
 					}
@@ -1299,7 +1289,7 @@ public class Q00335_TheSongOfTheHunter extends Quest {
 				}
 			}
 		}
-		return super.onKill(npc, player, isSummon);
+		return super.onKill(npc, killer, isSummon);
 	}
 	
 	private String reward(L2PcInstance player, QuestState qs, int[][] rewards) {

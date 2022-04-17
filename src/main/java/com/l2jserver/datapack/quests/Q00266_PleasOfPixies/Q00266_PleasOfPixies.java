@@ -18,19 +18,19 @@
  */
 package com.l2jserver.datapack.quests.Q00266_PleasOfPixies;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
 import com.l2jserver.gameserver.enums.Race;
 import com.l2jserver.gameserver.enums.audio.Sound;
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
 import com.l2jserver.gameserver.model.holders.ItemHolder;
+import com.l2jserver.gameserver.model.holders.QuestItemChanceHolder;
 import com.l2jserver.gameserver.model.quest.Quest;
+import com.l2jserver.gameserver.model.quest.QuestDroplist;
 import com.l2jserver.gameserver.model.quest.QuestState;
 import com.l2jserver.gameserver.model.quest.State;
+
+import java.util.List;
+import java.util.Map;
 
 /**
  * Pleas of Pixies (266)
@@ -40,23 +40,20 @@ public final class Q00266_PleasOfPixies extends Quest {
 	// NPC
 	private static final int PIXY_MURIKA = 31852;
 	// Items
-	private static final int PREDATORS_FANG = 1334;
-	// Monsters
-	private static final Map<Integer, List<ItemHolder>> MONSTERS = new HashMap<>();
-	static {
-		MONSTERS.put(20537, Arrays.asList(new ItemHolder(10, 2))); // Elder Red Keltir
-		MONSTERS.put(20525, Arrays.asList(new ItemHolder(5, 2), new ItemHolder(10, 3))); // Gray Wolf
-		MONSTERS.put(20534, Arrays.asList(new ItemHolder(6, 1))); // Red Keltir
-		MONSTERS.put(20530, Arrays.asList(new ItemHolder(8, 1))); // Young Red Keltir
-	}
+	private static final QuestItemChanceHolder PREDATORS_FANG = new QuestItemChanceHolder(1334, 100L);
+	// Droplists
+	private static final QuestDroplist DROPLIST = QuestDroplist.builder()
+			.addSingleDrop(20537, PREDATORS_FANG, 2) // Elder Red Keltir
+			.addSingleDrop(20525, PREDATORS_FANG, 250.0) // Gray Wolf
+			.addSingleDrop(20534, PREDATORS_FANG, 60.0) // Red Keltir
+			.addSingleDrop(20530, PREDATORS_FANG, 80.0) // Young Red Keltir
+			.build();
 	// Rewards
-	private static final Map<Integer, List<ItemHolder>> REWARDS = new HashMap<>();
-	static {
-		REWARDS.put(0, Arrays.asList(new ItemHolder(1337, 1), new ItemHolder(3032, 1))); // Emerald, Recipe: Spiritshot D
-		REWARDS.put(1, Arrays.asList(new ItemHolder(2176, 1), new ItemHolder(1338, 1))); // Recipe: Leather Boots, Blue Onyx
-		REWARDS.put(2, Arrays.asList(new ItemHolder(1339, 1), new ItemHolder(1061, 1))); // Onyx, Greater Healing Potion
-		REWARDS.put(3, Arrays.asList(new ItemHolder(1336, 1), new ItemHolder(1060, 1))); // Glass Shard, Lesser Healing Potion
-	}
+	private static final Map<Integer, List<ItemHolder>> REWARDS = Map.of(
+		0, List.of(new ItemHolder(1337, 1), new ItemHolder(3032, 1)), // Emerald, Recipe: Spiritshot D
+		1, List.of(new ItemHolder(2176, 1), new ItemHolder(1338, 1)), // Recipe: Leather Boots, Blue Onyx
+		2, List.of(new ItemHolder(1339, 1), new ItemHolder(1061, 1)), // Onyx, Greater Healing Potion
+		3, List.of(new ItemHolder(1336, 1), new ItemHolder(1060, 1))); // Glass Shard, Lesser Healing Potion
 	// Misc
 	private static final int MIN_LVL = 3;
 	
@@ -64,8 +61,8 @@ public final class Q00266_PleasOfPixies extends Quest {
 		super(266, Q00266_PleasOfPixies.class.getSimpleName(), "Pleas of Pixies");
 		addStartNpc(PIXY_MURIKA);
 		addTalkId(PIXY_MURIKA);
-		addKillId(MONSTERS.keySet());
-		registerQuestItems(PREDATORS_FANG);
+		addKillId(DROPLIST.getNpcIds());
+		registerQuestItems(PREDATORS_FANG.getId());
 	}
 	
 	@Override
@@ -82,14 +79,8 @@ public final class Q00266_PleasOfPixies extends Quest {
 	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
 		final QuestState st = getQuestState(killer, false);
 		if ((st != null) && st.isCond(1)) {
-			final int chance = getRandom(10);
-			for (ItemHolder mob : MONSTERS.get(npc.getId())) {
-				if (chance < mob.getId()) {
-					if (st.giveItemRandomly(npc, PREDATORS_FANG, mob.getCount(), 100, 1.0, true)) {
-						st.setCond(2);
-					}
-					break;
-				}
+			if (giveItemRandomly(st.getPlayer(), npc, DROPLIST.get(npc), true)) {
+				st.setCond(2);
 			}
 		}
 		return super.onKill(npc, killer, isSummon);
@@ -117,7 +108,7 @@ public final class Q00266_PleasOfPixies extends Quest {
 						break;
 					}
 					case 2: {
-						if (st.getQuestItemsCount(PREDATORS_FANG) >= 100) {
+						if (hasItemsAtLimit(player, PREDATORS_FANG)) {
 							final int chance = getRandom(100);
 							int reward;
 							if (chance < 2) {

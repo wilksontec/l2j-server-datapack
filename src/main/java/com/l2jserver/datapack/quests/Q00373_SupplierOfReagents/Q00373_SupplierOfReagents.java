@@ -18,15 +18,17 @@
  */
 package com.l2jserver.datapack.quests.Q00373_SupplierOfReagents;
 
-import java.util.HashMap;
-
 import com.l2jserver.datapack.quests.Q00235_MimirsElixir.Q00235_MimirsElixir;
 import com.l2jserver.gameserver.enums.audio.Sound;
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
 import com.l2jserver.gameserver.model.holders.ItemHolder;
+import com.l2jserver.gameserver.model.holders.QuestItemChanceHolder;
 import com.l2jserver.gameserver.model.quest.Quest;
+import com.l2jserver.gameserver.model.quest.QuestDroplist;
 import com.l2jserver.gameserver.model.quest.QuestState;
+
+import java.util.HashMap;
 
 /**
  * Supplier of Reagents (373)
@@ -53,7 +55,7 @@ public final class Q00373_SupplierOfReagents extends Quest {
 	private static final int LAVA_STONE = 6012;
 	private static final int MOONSTONE_SHARD = 6013;
 	private static final int ROTTEN_BONE = 6014;
-	private static final int DEMONS_BLOOD = 6015;
+	private static final QuestItemChanceHolder DEMONS_BLOOD = new QuestItemChanceHolder(6015, 3L, 0L);
 	private static final int INFERNIUM_ORE = 6016;
 	private static final int BLOOD_ROOT = 6017;
 	private static final int VOLCANIC_ASH = 6018;
@@ -76,6 +78,26 @@ public final class Q00373_SupplierOfReagents extends Quest {
 	private static final int PURE_SILVER = 6320;
 	private static final int MIXING_MANUAL = 6317;
 	private static final int WESLEYS_MIXING_STONE = 5904;
+	// Droplist
+	private static final QuestDroplist DROPLIST = QuestDroplist.builder()
+			.addGroupedDrop(HALLATE_GUARDIAN, 87.6)
+				.withDropItem(DEMONS_BLOOD, 87.44)
+				.withDropItem(MOONSTONE_SHARD, 12.56).build()
+			.addGroupedDrop(HALLATE_MAID, 65)
+				.withDropItem(REAGENT_POUNCH1, 69.23)
+				.withDropItem(VOLCANIC_ASH, 30.77).build()
+			.addSingleDrop(HAMES_ORC_SHAMAN, REAGENT_POUNCH3, 61.6)
+			.addGroupedDrop(LAVA_WYRM, 98.9)
+				.withDropItem(WYRM_BLOOD, 67.34)
+				.withDropItem(LAVA_STONE, 32.66).build()
+			.addGroupedDrop(CRENDION, 100.0)
+				.withDropItem(ROTTEN_BONE, 61.8)
+				.withDropItem(QUICKSILVER, 38.2).build()
+			.addSingleDrop(PLATINUM_GUARDIAN_SHAMAN, REAGENT_BOX, 44.4)
+			.addGroupedDrop(PLATINUM_TRIBE_SHAMAN, 100.0)
+				.withDropItem(REAGENT_POUNCH2, 65.8)
+				.withDropItem(QUICKSILVER, 2, 34.2).build()
+			.build();
 	// Misc
 	private static final int MIN_LVL = 57;
 	private static final HashMap<String, Integer> HTML_TO_MEMO_STATE = new HashMap<>(20);
@@ -102,7 +124,7 @@ public final class Q00373_SupplierOfReagents extends Quest {
 		MEMO_STATE_TO_ITEM.put(12, new ItemHolder(LAVA_STONE, 10));
 		MEMO_STATE_TO_ITEM.put(13, new ItemHolder(MOONSTONE_SHARD, 10));
 		MEMO_STATE_TO_ITEM.put(14, new ItemHolder(ROTTEN_BONE, 10));
-		MEMO_STATE_TO_ITEM.put(15, new ItemHolder(DEMONS_BLOOD, 10));
+		MEMO_STATE_TO_ITEM.put(15, new ItemHolder(DEMONS_BLOOD.getId(), 10));
 		MEMO_STATE_TO_ITEM.put(16, new ItemHolder(INFERNIUM_ORE, 10));
 		MEMO_STATE_TO_ITEM.put(17, new ItemHolder(DRACOPLASM, 10));
 		MEMO_STATE_TO_ITEM.put(18, new ItemHolder(MAGMA_DUST, 10));
@@ -296,63 +318,7 @@ public final class Q00373_SupplierOfReagents extends Quest {
 	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
 		final QuestState qs = getRandomPartyMemberState(killer, -1, 3, npc);
 		if (qs != null) {
-			switch (npc.getId()) {
-				case HALLATE_GUARDIAN: {
-					final int chance = getRandom(1000);
-					if (chance < 766) {
-						giveItemRandomly(qs.getPlayer(), npc, DEMONS_BLOOD, 3, 0, 1, true);
-					} else if (chance < 876) {
-						giveItemRandomly(qs.getPlayer(), npc, MOONSTONE_SHARD, 1, 0, 1, true);
-					}
-					break;
-				}
-				case HALLATE_MAID: {
-					final int chance = getRandom(100);
-					if (chance < 45) {
-						giveItemRandomly(qs.getPlayer(), npc, REAGENT_POUNCH1, 1, 0, 1, true);
-					} else if (chance < 65) {
-						giveItemRandomly(qs.getPlayer(), npc, VOLCANIC_ASH, 1, 0, 1, true);
-					}
-					break;
-				}
-				case HAMES_ORC_SHAMAN: {
-					if (getRandom(1000) < 616) {
-						giveItemRandomly(qs.getPlayer(), npc, REAGENT_POUNCH3, 1, 0, 1, true);
-					}
-					break;
-				}
-				case LAVA_WYRM: {
-					final int chance = getRandom(1000);
-					if (chance < 666) {
-						giveItemRandomly(qs.getPlayer(), npc, WYRM_BLOOD, 1, 0, 1, true);
-					} else if (chance < 989) {
-						giveItemRandomly(qs.getPlayer(), npc, LAVA_STONE, 1, 0, 1, true);
-					}
-					break;
-				}
-				case CRENDION: {
-					if (getRandom(1000) < 618) {
-						giveItemRandomly(qs.getPlayer(), npc, ROTTEN_BONE, 1, 0, 1, true);
-					} else {
-						giveItemRandomly(qs.getPlayer(), npc, QUICKSILVER, 1, 0, 1, true);
-					}
-					break;
-				}
-				case PLATINUM_GUARDIAN_SHAMAN: {
-					if (getRandom(1000) < 444) {
-						giveItemRandomly(qs.getPlayer(), npc, REAGENT_BOX, 1, 0, 1, true);
-					}
-					break;
-				}
-				case PLATINUM_TRIBE_SHAMAN: {
-					if (getRandom(1000) < 658) {
-						giveItemRandomly(qs.getPlayer(), npc, REAGENT_POUNCH2, 1, 0, 1, true);
-					} else {
-						giveItemRandomly(qs.getPlayer(), npc, QUICKSILVER, 2, 0, 1, true);
-					}
-					break;
-				}
-			}
+			giveItemRandomly(qs.getPlayer(), npc, DROPLIST.get(npc), true);
 		}
 		return super.onKill(npc, killer, isSummon);
 	}

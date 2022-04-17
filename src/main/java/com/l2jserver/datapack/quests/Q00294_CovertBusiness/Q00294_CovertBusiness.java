@@ -18,15 +18,12 @@
  */
 package com.l2jserver.datapack.quests.Q00294_CovertBusiness;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
 import com.l2jserver.gameserver.enums.Race;
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
+import com.l2jserver.gameserver.model.holders.QuestItemChanceHolder;
 import com.l2jserver.gameserver.model.quest.Quest;
+import com.l2jserver.gameserver.model.quest.QuestDroplist;
 import com.l2jserver.gameserver.model.quest.QuestState;
 import com.l2jserver.gameserver.util.Util;
 
@@ -38,13 +35,19 @@ public final class Q00294_CovertBusiness extends Quest {
 	// NPC
 	private static final int KEEF = 30534;
 	// Item
-	private static final int BAT_FANG = 1491;
-	// Monsters
-	private static final Map<Integer, List<Integer>> MONSTER_DROP_CHANCE = new HashMap<>();
-	static {
-		MONSTER_DROP_CHANCE.put(20370, Arrays.asList(6, 3, 1, -1));
-		MONSTER_DROP_CHANCE.put(20480, Arrays.asList(5, 2, -1));
-	}
+	private static final QuestItemChanceHolder BAT_FANG = new QuestItemChanceHolder(1491, 100L);
+	// Droplist
+	private static final QuestDroplist DROPLIST = QuestDroplist.builder()
+			.addGroupedDropForSingleItem(20370, BAT_FANG, 100.0)
+				.withAmount(4, 10.0)
+				.withAmount(3, 20.0)
+				.withAmount(2, 30.0)
+				.orElse(1)
+			.addGroupedDropForSingleItem(20480, BAT_FANG, 100.0)
+				.withAmount(3, 20.0)
+				.withAmount(2, 30.0)
+				.orElse(1)
+			.build();
 	// Reward
 	private static final int RING_OF_RACCOON = 1508;
 	// Misc
@@ -54,8 +57,8 @@ public final class Q00294_CovertBusiness extends Quest {
 		super(294, Q00294_CovertBusiness.class.getSimpleName(), "Covert Business");
 		addStartNpc(KEEF);
 		addTalkId(KEEF);
-		addKillId(MONSTER_DROP_CHANCE.keySet());
-		registerQuestItems(BAT_FANG);
+		addKillId(DROPLIST.getNpcIds());
+		registerQuestItems(BAT_FANG.getId());
 	}
 	
 	@Override
@@ -71,17 +74,9 @@ public final class Q00294_CovertBusiness extends Quest {
 	@Override
 	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
 		final QuestState qs = getQuestState(killer, false);
-		if ((qs != null) && qs.isCond(1) && Util.checkIfInRange(1500, npc, killer, true)) {
-			final int chance = getRandom(10);
-			int count = 0;
-			for (int i : MONSTER_DROP_CHANCE.get(npc.getId())) {
-				count++;
-				if (chance > i) {
-					if (giveItemRandomly(killer, npc, BAT_FANG, count, 100, 1.0, true)) {
-						qs.setCond(2);
-					}
-					break;
-				}
+		if ((qs != null) && qs.isCond(1) && Util.checkIfInRange(1500, npc, qs.getPlayer(), true)) {
+			if (giveItemRandomly(qs.getPlayer(), npc, DROPLIST.get(npc), true)) {
+				qs.setCond(2);
 			}
 		}
 		return super.onKill(npc, killer, isSummon);

@@ -18,11 +18,9 @@
  */
 package com.l2jserver.datapack.quests.Q00053_LinnaeusSpecialBait;
 
-import static com.l2jserver.gameserver.config.Configuration.rates;
-
-import com.l2jserver.gameserver.enums.audio.Sound;
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
+import com.l2jserver.gameserver.model.holders.QuestItemChanceHolder;
 import com.l2jserver.gameserver.model.quest.Quest;
 import com.l2jserver.gameserver.model.quest.QuestState;
 import com.l2jserver.gameserver.model.quest.State;
@@ -37,15 +35,15 @@ public class Q00053_LinnaeusSpecialBait extends Quest {
 	private static final int LINNAEUS = 31577;
 	private static final int CRIMSON_DRAKE = 20670;
 	// Items
-	private static final int CRIMSON_DRAKE_HEART = 7624;
 	private static final int FLAMING_FISHING_LURE = 7613;
-	
+	private static final QuestItemChanceHolder CRIMSON_DRAKE_HEART = new QuestItemChanceHolder(7624, 33.0, 100L);
+
 	public Q00053_LinnaeusSpecialBait() {
 		super(53, Q00053_LinnaeusSpecialBait.class.getSimpleName(), "Linnaeus Special Bait");
 		addStartNpc(LINNAEUS);
 		addTalkId(LINNAEUS);
 		addKillId(CRIMSON_DRAKE);
-		registerQuestItems(CRIMSON_DRAKE_HEART);
+		registerQuestItems(CRIMSON_DRAKE_HEART.getId());
 	}
 	
 	@Override
@@ -62,7 +60,7 @@ public class Q00053_LinnaeusSpecialBait extends Quest {
 				st.startQuest();
 				break;
 			case "31577-3.htm":
-				if (st.isCond(2) && (st.getQuestItemsCount(CRIMSON_DRAKE_HEART) >= 100)) {
+				if (st.isCond(2) && hasItemsAtLimit(st.getPlayer(), CRIMSON_DRAKE_HEART)) {
 					st.giveItems(FLAMING_FISHING_LURE, 4);
 					st.exitQuest(false, true);
 				} else {
@@ -75,26 +73,10 @@ public class Q00053_LinnaeusSpecialBait extends Quest {
 	
 	@Override
 	public String onKill(L2Npc npc, L2PcInstance player, boolean isSummon) {
-		final L2PcInstance partyMember = getRandomPartyMember(player, 1);
-		if (partyMember == null) {
-			return null;
+		QuestState st = getRandomPartyMemberState(player, 1, 1, npc);
+		if (st != null && giveItemRandomly(st.getPlayer(), npc, CRIMSON_DRAKE_HEART, true)) {
+			st.setCond(2);
 		}
-		
-		final QuestState st = getQuestState(partyMember, false);
-		
-		if (st.getQuestItemsCount(CRIMSON_DRAKE_HEART) < 100) {
-			double chance = 33 * rates().getRateQuestDrop();
-			if (getRandom(100) < chance) {
-				st.rewardItems(CRIMSON_DRAKE_HEART, 1);
-				st.playSound(Sound.ITEMSOUND_QUEST_ITEMGET);
-			}
-		}
-		
-		if (st.getQuestItemsCount(CRIMSON_DRAKE_HEART) >= 100) {
-			st.setCond(2, true);
-			
-		}
-		
 		return super.onKill(npc, player, isSummon);
 	}
 	

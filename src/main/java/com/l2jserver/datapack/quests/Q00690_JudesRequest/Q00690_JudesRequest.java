@@ -18,12 +18,11 @@
  */
 package com.l2jserver.datapack.quests.Q00690_JudesRequest;
 
-import static com.l2jserver.gameserver.config.Configuration.rates;
-
 import com.l2jserver.gameserver.enums.audio.Sound;
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
 import com.l2jserver.gameserver.model.quest.Quest;
+import com.l2jserver.gameserver.model.quest.QuestDroplist;
 import com.l2jserver.gameserver.model.quest.QuestState;
 import com.l2jserver.gameserver.model.quest.State;
 
@@ -38,6 +37,12 @@ public class Q00690_JudesRequest extends Quest {
 	private static final int GREATER_EVIL = 22399;
 	// Items
 	private static final int EVIL_WEAPON = 10327;
+	// Droplist
+	private static final QuestDroplist DROPLIST = QuestDroplist.builder()
+			.addSingleDrop(LESSER_EVIL, EVIL_WEAPON, 17.3)
+			.addSingleDrop(GREATER_EVIL, EVIL_WEAPON, 24.6)
+			.build();
+	// Rewards
 	private static final int[][] REWARDS = {
 		{
 			10373,
@@ -108,27 +113,9 @@ public class Q00690_JudesRequest extends Quest {
 	
 	@Override
 	public String onKill(L2Npc npc, L2PcInstance player, boolean isSummon) {
-		L2PcInstance partyMember = getRandomPartyMember(player, 1);
-		if (partyMember == null) {
-			return null;
-		}
-		final QuestState st = getQuestState(partyMember, false);
-		
-		final int npcId = npc.getId();
-		int chance = 0;
-		if (npcId == LESSER_EVIL) {
-			chance = 173;
-		} else if (npcId == GREATER_EVIL) {
-			chance = 246;
-		}
-		// Apply the quest drop rate:
-		chance *= rates().getRateQuestDrop();
-		// Normalize
-		chance %= 1000;
-		
-		if (getRandom(1000) <= chance) {
-			st.giveItems(EVIL_WEAPON, Math.max(chance / 1000, 1));
-			st.playSound(Sound.ITEMSOUND_QUEST_ITEMGET);
+		QuestState st = getRandomPartyMemberState(player, 1, 1, npc);
+		if (st != null) {
+			giveItemRandomly(st.getPlayer(), npc, DROPLIST.get(npc), true);
 		}
 		return null;
 	}

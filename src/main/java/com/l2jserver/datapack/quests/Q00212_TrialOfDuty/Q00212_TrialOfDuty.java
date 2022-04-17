@@ -23,7 +23,7 @@ import com.l2jserver.gameserver.enums.audio.Sound;
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
 import com.l2jserver.gameserver.model.base.ClassId;
-import com.l2jserver.gameserver.model.holders.ItemHolder;
+import com.l2jserver.gameserver.model.holders.QuestItemChanceHolder;
 import com.l2jserver.gameserver.model.items.L2Weapon;
 import com.l2jserver.gameserver.model.quest.Quest;
 import com.l2jserver.gameserver.model.quest.QuestState;
@@ -49,16 +49,16 @@ public final class Q00212_TrialOfDuty extends Quest {
 	private static final int KNIGHTS_TEAR = 2635;
 	private static final int MIRROR_OF_ORPIC = 2636;
 	private static final int TEAR_OF_CONFESSION = 2637;
-	private static final ItemHolder REPORT_PIECE = new ItemHolder(2638, 10);
 	private static final int TALIANUSS_REPORT = 2639;
 	private static final int TEAR_OF_LOYALTY = 2640;
-	private static final ItemHolder MILITAS_ARTICLE = new ItemHolder(2641, 20);
 	private static final int SAINTS_ASHES_URN = 2641;
 	private static final int ATHEBALDTS_SKULL = 2643;
 	private static final int ATHEBALDTS_RIBS = 2644;
 	private static final int ATHEBALDTS_SHIN = 2645;
 	private static final int LETTER_OF_WINDAWOOD = 2646;
 	private static final int OLD_KNIGHTS_SWORD = 3027;
+	private static final QuestItemChanceHolder REPORT_PIECE = new QuestItemChanceHolder(2638, 10L);
+	private static final QuestItemChanceHolder MILITAS_ARTICLE = new QuestItemChanceHolder(2641, 20L);
 	// Monsters
 	private static final int HANGMAN_TREE = 20144;
 	private static final int SKELETON_MARAUDER = 20190;
@@ -139,13 +139,12 @@ public final class Q00212_TrialOfDuty extends Quest {
 		if ((qs == null) || !Util.checkIfInRange(1500, killer, npc, true)) {
 			return super.onKill(npc, killer, isSummon);
 		}
-		
+
 		switch (npc.getId()) {
-			case SKELETON_MARAUDER:
-			case SKELETON_RAIDER: {
+			case SKELETON_MARAUDER, SKELETON_RAIDER -> {
 				if (qs.isMemoState(2)) {
 					final int flag = qs.getInt("flag");
-					
+
 					if (getRandom(100) < (flag * 10)) {
 						addSpawn(SPIRIT_OF_SIR_HEROD, npc);
 						qs.set("flag", 0);
@@ -153,35 +152,29 @@ public final class Q00212_TrialOfDuty extends Quest {
 						qs.set("flag", flag + 1);
 					}
 				}
-				break;
 			}
-			case SPIRIT_OF_SIR_HEROD: {
+			case SPIRIT_OF_SIR_HEROD -> {
 				if (qs.isMemoState(2)) {
 					final L2Weapon weapon = killer.getActiveWeaponItem();
-					
+
 					if ((weapon != null) && (weapon.getId() == OLD_KNIGHTS_SWORD)) {
 						giveItems(killer, KNIGHTS_TEAR, 1);
 						qs.setMemoState(3);
 						qs.setCond(3, true);
 					}
 				}
-				break;
 			}
-			case STRAIN:
-			case GHOUL: {
-				if (qs.isMemoState(5) && !hasQuestItems(killer, TALIANUSS_REPORT)) {
-					if (giveItemRandomly(killer, npc, REPORT_PIECE.getId(), 1, REPORT_PIECE.getCount(), 1, true)) {
-						takeItem(killer, REPORT_PIECE);
-						giveItems(killer, TALIANUSS_REPORT, 1);
-						qs.setCond(6);
-					}
+			case STRAIN, GHOUL -> {
+				if (qs.isMemoState(5) && !hasQuestItems(killer, TALIANUSS_REPORT) && giveItemRandomly(qs.getPlayer(), npc, REPORT_PIECE, true)) {
+					takeItem(killer, REPORT_PIECE);
+					giveItems(killer, TALIANUSS_REPORT, 1);
+					qs.setCond(6);
 				}
-				break;
 			}
-			case HANGMAN_TREE: {
+			case HANGMAN_TREE -> {
 				if (qs.isMemoState(6)) {
 					final int flag = qs.getInt("flag");
-					
+
 					if (getRandom(100) < ((flag - 3) * 33)) {
 						addSpawn(SPIRIT_OF_SIR_TALIANUS, npc);
 						qs.set("flag", 0);
@@ -190,20 +183,13 @@ public final class Q00212_TrialOfDuty extends Quest {
 						qs.set("flag", flag + 1);
 					}
 				}
-				break;
 			}
-			case LETO_LIZARDMAN:
-			case LETO_LIZARDMAN_ARCHER:
-			case LETO_LIZARDMAN_SOLDIER:
-			case LETO_LIZARDMAN_WARRIOR:
-			case LETO_LIZARDMAN_SHAMAN:
-			case LETO_LIZARDMAN_OVERLORD: {
-				if (qs.isMemoState(9) && giveItemRandomly(killer, npc, MILITAS_ARTICLE.getId(), 1, MILITAS_ARTICLE.getCount(), 1, true)) {
+			case LETO_LIZARDMAN, LETO_LIZARDMAN_ARCHER, LETO_LIZARDMAN_SOLDIER, LETO_LIZARDMAN_WARRIOR, LETO_LIZARDMAN_SHAMAN, LETO_LIZARDMAN_OVERLORD -> {
+				if (qs.isMemoState(9) && giveItemRandomly(qs.getPlayer(), npc, MILITAS_ARTICLE, true)) {
 					qs.setCond(12);
 				}
-				break;
 			}
-			case BREKA_ORC_OVERLORD: {
+			case BREKA_ORC_OVERLORD -> {
 				if (qs.isMemoState(11)) {
 					if (!hasQuestItems(killer, ATHEBALDTS_SKULL)) {
 						giveItems(killer, ATHEBALDTS_SKULL, 1);
@@ -216,7 +202,6 @@ public final class Q00212_TrialOfDuty extends Quest {
 						qs.setCond(15, true);
 					}
 				}
-				break;
 			}
 		}
 		return super.onKill(npc, killer, isSummon);

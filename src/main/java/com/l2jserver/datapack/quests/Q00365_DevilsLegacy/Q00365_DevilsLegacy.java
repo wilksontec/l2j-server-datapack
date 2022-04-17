@@ -18,14 +18,12 @@
  */
 package com.l2jserver.datapack.quests.Q00365_DevilsLegacy;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
 import com.l2jserver.gameserver.model.holders.SkillHolder;
 import com.l2jserver.gameserver.model.itemcontainer.Inventory;
 import com.l2jserver.gameserver.model.quest.Quest;
+import com.l2jserver.gameserver.model.quest.QuestDroplist;
 import com.l2jserver.gameserver.model.quest.QuestState;
 
 /**
@@ -38,6 +36,13 @@ public final class Q00365_DevilsLegacy extends Quest {
 	private static final int RANDOLF = 30095;
 	// Item
 	private static final int PIRATES_TREASURE_CHEST = 5873;
+	// Droplist
+	private static final QuestDroplist DROPLIST = QuestDroplist.builder()
+			.addSingleDrop(20836, PIRATES_TREASURE_CHEST, 47.0) // pirates_zombie
+			.addSingleDrop(20845, PIRATES_TREASURE_CHEST, 40.0) // pirates_zombie_captain
+			.addSingleDrop(21629, PIRATES_TREASURE_CHEST, 40.0) // pirates_zombie_captain_1
+			.addSingleDrop(21630, PIRATES_TREASURE_CHEST, 40.0) // pirates_zombie_captain_2
+			.build();
 	// Rewards
 	private static final int ENCHANT_WEAPON_C = 951;
 	private static final int ENCHANT_ARMOR_C = 952;
@@ -54,20 +59,12 @@ public final class Q00365_DevilsLegacy extends Quest {
 	private static final int MIN_LEVEL = 39;
 	// Skill
 	private static final SkillHolder POISON = new SkillHolder(4035, 2);
-	// Mobs
-	private static final Map<Integer, Double> MOBS = new HashMap<>();
-	static {
-		MOBS.put(20836, 0.47); // pirates_zombie
-		MOBS.put(20845, 0.40); // pirates_zombie_captain
-		MOBS.put(21629, 0.40); // pirates_zombie_captain_1
-		MOBS.put(21630, 0.40); // pirates_zombie_captain_2
-	}
-	
+
 	public Q00365_DevilsLegacy() {
 		super(365, Q00365_DevilsLegacy.class.getSimpleName(), "Devil's Legacy");
 		addStartNpc(RANDOLF);
 		addTalkId(RANDOLF, COLLOB);
-		addKillId(MOBS.keySet());
+		addKillId(DROPLIST.getNpcIds());
 		registerQuestItems(PIRATES_TREASURE_CHEST);
 	}
 	
@@ -155,12 +152,12 @@ public final class Q00365_DevilsLegacy extends Quest {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance player, boolean isSummon) {
-		final QuestState qs = getRandomPartyMemberState(player, -1, 3, npc);
+	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
+		final QuestState qs = getRandomPartyMemberState(killer, -1, 3, npc);
 		if (qs != null) {
-			giveItemRandomly(qs.getPlayer(), npc, PIRATES_TREASURE_CHEST, 1, 0, MOBS.get(npc.getId()), true);
+			giveItemRandomly(qs.getPlayer(), npc, DROPLIST.get(npc), true);
 		}
-		return super.onKill(npc, player, isSummon);
+		return super.onKill(npc, killer, isSummon);
 	}
 	
 	@Override

@@ -18,12 +18,10 @@
  */
 package com.l2jserver.datapack.quests.Q00368_TrespassingIntoTheHolyGround;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
 import com.l2jserver.gameserver.model.quest.Quest;
+import com.l2jserver.gameserver.model.quest.QuestDroplist;
 import com.l2jserver.gameserver.model.quest.QuestState;
 
 /**
@@ -35,22 +33,21 @@ public final class Q00368_TrespassingIntoTheHolyGround extends Quest {
 	private static final int RESTINA = 30926;
 	// Item
 	private static final int BLADE_STAKATO_FANG = 5881;
+	// Droplist
+	private static final QuestDroplist DROPLIST = QuestDroplist.builder()
+			.addSingleDrop(20794, BLADE_STAKATO_FANG, 60.0) // blade_stakato
+			.addSingleDrop(20795, BLADE_STAKATO_FANG, 57.0) // blade_stakato_worker
+			.addSingleDrop(20796, BLADE_STAKATO_FANG, 61.0) // blade_stakato_soldier
+			.addSingleDrop(20797, BLADE_STAKATO_FANG, 93.0) // blade_stakato_drone
+			.build();
 	// Misc
 	private static final int MIN_LEVEL = 36;
-	// Mobs
-	private static final Map<Integer, Double> MOBS = new HashMap<>();
-	static {
-		MOBS.put(20794, 0.60); // blade_stakato
-		MOBS.put(20795, 0.57); // blade_stakato_worker
-		MOBS.put(20796, 0.61); // blade_stakato_soldier
-		MOBS.put(20797, 0.93); // blade_stakato_drone
-	}
-	
+
 	public Q00368_TrespassingIntoTheHolyGround() {
 		super(368, Q00368_TrespassingIntoTheHolyGround.class.getSimpleName(), "Trespassing into the Holy Ground");
 		addStartNpc(RESTINA);
 		addTalkId(RESTINA);
-		addKillId(MOBS.keySet());
+		addKillId(DROPLIST.getNpcIds());
 		registerQuestItems(BLADE_STAKATO_FANG);
 	}
 	
@@ -82,25 +79,18 @@ public final class Q00368_TrespassingIntoTheHolyGround extends Quest {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance player, boolean isSummon) {
+	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
 		final int i;
 		switch (npc.getId()) {
-			case 20795:
-			case 20797: {
-				i = 1;
-				break;
-			}
-			default: {
-				i = 3;
-				break;
-			}
+			case 20795, 20797 -> i = 1;
+			default -> i = 3;
 		}
 		
-		final QuestState st = getRandomPartyMemberState(player, -1, i, npc);
+		final QuestState st = getRandomPartyMemberState(killer, -1, i, npc);
 		if (st != null) {
-			st.giveItemRandomly(npc, BLADE_STAKATO_FANG, 1, 0, MOBS.get(npc.getId()), true);
+			giveItemRandomly(st.getPlayer(), npc, DROPLIST.get(npc), true);
 		}
-		return super.onKill(npc, player, isSummon);
+		return super.onKill(npc, killer, isSummon);
 	}
 	
 	@Override

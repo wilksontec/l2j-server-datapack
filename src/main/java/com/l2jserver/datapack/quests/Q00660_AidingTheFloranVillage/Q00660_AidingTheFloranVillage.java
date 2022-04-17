@@ -18,14 +18,11 @@
  */
 package com.l2jserver.datapack.quests.Q00660_AidingTheFloranVillage;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import com.l2jserver.gameserver.enums.audio.Sound;
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
-import com.l2jserver.gameserver.model.holders.ItemChanceHolder;
 import com.l2jserver.gameserver.model.quest.Quest;
+import com.l2jserver.gameserver.model.quest.QuestDroplist;
 import com.l2jserver.gameserver.model.quest.QuestState;
 import com.l2jserver.gameserver.model.quest.State;
 
@@ -43,6 +40,16 @@ public final class Q00660_AidingTheFloranVillage extends Quest {
 	private static final int WATCHING_EYES = 8074;
 	private static final int ROUGHLY_HEWN_ROCK_GOLEM_SHARD = 8075;
 	private static final int DELU_LIZARDMANS_SCALE = 8076;
+	// Droplist
+	private static final QuestDroplist DROPLIST = QuestDroplist.builder()
+			.addSingleDrop(21102, WATCHING_EYES, 50.0) // Watchman of the Plains
+			.addSingleDrop(21106, WATCHING_EYES, 63.0) // Cursed Seer
+			.addSingleDrop(21103, ROUGHLY_HEWN_ROCK_GOLEM_SHARD, 52.0) // Roughly Hewn Rock Golem
+			.addSingleDrop(20781, DELU_LIZARDMANS_SCALE, 65.0) // Delu Lizardman Shaman
+			.addSingleDrop(21104, DELU_LIZARDMANS_SCALE, 65.0) // Delu Lizardman Supplier
+			.addSingleDrop(21105, DELU_LIZARDMANS_SCALE, 75.0) // Delu Lizardman Special Agent
+			.addSingleDrop(21107, DELU_LIZARDMANS_SCALE, 133.0) // Delu Lizardman Commander
+			.build();
 	// Misc
 	private static final int MIN_LEVEL = 30;
 	private static final int ADENA_REWARD_1 = 13000;
@@ -52,25 +59,12 @@ public final class Q00660_AidingTheFloranVillage extends Quest {
 	private static final int ADENA_REWARD_5 = 45000;
 	private static final int ADENA_REWARD_6 = 5000;
 	private static final int DELU_LIZARDMAN_COMMANDER_DOUBLE_ITEM_CHANCE = 33;
-	// Monsters
-	private static final int DELU_LIZARDMAN_COMMANDER = 21107; // Delu Lizardman Commander
-	
-	private static final Map<Integer, ItemChanceHolder> MONSTERS = new HashMap<>();
-	static {
-		MONSTERS.put(21102, new ItemChanceHolder(WATCHING_EYES, 0.500)); // Watchman of the Plains
-		MONSTERS.put(21106, new ItemChanceHolder(WATCHING_EYES, 0.630)); // Cursed Seer
-		MONSTERS.put(21103, new ItemChanceHolder(ROUGHLY_HEWN_ROCK_GOLEM_SHARD, 0.520)); // Roughly Hewn Rock Golem
-		MONSTERS.put(20781, new ItemChanceHolder(DELU_LIZARDMANS_SCALE, 0.650)); // Delu Lizardman Shaman
-		MONSTERS.put(21104, new ItemChanceHolder(DELU_LIZARDMANS_SCALE, 0.650)); // Delu Lizardman Supplier
-		MONSTERS.put(21105, new ItemChanceHolder(DELU_LIZARDMANS_SCALE, 0.750)); // Delu Lizardman Special Agent
-	}
-	
+
 	public Q00660_AidingTheFloranVillage() {
 		super(660, Q00660_AidingTheFloranVillage.class.getSimpleName(), "Aiding the Floran Village");
 		addStartNpc(MARIA, ALEX);
 		addTalkId(MARIA, ALEX);
-		addKillId(MONSTERS.keySet());
-		addKillId(DELU_LIZARDMAN_COMMANDER);
+		addKillId(DROPLIST.getNpcIds());
 		registerQuestItems(WATCHING_EYES, ROUGHLY_HEWN_ROCK_GOLEM_SHARD, DELU_LIZARDMANS_SCALE);
 	}
 	
@@ -220,17 +214,7 @@ public final class Q00660_AidingTheFloranVillage extends Quest {
 	public String onKill(L2Npc npc, L2PcInstance player, boolean isSummon) {
 		final QuestState qs = getRandomPartyMemberState(player, 2, 2, npc);
 		if (qs != null) {
-			final ItemChanceHolder item = MONSTERS.get(npc.getId());
-			if (item != null) {
-				giveItemRandomly(player, npc, item.getId(), item.getCount(), 0, item.getChance(), true);
-			} else {
-				if (getRandom(100) < DELU_LIZARDMAN_COMMANDER_DOUBLE_ITEM_CHANCE) {
-					giveItems(player, DELU_LIZARDMANS_SCALE, 2);
-				} else {
-					giveItems(player, DELU_LIZARDMANS_SCALE, 1);
-				}
-				playSound(player, Sound.ITEMSOUND_QUEST_MIDDLE);
-			}
+			giveItemRandomly(qs.getPlayer(), npc, DROPLIST.get(npc), true);
 		}
 		return super.onKill(npc, player, isSummon);
 	}

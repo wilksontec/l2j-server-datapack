@@ -18,15 +18,16 @@
  */
 package com.l2jserver.datapack.quests.Q00336_CoinsOfMagic;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import com.l2jserver.gameserver.enums.audio.Sound;
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
 import com.l2jserver.gameserver.model.quest.Quest;
+import com.l2jserver.gameserver.model.quest.QuestDroplist;
 import com.l2jserver.gameserver.model.quest.QuestState;
 import com.l2jserver.gameserver.util.Util;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Coin Of Magic (336)
@@ -45,39 +46,6 @@ public final class Q00336_CoinsOfMagic extends Quest {
 	private static final int MAGISTER_PAGE = 30696;
 	private static final int UNION_PRESIDENT_BERNARD = 30702;
 	private static final int HEAD_BLACKSMITH_FERRIS = 30847;
-	// Items
-	private static final int Q_BLOOD_MEDUSA = 3472;
-	private static final int Q_BLOOD_WEREWOLF = 3473;
-	private static final int Q_BLOOD_BASILISK = 3474;
-	private static final int Q_BLOOD_DREVANUL = 3475;
-	private static final int Q_BLOOD_SUCCUBUS = 3476;
-	private static final int Q_BLOOD_DRAGON = 3477;
-	private static final int Q_BERETHS_BLOOD_DRAGON = 3478;
-	private static final int Q_MANAKS_BLOOD_WEREWOLF = 3479;
-	private static final int Q_NIAS_BLOOD_MEDUSA = 3480;
-	private static final int Q_GOLD_DRAGON = 3481;
-	private static final int Q_GOLD_WYVERN = 3482;
-	private static final int Q_GOLD_KNIGHT = 3483;
-	private static final int Q_GOLD_GIANT = 3484;
-	private static final int Q_GOLD_DRAKE = 3485;
-	private static final int Q_GOLD_WYRM = 3486;
-	private static final int Q_BERETHS_GOLD_DRAGON = 3487;
-	private static final int Q_MANAKS_GOLD_GIANT = 3488;
-	private static final int Q_NIAS_GOLD_WYVERN = 3489;
-	private static final int Q_SILVER_UNICORN = 3490;
-	private static final int Q_SILVER_FAIRY = 3491;
-	private static final int Q_SILVER_DRYAD = 3492;
-	private static final int Q_SILVER_DRAGON = 3493;
-	private static final int Q_SILVER_GOLEM = 3494;
-	private static final int Q_SILVER_UNDINE = 3495;
-	private static final int Q_BERETHS_SILVER_DRAGON = 3496;
-	private static final int Q_MANAKS_SILVER_DRYAD = 3497;
-	private static final int Q_NIAS_SILVER_FAIRY = 3498;
-	private static final int Q_COIN_DIAGRAM = 3811;
-	private static final int Q_KALDIS_GOLD_DRAGON = 3812;
-	private static final int Q_CC_MEMBERSHIP_1 = 3813;
-	private static final int Q_CC_MEMBERSHIP_2 = 3814;
-	private static final int Q_CC_MEMBERSHIP_3 = 3815;
 	// Monsters
 	private static final int HEADLESS_KNIGHT = 20146;
 	private static final int OEL_MAHUM = 20161;
@@ -130,6 +98,80 @@ public final class Q00336_CoinsOfMagic extends Quest {
 	private static final int BRILLIANT_VENGEANCE_1 = 21658;
 	private static final int BRILLIANT_ANGUISH = 21539;
 	private static final int BRILLIANT_ANGUISH_1 = 21540;
+	// Items
+	private static final int Q_BLOOD_MEDUSA = 3472;
+	private static final int Q_BLOOD_WEREWOLF = 3473;
+	private static final int Q_BLOOD_BASILISK = 3474;
+	private static final int Q_BLOOD_DREVANUL = 3475;
+	private static final int Q_BLOOD_SUCCUBUS = 3476;
+	private static final int Q_BLOOD_DRAGON = 3477;
+	private static final int Q_BERETHS_BLOOD_DRAGON = 3478;
+	private static final int Q_MANAKS_BLOOD_WEREWOLF = 3479;
+	private static final int Q_NIAS_BLOOD_MEDUSA = 3480;
+	private static final int Q_GOLD_DRAGON = 3481;
+	private static final int Q_GOLD_WYVERN = 3482;
+	private static final int Q_GOLD_KNIGHT = 3483;
+	private static final int Q_GOLD_GIANT = 3484;
+	private static final int Q_GOLD_DRAKE = 3485;
+	private static final int Q_GOLD_WYRM = 3486;
+	private static final int Q_BERETHS_GOLD_DRAGON = 3487;
+	private static final int Q_MANAKS_GOLD_GIANT = 3488;
+	private static final int Q_NIAS_GOLD_WYVERN = 3489;
+	private static final int Q_SILVER_UNICORN = 3490;
+	private static final int Q_SILVER_FAIRY = 3491;
+	private static final int Q_SILVER_DRYAD = 3492;
+	private static final int Q_SILVER_DRAGON = 3493;
+	private static final int Q_SILVER_GOLEM = 3494;
+	private static final int Q_SILVER_UNDINE = 3495;
+	private static final int Q_BERETHS_SILVER_DRAGON = 3496;
+	private static final int Q_MANAKS_SILVER_DRYAD = 3497;
+	private static final int Q_NIAS_SILVER_FAIRY = 3498;
+	private static final int Q_COIN_DIAGRAM = 3811;
+	private static final int Q_KALDIS_GOLD_DRAGON = 3812;
+	private static final int Q_CC_MEMBERSHIP_1 = 3813;
+	private static final int Q_CC_MEMBERSHIP_2 = 3814;
+	private static final int Q_CC_MEMBERSHIP_3 = 3815;
+	// Droplist
+	private static final QuestDroplist DROPLIST = QuestDroplist.builder()
+			// Gold Wyvern
+			.addSingleDrop(SHACKLE, Q_GOLD_WYVERN, 7.0)
+			.addSingleDrop(SHACKLE_HOLD, Q_GOLD_WYVERN, 7.0)
+			.addSingleDrop(HEADLESS_KNIGHT, Q_GOLD_WYVERN, 8.0)
+			.addSingleDrop(TIMAK_ORC, Q_GOLD_WYVERN, 8.0)
+			.addSingleDrop(HEADLESS_KNIGHT_HOLD, Q_GOLD_WYVERN, 8.5)
+			.bulkAddSingleDrop(Q_GOLD_WYVERN, 10.0)
+				.withNpcs(ROYAL_CAVE_SERVANT, MALRUK_SUCCUBUS_TUREN, ROYAL_CAVE_SERVANT_HOLD, KUKABURO_B, ANTELOPE, ANTELOPE_A, ANTELOPE_B, H_MALRUK_SUCCUBUS_TUREN).build()
+			.bulkAddSingleDrop(Q_GOLD_WYVERN, 11.0)
+				.withNpcs(BUFFALO, BUFFALO_A, BUFFALO_B, KUKABURO, KUKABURO_A).build()
+			.addSingleDrop(DOOM_SERVANT, Q_GOLD_WYVERN, 14.0)
+			.addSingleDrop(DOOM_KNIGHT, Q_GOLD_WYVERN, 21.0)
+			// Silver Unicorn
+			.addSingleDrop(VANOR_SILENOS_SHAMAN, Q_SILVER_UNICORN, 7.0)
+			.bulkAddSingleDrop(Q_SILVER_UNICORN, 8.0)
+				.withNpcs(BLOODY_GHOST, TARLK_BUGBEAR_BOSS, OEL_MAHUM).build()
+			.addSingleDrop(OEL_MAHUM_WARRIOR, Q_SILVER_UNICORN, 9.0)
+			.addSingleDrop(HUNGRY_CORPSE, Q_SILVER_UNICORN, 10.0)
+			.addSingleDrop(BYFOOT, Q_SILVER_UNICORN, 11.0)
+			.addSingleDrop(BYFOOT_SIGEL, Q_SILVER_UNICORN, 12.0)
+			.bulkAddSingleDrop(Q_SILVER_UNICORN, 15.0)
+				.withNpcs(DARK_GUARD, BRILLIANT_CLAW, BRILLIANT_CLAW_1).build()
+			.addSingleDrop(OEL_MAHUM_WITCH_DOCTOR, Q_SILVER_UNICORN, 20.0)
+			.addSingleDrop(BRILLIANT_ANGUISH, Q_SILVER_UNICORN, 21.0)
+			.addSingleDrop(BRILLIANT_ANGUISH_1, Q_SILVER_UNICORN, 21.0)
+			// Blood Medusa
+			.addSingleDrop(LAKIN, Q_BLOOD_MEDUSA, 6.0)
+			.addSingleDrop(HATAR_HANISHEE, Q_BLOOD_MEDUSA, 7.0)
+			.addSingleDrop(PUNISHMENT_OF_UNDEAD, Q_BLOOD_MEDUSA, 8.0)
+			.bulkAddSingleDrop(Q_BLOOD_MEDUSA, 9.0)
+				.withNpcs(FLOAT_OF_GRAVE, BANDERSNATCH_A, BANDERSNATCH_B).build()
+			.addSingleDrop(BANDERSNATCH, Q_BLOOD_MEDUSA, 10.0)
+			.addSingleDrop(NIHIL_INVADER, Q_BLOOD_MEDUSA, 11.0)
+			.addSingleDrop(TIMAK_ORC_SHAMAN, Q_BLOOD_MEDUSA, 13.0)
+			.addSingleDrop(TIMAK_ORC_ARCHER, Q_BLOOD_MEDUSA, 14.0)
+			.addSingleDrop(TIMAK_ORC_SOLDIER, Q_BLOOD_MEDUSA, 14.0)
+			.bulkAddSingleDrop(Q_BLOOD_MEDUSA, 16.0)
+				.withNpcs(DOOM_ARCHER, BRILLIANT_WISDOM, BRILLIANT_VENGEANCE, BRILLIANT_VENGEANCE_1).build()
+			.build();
 	// Rewards
 	private static final int DEMON_STAFF = 206;
 	private static final int DARK_SCREAMER = 233;
@@ -893,200 +935,20 @@ public final class Q00336_CoinsOfMagic extends Quest {
 	
 	@Override
 	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
-		
 		switch (npc.getId()) {
-			case HARIT_LIZARDMAN_SHAMAN:
-			case HARIT_LIZARDM_MATRIARCH: {
+			case HARIT_LIZARDMAN_SHAMAN, HARIT_LIZARDM_MATRIARCH -> {
 				QuestState qs = getRandomPlayerFromPartyCoin(killer, npc, 2);
-				if (qs != null) {
-					if (getRandom(1000) < 63) {
-						giveItemRandomly(qs.getPlayer(), npc, Q_KALDIS_GOLD_DRAGON, 1, 0, 1, true);
-						qs.setCond(3);
-						qs.showQuestionMark(336);
-					}
+				if (qs != null && giveItemRandomly(qs.getPlayer(), npc, Q_KALDIS_GOLD_DRAGON, true)) {
+					qs.setCond(3);
+					qs.showQuestionMark(336);
 				}
 				return super.onKill(npc, killer, isSummon);
 			}
 		}
+
 		final QuestState qs = getRandomPlayerFromParty(killer, npc, 3);
 		if (qs != null) {
-			switch (npc.getId()) {
-				case SHACKLE:
-				case SHACKLE_HOLD: {
-					if (getRandom(1000) < 70) {
-						giveItemRandomly(qs.getPlayer(), npc, Q_GOLD_WYVERN, 1, 0, 1, true);
-					}
-					break;
-				}
-				case HEADLESS_KNIGHT:
-				case TIMAK_ORC: {
-					if (getRandom(1000) < 80) {
-						giveItemRandomly(qs.getPlayer(), npc, Q_GOLD_WYVERN, 1, 0, 1, true);
-					}
-					break;
-				}
-				case HEADLESS_KNIGHT_HOLD: {
-					if (getRandom(1000) < 85) {
-						giveItemRandomly(qs.getPlayer(), npc, Q_GOLD_WYVERN, 1, 0, 1, true);
-					}
-					break;
-				}
-				case ROYAL_CAVE_SERVANT:
-				case MALRUK_SUCCUBUS_TUREN:
-				case ROYAL_CAVE_SERVANT_HOLD:
-				case KUKABURO_B:
-				case ANTELOPE:
-				case ANTELOPE_A:
-				case ANTELOPE_B:
-				case H_MALRUK_SUCCUBUS_TUREN: {
-					if (getRandom(1000) < 100) {
-						giveItemRandomly(qs.getPlayer(), npc, Q_GOLD_WYVERN, 1, 0, 1, true);
-					}
-					break;
-				}
-				case BUFFALO:
-				case BUFFALO_A:
-				case BUFFALO_B:
-				case KUKABURO:
-				case KUKABURO_A: {
-					if (getRandom(1000) < 110) {
-						giveItemRandomly(qs.getPlayer(), npc, Q_GOLD_WYVERN, 1, 0, 1, true);
-					}
-					break;
-				}
-				case DOOM_SERVANT: {
-					if (getRandom(1000) < 140) {
-						giveItemRandomly(qs.getPlayer(), npc, Q_GOLD_WYVERN, 1, 0, 1, true);
-					}
-					break;
-				}
-				case DOOM_KNIGHT: {
-					if (getRandom(1000) < 210) {
-						giveItemRandomly(qs.getPlayer(), npc, Q_GOLD_WYVERN, 1, 0, 1, true);
-					}
-					break;
-				}
-				case VANOR_SILENOS_SHAMAN: {
-					if (getRandom(1000) < 70) {
-						giveItemRandomly(qs.getPlayer(), npc, Q_SILVER_UNICORN, 1, 0, 1, true);
-					}
-					break;
-				}
-				case BLOODY_GHOST:
-				case TARLK_BUGBEAR_BOSS:
-				case OEL_MAHUM: {
-					if (getRandom(1000) < 80) {
-						giveItemRandomly(qs.getPlayer(), npc, Q_SILVER_UNICORN, 1, 0, 1, true);
-					}
-					break;
-				}
-				case OEL_MAHUM_WARRIOR: {
-					if (getRandom(1000) < 90) {
-						giveItemRandomly(qs.getPlayer(), npc, Q_SILVER_UNICORN, 1, 0, 1, true);
-					}
-					break;
-				}
-				case HUNGRY_CORPSE: {
-					if (getRandom(1000) < 100) {
-						giveItemRandomly(qs.getPlayer(), npc, Q_SILVER_UNICORN, 1, 0, 1, true);
-					}
-					break;
-				}
-				case BYFOOT: {
-					if (getRandom(1000) < 110) {
-						giveItemRandomly(qs.getPlayer(), npc, Q_SILVER_UNICORN, 1, 0, 1, true);
-					}
-					break;
-				}
-				case BYFOOT_SIGEL: {
-					if (getRandom(1000) < 120) {
-						giveItemRandomly(qs.getPlayer(), npc, Q_SILVER_UNICORN, 1, 0, 1, true);
-					}
-					break;
-				}
-				case DARK_GUARD:
-				case BRILLIANT_CLAW:
-				case BRILLIANT_CLAW_1: {
-					if (getRandom(1000) < 150) {
-						giveItemRandomly(qs.getPlayer(), npc, Q_SILVER_UNICORN, 1, 0, 1, true);
-					}
-					break;
-				}
-				case OEL_MAHUM_WITCH_DOCTOR: {
-					if (getRandom(1000) < 200) {
-						giveItemRandomly(qs.getPlayer(), npc, Q_SILVER_UNICORN, 1, 0, 1, true);
-					}
-					break;
-				}
-				case BRILLIANT_ANGUISH:
-				case BRILLIANT_ANGUISH_1: {
-					if (getRandom(1000) < 210) {
-						giveItemRandomly(qs.getPlayer(), npc, Q_SILVER_UNICORN, 1, 0, 1, true);
-					}
-					break;
-				}
-				case LAKIN: {
-					if (getRandom(1000) < 60) {
-						giveItemRandomly(qs.getPlayer(), npc, Q_BLOOD_MEDUSA, 1, 0, 1, true);
-					}
-					break;
-				}
-				case HATAR_HANISHEE: {
-					if (getRandom(1000) < 70) {
-						giveItemRandomly(qs.getPlayer(), npc, Q_BLOOD_MEDUSA, 1, 0, 1, true);
-					}
-					break;
-				}
-				case PUNISHMENT_OF_UNDEAD: {
-					if (getRandom(1000) < 80) {
-						giveItemRandomly(qs.getPlayer(), npc, Q_BLOOD_MEDUSA, 1, 0, 1, true);
-					}
-					break;
-				}
-				case FLOAT_OF_GRAVE:
-				case BANDERSNATCH_A:
-				case BANDERSNATCH_B: {
-					if (getRandom(1000) < 90) {
-						giveItemRandomly(qs.getPlayer(), npc, Q_BLOOD_MEDUSA, 1, 0, 1, true);
-					}
-					break;
-				}
-				case BANDERSNATCH: {
-					if (getRandom(1000) < 100) {
-						giveItemRandomly(qs.getPlayer(), npc, Q_BLOOD_MEDUSA, 1, 0, 1, true);
-					}
-					break;
-				}
-				case NIHIL_INVADER: {
-					if (getRandom(1000) < 110) {
-						giveItemRandomly(qs.getPlayer(), npc, Q_BLOOD_MEDUSA, 1, 0, 1, true);
-					}
-					break;
-				}
-				case TIMAK_ORC_SHAMAN: {
-					if (getRandom(1000) < 130) {
-						giveItemRandomly(qs.getPlayer(), npc, Q_BLOOD_MEDUSA, 1, 0, 1, true);
-					}
-					break;
-				}
-				case TIMAK_ORC_ARCHER:
-				case TIMAK_ORC_SOLDIER: {
-					if (getRandom(1000) < 140) {
-						giveItemRandomly(qs.getPlayer(), npc, Q_BLOOD_MEDUSA, 1, 0, 1, true);
-					}
-					break;
-				}
-				case DOOM_ARCHER:
-				case BRILLIANT_WISDOM:
-				case BRILLIANT_VENGEANCE:
-				case BRILLIANT_VENGEANCE_1: {
-					if (getRandom(1000) < 160) {
-						giveItemRandomly(qs.getPlayer(), npc, Q_BLOOD_MEDUSA, 1, 0, 1, true);
-					}
-					break;
-				}
-			}
-			
+			giveItemRandomly(qs.getPlayer(), npc, DROPLIST.get(npc), true);
 		}
 		return super.onKill(npc, killer, isSummon);
 	}

@@ -18,13 +18,12 @@
  */
 package com.l2jserver.datapack.quests.Q00633_InTheForgottenVillage;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
-import com.l2jserver.gameserver.model.holders.ItemChanceHolder;
+import com.l2jserver.gameserver.model.holders.QuestItemChanceHolder;
 import com.l2jserver.gameserver.model.quest.Quest;
+import com.l2jserver.gameserver.model.quest.QuestDroplist;
+import com.l2jserver.gameserver.model.quest.QuestDroplist.QuestDropInfo;
 import com.l2jserver.gameserver.model.quest.QuestState;
 
 /**
@@ -35,49 +34,47 @@ public final class Q00633_InTheForgottenVillage extends Quest {
 	// NPC
 	private static final int MINA = 31388;
 	// Items
-	private static final int RIB_BONE_OF_A_BLACK_MAGUS = 7544;
+	private static final QuestItemChanceHolder RIB_BONE_OF_A_BLACK_MAGUS = new QuestItemChanceHolder(7544, 200L);
 	private static final int ZOMBIES_LIVER = 7545;
+	// Droplist
+	private static final QuestDroplist DROPLIST = QuestDroplist.builder()
+			.addSingleDrop(21553, ZOMBIES_LIVER, 41.7) // Trampled Man
+			.addSingleDrop(21554, ZOMBIES_LIVER, 41.7) // Trampled Man
+			.addSingleDrop(21557, RIB_BONE_OF_A_BLACK_MAGUS, 39.4) // Bone Snatcher
+			.addSingleDrop(21558, RIB_BONE_OF_A_BLACK_MAGUS, 39.4) // Bone Snatcher
+			.addSingleDrop(21559, RIB_BONE_OF_A_BLACK_MAGUS, 43.6) // Bone Maker
+			.addSingleDrop(21560, RIB_BONE_OF_A_BLACK_MAGUS, 43.0) // Bone Shaper
+			.addSingleDrop(21561, ZOMBIES_LIVER, 53.8) // Sacrificed Man
+			.addSingleDrop(21563, RIB_BONE_OF_A_BLACK_MAGUS, 43.6) // Bone Collector
+			.addSingleDrop(21564, RIB_BONE_OF_A_BLACK_MAGUS, 41.4) // Skull Collector
+			.addSingleDrop(21565, RIB_BONE_OF_A_BLACK_MAGUS, 42.0) // Bone Animator
+			.addSingleDrop(21566, RIB_BONE_OF_A_BLACK_MAGUS, 46.0) // Skull Animator
+			.addSingleDrop(21567, RIB_BONE_OF_A_BLACK_MAGUS, 54.9) // Bone Slayer
+			.addSingleDrop(21570, ZOMBIES_LIVER, 50.8) // Ghost of Betrayer
+			.addSingleDrop(21572, RIB_BONE_OF_A_BLACK_MAGUS, 46.5) // Bone Sweeper
+			.addSingleDrop(21574, RIB_BONE_OF_A_BLACK_MAGUS, 58.6) // Bone Grinder
+			.addSingleDrop(21575, RIB_BONE_OF_A_BLACK_MAGUS, 32.9) // Bone Grinder
+			.addSingleDrop(21578, ZOMBIES_LIVER, 64.9) // Behemoth Zombie
+			.addSingleDrop(21580, RIB_BONE_OF_A_BLACK_MAGUS, 46.2) // Bone Caster
+			.addSingleDrop(21581, RIB_BONE_OF_A_BLACK_MAGUS, 50.5) // Bone Puppeteer
+			.addSingleDrop(21583, RIB_BONE_OF_A_BLACK_MAGUS, 47.5) // Bone Scavenger
+			.addSingleDrop(21584, RIB_BONE_OF_A_BLACK_MAGUS, 47.5) // Bone Scavenger
+			.addSingleDrop(21596, RIB_BONE_OF_A_BLACK_MAGUS, 54.3) // Requiem Lord
+			.addSingleDrop(21597, ZOMBIES_LIVER, 51.0) // Requiem Behemoth
+			.addSingleDrop(21598, ZOMBIES_LIVER, 57.2) // Requiem Behemoth
+			.addSingleDrop(21599, RIB_BONE_OF_A_BLACK_MAGUS, 58.0) // Requiem Priest
+			.addSingleDrop(21600, ZOMBIES_LIVER, 56.1) // Requiem Behemoth
+			.addSingleDrop(21601, RIB_BONE_OF_A_BLACK_MAGUS, 67.7) // Requiem Behemoth
+			.build();
 	// Misc
 	private static final int MIN_LVL = 65;
-	private static final int RIB_BONE_REQUIRED_COUNT = 200;
-	// Mobs
-	private static final Map<Integer, ItemChanceHolder> MOBS_DROP_CHANCES = new HashMap<>();
-	static {
-		MOBS_DROP_CHANCES.put(21553, new ItemChanceHolder(ZOMBIES_LIVER, 0.417)); // Trampled Man
-		MOBS_DROP_CHANCES.put(21554, new ItemChanceHolder(ZOMBIES_LIVER, 0.417)); // Trampled Man
-		MOBS_DROP_CHANCES.put(21557, new ItemChanceHolder(RIB_BONE_OF_A_BLACK_MAGUS, 0.394)); // Bone Snatcher
-		MOBS_DROP_CHANCES.put(21558, new ItemChanceHolder(RIB_BONE_OF_A_BLACK_MAGUS, 0.394)); // Bone Snatcher
-		MOBS_DROP_CHANCES.put(21559, new ItemChanceHolder(RIB_BONE_OF_A_BLACK_MAGUS, 0.436)); // Bone Maker
-		MOBS_DROP_CHANCES.put(21560, new ItemChanceHolder(RIB_BONE_OF_A_BLACK_MAGUS, 0.430)); // Bone Shaper
-		MOBS_DROP_CHANCES.put(21561, new ItemChanceHolder(ZOMBIES_LIVER, 0.538)); // Sacrificed Man
-		MOBS_DROP_CHANCES.put(21563, new ItemChanceHolder(RIB_BONE_OF_A_BLACK_MAGUS, 0.436)); // Bone Collector
-		MOBS_DROP_CHANCES.put(21564, new ItemChanceHolder(RIB_BONE_OF_A_BLACK_MAGUS, 0.414)); // Skull Collector
-		MOBS_DROP_CHANCES.put(21565, new ItemChanceHolder(RIB_BONE_OF_A_BLACK_MAGUS, 0.420)); // Bone Animator
-		MOBS_DROP_CHANCES.put(21566, new ItemChanceHolder(RIB_BONE_OF_A_BLACK_MAGUS, 0.460)); // Skull Animator
-		MOBS_DROP_CHANCES.put(21567, new ItemChanceHolder(RIB_BONE_OF_A_BLACK_MAGUS, 0.549)); // Bone Slayer
-		MOBS_DROP_CHANCES.put(21570, new ItemChanceHolder(ZOMBIES_LIVER, 0.508)); // Ghost of Betrayer
-		MOBS_DROP_CHANCES.put(21572, new ItemChanceHolder(RIB_BONE_OF_A_BLACK_MAGUS, 0.465)); // Bone Sweeper
-		MOBS_DROP_CHANCES.put(21574, new ItemChanceHolder(RIB_BONE_OF_A_BLACK_MAGUS, 0.586)); // Bone Grinder
-		MOBS_DROP_CHANCES.put(21575, new ItemChanceHolder(RIB_BONE_OF_A_BLACK_MAGUS, 0.329)); // Bone Grinder
-		MOBS_DROP_CHANCES.put(21578, new ItemChanceHolder(ZOMBIES_LIVER, 0.649)); // Behemoth Zombie
-		MOBS_DROP_CHANCES.put(21580, new ItemChanceHolder(RIB_BONE_OF_A_BLACK_MAGUS, 0.462)); // Bone Caster
-		MOBS_DROP_CHANCES.put(21581, new ItemChanceHolder(RIB_BONE_OF_A_BLACK_MAGUS, 0.505)); // Bone Puppeteer
-		MOBS_DROP_CHANCES.put(21583, new ItemChanceHolder(RIB_BONE_OF_A_BLACK_MAGUS, 0.475)); // Bone Scavenger
-		MOBS_DROP_CHANCES.put(21584, new ItemChanceHolder(RIB_BONE_OF_A_BLACK_MAGUS, 0.475)); // Bone Scavenger
-		MOBS_DROP_CHANCES.put(21596, new ItemChanceHolder(RIB_BONE_OF_A_BLACK_MAGUS, 0.543)); // Requiem Lord
-		MOBS_DROP_CHANCES.put(21597, new ItemChanceHolder(ZOMBIES_LIVER, 0.510)); // Requiem Behemoth
-		MOBS_DROP_CHANCES.put(21598, new ItemChanceHolder(ZOMBIES_LIVER, 0.572)); // Requiem Behemoth
-		MOBS_DROP_CHANCES.put(21599, new ItemChanceHolder(RIB_BONE_OF_A_BLACK_MAGUS, 0.580)); // Requiem Priest
-		MOBS_DROP_CHANCES.put(21600, new ItemChanceHolder(ZOMBIES_LIVER, 0.561)); // Requiem Behemoth
-		MOBS_DROP_CHANCES.put(21601, new ItemChanceHolder(RIB_BONE_OF_A_BLACK_MAGUS, 0.677)); // Requiem Behemoth
-	}
-	
+
 	public Q00633_InTheForgottenVillage() {
 		super(633, Q00633_InTheForgottenVillage.class.getSimpleName(), "In The Forgotten Village");
 		addStartNpc(MINA);
 		addTalkId(MINA);
-		addKillId(MOBS_DROP_CHANCES.keySet());
-		registerQuestItems(RIB_BONE_OF_A_BLACK_MAGUS, ZOMBIES_LIVER);
+		addKillId(DROPLIST.getNpcIds());
+		registerQuestItems(RIB_BONE_OF_A_BLACK_MAGUS.getId(), ZOMBIES_LIVER);
 	}
 	
 	@Override
@@ -106,10 +103,10 @@ public final class Q00633_InTheForgottenVillage extends Quest {
 			}
 			case "31388-07.html": {
 				if (qs.isCond(2)) {
-					if (getQuestItemsCount(player, RIB_BONE_OF_A_BLACK_MAGUS) >= RIB_BONE_REQUIRED_COUNT) {
+					if (hasItemsAtLimit(player, RIB_BONE_OF_A_BLACK_MAGUS)) {
 						giveAdena(player, 25000, true);
 						addExpAndSp(player, 305235, 0);
-						takeItems(player, RIB_BONE_OF_A_BLACK_MAGUS, -1);
+						takeItems(player, RIB_BONE_OF_A_BLACK_MAGUS.getId(), -1);
 						qs.setCond(1, true);
 						htmltext = event;
 					} else {
@@ -133,18 +130,12 @@ public final class Q00633_InTheForgottenVillage extends Quest {
 	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
 		final QuestState qs = getRandomPartyMemberState(killer, -1, 3, npc);
 		if (qs != null) {
-			final ItemChanceHolder info = MOBS_DROP_CHANCES.get(npc.getId());
-			switch (info.getId()) {
-				case RIB_BONE_OF_A_BLACK_MAGUS: {
-					if (qs.isCond(1) && giveItemRandomly(qs.getPlayer(), npc, RIB_BONE_OF_A_BLACK_MAGUS, 1, RIB_BONE_REQUIRED_COUNT, info.getChance(), true)) {
-						qs.setCond(2);
-					}
-					break;
-				}
-				case ZOMBIES_LIVER: {
-					giveItemRandomly(qs.getPlayer(), npc, ZOMBIES_LIVER, 1, 0, info.getChance(), true);
-					break;
-				}
+			QuestDropInfo dropInfo = DROPLIST.get(npc);
+			if (RIB_BONE_OF_A_BLACK_MAGUS.getId() == dropInfo.item().getId() && qs.isCond(1)
+					&& giveItemRandomly(qs.getPlayer(), npc, dropInfo, true)) {
+				qs.setCond(2);
+			} else {
+				giveItemRandomly(qs.getPlayer(), npc, dropInfo, true);
 			}
 		}
 		return super.onKill(npc, killer, isSummon);
@@ -157,7 +148,7 @@ public final class Q00633_InTheForgottenVillage extends Quest {
 		if (qs.isCreated()) {
 			htmltext = ((player.getLevel() >= MIN_LVL) ? "31388-01.htm" : "31388-02.htm");
 		} else if (qs.isStarted()) {
-			htmltext = ((getQuestItemsCount(player, RIB_BONE_OF_A_BLACK_MAGUS) >= RIB_BONE_REQUIRED_COUNT) ? "31388-04.html" : "31388-05.html");
+			htmltext = hasItemsAtLimit(player, RIB_BONE_OF_A_BLACK_MAGUS) ? "31388-04.html" : "31388-05.html";
 		}
 		return htmltext;
 	}

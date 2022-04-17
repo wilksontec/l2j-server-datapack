@@ -18,16 +18,16 @@
  */
 package com.l2jserver.datapack.ai.npc.Alexandria;
 
+import com.l2jserver.datapack.ai.npc.AbstractNpcAI;
+import com.l2jserver.gameserver.model.actor.L2Npc;
+import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
+import com.l2jserver.gameserver.model.holders.ItemChanceHolder;
+import com.l2jserver.gameserver.model.holders.ItemHolder;
+
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import com.l2jserver.datapack.ai.npc.AbstractNpcAI;
-import com.l2jserver.gameserver.model.actor.L2Npc;
-import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
-import com.l2jserver.gameserver.model.holders.ItemHolder;
-import com.l2jserver.gameserver.model.holders.QuestItemHolder;
 
 /**
  * Alexandria (Armor Merchant) AI.
@@ -47,23 +47,23 @@ public final class Alexandria extends AbstractNpcAI {
 		new ItemHolder(9817, 5),
 	};
 	// Agathions
-	private static final QuestItemHolder[] LITTLE_DEVILS = new QuestItemHolder[] {
+	private static final ItemChanceHolder[] LITTLE_DEVILS = new ItemChanceHolder[] {
 		new AdditionalQuestItemHolder(10321, 600, 1, 10408),
-		new QuestItemHolder(10322, 10),
-		new QuestItemHolder(10323, 10),
-		new QuestItemHolder(10324, 5),
-		new QuestItemHolder(10325, 5),
-		new QuestItemHolder(10326, 370),
+		new ItemChanceHolder(10322, 10),
+		new ItemChanceHolder(10323, 10),
+		new ItemChanceHolder(10324, 5),
+		new ItemChanceHolder(10325, 5),
+		new ItemChanceHolder(10326, 370),
 	};
-	private static final QuestItemHolder[] LITTLE_ANGELS = new QuestItemHolder[] {
+	private static final ItemChanceHolder[] LITTLE_ANGELS = new ItemChanceHolder[] {
 		new AdditionalQuestItemHolder(10315, 600, 1, 10408),
-		new QuestItemHolder(10316, 10),
-		new QuestItemHolder(10317, 10),
-		new QuestItemHolder(10318, 5),
-		new QuestItemHolder(10319, 5),
-		new QuestItemHolder(10320, 370),
+		new ItemChanceHolder(10316, 10),
+		new ItemChanceHolder(10317, 10),
+		new ItemChanceHolder(10318, 5),
+		new ItemChanceHolder(10319, 5),
+		new ItemChanceHolder(10320, 370),
 	};
-	private static final Map<String, List<QuestItemHolder>> AGATHIONS = new HashMap<>();
+	private static final Map<String, List<ItemChanceHolder>> AGATHIONS = new HashMap<>();
 	static {
 		AGATHIONS.put("littleAngel", Arrays.asList(LITTLE_ANGELS));
 		AGATHIONS.put("littleDevil", Arrays.asList(LITTLE_DEVILS));
@@ -85,14 +85,14 @@ public final class Alexandria extends AbstractNpcAI {
 			final int chance = getRandom(1000);
 			int chance2 = 0;
 			int chance3 = 0;
-			for (QuestItemHolder agathion : AGATHIONS.get(event)) {
+			for (ItemChanceHolder agathion : AGATHIONS.get(event)) {
 				chance3 += agathion.getChance();
 				if ((chance2 <= chance) && (chance < chance3)) {
 					if (takeAllItems(player, REQUIRED_ITEMS)) {
 						giveItems(player, agathion);
 						htmltext = "30098-03.html";
 						
-						if (agathion instanceof AdditionalQuestItemHolder) {
+						if (agathion instanceof ItemChanceHolder) {
 							giveItems(player, ((AdditionalQuestItemHolder) agathion).getAdditionalId(), 1);
 							htmltext = "30098-03a.html";
 						}
@@ -107,7 +107,7 @@ public final class Alexandria extends AbstractNpcAI {
 		return htmltext;
 	}
 	
-	public static class AdditionalQuestItemHolder extends QuestItemHolder {
+	public static class AdditionalQuestItemHolder extends ItemChanceHolder {
 		private final int _additionalId;
 		
 		public AdditionalQuestItemHolder(int id, int chance, long count, int additionalId) {

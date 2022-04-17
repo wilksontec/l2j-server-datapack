@@ -18,13 +18,10 @@
  */
 package com.l2jserver.datapack.quests.Q00306_CrystalOfFireAndIce;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
-import com.l2jserver.gameserver.model.holders.ItemHolder;
 import com.l2jserver.gameserver.model.quest.Quest;
+import com.l2jserver.gameserver.model.quest.QuestDroplist;
 import com.l2jserver.gameserver.model.quest.QuestState;
 import com.l2jserver.gameserver.model.quest.State;
 import com.l2jserver.gameserver.util.Util;
@@ -36,28 +33,28 @@ import com.l2jserver.gameserver.util.Util;
 public final class Q00306_CrystalOfFireAndIce extends Quest {
 	// NPC
 	private static final int KATERINA = 30004;
+	// Monsters
+	private static final int UNDINE_NOBLE = 20115;
 	// Items
 	private static final int FLAME_SHARD = 1020;
 	private static final int ICE_SHARD = 1021;
+	// Droplist
+	private static final QuestDroplist DROPLIST = QuestDroplist.builder()
+			.addSingleDrop(20109, FLAME_SHARD, 92.5) // Salamander
+			.addSingleDrop(20110, ICE_SHARD, 90.0) // Undine
+			.addSingleDrop(20112, FLAME_SHARD, 90.0) // Salamander Elder
+			.addSingleDrop(20113, ICE_SHARD, 92.5) // Undine Elder
+			.addSingleDrop(20114, FLAME_SHARD, 92.5) // Salamander Noble
+			.addSingleDrop(UNDINE_NOBLE, ICE_SHARD, 95.0) // Undine Noble
+			.build();
 	// Misc
 	private static final int MIN_LEVEL = 17;
-	// Monsters
-	private static final int UNDINE_NOBLE = 20115;
-	private static final Map<Integer, ItemHolder> MONSTER_DROPS = new HashMap<>();
-	static {
-		MONSTER_DROPS.put(20109, new ItemHolder(FLAME_SHARD, 925)); // Salamander
-		MONSTER_DROPS.put(20110, new ItemHolder(ICE_SHARD, 900)); // Undine
-		MONSTER_DROPS.put(20112, new ItemHolder(FLAME_SHARD, 900)); // Salamander Elder
-		MONSTER_DROPS.put(20113, new ItemHolder(ICE_SHARD, 925)); // Undine Elder
-		MONSTER_DROPS.put(20114, new ItemHolder(FLAME_SHARD, 925)); // Salamander Noble
-		MONSTER_DROPS.put(UNDINE_NOBLE, new ItemHolder(ICE_SHARD, 950)); // Undine Noble
-	}
-	
+
 	public Q00306_CrystalOfFireAndIce() {
 		super(306, Q00306_CrystalOfFireAndIce.class.getSimpleName(), "Crystals of Fire and Ice");
 		addStartNpc(KATERINA);
 		addTalkId(KATERINA);
-		addKillId(MONSTER_DROPS.keySet());
+		addKillId(DROPLIST.getNpcIds());
 		registerQuestItems(FLAME_SHARD, ICE_SHARD);
 	}
 	
@@ -92,16 +89,15 @@ public final class Q00306_CrystalOfFireAndIce extends Quest {
 	@Override
 	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
 		final QuestState qs;
-		if (npc.getId() == UNDINE_NOBLE) // Undine Noble gives quest drops only for the killer
-		{
+		if (npc.getId() == UNDINE_NOBLE) { // Undine Noble gives quest drops only for the killer
 			qs = getQuestState(killer, false);
-			if ((qs != null) && qs.isStarted()) {
-				giveKillReward(killer, npc);
+			if ((qs != null) && qs.isStarted() && Util.checkIfInRange(1500, npc, qs.getPlayer(), false)) {
+				giveItemRandomly(qs.getPlayer(), npc, DROPLIST.get(npc), true);
 			}
 		} else {
 			qs = getRandomPartyMemberState(killer, -1, 3, npc);
-			if (qs != null) {
-				giveKillReward(qs.getPlayer(), npc);
+			if (qs != null && Util.checkIfInRange(1500, npc, qs.getPlayer(), false)) {
+				giveItemRandomly(qs.getPlayer(), npc, DROPLIST.get(npc), true);
 			}
 		}
 		return super.onKill(npc, killer, isSummon);
@@ -130,12 +126,5 @@ public final class Q00306_CrystalOfFireAndIce extends Quest {
 			}
 		}
 		return htmltext;
-	}
-	
-	private static void giveKillReward(L2PcInstance player, L2Npc npc) {
-		if (Util.checkIfInRange(1500, npc, player, false)) {
-			final ItemHolder item = MONSTER_DROPS.get(npc.getId());
-			giveItemRandomly(player, npc, item.getId(), 1, 0, 1000.0 / item.getCount(), true);
-		}
 	}
 }

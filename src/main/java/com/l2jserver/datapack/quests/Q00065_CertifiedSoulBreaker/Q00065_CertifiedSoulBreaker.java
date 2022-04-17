@@ -24,6 +24,7 @@ import com.l2jserver.gameserver.enums.Race;
 import com.l2jserver.gameserver.model.Location;
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
+import com.l2jserver.gameserver.model.holders.QuestItemChanceHolder;
 import com.l2jserver.gameserver.model.quest.Quest;
 import com.l2jserver.gameserver.model.quest.QuestState;
 import com.l2jserver.gameserver.network.NpcStringId;
@@ -56,8 +57,8 @@ public final class Q00065_CertifiedSoulBreaker extends Quest {
 	private static final int SUSPICIOUS_MAN = 32244;
 	// Items
 	private static final int SEALED_DOCUMENT = 9803;
-	private static final int WYRM_HEART = 9804;
 	private static final int KEKROPUS_RECOMMENDATION = 9805;
+	private static final QuestItemChanceHolder WYRM_HEART = new QuestItemChanceHolder(9804, 20.0, 10L);
 	// Reward
 	private static final int DIMENSIONAL_DIAMOND = 7562;
 	private static final int SOUL_BREAKER_CERTIFICATE = 9806;
@@ -77,7 +78,7 @@ public final class Q00065_CertifiedSoulBreaker extends Quest {
 		addTalkId(GRAND_MASTER_VITUS, CAPTAIN_LUCAS, JACOB, GUARD_HARLAN, GUARD_XABER, GUARD_LIAM, GUARD_VESA, GUARD_ZEROME, WHARF_MANAGER_FELTON, KEKROPUS, VICE_HIERARCH_CASCA, GRAND_MASTER_HOLST, GRAND_MASTER_MELDINA, KATENAR, CARGO_BOX, SUSPICIOUS_MAN);
 		addKillId(WYRM, GUARDIAN_ANGEL);
 		addSpawnId(GUARDIAN_ANGEL, SUSPICIOUS_MAN);
-		registerQuestItems(SEALED_DOCUMENT, WYRM_HEART, KEKROPUS_RECOMMENDATION);
+		registerQuestItems(SEALED_DOCUMENT, WYRM_HEART.getId(), KEKROPUS_RECOMMENDATION);
 	}
 	
 	@Override
@@ -187,7 +188,7 @@ public final class Q00065_CertifiedSoulBreaker extends Quest {
 			}
 			case "32138-12.html": {
 				if (qs.isMemoState(23)) {
-					takeItems(player, WYRM_HEART, -1);
+					takeItems(player, WYRM_HEART.getId(), -1);
 					giveItems(player, KEKROPUS_RECOMMENDATION, 1);
 					qs.setMemoState(24);
 					qs.setCond(17, true);
@@ -252,28 +253,21 @@ public final class Q00065_CertifiedSoulBreaker extends Quest {
 		final QuestState qs = getQuestState(killer, false);
 		if ((qs != null) && qs.isStarted() && Util.checkIfInRange(1500, npc, killer, true)) {
 			switch (npc.getId()) {
-				case WYRM: {
-					if (qs.isMemoState(22)) {
-						if (giveItemRandomly(killer, npc, WYRM_HEART, 1, 10, 0.20, true)) {
-							qs.setMemoState(23);
-							qs.setCond(16, true);
-						}
+				case WYRM -> {
+					if (qs.isMemoState(22) && giveItemRandomly(qs.getPlayer(), npc, WYRM_HEART, true)) {
+						qs.setMemoState(23);
+						qs.setCond(16);
 					}
-					break;
 				}
-				case GUARDIAN_ANGEL: {
+				case GUARDIAN_ANGEL -> {
 					final L2PcInstance c0 = npc.getVariables().getObject("player0", L2PcInstance.class);
 					final L2Npc npc0 = npc.getVariables().getObject("npc0", L2Npc.class);
-					if (killer == c0) {
-						if (c0 != null) {
-							if (qs.isMemoState(12)) {
-								L2Npc katenar = addSpawn(KATENAR, killer.getX() + 20, killer.getY() + 20, killer.getZ(), 0, false, 0);
-								katenar.getVariables().set("player0", killer);
-								katenar.getVariables().set("npc0", npc);
-								qs.setMemoState(13);
-								npc.broadcastPacket(new NpcSay(npc, Say2.NPC_ALL, NpcStringId.GRR_IVE_BEEN_HIT));
-							}
-						}
+					if (killer == c0 && qs.isMemoState(12)) {
+						L2Npc katenar = addSpawn(KATENAR, killer.getX() + 20, killer.getY() + 20, killer.getZ(), 0, false, 0);
+						katenar.getVariables().set("player0", killer);
+						katenar.getVariables().set("npc0", npc);
+						qs.setMemoState(13);
+						npc.broadcastPacket(new NpcSay(npc, Say2.NPC_ALL, NpcStringId.GRR_IVE_BEEN_HIT));
 					} else {
 						if (npc0 != null) {
 							if (npc0.getVariables().getBoolean("SPAWNED")) {

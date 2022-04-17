@@ -18,12 +18,10 @@
  */
 package com.l2jserver.datapack.quests.Q00629_CleanUpTheSwampOfScreams;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
 import com.l2jserver.gameserver.model.quest.Quest;
+import com.l2jserver.gameserver.model.quest.QuestDroplist;
 import com.l2jserver.gameserver.model.quest.QuestState;
 
 /**
@@ -36,30 +34,28 @@ public final class Q00629_CleanUpTheSwampOfScreams extends Quest {
 	// Items
 	private static final int TALON_OF_STAKATO = 7250;
 	private static final int GOLDEN_RAM_COIN = 7251;
+	// Droplist
+	private static final QuestDroplist DROPLIST = QuestDroplist.builder()
+			.addSingleDrop(21508, TALON_OF_STAKATO, 59.9) // splinter_stakato
+			.addSingleDrop(21509, TALON_OF_STAKATO, 52.4) // splinter_stakato_worker
+			.addSingleDrop(21510, TALON_OF_STAKATO, 64.0) // splinter_stakato_soldier
+			.addSingleDrop(21511, TALON_OF_STAKATO, 83.0) // splinter_stakato_drone
+			.addSingleDrop(21512, TALON_OF_STAKATO, 97.0) // splinter_stakato_drone_a
+			.addSingleDrop(21513, TALON_OF_STAKATO, 68.2) // needle_stakato
+			.addSingleDrop(21514, TALON_OF_STAKATO, 59.5) // needle_stakato_worker
+			.addSingleDrop(21515, TALON_OF_STAKATO, 72.7) // needle_stakato_soldier
+			.addSingleDrop(21516, TALON_OF_STAKATO, 87.9) // needle_stakato_drone
+			.addSingleDrop(21517, TALON_OF_STAKATO, 99.9) // needle_stakato_drone_a
+			.build();
 	// Misc
 	private static final int REQUIRED_TALON_COUNT = 100;
 	private static final int MIN_LVL = 66;
-	// Mobs
-	private static final Map<Integer, Double> MOBS_DROP_CHANCES = new HashMap<>();
-	
-	static {
-		MOBS_DROP_CHANCES.put(21508, 0.599); // splinter_stakato
-		MOBS_DROP_CHANCES.put(21509, 0.524); // splinter_stakato_worker
-		MOBS_DROP_CHANCES.put(21510, 0.640); // splinter_stakato_soldier
-		MOBS_DROP_CHANCES.put(21511, 0.830); // splinter_stakato_drone
-		MOBS_DROP_CHANCES.put(21512, 0.970); // splinter_stakato_drone_a
-		MOBS_DROP_CHANCES.put(21513, 0.682); // needle_stakato
-		MOBS_DROP_CHANCES.put(21514, 0.595); // needle_stakato_worker
-		MOBS_DROP_CHANCES.put(21515, 0.727); // needle_stakato_soldier
-		MOBS_DROP_CHANCES.put(21516, 0.879); // needle_stakato_drone
-		MOBS_DROP_CHANCES.put(21517, 0.999); // needle_stakato_drone_a
-	}
 	
 	public Q00629_CleanUpTheSwampOfScreams() {
 		super(629, Q00629_CleanUpTheSwampOfScreams.class.getSimpleName(), "Clean Up The Swamp Of Screams");
 		addStartNpc(PIERCE);
 		addTalkId(PIERCE);
-		addKillId(MOBS_DROP_CHANCES.keySet());
+		addKillId(DROPLIST.getNpcIds());
 		registerQuestItems(TALON_OF_STAKATO, GOLDEN_RAM_COIN);
 	}
 	
@@ -111,7 +107,7 @@ public final class Q00629_CleanUpTheSwampOfScreams extends Quest {
 	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
 		final QuestState qs = getRandomPartyMemberState(killer, -1, 2, npc);
 		if (qs != null) {
-			giveItemRandomly(qs.getPlayer(), npc, TALON_OF_STAKATO, 1, 0, MOBS_DROP_CHANCES.get(npc.getId()), true);
+			giveItemRandomly(qs.getPlayer(), npc, DROPLIST.get(npc), true);
 		}
 		return super.onKill(npc, killer, isSummon);
 	}

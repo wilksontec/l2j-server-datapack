@@ -18,12 +18,10 @@
  */
 package com.l2jserver.datapack.quests.Q00284_MuertosFeather;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
 import com.l2jserver.gameserver.model.quest.Quest;
+import com.l2jserver.gameserver.model.quest.QuestDroplist;
 import com.l2jserver.gameserver.model.quest.QuestState;
 
 /**
@@ -35,16 +33,15 @@ public final class Q00284_MuertosFeather extends Quest {
 	private static final int TREVOR = 32166;
 	// Item
 	private static final int MUERTOS_FEATHER = 9748;
-	// Monsters
-	private static final Map<Integer, Double> MOB_DROP_CHANCE = new HashMap<>();
-	static {
-		MOB_DROP_CHANCE.put(22239, 0.500); // Muertos Guard
-		MOB_DROP_CHANCE.put(22240, 0.533); // Muertos Scout
-		MOB_DROP_CHANCE.put(22242, 0.566); // Muertos Warrior
-		MOB_DROP_CHANCE.put(22243, 0.600); // Muertos Captain
-		MOB_DROP_CHANCE.put(22245, 0.633); // Muertos Lieutenant
-		MOB_DROP_CHANCE.put(22246, 0.633); // Muertos Commander
-	}
+	// Droplists
+	private static final QuestDroplist DROPLIST = QuestDroplist.builder()
+			.addSingleDrop(22239, MUERTOS_FEATHER, 50.0)
+			.addSingleDrop(22240, MUERTOS_FEATHER, 53.3)
+			.addSingleDrop(22242, MUERTOS_FEATHER, 56.6)
+			.addSingleDrop(22243, MUERTOS_FEATHER, 60.0)
+			.addSingleDrop(22245, MUERTOS_FEATHER, 63.3)
+			.addSingleDrop(22246, MUERTOS_FEATHER, 63.3)
+			.build();
 	// Misc
 	private static final int MIN_LVL = 11;
 	
@@ -52,7 +49,7 @@ public final class Q00284_MuertosFeather extends Quest {
 		super(284, Q00284_MuertosFeather.class.getSimpleName(), "Muertos Feather");
 		addStartNpc(TREVOR);
 		addTalkId(TREVOR);
-		addKillId(MOB_DROP_CHANCE.keySet());
+		addKillId(DROPLIST.getNpcIds());
 		registerQuestItems(MUERTOS_FEATHER);
 	}
 	
@@ -96,7 +93,7 @@ public final class Q00284_MuertosFeather extends Quest {
 	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
 		final QuestState qs = getRandomPartyMemberState(killer, 1, 3, npc);
 		if (qs != null) {
-			giveItemRandomly(qs.getPlayer(), npc, MUERTOS_FEATHER, 1, 0, MOB_DROP_CHANCE.get(npc.getId()), true);
+			giveItemRandomly(qs.getPlayer(), npc, DROPLIST.get(npc), true);
 		}
 		return super.onKill(npc, killer, isSummon);
 	}

@@ -18,15 +18,11 @@
  */
 package com.l2jserver.datapack.quests.Q00627_HeartInSearchOfPower;
 
-import static com.l2jserver.gameserver.config.Configuration.rates;
-
-import java.util.HashMap;
-import java.util.Map;
-
-import com.l2jserver.gameserver.enums.audio.Sound;
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
+import com.l2jserver.gameserver.model.holders.QuestItemChanceHolder;
 import com.l2jserver.gameserver.model.quest.Quest;
+import com.l2jserver.gameserver.model.quest.QuestDroplist;
 import com.l2jserver.gameserver.model.quest.QuestState;
 import com.l2jserver.gameserver.model.quest.State;
 
@@ -40,26 +36,25 @@ public class Q00627_HeartInSearchOfPower extends Quest {
 	private static final int ENFEUX = 31519;
 	// Items
 	private static final int SEAL_OF_LIGHT = 7170;
-	private static final int BEAD_OF_OBEDIENCE = 7171;
 	private static final int GEM_OF_SAINTS = 7172;
-	// Monsters
-	private static final Map<Integer, Integer> MONSTERS = new HashMap<>();
-	static {
-		MONSTERS.put(21520, 661); // Eye of Splendor
-		MONSTERS.put(21523, 668); // Flash of Splendor
-		MONSTERS.put(21524, 714); // Blade of Splendor
-		MONSTERS.put(21525, 714); // Blade of Splendor
-		MONSTERS.put(21526, 796); // Wisdom of Splendor
-		MONSTERS.put(21529, 659); // Soul of Splendor
-		MONSTERS.put(21530, 704); // Victory of Splendor
-		MONSTERS.put(21531, 791); // Punishment of Splendor
-		MONSTERS.put(21532, 820); // Shout of Splendor
-		MONSTERS.put(21535, 827); // Signet of Splendor
-		MONSTERS.put(21536, 798); // Crown of Splendor
-		MONSTERS.put(21539, 875); // Wailing of Splendor
-		MONSTERS.put(21540, 875); // Wailing of Splendor
-		MONSTERS.put(21658, 791); // Punishment of Splendor
-	}
+	private static final QuestItemChanceHolder BEAD_OF_OBEDIENCE = new QuestItemChanceHolder(7171, 300L);
+	// Droplist
+	private static final QuestDroplist DROPLIST = QuestDroplist.builder()
+			.addSingleDrop(21520, BEAD_OF_OBEDIENCE, 66.1) // Eye of Splendor
+			.addSingleDrop(21523, BEAD_OF_OBEDIENCE, 66.8) // Flash of Splendor
+			.addSingleDrop(21524, BEAD_OF_OBEDIENCE, 71.4) // Blade of Splendor
+			.addSingleDrop(21525, BEAD_OF_OBEDIENCE, 71.4) // Blade of Splendor
+			.addSingleDrop(21526, BEAD_OF_OBEDIENCE, 79.6) // Wisdom of Splendor
+			.addSingleDrop(21529, BEAD_OF_OBEDIENCE, 65.9) // Soul of Splendor
+			.addSingleDrop(21530, BEAD_OF_OBEDIENCE, 70.4) // Victory of Splendor
+			.addSingleDrop(21531, BEAD_OF_OBEDIENCE, 79.1) // Punishment of Splendor
+			.addSingleDrop(21532, BEAD_OF_OBEDIENCE, 82.0) // Shout of Splendor
+			.addSingleDrop(21535, BEAD_OF_OBEDIENCE, 82.7) // Signet of Splendor
+			.addSingleDrop(21536, BEAD_OF_OBEDIENCE, 79.8) // Crown of Splendor
+			.addSingleDrop(21539, BEAD_OF_OBEDIENCE, 87.5) // Wailing of Splendor
+			.addSingleDrop(21540, BEAD_OF_OBEDIENCE, 87.5) // Wailing of Splendor
+			.addSingleDrop(21658, BEAD_OF_OBEDIENCE, 79.1) // Punishment of Splendor
+			.build();
 	// Misc
 	private static final int MIN_LEVEL_REQUIRED = 60;
 	private static final int BEAD_OF_OBEDIENCE_COUNT_REQUIRED = 300;
@@ -73,8 +68,8 @@ public class Q00627_HeartInSearchOfPower extends Quest {
 		super(627, Q00627_HeartInSearchOfPower.class.getSimpleName(), "Heart in Search of Power");
 		addStartNpc(MYSTERIOUS_NECROMANCER);
 		addTalkId(MYSTERIOUS_NECROMANCER, ENFEUX);
-		addKillId(MONSTERS.keySet());
-		registerQuestItems(SEAL_OF_LIGHT, BEAD_OF_OBEDIENCE, GEM_OF_SAINTS);
+		addKillId(DROPLIST.getNpcIds());
+		registerQuestItems(SEAL_OF_LIGHT, BEAD_OF_OBEDIENCE.getId(), GEM_OF_SAINTS);
 	}
 	
 	@Override
@@ -89,11 +84,11 @@ public class Q00627_HeartInSearchOfPower extends Quest {
 				st.startQuest();
 				break;
 			case "31518-06.html":
-				if (st.getQuestItemsCount(BEAD_OF_OBEDIENCE) < BEAD_OF_OBEDIENCE_COUNT_REQUIRED) {
+				if (!hasItemsAtLimit(st.getPlayer(), BEAD_OF_OBEDIENCE)) {
 					return "31518-05.html";
 				}
 				st.giveItems(SEAL_OF_LIGHT, 1);
-				st.takeItems(BEAD_OF_OBEDIENCE, -1);
+				st.takeItems(BEAD_OF_OBEDIENCE.getId(), -1);
 				st.setCond(3);
 				break;
 			case "Adena":
@@ -148,18 +143,9 @@ public class Q00627_HeartInSearchOfPower extends Quest {
 	
 	@Override
 	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
-		final L2PcInstance partyMember = getRandomPartyMember(killer, 1);
-		if (partyMember != null) {
-			final QuestState st = getQuestState(partyMember, false);
-			final double chance = MONSTERS.get(npc.getId()) * rates().getRateQuestDrop();
-			if (getRandom(1000) < chance) {
-				st.giveItems(BEAD_OF_OBEDIENCE, 1);
-				if (st.getQuestItemsCount(BEAD_OF_OBEDIENCE) < BEAD_OF_OBEDIENCE_COUNT_REQUIRED) {
-					st.playSound(Sound.ITEMSOUND_QUEST_ITEMGET);
-				} else {
-					st.setCond(2, true);
-				}
-			}
+		QuestState st = getRandomPartyMemberState(killer, 1, 1, npc);
+		if (st != null && giveItemRandomly(st.getPlayer(), npc, DROPLIST.get(npc), true)) {
+			st.setCond(2);
 		}
 		return super.onKill(npc, killer, isSummon);
 	}

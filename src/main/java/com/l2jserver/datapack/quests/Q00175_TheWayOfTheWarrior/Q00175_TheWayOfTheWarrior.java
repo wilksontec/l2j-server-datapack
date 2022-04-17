@@ -23,6 +23,7 @@ import com.l2jserver.gameserver.enums.audio.Voice;
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
 import com.l2jserver.gameserver.model.holders.ItemHolder;
+import com.l2jserver.gameserver.model.holders.QuestItemChanceHolder;
 import com.l2jserver.gameserver.model.holders.SkillHolder;
 import com.l2jserver.gameserver.model.quest.Quest;
 import com.l2jserver.gameserver.model.quest.QuestState;
@@ -30,6 +31,8 @@ import com.l2jserver.gameserver.model.variables.PlayerVariables;
 import com.l2jserver.gameserver.network.NpcStringId;
 import com.l2jserver.gameserver.network.serverpackets.ExShowScreenMessage;
 import com.l2jserver.gameserver.network.serverpackets.SocialAction;
+
+import java.util.List;
 
 /**
  * The Way of the Warrior (175)
@@ -40,8 +43,8 @@ public final class Q00175_TheWayOfTheWarrior extends Quest {
 	private static final int PERWAN = 32133;
 	private static final int KEKROPUS = 32138;
 	// Items
-	private static final ItemHolder WOLF_TAIL = new ItemHolder(9807, 5);
-	private static final ItemHolder MUERTOS_CLAW = new ItemHolder(9808, 10);
+	private static final QuestItemChanceHolder WOLF_TAIL = new QuestItemChanceHolder(9807, 50.0, 5L);
+	private static final QuestItemChanceHolder MUERTOS_CLAW = new QuestItemChanceHolder(9808, 10L);
 	// Message
 	private static final ExShowScreenMessage MESSAGE = new ExShowScreenMessage(NpcStringId.ACQUISITION_OF_RACE_SPECIFIC_WEAPON_COMPLETE_N_GO_FIND_THE_NEWBIE_GUIDE, 2, 5000);
 	// Misc
@@ -51,14 +54,13 @@ public final class Q00175_TheWayOfTheWarrior extends Quest {
 	// Rewards
 	private static final int WARRIORS_SWORD = 9720;
 	private static final ItemHolder SOULSHOTS_NO_GRADE_FOR_ROOKIES = new ItemHolder(5789, 7000);
-	private static final ItemHolder[] REWARDS = {
+	private static final List<ItemHolder> REWARDS = List.of(
 		new ItemHolder(1060, 100), // Lesser Healing Potion
 		new ItemHolder(4412, 10), // Echo Crystal - Theme of Battle
 		new ItemHolder(4413, 10), // Echo Crystal - Theme of Love
 		new ItemHolder(4414, 10), // Echo Crystal - Theme of Solitude
 		new ItemHolder(4415, 10), // Echo Crystal - Theme of Feast
-		new ItemHolder(4416, 10), // Echo Crystal - Theme of Celebration
-	};
+		new ItemHolder(4416, 10)); // Echo Crystal - Theme of Celebration
 	// Monsters
 	private static final int MOUNTAIN_WEREWOLF = 22235;
 	private static final int[] MONSTERS = {
@@ -110,9 +112,7 @@ public final class Q00175_TheWayOfTheWarrior extends Quest {
 				if (hasItem(player, MUERTOS_CLAW)) {
 					takeItem(player, MUERTOS_CLAW);
 					giveAdena(player, 8799, true);
-					for (ItemHolder reward : REWARDS) {
-						giveItems(player, reward);
-					}
+					giveItems(player, REWARDS);
 					giveNewbieReward(player);
 					giveItems(player, WARRIORS_SWORD, 1);
 					addExpAndSp(player, 20739, 1777);
@@ -135,19 +135,19 @@ public final class Q00175_TheWayOfTheWarrior extends Quest {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance player, boolean isSummon) {
+	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
 		if (npc.getId() == MOUNTAIN_WEREWOLF) {
-			final QuestState qs = getRandomPartyMemberState(player, 2, 3, npc);
-			if ((qs != null) && giveItemRandomly(qs.getPlayer(), npc, WOLF_TAIL.getId(), 1, WOLF_TAIL.getCount(), 0.5, true)) {
-				qs.setCond(3, true);
+			final QuestState qs = getRandomPartyMemberState(killer, 2, 3, npc);
+			if ((qs != null) && giveItemRandomly(qs.getPlayer(), npc, WOLF_TAIL, true)) {
+				qs.setCond(3);
 			}
 		} else {
-			final QuestState qs = getRandomPartyMemberState(player, 7, 3, npc);
-			if ((qs != null) && giveItemRandomly(qs.getPlayer(), npc, MUERTOS_CLAW.getId(), 1, MUERTOS_CLAW.getCount(), 1.0, true)) {
-				qs.setCond(8, true);
+			final QuestState qs = getRandomPartyMemberState(killer, 7, 3, npc);
+			if ((qs != null) && giveItemRandomly(qs.getPlayer(), npc, MUERTOS_CLAW, true)) {
+				qs.setCond(8);
 			}
 		}
-		return super.onKill(npc, player, isSummon);
+		return super.onKill(npc, killer, isSummon);
 	}
 	
 	@Override

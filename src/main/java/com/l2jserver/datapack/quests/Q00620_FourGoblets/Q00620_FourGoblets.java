@@ -18,17 +18,18 @@
  */
 package com.l2jserver.datapack.quests.Q00620_FourGoblets;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import com.l2jserver.gameserver.instancemanager.FourSepulchersManager;
 import com.l2jserver.gameserver.model.Location;
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
 import com.l2jserver.gameserver.model.holders.ItemHolder;
 import com.l2jserver.gameserver.model.quest.Quest;
+import com.l2jserver.gameserver.model.quest.QuestDroplist;
 import com.l2jserver.gameserver.model.quest.QuestState;
 import com.l2jserver.gameserver.util.Util;
+
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Four Goblets (620)
@@ -55,6 +56,38 @@ public class Q00620_FourGoblets extends Quest {
 	private static final int CHAPEL_KEY = 7260;
 	private static final int USED_GRAVE_PASS = 7261;
 	private static final int ANTIQUE_BROOCH = 7262;
+	// Droplist
+	private static final QuestDroplist DROPLIST = QuestDroplist.builder()
+			.bulkAddSingleDrop(SEALED_BOX, 90.0).withNpcs(18141, 18142, 18143, 18144).build()
+			.addSingleDrop(18145, SEALED_BOX, 76.0)
+			.addSingleDrop(18146, SEALED_BOX, 78.0)
+			.addSingleDrop(18147, SEALED_BOX, 73.0)
+			.addSingleDrop(18148, SEALED_BOX, 85.0)
+			.addSingleDrop(18149, SEALED_BOX, 75.0)
+			.addSingleDrop(18230, SEALED_BOX, 58.0)
+			.bulkAddSingleDrop(SEALED_BOX, 151.0).withNpcs(18120, 18123, 18126, 18129, 18221).build()
+			.bulkAddSingleDrop(SEALED_BOX, 144.0).withNpcs(18121, 18124, 18127, 18130, 18224).build()
+			.bulkAddSingleDrop(SEALED_BOX, 110.0).withNpcs(18122, 18125, 18128, 18131, 18168, 18175, 18178, 18181, 18184).build()
+			.bulkAddSingleDrop(SEALED_BOX, 142.0).withNpcs(18133, 18135, 18136, 18187, 18189, 18190).build()
+			.addSingleDrop(18132, SEALED_BOX, 154.0)
+			.bulkAddSingleDrop(SEALED_BOX, 107.0).withNpcs(18134, 18167, 18170, 18188, 18223).build()
+			.bulkAddSingleDrop(SEALED_BOX, 106.0).withNpcs(18137, 18169, 18172, 18191, 18226).build()
+			.bulkAddSingleDrop(SEALED_BOX, 141.0).withNpcs(18138, 18140, 18192, 18194, 18229).build()
+			.addSingleDrop(18139, SEALED_BOX, 139.0)
+			.addSingleDrop(18166, SEALED_BOX, 108.0)
+			.addSingleDrop(18171, SEALED_BOX, 111.0)
+			.bulkAddSingleDrop(SEALED_BOX, 117.0).withNpcs(18173, 18176, 18179, 18182).build()
+			.bulkAddSingleDrop(SEALED_BOX, 145.0).withNpcs(18174, 18177, 18180, 18183).build()
+			.addSingleDrop(18185, SEALED_BOX, 146.0)
+			.addSingleDrop(18186, SEALED_BOX, 147.0)
+			.addSingleDrop(18193, SEALED_BOX, 139.0)
+			.addSingleDrop(18195, SEALED_BOX, 108.0)
+			.addSingleDrop(18220, SEALED_BOX, 147.0)
+			.addSingleDrop(18222, SEALED_BOX, 143.0)
+			.addSingleDrop(18225, SEALED_BOX, 143.0)
+			.addSingleDrop(18227, SEALED_BOX, 182.0)
+			.bulkAddSingleDrop(SEALED_BOX, 450.0).withNpcs(18212, 18213, 18214, 18215, 18216, 18217, 18218, 18219).build()
+			.build();
 	// Misc
 	private static final int MIN_LEVEL = 74;
 	// Locations
@@ -136,86 +169,6 @@ public class Q00620_FourGoblets extends Quest {
 	private static final Map<Integer, Double> MOB1 = new HashMap<>();
 	private static final Map<Integer, Integer> MOB2 = new HashMap<>();
 	private static final Map<Integer, Integer> MOB3 = new HashMap<>();
-	static {
-		MOB1.put(18141, 0.9);
-		MOB1.put(18142, 0.9);
-		MOB1.put(18143, 0.9);
-		MOB1.put(18144, 0.9);
-		MOB1.put(18145, 0.76);
-		MOB1.put(18146, 0.78);
-		MOB1.put(18147, 0.73);
-		MOB1.put(18148, 0.85);
-		MOB1.put(18149, 0.75);
-		MOB1.put(18230, 0.58);
-		MOB2.put(18120, 51);
-		MOB2.put(18121, 44);
-		MOB2.put(18122, 10);
-		MOB2.put(18123, 51);
-		MOB2.put(18124, 44);
-		MOB2.put(18125, 10);
-		MOB2.put(18126, 51);
-		MOB2.put(18127, 44);
-		MOB2.put(18128, 10);
-		MOB2.put(18129, 51);
-		MOB2.put(18130, 44);
-		MOB2.put(18131, 10);
-		MOB2.put(18132, 54);
-		MOB2.put(18133, 42);
-		MOB2.put(18134, 7);
-		MOB2.put(18135, 42);
-		MOB2.put(18136, 42);
-		MOB2.put(18137, 6);
-		MOB2.put(18138, 41);
-		MOB2.put(18139, 39);
-		MOB2.put(18140, 41);
-		MOB2.put(18166, 8);
-		MOB2.put(18167, 7);
-		MOB2.put(18168, 10);
-		MOB2.put(18169, 6);
-		MOB2.put(18170, 7);
-		MOB2.put(18171, 11);
-		MOB2.put(18172, 6);
-		MOB2.put(18173, 17);
-		MOB2.put(18174, 45);
-		MOB2.put(18175, 10);
-		MOB2.put(18176, 17);
-		MOB2.put(18177, 45);
-		MOB2.put(18178, 10);
-		MOB2.put(18179, 17);
-		MOB2.put(18180, 45);
-		MOB2.put(18181, 10);
-		MOB2.put(18182, 17);
-		MOB2.put(18183, 45);
-		MOB2.put(18184, 10);
-		MOB2.put(18185, 46);
-		MOB2.put(18186, 47);
-		MOB2.put(18187, 42);
-		MOB2.put(18188, 7);
-		MOB2.put(18189, 42);
-		MOB2.put(18190, 42);
-		MOB2.put(18191, 6);
-		MOB2.put(18192, 41);
-		MOB2.put(18193, 39);
-		MOB2.put(18194, 41);
-		MOB2.put(18195, 8);
-		MOB2.put(18220, 47);
-		MOB2.put(18221, 51);
-		MOB2.put(18222, 43);
-		MOB2.put(18223, 7);
-		MOB2.put(18224, 44);
-		MOB2.put(18225, 43);
-		MOB2.put(18226, 6);
-		MOB2.put(18227, 82);
-		MOB2.put(18229, 41);
-		MOB3.put(18212, 50);
-		MOB3.put(18213, 50);
-		MOB3.put(18214, 50);
-		MOB3.put(18215, 50);
-		MOB3.put(18216, 50);
-		MOB3.put(18217, 50);
-		MOB3.put(18218, 50);
-		MOB3.put(18219, 50);
-	}
 	
 	public Q00620_FourGoblets() {
 		super(620, Q00620_FourGoblets.class.getSimpleName(), "Four Goblets");
@@ -404,28 +357,13 @@ public class Q00620_FourGoblets extends Quest {
 	@Override
 	public String onKill(L2Npc npc, L2PcInstance player, boolean isSummon) {
 		switch (npc.getId()) {
-			case HALISHA_ALECTIA:
-			case HALISHA_TISHAS:
-			case HALISHA_MEKARA:
-			case HALISHA_MORIGUL: {
-				executeForEachPlayer(player, npc, isSummon, true, false);
-				break;
-			}
-			default: {
+			case HALISHA_ALECTIA, HALISHA_TISHAS, HALISHA_MEKARA, HALISHA_MORIGUL ->
+					executeForEachPlayer(player, npc, isSummon, true, false);
+			default -> {
 				final QuestState st = getRandomPartyMemberState(player, -1, 3, npc);
 				if (st != null) {
-					int npcId = npc.getId();
-					if (MOB1.containsKey(npcId)) {
-						st.giveItemRandomly(npc, SEALED_BOX, 1, 0, MOB1.get(npcId), true);
-					} else if (MOB2.containsKey(npcId)) {
-						final int itemCount = ((getRandom(100) < MOB2.get(npc.getId())) ? 2 : 1);
-						st.giveItemRandomly(npc, SEALED_BOX, itemCount, 0, 1.0, true);
-					} else {
-						final int itemCount = ((getRandom(100) < MOB3.get(npc.getId())) ? 5 : 4);
-						st.giveItemRandomly(npc, SEALED_BOX, itemCount, 0, 1.0, true);
-					}
+					giveItemRandomly(st.getPlayer(), npc, DROPLIST.get(npc), true);
 				}
-				break;
 			}
 		}
 		return super.onKill(npc, player, isSummon);

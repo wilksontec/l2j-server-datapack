@@ -18,11 +18,9 @@
  */
 package com.l2jserver.datapack.quests.Q00050_LanoscosSpecialBait;
 
-import static com.l2jserver.gameserver.config.Configuration.rates;
-
-import com.l2jserver.gameserver.enums.audio.Sound;
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
+import com.l2jserver.gameserver.model.holders.QuestItemChanceHolder;
 import com.l2jserver.gameserver.model.quest.Quest;
 import com.l2jserver.gameserver.model.quest.QuestState;
 import com.l2jserver.gameserver.model.quest.State;
@@ -37,15 +35,15 @@ public class Q00050_LanoscosSpecialBait extends Quest {
 	private static final int LANOSCO = 31570;
 	private static final int SINGING_WIND = 21026;
 	// Items
-	private static final int ESSENCE_OF_WIND = 7621;
 	private static final int WIND_FISHING_LURE = 7610;
-	
+	private static final QuestItemChanceHolder ESSENCE_OF_WIND = new QuestItemChanceHolder(7621, 33.0, 100L);
+
 	public Q00050_LanoscosSpecialBait() {
 		super(50, Q00050_LanoscosSpecialBait.class.getSimpleName(), "Lanosco's Special Bait");
 		addStartNpc(LANOSCO);
 		addTalkId(LANOSCO);
 		addKillId(SINGING_WIND);
-		registerQuestItems(ESSENCE_OF_WIND);
+		registerQuestItems(ESSENCE_OF_WIND.getId());
 	}
 	
 	@Override
@@ -62,7 +60,7 @@ public class Q00050_LanoscosSpecialBait extends Quest {
 				st.startQuest();
 				break;
 			case "31570-07.html":
-				if ((st.isCond(2)) && (st.getQuestItemsCount(ESSENCE_OF_WIND) >= 100)) {
+				if ((st.isCond(2)) && hasItemsAtLimit(st.getPlayer(), ESSENCE_OF_WIND)) {
 					htmltext = "31570-06.htm";
 					st.giveItems(WIND_FISHING_LURE, 4);
 					st.exitQuest(false, true);
@@ -74,26 +72,10 @@ public class Q00050_LanoscosSpecialBait extends Quest {
 	
 	@Override
 	public String onKill(L2Npc npc, L2PcInstance player, boolean isSummon) {
-		final L2PcInstance partyMember = getRandomPartyMember(player, 1);
-		if (partyMember == null) {
-			return null;
+		QuestState st = getRandomPartyMemberState(player, 1, 1, npc);
+		if (st != null && giveItemRandomly(st.getPlayer(), npc, ESSENCE_OF_WIND, true)) {
+			st.setCond(2);
 		}
-		
-		final QuestState st = getQuestState(partyMember, false);
-		
-		if (st.getQuestItemsCount(ESSENCE_OF_WIND) < 100) {
-			double chance = 33 * rates().getRateQuestDrop();
-			if (getRandom(100) < chance) {
-				st.rewardItems(ESSENCE_OF_WIND, 1);
-				st.playSound(Sound.ITEMSOUND_QUEST_ITEMGET);
-			}
-		}
-		
-		if (st.getQuestItemsCount(ESSENCE_OF_WIND) >= 100) {
-			st.setCond(2, true);
-			
-		}
-		
 		return super.onKill(npc, player, isSummon);
 	}
 	

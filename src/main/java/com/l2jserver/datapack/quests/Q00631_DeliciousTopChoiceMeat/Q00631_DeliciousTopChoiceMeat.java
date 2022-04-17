@@ -18,12 +18,11 @@
  */
 package com.l2jserver.datapack.quests.Q00631_DeliciousTopChoiceMeat;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
+import com.l2jserver.gameserver.model.holders.QuestItemChanceHolder;
 import com.l2jserver.gameserver.model.quest.Quest;
+import com.l2jserver.gameserver.model.quest.QuestDroplist;
 import com.l2jserver.gameserver.model.quest.QuestState;
 
 /**
@@ -31,14 +30,24 @@ import com.l2jserver.gameserver.model.quest.QuestState;
  * @author Adry_85
  */
 public class Q00631_DeliciousTopChoiceMeat extends Quest {
+	// Misc
+	private static final int MIN_LEVEL = 82;
 	// NPC
 	private static final int TUNATUN = 31537;
 	// Items
 	private static final int TOP_QUALITY_MEAT = 7546;
-	private static final int PRIME_MEAT = 15534;
-	// Misc
-	private static final int MIN_LEVEL = 82;
-	private static final int PRIME_MEAT_COUNT = 120;
+	private static final QuestItemChanceHolder PRIME_MEAT = new QuestItemChanceHolder(15534, 120L);
+	// Droplist
+	private static final QuestDroplist DROPLIST = QuestDroplist.builder()
+			.addSingleDrop(18878, PRIME_MEAT, 17.2) // Full Grown Kookaburra
+			.addSingleDrop(18879, PRIME_MEAT, 33.4) // Full Grown Kookaburra
+			.addSingleDrop(18885, PRIME_MEAT, 17.2) // Full Grown Cougar
+			.addSingleDrop(18886, PRIME_MEAT, 33.4) // Full Grown Cougar
+			.addSingleDrop(18892, PRIME_MEAT, 18.2) // Full Grown Buffalo
+			.addSingleDrop(18893, PRIME_MEAT, 34.9) // Full Grown Buffalo
+			.addSingleDrop(18899, PRIME_MEAT, 18.2) // Full Grown Grendel
+			.addSingleDrop(18900, PRIME_MEAT, 34.9) // Full Grown Grendel
+			.build();
 	// Rewards
 	private static final int[] RECIPE = {
 		10373, // Recipe - Icarus Sawsword (60%)
@@ -67,24 +76,12 @@ public class Q00631_DeliciousTopChoiceMeat extends Quest {
 	private static final int GOLDEN_SPICE_CRATE = 15482;
 	private static final int CRYSTAL_SPICE_COMPRESSED_PACK = 15483;
 	
-	private static final Map<Integer, Double> MOBS_MEAT = new HashMap<>();
-	static {
-		MOBS_MEAT.put(18878, 0.172); // Full Grown Kookaburra
-		MOBS_MEAT.put(18879, 0.334); // Full Grown Kookaburra
-		MOBS_MEAT.put(18885, 0.172); // Full Grown Cougar
-		MOBS_MEAT.put(18886, 0.334); // Full Grown Cougar
-		MOBS_MEAT.put(18892, 0.182); // Full Grown Buffalo
-		MOBS_MEAT.put(18893, 0.349); // Full Grown Buffalo
-		MOBS_MEAT.put(18899, 0.182); // Full Grown Grendel
-		MOBS_MEAT.put(18900, 0.349); // Full Grown Grendel
-	}
-	
 	public Q00631_DeliciousTopChoiceMeat() {
 		super(631, Q00631_DeliciousTopChoiceMeat.class.getSimpleName(), "Delicious Top Choice Meat");
 		addStartNpc(TUNATUN);
 		addTalkId(TUNATUN);
-		addKillId(MOBS_MEAT.keySet());
-		registerQuestItems(TOP_QUALITY_MEAT, PRIME_MEAT);
+		addKillId(DROPLIST.getNpcIds());
+		registerQuestItems(TOP_QUALITY_MEAT, PRIME_MEAT.getId());
 	}
 	
 	@Override
@@ -106,48 +103,18 @@ public class Q00631_DeliciousTopChoiceMeat extends Quest {
 				break;
 			}
 			case "31537-06.html": {
-				if (st.isCond(2) && (getQuestItemsCount(player, PRIME_MEAT) >= PRIME_MEAT_COUNT)) {
+				if (st.isCond(2) && hasItemsAtLimit(player, PRIME_MEAT)) {
 					switch (getRandom(10)) {
-						case 0: {
-							st.rewardItems(RECIPE[getRandom(RECIPE.length)], 1);
-							break;
-						}
-						case 1: {
-							st.rewardItems(PIECE[getRandom(PIECE.length)], 1);
-							break;
-						}
-						case 2: {
-							st.rewardItems(PIECE[getRandom(PIECE.length)], 2);
-							break;
-						}
-						case 3: {
-							st.rewardItems(PIECE[getRandom(PIECE.length)], 3);
-							break;
-						}
-						case 4: {
-							st.rewardItems(PIECE[getRandom(PIECE.length)], getRandom(5) + 2);
-							break;
-						}
-						case 5: {
-							st.rewardItems(PIECE[getRandom(PIECE.length)], getRandom(7) + 2);
-							break;
-						}
-						case 6: {
-							st.rewardItems(GOLDEN_SPICE_CRATE, 1);
-							break;
-						}
-						case 7: {
-							st.rewardItems(GOLDEN_SPICE_CRATE, 2);
-							break;
-						}
-						case 8: {
-							st.rewardItems(CRYSTAL_SPICE_COMPRESSED_PACK, 1);
-							break;
-						}
-						case 9: {
-							st.rewardItems(CRYSTAL_SPICE_COMPRESSED_PACK, 2);
-							break;
-						}
+						case 0 -> st.rewardItems(RECIPE[getRandom(RECIPE.length)], 1);
+						case 1 -> st.rewardItems(PIECE[getRandom(PIECE.length)], 1);
+						case 2 -> st.rewardItems(PIECE[getRandom(PIECE.length)], 2);
+						case 3 -> st.rewardItems(PIECE[getRandom(PIECE.length)], 3);
+						case 4 -> st.rewardItems(PIECE[getRandom(PIECE.length)], getRandom(5) + 2);
+						case 5 -> st.rewardItems(PIECE[getRandom(PIECE.length)], getRandom(7) + 2);
+						case 6 -> st.rewardItems(GOLDEN_SPICE_CRATE, 1);
+						case 7 -> st.rewardItems(GOLDEN_SPICE_CRATE, 2);
+						case 8 -> st.rewardItems(CRYSTAL_SPICE_COMPRESSED_PACK, 1);
+						case 9 -> st.rewardItems(CRYSTAL_SPICE_COMPRESSED_PACK, 2);
 					}
 					st.exitQuest(true, true);
 					htmltext = event;
@@ -162,8 +129,8 @@ public class Q00631_DeliciousTopChoiceMeat extends Quest {
 	public String onKill(L2Npc npc, L2PcInstance player, boolean isSummon) {
 		final QuestState st = getRandomPartyMemberState(player, 1, 3, npc);
 		if (st != null) {
-			if (st.giveItemRandomly(npc, PRIME_MEAT, 1, PRIME_MEAT_COUNT, MOBS_MEAT.get(npc.getId()), true)) {
-				st.setCond(2, true);
+			if (giveItemRandomly(st.getPlayer(), npc, DROPLIST.get(npc), true)) {
+				st.setCond(2);
 			}
 		}
 		return super.onKill(npc, player, isSummon);
@@ -177,11 +144,11 @@ public class Q00631_DeliciousTopChoiceMeat extends Quest {
 			htmltext = "31537-01.htm";
 		} else if (st.isStarted()) {
 			if (st.isCond(1)) {
-				if (st.getQuestItemsCount(PRIME_MEAT) < PRIME_MEAT_COUNT) {
+				if (!hasItemsAtLimit(st.getPlayer(), PRIME_MEAT)) {
 					htmltext = "31537-04.html";
 				}
 			} else if (st.isCond(2)) {
-				if (st.getQuestItemsCount(PRIME_MEAT) >= PRIME_MEAT_COUNT) {
+				if (hasItemsAtLimit(st.getPlayer(), PRIME_MEAT)) {
 					htmltext = "31537-05.html";
 				}
 			}

@@ -18,12 +18,10 @@
  */
 package com.l2jserver.datapack.quests.Q00385_YokeOfThePast;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
 import com.l2jserver.gameserver.model.quest.Quest;
+import com.l2jserver.gameserver.model.quest.QuestDroplist;
 import com.l2jserver.gameserver.model.quest.QuestState;
 import com.l2jserver.gameserver.model.quest.State;
 
@@ -34,8 +32,7 @@ import com.l2jserver.gameserver.model.quest.State;
 public final class Q00385_YokeOfThePast extends Quest {
 	// NPCs
 	// @formatter:off
-	private static final int[] ZIGGURATS =
-	{
+	private static final int[] ZIGGURATS = {
 		31095, 31096, 31097, 31098, 31099, 31100, 31101,
 		31102, 31103, 31104, 31105, 31106, 31107, 31108,
 		31109, 31110, 31114, 31115, 31116, 31117, 31118,
@@ -44,55 +41,54 @@ public final class Q00385_YokeOfThePast extends Quest {
 	// @formatter:on
 	// Item
 	private static final int SCROLL_OF_ANCIENT_MAGIC = 5902;
+	// Droplist
+	private static final QuestDroplist DROPLIST = QuestDroplist.builder()
+			.addSingleDrop(21144, SCROLL_OF_ANCIENT_MAGIC, 30.6) // Catacomb Shadow
+			.addSingleDrop(21156, SCROLL_OF_ANCIENT_MAGIC, 99.4) // Purgatory Shadow
+			.addSingleDrop(21208, SCROLL_OF_ANCIENT_MAGIC, 14.6) // Hallowed Watchman
+			.addSingleDrop(21209, SCROLL_OF_ANCIENT_MAGIC, 16.6) // Hallowed Seer
+			.addSingleDrop(21210, SCROLL_OF_ANCIENT_MAGIC, 20.2) // Vault Guardian
+			.addSingleDrop(21211, SCROLL_OF_ANCIENT_MAGIC, 21.2) // Vault Seer
+			.addSingleDrop(21213, SCROLL_OF_ANCIENT_MAGIC, 27.4) // Hallowed Monk
+			.addSingleDrop(21214, SCROLL_OF_ANCIENT_MAGIC, 34.2) // Vault Sentinel
+			.addSingleDrop(21215, SCROLL_OF_ANCIENT_MAGIC, 36.0) // Vault Monk
+			.addSingleDrop(21217, SCROLL_OF_ANCIENT_MAGIC, 46.0) // Hallowed Priest
+			.addSingleDrop(21218, SCROLL_OF_ANCIENT_MAGIC, 55.8) // Vault Overlord
+			.addSingleDrop(21219, SCROLL_OF_ANCIENT_MAGIC, 57.8) // Vault Priest
+			.addSingleDrop(21221, SCROLL_OF_ANCIENT_MAGIC, 71.0) // Sepulcher Inquisitor
+			.addSingleDrop(21222, SCROLL_OF_ANCIENT_MAGIC, 84.2) // Sepulcher Archon
+			.addSingleDrop(21223, SCROLL_OF_ANCIENT_MAGIC, 86.2) // Sepulcher Inquisitor
+			.addSingleDrop(21224, SCROLL_OF_ANCIENT_MAGIC, 94.0) // Sepulcher Guardian
+			.addSingleDrop(21225, SCROLL_OF_ANCIENT_MAGIC, 97.0) // Sepulcher Sage
+			.addSingleDrop(21226, SCROLL_OF_ANCIENT_MAGIC, 20.2) // Sepulcher Guardian
+			.addSingleDrop(21227, SCROLL_OF_ANCIENT_MAGIC, 29.0) // Sepulcher Sage
+			.addSingleDrop(21228, SCROLL_OF_ANCIENT_MAGIC, 31.6) // Sepulcher Guard
+			.addSingleDrop(21229, SCROLL_OF_ANCIENT_MAGIC, 42.6) // Sepulcher Preacher
+			.addSingleDrop(21230, SCROLL_OF_ANCIENT_MAGIC, 64.6) // Sepulcher Guard
+			.addSingleDrop(21231, SCROLL_OF_ANCIENT_MAGIC, 65.4) // Sepulcher Preacher
+			.addSingleDrop(21236, SCROLL_OF_ANCIENT_MAGIC, 23.8) // Barrow Sentinel
+			.addSingleDrop(21237, SCROLL_OF_ANCIENT_MAGIC, 27.4) // Barrow Monk
+			.addSingleDrop(21238, SCROLL_OF_ANCIENT_MAGIC, 34.2) // Grave Sentinel
+			.addSingleDrop(21239, SCROLL_OF_ANCIENT_MAGIC, 36.0) // Grave Monk
+			.addSingleDrop(21240, SCROLL_OF_ANCIENT_MAGIC, 41.0) // Barrow Overlord
+			.addSingleDrop(21241, SCROLL_OF_ANCIENT_MAGIC, 46.0) // Barrow Priest
+			.addSingleDrop(21242, SCROLL_OF_ANCIENT_MAGIC, 55.8) // Grave Overlord
+			.addSingleDrop(21243, SCROLL_OF_ANCIENT_MAGIC, 57.8) // Grave Priest
+			.addSingleDrop(21244, SCROLL_OF_ANCIENT_MAGIC, 64.2) // Crypt Archon
+			.addSingleDrop(21245, SCROLL_OF_ANCIENT_MAGIC, 70.0) // Crypt Inquisitor
+			.addSingleDrop(21246, SCROLL_OF_ANCIENT_MAGIC, 84.2) // Tomb Archon
+			.addSingleDrop(21247, SCROLL_OF_ANCIENT_MAGIC, 86.2) // Tomb Inquisitor
+			.addSingleDrop(21248, SCROLL_OF_ANCIENT_MAGIC, 94.0) // Crypt Guardian
+			.addSingleDrop(21249, SCROLL_OF_ANCIENT_MAGIC, 97.0) // Crypt Sage
+			.addSingleDrop(21250, SCROLL_OF_ANCIENT_MAGIC, 79.8) // Tomb Guardian
+			.addSingleDrop(21251, SCROLL_OF_ANCIENT_MAGIC, 71.0) // Tomb Sage
+			.addSingleDrop(21252, SCROLL_OF_ANCIENT_MAGIC, 68.4) // Crypt Guard
+			.addSingleDrop(21253, SCROLL_OF_ANCIENT_MAGIC, 57.4) // Crypt Preacher
+			.addSingleDrop(21254, SCROLL_OF_ANCIENT_MAGIC, 35.4) // Tomb Guard
+			.addSingleDrop(21255, SCROLL_OF_ANCIENT_MAGIC, 25.0) // Tomb Preacher
+			.build();
 	// Reward
 	private static final int BLANK_SCROLL = 5965;
-	// Monsters
-	private static final Map<Integer, Double> MONSTER_CHANCES = new HashMap<>();
-	{
-		MONSTER_CHANCES.put(21144, 0.306); // Catacomb Shadow
-		MONSTER_CHANCES.put(21156, 0.994); // Purgatory Shadow
-		MONSTER_CHANCES.put(21208, 0.146); // Hallowed Watchman
-		MONSTER_CHANCES.put(21209, 0.166); // Hallowed Seer
-		MONSTER_CHANCES.put(21210, 0.202); // Vault Guardian
-		MONSTER_CHANCES.put(21211, 0.212); // Vault Seer
-		MONSTER_CHANCES.put(21213, 0.274); // Hallowed Monk
-		MONSTER_CHANCES.put(21214, 0.342); // Vault Sentinel
-		MONSTER_CHANCES.put(21215, 0.360); // Vault Monk
-		MONSTER_CHANCES.put(21217, 0.460); // Hallowed Priest
-		MONSTER_CHANCES.put(21218, 0.558); // Vault Overlord
-		MONSTER_CHANCES.put(21219, 0.578); // Vault Priest
-		MONSTER_CHANCES.put(21221, 0.710); // Sepulcher Inquisitor
-		MONSTER_CHANCES.put(21222, 0.842); // Sepulcher Archon
-		MONSTER_CHANCES.put(21223, 0.862); // Sepulcher Inquisitor
-		MONSTER_CHANCES.put(21224, 0.940); // Sepulcher Guardian
-		MONSTER_CHANCES.put(21225, 0.970); // Sepulcher Sage
-		MONSTER_CHANCES.put(21226, 0.202); // Sepulcher Guardian
-		MONSTER_CHANCES.put(21227, 0.290); // Sepulcher Sage
-		MONSTER_CHANCES.put(21228, 0.316); // Sepulcher Guard
-		MONSTER_CHANCES.put(21229, 0.426); // Sepulcher Preacher
-		MONSTER_CHANCES.put(21230, 0.646); // Sepulcher Guard
-		MONSTER_CHANCES.put(21231, 0.654); // Sepulcher Preacher
-		MONSTER_CHANCES.put(21236, 0.238); // Barrow Sentinel
-		MONSTER_CHANCES.put(21237, 0.274); // Barrow Monk
-		MONSTER_CHANCES.put(21238, 0.342); // Grave Sentinel
-		MONSTER_CHANCES.put(21239, 0.360); // Grave Monk
-		MONSTER_CHANCES.put(21240, 0.410); // Barrow Overlord
-		MONSTER_CHANCES.put(21241, 0.460); // Barrow Priest
-		MONSTER_CHANCES.put(21242, 0.558); // Grave Overlord
-		MONSTER_CHANCES.put(21243, 0.578); // Grave Priest
-		MONSTER_CHANCES.put(21244, 0.642); // Crypt Archon
-		MONSTER_CHANCES.put(21245, 0.700); // Crypt Inquisitor
-		MONSTER_CHANCES.put(21246, 0.842); // Tomb Archon
-		MONSTER_CHANCES.put(21247, 0.862); // Tomb Inquisitor
-		MONSTER_CHANCES.put(21248, 0.940); // Crypt Guardian
-		MONSTER_CHANCES.put(21249, 0.970); // Crypt Sage
-		MONSTER_CHANCES.put(21250, 0.798); // Tomb Guardian
-		MONSTER_CHANCES.put(21251, 0.710); // Tomb Sage
-		MONSTER_CHANCES.put(21252, 0.684); // Crypt Guard
-		MONSTER_CHANCES.put(21253, 0.574); // Crypt Preacher
-		MONSTER_CHANCES.put(21254, 0.354); // Tomb Guard
-		MONSTER_CHANCES.put(21255, 0.250); // Tomb Preacher
-	}
 	// Misc
 	private static final int MIN_LVL = 20;
 	
@@ -100,7 +96,7 @@ public final class Q00385_YokeOfThePast extends Quest {
 		super(385, Q00385_YokeOfThePast.class.getSimpleName(), "Yoke of the Past");
 		addStartNpc(ZIGGURATS);
 		addTalkId(ZIGGURATS);
-		addKillId(MONSTER_CHANCES.keySet());
+		addKillId(DROPLIST.getNpcIds());
 		registerQuestItems(SCROLL_OF_ANCIENT_MAGIC);
 	}
 	
@@ -161,7 +157,7 @@ public final class Q00385_YokeOfThePast extends Quest {
 	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
 		final QuestState qs = getRandomPartyMemberState(killer, -1, 3, npc);
 		if (qs != null) {
-			giveItemRandomly(qs.getPlayer(), npc, SCROLL_OF_ANCIENT_MAGIC, 1, 0, MONSTER_CHANCES.get(npc.getId()), true);
+			giveItemRandomly(qs.getPlayer(), npc, DROPLIST.get(npc), true);
 		}
 		return super.onKill(npc, killer, isSummon);
 	}

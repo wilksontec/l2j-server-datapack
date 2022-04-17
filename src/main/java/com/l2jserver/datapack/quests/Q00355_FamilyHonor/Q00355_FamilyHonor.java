@@ -18,12 +18,10 @@
  */
 package com.l2jserver.datapack.quests.Q00355_FamilyHonor;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
 import com.l2jserver.gameserver.model.quest.Quest;
+import com.l2jserver.gameserver.model.quest.QuestDroplist;
 import com.l2jserver.gameserver.model.quest.QuestState;
 import com.l2jserver.gameserver.util.Util;
 
@@ -60,22 +58,33 @@ public final class Q00355_FamilyHonor extends Quest {
 	private static final int ANCIENT_STATUE_ORIGINAL = 4352;
 	private static final int ANCIENT_STATUE_REPLICA = 4353;
 	private static final int ANCIENT_STATUE_FORGERY = 4354;
+	// Droplist
+	private static final QuestDroplist DROPLIST = QuestDroplist.builder()
+			.addGroupedDrop(20767, 68.4) // timak_orc_troop_leader
+				.withDropItem(GALFREDO_ROMERS_BUST, 81.87)
+				.withDropItem(SCULPTOR_BERONA, 18.13)
+				.build()
+			.addGroupedDrop(20768, 65.0) // timak_orc_troop_shaman
+				.withDropItem(GALFREDO_ROMERS_BUST, 81.54)
+				.withDropItem(SCULPTOR_BERONA, 18.46)
+				.build()
+			.addGroupedDrop(20769, 51.6) // timak_orc_troop_warrior
+				.withDropItem(GALFREDO_ROMERS_BUST, 81.4)
+				.withDropItem(SCULPTOR_BERONA, 18.6)
+				.build()
+			.addGroupedDrop(20770, 56.0) // timak_orc_troop_archer
+				.withDropItem(GALFREDO_ROMERS_BUST, 78.57)
+				.withDropItem(SCULPTOR_BERONA, 21.43)
+				.build()
+			.build();
 	// Misc
 	private static final int MIN_LEVEL = 36;
-	
-	private static final Map<Integer, DropInfo> MOBS = new HashMap<>();
-	static {
-		MOBS.put(20767, new DropInfo(560, 684)); // timak_orc_troop_leader
-		MOBS.put(20768, new DropInfo(530, 650)); // timak_orc_troop_shaman
-		MOBS.put(20769, new DropInfo(420, 516)); // timak_orc_troop_warrior
-		MOBS.put(20770, new DropInfo(440, 560)); // timak_orc_troop_archer
-	}
 	
 	public Q00355_FamilyHonor() {
 		super(355, Q00355_FamilyHonor.class.getSimpleName(), "Family Honor");
 		addStartNpc(GALIBREDO);
 		addTalkId(GALIBREDO, PATRIN);
-		addKillId(MOBS.keySet());
+		addKillId(DROPLIST.getNpcIds());
 		registerQuestItems(GALFREDO_ROMERS_BUST);
 	}
 	
@@ -162,18 +171,12 @@ public final class Q00355_FamilyHonor extends Quest {
 	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
 		final QuestState qs = getQuestState(killer, false);
 		
-		if ((qs == null) || !Util.checkIfInRange(1500, npc, killer, true)) {
+		if ((qs == null) || !Util.checkIfInRange(1500, npc, qs.getPlayer(), true)) {
 			return null;
 		}
-		
-		final DropInfo info = MOBS.get(npc.getId());
-		final int random = getRandom(1000);
-		
-		if (random < info.getFirstChance()) {
-			qs.giveItemRandomly(npc, GALFREDO_ROMERS_BUST, 1, 0, 1.0, true);
-		} else if (random < info.getSecondChance()) {
-			qs.giveItemRandomly(npc, SCULPTOR_BERONA, 1, 0, 1.0, true);
-		}
+
+		giveItemRandomly(qs.getPlayer(), npc, DROPLIST.get(npc), true);
+
 		return super.onKill(npc, killer, isSummon);
 	}
 	

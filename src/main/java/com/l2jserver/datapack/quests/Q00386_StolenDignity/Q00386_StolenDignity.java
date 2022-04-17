@@ -18,17 +18,15 @@
  */
 package com.l2jserver.datapack.quests.Q00386_StolenDignity;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
-
 import com.l2jserver.gameserver.enums.audio.Sound;
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
 import com.l2jserver.gameserver.model.quest.Quest;
+import com.l2jserver.gameserver.model.quest.QuestDroplist;
 import com.l2jserver.gameserver.model.quest.QuestState;
-import com.l2jserver.gameserver.util.Util;
+
+import java.util.Arrays;
+import java.util.Collections;
 
 /**
  * Stolen Dignity (386)
@@ -37,7 +35,6 @@ import com.l2jserver.gameserver.util.Util;
 public final class Q00386_StolenDignity extends Quest {
 	// NPCs
 	private static final int WAREHOUSE_KEEPER_ROMP = 30843;
-	
 	// Monsters
 	private static final int CRIMSON_DRAKE = 20670;
 	private static final int KADIOS = 20671;
@@ -67,41 +64,72 @@ public final class Q00386_StolenDignity extends Quest {
 	private static final int SHARP_TALON_TIGER_TRANS = 21259;
 	// Items
 	private static final int Q_STOLEN_INF_ORE = 6363;
-	// Reward
-	private static final int DRAGON_SLAYER_EDGE = 5529;
-	private static final int METEOR_SHOWER_HEAD = 5532;
-	private static final int ELYSIAN_HEAD = 5533;
-	private static final int SOUL_BOW_SHAFT = 5534;
-	private static final int CARNIUM_BOW_SHAFT = 5535;
-	private static final int BLOODY_ORCHID_HEAD = 5536;
-	private static final int SOUL_SEPARATOR_HEAD = 5537;
-	private static final int DRAGON_GRINDER_EDGE = 5538;
-	private static final int BLOOD_TORNADO_EDGE = 5539;
-	private static final int TALLUM_GLAIVE_EDGE = 5541;
-	private static final int HALBARD_EDGE = 5542;
-	private static final int DASPARIONS_STAFF_HEAD = 5543;
-	private static final int WORLDTREES_BRANCH_HEAD = 5544;
-	private static final int DARK_LEGIONS_EDGE_EDGE = 5545;
-	private static final int SWORD_OF_MIRACLE_EDGE = 5546;
-	private static final int ELEMENTAL_SWORD_EDGE = 5547;
-	private static final int TALLUM_BLADE_EDGE = 5548;
-	private static final int INFERNO_MASTER_BLADE = 8331;
-	private static final int EYE_OF_SOUL_PIECE = 8341;
-	private static final int DRAGON_FLAME_HEAD_PIECE = 8342;
-	private static final int DOOM_CRUSHER_HEAD = 8349;
-	private static final int HAMMER_OF_DESTROYER_PIECE = 8346;
-	private static final int SIRR_BLADE_BLADE = 8712;
-	private static final int SWORD_OF_IPOS_BLADE = 8713;
-	private static final int BARAKIEL_AXE_PIECE = 8714;
-	private static final int TUNING_FORK_OF_BEHEMOTH_PIECE = 8715;
-	private static final int NAGA_STORM_PIECE = 8716;
-	private static final int TIPHON_SPEAR_EDGE = 8717;
-	private static final int SHYID_BOW_SHAFT = 8718;
-	private static final int SOBEKK_HURRICANE_EDGE = 8719;
-	private static final int TONGUE_OF_THEMIS_PIECE = 8720;
-	private static final int HAND_OF_CABRIO_HEAD = 8721;
-	private static final int CRYSTAL_OF_DEAMON_PIECE = 8722;
-	
+	// Droplist
+	private static final QuestDroplist DROPLIST = QuestDroplist.builder()
+			.addSingleDrop(CRIMSON_DRAKE, Q_STOLEN_INF_ORE, 20.200001)
+			.addSingleDrop(KADIOS, Q_STOLEN_INF_ORE, 21.1)
+			.addSingleDrop(HUNGRY_CORPSE, Q_STOLEN_INF_ORE, 18.4)
+			.addSingleDrop(PAST_KNIGHT, Q_STOLEN_INF_ORE, 21.6)
+			.addSingleDrop(BLADE_DEATH, Q_STOLEN_INF_ORE, 17.0)
+			.addSingleDrop(DARK_GUARD, Q_STOLEN_INF_ORE, 27.3)
+			.addSingleDrop(BLOODY_GHOST, Q_STOLEN_INF_ORE, 14.9)
+			.addSingleDrop(BLOODY_LORD, Q_STOLEN_INF_ORE, 19.9)
+			.addSingleDrop(PAST_CREATURE, Q_STOLEN_INF_ORE, 25.7)
+			.addSingleDrop(GIANT_SHADOW, Q_STOLEN_INF_ORE, 20.5)
+			.addSingleDrop(ANCIENTS_SOLDIER, Q_STOLEN_INF_ORE, 20.8)
+			.addSingleDrop(ANCIENTS_WARRIOR, Q_STOLEN_INF_ORE, 29.9)
+			.addSingleDrop(SPITE_SOUL_LEADER, Q_STOLEN_INF_ORE, 44.0)
+			.addSingleDrop(SPITE_SOUL_WIZARD, Q_STOLEN_INF_ORE, 39.0)
+			.addSingleDrop(WRECKED_ARCHER, Q_STOLEN_INF_ORE, 21.4)
+			.addSingleDrop(FLOAT_OF_GRAVE, Q_STOLEN_INF_ORE, 17.3)
+			.addSingleDrop(GRAVE_PREDATOR, Q_STOLEN_INF_ORE, 21.1)
+			.addSingleDrop(FALLEN_ORC_SHAMAN, Q_STOLEN_INF_ORE, 47.8)
+			.addSingleDrop(SHARP_TALON_TIGER, Q_STOLEN_INF_ORE, 23.4)
+			.addSingleDrop(GLOW_WISP, Q_STOLEN_INF_ORE, 24.5)
+			.addSingleDrop(MARSH_PREDATOR, Q_STOLEN_INF_ORE, 26.0)
+			.addSingleDrop(HAMES_ORC_SNIPER, Q_STOLEN_INF_ORE, 37.0)
+			.addSingleDrop(CURSED_GUARDIAN, Q_STOLEN_INF_ORE, 35.2)
+			.addSingleDrop(HAMES_ORC_CHIEFTAIN, Q_STOLEN_INF_ORE, 48.7)
+			.addSingleDrop(FALLEN_ORC_SHAMAN_TRANS, Q_STOLEN_INF_ORE, 48.7)
+			.addSingleDrop(SHARP_TALON_TIGER_TRANS, Q_STOLEN_INF_ORE, 48.7)
+			.build();
+	// Rewards
+	private static final int[] REWARDS = {
+		5529, // Dragon Slayer Edge
+		5532, // Meteor Shower Head
+		5533, // Elysian Head
+		5534, // Soul Bow Shaft
+		5535, // Carnium Bow Shaft
+		5536, // Bloody Orchid Head
+		5537, // Soul Separator Head
+		5538, // Dragon Grinder Edge
+		5539, // Blood Tornado Edge
+		5541, // Tallum Glaive Edge
+		5542, // Halbard Edge
+		5543, // Dasparions Staff Head
+		5544, // Worldtrees Branch Head
+		5545, // Dark Legions Edge Edge
+		5546, // Sword of Miracle Edge
+		5547, // Elemental Sword Edge
+		5548, // Tallum Blade Edge
+		8331, // Inferno Master Blade
+		8341, // Eye of Soul Piece
+		8342, // Dragon Flame Head Piece
+		8349, // Doom Crusher Head
+		8346, // Hammer of Destroyer Piece
+		8712, // Sirr Blade Blade
+		8713, // Sword of Ipos Blade
+		8714, // Barakiel Axe Piece
+		8715, // Tuning Fork of Behemoth Piece
+		8716, // Naga Storm Piece
+		8717, // Tiphon Spear Edge
+		8718, // Shyid Bow Shaft
+		8719, // Sobekk Hurricane Edge
+		8720, // Tongue of Themis Piece
+		8721, // Hand of Cabrio Head
+		8722 // Crystal of Deamon Piece
+	};
+
 	public Q00386_StolenDignity() {
 		super(386, Q00386_StolenDignity.class.getSimpleName(), "Stolen Dignity");
 		addStartNpc(WAREHOUSE_KEEPER_ROMP);
@@ -260,10 +288,10 @@ public final class Q00386_StolenDignity extends Quest {
 			int i3 = getMatchedBingoLineCount(qs);
 			String html;
 			if ((i3 == 3) && ((getBingoSelectCount(qs)) == 6)) {
-				reward(player, qs, 4);
+				reward(player, 4);
 				html = getHtm(player.getHtmlPrefix(), "30843-22.html");
 			} else if ((i3 == 0) && (getBingoSelectCount(qs) == 6)) {
-				reward(player, qs, 10);
+				reward(player, 10);
 				html = getHtm(player.getHtmlPrefix(), "30843-24.html");
 			} else {
 				html = getHtm(player.getHtmlPrefix(), "30843-23.html");
@@ -273,146 +301,11 @@ public final class Q00386_StolenDignity extends Quest {
 		return fillBoard(player, qs, getHtm(player.getHtmlPrefix(), "30843-25.html"));
 	}
 	
-	private void reward(L2PcInstance player, QuestState qs, int count) {
-		switch (getRandom(33)) {
-			case 0: {
-				qs.giveItems(DRAGON_SLAYER_EDGE, count);
-				break;
-			}
-			case 1: {
-				qs.giveItems(METEOR_SHOWER_HEAD, count);
-				break;
-			}
-			case 2: {
-				qs.giveItems(ELYSIAN_HEAD, count);
-				break;
-			}
-			case 3: {
-				qs.giveItems(SOUL_BOW_SHAFT, count);
-				break;
-			}
-			case 4: {
-				qs.giveItems(CARNIUM_BOW_SHAFT, count);
-				break;
-			}
-			case 5: {
-				qs.giveItems(BLOODY_ORCHID_HEAD, count);
-				break;
-			}
-			case 6: {
-				qs.giveItems(SOUL_SEPARATOR_HEAD, count);
-				break;
-			}
-			case 7: {
-				qs.giveItems(DRAGON_GRINDER_EDGE, count);
-				break;
-			}
-			case 8: {
-				qs.giveItems(BLOOD_TORNADO_EDGE, count);
-				break;
-			}
-			case 9: {
-				qs.giveItems(TALLUM_GLAIVE_EDGE, count);
-				break;
-			}
-			case 10: {
-				qs.giveItems(HALBARD_EDGE, count);
-				break;
-			}
-			case 11: {
-				qs.giveItems(DASPARIONS_STAFF_HEAD, count);
-				break;
-			}
-			case 12: {
-				qs.giveItems(WORLDTREES_BRANCH_HEAD, count);
-				break;
-			}
-			case 13: {
-				qs.giveItems(DARK_LEGIONS_EDGE_EDGE, count);
-				break;
-			}
-			case 14: {
-				qs.giveItems(SWORD_OF_MIRACLE_EDGE, count);
-				break;
-			}
-			case 15: {
-				qs.giveItems(ELEMENTAL_SWORD_EDGE, count);
-				break;
-			}
-			case 16: {
-				qs.giveItems(TALLUM_BLADE_EDGE, count);
-				break;
-			}
-			case 17: {
-				qs.giveItems(INFERNO_MASTER_BLADE, count);
-				break;
-			}
-			case 18: {
-				qs.giveItems(EYE_OF_SOUL_PIECE, count);
-				break;
-			}
-			case 19: {
-				qs.giveItems(DRAGON_FLAME_HEAD_PIECE, count);
-				break;
-			}
-			case 20: {
-				qs.giveItems(DOOM_CRUSHER_HEAD, count);
-				break;
-			}
-			case 21: {
-				qs.giveItems(HAMMER_OF_DESTROYER_PIECE, count);
-				break;
-			}
-			case 22: {
-				qs.giveItems(SIRR_BLADE_BLADE, count);
-				break;
-			}
-			case 23: {
-				qs.giveItems(SWORD_OF_IPOS_BLADE, count);
-				break;
-			}
-			case 24: {
-				qs.giveItems(BARAKIEL_AXE_PIECE, count);
-				break;
-			}
-			case 25: {
-				qs.giveItems(TUNING_FORK_OF_BEHEMOTH_PIECE, count);
-				break;
-			}
-			case 26: {
-				qs.giveItems(NAGA_STORM_PIECE, count);
-				break;
-			}
-			case 27: {
-				qs.giveItems(TIPHON_SPEAR_EDGE, count);
-				break;
-			}
-			case 28: {
-				qs.giveItems(SHYID_BOW_SHAFT, count);
-				break;
-			}
-			case 29: {
-				qs.giveItems(SOBEKK_HURRICANE_EDGE, count);
-				break;
-			}
-			case 30: {
-				qs.giveItems(TONGUE_OF_THEMIS_PIECE, count);
-				break;
-			}
-			case 31: {
-				qs.giveItems(HAND_OF_CABRIO_HEAD, count);
-				break;
-			}
-			case 32: {
-				qs.giveItems(CRYSTAL_OF_DEAMON_PIECE, count);
-				break;
-			}
-		}
+	private void reward(L2PcInstance player, int count) {
+		int index = getRandom(33);
+		giveItems(player, REWARDS[index], count);
 	}
-	
-	/**
-	 * @param qs
-	 */
+
 	private void createBingoBoard(QuestState qs) {
 		//@formatter:off
 		Integer[] arr = {1,2,3,4,5,6,7,8,9};
@@ -421,11 +314,7 @@ public final class Q00386_StolenDignity extends Quest {
 		qs.set("numbers", Arrays.asList(arr).toString().replaceAll("[^\\d ]", ""));
 		qs.set("selected", "? ? ? ? ? ? ? ? ?");
 	}
-	
-	/**
-	 * @param qs
-	 * @return
-	 */
+
 	private int getMatchedBingoLineCount(QuestState qs) {
 		String[] q = qs.get("selected").split(" ");
 		int found = 0;
@@ -458,11 +347,7 @@ public final class Q00386_StolenDignity extends Quest {
 		}
 		return found;
 	}
-	
-	/**
-	 * @param qs
-	 * @param num
-	 */
+
 	private void selectBingoNumber(QuestState qs, int num) {
 		String[] numbers = qs.get("numbers").split(" ");
 		int pos = 0;
@@ -479,35 +364,21 @@ public final class Q00386_StolenDignity extends Quest {
 				continue;
 			}
 		}
-		String result = selected[0];
+		StringBuilder result = new StringBuilder(selected[0]);
 		for (int i = 1; i < selected.length; i++) {
-			result += " " + selected[i];
+			result.append(" ").append(selected[i]);
 		}
-		qs.set("selected", result);
+		qs.set("selected", result.toString());
 	}
 	
-	/**
-	 * @param qs
-	 * @param num
-	 * @return
-	 */
 	private boolean isSelectedBingoNumber(QuestState qs, int num) {
 		return qs.get("selected").contains(num + "");
 	}
 	
-	/**
-	 * @param qs
-	 * @param num
-	 * @return
-	 */
 	private int getNumberFromBingoBoard(QuestState qs, int num) {
 		return Integer.parseInt(qs.get("numbers").split(" ")[num]);
 	}
 	
-	/**
-	 * @param qs
-	 * @return
-	 */
 	private int getBingoSelectCount(QuestState qs) {
 		String current = qs.get("selected");
 		return current.replaceAll("\\D", "").length();
@@ -515,179 +386,10 @@ public final class Q00386_StolenDignity extends Quest {
 	
 	@Override
 	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
-		final QuestState qs = getRandomPlayerFromParty(killer, npc);
+		final QuestState qs = getRandomPartyMemberState(killer, -1, 2, npc);
 		if (qs != null) {
-			switch (npc.getId()) {
-				case CRIMSON_DRAKE: {
-					if (getRandom(1000) < 20.200001) {
-						giveItemRandomly(qs.getPlayer(), npc, Q_STOLEN_INF_ORE, 1, 0, 1, true);
-					}
-					break;
-				}
-				case KADIOS: {
-					if (getRandom(1000) < 211) {
-						giveItemRandomly(qs.getPlayer(), npc, Q_STOLEN_INF_ORE, 1, 0, 1, true);
-					}
-					break;
-				}
-				case HUNGRY_CORPSE: {
-					if (getRandom(1000) < 184) {
-						giveItemRandomly(qs.getPlayer(), npc, Q_STOLEN_INF_ORE, 1, 0, 1, true);
-					}
-					break;
-				}
-				case PAST_KNIGHT: {
-					if (getRandom(1000) < 216) {
-						giveItemRandomly(qs.getPlayer(), npc, Q_STOLEN_INF_ORE, 1, 0, 1, true);
-					}
-					break;
-				}
-				case BLADE_DEATH: {
-					if (getRandom(100) < 17) {
-						giveItemRandomly(qs.getPlayer(), npc, Q_STOLEN_INF_ORE, 1, 0, 1, true);
-					}
-					break;
-				}
-				case DARK_GUARD: {
-					if (getRandom(1000) < 273) {
-						giveItemRandomly(qs.getPlayer(), npc, Q_STOLEN_INF_ORE, 1, 0, 1, true);
-					}
-					break;
-				}
-				case BLOODY_GHOST: {
-					if (getRandom(1000) < 149) {
-						giveItemRandomly(qs.getPlayer(), npc, Q_STOLEN_INF_ORE, 1, 0, 1, true);
-					}
-					break;
-				}
-				case BLOODY_LORD: {
-					if (getRandom(1000) < 199) {
-						giveItemRandomly(qs.getPlayer(), npc, Q_STOLEN_INF_ORE, 1, 0, 1, true);
-					}
-					break;
-				}
-				case PAST_CREATURE: {
-					if (getRandom(1000) < 257) {
-						giveItemRandomly(qs.getPlayer(), npc, Q_STOLEN_INF_ORE, 1, 0, 1, true);
-					}
-					break;
-				}
-				case GIANT_SHADOW: {
-					if (getRandom(1000) < 205) {
-						giveItemRandomly(qs.getPlayer(), npc, Q_STOLEN_INF_ORE, 1, 0, 1, true);
-					}
-					break;
-				}
-				case ANCIENTS_SOLDIER: {
-					if (getRandom(1000) < 208) {
-						giveItemRandomly(qs.getPlayer(), npc, Q_STOLEN_INF_ORE, 1, 0, 1, true);
-					}
-					break;
-				}
-				case ANCIENTS_WARRIOR: {
-					if (getRandom(1000) < 299) {
-						giveItemRandomly(qs.getPlayer(), npc, Q_STOLEN_INF_ORE, 1, 0, 1, true);
-					}
-					break;
-				}
-				case SPITE_SOUL_LEADER: {
-					if (getRandom(100) < 44) {
-						giveItemRandomly(qs.getPlayer(), npc, Q_STOLEN_INF_ORE, 1, 0, 1, true);
-					}
-					break;
-				}
-				case SPITE_SOUL_WIZARD: {
-					if (getRandom(100) < 39) {
-						giveItemRandomly(qs.getPlayer(), npc, Q_STOLEN_INF_ORE, 1, 0, 1, true);
-					}
-					break;
-				}
-				case WRECKED_ARCHER: {
-					if (getRandom(1000) < 214) {
-						giveItemRandomly(qs.getPlayer(), npc, Q_STOLEN_INF_ORE, 1, 0, 1, true);
-					}
-					break;
-				}
-				case FLOAT_OF_GRAVE: {
-					if (getRandom(1000) < 173) {
-						giveItemRandomly(qs.getPlayer(), npc, Q_STOLEN_INF_ORE, 1, 0, 1, true);
-					}
-					break;
-				}
-				case GRAVE_PREDATOR: {
-					if (getRandom(1000) < 211) {
-						giveItemRandomly(qs.getPlayer(), npc, Q_STOLEN_INF_ORE, 1, 0, 1, true);
-					}
-					break;
-				}
-				case FALLEN_ORC_SHAMAN: {
-					if (getRandom(1000) < 478) {
-						giveItemRandomly(qs.getPlayer(), npc, Q_STOLEN_INF_ORE, 1, 0, 1, true);
-					}
-					break;
-				}
-				case SHARP_TALON_TIGER: {
-					if (getRandom(1000) < 234) {
-						giveItemRandomly(qs.getPlayer(), npc, Q_STOLEN_INF_ORE, 1, 0, 1, true);
-					}
-					break;
-				}
-				case GLOW_WISP: {
-					if (getRandom(1000) < 245) {
-						giveItemRandomly(qs.getPlayer(), npc, Q_STOLEN_INF_ORE, 1, 0, 1, true);
-					}
-					break;
-				}
-				case MARSH_PREDATOR: {
-					if (getRandom(100) < 26) {
-						giveItemRandomly(qs.getPlayer(), npc, Q_STOLEN_INF_ORE, 1, 0, 1, true);
-					}
-					break;
-				}
-				case HAMES_ORC_SNIPER: {
-					if (getRandom(100) < 37) {
-						giveItemRandomly(qs.getPlayer(), npc, Q_STOLEN_INF_ORE, 1, 0, 1, true);
-					}
-					break;
-				}
-				case CURSED_GUARDIAN: {
-					if (getRandom(1000) < 352) {
-						giveItemRandomly(qs.getPlayer(), npc, Q_STOLEN_INF_ORE, 1, 0, 1, true);
-					}
-					break;
-				}
-				case HAMES_ORC_CHIEFTAIN:
-				case FALLEN_ORC_SHAMAN_TRANS:
-				case SHARP_TALON_TIGER_TRANS: {
-					if (getRandom(1000) < 487) {
-						giveItemRandomly(qs.getPlayer(), npc, Q_STOLEN_INF_ORE, 1, 0, 1, true);
-					}
-					break;
-				}
-			}
-			
+			giveItemRandomly(qs.getPlayer(), npc, DROPLIST.get(npc), true);
 		}
 		return super.onKill(npc, killer, isSummon);
-	}
-	
-	private QuestState getRandomPlayerFromParty(L2PcInstance player, L2Npc npc) {
-		QuestState qs = getQuestState(player, false);
-		final List<QuestState> candidates = new ArrayList<>();
-		
-		if ((qs != null) && qs.isStarted()) {
-			candidates.add(qs);
-			candidates.add(qs);
-		}
-		
-		if (player.isInParty()) {
-			player.getParty().getMembers().stream().forEach(pm -> {
-				
-				QuestState qss = getQuestState(pm, false);
-				if ((qss != null) && qss.isStarted() && Util.checkIfInRange(1500, npc, pm, true)) {
-					candidates.add(qss);
-				}
-			});
-		}
-		return candidates.isEmpty() ? null : candidates.get(getRandom(candidates.size()));
 	}
 }

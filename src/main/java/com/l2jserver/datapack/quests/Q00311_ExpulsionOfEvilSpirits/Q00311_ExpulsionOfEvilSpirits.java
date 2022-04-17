@@ -18,13 +18,11 @@
  */
 package com.l2jserver.datapack.quests.Q00311_ExpulsionOfEvilSpirits;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import com.l2jserver.gameserver.enums.audio.Sound;
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
 import com.l2jserver.gameserver.model.quest.Quest;
+import com.l2jserver.gameserver.model.quest.QuestDroplist;
 import com.l2jserver.gameserver.model.quest.QuestState;
 
 /**
@@ -43,27 +41,26 @@ public final class Q00311_ExpulsionOfEvilSpirits extends Quest {
 	private static final int SOUL_CORE_COUNT = 10;
 	private static final int RAGNA_ORCS_KILLS_COUNT = 100;
 	private static final int RAGNA_ORCS_AMULET_COUNT = 10;
-	// Monsters
-	private static final Map<Integer, Double> MONSTERS = new HashMap<>();
-	static {
-		MONSTERS.put(22691, 0.694); // Ragna Orc
-		MONSTERS.put(22692, 0.716); // Ragna Orc Warrior
-		MONSTERS.put(22693, 0.736); // Ragna Orc Hero
-		MONSTERS.put(22694, 0.712); // Ragna Orc Commander
-		MONSTERS.put(22695, 0.698); // Ragna Orc Healer
-		MONSTERS.put(22696, 0.692); // Ragna Orc Shaman
-		MONSTERS.put(22697, 0.640); // Ragna Orc Seer
-		MONSTERS.put(22698, 0.716); // Ragna Orc Archer
-		MONSTERS.put(22699, 0.752); // Ragna Orc Sniper
-		MONSTERS.put(22701, 0.716); // Varangka's Dre Vanul
-		MONSTERS.put(22702, 0.662); // Varangka's Destroyer
-	}
+	// Droplist
+	private static final QuestDroplist DROPLIST = QuestDroplist.builder()
+			.addSingleDrop(22691, RAGNA_ORCS_AMULET, 69.4) // Ragna Orc
+			.addSingleDrop(22692, RAGNA_ORCS_AMULET, 71.6) // Ragna Orc Warrior
+			.addSingleDrop(22693, RAGNA_ORCS_AMULET, 73.6) // Ragna Orc Hero
+			.addSingleDrop(22694, RAGNA_ORCS_AMULET, 71.2) // Ragna Orc Commander
+			.addSingleDrop(22695, RAGNA_ORCS_AMULET, 69.8) // Ragna Orc Healer
+			.addSingleDrop(22696, RAGNA_ORCS_AMULET, 69.2) // Ragna Orc Shaman
+			.addSingleDrop(22697, RAGNA_ORCS_AMULET, 64.0) // Ragna Orc Seer
+			.addSingleDrop(22698, RAGNA_ORCS_AMULET, 71.6) // Ragna Orc Archer
+			.addSingleDrop(22699, RAGNA_ORCS_AMULET, 75.2) // Ragna Orc Sniper
+			.addSingleDrop(22701, RAGNA_ORCS_AMULET, 71.6) // Varangka's Dre Vanul
+			.addSingleDrop(22702, RAGNA_ORCS_AMULET, 66.2) // Varangka's Destroyer
+			.build();
 	
 	public Q00311_ExpulsionOfEvilSpirits() {
 		super(311, Q00311_ExpulsionOfEvilSpirits.class.getSimpleName(), "Expulsion of Evil Spirits");
 		addStartNpc(CHAIREN);
 		addTalkId(CHAIREN);
-		addKillId(MONSTERS.keySet());
+		addKillId(DROPLIST.getNpcIds());
 		registerQuestItems(SOUL_CORE_CONTAINING_EVIL_SPIRIT, RAGNA_ORCS_AMULET);
 	}
 	
@@ -126,7 +123,7 @@ public final class Q00311_ExpulsionOfEvilSpirits extends Quest {
 				qs.setMemoStateEx(1, count);
 			}
 			
-			qs.giveItemRandomly(npc, RAGNA_ORCS_AMULET, 1, 0, MONSTERS.get(npc.getId()), true);
+			giveItemRandomly(qs.getPlayer(), npc, DROPLIST.get(npc), true);
 		}
 		return super.onKill(npc, killer, isSummon);
 	}

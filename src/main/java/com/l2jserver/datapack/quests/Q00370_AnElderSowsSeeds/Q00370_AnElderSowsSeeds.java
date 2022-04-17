@@ -18,12 +18,10 @@
  */
 package com.l2jserver.datapack.quests.Q00370_AnElderSowsSeeds;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
 import com.l2jserver.gameserver.model.quest.Quest;
+import com.l2jserver.gameserver.model.quest.QuestDroplist;
 import com.l2jserver.gameserver.model.quest.QuestState;
 import com.l2jserver.gameserver.util.Util;
 
@@ -40,25 +38,22 @@ public final class Q00370_AnElderSowsSeeds extends Quest {
 	private static final int CHAPTER_OF_WATER = 5918;
 	private static final int CHAPTER_OF_WIND = 5919;
 	private static final int CHAPTER_OF_EARTH = 5920;
+	// Droplist
+	private static final QuestDroplist DROPLIST = QuestDroplist.builder()
+			.addSingleDrop(20082, SPELLBOOK_PAGE, 9.0) // ant_recruit
+			.addSingleDrop(20086, SPELLBOOK_PAGE, 9.0) // ant_guard
+			.addSingleDrop(20090, SPELLBOOK_PAGE, 22.0) // noble_ant_leader
+			.addSingleDrop(20084, SPELLBOOK_PAGE, 10.1) // ant_patrol
+			.addSingleDrop(20089, SPELLBOOK_PAGE, 10.0) // noble_ant
+			.build();
 	// Misc
 	private static final int MIN_LEVEL = 28;
-	// Mobs
-	private static final Map<Integer, Integer> MOBS1 = new HashMap<>();
-	private static final Map<Integer, Double> MOBS2 = new HashMap<>();
-	static {
-		MOBS1.put(20082, 9); // ant_recruit
-		MOBS1.put(20086, 9); // ant_guard
-		MOBS1.put(20090, 22); // noble_ant_leader
-		MOBS2.put(20084, 0.101); // ant_patrol
-		MOBS2.put(20089, 0.100); // noble_ant
-	}
 	
 	public Q00370_AnElderSowsSeeds() {
 		super(370, Q00370_AnElderSowsSeeds.class.getSimpleName(), "An Elder Sows Seeds");
 		addStartNpc(CASIAN);
 		addTalkId(CASIAN);
-		addKillId(MOBS1.keySet());
-		addKillId(MOBS2.keySet());
+		addKillId(DROPLIST.getNpcIds());
 	}
 	
 	@Override
@@ -113,19 +108,9 @@ public final class Q00370_AnElderSowsSeeds extends Quest {
 	
 	@Override
 	public String onKill(L2Npc npc, L2PcInstance player, boolean isSummon) {
-		int npcId = npc.getId();
-		if (MOBS1.containsKey(npcId)) {
-			if (getRandom(100) < MOBS1.get(npcId)) {
-				L2PcInstance luckyPlayer = getRandomPartyMember(player, npc);
-				if (luckyPlayer != null) {
-					giveItemRandomly(luckyPlayer, npc, SPELLBOOK_PAGE, 1, 0, 1.0, true);
-				}
-			}
-		} else {
-			final QuestState st = getRandomPartyMemberState(player, -1, 3, npc);
-			if (st != null) {
-				giveItemRandomly(st.getPlayer(), npc, SPELLBOOK_PAGE, 1, 0, MOBS2.get(npcId), true);
-			}
+		final QuestState st = getRandomPartyMemberState(player, -1, 3, npc);
+		if (st != null) {
+			giveItemRandomly(st.getPlayer(), npc, DROPLIST.get(npc), true);
 		}
 		return super.onKill(npc, player, isSummon);
 	}

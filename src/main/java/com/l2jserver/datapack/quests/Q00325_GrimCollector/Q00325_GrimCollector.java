@@ -18,15 +18,10 @@
  */
 package com.l2jserver.datapack.quests.Q00325_GrimCollector;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
-import com.l2jserver.gameserver.model.holders.QuestItemHolder;
 import com.l2jserver.gameserver.model.quest.Quest;
+import com.l2jserver.gameserver.model.quest.QuestDroplist;
 import com.l2jserver.gameserver.model.quest.QuestState;
 import com.l2jserver.gameserver.model.quest.State;
 import com.l2jserver.gameserver.util.Util;
@@ -51,28 +46,27 @@ public final class Q00325_GrimCollector extends Quest {
 	private static final int ARM_BONE = 1356;
 	private static final int THIGH_BONE = 1357;
 	private static final int COMPLETE_SKELETON = 1358;
+	// Droplist
+	private static final QuestDroplist DROPLIST = QuestDroplist.builder()
+			.addGroupedDrop(20026, 75.0).withDropItem(ZOMBIE_HEAD, 40.0).withDropItem(ZOMBIE_HEART, 26.67).withDropItem(ZOMBIE_LIVER, 33.33).build()
+			.addGroupedDrop(20029, 75.0).withDropItem(ZOMBIE_HEAD, 40.0).withDropItem(ZOMBIE_HEART, 29.33).withDropItem(ZOMBIE_LIVER, 30.67).build()
+			.addGroupedDrop(20035, 79.0).withDropItem(SKULL, 6.33).withDropItem(RIB_BONE, 12.65).withDropItem(SPINE, 17.72).withDropItem(THIGH_BONE, 63.30).build()
+			.addGroupedDrop(20042, 86.0).withDropItem(SKULL, 6.97).withDropItem(RIB_BONE, 15.12).withDropItem(ARM_BONE, 58.15).withDropItem(THIGH_BONE, 19.76).build()
+			.addGroupedDrop(20045, 97.0).withDropItem(SKULL, 9.28).withDropItem(SPINE, 51.55).withDropItem(ARM_BONE, 18.55).withDropItem(THIGH_BONE, 20.62).build()
+			.addGroupedDrop(20051, 100.0).withDropItem(SKULL, 9.0).withDropItem(RIB_BONE, 50.0).withDropItem(SPINE, 20.0).withDropItem(ARM_BONE, 21.0).build()
+			.addGroupedDrop(20457, 80.0).withDropItem(ZOMBIE_HEAD, 50.0).withDropItem(ZOMBIE_HEART, 25.0).withDropItem(ZOMBIE_LIVER, 25.0).build()
+			.addGroupedDrop(20458, 100.0).withDropItem(ZOMBIE_HEAD, 40.0).withDropItem(ZOMBIE_HEART, 30.0).withDropItem(ZOMBIE_LIVER, 30.0).build()
+			.addGroupedDrop(20514, 64.0).withDropItem(SKULL, 9.37).withDropItem(RIB_BONE, 23.43).withDropItem(SPINE, 14.07).withDropItem(ARM_BONE, 1.57).withDropItem(THIGH_BONE, 51.56).build()
+			.addGroupedDrop(20515, 69.0).withDropItem(SKULL, 7.24).withDropItem(RIB_BONE, 21.74).withDropItem(SPINE, 15.94).withDropItem(ARM_BONE, 2.90).withDropItem(THIGH_BONE, 52.18).build()
+			.build();
 	// Misc
 	private static final int MIN_LEVEL = 15;
-	// Monsters
-	private static final Map<Integer, List<QuestItemHolder>> MONSTER_DROPS = new HashMap<>();
-	static {
-		MONSTER_DROPS.put(20026, Arrays.asList(new QuestItemHolder(ZOMBIE_HEAD, 30), new QuestItemHolder(ZOMBIE_HEART, 50), new QuestItemHolder(ZOMBIE_LIVER, 75)));
-		MONSTER_DROPS.put(20029, Arrays.asList(new QuestItemHolder(ZOMBIE_HEAD, 30), new QuestItemHolder(ZOMBIE_HEART, 52), new QuestItemHolder(ZOMBIE_LIVER, 75)));
-		MONSTER_DROPS.put(20035, Arrays.asList(new QuestItemHolder(SKULL, 5), new QuestItemHolder(RIB_BONE, 15), new QuestItemHolder(SPINE, 29), new QuestItemHolder(THIGH_BONE, 79)));
-		MONSTER_DROPS.put(20042, Arrays.asList(new QuestItemHolder(SKULL, 6), new QuestItemHolder(RIB_BONE, 19), new QuestItemHolder(ARM_BONE, 69), new QuestItemHolder(THIGH_BONE, 86)));
-		MONSTER_DROPS.put(20045, Arrays.asList(new QuestItemHolder(SKULL, 9), new QuestItemHolder(SPINE, 59), new QuestItemHolder(ARM_BONE, 77), new QuestItemHolder(THIGH_BONE, 97)));
-		MONSTER_DROPS.put(20051, Arrays.asList(new QuestItemHolder(SKULL, 9), new QuestItemHolder(RIB_BONE, 59), new QuestItemHolder(SPINE, 79), new QuestItemHolder(ARM_BONE, 100)));
-		MONSTER_DROPS.put(20457, Arrays.asList(new QuestItemHolder(ZOMBIE_HEAD, 40), new QuestItemHolder(ZOMBIE_HEART, 60), new QuestItemHolder(ZOMBIE_LIVER, 80)));
-		MONSTER_DROPS.put(20458, Arrays.asList(new QuestItemHolder(ZOMBIE_HEAD, 40), new QuestItemHolder(ZOMBIE_HEART, 70), new QuestItemHolder(ZOMBIE_LIVER, 100)));
-		MONSTER_DROPS.put(20514, Arrays.asList(new QuestItemHolder(SKULL, 6), new QuestItemHolder(RIB_BONE, 21), new QuestItemHolder(SPINE, 30), new QuestItemHolder(ARM_BONE, 31), new QuestItemHolder(THIGH_BONE, 64)));
-		MONSTER_DROPS.put(20515, Arrays.asList(new QuestItemHolder(SKULL, 5), new QuestItemHolder(RIB_BONE, 20), new QuestItemHolder(SPINE, 31), new QuestItemHolder(ARM_BONE, 33), new QuestItemHolder(THIGH_BONE, 69)));
-	}
 	
 	public Q00325_GrimCollector() {
 		super(325, Q00325_GrimCollector.class.getSimpleName(), "Grim Collector");
 		addStartNpc(GUARD_CURTIZ);
 		addTalkId(GUARD_CURTIZ, VARSAK, SAMED);
-		addKillId(MONSTER_DROPS.keySet());
+		addKillId(DROPLIST.getNpcIds());
 		registerQuestItems(ANATOMY_DIAGRAM, ZOMBIE_HEAD, ZOMBIE_HEART, ZOMBIE_LIVER, SKULL, RIB_BONE, SPINE, ARM_BONE, THIGH_BONE, COMPLETE_SKELETON);
 	}
 	
@@ -173,14 +167,9 @@ public final class Q00325_GrimCollector extends Quest {
 		if (!Util.checkIfInRange(1500, killer, npc, true) || !qs.hasQuestItems(ANATOMY_DIAGRAM)) {
 			return super.onKill(npc, killer, isSummon);
 		}
-		
-		final int rnd = getRandom(100);
-		for (QuestItemHolder drop : MONSTER_DROPS.get(npc.getId())) {
-			if (rnd < drop.getChance()) {
-				qs.giveItemRandomly(npc, drop.getId(), 1, 0, 1.0, true);
-				break;
-			}
-		}
+
+		giveItemRandomly(qs.getPlayer(), npc, DROPLIST.get(npc), true);
+
 		return super.onKill(npc, killer, isSummon);
 	}
 	

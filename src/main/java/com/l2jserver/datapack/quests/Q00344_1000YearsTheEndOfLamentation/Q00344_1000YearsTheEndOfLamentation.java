@@ -18,13 +18,11 @@
  */
 package com.l2jserver.datapack.quests.Q00344_1000YearsTheEndOfLamentation;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
 import com.l2jserver.gameserver.model.holders.ItemHolder;
 import com.l2jserver.gameserver.model.quest.Quest;
+import com.l2jserver.gameserver.model.quest.QuestDroplist;
 import com.l2jserver.gameserver.model.quest.QuestState;
 
 /**
@@ -44,20 +42,19 @@ public final class Q00344_1000YearsTheEndOfLamentation extends Quest {
 	private static final ItemHolder OLD_HILT = new ItemHolder(4271, 1);
 	private static final ItemHolder TOTEM_NECKLACE = new ItemHolder(4272, 1);
 	private static final ItemHolder CRUCIFIX = new ItemHolder(4273, 1);
-	// Monsters
-	private static final Map<Integer, Double> MONSTER_CHANCES = new HashMap<>();
-	{
-		MONSTER_CHANCES.put(20236, 0.58); // Cave Servant
-		MONSTER_CHANCES.put(20238, 0.75); // Cave Servant Warrior
-		MONSTER_CHANCES.put(20237, 0.78); // Cave Servant Archer
-		MONSTER_CHANCES.put(20239, 0.79); // Cave Servant Captain
-		MONSTER_CHANCES.put(20240, 0.85); // Royal Cave Servant
-		MONSTER_CHANCES.put(20272, 0.58); // Cave Servant
-		MONSTER_CHANCES.put(20273, 0.78); // Cave Servant Archer
-		MONSTER_CHANCES.put(20274, 0.75); // Cave Servant Warrior
-		MONSTER_CHANCES.put(20275, 0.79); // Cave Servant Captain
-		MONSTER_CHANCES.put(20276, 0.85); // Royal Cave Servant
-	}
+	// Droplist
+	private static final QuestDroplist DROPLIST = QuestDroplist.builder()
+			.addSingleDrop(20236, ARTICLES, 58.0) // Cave Servant
+			.addSingleDrop(20238, ARTICLES, 75.0) // Cave Servant Warrior
+			.addSingleDrop(20237, ARTICLES, 78.0) // Cave Servant Archer
+			.addSingleDrop(20239, ARTICLES, 79.0) // Cave Servant Captain
+			.addSingleDrop(20240, ARTICLES, 85.0) // Royal Cave Servant
+			.addSingleDrop(20272, ARTICLES, 58.0) // Cave Servant
+			.addSingleDrop(20273, ARTICLES, 78.0) // Cave Servant Archer
+			.addSingleDrop(20274, ARTICLES, 75.0) // Cave Servant Warrior
+			.addSingleDrop(20275, ARTICLES, 79.0) // Cave Servant Captain
+			.addSingleDrop(20276, ARTICLES, 85.0) // Royal Cave Servant
+			.build();
 	// Rewards
 	private static final ItemHolder ORIHARUKON_ORE = new ItemHolder(1874, 25);
 	private static final ItemHolder VARNISH_OF_PURITY = new ItemHolder(1887, 10);
@@ -78,7 +75,7 @@ public final class Q00344_1000YearsTheEndOfLamentation extends Quest {
 		super(344, Q00344_1000YearsTheEndOfLamentation.class.getSimpleName(), "1000 years, the End of Lamentation");
 		addStartNpc(GILMORE);
 		addTalkId(KAIEN, GARVARENTZ, GILMORE, RODEMAI, ORVEN);
-		addKillId(MONSTER_CHANCES.keySet());
+		addKillId(DROPLIST.getNpcIds());
 		registerQuestItems(ARTICLES, OLD_KEY.getId(), OLD_HILT.getId(), TOTEM_NECKLACE.getId(), CRUCIFIX.getId());
 	}
 	
@@ -287,7 +284,7 @@ public final class Q00344_1000YearsTheEndOfLamentation extends Quest {
 	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
 		final QuestState qs = getRandomPartyMemberState(killer, 1, 3, npc);
 		if (qs != null) {
-			giveItemRandomly(qs.getPlayer(), npc, ARTICLES, 1, 0, MONSTER_CHANCES.get(npc.getId()), true);
+			giveItemRandomly(qs.getPlayer(), npc, DROPLIST.get(npc), true);
 		}
 		return super.onKill(npc, killer, isSummon);
 	}

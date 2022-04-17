@@ -20,9 +20,12 @@ package com.l2jserver.datapack.quests.Q00295_DreamingOfTheSkies;
 
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
+import com.l2jserver.gameserver.model.holders.QuestItemChanceHolder;
 import com.l2jserver.gameserver.model.quest.Quest;
 import com.l2jserver.gameserver.model.quest.QuestState;
 import com.l2jserver.gameserver.util.Util;
+
+import static com.l2jserver.gameserver.model.quest.QuestDroplist.singleDropItem;
 
 /**
  * Dreaming of the Skies (295)
@@ -34,7 +37,7 @@ public final class Q00295_DreamingOfTheSkies extends Quest {
 	// Monster
 	private static final int MAGICAL_WEAVER = 20153;
 	// Item
-	private static final int FLOATING_STONE = 1492;
+	private static final QuestItemChanceHolder FLOATING_STONE = new QuestItemChanceHolder(1492, 50L);
 	// Reward
 	private static final int RING_OF_FIREFLY = 1509;
 	// Misc
@@ -45,7 +48,7 @@ public final class Q00295_DreamingOfTheSkies extends Quest {
 		addStartNpc(ARIN);
 		addTalkId(ARIN);
 		addKillId(MAGICAL_WEAVER);
-		registerQuestItems(FLOATING_STONE);
+		registerQuestItems(FLOATING_STONE.getId());
 	}
 	
 	@Override
@@ -62,7 +65,7 @@ public final class Q00295_DreamingOfTheSkies extends Quest {
 	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
 		final QuestState qs = getQuestState(killer, false);
 		if ((qs != null) && qs.isCond(1) && Util.checkIfInRange(1500, npc, killer, true)) {
-			if (giveItemRandomly(killer, npc, FLOATING_STONE, (getRandom(100) > 25) ? 1 : 2, 50, 1.0, true)) {
+			if (giveItemRandomly(qs.getPlayer(), npc, singleDropItem(FLOATING_STONE, getRandom(100) > 25 ? 1L : 2L), FLOATING_STONE.getLimit(), true)) {
 				qs.setCond(2);
 			}
 		}
@@ -84,7 +87,7 @@ public final class Q00295_DreamingOfTheSkies extends Quest {
 					giveItems(talker, RING_OF_FIREFLY, 1);
 					html = "30536-05.html";
 				}
-				takeItems(talker, FLOATING_STONE, -1);
+				takeItems(talker, FLOATING_STONE.getId(), -1);
 				qs.exitQuest(true, true);
 			} else {
 				html = "30536-04.html";

@@ -18,13 +18,12 @@
  */
 package com.l2jserver.datapack.quests.Q00623_TheFinestFood;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
 import com.l2jserver.gameserver.model.holders.ItemHolder;
+import com.l2jserver.gameserver.model.holders.QuestItemChanceHolder;
 import com.l2jserver.gameserver.model.quest.Quest;
+import com.l2jserver.gameserver.model.quest.QuestDroplist;
 import com.l2jserver.gameserver.model.quest.QuestState;
 
 /**
@@ -39,23 +38,22 @@ public final class Q00623_TheFinestFood extends Quest {
 	private static final int THERMAL_FLAVA = 21316;
 	private static final int THERMAL_ANTELOPE = 21318;
 	// Items
-	private static final ItemHolder LEAF_OF_FLAVA = new ItemHolder(7199, 100);
-	private static final ItemHolder BUFFALO_MEAT = new ItemHolder(7200, 100);
-	private static final ItemHolder HORN_OF_ANTELOPE = new ItemHolder(7201, 100);
+	private static final QuestItemChanceHolder LEAF_OF_FLAVA = new QuestItemChanceHolder(7199, 100L);
+	private static final QuestItemChanceHolder BUFFALO_MEAT = new QuestItemChanceHolder(7200, 100L);
+	private static final QuestItemChanceHolder HORN_OF_ANTELOPE = new QuestItemChanceHolder(7201, 100L);
+	// Droplist
+	private static final QuestDroplist DROPLIST = QuestDroplist.builder()
+			.addSingleDrop(THERMAL_BUFFALO, BUFFALO_MEAT)
+			.addSingleDrop(THERMAL_FLAVA, LEAF_OF_FLAVA)
+			.addSingleDrop(THERMAL_ANTELOPE, HORN_OF_ANTELOPE)
+			.build();
 	// Rewards
 	private static final ItemHolder RING_OF_AURAKYRA = new ItemHolder(6849, 1);
 	private static final ItemHolder SEALED_SANDDRAGONS_EARING = new ItemHolder(6847, 1);
 	private static final ItemHolder DRAGON_NECKLACE = new ItemHolder(6851, 1);
 	// Misc
 	private static final int MIN_LVL = 71;
-	
-	private static final Map<Integer, ItemHolder> MONSTER_DROPS = new HashMap<>();
-	static {
-		MONSTER_DROPS.put(THERMAL_BUFFALO, BUFFALO_MEAT);
-		MONSTER_DROPS.put(THERMAL_FLAVA, LEAF_OF_FLAVA);
-		MONSTER_DROPS.put(THERMAL_ANTELOPE, HORN_OF_ANTELOPE);
-	}
-	
+
 	public Q00623_TheFinestFood() {
 		super(623, Q00623_TheFinestFood.class.getSimpleName(), "The Finest Food");
 		addStartNpc(JEREMY);
@@ -81,7 +79,7 @@ public final class Q00623_TheFinestFood extends Quest {
 			}
 			case "31521-06.html": {
 				if (qs.isCond(2)) {
-					if (hasAllItems(player, true, LEAF_OF_FLAVA, BUFFALO_MEAT, HORN_OF_ANTELOPE)) {
+					if (hasItemsAtLimit(player, LEAF_OF_FLAVA, BUFFALO_MEAT, HORN_OF_ANTELOPE)) {
 						int random = getRandom(1000);
 						if (random < 120) {
 							giveAdena(player, 25000, true);
@@ -139,9 +137,8 @@ public final class Q00623_TheFinestFood extends Quest {
 	@Override
 	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
 		final QuestState qs = getRandomPartyMemberState(killer, 1, 3, npc);
-		final ItemHolder holder = MONSTER_DROPS.get(npc.getId());
-		if ((qs != null) && giveItemRandomly(qs.getPlayer(), npc, holder.getId(), 1, holder.getCount(), 1, true)) {
-			if (hasAllItems(qs.getPlayer(), true, BUFFALO_MEAT, HORN_OF_ANTELOPE, LEAF_OF_FLAVA)) {
+		if ((qs != null) && giveItemRandomly(qs.getPlayer(), npc, DROPLIST.get(npc), true)) {
+			if (hasItemsAtLimit(qs.getPlayer(), BUFFALO_MEAT, HORN_OF_ANTELOPE, LEAF_OF_FLAVA)) {
 				qs.setCond(2);
 			}
 		}

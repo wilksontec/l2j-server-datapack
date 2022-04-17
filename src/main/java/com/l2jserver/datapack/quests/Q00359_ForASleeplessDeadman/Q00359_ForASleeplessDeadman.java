@@ -18,12 +18,11 @@
  */
 package com.l2jserver.datapack.quests.Q00359_ForASleeplessDeadman;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
+import com.l2jserver.gameserver.model.holders.QuestItemChanceHolder;
 import com.l2jserver.gameserver.model.quest.Quest;
+import com.l2jserver.gameserver.model.quest.QuestDroplist;
 import com.l2jserver.gameserver.model.quest.QuestState;
 
 /**
@@ -34,10 +33,15 @@ public final class Q00359_ForASleeplessDeadman extends Quest {
 	// NPC
 	private static final int ORVEN = 30857;
 	// Item
-	private static final int REMAINS_OF_ADEN_RESIDENTS = 5869;
+	private static final QuestItemChanceHolder REMAINS_OF_ADEN_RESIDENTS = new QuestItemChanceHolder(5869, 60L);
+	// Droplist
+	private static final QuestDroplist DROPLIST = QuestDroplist.builder()
+			.addSingleDrop(21006, REMAINS_OF_ADEN_RESIDENTS, 36.5) // doom_servant
+			.addSingleDrop(21007, REMAINS_OF_ADEN_RESIDENTS, 39.2) // doom_guard
+			.addSingleDrop(21008, REMAINS_OF_ADEN_RESIDENTS, 50.3) // doom_archer
+			.build();
 	// Misc
 	private static final int MIN_LEVEL = 60;
-	private static final int REMAINS_COUNT = 60;
 	// Rewards
 	private static final int[] REWARDS = new int[] {
 		5494, // Sealed Dark Crystal Shield Fragment
@@ -49,20 +53,13 @@ public final class Q00359_ForASleeplessDeadman extends Quest {
 		6345, // Sealed Phoenix Ring Gemstone
 		6346, // Sealed Majestic Ring Gemstone
 	};
-	// Mobs
-	private static final Map<Integer, Double> MOBS = new HashMap<>();
-	static {
-		MOBS.put(21006, 0.365); // doom_servant
-		MOBS.put(21007, 0.392); // doom_guard
-		MOBS.put(21008, 0.503); // doom_archer
-	}
-	
+
 	public Q00359_ForASleeplessDeadman() {
 		super(359, Q00359_ForASleeplessDeadman.class.getSimpleName(), "For a Sleepless Deadman");
 		addStartNpc(ORVEN);
 		addTalkId(ORVEN);
-		addKillId(MOBS.keySet());
-		registerQuestItems(REMAINS_OF_ADEN_RESIDENTS);
+		addKillId(DROPLIST.getNpcIds());
+		registerQuestItems(REMAINS_OF_ADEN_RESIDENTS.getId());
 	}
 	
 	@Override
@@ -97,12 +94,12 @@ public final class Q00359_ForASleeplessDeadman extends Quest {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance player, boolean isSummon) {
-		final QuestState st = getRandomPartyMemberState(player, 1, 3, npc);
-		if ((st != null) && st.giveItemRandomly(npc, REMAINS_OF_ADEN_RESIDENTS, 1, REMAINS_COUNT, MOBS.get(npc.getId()), true)) {
-			st.setCond(2, true);
+	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
+		final QuestState st = getRandomPartyMemberState(killer, 1, 3, npc);
+		if ((st != null) && giveItemRandomly(st.getPlayer(), npc, DROPLIST.get(npc), true)) {
+			st.setCond(2);
 		}
-		return super.onKill(npc, player, isSummon);
+		return super.onKill(npc, killer, isSummon);
 	}
 	
 	@Override
@@ -113,10 +110,10 @@ public final class Q00359_ForASleeplessDeadman extends Quest {
 			htmltext = ((player.getLevel() >= MIN_LEVEL) ? "30857-01.htm" : "30857-06.html");
 		} else if (st.isStarted()) {
 			if (st.isMemoState(1)) {
-				if (getQuestItemsCount(player, REMAINS_OF_ADEN_RESIDENTS) < REMAINS_COUNT) {
+				if (!hasItemsAtLimit(player, REMAINS_OF_ADEN_RESIDENTS)) {
 					htmltext = "30857-07.html";
 				} else {
-					takeItems(player, REMAINS_OF_ADEN_RESIDENTS, -1);
+					takeItems(player, REMAINS_OF_ADEN_RESIDENTS.getId(), -1);
 					st.setMemoState(2);
 					st.setCond(3, true);
 					htmltext = "30857-08.html";

@@ -18,15 +18,14 @@
  */
 package com.l2jserver.datapack.quests.Q00351_BlackSwan;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import com.l2jserver.datapack.quests.Q00345_MethodToRaiseTheDead.Q00345_MethodToRaiseTheDead;
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
 import com.l2jserver.gameserver.model.quest.Quest;
+import com.l2jserver.gameserver.model.quest.QuestDroplist;
 import com.l2jserver.gameserver.model.quest.QuestState;
-import com.l2jserver.gameserver.util.Util;
+
+import static com.l2jserver.gameserver.model.quest.QuestDroplist.singleDropItem;
 
 /**
  * Black Swan (351)
@@ -37,26 +36,26 @@ public final class Q00351_BlackSwan extends Quest {
 	private static final int ROMAN = 30897;
 	private static final int GOSTA = 30916;
 	private static final int IASON_HEINE = 30969;
-	// Items
-	private static final int ORDER_OF_GOSTA = 4296;
-	private static final int LIZARD_FANG = 4297;
-	private static final int BARREL_OF_LEAGUE = 4298;
-	private static final int BILL_OF_IASON_HEINE = 4407;
-	// Misc
-	private static final int MIN_LEVEL = 32;
 	// Monsters
 	private static final int TASABA_LIZARDMAN1 = 20784;
 	private static final int TASABA_LIZARDMAN_SHAMAN1 = 20785;
 	private static final int TASABA_LIZARDMAN2 = 21639;
 	private static final int TASABA_LIZARDMAN_SHAMAN2 = 21640;
-	private static final Map<Integer, Integer> MONSTER_DROP_CHANCES = new HashMap<>();
-	static {
-		MONSTER_DROP_CHANCES.put(TASABA_LIZARDMAN1, 4);
-		MONSTER_DROP_CHANCES.put(TASABA_LIZARDMAN_SHAMAN1, 3);
-		MONSTER_DROP_CHANCES.put(TASABA_LIZARDMAN2, 4);
-		MONSTER_DROP_CHANCES.put(TASABA_LIZARDMAN_SHAMAN2, 3);
-	}
-	
+	// Items
+	private static final int ORDER_OF_GOSTA = 4296;
+	private static final int LIZARD_FANG = 4297;
+	private static final int BARREL_OF_LEAGUE = 4298;
+	private static final int BILL_OF_IASON_HEINE = 4407;
+	// Droplist
+	private static final QuestDroplist DROPLIST = QuestDroplist.builder()
+			.addSingleDrop(TASABA_LIZARDMAN1, BARREL_OF_LEAGUE, 4.0)
+			.addSingleDrop(TASABA_LIZARDMAN_SHAMAN1, BARREL_OF_LEAGUE, 3.0)
+			.addSingleDrop(TASABA_LIZARDMAN2, BARREL_OF_LEAGUE, 4.0)
+			.addSingleDrop(TASABA_LIZARDMAN_SHAMAN2, BARREL_OF_LEAGUE, 3.0)
+			.build();
+	// Misc
+	private static final int MIN_LEVEL = 32;
+
 	public Q00351_BlackSwan() {
 		super(351, Q00351_BlackSwan.class.getSimpleName(), "Black Swan");
 		addStartNpc(GOSTA, ROMAN);
@@ -129,25 +128,25 @@ public final class Q00351_BlackSwan extends Quest {
 	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
 		final QuestState qs = getRandomPartyMemberState(killer, -1, 3, npc);
 		
-		if ((qs == null) || !Util.checkIfInRange(1500, npc, killer, true)) {
+		if (qs == null) {
 			return null;
 		}
 		
 		final int random = getRandom(20);
 		if (random < 10) {
-			giveItemRandomly(qs.getPlayer(), npc, LIZARD_FANG, 1, 0, 1.0, true);
+			giveItemRandomly(qs.getPlayer(), npc, LIZARD_FANG, true);
 			
 			if (getRandom(20) == 0) {
-				giveItemRandomly(qs.getPlayer(), npc, BARREL_OF_LEAGUE, 1, 0, 1.0, false);
+				giveItemRandomly(qs.getPlayer(), npc, BARREL_OF_LEAGUE, false);
 			}
 		} else if (random < 15) {
-			giveItemRandomly(qs.getPlayer(), npc, LIZARD_FANG, 2, 0, 1.0, true);
+			giveItemRandomly(qs.getPlayer(), npc, singleDropItem(LIZARD_FANG, 2L), 0, true);
 			
 			if (getRandom(20) == 0) {
-				giveItemRandomly(qs.getPlayer(), npc, BARREL_OF_LEAGUE, 1, 0, 1.0, false);
+				giveItemRandomly(qs.getPlayer(), npc, BARREL_OF_LEAGUE, false);
 			}
-		} else if (getRandom(100) < MONSTER_DROP_CHANCES.get(npc.getId())) {
-			giveItemRandomly(qs.getPlayer(), npc, BARREL_OF_LEAGUE, 1, 0, 1.0, true);
+		} else {
+			giveItemRandomly(qs.getPlayer(), npc, DROPLIST.get(npc), true);
 		}
 		
 		return super.onKill(npc, killer, isSummon);

@@ -20,8 +20,9 @@ package com.l2jserver.datapack.quests.Q00379_FantasyWine;
 
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
-import com.l2jserver.gameserver.model.holders.ItemHolder;
+import com.l2jserver.gameserver.model.holders.QuestItemChanceHolder;
 import com.l2jserver.gameserver.model.quest.Quest;
+import com.l2jserver.gameserver.model.quest.QuestDroplist;
 import com.l2jserver.gameserver.model.quest.QuestState;
 import com.l2jserver.gameserver.util.Util;
 
@@ -32,15 +33,20 @@ import com.l2jserver.gameserver.util.Util;
 public final class Q00379_FantasyWine extends Quest {
 	// NPC
 	private static final int HARLAN = 30074;
-	// Items
-	private static final ItemHolder LEAF_OF_EUCALYPTUS = new ItemHolder(5893, 80);
-	private static final ItemHolder STONE_OF_CHILL = new ItemHolder(5894, 100);
-	private static final int OLD_WINE_15_YEAR = 5956;
-	private static final int OLD_WINE_30_YEAR = 5957;
-	private static final int OLD_WINE_60_YEAR = 5958;
 	// Monsters
 	private static final int ENKU_ORC_CHAMPION = 20291;
 	private static final int ENKU_ORC_SHAMAN = 20292;
+	// Items
+	private static final int OLD_WINE_15_YEAR = 5956;
+	private static final int OLD_WINE_30_YEAR = 5957;
+	private static final int OLD_WINE_60_YEAR = 5958;
+	private static final QuestItemChanceHolder LEAF_OF_EUCALYPTUS = new QuestItemChanceHolder(5893, 80L);
+	private static final QuestItemChanceHolder STONE_OF_CHILL = new QuestItemChanceHolder(5894, 100L);
+	// Droplist
+	private static final QuestDroplist DROPLIST = QuestDroplist.builder()
+			.addSingleDrop(ENKU_ORC_CHAMPION, LEAF_OF_EUCALYPTUS)
+			.addSingleDrop(ENKU_ORC_SHAMAN, STONE_OF_CHILL)
+			.build();
 	// Misc
 	private static final int MIN_LEVEL = 20;
 	
@@ -73,7 +79,7 @@ public final class Q00379_FantasyWine extends Quest {
 				break;
 			}
 			case "30074-11.html": {
-				if (hasAllItems(player, true, LEAF_OF_EUCALYPTUS, STONE_OF_CHILL)) {
+				if (hasItemsAtLimit(player, LEAF_OF_EUCALYPTUS, STONE_OF_CHILL)) {
 					final int random = getRandom(10);
 					final int item;
 					
@@ -89,7 +95,7 @@ public final class Q00379_FantasyWine extends Quest {
 					}
 					
 					giveItems(player, item, 1);
-					takeAllItems(player, LEAF_OF_EUCALYPTUS, STONE_OF_CHILL);
+					takeItems(player, -1, LEAF_OF_EUCALYPTUS.getId(), STONE_OF_CHILL.getId());
 					qs.exitQuest(true, true);
 				}
 				break;
@@ -102,15 +108,14 @@ public final class Q00379_FantasyWine extends Quest {
 	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
 		final QuestState qs = getQuestState(killer, false);
 		
-		if ((qs == null) || !Util.checkIfInRange(1500, npc, killer, true)) {
+		if ((qs == null) || !Util.checkIfInRange(1500, npc, qs.getPlayer(), true)) {
 			return null;
 		}
-		
-		final ItemHolder dropItem = ((npc.getId() == ENKU_ORC_CHAMPION) ? LEAF_OF_EUCALYPTUS : STONE_OF_CHILL);
-		
-		if (giveItemRandomly(killer, npc, dropItem.getId(), 1, dropItem.getCount(), 1.0, true) && hasAllItems(killer, true, LEAF_OF_EUCALYPTUS, STONE_OF_CHILL)) {
+
+		if (giveItemRandomly(qs.getPlayer(), npc, DROPLIST.get(npc), true) && hasItemsAtLimit(killer, LEAF_OF_EUCALYPTUS, STONE_OF_CHILL)) {
 			qs.setCond(2);
 		}
+
 		return super.onKill(npc, killer, isSummon);
 	}
 	
@@ -121,8 +126,8 @@ public final class Q00379_FantasyWine extends Quest {
 		if (qs.isCreated()) {
 			htmltext = (player.getLevel() >= MIN_LEVEL) ? "30074-01.htm" : "30074-06.html";
 		} else if (qs.isStarted()) {
-			final boolean hasLeafOfEucalyptus = hasItem(player, LEAF_OF_EUCALYPTUS);
-			final boolean hasStoneOfChill = hasItem(player, STONE_OF_CHILL);
+			final boolean hasLeafOfEucalyptus = hasItemsAtLimit(player, LEAF_OF_EUCALYPTUS);
+			final boolean hasStoneOfChill = hasItemsAtLimit(player, STONE_OF_CHILL);
 			
 			if (!hasLeafOfEucalyptus && !hasStoneOfChill) {
 				htmltext = "30074-07.html";

@@ -18,12 +18,10 @@
  */
 package com.l2jserver.datapack.quests.Q00352_HelpRoodRaiseANewPet;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
 import com.l2jserver.gameserver.model.quest.Quest;
+import com.l2jserver.gameserver.model.quest.QuestDroplist;
 import com.l2jserver.gameserver.model.quest.QuestState;
 import com.l2jserver.gameserver.util.Util;
 
@@ -32,44 +30,31 @@ import com.l2jserver.gameserver.util.Util;
  * @author Adry_85
  */
 public final class Q00352_HelpRoodRaiseANewPet extends Quest {
-	private static final class DropInfo {
-		public final int _firstChance;
-		public final int _secondChance;
-		
-		public DropInfo(int firstChance, int secondChance) {
-			_firstChance = firstChance;
-			_secondChance = secondChance;
-		}
-		
-		public int getFirstChance() {
-			return _firstChance;
-		}
-		
-		public int getSecondChance() {
-			return _secondChance;
-		}
-	}
-	
 	// NPC
 	private static final int ROOD = 31067;
 	// Items
 	private static final int LIENRIK_EGG1 = 5860;
 	private static final int LIENRIK_EGG2 = 5861;
+	// Droplist
+	private static final QuestDroplist DROPLIST = QuestDroplist.builder()
+			.addGroupedDrop(20786, 48.0) // lienrik
+				.withDropItem(LIENRIK_EGG1, 95.83)
+				.withDropItem(LIENRIK_EGG2, 4.17).build()
+			.addGroupedDrop(21644, 48.0) // lienrik_a
+				.withDropItem(LIENRIK_EGG1, 95.83)
+				.withDropItem(LIENRIK_EGG2, 4.17).build()
+			.addGroupedDrop(21645, 71.0) // lienrik_lad_a
+				.withDropItem(LIENRIK_EGG1, 97.18)
+				.withDropItem(LIENRIK_EGG2, 2.82).build()
+			.build();
 	// Misc
 	private static final int MIN_LEVEL = 39;
-	
-	private static final Map<Integer, DropInfo> MOBS = new HashMap<>();
-	static {
-		MOBS.put(20786, new DropInfo(46, 48)); // lienrik
-		MOBS.put(21644, new DropInfo(46, 48)); // lienrik_a
-		MOBS.put(21645, new DropInfo(69, 71)); // lienrik_lad_a
-	}
 	
 	public Q00352_HelpRoodRaiseANewPet() {
 		super(352, Q00352_HelpRoodRaiseANewPet.class.getSimpleName(), "Help Rood Raise A New Pet!");
 		addStartNpc(ROOD);
 		addTalkId(ROOD);
-		addKillId(MOBS.keySet());
+		addKillId(DROPLIST.getNpcIds());
 		registerQuestItems(LIENRIK_EGG1, LIENRIK_EGG2);
 	}
 	
@@ -111,15 +96,9 @@ public final class Q00352_HelpRoodRaiseANewPet extends Quest {
 		if ((qs == null) || !Util.checkIfInRange(1500, npc, killer, true)) {
 			return null;
 		}
-		
-		final DropInfo info = MOBS.get(npc.getId());
-		final int random = getRandom(100);
-		
-		if (random < info.getFirstChance()) {
-			qs.giveItemRandomly(npc, LIENRIK_EGG1, 1, 0, 1.0, true);
-		} else if (random < info.getSecondChance()) {
-			qs.giveItemRandomly(npc, LIENRIK_EGG2, 1, 0, 1.0, true);
-		}
+
+		giveItemRandomly(qs.getPlayer(), npc, DROPLIST.get(npc), true);
+
 		return super.onKill(npc, killer, isSummon);
 	}
 	

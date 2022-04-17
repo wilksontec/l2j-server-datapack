@@ -22,10 +22,14 @@ import com.l2jserver.datapack.quests.Q00123_TheLeaderAndTheFollower.Q00123_TheLe
 import com.l2jserver.gameserver.model.L2World;
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
+import com.l2jserver.gameserver.model.holders.ItemHolder;
+import com.l2jserver.gameserver.model.holders.QuestItemChanceHolder;
 import com.l2jserver.gameserver.model.quest.Quest;
 import com.l2jserver.gameserver.model.quest.QuestState;
 import com.l2jserver.gameserver.model.quest.State;
 import com.l2jserver.gameserver.util.Util;
+
+import java.util.List;
 
 /**
  * To Lead And Be Led (118)
@@ -34,26 +38,32 @@ import com.l2jserver.gameserver.util.Util;
 public final class Q00118_ToLeadAndBeLed extends Quest {
 	// NPC
 	private static final int BLACKSMITH_PINTER = 30298;
-	// Items
-	private static final int CRYSTAL_D = 1458;
-	private static final int BLOOD_OF_MAILLE_LIZARDMAN = 8062;
-	private static final int LEG_OF_KING_ARANEID = 8063;
-	// Reward
-	private static final int CLAN_OATH_HELM = 7850;
-	private static final int CLAN_OATH_ARMOR = 7851;
-	private static final int CLAN_OATH_GAUNTLETS_HEAVY_ARMOR = 7852;
-	private static final int CLAN_OATH_SABATON_HEAVY_ARMOR = 7853;
-	private static final int CLAN_OATH_BRIGANDINE = 7854;
-	private static final int CLAN_OATH_LEATHER_GLOVES_LIGHT_ARMOR = 7855;
-	private static final int CLAN_OATH_BOOTS_LIGHT_ARMOR = 7856;
-	private static final int CLAN_OATH_AKETON = 7857;
-	private static final int CLAN_OATH_PADDED_GLOVES_ROBE = 7858;
-	private static final int CLAN_OATH_SANDALS_ROBE = 7859;
 	// Monster
 	private static final int MAILLE_LIZARDMAN = 20919;
 	private static final int MAILLE_LIZARDMAN_SCOUT = 20920;
 	private static final int MAILLE_LIZARDMAN_GUARD = 20921;
 	private static final int KING_OF_THE_ARANEID = 20927;
+	// Items
+	private static final int CRYSTAL_D = 1458;
+	private static final QuestItemChanceHolder BLOOD_OF_MAILLE_LIZARDMAN = new QuestItemChanceHolder(8062, 7.0, 10L);
+	private static final QuestItemChanceHolder LEG_OF_KING_ARANEID = new QuestItemChanceHolder(8063, 7.0, 8L);
+	// Rewards
+	private static final ItemHolder CLAN_OATH_HELM = new ItemHolder(7850, 1);
+	private static final List<ItemHolder> REWARDS_HEAVY = List.of(
+			CLAN_OATH_HELM,
+			new ItemHolder(7851, 1), // Clan Oath Armor
+			new ItemHolder(7852, 1), // Clan Oath Gauntlets
+			new ItemHolder(7853, 1)); // Clan Oath Sabatons
+	private static final List<ItemHolder> REWARDS_LIGHT = List.of(
+			CLAN_OATH_HELM,
+			new ItemHolder(7854, 1), // Clan Oath Brigandine
+			new ItemHolder(7855, 1), // Clan Oath Leather Gloves
+			new ItemHolder(7856, 1)); // Clan Oath Boots
+	private static final List<ItemHolder> REWARDS_ROBE = List.of(
+			CLAN_OATH_HELM,
+			new ItemHolder(7857, 1), // Clan Oath Aketon
+			new ItemHolder(7858, 1), // Clan Oath Padded Gloves
+			new ItemHolder(7859, 1)); // Clan Oath Sandals
 	// Misc
 	private static final int MIN_LEVEL = 19;
 	private static final int CRYSTAL_COUNT_1 = 922;
@@ -64,7 +74,7 @@ public final class Q00118_ToLeadAndBeLed extends Quest {
 		addStartNpc(BLACKSMITH_PINTER);
 		addTalkId(BLACKSMITH_PINTER);
 		addKillId(MAILLE_LIZARDMAN, MAILLE_LIZARDMAN_SCOUT, MAILLE_LIZARDMAN_GUARD, KING_OF_THE_ARANEID);
-		registerQuestItems(LEG_OF_KING_ARANEID, BLOOD_OF_MAILLE_LIZARDMAN);
+		registerQuestItems(LEG_OF_KING_ARANEID.getId(), BLOOD_OF_MAILLE_LIZARDMAN.getId());
 	}
 	
 	@Override
@@ -149,8 +159,8 @@ public final class Q00118_ToLeadAndBeLed extends Quest {
 				break;
 			}
 			case "30298-05d.html": {
-				if (qs.isMemoState(1) && (getQuestItemsCount(player, BLOOD_OF_MAILLE_LIZARDMAN) >= 10)) {
-					takeItems(player, BLOOD_OF_MAILLE_LIZARDMAN, -1);
+				if (qs.isMemoState(1) && hasItemsAtLimit(player, BLOOD_OF_MAILLE_LIZARDMAN)) {
+					takeItems(player, BLOOD_OF_MAILLE_LIZARDMAN.getId(), -1);
 					qs.setMemoState(2);
 					qs.setMemoStateEx(1, 1);
 					qs.setCond(3, true);
@@ -159,8 +169,8 @@ public final class Q00118_ToLeadAndBeLed extends Quest {
 				break;
 			}
 			case "30298-05e.html": {
-				if (qs.isMemoState(1) && (getQuestItemsCount(player, BLOOD_OF_MAILLE_LIZARDMAN) >= 10)) {
-					takeItems(player, BLOOD_OF_MAILLE_LIZARDMAN, -1);
+				if (qs.isMemoState(1) && hasItemsAtLimit(player, BLOOD_OF_MAILLE_LIZARDMAN)) {
+					takeItems(player, BLOOD_OF_MAILLE_LIZARDMAN.getId(), -1);
 					qs.setMemoState(2);
 					qs.setMemoStateEx(1, 2);
 					qs.setCond(4, true);
@@ -169,8 +179,8 @@ public final class Q00118_ToLeadAndBeLed extends Quest {
 				break;
 			}
 			case "30298-05f.html": {
-				if (qs.isMemoState(1) && (getQuestItemsCount(player, BLOOD_OF_MAILLE_LIZARDMAN) >= 10)) {
-					takeItems(player, BLOOD_OF_MAILLE_LIZARDMAN, -1);
+				if (qs.isMemoState(1) && hasItemsAtLimit(player, BLOOD_OF_MAILLE_LIZARDMAN)) {
+					takeItems(player, BLOOD_OF_MAILLE_LIZARDMAN.getId(), -1);
 					qs.setMemoState(2);
 					qs.setMemoStateEx(1, 3);
 					qs.setCond(5, true);
@@ -187,28 +197,20 @@ public final class Q00118_ToLeadAndBeLed extends Quest {
 		final QuestState qs = getQuestState(killer, false);
 		if ((qs != null) && qs.isStarted()) {
 			switch (npc.getId()) {
-				case MAILLE_LIZARDMAN:
-				case MAILLE_LIZARDMAN_SCOUT:
-				case MAILLE_LIZARDMAN_GUARD: {
-					if (qs.isMemoState(1)) {
-						if (giveItemRandomly(killer, npc, BLOOD_OF_MAILLE_LIZARDMAN, 1, 10, 7, true)) {
-							qs.setCond(2);
-						}
+				case MAILLE_LIZARDMAN, MAILLE_LIZARDMAN_SCOUT, MAILLE_LIZARDMAN_GUARD -> {
+					if (qs.isMemoState(1) && giveItemRandomly(qs.getPlayer(), npc, BLOOD_OF_MAILLE_LIZARDMAN, true)) {
+						qs.setCond(2);
 					}
-					break;
 				}
-				case KING_OF_THE_ARANEID: {
-					if (qs.isMemoState(4)) {
-						if (killer.getSponsor() > 0) {
-							final L2PcInstance c0 = L2World.getInstance().getPlayer(killer.getSponsor());
-							if ((c0 != null) && Util.checkIfInRange(1500, npc, c0, true)) {
-								if (giveItemRandomly(killer, npc, LEG_OF_KING_ARANEID, 1, 8, 7, true)) {
-									qs.setCond(8);
-								}
+				case KING_OF_THE_ARANEID -> {
+					if (qs.isMemoState(4) && killer.getSponsor() > 0) {
+						final L2PcInstance sponsor = L2World.getInstance().getPlayer(killer.getSponsor());
+						if (Util.checkIfInRange(1500, npc, sponsor, true)) {
+							if (giveItemRandomly(qs.getPlayer(), npc, LEG_OF_KING_ARANEID, true)) {
+								qs.setCond(8);
 							}
 						}
 					}
-					break;
 				}
 			}
 		}
@@ -236,7 +238,7 @@ public final class Q00118_ToLeadAndBeLed extends Quest {
 			}
 			case State.STARTED: {
 				if (qs.isMemoState(1)) {
-					if (getQuestItemsCount(player, BLOOD_OF_MAILLE_LIZARDMAN) < 10) {
+					if (!hasItemsAtLimit(player, BLOOD_OF_MAILLE_LIZARDMAN)) {
 						htmltext = "30298-04.html";
 					} else {
 						htmltext = "30298-05.html";
@@ -251,8 +253,8 @@ public final class Q00118_ToLeadAndBeLed extends Quest {
 							htmltext = "30298-06c.html";
 						}
 					} else {
-						final L2PcInstance c0 = L2World.getInstance().getPlayer(player.getSponsor());
-						if ((c0 != null) && Util.checkIfInRange(1500, npc, c0, true)) {
+						final L2PcInstance sponsor = L2World.getInstance().getPlayer(player.getSponsor());
+						if (Util.checkIfInRange(1500, npc, sponsor, true)) {
 							htmltext = "30298-07.html";
 						} else {
 							if (qs.getMemoStateEx(1) == 1) {
@@ -269,27 +271,18 @@ public final class Q00118_ToLeadAndBeLed extends Quest {
 					qs.setCond(7, true);
 					htmltext = "30298-15.html";
 				} else if (qs.isMemoState(4)) {
-					if (getQuestItemsCount(player, LEG_OF_KING_ARANEID) < 8) {
+					if (!hasItemsAtLimit(player, LEG_OF_KING_ARANEID)) {
 						htmltext = "30298-16.html";
 					} else {
 						if (qs.getMemoStateEx(1) == 1) {
-							giveItems(player, CLAN_OATH_HELM, 1);
-							giveItems(player, CLAN_OATH_ARMOR, 1);
-							giveItems(player, CLAN_OATH_GAUNTLETS_HEAVY_ARMOR, 1);
-							giveItems(player, CLAN_OATH_SABATON_HEAVY_ARMOR, 1);
-							takeItems(player, LEG_OF_KING_ARANEID, -1);
+							giveItems(player, REWARDS_HEAVY, 1);
+							takeItems(player, LEG_OF_KING_ARANEID.getId(), -1);
 						} else if (qs.getMemoStateEx(1) == 2) {
-							giveItems(player, CLAN_OATH_HELM, 1);
-							giveItems(player, CLAN_OATH_BRIGANDINE, 1);
-							giveItems(player, CLAN_OATH_LEATHER_GLOVES_LIGHT_ARMOR, 1);
-							giveItems(player, CLAN_OATH_BOOTS_LIGHT_ARMOR, 1);
-							takeItems(player, LEG_OF_KING_ARANEID, -1);
+							giveItems(player, REWARDS_LIGHT, 1);
+							takeItems(player, LEG_OF_KING_ARANEID.getId(), -1);
 						} else if (qs.getMemoStateEx(1) == 3) {
-							giveItems(player, CLAN_OATH_HELM, 1);
-							giveItems(player, CLAN_OATH_AKETON, 1);
-							giveItems(player, CLAN_OATH_PADDED_GLOVES_ROBE, 1);
-							giveItems(player, CLAN_OATH_SANDALS_ROBE, 1);
-							takeItems(player, LEG_OF_KING_ARANEID, -1);
+							giveItems(player, REWARDS_ROBE, 1);
+							takeItems(player, LEG_OF_KING_ARANEID.getId(), -1);
 						}
 						qs.exitQuest(false, true);
 						htmltext = "30298-17.html";

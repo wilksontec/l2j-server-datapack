@@ -21,6 +21,7 @@ package com.l2jserver.datapack.quests.Q00503_PursuitOfClanAmbition;
 import com.l2jserver.gameserver.model.L2Clan;
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
+import com.l2jserver.gameserver.model.holders.QuestItemChanceHolder;
 import com.l2jserver.gameserver.model.quest.Quest;
 import com.l2jserver.gameserver.model.quest.QuestState;
 import com.l2jserver.gameserver.network.NpcStringId;
@@ -46,23 +47,6 @@ public final class Q00503_PursuitOfClanAmbition extends Quest {
 	private static final int IMPERIAL_COFFER = 30765;
 	private static final int WITCH_CLEO = 30766;
 	private static final int SIR_ERIC_RODEMAI = 30868;
-	// Items
-	private static final int MIST_DRAKES_EGG = 3839;
-	private static final int BLITZ_WYRM_EGG = 3840;
-	private static final int DRAKES_EGG = 3841;
-	private static final int THUNDER_WYRM_EGG = 3842;
-	private static final int BROOCH_OF_THE_MAGPIE = 3843;
-	private static final int IMPERIAL_KEY = 3847;
-	private static final int GUSTAVS_1ST_LETTER = 3866;
-	private static final int GUSTAVS_2ND_LETTER = 3867;
-	private static final int GUSTAVS_3RD_LETTER = 3868;
-	private static final int SCEPTER_OF_JUDGMENT = 3869;
-	private static final int BLACK_ANVIL_COIN = 3871;
-	private static final int RECIPE_SPITEFUL_SOUL_ENERGY = 14854;
-	private static final int SPITEFUL_SOUL_ENERGY = 14855;
-	private static final int SPITEFUL_SOUL_VENGEANCE = 14856;
-	// Reward
-	private static final int SEAL_OF_ASPIRATION = 3870;
 	// Monsters
 	private static final int DRAKE = 20137;
 	private static final int DRAKE2 = 20285;
@@ -74,14 +58,31 @@ public final class Q00503_PursuitOfClanAmbition extends Quest {
 	private static final int GRAVE_KEYMASTER = 27179;
 	private static final int IMPERIAL_GRAVEKEEPER = 27181;
 	private static final int BLITZ_WYRM = 27178;
-	
+	// Items
+	private static final int BROOCH_OF_THE_MAGPIE = 3843;
+	private static final int GUSTAVS_1ST_LETTER = 3866;
+	private static final int GUSTAVS_2ND_LETTER = 3867;
+	private static final int GUSTAVS_3RD_LETTER = 3868;
+	private static final int SCEPTER_OF_JUDGMENT = 3869;
+	private static final int BLACK_ANVIL_COIN = 3871;
+	private static final int RECIPE_SPITEFUL_SOUL_ENERGY = 14854;
+	private static final int SPITEFUL_SOUL_VENGEANCE = 14856;
+	private static final QuestItemChanceHolder MIST_DRAKES_EGG = new QuestItemChanceHolder(3839, 10.0, 10);
+	private static final QuestItemChanceHolder BLITZ_WYRM_EGG = new QuestItemChanceHolder(3840, 10L);
+	private static final QuestItemChanceHolder DRAKES_EGG = new QuestItemChanceHolder(3841, 50.0, 10);
+	private static final QuestItemChanceHolder THUNDER_WYRM_EGG = new QuestItemChanceHolder(3842, 50.0, 10);
+	private static final QuestItemChanceHolder IMPERIAL_KEY = new QuestItemChanceHolder(3847, 6L);
+	private static final QuestItemChanceHolder SPITEFUL_SOUL_ENERGY = new QuestItemChanceHolder(14855, 10L);
+	// Reward
+	private static final int SEAL_OF_ASPIRATION = 3870;
+
 	public Q00503_PursuitOfClanAmbition() {
 		super(503, Q00503_PursuitOfClanAmbition.class.getSimpleName(), "Pursuit Of Clan Ambition");
 		addStartNpc(SIR_GUSTAV_ATHEBALDT);
 		addTalkId(SIR_GUSTAV_ATHEBALDT, HEAD_BLACKSMITH_KUSTO, MARTIEN, WITCH_ATHREA, WITCH_KALIS, CORPSE_OF_FRITZ, CORPSE_OF_LUTZ, CORPSE_OF_KURTZ, BALTHAZAR, IMPERIAL_COFFER, WITCH_CLEO, SIR_ERIC_RODEMAI);
 		addKillId(DRAKE, DRAKE2, THUNDER_WYRM, THUNDER_WYRM2, GRAVE_GUARD, SPITEFUL_SOUL_LEADER, GRAVE_KEYMASTER, BLITZ_WYRM, IMPERIAL_GRAVEKEEPER);
 		addSpawnId(WITCH_ATHREA, WITCH_KALIS, IMPERIAL_COFFER, BLITZ_WYRM);
-		registerQuestItems(MIST_DRAKES_EGG, BLITZ_WYRM_EGG, DRAKES_EGG, THUNDER_WYRM_EGG, BROOCH_OF_THE_MAGPIE, IMPERIAL_KEY, GUSTAVS_1ST_LETTER, GUSTAVS_2ND_LETTER, GUSTAVS_3RD_LETTER, SCEPTER_OF_JUDGMENT, BLACK_ANVIL_COIN, RECIPE_SPITEFUL_SOUL_ENERGY, SPITEFUL_SOUL_ENERGY, SPITEFUL_SOUL_VENGEANCE);
+		registerQuestItems(MIST_DRAKES_EGG.getId(), BLITZ_WYRM_EGG.getId(), DRAKES_EGG.getId(), THUNDER_WYRM_EGG.getId(), BROOCH_OF_THE_MAGPIE, IMPERIAL_KEY.getId(), GUSTAVS_1ST_LETTER, GUSTAVS_2ND_LETTER, GUSTAVS_3RD_LETTER, SCEPTER_OF_JUDGMENT, BLACK_ANVIL_COIN, RECIPE_SPITEFUL_SOUL_ENERGY, SPITEFUL_SOUL_ENERGY.getId(), SPITEFUL_SOUL_VENGEANCE);
 	}
 	
 	@Override
@@ -220,7 +221,7 @@ public final class Q00503_PursuitOfClanAmbition extends Quest {
 				break;
 			}
 			case "30765-04.html": {
-				takeItems(player, IMPERIAL_KEY, -1);
+				takeItems(player, IMPERIAL_KEY.getId(), -1);
 				giveItems(player, SCEPTER_OF_JUDGMENT, 1);
 				qs.setMemoState(8700);
 				htmltext = event;
@@ -294,7 +295,7 @@ public final class Q00503_PursuitOfClanAmbition extends Quest {
 		}
 		
 		final L2PcInstance leader = clan.getLeader().getPlayerInstance();
-		if ((leader == null) || !Util.checkIfInRange(1500, npc, leader, true)) {
+		if (!Util.checkIfInRange(1500, npc, leader, true)) {
 			return super.onKill(npc, killer, isSummon);
 		}
 		
@@ -302,28 +303,23 @@ public final class Q00503_PursuitOfClanAmbition extends Quest {
 		if (leaderQS == null) {
 			return super.onKill(npc, killer, isSummon);
 		}
-		
+
 		switch (npc.getId()) {
-			case DRAKE:
-			case DRAKE2: {
+			case DRAKE, DRAKE2 -> {
 				if ((leaderQS.getMemoState() >= 2000) || (leaderQS.getMemoState() < 3000)) {
-					giveItemRandomly(leader, MIST_DRAKES_EGG, 1, 10, 0.1, true);
-					
-					giveItemRandomly(leader, DRAKES_EGG, 1, 10, 0.5, true);
+					giveItemRandomly(leader, npc, MIST_DRAKES_EGG, true);
+					giveItemRandomly(leader, npc, DRAKES_EGG, true);
 				}
-				break;
 			}
-			case THUNDER_WYRM:
-			case THUNDER_WYRM2: {
+			case THUNDER_WYRM, THUNDER_WYRM2 -> {
 				if ((leaderQS.getMemoState() >= 2000) || (leaderQS.getMemoState() < 3000)) {
-					giveItemRandomly(leader, THUNDER_WYRM_EGG, 1, 10, 0.5, true);
+					giveItemRandomly(leader, npc, THUNDER_WYRM_EGG, true);
 				}
-				break;
 			}
-			case GRAVE_GUARD: {
+			case GRAVE_GUARD -> {
 				if ((leaderQS.getMemoState() < 8511) || (leaderQS.getMemoState() >= 8500)) {
 					leaderQS.setMemoState(leaderQS.getMemoState() + 1);
-					
+
 					if ((leaderQS.getMemoState() >= 8505) && (getRandom(100) < 50)) {
 						leaderQS.setMemoState(8500);
 						addSpawn(GRAVE_KEYMASTER, npc, true, 0, false);
@@ -332,36 +328,31 @@ public final class Q00503_PursuitOfClanAmbition extends Quest {
 						addSpawn(GRAVE_KEYMASTER, npc, true, 0, false);
 					}
 				}
-				break;
 			}
-			case SPITEFUL_SOUL_LEADER: {
+			case SPITEFUL_SOUL_LEADER -> {
 				if (leaderQS.getMemoState() == 5000) {
 					final int rand = getRandom(100);
 					if (rand < 10) {
-						giveItemRandomly(leader, SPITEFUL_SOUL_ENERGY, 1, 10, 1, false);
+						giveItemRandomly(leader, npc, SPITEFUL_SOUL_ENERGY, false);
 					} else if (rand < 60) {
 						giveItems(leader, SPITEFUL_SOUL_VENGEANCE, 1);
 					}
 				}
-				break;
 			}
-			case BLITZ_WYRM: {
+			case BLITZ_WYRM -> {
 				if ((leaderQS.getMemoState() >= 2000) || (leaderQS.getMemoState() < 3000)) {
-					giveItemRandomly(leader, BLITZ_WYRM_EGG, 1, 10, 1, true);
+					giveItemRandomly(leader, npc, BLITZ_WYRM_EGG, true);
 				}
-				break;
 			}
-			case GRAVE_KEYMASTER: {
+			case GRAVE_KEYMASTER -> {
 				if (leaderQS.getMemoState() >= 8500) {
-					giveItemRandomly(leader, IMPERIAL_KEY, 1, 6, 1, true);
+					giveItemRandomly(leader, npc, IMPERIAL_KEY, true);
 				}
-				break;
 			}
-			case IMPERIAL_GRAVEKEEPER: {
+			case IMPERIAL_GRAVEKEEPER -> {
 				if ((leaderQS.getMemoState() < 8511) || (leaderQS.getMemoState() >= 8500)) {
 					addSpawn(IMPERIAL_COFFER, npc, true, 0, false);
 				}
-				break;
 			}
 		}
 		return super.onKill(npc, killer, isSummon);
@@ -456,13 +447,13 @@ public final class Q00503_PursuitOfClanAmbition extends Quest {
 								htmltext = "30645-02.html";
 							}
 						} else if ((qs.getMemoState() < 3000) && (qs.getMemoState() >= 2000)) {
-							if ((getQuestItemsCount(player, MIST_DRAKES_EGG) < 10) || (getQuestItemsCount(player, BLITZ_WYRM_EGG) < 10) || (getQuestItemsCount(player, THUNDER_WYRM_EGG) < 10) || (getQuestItemsCount(player, DRAKES_EGG) < 10)) {
+							if (!hasItemsAtLimit(player, MIST_DRAKES_EGG, BLITZ_WYRM_EGG, THUNDER_WYRM_EGG, DRAKES_EGG)) {
 								htmltext = "30645-04.html";
 							} else {
-								takeItems(player, MIST_DRAKES_EGG, -1);
-								takeItems(player, BLITZ_WYRM_EGG, -1);
-								takeItems(player, DRAKES_EGG, -1);
-								takeItems(player, THUNDER_WYRM_EGG, -1);
+								takeItems(player, MIST_DRAKES_EGG.getId(), -1);
+								takeItems(player, BLITZ_WYRM_EGG.getId(), -1);
+								takeItems(player, DRAKES_EGG.getId(), -1);
+								takeItems(player, THUNDER_WYRM_EGG.getId(), -1);
 								qs.setMemoState(3000);
 								qs.setCond(3, true);
 								htmltext = "30645-05.html";
@@ -518,10 +509,10 @@ public final class Q00503_PursuitOfClanAmbition extends Quest {
 								htmltext = "30764-04.html";
 							}
 						} else if ((qs.getMemoState() == 5000)) {
-							if (getQuestItemsCount(player, SPITEFUL_SOUL_ENERGY) < 10) {
+							if (!hasItemsAtLimit(player, SPITEFUL_SOUL_ENERGY)) {
 								htmltext = "30764-07a.html";
 							} else {
-								takeItems(player, SPITEFUL_SOUL_ENERGY, -1);
+								takeItems(player, SPITEFUL_SOUL_ENERGY.getId(), -1);
 								qs.setMemoState(6000);
 								qs.setCond(6, true);
 								htmltext = "30764-08a.html";
@@ -535,7 +526,7 @@ public final class Q00503_PursuitOfClanAmbition extends Quest {
 				case IMPERIAL_COFFER: {
 					if (lqs != null) {
 						if ((qs.getMemoState() >= 8500) && (qs.getMemoState() < 8700)) {
-							if (getQuestItemsCount(player, IMPERIAL_KEY) >= 6) {
+							if (hasItemsAtLimit(player, IMPERIAL_KEY)) {
 								if (!player.isClanLeader()) {
 									htmltext = "30765-01.html";
 								} else {

@@ -18,17 +18,13 @@
  */
 package com.l2jserver.datapack.quests.Q00308_ReedFieldMaintenance;
 
-import static com.l2jserver.gameserver.config.Configuration.rates;
-
-import java.util.HashMap;
-import java.util.Map;
-
 import com.l2jserver.datapack.quests.Q00238_SuccessFailureOfBusiness.Q00238_SuccessFailureOfBusiness;
 import com.l2jserver.datapack.quests.Q00309_ForAGoodCause.Q00309_ForAGoodCause;
 import com.l2jserver.gameserver.enums.audio.Sound;
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
 import com.l2jserver.gameserver.model.quest.Quest;
+import com.l2jserver.gameserver.model.quest.QuestDroplist;
 import com.l2jserver.gameserver.model.quest.QuestState;
 import com.l2jserver.gameserver.network.serverpackets.RadarControl;
 import com.l2jserver.gameserver.util.Util;
@@ -41,21 +37,18 @@ import com.l2jserver.gameserver.util.Util;
 public class Q00308_ReedFieldMaintenance extends Quest {
 	// NPC
 	private static final int KATENSA = 32646;
-	// Mobs
-	private static final int AWAKENED_MUCROKIAN = 22655;
-	private static final Map<Integer, Integer> MUCROKIAN = new HashMap<>();
-	static {
-		MUCROKIAN.put(22650, 218); // Mucrokian Fanatic
-		MUCROKIAN.put(22651, 258); // Mucrokian Ascetic
-		MUCROKIAN.put(22652, 248); // Mucrokian Savior
-		MUCROKIAN.put(22653, 290); // Mucrokian Preacher
-		MUCROKIAN.put(22654, 220); // Contaminated Mucrokian
-		MUCROKIAN.put(22655, 124); // Awakened Mucrokian
-	}
-	
 	// Items
 	private static final int MUCROKIAN_HIDE = 14871;
 	private static final int AWAKENED_MUCROKIAN_HIDE = 14872;
+	// Droplist
+	private static final QuestDroplist DROPLIST = QuestDroplist.builder()
+			.addSingleDrop(22650, MUCROKIAN_HIDE, 21.8) // Mucrokian Fanatic
+			.addSingleDrop(22651, MUCROKIAN_HIDE, 25.8) // Mucrokian Ascetic
+			.addSingleDrop(22652, MUCROKIAN_HIDE, 24.8) // Mucrokian Savior
+			.addSingleDrop(22653, MUCROKIAN_HIDE, 29.0) // Mucrokian Preacher
+			.addSingleDrop(22654, MUCROKIAN_HIDE, 22.0) // Contaminated Mucrokian
+			.addSingleDrop(22655, AWAKENED_MUCROKIAN_HIDE, 12.4) // Awakened Mucrokian
+			.build();
 	// Rewards
 	private static final int REC_DYNASTY_EARRINGS_70 = 9985;
 	private static final int REC_DYNASTY_NECKLACE_70 = 9986;
@@ -63,27 +56,11 @@ public class Q00308_ReedFieldMaintenance extends Quest {
 	private static final int REC_DYNASTY_SIGIL_60 = 10115;
 	
 	private static final int[] MOIRAI_RECIPES = {
-		15777,
-		15780,
-		15783,
-		15786,
-		15789,
-		15790,
-		15814,
-		15813,
-		15812
+		15777, 15780, 15783, 15786, 15789, 15790, 15814, 15813, 15812
 	};
 	
 	private static final int[] MOIRAI_PIECES = {
-		15647,
-		15650,
-		15653,
-		15656,
-		15659,
-		15692,
-		15772,
-		15773,
-		15774
+		15647, 15650, 15653, 15656, 15659, 15692, 15772, 15773, 15774
 	};
 	
 	// Misc
@@ -93,7 +70,7 @@ public class Q00308_ReedFieldMaintenance extends Quest {
 		super(308, Q00308_ReedFieldMaintenance.class.getSimpleName(), "Reed Field Maintenance");
 		addStartNpc(KATENSA);
 		addTalkId(KATENSA);
-		addKillId(MUCROKIAN.keySet());
+		addKillId(DROPLIST.getNpcIds());
 	}
 	
 	private boolean canGiveItem(QuestState st, int quanty) {
@@ -190,18 +167,9 @@ public class Q00308_ReedFieldMaintenance extends Quest {
 	
 	@Override
 	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
-		final L2PcInstance partyMember = getRandomPartyMember(killer, 1);
-		if (partyMember != null) {
-			final QuestState st = getQuestState(partyMember, false);
-			double chance = MUCROKIAN.get(npc.getId()) * rates().getRateQuestDrop();
-			if (getRandom(1000) < chance) {
-				if (npc.getId() == AWAKENED_MUCROKIAN) {
-					st.giveItems(AWAKENED_MUCROKIAN_HIDE, 1);
-				} else {
-					st.giveItems(MUCROKIAN_HIDE, 1);
-				}
-				st.playSound(Sound.ITEMSOUND_QUEST_ITEMGET);
-			}
+		QuestState st = getRandomPartyMemberState(killer, 1, 1, npc);
+		if (st != null) {
+			giveItemRandomly(st.getPlayer(), npc, DROPLIST.get(npc), true);
 		}
 		return super.onKill(npc, killer, isSummon);
 	}

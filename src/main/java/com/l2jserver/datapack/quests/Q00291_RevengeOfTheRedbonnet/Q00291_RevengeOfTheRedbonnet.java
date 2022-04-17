@@ -20,7 +20,7 @@ package com.l2jserver.datapack.quests.Q00291_RevengeOfTheRedbonnet;
 
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
-import com.l2jserver.gameserver.model.holders.ItemHolder;
+import com.l2jserver.gameserver.model.holders.QuestItemChanceHolder;
 import com.l2jserver.gameserver.model.quest.Quest;
 import com.l2jserver.gameserver.model.quest.QuestState;
 import com.l2jserver.gameserver.util.Util;
@@ -33,7 +33,7 @@ public final class Q00291_RevengeOfTheRedbonnet extends Quest {
 	// NPC
 	private static final int MARYSE_REDBONNET = 30553;
 	// Item
-	private static final ItemHolder BLACK_WOLF_PELT = new ItemHolder(1482, 40);
+	private static final QuestItemChanceHolder BLACK_WOLF_PELT = new QuestItemChanceHolder(1482, 40L);
 	// Monster
 	private static final int BLACK_WOLF = 20317;
 	// Rewards
@@ -66,8 +66,8 @@ public final class Q00291_RevengeOfTheRedbonnet extends Quest {
 	@Override
 	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
 		final QuestState qs = getQuestState(killer, false);
-		if ((qs != null) && qs.isCond(1) && Util.checkIfInRange(1500, npc, killer, true)) {
-			if (giveItemRandomly(qs.getPlayer(), npc, BLACK_WOLF_PELT.getId(), 1, BLACK_WOLF_PELT.getCount(), 1.0, true)) {
+		if ((qs != null) && qs.isCond(1) && Util.checkIfInRange(1500, npc, qs.getPlayer(), true)) {
+			if (giveItemRandomly(qs.getPlayer(), npc, BLACK_WOLF_PELT, true)) {
 				qs.setCond(2);
 			}
 		}
@@ -81,8 +81,8 @@ public final class Q00291_RevengeOfTheRedbonnet extends Quest {
 		if (qs.isCreated()) {
 			html = ((player.getLevel() >= MIN_LVL) ? "30553-02.htm" : "30553-01.htm");
 		} else if (qs.isStarted()) {
-			if (qs.isCond(2) && hasItem(player, BLACK_WOLF_PELT)) {
-				takeItem(player, BLACK_WOLF_PELT);
+			if (qs.isCond(2) && hasItemsAtLimit(player, BLACK_WOLF_PELT)) {
+				takeItems(player, BLACK_WOLF_PELT.getId(), -1);
 				final int chance = getRandom(100);
 				if (chance <= 2) {
 					giveItems(player, GRANDMAS_PEARL, 1);

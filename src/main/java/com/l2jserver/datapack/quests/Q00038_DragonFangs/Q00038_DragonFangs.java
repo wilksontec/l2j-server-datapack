@@ -20,7 +20,7 @@ package com.l2jserver.datapack.quests.Q00038_DragonFangs;
 
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
-import com.l2jserver.gameserver.model.holders.ItemHolder;
+import com.l2jserver.gameserver.model.holders.QuestItemChanceHolder;
 import com.l2jserver.gameserver.model.quest.Quest;
 import com.l2jserver.gameserver.model.quest.QuestState;
 
@@ -39,11 +39,11 @@ public final class Q00038_DragonFangs extends Quest {
 	private static final int LIZARDMAN_LEADER = 20356;
 	private static final int LIZARDMAN_SUB_LEADER = 20357;
 	// Items
-	private static final ItemHolder FEATHER = new ItemHolder(7173, 100);
 	private static final int TOTEM_TOOTH_1ST = 7174;
-	private static final ItemHolder TOTEM_TOOTH_2ND = new ItemHolder(7175, 50);
 	private static final int LETTER_1ST = 7176;
 	private static final int LETTER_2ND = 7177;
+	private static final QuestItemChanceHolder FEATHER = new QuestItemChanceHolder(7173, 100L);
+	private static final QuestItemChanceHolder TOTEM_TOOTH_2ND = new QuestItemChanceHolder(7175, 50.0, 50L);
 	// Rewards
 	private static final int BONE_HELMET = 45;
 	private static final int LEATHER_GAUNTLET = 605;
@@ -230,21 +230,17 @@ public final class Q00038_DragonFangs extends Quest {
 	@Override
 	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
 		switch (npc.getId()) {
-			case LIZARDMAN_SUB_LEADER:
-			case LIZARDMAN_SENTINEL: {
+			case LIZARDMAN_SUB_LEADER, LIZARDMAN_SENTINEL -> {
 				final QuestState qs = getRandomPartyMemberState(killer, 1, 3, npc);
-				if ((qs != null) && giveItemRandomly(qs.getPlayer(), npc, FEATHER.getId(), 1, FEATHER.getCount(), 1.0, true)) {
+				if ((qs != null) && giveItemRandomly(qs.getPlayer(), npc, FEATHER, true)) {
 					qs.setCond(2);
 				}
-				break;
 			}
-			case LIZARDMAN_LEADER:
-			case LIZARDMAN_SHAMAN: {
+			case LIZARDMAN_LEADER, LIZARDMAN_SHAMAN -> {
 				final QuestState qs = getRandomPartyMemberState(killer, 6, 3, npc);
-				if ((qs != null) && giveItemRandomly(qs.getPlayer(), npc, TOTEM_TOOTH_2ND.getId(), 1, TOTEM_TOOTH_2ND.getCount(), 0.5, true)) {
+				if ((qs != null) && giveItemRandomly(qs.getPlayer(), npc, TOTEM_TOOTH_2ND, true)) {
 					qs.setCond(7);
 				}
-				break;
 			}
 		}
 		return super.onKill(npc, killer, isSummon);

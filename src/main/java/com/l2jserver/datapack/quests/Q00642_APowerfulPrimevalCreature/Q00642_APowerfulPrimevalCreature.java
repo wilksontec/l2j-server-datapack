@@ -18,12 +18,10 @@
  */
 package com.l2jserver.datapack.quests.Q00642_APowerfulPrimevalCreature;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
 import com.l2jserver.gameserver.model.quest.Quest;
+import com.l2jserver.gameserver.model.quest.QuestDroplist;
 import com.l2jserver.gameserver.model.quest.QuestState;
 
 /**
@@ -33,34 +31,26 @@ import com.l2jserver.gameserver.model.quest.QuestState;
 public class Q00642_APowerfulPrimevalCreature extends Quest {
 	// NPC
 	private static final int DINN = 32105;
+	// Mobs
+	private static final int ANCIENT_EGG = 18344;
 	// Items
 	private static final int DINOSAUR_TISSUE = 8774;
 	private static final int DINOSAUR_EGG = 8775;
+	// Droplist
+	private static final QuestDroplist DROPLIST = QuestDroplist.builder()
+			.bulkAddSingleDrop(DINOSAUR_TISSUE, 30.9)
+				.withNpcs(22196, 22197, 22198, 22199, 22218, 22223).build() // Velociraptor, Pterosaur
+			.bulkAddSingleDrop(DINOSAUR_TISSUE, 98.8).withNpcs(22215, 22216, 22217).build() // Tyrannosaurus
+			.addSingleDrop(ANCIENT_EGG, DINOSAUR_EGG) // Ancient Egg
+			.build();
 	// Misc
 	private static final int MIN_LEVEL = 75;
-	// Mobs
-	private static final int ANCIENT_EGG = 18344;
-	
-	private static final Map<Integer, Double> MOBS_TISSUE = new HashMap<>();
-	
-	static {
-		MOBS_TISSUE.put(22196, 0.309); // Velociraptor
-		MOBS_TISSUE.put(22197, 0.309); // Velociraptor
-		MOBS_TISSUE.put(22198, 0.309); // Velociraptor
-		MOBS_TISSUE.put(22199, 0.309); // Pterosaur
-		MOBS_TISSUE.put(22215, 0.988); // Tyrannosaurus
-		MOBS_TISSUE.put(22216, 0.988); // Tyrannosaurus
-		MOBS_TISSUE.put(22217, 0.988); // Tyrannosaurus
-		MOBS_TISSUE.put(22218, 0.309); // Velociraptor
-		MOBS_TISSUE.put(22223, 0.309); // Velociraptor
-	}
-	
+
 	public Q00642_APowerfulPrimevalCreature() {
 		super(642, Q00642_APowerfulPrimevalCreature.class.getSimpleName(), "A Powerful Primeval Creature");
 		addStartNpc(DINN);
 		addTalkId(DINN);
-		addKillId(ANCIENT_EGG);
-		addKillId(MOBS_TISSUE.keySet());
+		addKillId(DROPLIST.getNpcIds());
 		registerQuestItems(DINOSAUR_TISSUE, DINOSAUR_EGG);
 	}
 	
@@ -109,17 +99,10 @@ public class Q00642_APowerfulPrimevalCreature extends Quest {
 	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
 		final QuestState qs = getRandomPartyMemberState(killer, -1, 3, npc);
 		
-		if (qs == null) {
-			return null;
+		if (qs != null) {
+			giveItemRandomly(qs.getPlayer(), npc, DROPLIST.get(npc), true);
 		}
-		
-		int npcId = npc.getId();
-		
-		if (MOBS_TISSUE.containsKey(npcId)) {
-			giveItemRandomly(qs.getPlayer(), npc, DINOSAUR_TISSUE, 1, 0, MOBS_TISSUE.get(npcId), true);
-		} else {
-			giveItemRandomly(qs.getPlayer(), npc, DINOSAUR_EGG, 1, 0, 1.0, true);
-		}
+
 		return super.onKill(npc, killer, isSummon);
 	}
 	

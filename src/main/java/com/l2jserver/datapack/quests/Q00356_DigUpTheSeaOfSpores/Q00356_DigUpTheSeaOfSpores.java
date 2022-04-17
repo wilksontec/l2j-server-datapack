@@ -18,12 +18,11 @@
  */
 package com.l2jserver.datapack.quests.Q00356_DigUpTheSeaOfSpores;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
+import com.l2jserver.gameserver.model.holders.QuestItemChanceHolder;
 import com.l2jserver.gameserver.model.quest.Quest;
+import com.l2jserver.gameserver.model.quest.QuestDroplist;
 import com.l2jserver.gameserver.model.quest.QuestState;
 import com.l2jserver.gameserver.util.Util;
 
@@ -34,26 +33,26 @@ import com.l2jserver.gameserver.util.Util;
 public final class Q00356_DigUpTheSeaOfSpores extends Quest {
 	// NPC
 	private static final int GAUEN = 30717;
-	// Items
-	private static final int CARNIVORE_SPORE = 5865;
-	private static final int HERBIVOROUS_SPORE = 5866;
-	// Misc
-	private static final int MIN_LEVEL = 43;
 	// Monsters
 	private static final int ROTTING_TREE = 20558;
 	private static final int SPORE_ZOMBIE = 20562;
-	private static final Map<Integer, Double> MONSTER_DROP_CHANCES = new HashMap<>();
-	static {
-		MONSTER_DROP_CHANCES.put(ROTTING_TREE, 0.73);
-		MONSTER_DROP_CHANCES.put(SPORE_ZOMBIE, 0.94);
-	}
+	// Items
+	private static final QuestItemChanceHolder CARNIVORE_SPORE = new QuestItemChanceHolder(5865, 50L);
+	private static final QuestItemChanceHolder HERBIVOROUS_SPORE = new QuestItemChanceHolder(5866, 50L);
+	// Droplist
+	private static final QuestDroplist DROPLIST = QuestDroplist.builder()
+			.addSingleDrop(ROTTING_TREE, HERBIVOROUS_SPORE, 73.0)
+			.addSingleDrop(SPORE_ZOMBIE, CARNIVORE_SPORE, 94.0)
+			.build();
+	// Misc
+	private static final int MIN_LEVEL = 43;
 	
 	public Q00356_DigUpTheSeaOfSpores() {
 		super(356, Q00356_DigUpTheSeaOfSpores.class.getSimpleName(), "Dig Up the Sea of Spores!");
 		addStartNpc(GAUEN);
 		addTalkId(GAUEN);
 		addKillId(ROTTING_TREE, SPORE_ZOMBIE);
-		registerQuestItems(HERBIVOROUS_SPORE, CARNIVORE_SPORE);
+		registerQuestItems(HERBIVOROUS_SPORE.getId(), CARNIVORE_SPORE.getId());
 	}
 	
 	@Override
@@ -80,8 +79,8 @@ public final class Q00356_DigUpTheSeaOfSpores extends Quest {
 			}
 			case "30717-09.html": {
 				addExpAndSp(player, 31850, 0);
-				takeItems(player, CARNIVORE_SPORE, -1);
-				takeItems(player, HERBIVOROUS_SPORE, -1);
+				takeItems(player, CARNIVORE_SPORE.getId(), -1);
+				takeItems(player, HERBIVOROUS_SPORE.getId(), -1);
 				htmltext = event;
 				break;
 			}
@@ -98,7 +97,7 @@ public final class Q00356_DigUpTheSeaOfSpores extends Quest {
 			}
 			case "FINISH": {
 				final int value = getRandom(100);
-				int adena = 0;
+				int adena;
 				if (value < 20) {
 					adena = 44000;
 					htmltext = "30717-15.html";
@@ -124,12 +123,9 @@ public final class Q00356_DigUpTheSeaOfSpores extends Quest {
 		if ((qs == null) || !Util.checkIfInRange(1500, npc, killer, true)) {
 			return null;
 		}
-		
-		final int dropItem = ((npc.getId() == ROTTING_TREE) ? HERBIVOROUS_SPORE : CARNIVORE_SPORE);
-		final int otherItem = ((dropItem == HERBIVOROUS_SPORE) ? CARNIVORE_SPORE : HERBIVOROUS_SPORE);
-		
-		if (giveItemRandomly(qs.getPlayer(), npc, dropItem, 1, 50, MONSTER_DROP_CHANCES.get(npc.getId()), true)) {
-			if (getQuestItemsCount(killer, otherItem) >= 50) {
+
+		if (giveItemRandomly(qs.getPlayer(), npc, DROPLIST.get(npc), true)) {
+			if (hasItemsAtLimit(killer, CARNIVORE_SPORE, HERBIVOROUS_SPORE)) {
 				qs.setCond(3);
 			} else {
 				qs.setCond(2);
@@ -145,8 +141,8 @@ public final class Q00356_DigUpTheSeaOfSpores extends Quest {
 		if (qs.isCreated()) {
 			htmltext = (player.getLevel() >= MIN_LEVEL) ? "30717-01.htm" : "30717-06.htm";
 		} else if (qs.isStarted()) {
-			final boolean hasAllHerbSpores = (getQuestItemsCount(player, HERBIVOROUS_SPORE) >= 50);
-			final boolean hasAllCarnSpores = (getQuestItemsCount(player, CARNIVORE_SPORE) >= 50);
+			final boolean hasAllHerbSpores = hasItemsAtLimit(player, HERBIVOROUS_SPORE);
+			final boolean hasAllCarnSpores = hasItemsAtLimit(player, CARNIVORE_SPORE);
 			
 			if (hasAllHerbSpores && hasAllCarnSpores) {
 				htmltext = "30717-13.html";

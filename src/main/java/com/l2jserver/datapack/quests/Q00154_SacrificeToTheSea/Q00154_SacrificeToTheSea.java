@@ -20,6 +20,7 @@ package com.l2jserver.datapack.quests.Q00154_SacrificeToTheSea;
 
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
+import com.l2jserver.gameserver.model.holders.QuestItemChanceHolder;
 import com.l2jserver.gameserver.model.quest.Quest;
 import com.l2jserver.gameserver.model.quest.QuestState;
 
@@ -33,9 +34,9 @@ public final class Q00154_SacrificeToTheSea extends Quest {
 	private static final int CRISTEL = 30051;
 	private static final int ROLLFNAN = 30055;
 	// Items
-	private static final int FOX_FUR = 1032;
 	private static final int FOX_FUR_YAM = 1033;
 	private static final int MAIDEN_DOLL = 1034;
+	private static final QuestItemChanceHolder FOX_FUR = new QuestItemChanceHolder(1032, 30.0, 10L);
 	// Monsters
 	private static final int ELDER_KELTIR = 20544;
 	private static final int YOUNG_KELTIR = 20545;
@@ -50,7 +51,7 @@ public final class Q00154_SacrificeToTheSea extends Quest {
 		addStartNpc(ROCKSWELL);
 		addTalkId(ROCKSWELL, CRISTEL, ROLLFNAN);
 		addKillId(ELDER_KELTIR, YOUNG_KELTIR, KELTIR);
-		registerQuestItems(FOX_FUR, FOX_FUR_YAM, MAIDEN_DOLL);
+		registerQuestItems(FOX_FUR.getId(), FOX_FUR_YAM, MAIDEN_DOLL);
 	}
 	
 	@Override
@@ -106,7 +107,7 @@ public final class Q00154_SacrificeToTheSea extends Quest {
 						break;
 					}
 					case 2: {
-						takeItems(talker, FOX_FUR, -1);
+						takeItems(talker, FOX_FUR.getId(), -1);
 						giveItems(talker, FOX_FUR_YAM, 1);
 						qs.setCond(3, true);
 						htmltext = "30051-01.html";
@@ -151,7 +152,7 @@ public final class Q00154_SacrificeToTheSea extends Quest {
 	@Override
 	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
 		final QuestState qs = getRandomPartyMemberState(killer, 1, 3, npc);
-		if ((qs != null) && giveItemRandomly(qs.getPlayer(), npc, FOX_FUR, 1, 10, 0.3, true)) {
+		if ((qs != null) && giveItemRandomly(qs.getPlayer(), npc, FOX_FUR, true)) {
 			qs.setCond(2);
 		}
 		return super.onKill(npc, killer, isSummon);

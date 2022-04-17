@@ -18,13 +18,11 @@
  */
 package com.l2jserver.datapack.quests.Q00628_HuntGoldenRam;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
-import com.l2jserver.gameserver.model.holders.ItemChanceHolder;
+import com.l2jserver.gameserver.model.holders.QuestItemChanceHolder;
 import com.l2jserver.gameserver.model.quest.Quest;
+import com.l2jserver.gameserver.model.quest.QuestDroplist;
 import com.l2jserver.gameserver.model.quest.QuestState;
 import com.l2jserver.gameserver.model.quest.State;
 
@@ -33,38 +31,39 @@ import com.l2jserver.gameserver.model.quest.State;
  * @author netvirus, Zoey76
  */
 public final class Q00628_HuntGoldenRam extends Quest {
+	// Misc
+	private static final int MIN_LVL = 66;
+	private static final long REQUIRED_ITEM_COUNT = 100L;
 	// NPCs
 	private static final int KAHMAN = 31554;
 	// Items
 	private static final int GOLDEN_RAM_BADGE_RECRUIT = 7246;
 	private static final int GOLDEN_RAM_BADGE_SOLDIER = 7247;
-	private static final int SPLINTER_STAKATO_CHITIN = 7248;
-	private static final int NEEDLE_STAKATO_CHITIN = 7249;
-	// Misc
-	private static final int REQUIRED_ITEM_COUNT = 100;
-	private static final int MIN_LVL = 66;
-	// Mobs
-	private static final Map<Integer, ItemChanceHolder> MOBS_DROP_CHANCES = new HashMap<>();
-	
-	static {
-		MOBS_DROP_CHANCES.put(21508, new ItemChanceHolder(SPLINTER_STAKATO_CHITIN, 0.500, 1)); // splinter_stakato
-		MOBS_DROP_CHANCES.put(21509, new ItemChanceHolder(SPLINTER_STAKATO_CHITIN, 0.430, 1)); // splinter_stakato_worker
-		MOBS_DROP_CHANCES.put(21510, new ItemChanceHolder(SPLINTER_STAKATO_CHITIN, 0.521, 1)); // splinter_stakato_soldier
-		MOBS_DROP_CHANCES.put(21511, new ItemChanceHolder(SPLINTER_STAKATO_CHITIN, 0.575, 1)); // splinter_stakato_drone
-		MOBS_DROP_CHANCES.put(21512, new ItemChanceHolder(SPLINTER_STAKATO_CHITIN, 0.746, 1)); // splinter_stakato_drone_a
-		MOBS_DROP_CHANCES.put(21513, new ItemChanceHolder(NEEDLE_STAKATO_CHITIN, 0.500, 2)); // needle_stakato
-		MOBS_DROP_CHANCES.put(21514, new ItemChanceHolder(NEEDLE_STAKATO_CHITIN, 0.430, 2)); // needle_stakato_worker
-		MOBS_DROP_CHANCES.put(21515, new ItemChanceHolder(NEEDLE_STAKATO_CHITIN, 0.520, 2)); // needle_stakato_soldier
-		MOBS_DROP_CHANCES.put(21516, new ItemChanceHolder(NEEDLE_STAKATO_CHITIN, 0.531, 2)); // needle_stakato_drone
-		MOBS_DROP_CHANCES.put(21517, new ItemChanceHolder(NEEDLE_STAKATO_CHITIN, 0.744, 2)); // needle_stakato_drone_a
-	}
+	private static final QuestItemChanceHolder SPLINTER_STAKATO_CHITIN = new QuestItemChanceHolder(7248, REQUIRED_ITEM_COUNT);
+	private static final QuestItemChanceHolder NEEDLE_STAKATO_CHITIN = new QuestItemChanceHolder(7249, REQUIRED_ITEM_COUNT);
+	// Droplists
+	private static final QuestDroplist SPLINTER_DROPLIST = QuestDroplist.builder()
+			.addSingleDrop(21508, SPLINTER_STAKATO_CHITIN, 50.0) // splinter_stakato
+			.addSingleDrop(21509, SPLINTER_STAKATO_CHITIN, 43.0) // splinter_stakato_worker
+			.addSingleDrop(21510, SPLINTER_STAKATO_CHITIN, 52.1) // splinter_stakato_soldier
+			.addSingleDrop(21511, SPLINTER_STAKATO_CHITIN, 57.5) // splinter_stakato_drone
+			.addSingleDrop(21512, SPLINTER_STAKATO_CHITIN, 74.6) // splinter_stakato_drone_a
+			.build();
+	private static final QuestDroplist NEEDLE_DROPLIST = QuestDroplist.builder()
+			.addSingleDrop(21513, NEEDLE_STAKATO_CHITIN, 50.0) // needle_stakato
+			.addSingleDrop(21514, NEEDLE_STAKATO_CHITIN, 43.0) // needle_stakato_worker
+			.addSingleDrop(21515, NEEDLE_STAKATO_CHITIN, 52.0) // needle_stakato_soldier
+			.addSingleDrop(21516, NEEDLE_STAKATO_CHITIN, 53.1) // needle_stakato_drone
+			.addSingleDrop(21517, NEEDLE_STAKATO_CHITIN, 74.4) // needle_stakato_drone_a
+			.build();
 	
 	public Q00628_HuntGoldenRam() {
 		super(628, Q00628_HuntGoldenRam.class.getSimpleName(), "Hunt of the Golden Ram Mercenary Force");
 		addStartNpc(KAHMAN);
 		addTalkId(KAHMAN);
-		addKillId(MOBS_DROP_CHANCES.keySet());
-		registerQuestItems(SPLINTER_STAKATO_CHITIN, NEEDLE_STAKATO_CHITIN);
+		addKillId(SPLINTER_DROPLIST.getNpcIds());
+		addKillId(NEEDLE_DROPLIST.getNpcIds());
+		registerQuestItems(SPLINTER_STAKATO_CHITIN.getId(), NEEDLE_STAKATO_CHITIN.getId());
 	}
 	
 	@Override
@@ -92,9 +91,9 @@ public final class Q00628_HuntGoldenRam extends Quest {
 				break;
 			}
 			case "31554-08.html": {
-				if (getQuestItemsCount(player, SPLINTER_STAKATO_CHITIN) >= REQUIRED_ITEM_COUNT) {
+				if (hasItemsAtLimit(player, SPLINTER_STAKATO_CHITIN)) {
 					giveItems(player, GOLDEN_RAM_BADGE_RECRUIT, 1);
-					takeItems(player, SPLINTER_STAKATO_CHITIN, -1);
+					takeItems(player, SPLINTER_STAKATO_CHITIN.getId(), -1);
 					qs.setCond(2, true);
 					htmltext = event;
 				}
@@ -122,9 +121,9 @@ public final class Q00628_HuntGoldenRam extends Quest {
 	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
 		final QuestState qs = getRandomPartyMemberState(killer, -1, 1, npc);
 		if (qs != null) {
-			final ItemChanceHolder item = MOBS_DROP_CHANCES.get(npc.getId());
-			if ((item.getCount() <= qs.getCond()) && !qs.isCond(3)) {
-				giveItemRandomly(qs.getPlayer(), npc, item.getId(), 1, REQUIRED_ITEM_COUNT, item.getChance(), true);
+			switch (qs.getCond()) {
+				case 1 -> giveItemRandomly(qs.getPlayer(), npc, SPLINTER_DROPLIST.get(npc), true);
+				case 2 -> giveItemRandomly(qs.getPlayer(), npc, NEEDLE_DROPLIST.get(npc), true);
 			}
 		}
 		return super.onKill(npc, killer, isSummon);
@@ -140,8 +139,8 @@ public final class Q00628_HuntGoldenRam extends Quest {
 				break;
 			}
 			case State.STARTED: {
-				final long itemCountSplinter = getQuestItemsCount(player, SPLINTER_STAKATO_CHITIN);
-				final long itemCountNeedle = getQuestItemsCount(player, NEEDLE_STAKATO_CHITIN);
+				final long itemCountSplinter = getQuestItemsCount(player, SPLINTER_STAKATO_CHITIN.getId());
+				final long itemCountNeedle = getQuestItemsCount(player, NEEDLE_STAKATO_CHITIN.getId());
 				switch (qs.getCond()) {
 					case 1: {
 						htmltext = ((itemCountSplinter >= REQUIRED_ITEM_COUNT) ? "31554-07.html" : "31554-06.html");
@@ -151,8 +150,8 @@ public final class Q00628_HuntGoldenRam extends Quest {
 						if (hasQuestItems(player, GOLDEN_RAM_BADGE_RECRUIT)) {
 							if ((itemCountSplinter >= REQUIRED_ITEM_COUNT) && (itemCountNeedle >= REQUIRED_ITEM_COUNT)) {
 								takeItems(player, GOLDEN_RAM_BADGE_RECRUIT, -1);
-								takeItems(player, SPLINTER_STAKATO_CHITIN, -1);
-								takeItems(player, NEEDLE_STAKATO_CHITIN, -1);
+								takeItems(player, SPLINTER_STAKATO_CHITIN.getId(), -1);
+								takeItems(player, NEEDLE_STAKATO_CHITIN.getId(), -1);
 								giveItems(player, GOLDEN_RAM_BADGE_SOLDIER, 1);
 								qs.setCond(3, true);
 								htmltext = "31554-10.html";

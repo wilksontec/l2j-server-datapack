@@ -20,8 +20,11 @@ package com.l2jserver.datapack.quests.Q00278_HomeSecurity;
 
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
+import com.l2jserver.gameserver.model.holders.QuestItemChanceHolder;
 import com.l2jserver.gameserver.model.quest.Quest;
 import com.l2jserver.gameserver.model.quest.QuestState;
+
+import static com.l2jserver.gameserver.model.quest.QuestDroplist.singleDropItem;
 
 /**
  * Home Security (278)
@@ -36,16 +39,14 @@ public class Q00278_HomeSecurity extends Quest {
 		18907
 	};
 	// Item
-	private static final int SEL_MAHUM_MANE = 15531;
-	// Misc
-	private static final int SEL_MAHUM_MANE_COUNT = 300;
+	private static final QuestItemChanceHolder SEL_MAHUM_MANE = new QuestItemChanceHolder(15531, 300L);
 	
 	public Q00278_HomeSecurity() {
 		super(278, Q00278_HomeSecurity.class.getSimpleName(), "Home Security");
 		addStartNpc(TUNATUN);
 		addTalkId(TUNATUN);
 		addKillId(MONSTER);
-		registerQuestItems(SEL_MAHUM_MANE);
+		registerQuestItems(SEL_MAHUM_MANE.getId());
 	}
 	
 	@Override
@@ -105,25 +106,20 @@ public class Q00278_HomeSecurity extends Quest {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance player, boolean isSummon) {
-		final QuestState st = getRandomPartyMemberState(player, 1, 3, npc);
+	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
+		final QuestState st = getRandomPartyMemberState(killer, 1, 3, npc);
 		if (st != null) {
 			switch (npc.getId()) {
-				case 18905: // Farm Ravager (Crazy)
-				{
-					final int itemCount = ((getRandom(1000) < 486) ? getRandom(6) + 1 : getRandom(5) + 1);
-					if (st.giveItemRandomly(npc, SEL_MAHUM_MANE, itemCount, SEL_MAHUM_MANE_COUNT, 1.0, true)) {
-						st.setCond(2, true);
+				case 18905 -> { // Farm Ravager (Crazy)
+					final long itemCount = ((getRandom(1000) < 486) ? getRandom(6) + 1 : getRandom(5) + 1);
+					if (giveItemRandomly(st.getPlayer(), npc, singleDropItem(SEL_MAHUM_MANE, itemCount), SEL_MAHUM_MANE.getLimit(), true)) {
+						st.setCond(2);
 					}
-					break;
 				}
-				case 18906: // Farm Bandit
-				case 18907: // Beast Devourer
-				{
-					if (st.giveItemRandomly(npc, SEL_MAHUM_MANE, 1, SEL_MAHUM_MANE_COUNT, 0.85, true)) {
-						st.setCond(2, true);
+				case 18906, 18907 -> { // Farm Bandit, Beast Devourer
+					if (giveItemRandomly(st.getPlayer(), npc, singleDropItem(SEL_MAHUM_MANE, 85.0), SEL_MAHUM_MANE.getLimit(), true)) {
+						st.setCond(2);
 					}
-					break;
 				}
 			}
 		}
@@ -137,9 +133,9 @@ public class Q00278_HomeSecurity extends Quest {
 		if (st.isCreated()) {
 			htmltext = "31537-01.htm";
 		} else if (st.isStarted()) {
-			if (st.isCond(1) || (getQuestItemsCount(player, SEL_MAHUM_MANE) < SEL_MAHUM_MANE_COUNT)) {
+			if (st.isCond(1) || !hasItemsAtLimit(player, SEL_MAHUM_MANE)) {
 				htmltext = "31537-06.html";
-			} else if (st.isCond(2) && (getQuestItemsCount(player, SEL_MAHUM_MANE) >= SEL_MAHUM_MANE_COUNT)) {
+			} else if (st.isCond(2) && hasItemsAtLimit(player, SEL_MAHUM_MANE)) {
 				htmltext = "31537-05.html";
 			}
 		}

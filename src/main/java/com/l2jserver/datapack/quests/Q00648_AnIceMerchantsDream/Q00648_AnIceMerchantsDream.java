@@ -18,14 +18,13 @@
  */
 package com.l2jserver.datapack.quests.Q00648_AnIceMerchantsDream;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import com.l2jserver.datapack.quests.Q00115_TheOtherSideOfTruth.Q00115_TheOtherSideOfTruth;
 import com.l2jserver.gameserver.enums.audio.Sound;
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
 import com.l2jserver.gameserver.model.quest.Quest;
+import com.l2jserver.gameserver.model.quest.QuestDroplist;
+import com.l2jserver.gameserver.model.quest.QuestDroplist.QuestDropInfo;
 import com.l2jserver.gameserver.model.quest.QuestState;
 
 /**
@@ -33,24 +32,6 @@ import com.l2jserver.gameserver.model.quest.QuestState;
  * @author netvirus, Adry_85
  */
 public final class Q00648_AnIceMerchantsDream extends Quest {
-	private static class DropInfo {
-		private final double _firstChance;
-		private final double _secondChance;
-		
-		public DropInfo(double firstChance, double secondChance) {
-			_firstChance = firstChance;
-			_secondChance = secondChance;
-		}
-		
-		public double getFirstChance() {
-			return _firstChance;
-		}
-		
-		public double getSecondChance() {
-			return _secondChance;
-		}
-	}
-	
 	// NPCs
 	private static final int RAFFORTY = 32020;
 	private static final int ICE_SHELF = 32023;
@@ -58,37 +39,36 @@ public final class Q00648_AnIceMerchantsDream extends Quest {
 	private static final int SILVER_HEMOCYTE = 8057;
 	private static final int SILVER_ICE_CRYSTAL = 8077;
 	private static final int BLACK_ICE_CRYSTAL = 8078;
+	// Droplists
+	private static final QuestDroplist DROPLIST = QuestDroplist.builder()
+			.addSingleDrop(22080, SILVER_ICE_CRYSTAL, 28.5).addSingleDrop(22080, SILVER_HEMOCYTE, 4.8) // Massive Maze Bandersnatch
+			.addSingleDrop(22081, SILVER_ICE_CRYSTAL, 44.3) // Lost Watcher
+			.addSingleDrop(22082, SILVER_ICE_CRYSTAL, 51.0) // Elder Lost Watcher
+			.addSingleDrop(22083, SILVER_ICE_CRYSTAL, 47.7).addSingleDrop(22083, SILVER_HEMOCYTE, 4.9) // Baby Panthera
+			.addSingleDrop(22084, SILVER_ICE_CRYSTAL, 47.7).addSingleDrop(22084, SILVER_HEMOCYTE, 4.9) // Panthera
+			.addSingleDrop(22085, SILVER_ICE_CRYSTAL, 42.0).addSingleDrop(22085, SILVER_HEMOCYTE, 4.3) // Lost Gargoyle
+			.addSingleDrop(22086, SILVER_ICE_CRYSTAL, 49.0).addSingleDrop(22086, SILVER_HEMOCYTE, 5.0) // Lost Gargoyle Youngling
+			.addSingleDrop(22087, SILVER_ICE_CRYSTAL, 78.7).addSingleDrop(22087, SILVER_HEMOCYTE, 8.1) // Pronghorn Spirit
+			.addSingleDrop(22088, SILVER_ICE_CRYSTAL, 48.0).addSingleDrop(22088, SILVER_HEMOCYTE, 4.9) // Pronghorn
+			.addSingleDrop(22089, SILVER_ICE_CRYSTAL, 55.0).addSingleDrop(22089, SILVER_HEMOCYTE, 5.6) // Ice Tarantula
+			.addSingleDrop(22090, SILVER_ICE_CRYSTAL, 57.0).addSingleDrop(22090, SILVER_HEMOCYTE, 5.8) // Frost Tarantula
+			.addSingleDrop(22091, SILVER_ICE_CRYSTAL, 62.3) // Lost Iron Golem
+			.addSingleDrop(22092, SILVER_ICE_CRYSTAL, 62.3) // Frost Iron Golem
+			.addSingleDrop(22093, SILVER_ICE_CRYSTAL, 91.0).addSingleDrop(22093, SILVER_HEMOCYTE, 9.3) // Lost Buffalo
+			.addSingleDrop(22094, SILVER_ICE_CRYSTAL, 55.3).addSingleDrop(22094, SILVER_HEMOCYTE, 5.7) // Frost Buffalo
+			.addSingleDrop(22095, SILVER_ICE_CRYSTAL, 59.3).addSingleDrop(22095, SILVER_HEMOCYTE, 6.1) // Ursus Cub
+			.addSingleDrop(22096, SILVER_ICE_CRYSTAL, 59.3).addSingleDrop(22096, SILVER_HEMOCYTE, 6.1) // Ursus
+			.addSingleDrop(22097, SILVER_ICE_CRYSTAL, 69.3).addSingleDrop(22097, SILVER_HEMOCYTE, 7.1) // Lost Yeti
+			.addSingleDrop(22098, SILVER_ICE_CRYSTAL, 71.7).addSingleDrop(22098, SILVER_HEMOCYTE, 7.4) // Frost Yeti
+			.build();
 	// Misc
 	private static final int MIN_LVL = 53;
-	// Monsters
-	private static final Map<Integer, DropInfo> MONSTERS = new HashMap<>();
-	static {
-		MONSTERS.put(22080, new DropInfo(0.285, 0.048)); // Massive Maze Bandersnatch
-		MONSTERS.put(22081, new DropInfo(0.443, 0.0)); // Lost Watcher
-		MONSTERS.put(22082, new DropInfo(0.510, 0.0)); // Elder Lost Watcher
-		MONSTERS.put(22083, new DropInfo(0.477, 0.049)); // Baby Panthera
-		MONSTERS.put(22084, new DropInfo(0.477, 0.049)); // Panthera
-		MONSTERS.put(22085, new DropInfo(0.420, 0.043)); // Lost Gargoyle
-		MONSTERS.put(22086, new DropInfo(0.490, 0.050)); // Lost Gargoyle Youngling
-		MONSTERS.put(22087, new DropInfo(0.787, 0.081)); // Pronghorn Spirit
-		MONSTERS.put(22088, new DropInfo(0.480, 0.049)); // Pronghorn
-		MONSTERS.put(22089, new DropInfo(0.550, 0.056)); // Ice Tarantula
-		MONSTERS.put(22090, new DropInfo(0.570, 0.058)); // Frost Tarantula
-		MONSTERS.put(22091, new DropInfo(0.623, 0.0)); // Lost Iron Golem
-		MONSTERS.put(22092, new DropInfo(0.623, 0.0)); // Frost Iron Golem
-		MONSTERS.put(22093, new DropInfo(0.910, 0.093)); // Lost Buffalo
-		MONSTERS.put(22094, new DropInfo(0.553, 0.057)); // Frost Buffalo
-		MONSTERS.put(22095, new DropInfo(0.593, 0.061)); // Ursus Cub
-		MONSTERS.put(22096, new DropInfo(0.593, 0.061)); // Ursus
-		MONSTERS.put(22097, new DropInfo(0.693, 0.071)); // Lost Yeti
-		MONSTERS.put(22098, new DropInfo(0.717, 0.074)); // Frost Yeti
-	}
-	
+
 	public Q00648_AnIceMerchantsDream() {
 		super(648, Q00648_AnIceMerchantsDream.class.getSimpleName(), "An Ice Merchants Dream");
 		addStartNpc(RAFFORTY);
 		addTalkId(RAFFORTY, ICE_SHELF);
-		addKillId(MONSTERS.keySet());
+		addKillId(DROPLIST.getNpcIds());
 		registerQuestItems(SILVER_HEMOCYTE, SILVER_ICE_CRYSTAL, BLACK_ICE_CRYSTAL);
 	}
 	
@@ -234,15 +214,15 @@ public final class Q00648_AnIceMerchantsDream extends Quest {
 	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
 		final QuestState st = getRandomPartyMemberState(killer, -1, 3, npc);
 		if (st != null) {
-			final DropInfo info = MONSTERS.get(npc.getId());
 			if (st.getCond() >= 1) {
-				giveItemRandomly(st.getPlayer(), npc, SILVER_ICE_CRYSTAL, 1, 0, info.getFirstChance(), true);
+				giveItemRandomly(st.getPlayer(), npc, DROPLIST.get(npc), true);
 			}
-			
-			if (info.getSecondChance() > 0) {
+
+			QuestDropInfo hemocyteDropInfo = DROPLIST.get(npc.getId(), SILVER_HEMOCYTE);
+			if (hemocyteDropInfo != null) {
 				final QuestState st2 = st.getPlayer().getQuestState(Q00115_TheOtherSideOfTruth.class.getSimpleName());
 				if ((st.getCond() >= 2) && (st2 != null) && st2.isCompleted()) {
-					giveItemRandomly(st.getPlayer(), npc, SILVER_HEMOCYTE, 1, 0, info.getSecondChance(), true);
+					giveItemRandomly(st.getPlayer(), npc, hemocyteDropInfo, true);
 				}
 			}
 		}

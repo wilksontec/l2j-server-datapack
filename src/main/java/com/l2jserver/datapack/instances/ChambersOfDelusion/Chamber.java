@@ -18,12 +18,6 @@
  */
 package com.l2jserver.datapack.instances.ChambersOfDelusion;
 
-import static com.l2jserver.gameserver.config.Configuration.rates;
-
-import java.util.Calendar;
-import java.util.concurrent.ScheduledFuture;
-import java.util.logging.Level;
-
 import com.l2jserver.datapack.instances.AbstractInstance;
 import com.l2jserver.gameserver.ThreadPoolManager;
 import com.l2jserver.gameserver.ai.CtrlIntention;
@@ -46,6 +40,12 @@ import com.l2jserver.gameserver.network.serverpackets.Earthquake;
 import com.l2jserver.gameserver.network.serverpackets.NpcSay;
 import com.l2jserver.gameserver.network.serverpackets.SystemMessage;
 import com.l2jserver.gameserver.util.Util;
+
+import java.util.Calendar;
+import java.util.concurrent.ScheduledFuture;
+import java.util.logging.Level;
+
+import static com.l2jserver.gameserver.config.Configuration.rates;
 
 /**
  * Chambers of Delusion superclass.
@@ -439,19 +439,19 @@ public abstract class Chamber extends AbstractInstance {
 	public String onAttack(final L2Npc npc, final L2PcInstance attacker, final int damage, final boolean isPet, final Skill skill) {
 		if (!npc.isBusy() && (npc.getCurrentHp() < (npc.getMaxHp() / 10))) {
 			npc.setBusy(true);
-			if (getRandom(100) < 25) // 25% chance to reward
+			if (getRandom(100) < 25 * rates().getQuestDropChanceMultiplier()) // 25% chance to reward
 			{
-				if (getRandom(100) < 33) {
-					npc.dropItem(attacker, ENRIA, (int) (3 * rates().getRateQuestDrop()));
+				if (getRandom(100) < 33 * rates().getQuestDropChanceMultiplier()) {
+					npc.dropItem(attacker, ENRIA, (int) (3 * rates().getQuestDropAmountMultiplier()));
 				}
-				if (getRandom(100) < 50) {
-					npc.dropItem(attacker, THONS, (int) (4 * rates().getRateQuestDrop()));
+				if (getRandom(100) < 50 * rates().getQuestDropChanceMultiplier()) {
+					npc.dropItem(attacker, THONS, (int) (4 * rates().getQuestDropAmountMultiplier()));
 				}
-				if (getRandom(100) < 50) {
-					npc.dropItem(attacker, ASOFE, (int) (4 * rates().getRateQuestDrop()));
+				if (getRandom(100) < 50 * rates().getQuestDropChanceMultiplier()) {
+					npc.dropItem(attacker, ASOFE, (int) (4 * rates().getQuestDropAmountMultiplier()));
 				}
-				if (getRandom(100) < 16) {
-					npc.dropItem(attacker, LEONARD, (int) (2 * rates().getRateQuestDrop()));
+				if (getRandom(100) < 16 * rates().getQuestDropChanceMultiplier()) {
+					npc.dropItem(attacker, LEONARD, (int) (2 * rates().getQuestDropAmountMultiplier()));
 				}
 				
 				npc.broadcastEvent("SCE_LUCKY", 2000, null);

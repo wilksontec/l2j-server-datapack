@@ -18,15 +18,11 @@
  */
 package com.l2jserver.datapack.quests.Q00626_ADarkTwilight;
 
-import static com.l2jserver.gameserver.config.Configuration.rates;
-
-import java.util.HashMap;
-import java.util.Map;
-
-import com.l2jserver.gameserver.enums.audio.Sound;
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
+import com.l2jserver.gameserver.model.holders.QuestItemChanceHolder;
 import com.l2jserver.gameserver.model.quest.Quest;
+import com.l2jserver.gameserver.model.quest.QuestDroplist;
 import com.l2jserver.gameserver.model.quest.QuestState;
 import com.l2jserver.gameserver.model.quest.State;
 
@@ -39,25 +35,24 @@ public class Q00626_ADarkTwilight extends Quest {
 	// NPCs
 	private static final int HIERARCH = 31517;
 	// Items
-	private static final int BLOOD_OF_SAINT = 7169;
-	// Monsters
-	private static final Map<Integer, Integer> MONSTERS = new HashMap<>();
-	static {
-		MONSTERS.put(21520, 641); // Eye of Splendor
-		MONSTERS.put(21523, 648); // Flash of Splendor
-		MONSTERS.put(21524, 692); // Blade of Splendor
-		MONSTERS.put(21525, 710); // Blade of Splendor
-		MONSTERS.put(21526, 772); // Wisdom of Splendor
-		MONSTERS.put(21529, 639); // Soul of Splendor
-		MONSTERS.put(21530, 683); // Victory of Splendor
-		MONSTERS.put(21531, 767); // Punishment of Splendor
-		MONSTERS.put(21532, 795); // Shout of Splendor
-		MONSTERS.put(21535, 802); // Signet of Splendor
-		MONSTERS.put(21536, 774); // Crown of Splendor
-		MONSTERS.put(21539, 848); // Wailing of Splendor
-		MONSTERS.put(21540, 880); // Wailing of Splendor
-		MONSTERS.put(21658, 790); // Punishment of Splendor
-	}
+	private static final QuestItemChanceHolder BLOOD_OF_SAINT = new QuestItemChanceHolder(7169, 300L);
+	// Droplist
+	private static final QuestDroplist DROPLIST = QuestDroplist.builder()
+			.addSingleDrop(21520, BLOOD_OF_SAINT, 64.1) // Eye of Splendor
+			.addSingleDrop(21523, BLOOD_OF_SAINT, 64.8) // Flash of Splendor
+			.addSingleDrop(21524, BLOOD_OF_SAINT, 69.2) // Blade of Splendor
+			.addSingleDrop(21525, BLOOD_OF_SAINT, 71.0) // Blade of Splendor
+			.addSingleDrop(21526, BLOOD_OF_SAINT, 77.2) // Wisdom of Splendor
+			.addSingleDrop(21529, BLOOD_OF_SAINT, 63.9) // Soul of Splendor
+			.addSingleDrop(21530, BLOOD_OF_SAINT, 68.3) // Victory of Splendor
+			.addSingleDrop(21531, BLOOD_OF_SAINT, 76.7) // Punishment of Splendor
+			.addSingleDrop(21532, BLOOD_OF_SAINT, 79.5) // Shout of Splendor
+			.addSingleDrop(21535, BLOOD_OF_SAINT, 80.2) // Signet of Splendor
+			.addSingleDrop(21536, BLOOD_OF_SAINT, 77.4) // Crown of Splendor
+			.addSingleDrop(21539, BLOOD_OF_SAINT, 84.8) // Wailing of Splendor
+			.addSingleDrop(21540, BLOOD_OF_SAINT, 88.0) // Wailing of Splendor
+			.addSingleDrop(21658, BLOOD_OF_SAINT, 79.0) // Punishment of Splendor
+			.build();
 	// Misc
 	private static final int MIN_LEVEL_REQUIRED = 60;
 	private static final int ITEMS_COUNT_REQUIRED = 300;
@@ -70,8 +65,8 @@ public class Q00626_ADarkTwilight extends Quest {
 		super(626, Q00626_ADarkTwilight.class.getSimpleName(), "A Dark Twilight");
 		addStartNpc(HIERARCH);
 		addTalkId(HIERARCH);
-		addKillId(MONSTERS.keySet());
-		registerQuestItems(BLOOD_OF_SAINT);
+		addKillId(DROPLIST.getNpcIds());
+		registerQuestItems(BLOOD_OF_SAINT.getId());
 	}
 	
 	@Override
@@ -88,7 +83,7 @@ public class Q00626_ADarkTwilight extends Quest {
 				st.startQuest();
 				break;
 			case "Exp":
-				if (st.getQuestItemsCount(BLOOD_OF_SAINT) < ITEMS_COUNT_REQUIRED) {
+				if (!hasItemsAtLimit(st.getPlayer(), BLOOD_OF_SAINT)) {
 					return "31517-06.html";
 				}
 				st.addExpAndSp(XP_COUNT, SP_COUNT);
@@ -96,7 +91,7 @@ public class Q00626_ADarkTwilight extends Quest {
 				htmltext = "31517-07.html";
 				break;
 			case "Adena":
-				if (st.getQuestItemsCount(BLOOD_OF_SAINT) < ITEMS_COUNT_REQUIRED) {
+				if (!hasItemsAtLimit(st.getPlayer(), BLOOD_OF_SAINT)) {
 					return "31517-06.html";
 				}
 				st.giveAdena(ADENA_COUNT, true);
@@ -112,18 +107,9 @@ public class Q00626_ADarkTwilight extends Quest {
 	
 	@Override
 	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
-		final L2PcInstance partyMember = getRandomPartyMember(killer, 1);
-		if (partyMember != null) {
-			final QuestState st = getQuestState(partyMember, false);
-			final double chance = MONSTERS.get(npc.getId()) * rates().getRateQuestDrop();
-			if (getRandom(1000) < chance) {
-				st.giveItems(BLOOD_OF_SAINT, 1);
-				if (st.getQuestItemsCount(BLOOD_OF_SAINT) < ITEMS_COUNT_REQUIRED) {
-					st.playSound(Sound.ITEMSOUND_QUEST_ITEMGET);
-				} else {
-					st.setCond(2, true);
-				}
-			}
+		QuestState st = getRandomPartyMemberState(killer, 1, 1, npc);
+		if (st != null && giveItemRandomly(st.getPlayer(), npc, DROPLIST.get(npc), true)) {
+			st.setCond(2);
 		}
 		return super.onKill(npc, killer, isSummon);
 	}

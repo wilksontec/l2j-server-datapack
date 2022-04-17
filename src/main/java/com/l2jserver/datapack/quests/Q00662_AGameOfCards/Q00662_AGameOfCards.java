@@ -18,17 +18,12 @@
  */
 package com.l2jserver.datapack.quests.Q00662_AGameOfCards;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
 import com.l2jserver.gameserver.model.quest.Quest;
+import com.l2jserver.gameserver.model.quest.QuestDroplist;
 import com.l2jserver.gameserver.model.quest.QuestState;
 import com.l2jserver.gameserver.model.quest.State;
-import com.l2jserver.gameserver.util.Util;
 
 /**
  * A Game of Cards (662)
@@ -40,58 +35,52 @@ public final class Q00662_AGameOfCards extends Quest {
 	// Items
 	private static final int RED_GEM = 8765;
 	private static final int ZIGGOS_GEMSTONE = 8868;
+	// Droplist
+	private static final QuestDroplist DROPLIST = QuestDroplist.builder()
+			.addSingleDrop(20672, RED_GEM, 35.7) // Trives
+			.addSingleDrop(20673, RED_GEM, 35.7) // Falibati
+			.addSingleDrop(20674, RED_GEM, 58.3) // Doom Knight
+			.addSingleDrop(20677, RED_GEM, 43.5) // Tulben
+			.addSingleDrop(20955, RED_GEM, 35.8) // Ghostly Warrior
+			.addSingleDrop(20958, RED_GEM, 28.3) // Death Agent
+			.addSingleDrop(20959, RED_GEM, 45.5) // Dark Guard
+			.addSingleDrop(20961, RED_GEM, 36.5) // Bloody Knight
+			.addSingleDrop(20962, RED_GEM, 34.8) // Bloody Priest
+			.addSingleDrop(20965, RED_GEM, 45.7) // Chimera Piece
+			.addSingleDrop(20966, RED_GEM, 49.3) // Changed Creation
+			.addSingleDrop(20968, RED_GEM, 41.8) // Nonexistent Man
+			.addSingleDrop(20972, RED_GEM, 35.0) // Shaman of Ancient Times
+			.addSingleDrop(20973, RED_GEM, 45.3) // Forgotten Ancient People
+			.addSingleDrop(21002, RED_GEM, 31.5) // Doom Scout
+			.addSingleDrop(21004, RED_GEM, 32.0) // Dismal Pole
+			.addSingleDrop(21006, RED_GEM, 33.5) // Doom Servant
+			.addSingleDrop(21008, RED_GEM, 46.2) // Doom Archer
+			.addSingleDrop(21010, RED_GEM, 39.7) // Doom Warrior
+			.addSingleDrop(21109, RED_GEM, 50.7) // Hames Orc Scout
+			.addSingleDrop(21112, RED_GEM, 55.2) // Hames Orc Footman
+			.addSingleDrop(21114, RED_GEM, 58.7) // Cursed Guardian
+			.addSingleDrop(21116, RED_GEM, 81.2) // Hames Orc Overlord
+			.bulkAddSingleDrop(RED_GEM, 48.3).withNpcs(21278, 21279, 21280).build() // Antelope
+			.bulkAddSingleDrop(RED_GEM, 51.5).withNpcs(21286, 21287, 21288).build() // Buffalo
+			.addSingleDrop(21508, RED_GEM, 49.3) // Splinter Stakato
+			.addSingleDrop(21510, RED_GEM, 52.7) // Splinter Stakato Soldier
+			.addSingleDrop(21513, RED_GEM, 56.2) // Needle Stakato
+			.addSingleDrop(21515, RED_GEM, 59.8) // Needle Stakato Soldier
+			.addSingleDrop(21520, RED_GEM, 45.8) // Eye of Splendor
+			.addSingleDrop(21526, RED_GEM, 55.2) // Wisdom of Splendor
+			.addSingleDrop(21530, RED_GEM, 48.8) // Victory of Splendor
+			.addSingleDrop(21535, RED_GEM, 57.3) // Signet of Splendor
+			.addSingleDrop(18001, RED_GEM, 23.2) // Blood Queen
+			.build();
 	// Misc
 	private static final int MIN_LEVEL = 61;
 	private static final int REQUIRED_CHIP_COUNT = 50;
-	// Monsters
-	private static final Map<Integer, Integer> MONSTERS = new HashMap<>();
-	
-	static {
-		MONSTERS.put(20672, 357); // Trives
-		MONSTERS.put(20673, 357); // Falibati
-		MONSTERS.put(20674, 583); // Doom Knight
-		MONSTERS.put(20677, 435); // Tulben
-		MONSTERS.put(20955, 358); // Ghostly Warrior
-		MONSTERS.put(20958, 283); // Death Agent
-		MONSTERS.put(20959, 455); // Dark Guard
-		MONSTERS.put(20961, 365); // Bloody Knight
-		MONSTERS.put(20962, 348); // Bloody Priest
-		MONSTERS.put(20965, 457); // Chimera Piece
-		MONSTERS.put(20966, 493); // Changed Creation
-		MONSTERS.put(20968, 418); // Nonexistent Man
-		MONSTERS.put(20972, 350); // Shaman of Ancient Times
-		MONSTERS.put(20973, 453); // Forgotten Ancient People
-		MONSTERS.put(21002, 315); // Doom Scout
-		MONSTERS.put(21004, 320); // Dismal Pole
-		MONSTERS.put(21006, 335); // Doom Servant
-		MONSTERS.put(21008, 462); // Doom Archer
-		MONSTERS.put(21010, 397); // Doom Warrior
-		MONSTERS.put(21109, 507); // Hames Orc Scout
-		MONSTERS.put(21112, 552); // Hames Orc Footman
-		MONSTERS.put(21114, 587); // Cursed Guardian
-		MONSTERS.put(21116, 812); // Hames Orc Overlord
-		MONSTERS.put(21278, 483); // Antelope
-		MONSTERS.put(21279, 483); // Antelope
-		MONSTERS.put(21280, 483); // Antelope
-		MONSTERS.put(21286, 515); // Buffalo
-		MONSTERS.put(21287, 515); // Buffalo
-		MONSTERS.put(21288, 515); // Buffalo
-		MONSTERS.put(21508, 493); // Splinter Stakato
-		MONSTERS.put(21510, 527); // Splinter Stakato Soldier
-		MONSTERS.put(21513, 562); // Needle Stakato
-		MONSTERS.put(21515, 598); // Needle Stakato Soldier
-		MONSTERS.put(21520, 458); // Eye of Splendor
-		MONSTERS.put(21526, 552); // Wisdom of Splendor
-		MONSTERS.put(21530, 488); // Victory of Splendor
-		MONSTERS.put(21535, 573); // Signet of Splendor
-		MONSTERS.put(18001, 232); // Blood Queen
-	}
-	
+
 	public Q00662_AGameOfCards() {
 		super(662, Q00662_AGameOfCards.class.getSimpleName(), "A Game of Cards");
 		addStartNpc(KLUMP);
 		addTalkId(KLUMP);
-		addKillId(MONSTERS.keySet());
+		addKillId(DROPLIST.getNpcIds());
 	}
 	
 	@Override
@@ -536,26 +525,9 @@ public final class Q00662_AGameOfCards extends Quest {
 	
 	@Override
 	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
-		final List<L2PcInstance> players = new ArrayList<>();
-		players.add(killer);
-		players.add(killer);
-		
-		if (killer.isInParty()) {
-			for (L2PcInstance member : killer.getParty().getMembers()) {
-				if (getQuestState(member, false) != null) {
-					players.add(member);
-				}
-			}
-		}
-		
-		final L2PcInstance player = players.get(getRandom(players.size()));
-		if ((player != null) && Util.checkIfInRange(1500, npc, player, false)) {
-			if (MONSTERS.get(npc.getId()) < getRandom(1000)) {
-				final QuestState st = getQuestState(player, false);
-				if (st != null) {
-					giveItemRandomly(st.getPlayer(), npc, RED_GEM, 1, 0, MONSTERS.get(npc.getId()), true);
-				}
-			}
+		final QuestState st = getRandomPartyMemberState(killer, -1, 3, npc);
+		if (st != null) {
+			giveItemRandomly(st.getPlayer(), npc, DROPLIST.get(npc), true);
 		}
 		return super.onKill(npc, killer, isSummon);
 	}

@@ -18,12 +18,11 @@
  */
 package com.l2jserver.datapack.quests.Q00117_TheOceanOfDistantStars;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
+import com.l2jserver.gameserver.model.holders.QuestItemChanceHolder;
 import com.l2jserver.gameserver.model.quest.Quest;
+import com.l2jserver.gameserver.model.quest.QuestDroplist;
 import com.l2jserver.gameserver.model.quest.QuestState;
 import com.l2jserver.gameserver.util.Util;
 
@@ -40,24 +39,21 @@ public final class Q00117_TheOceanOfDistantStars extends Quest {
 	private static final int BOX = 32076;
 	// Items
 	private static final int ENGRAVED_HAMMER = 8488;
-	private static final int BOOK_OF_GREY_STAR = 8495;
+	private static final QuestItemChanceHolder BOOK_OF_GREY_STAR = new QuestItemChanceHolder(8495, 1L);
+	// Droplist
+	private static final QuestDroplist DROPLIST = QuestDroplist.builder()
+			.addSingleDrop(22023, BOOK_OF_GREY_STAR, 17.9) // Bandit Warrior
+			.addSingleDrop(22024, BOOK_OF_GREY_STAR, 10.0) // Bandit Inspector
+			.build();
 	// Misc
 	private static final int MIN_LEVEL = 39;
-	// Monsters
-	private static final int BANDIT_WARRIOR = 22023;
-	private static final int BANDIT_INSPECTOR = 22024;
-	private static final Map<Integer, Double> MONSTER_DROP_CHANCES = new HashMap<>();
-	static {
-		MONSTER_DROP_CHANCES.put(BANDIT_WARRIOR, 0.179);
-		MONSTER_DROP_CHANCES.put(BANDIT_INSPECTOR, 0.1);
-	}
 	
 	public Q00117_TheOceanOfDistantStars() {
 		super(117, Q00117_TheOceanOfDistantStars.class.getSimpleName(), "The Ocean of Distant Stars");
 		addStartNpc(ABEY);
 		addTalkId(ABEY, GHOST_OF_A_RAILROAD_ENGINEER, GHOST_OF_AN_ANCIENT_RAILROAD_ENGINEER, BOX, OBI);
-		addKillId(BANDIT_WARRIOR, BANDIT_INSPECTOR);
-		registerQuestItems(ENGRAVED_HAMMER, BOOK_OF_GREY_STAR);
+		addKillId(DROPLIST.getNpcIds());
+		registerQuestItems(ENGRAVED_HAMMER, BOOK_OF_GREY_STAR.getId());
 	}
 	
 	@Override
@@ -153,10 +149,10 @@ public final class Q00117_TheOceanOfDistantStars extends Quest {
 				break;
 			}
 			case "32052-07.html": {
-				if (qs.isMemoState(7) && hasQuestItems(player, BOOK_OF_GREY_STAR)) {
+				if (qs.isMemoState(7) && hasQuestItems(player, BOOK_OF_GREY_STAR.getId())) {
 					qs.setMemoState(8);
 					qs.setCond(9, true);
-					takeItems(player, BOOK_OF_GREY_STAR, -1);
+					takeItems(player, BOOK_OF_GREY_STAR.getId(), -1);
 					htmltext = event;
 				}
 				break;
@@ -169,11 +165,11 @@ public final class Q00117_TheOceanOfDistantStars extends Quest {
 	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
 		final QuestState qs = getRandomPartyMemberState(killer, 7, 3, npc);
 		
-		if ((qs == null) || !Util.checkIfInRange(1500, npc, killer, true)) {
+		if ((qs == null) || !Util.checkIfInRange(1500, npc, qs.getPlayer(), true)) {
 			return null;
 		}
 		
-		if (giveItemRandomly(killer, npc, BOOK_OF_GREY_STAR, 1, 1, MONSTER_DROP_CHANCES.get(npc.getId()), true)) {
+		if (giveItemRandomly(qs.getPlayer(), npc, DROPLIST.get(npc), true)) {
 			qs.setCond(8);
 		}
 		return super.onKill(npc, killer, isSummon);
@@ -268,7 +264,7 @@ public final class Q00117_TheOceanOfDistantStars extends Quest {
 							break;
 						}
 						case 7: {
-							if (hasQuestItems(player, BOOK_OF_GREY_STAR)) {
+							if (hasQuestItems(player, BOOK_OF_GREY_STAR.getId())) {
 								htmltext = "32052-06.html";
 							} else {
 								htmltext = "32052-08.html";

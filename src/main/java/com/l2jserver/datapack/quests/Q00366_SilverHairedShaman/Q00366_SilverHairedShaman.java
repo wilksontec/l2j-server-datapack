@@ -18,12 +18,10 @@
  */
 package com.l2jserver.datapack.quests.Q00366_SilverHairedShaman;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
 import com.l2jserver.gameserver.model.quest.Quest;
+import com.l2jserver.gameserver.model.quest.QuestDroplist;
 import com.l2jserver.gameserver.model.quest.QuestState;
 
 /**
@@ -35,21 +33,20 @@ public final class Q00366_SilverHairedShaman extends Quest {
 	private static final int DIETER = 30111;
 	// Item
 	private static final int SAIRONS_SILVER_HAIR = 5874;
+	// Droplist
+	private static final QuestDroplist DROPLIST = QuestDroplist.builder()
+			.addSingleDrop(20986, SAIRONS_SILVER_HAIR, 80.0) // saitnn
+			.addSingleDrop(20987, SAIRONS_SILVER_HAIR, 73.0) // saitnn_doll
+			.addSingleDrop(20988, SAIRONS_SILVER_HAIR, 80.0) // saitnn_puppet
+			.build();
 	// Misc
 	private static final int MIN_LEVEL = 48;
-	// Mobs
-	private static final Map<Integer, Integer> MOBS = new HashMap<>();
-	static {
-		MOBS.put(20986, 80); // saitnn
-		MOBS.put(20987, 73); // saitnn_doll
-		MOBS.put(20988, 80); // saitnn_puppet
-	}
-	
+
 	public Q00366_SilverHairedShaman() {
 		super(366, Q00366_SilverHairedShaman.class.getSimpleName(), "Silver Haired Shaman");
 		addStartNpc(DIETER);
 		addTalkId(DIETER);
-		addKillId(MOBS.keySet());
+		addKillId(DROPLIST.getNpcIds());
 		registerQuestItems(SAIRONS_SILVER_HAIR);
 	}
 	
@@ -87,14 +84,12 @@ public final class Q00366_SilverHairedShaman extends Quest {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance player, boolean isSummon) {
-		if (getRandom(100) < MOBS.get(npc.getId())) {
-			L2PcInstance luckyPlayer = getRandomPartyMember(player, npc);
-			if (luckyPlayer != null) {
-				giveItemRandomly(luckyPlayer, npc, SAIRONS_SILVER_HAIR, 1, 0, 1.0, true);
-			}
+	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
+		L2PcInstance luckyPlayer = getRandomPartyMember(killer, npc);
+		if (luckyPlayer != null) {
+			giveItemRandomly(luckyPlayer, npc, DROPLIST.get(npc), true);
 		}
-		return super.onKill(npc, player, isSummon);
+		return super.onKill(npc, killer, isSummon);
 	}
 	
 	@Override

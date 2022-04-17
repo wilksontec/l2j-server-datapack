@@ -21,6 +21,7 @@ package com.l2jserver.datapack.quests.Q00320_BonesTellTheFuture;
 import com.l2jserver.gameserver.enums.Race;
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
+import com.l2jserver.gameserver.model.holders.QuestItemChanceHolder;
 import com.l2jserver.gameserver.model.quest.Quest;
 import com.l2jserver.gameserver.model.quest.QuestState;
 import com.l2jserver.gameserver.model.quest.State;
@@ -33,11 +34,9 @@ public final class Q00320_BonesTellTheFuture extends Quest {
 	// NPC
 	private static final int TETRACH_KAITAR = 30359;
 	// Item
-	private static final int BONE_FRAGMENT = 809;
+	private static final QuestItemChanceHolder BONE_FRAGMENT = new QuestItemChanceHolder(809, 18.0, 10L);
 	// Misc
 	private static final int MIN_LEVEL = 10;
-	private static final int REQUIRED_BONE_COUNT = 10;
-	private static final double DROP_CHANCE = 0.18;
 	// Monsters
 	private static final int[] MONSTERS = {
 		20517, // Skeleton Hunter
@@ -49,7 +48,7 @@ public final class Q00320_BonesTellTheFuture extends Quest {
 		addStartNpc(TETRACH_KAITAR);
 		addTalkId(TETRACH_KAITAR);
 		addKillId(MONSTERS);
-		registerQuestItems(BONE_FRAGMENT);
+		registerQuestItems(BONE_FRAGMENT.getId());
 	}
 	
 	@Override
@@ -65,7 +64,7 @@ public final class Q00320_BonesTellTheFuture extends Quest {
 	@Override
 	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
 		final QuestState qs = getRandomPartyMemberState(killer, 1, 3, npc);
-		if ((qs != null) && qs.giveItemRandomly(npc, BONE_FRAGMENT, 1, REQUIRED_BONE_COUNT, DROP_CHANCE, true)) {
+		if ((qs != null) && giveItemRandomly(qs.getPlayer(), npc, BONE_FRAGMENT, true)) {
 			qs.setCond(2);
 		}
 		return super.onKill(npc, killer, isSummon);
@@ -81,7 +80,7 @@ public final class Q00320_BonesTellTheFuture extends Quest {
 				break;
 			}
 			case State.STARTED: {
-				if (st.getQuestItemsCount(BONE_FRAGMENT) >= REQUIRED_BONE_COUNT) {
+				if (hasItemsAtLimit(st.getPlayer(), BONE_FRAGMENT)) {
 					htmltext = "30359-06.html";
 					st.giveAdena(8470, true);
 					st.exitQuest(true, true);

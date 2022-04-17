@@ -18,25 +18,25 @@
  */
 package com.l2jserver.datapack.quests.Q00501_ProofOfClanAlliance;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
 import com.l2jserver.gameserver.model.L2Clan;
 import com.l2jserver.gameserver.model.Location;
 import com.l2jserver.gameserver.model.actor.L2Character;
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
+import com.l2jserver.gameserver.model.holders.QuestItemChanceHolder;
 import com.l2jserver.gameserver.model.holders.SkillHolder;
 import com.l2jserver.gameserver.model.itemcontainer.Inventory;
 import com.l2jserver.gameserver.model.quest.Quest;
+import com.l2jserver.gameserver.model.quest.QuestDroplist;
 import com.l2jserver.gameserver.model.quest.QuestState;
 import com.l2jserver.gameserver.model.quest.State;
 import com.l2jserver.gameserver.model.skills.AbnormalType;
 import com.l2jserver.gameserver.network.NpcStringId;
 import com.l2jserver.gameserver.network.clientpackets.Say2;
 import com.l2jserver.gameserver.network.serverpackets.NpcSay;
-import com.l2jserver.gameserver.util.Util;
+
+import java.util.Arrays;
+import java.util.List;
 
 /**
  * Proof of Clan Alliance (501)
@@ -58,9 +58,6 @@ public final class Q00501_ProofOfClanAlliance extends Quest {
 	private static final int BOX_OF_ATHREA_4 = 27176;
 	private static final int BOX_OF_ATHREA_5 = 27177;
 	// Items
-	private static final int HERB_OF_HARIT = 3832;
-	private static final int HERB_OF_VANOR = 3833;
-	private static final int HERB_OF_OEL_MAHUM = 3834;
 	private static final int BLOOD_OF_EVA = 3835;
 	private static final int ATHREAS_COIN = 3836;
 	private static final int SYMBOL_OF_LOYALTY = 3837;
@@ -68,6 +65,15 @@ public final class Q00501_ProofOfClanAlliance extends Quest {
 	private static final int VOUCHER_OF_FAITH = 3873;
 	private static final int ALLIANCE_MANIFESTO = 3874;
 	private static final int POTION_OF_RECOVERY = 3889;
+	private static final QuestItemChanceHolder HERB_OF_HARIT = new QuestItemChanceHolder(3832, 10.0);
+	private static final QuestItemChanceHolder HERB_OF_VANOR = new QuestItemChanceHolder(3833, 10.0);
+	private static final QuestItemChanceHolder HERB_OF_OEL_MAHUM = new QuestItemChanceHolder(3834, 10.0);
+	// Droplist
+	private static final QuestDroplist DROPLIST = QuestDroplist.builder()
+			.addSingleDrop(OEL_MAHUM_WITCH_DOCTOR, HERB_OF_OEL_MAHUM)
+			.addSingleDrop(HARIT_LIZARDMAN_SHAMAN, HERB_OF_HARIT)
+			.addSingleDrop(VANOR_SILENOS_SHAMAN, HERB_OF_VANOR)
+			.build();
 	// Skills
 	private static final SkillHolder POISON_OF_DEATH = new SkillHolder(4082);
 	private static final SkillHolder DIE_YOU_FOOL = new SkillHolder(4083);
@@ -101,7 +107,7 @@ public final class Q00501_ProofOfClanAlliance extends Quest {
 		addStartNpc(SIR_KRISTOF_RODEMAI, STATUE_OF_OFFERING);
 		addTalkId(SIR_KRISTOF_RODEMAI, STATUE_OF_OFFERING, ATHREA, KALIS);
 		addKillId(OEL_MAHUM_WITCH_DOCTOR, HARIT_LIZARDMAN_SHAMAN, VANOR_SILENOS_SHAMAN, BOX_OF_ATHREA_1, BOX_OF_ATHREA_2, BOX_OF_ATHREA_3, BOX_OF_ATHREA_4, BOX_OF_ATHREA_5);
-		registerQuestItems(ANTIDOTE_RECIPE_LIST, VOUCHER_OF_FAITH, HERB_OF_HARIT, HERB_OF_VANOR, HERB_OF_OEL_MAHUM, BLOOD_OF_EVA, ATHREAS_COIN, SYMBOL_OF_LOYALTY);
+		registerQuestItems(ANTIDOTE_RECIPE_LIST, VOUCHER_OF_FAITH, HERB_OF_HARIT.getId(), HERB_OF_VANOR.getId(), HERB_OF_OEL_MAHUM.getId(), BLOOD_OF_EVA, ATHREAS_COIN, SYMBOL_OF_LOYALTY);
 	}
 	
 	@Override
@@ -218,29 +224,12 @@ public final class Q00501_ProofOfClanAlliance extends Quest {
 		final QuestState lqs = getLeaderQuestState(player, getName());
 		if (lqs != null) {
 			switch (npc.getId()) {
-				case OEL_MAHUM_WITCH_DOCTOR: {
-					if ((getRandom(10) == 1) && (lqs.getMemoState() >= 3) && (lqs.getMemoState() < 6)) {
-						giveItemRandomly(player, npc, HERB_OF_OEL_MAHUM, 1, 0, 1.0, true);
+				case OEL_MAHUM_WITCH_DOCTOR, HARIT_LIZARDMAN_SHAMAN, VANOR_SILENOS_SHAMAN -> {
+					if ((lqs.getMemoState() >= 3) && (lqs.getMemoState() < 6)) {
+						giveItemRandomly(player, npc, DROPLIST.get(npc), true);
 					}
-					break;
 				}
-				case HARIT_LIZARDMAN_SHAMAN: {
-					if ((getRandom(10) == 1) && (lqs.getMemoState() >= 3) && (lqs.getMemoState() < 6)) {
-						giveItemRandomly(player, npc, HERB_OF_HARIT, 1, 0, 1.0, true);
-					}
-					break;
-				}
-				case VANOR_SILENOS_SHAMAN: {
-					if ((getRandom(10) == 1) && (lqs.getMemoState() >= 3) && (lqs.getMemoState() < 6)) {
-						giveItemRandomly(player, npc, HERB_OF_VANOR, 1, 0, 1.0, true);
-					}
-					break;
-				}
-				case BOX_OF_ATHREA_1:
-				case BOX_OF_ATHREA_2:
-				case BOX_OF_ATHREA_3:
-				case BOX_OF_ATHREA_4:
-				case BOX_OF_ATHREA_5: {
+				case BOX_OF_ATHREA_1, BOX_OF_ATHREA_2, BOX_OF_ATHREA_3, BOX_OF_ATHREA_4, BOX_OF_ATHREA_5 -> {
 					final L2Character summoner = npc.getSummoner();
 					if ((summoner != null) && summoner.isNpc() && lqs.isMemoState(4)) {
 						final L2Npc arthea = (L2Npc) summoner;
@@ -264,7 +253,6 @@ public final class Q00501_ProofOfClanAlliance extends Quest {
 						}
 						arthea.setScriptValue(arthea.getScriptValue() + 1);
 					}
-					break;
 				}
 			}
 		}
@@ -365,14 +353,14 @@ public final class Q00501_ProofOfClanAlliance extends Quest {
 					htmltext = "30759-05.html";
 				} else if ((getQuestItemsCount(player, SYMBOL_OF_LOYALTY) >= 3) && !hasAbnormal(player)) {
 					htmltext = "30759-06.html";
-				} else if (qs.isMemoState(5) && hasQuestItems(player, BLOOD_OF_EVA) && hasQuestItems(player, HERB_OF_VANOR) && hasQuestItems(player, HERB_OF_HARIT) && hasQuestItems(player, HERB_OF_OEL_MAHUM) && hasAbnormal(player)) {
+				} else if (qs.isMemoState(5) && hasQuestItems(player, BLOOD_OF_EVA) && hasQuestItems(player, HERB_OF_VANOR.getId()) && hasQuestItems(player, HERB_OF_HARIT.getId()) && hasQuestItems(player, HERB_OF_OEL_MAHUM.getId()) && hasAbnormal(player)) {
 					giveItems(player, VOUCHER_OF_FAITH, 1);
 					giveItems(player, POTION_OF_RECOVERY, 1);
 					takeItems(player, BLOOD_OF_EVA, -1);
 					takeItems(player, ANTIDOTE_RECIPE_LIST, -1);
-					takeItems(player, HERB_OF_OEL_MAHUM, -1);
-					takeItems(player, HERB_OF_HARIT, -1);
-					takeItems(player, HERB_OF_VANOR, -1);
+					takeItems(player, HERB_OF_OEL_MAHUM.getId(), -1);
+					takeItems(player, HERB_OF_HARIT.getId(), -1);
+					takeItems(player, HERB_OF_VANOR.getId(), -1);
 					qs.setCond(4, true);
 					qs.setMemoState(6);
 					htmltext = "30759-08.html";
@@ -380,7 +368,7 @@ public final class Q00501_ProofOfClanAlliance extends Quest {
 					takeItems(player, ANTIDOTE_RECIPE_LIST, -1);
 					qs.setMemoState(1);
 					htmltext = "30759-09.html";
-				} else if ((qs.getMemoState() < 6) && (getQuestItemsCount(player, SYMBOL_OF_LOYALTY) >= 3) && !hasAtLeastOneQuestItem(player, BLOOD_OF_EVA, HERB_OF_VANOR, HERB_OF_HARIT, HERB_OF_OEL_MAHUM) && hasAbnormal(player)) {
+				} else if ((qs.getMemoState() < 6) && (getQuestItemsCount(player, SYMBOL_OF_LOYALTY) >= 3) && !hasAtLeastOneQuestItem(player, BLOOD_OF_EVA, HERB_OF_VANOR.getId(), HERB_OF_HARIT.getId(), HERB_OF_OEL_MAHUM.getId()) && hasAbnormal(player)) {
 					htmltext = "30759-10.html";
 				} else if (qs.isMemoState(6)) {
 					htmltext = "30759-11.html";
@@ -416,48 +404,5 @@ public final class Q00501_ProofOfClanAlliance extends Quest {
 			}
 		}
 		return null;
-	}
-	
-	@Override
-	public QuestState getRandomPartyMemberState(L2PcInstance player, int condition, int playerChance, L2Npc target) {
-		if ((player == null) || (playerChance < 1)) {
-			return null;
-		}
-		
-		QuestState qs = getQuestState(player, false);
-		if (!player.isInParty()) {
-			if (!Util.checkIfInRange(1500, player, target, true)) {
-				return null;
-			}
-			return qs;
-		}
-		
-		final List<QuestState> candidates = new ArrayList<>();
-		if ((qs != null) && (playerChance > 0)) {
-			for (int i = 0; i < playerChance; i++) {
-				candidates.add(qs);
-			}
-		}
-		
-		for (L2PcInstance member : player.getParty().getMembers()) {
-			if (member == player) {
-				continue;
-			}
-			
-			qs = getQuestState(member, false);
-			if (qs != null) {
-				candidates.add(qs);
-			}
-		}
-		
-		if (candidates.isEmpty()) {
-			return null;
-		}
-		
-		qs = candidates.get(getRandom(candidates.size()));
-		if (!Util.checkIfInRange(1500, qs.getPlayer(), target, true)) {
-			return null;
-		}
-		return qs;
 	}
 }

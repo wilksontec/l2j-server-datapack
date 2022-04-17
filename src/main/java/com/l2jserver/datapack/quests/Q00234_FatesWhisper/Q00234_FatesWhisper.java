@@ -18,15 +18,16 @@
  */
 package com.l2jserver.datapack.quests.Q00234_FatesWhisper;
 
-import static com.l2jserver.gameserver.network.NpcStringId.WHO_DARES_TO_TRY_AND_STEAL_MY_NOBLE_BLOOD;
-
 import com.l2jserver.gameserver.enums.audio.Sound;
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
+import com.l2jserver.gameserver.model.holders.QuestItemChanceHolder;
 import com.l2jserver.gameserver.model.quest.Quest;
 import com.l2jserver.gameserver.model.quest.QuestState;
 import com.l2jserver.gameserver.network.clientpackets.Say2;
 import com.l2jserver.gameserver.network.serverpackets.NpcSay;
+
+import static com.l2jserver.gameserver.network.NpcStringId.WHO_DARES_TO_TRY_AND_STEAL_MY_NOBLE_BLOOD;
 
 /**
  * Fate's Whisper (234)
@@ -44,9 +45,6 @@ public final class Q00234_FatesWhisper extends Quest {
 	private static final int CHEST_OF_GOLKONDA = 31029;
 	private static final int CHEST_OF_HALLATE = 31030;
 	// Quest Items
-	private static final int Q_BLOODY_FABRIC_Q0234 = 14361;
-	private static final int Q_WHITE_FABRIC_Q0234 = 14362;
-	private static final int Q_STAR_OF_DESTINY = 5011;
 	private static final int Q_PIPETTE_KNIFE = 4665;
 	private static final int Q_REIRIAS_SOULORB = 4666;
 	private static final int Q_INFERNIUM_SCEPTER_1 = 4667;
@@ -56,6 +54,9 @@ public final class Q00234_FatesWhisper extends Quest {
 	private static final int Q_MAESTRO_REORINS_MOLD = 4671;
 	private static final int Q_INFERNIUM_VARNISH = 4672;
 	private static final int Q_RED_PIPETTE_KNIFE = 4673;
+	private static final int Q_STAR_OF_DESTINY = 5011;
+	private static final int Q_WHITE_FABRIC_Q0234 = 14362;
+	private static final QuestItemChanceHolder Q_BLOODY_FABRIC_Q0234 = new QuestItemChanceHolder(14361);
 	// Other Items
 	private static final int CRYSTAL_B = 1460;
 	// Monsters
@@ -149,7 +150,7 @@ public final class Q00234_FatesWhisper extends Quest {
 		
 		addSpawnId(COFFER_OF_THE_DEAD, CHEST_OF_KERNON, CHEST_OF_HALLATE, CHEST_OF_GOLKONDA);
 		addAttackId(BAIUM);
-		registerQuestItems(Q_BLOODY_FABRIC_Q0234, Q_WHITE_FABRIC_Q0234, Q_PIPETTE_KNIFE, Q_REIRIAS_SOULORB, Q_INFERNIUM_SCEPTER_1, Q_INFERNIUM_SCEPTER_2, Q_INFERNIUM_SCEPTER_3, Q_MAESTRO_REORINS_HAMMER, Q_MAESTRO_REORINS_MOLD, Q_INFERNIUM_VARNISH, Q_RED_PIPETTE_KNIFE);
+		registerQuestItems(Q_BLOODY_FABRIC_Q0234.getId(), Q_WHITE_FABRIC_Q0234, Q_PIPETTE_KNIFE, Q_REIRIAS_SOULORB, Q_INFERNIUM_SCEPTER_1, Q_INFERNIUM_SCEPTER_2, Q_INFERNIUM_SCEPTER_3, Q_MAESTRO_REORINS_HAMMER, Q_MAESTRO_REORINS_MOLD, Q_INFERNIUM_VARNISH, Q_RED_PIPETTE_KNIFE);
 	}
 	
 	@Override
@@ -207,7 +208,7 @@ public final class Q00234_FatesWhisper extends Quest {
 					return "30833-01.html";
 				}
 				
-				final long bloodyFabricCount = qs.getQuestItemsCount(Q_BLOODY_FABRIC_Q0234);
+				final long bloodyFabricCount = qs.getQuestItemsCount(Q_BLOODY_FABRIC_Q0234.getId());
 				final long whiteFabricCount = qs.getQuestItemsCount(Q_WHITE_FABRIC_Q0234);
 				final long whiteBloodyFabricCount = bloodyFabricCount + whiteFabricCount;
 				if (qs.isMemoState(8) && !qs.hasQuestItems(Q_RED_PIPETTE_KNIFE) && (whiteBloodyFabricCount <= 0)) {
@@ -226,7 +227,7 @@ public final class Q00234_FatesWhisper extends Quest {
 				}
 				if (qs.isMemoState(8) && !qs.hasQuestItems(Q_RED_PIPETTE_KNIFE) && (bloodyFabricCount >= 30) && (whiteBloodyFabricCount >= 30)) {
 					qs.giveItems(Q_MAESTRO_REORINS_MOLD, 1);
-					qs.takeItems(Q_BLOODY_FABRIC_Q0234, -1);
+					qs.takeItems(Q_BLOODY_FABRIC_Q0234.getId(), -1);
 					qs.setMemoState(9);
 					qs.setCond(10, true);
 					qs.showQuestionMark(234);
@@ -234,7 +235,7 @@ public final class Q00234_FatesWhisper extends Quest {
 				}
 				if (qs.isMemoState(8) && !qs.hasQuestItems(Q_RED_PIPETTE_KNIFE) && (whiteBloodyFabricCount < 30) && (whiteBloodyFabricCount > 0)) {
 					qs.giveItems(Q_WHITE_FABRIC_Q0234, 30 - whiteFabricCount);
-					qs.takeItems(Q_BLOODY_FABRIC_Q0234, -1);
+					qs.takeItems(Q_BLOODY_FABRIC_Q0234.getId(), -1);
 					return "30833-03e.html";
 				}
 				if (qs.getMemoState() >= 9) {
@@ -897,23 +898,15 @@ public final class Q00234_FatesWhisper extends Quest {
 		final QuestState qs = getRandomPartyMemberState(killer, -1, 2, npc);
 		if (qs != null) {
 			switch (npc.getId()) {
-				case PLATINUM_TRIBE_GRUNT:
-				case PLATINUM_TRIBE_ARCHER:
-				case PLATINUM_TRIBE_WARRIOR:
-				case PLATINUM_TRIBE_SHAMAN:
-				case PLATINUM_TRIBE_LORD:
-				case GUARDIAN_ANGEL:
-				case SEAL_ANGEL:
-				case SEAL_ANGEL_R: {
-					giveItemRandomly(qs.getPlayer(), npc, Q_BLOODY_FABRIC_Q0234, 1, 0, 1, false);
+				case PLATINUM_TRIBE_GRUNT, PLATINUM_TRIBE_ARCHER, PLATINUM_TRIBE_WARRIOR, PLATINUM_TRIBE_SHAMAN, PLATINUM_TRIBE_LORD, GUARDIAN_ANGEL, SEAL_ANGEL, SEAL_ANGEL_R -> {
+					giveItemRandomly(qs.getPlayer(), npc, Q_BLOODY_FABRIC_Q0234, false);
 					qs.takeItems(Q_WHITE_FABRIC_Q0234, 1);
-					if (qs.getQuestItemsCount(Q_BLOODY_FABRIC_Q0234) >= 29) {
+					if (qs.getQuestItemsCount(Q_BLOODY_FABRIC_Q0234.getId()) >= 29) {
 						qs.setCond(9, true);
 						qs.showQuestionMark(234);
 					} else {
 						qs.playSound(Sound.ITEMSOUND_QUEST_ITEMGET);
 					}
-					break;
 				}
 			}
 			

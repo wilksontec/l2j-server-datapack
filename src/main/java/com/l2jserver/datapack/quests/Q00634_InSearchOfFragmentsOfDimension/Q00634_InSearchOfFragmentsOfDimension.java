@@ -20,8 +20,11 @@ package com.l2jserver.datapack.quests.Q00634_InSearchOfFragmentsOfDimension;
 
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
+import com.l2jserver.gameserver.model.holders.QuestItemChanceHolder;
 import com.l2jserver.gameserver.model.quest.Quest;
 import com.l2jserver.gameserver.model.quest.QuestState;
+
+import static com.l2jserver.gameserver.model.quest.QuestDroplist.singleDropItem;
 
 /**
  * In Search of Fragments of Dimension (634)
@@ -30,24 +33,10 @@ import com.l2jserver.gameserver.model.quest.QuestState;
 public final class Q00634_InSearchOfFragmentsOfDimension extends Quest {
 	// NPCs
 	private static final int[] DIMENSIONAL_GATE_KEEPER = {
-		31494,
-		31495,
-		31496,
-		31497,
-		31498,
-		31499,
-		31500,
-		31501,
-		31502,
-		31503,
-		31504,
-		31505,
-		31506,
-		31507
+		31494, 31495, 31496, 31497, 31498, 31499, 31500, 31501, 31502, 31503, 31504, 31505, 31506, 31507
 	};
-	
 	// Item
-	private static final int DIMENSIONAL_FRAGMENT = 7079;
+	private static final QuestItemChanceHolder DIMENSIONAL_FRAGMENT = new QuestItemChanceHolder(7079, 10.0);
 	// Misc
 	private static final int MIN_LEVEL = 20;
 	// Monsters
@@ -146,10 +135,8 @@ public final class Q00634_InSearchOfFragmentsOfDimension extends Quest {
 	public String onKill(L2Npc npc, L2PcInstance player, boolean isSummon) {
 		final QuestState qs = getRandomPartyMemberState(player, -1, 3, npc);
 		if (qs != null) {
-			final int i0 = (int) ((0.15 * npc.getLevel()) + 1.6);
-			if (getRandom(100) < 10) {
-				giveItemRandomly(qs.getPlayer(), npc, DIMENSIONAL_FRAGMENT, i0, 0, 1.0, true);
-			}
+			final long amount = (long) ((0.15 * npc.getLevel()) + 1.6);
+			giveItemRandomly(qs.getPlayer(), npc, singleDropItem(DIMENSIONAL_FRAGMENT, amount), 0L, true);
 		}
 		return super.onKill(npc, player, isSummon);
 	}

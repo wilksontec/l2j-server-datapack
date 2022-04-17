@@ -18,12 +18,11 @@
  */
 package com.l2jserver.datapack.quests.Q00354_ConquestOfAlligatorIsland;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
+import com.l2jserver.gameserver.model.holders.QuestItemChanceHolder;
 import com.l2jserver.gameserver.model.quest.Quest;
+import com.l2jserver.gameserver.model.quest.QuestDroplist;
 import com.l2jserver.gameserver.model.quest.QuestState;
 
 /**
@@ -35,29 +34,26 @@ public final class Q00354_ConquestOfAlligatorIsland extends Quest {
 	private static final int KLUCK = 30895;
 	// Items
 	private static final int ALLIGATOR_TOOTH = 5863;
-	private static final int MYSTERIOUS_MAP_PIECE = 5864;
 	private static final int PIRATES_TREASURE_MAP = 5915;
+	private static final QuestItemChanceHolder MYSTERIOUS_MAP_PIECE = new QuestItemChanceHolder(5864, 10.0);
+	// Droplist
+	private static final QuestDroplist DROPLIST = QuestDroplist.builder()
+			.addSingleDrop(20804, ALLIGATOR_TOOTH, 84.0) // crokian_lad
+			.addSingleDrop(20805, ALLIGATOR_TOOTH, 91.0) // dailaon_lad
+			.addSingleDrop(20806, ALLIGATOR_TOOTH, 88.0) // crokian_lad_warrior
+			.addSingleDrop(20807, ALLIGATOR_TOOTH, 92.0) // farhite_lad
+			.addSingleDrop(22208, ALLIGATOR_TOOTH, 114.0) // nos_lad
+			.addSingleDrop(20991, ALLIGATOR_TOOTH, 169.0) // tribe_of_swamp
+			.build();
 	// Misc
 	private static final int MIN_LEVEL = 38;
-	// Mobs
-	private static final Map<Integer, Double> MOB1 = new HashMap<>();
-	private static final Map<Integer, Integer> MOB2 = new HashMap<>();
-	static {
-		MOB1.put(20804, 0.84); // crokian_lad
-		MOB1.put(20805, 0.91); // dailaon_lad
-		MOB1.put(20806, 0.88); // crokian_lad_warrior
-		MOB1.put(20807, 0.92); // farhite_lad
-		MOB2.put(22208, 14); // nos_lad
-		MOB2.put(20991, 69); // tribe_of_swamp
-	}
 	
 	public Q00354_ConquestOfAlligatorIsland() {
 		super(354, Q00354_ConquestOfAlligatorIsland.class.getSimpleName(), "Conquest of Alligator Island");
 		addStartNpc(KLUCK);
 		addTalkId(KLUCK);
-		addKillId(MOB1.keySet());
-		addKillId(MOB2.keySet());
-		registerQuestItems(ALLIGATOR_TOOTH, MYSTERIOUS_MAP_PIECE);
+		addKillId(DROPLIST.getNpcIds());
+		registerQuestItems(ALLIGATOR_TOOTH, MYSTERIOUS_MAP_PIECE.getId());
 	}
 	
 	@Override
@@ -101,10 +97,10 @@ public final class Q00354_ConquestOfAlligatorIsland extends Quest {
 				break;
 			}
 			case "REWARD": {
-				final long count = st.getQuestItemsCount(MYSTERIOUS_MAP_PIECE);
+				final long count = st.getQuestItemsCount(MYSTERIOUS_MAP_PIECE.getId());
 				if (count >= 10) {
 					st.giveItems(PIRATES_TREASURE_MAP, 1);
-					st.takeItems(MYSTERIOUS_MAP_PIECE, 10);
+					st.takeItems(MYSTERIOUS_MAP_PIECE.getId(), 10);
 					htmltext = "30895-13.html";
 				} else if (count > 0) {
 					htmltext = "30895-12.html";
@@ -116,20 +112,13 @@ public final class Q00354_ConquestOfAlligatorIsland extends Quest {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance player, boolean isSummon) {
-		final QuestState st = getRandomPartyMemberState(player, -1, 3, npc);
+	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
+		final QuestState st = getRandomPartyMemberState(killer, -1, 3, npc);
 		if (st != null) {
-			int npcId = npc.getId();
-			if (MOB1.containsKey(npcId)) {
-				st.giveItemRandomly(npc, ALLIGATOR_TOOTH, 1, 0, MOB1.get(npcId), true);
-			} else {
-				final int itemCount = ((getRandom(100) < MOB2.get(npcId)) ? 2 : 1);
-				st.giveItemRandomly(npc, ALLIGATOR_TOOTH, itemCount, 0, 1.0, true);
-			}
-			
-			st.giveItemRandomly(npc, MYSTERIOUS_MAP_PIECE, 1, 0, 0.1, false);
+			giveItemRandomly(st.getPlayer(), npc, DROPLIST.get(npc), true);
+			giveItemRandomly(st.getPlayer(), npc, MYSTERIOUS_MAP_PIECE, false);
 		}
-		return super.onKill(npc, player, isSummon);
+		return super.onKill(npc, killer, isSummon);
 	}
 	
 	@Override
@@ -139,7 +128,7 @@ public final class Q00354_ConquestOfAlligatorIsland extends Quest {
 		if (st.isCreated()) {
 			htmltext = ((player.getLevel() >= MIN_LEVEL) ? "30895-01.htm" : "30895-03.html");
 		} else if (st.isStarted()) {
-			htmltext = (st.hasQuestItems(MYSTERIOUS_MAP_PIECE) ? "30895-11.html" : "30895-04.html");
+			htmltext = (st.hasQuestItems(MYSTERIOUS_MAP_PIECE.getId()) ? "30895-11.html" : "30895-04.html");
 		}
 		return htmltext;
 	}

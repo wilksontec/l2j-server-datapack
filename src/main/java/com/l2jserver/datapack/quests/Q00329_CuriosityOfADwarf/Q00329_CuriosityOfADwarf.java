@@ -18,15 +18,10 @@
  */
 package com.l2jserver.datapack.quests.Q00329_CuriosityOfADwarf;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
-import com.l2jserver.gameserver.model.holders.ItemHolder;
 import com.l2jserver.gameserver.model.quest.Quest;
+import com.l2jserver.gameserver.model.quest.QuestDroplist;
 import com.l2jserver.gameserver.model.quest.QuestState;
 import com.l2jserver.gameserver.model.quest.State;
 import com.l2jserver.gameserver.util.Util;
@@ -43,18 +38,23 @@ public final class Q00329_CuriosityOfADwarf extends Quest {
 	private static final int BROKEN_HEARTSTONE = 1365;
 	// Misc
 	private static final int MIN_LEVEL = 33;
-	// Monsters
-	private static final Map<Integer, List<ItemHolder>> MONSTER_DROPS = new HashMap<>();
-	static {
-		MONSTER_DROPS.put(20083, Arrays.asList(new ItemHolder(GOLEM_HEARTSTONE, 3), new ItemHolder(BROKEN_HEARTSTONE, 54))); // Granitic Golem
-		MONSTER_DROPS.put(20085, Arrays.asList(new ItemHolder(GOLEM_HEARTSTONE, 3), new ItemHolder(BROKEN_HEARTSTONE, 58))); // Puncher
-	}
+	// Droplist
+	private static final QuestDroplist DROPLIST = QuestDroplist.builder()
+			.addGroupedDrop(20083, 54.0) // Granitic Golem
+				.withDropItem(GOLEM_HEARTSTONE, 5.56)
+				.withDropItem(BROKEN_HEARTSTONE, 94.44)
+				.build()
+			.addGroupedDrop(20085, 58.0) // Puncher
+				.withDropItem(GOLEM_HEARTSTONE, 5.17)
+				.withDropItem(BROKEN_HEARTSTONE, 94.83)
+				.build()
+			.build();
 	
 	public Q00329_CuriosityOfADwarf() {
 		super(329, Q00329_CuriosityOfADwarf.class.getSimpleName(), "Curiosity Of A Dwarf");
 		addStartNpc(TRADER_ROLENTO);
 		addTalkId(TRADER_ROLENTO);
-		addKillId(MONSTER_DROPS.keySet());
+		addKillId(DROPLIST.getNpcIds());
 		registerQuestItems(GOLEM_HEARTSTONE, BROKEN_HEARTSTONE);
 	}
 	
@@ -91,13 +91,7 @@ public final class Q00329_CuriosityOfADwarf extends Quest {
 	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
 		final QuestState st = getQuestState(killer, false);
 		if ((st != null) && Util.checkIfInRange(1500, npc, killer, true)) {
-			final int rnd = getRandom(100);
-			for (ItemHolder drop : MONSTER_DROPS.get(npc.getId())) {
-				if (rnd < drop.getCount()) {
-					st.giveItemRandomly(npc, drop.getId(), 1, 0, 1.0, true);
-					break;
-				}
-			}
+			giveItemRandomly(st.getPlayer(), npc, DROPLIST.get(npc), true);
 		}
 		return super.onKill(npc, killer, isSummon);
 	}

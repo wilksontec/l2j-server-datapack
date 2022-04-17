@@ -18,13 +18,12 @@
  */
 package com.l2jserver.datapack.quests.Q00638_SeekersOfTheHolyGrail;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
-import com.l2jserver.gameserver.model.holders.ItemChanceHolder;
+import com.l2jserver.gameserver.model.holders.ItemHolder;
 import com.l2jserver.gameserver.model.quest.Quest;
+import com.l2jserver.gameserver.model.quest.QuestDroplist;
+import com.l2jserver.gameserver.model.quest.QuestDroplist.QuestDropInfo;
 import com.l2jserver.gameserver.model.quest.QuestState;
 
 /**
@@ -32,35 +31,6 @@ import com.l2jserver.gameserver.model.quest.QuestState;
  * @author netvirus
  */
 public final class Q00638_SeekersOfTheHolyGrail extends Quest {
-	private static class DropInfo extends ItemChanceHolder {
-		private final int _keyId;
-		private final int _keyChance;
-		private final int _keyCount;
-		
-		public DropInfo(int itemId, double chance) {
-			this(itemId, chance, 0, 0, 0);
-		}
-		
-		public DropInfo(int itemId, double chance, int keyId, int keyChance, int count) {
-			super(itemId, chance);
-			_keyId = keyId;
-			_keyChance = keyChance;
-			_keyCount = count;
-		}
-		
-		public int getKeyId() {
-			return _keyId;
-		}
-		
-		public int getKeyChance() {
-			return _keyChance;
-		}
-		
-		public int getKeyCount() {
-			return _keyCount;
-		}
-	}
-	
 	// NPC
 	private static final int INNOCENTIN = 31328;
 	// Items
@@ -74,65 +44,70 @@ public final class Q00638_SeekersOfTheHolyGrail extends Quest {
 	// Rewards
 	private static final int SCROLL_ENCHANT_W_S = 959;
 	private static final int SCROLL_ENCHANT_A_S = 960;
-	// Mobs
-	private static final Map<Integer, DropInfo> MOBS_DROP_CHANCES = new HashMap<>();
-	static {
-		MOBS_DROP_CHANCES.put(22136, new DropInfo(TOTEM, 0.55)); // Gatekeeper Zombie
-		MOBS_DROP_CHANCES.put(22137, new DropInfo(TOTEM, 0.06)); // Penance Guard
-		MOBS_DROP_CHANCES.put(22138, new DropInfo(TOTEM, 0.06)); // Chapel Guard
-		MOBS_DROP_CHANCES.put(22139, new DropInfo(TOTEM, 0.54)); // Old Aristocrat's Soldier
-		MOBS_DROP_CHANCES.put(22140, new DropInfo(TOTEM, 0.54)); // Zombie Worker
-		MOBS_DROP_CHANCES.put(22141, new DropInfo(TOTEM, 0.55)); // Forgotten Victim
-		MOBS_DROP_CHANCES.put(22142, new DropInfo(TOTEM, 0.54)); // Triol's Layperson
-		MOBS_DROP_CHANCES.put(22143, new DropInfo(TOTEM, 0.62, CHAPEL_KEY, 100, 1)); // Triol's Believer
-		MOBS_DROP_CHANCES.put(22144, new DropInfo(TOTEM, 0.54)); // Resurrected Temple Knight
-		MOBS_DROP_CHANCES.put(22145, new DropInfo(TOTEM, 0.53)); // Ritual Sacrifice
-		MOBS_DROP_CHANCES.put(22146, new DropInfo(TOTEM, 0.54, KEY_OF_DARKNESS, 10, 1)); // Triol's Priest
-		MOBS_DROP_CHANCES.put(22147, new DropInfo(TOTEM, 0.55)); // Ritual Offering
-		MOBS_DROP_CHANCES.put(22148, new DropInfo(TOTEM, 0.45)); // Triol's Believer
-		MOBS_DROP_CHANCES.put(22149, new DropInfo(TOTEM, 0.54, ANTEROOM_KEY, 100, 6)); // Ritual Offering
-		MOBS_DROP_CHANCES.put(22150, new DropInfo(TOTEM, 0.46)); // Triol's Believer
-		MOBS_DROP_CHANCES.put(22151, new DropInfo(TOTEM, 0.62, KEY_OF_DARKNESS, 10, 1)); // Triol's Priest
-		MOBS_DROP_CHANCES.put(22152, new DropInfo(TOTEM, 0.55)); // Temple Guard
-		MOBS_DROP_CHANCES.put(22153, new DropInfo(TOTEM, 0.54)); // Temple Guard Captain
-		MOBS_DROP_CHANCES.put(22154, new DropInfo(TOTEM, 0.53)); // Ritual Sacrifice
-		MOBS_DROP_CHANCES.put(22155, new DropInfo(TOTEM, 0.75)); // Triol's High Priest
-		MOBS_DROP_CHANCES.put(22156, new DropInfo(TOTEM, 0.67)); // Triol's Priest
-		MOBS_DROP_CHANCES.put(22157, new DropInfo(TOTEM, 0.66)); // Triol's Priest
-		MOBS_DROP_CHANCES.put(22158, new DropInfo(TOTEM, 0.67)); // Triol's Believer
-		MOBS_DROP_CHANCES.put(22159, new DropInfo(TOTEM, 0.75)); // Triol's High Priest
-		MOBS_DROP_CHANCES.put(22160, new DropInfo(TOTEM, 0.67)); // Triol's Priest
-		MOBS_DROP_CHANCES.put(22161, new DropInfo(TOTEM, 0.78)); // Ritual Sacrifice
-		MOBS_DROP_CHANCES.put(22162, new DropInfo(TOTEM, 0.67)); // Triol's Believer
-		MOBS_DROP_CHANCES.put(22163, new DropInfo(TOTEM, 0.87)); // Triol's High Priest
-		MOBS_DROP_CHANCES.put(22164, new DropInfo(TOTEM, 0.67)); // Triol's Believer
-		MOBS_DROP_CHANCES.put(22165, new DropInfo(TOTEM, 0.66)); // Triol's Priest
-		MOBS_DROP_CHANCES.put(22166, new DropInfo(TOTEM, 0.66)); // Triol's Believer
-		MOBS_DROP_CHANCES.put(22167, new DropInfo(TOTEM, 0.75)); // Triol's High Priest
-		MOBS_DROP_CHANCES.put(22168, new DropInfo(TOTEM, 0.66)); // Triol's Priest
-		MOBS_DROP_CHANCES.put(22169, new DropInfo(TOTEM, 0.78)); // Ritual Sacrifice
-		MOBS_DROP_CHANCES.put(22170, new DropInfo(TOTEM, 0.67)); // Triol's Believer
-		MOBS_DROP_CHANCES.put(22171, new DropInfo(TOTEM, 0.87)); // Triol's High Priest
-		MOBS_DROP_CHANCES.put(22172, new DropInfo(TOTEM, 0.78)); // Ritual Sacrifice
-		MOBS_DROP_CHANCES.put(22173, new DropInfo(TOTEM, 0.66)); // Triol's Priest
-		MOBS_DROP_CHANCES.put(22174, new DropInfo(TOTEM, 0.67)); // Triol's Priest
-		MOBS_DROP_CHANCES.put(22175, new DropInfo(TOTEM, 0.03)); // Andreas' Captain of the Royal Guard
-		MOBS_DROP_CHANCES.put(22176, new DropInfo(TOTEM, 0.03)); // Andreas' Royal Guards
-		MOBS_DROP_CHANCES.put(22188, new DropInfo(TOTEM, 0.03)); // Andreas' Captain of the Royal Guard
-		MOBS_DROP_CHANCES.put(22189, new DropInfo(TOTEM, 0.03)); // Andreas' Royal Guards
-		MOBS_DROP_CHANCES.put(22190, new DropInfo(TOTEM, 0.03)); // Ritual Sacrifice
-		MOBS_DROP_CHANCES.put(22191, new DropInfo(TOTEM, 0.03)); // Andreas' Captain of the Royal Guard
-		MOBS_DROP_CHANCES.put(22192, new DropInfo(TOTEM, 0.03)); // Andreas' Royal Guards
-		MOBS_DROP_CHANCES.put(22193, new DropInfo(TOTEM, 0.03)); // Andreas' Royal Guards
-		MOBS_DROP_CHANCES.put(22194, new DropInfo(TOTEM, 0.03)); // Penance Guard
-		MOBS_DROP_CHANCES.put(22194, new DropInfo(TOTEM, 0.03)); // Ritual Sacrifice
-	}
+	// Droplist
+	private static final QuestDroplist DROPLIST = QuestDroplist.builder()
+			.addSingleDrop(22136, TOTEM, 55.0) // Gatekeeper Zombie
+			.addSingleDrop(22137, TOTEM, 6.0) // Penance Guard
+			.addSingleDrop(22138, TOTEM, 6.0) // Chapel Guard
+			.addSingleDrop(22139, TOTEM, 54.0) // Old Aristocrat's Soldier
+			.addSingleDrop(22140, TOTEM, 54.0) // Zombie Worker
+			.addSingleDrop(22141, TOTEM, 55.0) // Forgotten Victim
+			.addSingleDrop(22142, TOTEM, 54.0) // Triol's Layperson
+			.addSingleDrop(22143, TOTEM, 62.0) // Triol's Believer
+			.addSingleDrop(22144, TOTEM, 54.0) // Resurrected Temple Knight
+			.addSingleDrop(22145, TOTEM, 53.0) // Ritual Sacrifice
+			.addSingleDrop(22146, TOTEM, 54.0) // Triol's Priest
+			.addSingleDrop(22147, TOTEM, 55.0) // Ritual Offering
+			.addSingleDrop(22148, TOTEM, 45.0) // Triol's Believer
+			.addSingleDrop(22149, TOTEM, 54.0) // Ritual Offering
+			.addSingleDrop(22150, TOTEM, 46.0) // Triol's Believer
+			.addSingleDrop(22151, TOTEM, 62.0) // Triol's Priest
+			.addSingleDrop(22152, TOTEM, 55.0) // Temple Guard
+			.addSingleDrop(22153, TOTEM, 54.0) // Temple Guard Captain
+			.addSingleDrop(22154, TOTEM, 53.0) // Ritual Sacrifice
+			.addSingleDrop(22155, TOTEM, 75.0) // Triol's High Priest
+			.addSingleDrop(22156, TOTEM, 67.0) // Triol's Priest
+			.addSingleDrop(22157, TOTEM, 66.0) // Triol's Priest
+			.addSingleDrop(22158, TOTEM, 67.0) // Triol's Believer
+			.addSingleDrop(22159, TOTEM, 75.0) // Triol's High Priest
+			.addSingleDrop(22160, TOTEM, 67.0) // Triol's Priest
+			.addSingleDrop(22161, TOTEM, 78.0) // Ritual Sacrifice
+			.addSingleDrop(22162, TOTEM, 67.0) // Triol's Believer
+			.addSingleDrop(22163, TOTEM, 87.0) // Triol's High Priest
+			.addSingleDrop(22164, TOTEM, 67.0) // Triol's Believer
+			.addSingleDrop(22165, TOTEM, 66.0) // Triol's Priest
+			.addSingleDrop(22166, TOTEM, 66.0) // Triol's Believer
+			.addSingleDrop(22167, TOTEM, 75.0) // Triol's High Priest
+			.addSingleDrop(22168, TOTEM, 66.0) // Triol's Priest
+			.addSingleDrop(22169, TOTEM, 78.0) // Ritual Sacrifice
+			.addSingleDrop(22170, TOTEM, 67.0) // Triol's Believer
+			.addSingleDrop(22171, TOTEM, 87.0) // Triol's High Priest
+			.addSingleDrop(22172, TOTEM, 78.0) // Ritual Sacrifice
+			.addSingleDrop(22173, TOTEM, 66.0) // Triol's Priest
+			.addSingleDrop(22174, TOTEM, 67.0) // Triol's Priest
+			.addSingleDrop(22175, TOTEM, 3.0) // Andreas' Captain of the Royal Guard
+			.addSingleDrop(22176, TOTEM, 3.0) // Andreas' Royal Guards
+			.addSingleDrop(22188, TOTEM, 3.0) // Andreas' Captain of the Royal Guard
+			.addSingleDrop(22189, TOTEM, 3.0) // Andreas' Royal Guards
+			.addSingleDrop(22190, TOTEM, 3.0) // Ritual Sacrifice
+			.addSingleDrop(22191, TOTEM, 3.0) // Andreas' Captain of the Royal Guard
+			.addSingleDrop(22192, TOTEM, 3.0) // Andreas' Royal Guards
+			.addSingleDrop(22193, TOTEM, 3.0) // Andreas' Royal Guards
+			.addSingleDrop(22194, TOTEM, 3.0) // Penance Guard
+			.addSingleDrop(22195, TOTEM, 3.0) // Ritual Sacrifice
+			.build();
+	private static final QuestDroplist DROPLIST_KEYS = QuestDroplist.builder()
+			.addSingleDrop(22143, CHAPEL_KEY, 1) // Triol's Believer
+			.addSingleDrop(22146, KEY_OF_DARKNESS, 1, 10.0) // Triol's Priest
+			.addSingleDrop(22149, ANTEROOM_KEY, 6) // Ritual Offering
+			.addSingleDrop(22151, KEY_OF_DARKNESS, 1, 10.0) // Triol's Priest
+			.build();
 	
 	public Q00638_SeekersOfTheHolyGrail() {
 		super(638, Q00638_SeekersOfTheHolyGrail.class.getSimpleName(), "Seekers Of The Holy Grail");
 		addStartNpc(INNOCENTIN);
 		addTalkId(INNOCENTIN);
-		addKillId(MOBS_DROP_CHANCES.keySet());
+		addKillId(DROPLIST.getNpcIds());
 		registerQuestItems(TOTEM);
 	}
 	
@@ -190,10 +165,11 @@ public final class Q00638_SeekersOfTheHolyGrail extends Quest {
 	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
 		final QuestState qs = getRandomPartyMemberState(killer, -1, 3, npc);
 		if (qs != null) {
-			final DropInfo info = MOBS_DROP_CHANCES.get(npc.getId());
-			if (giveItemRandomly(qs.getPlayer(), npc, info.getId(), 1, 0, info.getChance(), true)) {
-				if ((info.getKeyId() > 0) && (getRandom(100) < info.getKeyChance())) {
-					npc.dropItem(qs.getPlayer(), info.getKeyId(), info.getKeyCount());
+			if (giveItemRandomly(qs.getPlayer(), npc, DROPLIST.get(npc), true)) {
+				QuestDropInfo keyDropInfo = DROPLIST_KEYS.get(npc);
+				if (keyDropInfo != null) {
+					ItemHolder keyItemHolder = keyDropInfo.drop().calculateDrops(npc, qs.getPlayer()).get(0);
+					npc.dropItem(qs.getPlayer(), keyItemHolder.getId(), keyItemHolder.getCount());
 				}
 			}
 		}

@@ -18,14 +18,12 @@
  */
 package com.l2jserver.datapack.quests.Q00111_ElrokianHuntersProof;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import com.l2jserver.gameserver.enums.audio.Sound;
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
-import com.l2jserver.gameserver.model.holders.ItemChanceHolder;
+import com.l2jserver.gameserver.model.holders.QuestItemChanceHolder;
 import com.l2jserver.gameserver.model.quest.Quest;
+import com.l2jserver.gameserver.model.quest.QuestDroplist;
 import com.l2jserver.gameserver.model.quest.QuestState;
 import com.l2jserver.gameserver.model.quest.State;
 
@@ -34,6 +32,9 @@ import com.l2jserver.gameserver.model.quest.State;
  * @author Adry_85
  */
 public final class Q00111_ElrokianHuntersProof extends Quest {
+	// Misc
+	private static final int MIN_LEVEL = 75;
+	private static final int DINO_DROPS_LIMIT = 10;
 	// NPCs
 	private static final int MARQUEZ = 32113;
 	private static final int MUSHIKA = 32114;
@@ -42,45 +43,45 @@ public final class Q00111_ElrokianHuntersProof extends Quest {
 	// Items
 	private static final int ELROKIAN_TRAP = 8763;
 	private static final int TRAP_STONE = 8764;
-	private static final int DIARY_FRAGMENT = 8768;
 	private static final int EXPEDITION_MEMBERS_LETTER = 8769;
-	private static final int ORNITHOMINUS_CLAW = 8770;
-	private static final int DEINONYCHUS_BONE = 8771;
-	private static final int PACHYCEPHALOSAURUS_SKIN = 8772;
 	private static final int PRACTICE_ELROKIAN_TRAP = 8773;
-	// Misc
-	private static final int MIN_LEVEL = 75;
-	// Mobs
-	private static final Map<Integer, ItemChanceHolder> MOBS_DROP_CHANCES = new HashMap<>();
-	static {
-		MOBS_DROP_CHANCES.put(22196, new ItemChanceHolder(DIARY_FRAGMENT, 0.51, 4)); // velociraptor_leader
-		MOBS_DROP_CHANCES.put(22197, new ItemChanceHolder(DIARY_FRAGMENT, 0.51, 4)); // velociraptor
-		MOBS_DROP_CHANCES.put(22198, new ItemChanceHolder(DIARY_FRAGMENT, 0.51, 4)); // velociraptor_s
-		MOBS_DROP_CHANCES.put(22218, new ItemChanceHolder(DIARY_FRAGMENT, 0.25, 4)); // velociraptor_n
-		MOBS_DROP_CHANCES.put(22223, new ItemChanceHolder(DIARY_FRAGMENT, 0.26, 4)); // velociraptor_leader2
-		MOBS_DROP_CHANCES.put(22200, new ItemChanceHolder(ORNITHOMINUS_CLAW, 0.66, 11)); // ornithomimus_leader
-		MOBS_DROP_CHANCES.put(22201, new ItemChanceHolder(ORNITHOMINUS_CLAW, 0.33, 11)); // ornithomimus
-		MOBS_DROP_CHANCES.put(22202, new ItemChanceHolder(ORNITHOMINUS_CLAW, 0.66, 11)); // ornithomimus_s
-		MOBS_DROP_CHANCES.put(22219, new ItemChanceHolder(ORNITHOMINUS_CLAW, 0.33, 11)); // ornithomimus_n
-		MOBS_DROP_CHANCES.put(22224, new ItemChanceHolder(ORNITHOMINUS_CLAW, 0.33, 11)); // ornithomimus_leader2
-		MOBS_DROP_CHANCES.put(22203, new ItemChanceHolder(DEINONYCHUS_BONE, 0.65, 11)); // deinonychus_leader
-		MOBS_DROP_CHANCES.put(22204, new ItemChanceHolder(DEINONYCHUS_BONE, 0.32, 11)); // deinonychus
-		MOBS_DROP_CHANCES.put(22205, new ItemChanceHolder(DEINONYCHUS_BONE, 0.66, 11)); // deinonychus_s
-		MOBS_DROP_CHANCES.put(22220, new ItemChanceHolder(DEINONYCHUS_BONE, 0.32, 11)); // deinonychus_n
-		MOBS_DROP_CHANCES.put(22225, new ItemChanceHolder(DEINONYCHUS_BONE, 0.32, 11)); // deinonychus_leader2
-		MOBS_DROP_CHANCES.put(22208, new ItemChanceHolder(PACHYCEPHALOSAURUS_SKIN, 0.50, 11)); // pachycephalosaurus_ldr
-		MOBS_DROP_CHANCES.put(22209, new ItemChanceHolder(PACHYCEPHALOSAURUS_SKIN, 0.50, 11)); // pachycephalosaurus
-		MOBS_DROP_CHANCES.put(22210, new ItemChanceHolder(PACHYCEPHALOSAURUS_SKIN, 0.50, 11)); // pachycephalosaurus_s
-		MOBS_DROP_CHANCES.put(22221, new ItemChanceHolder(PACHYCEPHALOSAURUS_SKIN, 0.49, 11)); // pachycephalosaurus_n
-		MOBS_DROP_CHANCES.put(22226, new ItemChanceHolder(PACHYCEPHALOSAURUS_SKIN, 0.50, 11)); // pachycephalosaurus_ldr2
-	}
+	private static final QuestItemChanceHolder DIARY_FRAGMENT = new QuestItemChanceHolder(8768, 50L);
+	private static final QuestItemChanceHolder ORNITHOMINUS_CLAW = new QuestItemChanceHolder(8770, DINO_DROPS_LIMIT);
+	private static final QuestItemChanceHolder DEINONYCHUS_BONE = new QuestItemChanceHolder(8771, DINO_DROPS_LIMIT);
+	private static final QuestItemChanceHolder PACHYCEPHALOSAURUS_SKIN = new QuestItemChanceHolder(8772, DINO_DROPS_LIMIT);
+	// Droplists
+	private static final QuestDroplist DROPLIST_DIARY = QuestDroplist.builder()
+			.addSingleDrop(22196, DIARY_FRAGMENT, 51.0) // velociraptor_leader
+			.addSingleDrop(22197, DIARY_FRAGMENT, 51.0) // velociraptor
+			.addSingleDrop(22198, DIARY_FRAGMENT, 51.0) // velociraptor_s
+			.addSingleDrop(22218, DIARY_FRAGMENT, 25.0) // velociraptor_n
+			.addSingleDrop(22223, DIARY_FRAGMENT, 26.0) // velociraptor_leader2
+			.build();
+	private static final QuestDroplist DROPLIST_DINO = QuestDroplist.builder()
+			.addSingleDrop(22200, ORNITHOMINUS_CLAW, 66.0) // ornithomimus_leader
+			.addSingleDrop(22201, ORNITHOMINUS_CLAW, 33.0) // ornithomimus
+			.addSingleDrop(22202, ORNITHOMINUS_CLAW, 66.0) // ornithomimus_s
+			.addSingleDrop(22219, ORNITHOMINUS_CLAW, 33.0) // ornithomimus_n
+			.addSingleDrop(22224, ORNITHOMINUS_CLAW, 33.0) // ornithomimus_leader2
+			.addSingleDrop(22203, DEINONYCHUS_BONE, 65.0) // deinonychus_leader
+			.addSingleDrop(22204, DEINONYCHUS_BONE, 32.0) // deinonychus
+			.addSingleDrop(22205, DEINONYCHUS_BONE, 66.0) // deinonychus_s
+			.addSingleDrop(22220, DEINONYCHUS_BONE, 32.0) // deinonychus_n
+			.addSingleDrop(22225, DEINONYCHUS_BONE, 32.0) // deinonychus_leader2
+			.addSingleDrop(22208, PACHYCEPHALOSAURUS_SKIN, 50.0) // pachycephalosaurus_ldr
+			.addSingleDrop(22209, PACHYCEPHALOSAURUS_SKIN, 50.0) // pachycephalosaurus
+			.addSingleDrop(22210, PACHYCEPHALOSAURUS_SKIN, 50.0) // pachycephalosaurus_s
+			.addSingleDrop(22221, PACHYCEPHALOSAURUS_SKIN, 49.0) // pachycephalosaurus_n
+			.addSingleDrop(22226, PACHYCEPHALOSAURUS_SKIN, 50.0) // pachycephalosaurus_ldr2
+			.build();
 	
 	public Q00111_ElrokianHuntersProof() {
 		super(111, Q00111_ElrokianHuntersProof.class.getSimpleName(), "Elrokian Hunter's Proof");
 		addStartNpc(MARQUEZ);
 		addTalkId(MARQUEZ, MUSHIKA, ASAMAH, KIRIKACHIN);
-		addKillId(MOBS_DROP_CHANCES.keySet());
-		registerQuestItems(DIARY_FRAGMENT, EXPEDITION_MEMBERS_LETTER, ORNITHOMINUS_CLAW, DEINONYCHUS_BONE, PACHYCEPHALOSAURUS_SKIN, PRACTICE_ELROKIAN_TRAP);
+		addKillId(DROPLIST_DIARY.getNpcIds());
+		addKillId(DROPLIST_DINO.getNpcIds());
+		registerQuestItems(DIARY_FRAGMENT.getId(), EXPEDITION_MEMBERS_LETTER, ORNITHOMINUS_CLAW.getId(), DEINONYCHUS_BONE.getId(), PACHYCEPHALOSAURUS_SKIN.getId(), PRACTICE_ELROKIAN_TRAP);
 	}
 	
 	@Override
@@ -193,26 +194,20 @@ public final class Q00111_ElrokianHuntersProof extends Quest {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance player, boolean isSummon) {
-		final QuestState qs = getRandomPartyMemberState(player, -1, 3, npc);
+	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
+		final QuestState qs = getRandomPartyMemberState(killer, -1, 3, npc);
 		if (qs != null) {
-			final ItemChanceHolder item = MOBS_DROP_CHANCES.get(npc.getId());
-			if (item.getCount() == qs.getMemoState()) {
-				if (qs.isCond(4)) {
-					if (giveItemRandomly(qs.getPlayer(), npc, item.getId(), 1, 50, item.getChance(), true)) {
-						qs.setCond(5);
-					}
-				} else if (qs.isCond(10)) {
-					if (giveItemRandomly(qs.getPlayer(), npc, item.getId(), 1, 10, item.getChance(), true) //
-						&& (getQuestItemsCount(qs.getPlayer(), ORNITHOMINUS_CLAW) >= 10) //
-						&& (getQuestItemsCount(qs.getPlayer(), DEINONYCHUS_BONE) >= 10) //
-						&& (getQuestItemsCount(qs.getPlayer(), PACHYCEPHALOSAURUS_SKIN) >= 10)) {
-						qs.setCond(11);
-					}
+			if (qs.isMemoState(4) && qs.isCond(4)
+					&& giveItemRandomly(qs.getPlayer(), npc, DROPLIST_DIARY.get(npc), true)) {
+				qs.setCond(5);
+			} else if (qs.isMemoState(11) && qs.isCond(10)) {
+				if (giveItemRandomly(qs.getPlayer(), npc, DROPLIST_DINO.get(npc), true)
+						&& hasItemsAtLimit(qs.getPlayer(), ORNITHOMINUS_CLAW, DEINONYCHUS_BONE, PACHYCEPHALOSAURUS_SKIN)) {
+					qs.setCond(11);
 				}
 			}
 		}
-		return super.onKill(npc, player, isSummon);
+		return super.onKill(npc, killer, isSummon);
 	}
 	
 	@Override
@@ -249,10 +244,10 @@ public final class Q00111_ElrokianHuntersProof extends Quest {
 								break;
 							}
 							case 4: {
-								if (getQuestItemsCount(player, DIARY_FRAGMENT) < 50) {
+								if (!hasItemsAtLimit(player, DIARY_FRAGMENT)) {
 									htmltext = "32113-16.html";
 								} else {
-									takeItems(player, DIARY_FRAGMENT, -1);
+									takeItems(player, DIARY_FRAGMENT.getId(), -1);
 									qs.setMemoState(5);
 									htmltext = "32113-17.html";
 								}
@@ -324,15 +319,15 @@ public final class Q00111_ElrokianHuntersProof extends Quest {
 								break;
 							}
 							case 11: {
-								if ((getQuestItemsCount(player, ORNITHOMINUS_CLAW) < 10) || (getQuestItemsCount(player, DEINONYCHUS_BONE) < 10) || (getQuestItemsCount(player, PACHYCEPHALOSAURUS_SKIN) < 10)) {
+								if (!hasItemsAtLimit(player, ORNITHOMINUS_CLAW, DEINONYCHUS_BONE, PACHYCEPHALOSAURUS_SKIN)) {
 									htmltext = "32115-10.html";
 								} else {
 									qs.setMemoState(12);
 									qs.setCond(12, true);
 									giveItems(player, PRACTICE_ELROKIAN_TRAP, 1);
-									takeItems(player, ORNITHOMINUS_CLAW, -1);
-									takeItems(player, DEINONYCHUS_BONE, -1);
-									takeItems(player, PACHYCEPHALOSAURUS_SKIN, -1);
+									takeItems(player, ORNITHOMINUS_CLAW.getId(), -1);
+									takeItems(player, DEINONYCHUS_BONE.getId(), -1);
+									takeItems(player, PACHYCEPHALOSAURUS_SKIN.getId(), -1);
 									htmltext = "32115-11.html";
 								}
 								break;

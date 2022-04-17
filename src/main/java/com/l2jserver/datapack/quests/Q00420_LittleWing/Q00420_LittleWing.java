@@ -18,20 +18,23 @@
  */
 package com.l2jserver.datapack.quests.Q00420_LittleWing;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
 import com.l2jserver.gameserver.enums.audio.Sound;
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
+import com.l2jserver.gameserver.model.holders.QuestItemChanceHolder;
 import com.l2jserver.gameserver.model.quest.Quest;
 import com.l2jserver.gameserver.model.quest.QuestState;
 import com.l2jserver.gameserver.model.quest.State;
 import com.l2jserver.gameserver.network.NpcStringId;
 import com.l2jserver.gameserver.network.clientpackets.Say2;
 import com.l2jserver.gameserver.network.serverpackets.NpcSay;
+
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import static com.l2jserver.gameserver.model.quest.QuestDroplist.singleDropItem;
 
 /**
  * Little Wing (420)
@@ -61,7 +64,6 @@ public final class Q00420_LittleWing extends Quest {
 	private static final int DELUXE_FAIRY_STONE = 3817;
 	private static final int FAIRY_STONE_LIST = 3818;
 	private static final int DELUXE_STONE_LIST = 3819;
-	private static final int TOAD_SKIN = 3820;
 	private static final int MONKSHOOD_JUICE = 3821;
 	private static final int EXARION_SCALE = 3822;
 	private static final int EXARION_EGG = 3823;
@@ -73,6 +75,9 @@ public final class Q00420_LittleWing extends Quest {
 	private static final int SUZET_EGG = 3829;
 	private static final int SHAMHAI_SCALE = 3830;
 	private static final int SHAMHAI_EGG = 3831;
+	private static final long TOAD_SKIN_FAIRY_STONE_LIMIT = 10;
+	private static final long TOAD_SKIN_DELUXE_FAIRY_STONE_LIMIT = 20;
+	private static final QuestItemChanceHolder TOAD_SKIN = new QuestItemChanceHolder(3820, 30.0);
 	// Monsters
 	private static final int DEAD_SEEKER = 20202;
 	private static final int TOAD_LORD = 20231;
@@ -123,7 +128,7 @@ public final class Q00420_LittleWing extends Quest {
 		addTalkId(MARIA, CRONOS, BYRON, MIMYU, EXARION, ZWOV, KALIBRAN, SUZET, SHAMHAI, COOPER);
 		addAttackId(DELUXE_STONE_BREAKERS);
 		addKillId(TOAD_LORD, DEAD_SEEKER, MARSH_SPIDER, BREKA_OVERLORD, ROAD_SCAVENGER, LETO_WARRIOR);
-		registerQuestItems(FAIRY_DUST, FAIRY_STONE, DELUXE_FAIRY_STONE, FAIRY_STONE_LIST, DELUXE_STONE_LIST, TOAD_SKIN, MONKSHOOD_JUICE, EXARION_SCALE, EXARION_EGG, ZWOV_SCALE, ZWOV_EGG, KALIBRAN_SCALE, KALIBRAN_EGG, SUZET_SCALE, SUZET_EGG, SHAMHAI_SCALE, SHAMHAI_EGG);
+		registerQuestItems(FAIRY_DUST, FAIRY_STONE, DELUXE_FAIRY_STONE, FAIRY_STONE_LIST, DELUXE_STONE_LIST, TOAD_SKIN.getId(), MONKSHOOD_JUICE, EXARION_SCALE, EXARION_EGG, ZWOV_SCALE, ZWOV_EGG, KALIBRAN_SCALE, KALIBRAN_EGG, SUZET_SCALE, SUZET_EGG, SHAMHAI_SCALE, SHAMHAI_EGG);
 	}
 	
 	@Override
@@ -194,13 +199,14 @@ public final class Q00420_LittleWing extends Quest {
 			}
 			case "30608-03.html": {
 				if (qs.isCond(2)) {
-					if ((qs.getInt("fairy_stone") == 1) && (getQuestItemsCount(player, COAL) >= 10) && (getQuestItemsCount(player, CHARCOAL) >= 10) && (getQuestItemsCount(player, GEMSTONE_D) >= 1) && (getQuestItemsCount(player, SILVER_NUGGET) >= 3) && (getQuestItemsCount(player, TOAD_SKIN) >= 10)) {
+					if ((qs.getInt("fairy_stone") == 1) && (getQuestItemsCount(player, COAL) >= 10) && (getQuestItemsCount(player, CHARCOAL) >= 10) && (getQuestItemsCount(player, GEMSTONE_D) >= 1)
+							&& (getQuestItemsCount(player, SILVER_NUGGET) >= 3) && (getQuestItemsCount(player, TOAD_SKIN.getId()) >= TOAD_SKIN_FAIRY_STONE_LIMIT)) {
 						takeItems(player, FAIRY_STONE_LIST, -1);
 						takeItems(player, COAL, 10);
 						takeItems(player, CHARCOAL, 10);
 						takeItems(player, GEMSTONE_D, 1);
 						takeItems(player, SILVER_NUGGET, 3);
-						takeItems(player, TOAD_SKIN, -1);
+						takeItems(player, TOAD_SKIN.getId(), -1);
 						giveItems(player, FAIRY_STONE, 1);
 					}
 					qs.setCond(3, true);
@@ -211,14 +217,14 @@ public final class Q00420_LittleWing extends Quest {
 			case "30608-05.html": {
 				if (qs.isCond(2)) {
 					if ((qs.getInt("fairy_stone") == 2) && (getQuestItemsCount(player, COAL) >= 10) && (getQuestItemsCount(player, CHARCOAL) >= 10) && (getQuestItemsCount(player, GEMSTONE_C) >= 1) && (getQuestItemsCount(player, STONE_OF_PURITY) >= 1)
-						&& (getQuestItemsCount(player, SILVER_NUGGET) >= 5) && (getQuestItemsCount(player, TOAD_SKIN) >= 20)) {
+							&& (getQuestItemsCount(player, SILVER_NUGGET) >= 5) && (getQuestItemsCount(player, TOAD_SKIN.getId()) >= TOAD_SKIN_DELUXE_FAIRY_STONE_LIMIT)) {
 						takeItems(player, DELUXE_STONE_LIST, -1);
 						takeItems(player, COAL, 10);
 						takeItems(player, CHARCOAL, 10);
 						takeItems(player, GEMSTONE_C, 1);
 						takeItems(player, STONE_OF_PURITY, 1);
 						takeItems(player, SILVER_NUGGET, 5);
-						takeItems(player, TOAD_SKIN, -1);
+						takeItems(player, TOAD_SKIN.getId(), -1);
 						giveItems(player, DELUXE_FAIRY_STONE, 1);
 					}
 					qs.setCond(3, true);
@@ -423,10 +429,10 @@ public final class Q00420_LittleWing extends Quest {
 						switch (qs.getCond()) {
 							case 2: {
 								if ((qs.getInt("fairy_stone") == 1) && (getQuestItemsCount(talker, COAL) >= 10) && (getQuestItemsCount(talker, CHARCOAL) >= 10) && (getQuestItemsCount(talker, GEMSTONE_D) >= 1) && (getQuestItemsCount(talker, SILVER_NUGGET) >= 3)
-									&& (getQuestItemsCount(talker, TOAD_SKIN) >= 10)) {
+									&& (getQuestItemsCount(talker, TOAD_SKIN.getId()) >= TOAD_SKIN_FAIRY_STONE_LIMIT)) {
 									htmltext = "30608-02.html";
 								} else if ((qs.getInt("fairy_stone") == 2) && (getQuestItemsCount(talker, COAL) >= 10) && (getQuestItemsCount(talker, CHARCOAL) >= 10) && (getQuestItemsCount(talker, GEMSTONE_C) >= 1) && (getQuestItemsCount(talker, STONE_OF_PURITY) >= 1)
-									&& (getQuestItemsCount(talker, SILVER_NUGGET) >= 5) && (getQuestItemsCount(talker, TOAD_SKIN) >= 20)) {
+									&& (getQuestItemsCount(talker, SILVER_NUGGET) >= 5) && (getQuestItemsCount(talker, TOAD_SKIN.getId()) >= TOAD_SKIN_DELUXE_FAIRY_STONE_LIMIT)) {
 									htmltext = "30608-04.html";
 								} else {
 									htmltext = "30608-01.html";
@@ -654,9 +660,9 @@ public final class Q00420_LittleWing extends Quest {
 		if (qs != null) {
 			if (qs.isCond(2) && (npc.getId() == TOAD_LORD)) {
 				if (qs.getInt("fairy_stone") == 1) {
-					giveItemRandomly(qs.getPlayer(), npc, TOAD_SKIN, 1, 10, 0.3, true);
+					giveItemRandomly(qs.getPlayer(), npc, singleDropItem(TOAD_SKIN), TOAD_SKIN_FAIRY_STONE_LIMIT, true);
 				} else {
-					giveItemRandomly(qs.getPlayer(), npc, TOAD_SKIN, 1, 20, 0.3, true);
+					giveItemRandomly(qs.getPlayer(), npc, singleDropItem(TOAD_SKIN), TOAD_SKIN_DELUXE_FAIRY_STONE_LIMIT, true);
 				}
 			} else if (qs.isCond(6) && (npc.getId() == qs.getInt("drake_hunt"))) {
 				giveItemRandomly(qs.getPlayer(), npc, EGG_DROPS.get(npc.getId()), 1, 20, 0.5, true);

@@ -18,16 +18,16 @@
  */
 package com.l2jserver.datapack.quests.Q00372_LegacyOfInsolence;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import com.l2jserver.gameserver.enums.audio.Sound;
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
-import com.l2jserver.gameserver.model.holders.QuestItemHolder;
+import com.l2jserver.gameserver.model.holders.ItemChanceHolder;
 import com.l2jserver.gameserver.model.quest.Quest;
 import com.l2jserver.gameserver.model.quest.QuestState;
 import com.l2jserver.gameserver.util.Util;
+
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Legacy Of Insolence (372)
@@ -102,15 +102,15 @@ public final class Q00372_LegacyOfInsolence extends Quest {
 	private static final int SEALED_MAJESTIC_CIRCLET_DESIGN = 5528;
 	// Monsters
 	private static final int HALLATES_INSPECTOR = 20825;
-	private static final Map<Integer, QuestItemHolder> MONSTER_REWARDS = new HashMap<>();
+	private static final Map<Integer, ItemChanceHolder> MONSTER_REWARDS = new HashMap<>();
 	
 	static {
-		MONSTER_REWARDS.put(20817, new QuestItemHolder(ANCIENT_RED_PAPYRUS, 302, 1));
-		MONSTER_REWARDS.put(20821, new QuestItemHolder(ANCIENT_RED_PAPYRUS, 410, 1));
-		MONSTER_REWARDS.put(HALLATES_INSPECTOR, new QuestItemHolder(ANCIENT_RED_PAPYRUS, 1, 447));
-		MONSTER_REWARDS.put(20829, new QuestItemHolder(ANCIENT_BLUE_PAPYRUS, 451, 1));
-		MONSTER_REWARDS.put(21062, new QuestItemHolder(ANCIENT_WHITE_PAPYRUS, 290, 1));
-		MONSTER_REWARDS.put(21069, new QuestItemHolder(ANCIENT_BLACK_PAPYRUS, 280, 1));
+		MONSTER_REWARDS.put(20817, new ItemChanceHolder(ANCIENT_RED_PAPYRUS, 302, 1));
+		MONSTER_REWARDS.put(20821, new ItemChanceHolder(ANCIENT_RED_PAPYRUS, 410, 1));
+		MONSTER_REWARDS.put(HALLATES_INSPECTOR, new ItemChanceHolder(ANCIENT_RED_PAPYRUS, 1, 447));
+		MONSTER_REWARDS.put(20829, new ItemChanceHolder(ANCIENT_BLUE_PAPYRUS, 451, 1));
+		MONSTER_REWARDS.put(21062, new ItemChanceHolder(ANCIENT_WHITE_PAPYRUS, 290, 1));
+		MONSTER_REWARDS.put(21069, new ItemChanceHolder(ANCIENT_BLACK_PAPYRUS, 280, 1));
 	}
 	
 	// Misc
@@ -361,7 +361,7 @@ public final class Q00372_LegacyOfInsolence extends Quest {
 	
 	@Override
 	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
-		final QuestItemHolder item = MONSTER_REWARDS.get(npc.getId());
+		final ItemChanceHolder item = MONSTER_REWARDS.get(npc.getId());
 		if (npc.getId() == HALLATES_INSPECTOR) {
 			if (getRandom(1000) < item.getChance()) {
 				final QuestState qs = getRandomPartyMemberState(killer, -1, 3, npc);

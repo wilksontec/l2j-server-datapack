@@ -18,12 +18,10 @@
  */
 package com.l2jserver.datapack.quests.Q00269_InventionAmbition;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
 import com.l2jserver.gameserver.model.quest.Quest;
+import com.l2jserver.gameserver.model.quest.QuestDroplist;
 import com.l2jserver.gameserver.model.quest.QuestState;
 
 /**
@@ -35,18 +33,17 @@ public final class Q00269_InventionAmbition extends Quest {
 	private static final int INVENTOR_MARU = 32486;
 	// Items
 	private static final int ENERGY_ORE = 10866;
-	// Monsters
-	private static final Map<Integer, Double> MONSTERS = new HashMap<>();
-	static {
-		MONSTERS.put(21124, 0.46); // Red Eye Barbed Bat
-		MONSTERS.put(21125, 0.48); // Northern Trimden
-		MONSTERS.put(21126, 0.5); // Kerope Werewolf
-		MONSTERS.put(21127, 0.64); // Northern Goblin
-		MONSTERS.put(21128, 0.66); // Spine Golem
-		MONSTERS.put(21129, 0.68); // Kerope Werewolf Chief
-		MONSTERS.put(21130, 0.76); // Northern Goblin Leader
-		MONSTERS.put(21131, 0.78); // Enchanted Spine Golem
-	}
+	// Droplist
+	private static final QuestDroplist DROPLIST = QuestDroplist.builder()
+			.addSingleDrop(21124, ENERGY_ORE, 46.0) // Red Eye Barbed Bat
+			.addSingleDrop(21125, ENERGY_ORE, 48.0) // Northern Trimden
+			.addSingleDrop(21126, ENERGY_ORE, 50.0) // Kerope Werewolf
+			.addSingleDrop(21127, ENERGY_ORE, 64.0) // Northern Goblin
+			.addSingleDrop(21128, ENERGY_ORE, 66.0) // Spine Golem
+			.addSingleDrop(21129, ENERGY_ORE, 68.0) // Kerope Werewolf Chief
+			.addSingleDrop(21130, ENERGY_ORE, 76.0) // Northern Goblin Leader
+			.addSingleDrop(21131, ENERGY_ORE, 78.0) // Enchanted Spine Golem
+			.build();
 	// Misc
 	private static final int MIN_LVL = 18;
 	
@@ -54,7 +51,7 @@ public final class Q00269_InventionAmbition extends Quest {
 		super(269, Q00269_InventionAmbition.class.getSimpleName(), "Invention Ambition");
 		addStartNpc(INVENTOR_MARU);
 		addTalkId(INVENTOR_MARU);
-		addKillId(MONSTERS.keySet());
+		addKillId(DROPLIST.getNpcIds());
 		registerQuestItems(ENERGY_ORE);
 	}
 	
@@ -97,7 +94,7 @@ public final class Q00269_InventionAmbition extends Quest {
 	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
 		final QuestState st = getRandomPartyMemberState(killer, -1, 3, npc);
 		if (st != null) {
-			giveItemRandomly(st.getPlayer(), npc, ENERGY_ORE, 1, 0, MONSTERS.get(npc.getId()), true);
+			giveItemRandomly(st.getPlayer(), npc, DROPLIST.get(npc), true);
 		}
 		return super.onKill(npc, killer, isSummon);
 	}

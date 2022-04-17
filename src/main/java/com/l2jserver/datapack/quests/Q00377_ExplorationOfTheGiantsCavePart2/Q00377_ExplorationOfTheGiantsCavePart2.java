@@ -18,12 +18,10 @@
  */
 package com.l2jserver.datapack.quests.Q00377_ExplorationOfTheGiantsCavePart2;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
 import com.l2jserver.gameserver.model.quest.Quest;
+import com.l2jserver.gameserver.model.quest.QuestDroplist;
 import com.l2jserver.gameserver.model.quest.QuestState;
 
 /**
@@ -41,28 +39,25 @@ public class Q00377_ExplorationOfTheGiantsCavePart2 extends Quest {
 	private static final int BOOK3 = 14844;
 	private static final int BOOK4 = 14845;
 	private static final int BOOK5 = 14846;
-	// Mobs
-	private static final Map<Integer, Integer> MOBS1 = new HashMap<>();
-	private static final Map<Integer, Double> MOBS2 = new HashMap<>();
-	static {
-		MOBS1.put(22660, 366); // lesser_giant_re
-		MOBS1.put(22661, 424); // lesser_giant_soldier_re
-		MOBS1.put(22662, 304); // lesser_giant_shooter_re
-		MOBS1.put(22663, 304); // lesser_giant_scout_re
-		MOBS1.put(22664, 354); // lesser_giant_mage_re
-		MOBS1.put(22665, 324); // lesser_giant_elder_re
-		MOBS2.put(22666, 0.276); // barif_re
-		MOBS2.put(22667, 0.284); // barif_pet_re
-		MOBS2.put(22668, 0.240); // gamlin_re
-		MOBS2.put(22669, 0.240); // leogul_re
-	}
+	// Droplist
+	private static final QuestDroplist DROPLIST = QuestDroplist.builder()
+			.addSingleDrop(22660, TITAN_ANCIENT_BOOK, 236.6) // lesser_giant_re
+			.addSingleDrop(22661, TITAN_ANCIENT_BOOK, 242.4) // lesser_giant_soldier_re
+			.addSingleDrop(22662, TITAN_ANCIENT_BOOK, 230.4) // lesser_giant_shooter_re
+			.addSingleDrop(22663, TITAN_ANCIENT_BOOK, 230.4) // lesser_giant_scout_re
+			.addSingleDrop(22664, TITAN_ANCIENT_BOOK, 235.4) // lesser_giant_mage_re
+			.addSingleDrop(22665, TITAN_ANCIENT_BOOK, 232.4) // lesser_giant_elder_re
+			.addSingleDrop(22666, TITAN_ANCIENT_BOOK, 27.6) // barif_re
+			.addSingleDrop(22667, TITAN_ANCIENT_BOOK, 28.4) // barif_pet_re
+			.addSingleDrop(22668, TITAN_ANCIENT_BOOK, 24.0) // gamlin_re
+			.addSingleDrop(22669, TITAN_ANCIENT_BOOK, 24.0) // leogul_re
+			.build();
 	
 	public Q00377_ExplorationOfTheGiantsCavePart2() {
 		super(377, Q00377_ExplorationOfTheGiantsCavePart2.class.getSimpleName(), "Exploration of the Giants' Cave - Part 2");
 		addStartNpc(SOBLING);
 		addTalkId(SOBLING);
-		addKillId(MOBS1.keySet());
-		addKillId(MOBS2.keySet());
+		addKillId(DROPLIST.getNpcIds());
 		registerQuestItems(TITAN_ANCIENT_BOOK);
 	}
 	
@@ -98,13 +93,7 @@ public class Q00377_ExplorationOfTheGiantsCavePart2 extends Quest {
 	public String onKill(L2Npc npc, L2PcInstance player, boolean isSummon) {
 		final QuestState qs = getRandomPartyMemberState(player, -1, 3, npc);
 		if (qs != null) {
-			int npcId = npc.getId();
-			if (MOBS1.containsKey(npcId)) {
-				final int itemCount = ((getRandom(1000) < MOBS1.get(npcId)) ? 3 : 2);
-				giveItemRandomly(qs.getPlayer(), npc, TITAN_ANCIENT_BOOK, itemCount, 0, 1.0, true);
-			} else {
-				giveItemRandomly(qs.getPlayer(), npc, TITAN_ANCIENT_BOOK, 1, 0, MOBS2.get(npcId), true);
-			}
+			giveItemRandomly(qs.getPlayer(), npc, DROPLIST.get(npc), true);
 		}
 		return super.onKill(npc, player, isSummon);
 	}

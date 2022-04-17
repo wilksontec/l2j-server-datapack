@@ -18,17 +18,16 @@
  */
 package com.l2jserver.datapack.quests.Q00299_GatherIngredientsForPie;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
-import com.l2jserver.gameserver.model.holders.QuestItemHolder;
+import com.l2jserver.gameserver.model.holders.ItemChanceHolder;
+import com.l2jserver.gameserver.model.holders.QuestItemChanceHolder;
 import com.l2jserver.gameserver.model.quest.Quest;
+import com.l2jserver.gameserver.model.quest.QuestDroplist;
 import com.l2jserver.gameserver.model.quest.QuestState;
 import com.l2jserver.gameserver.model.quest.State;
+
+import java.util.List;
 
 /**
  * Gather Ingredients for Pie (299)
@@ -39,32 +38,32 @@ public final class Q00299_GatherIngredientsForPie extends Quest {
 	private static final int LARS = 30063;
 	private static final int BRIGHT = 30466;
 	private static final int EMILLY = 30620;
-	// Monsters
-	private static final Map<Integer, Integer> MONSTERS_CHANCES = new HashMap<>(2);
 	// Items
 	private static final int FRUIT_BASKET = 7136;
 	private static final int AVELLAN_SPICE = 7137;
-	private static final int HONEY_POUCH = 7138;
+	private static final QuestItemChanceHolder HONEY_POUCH = new QuestItemChanceHolder(7138, 100L);
+	// Droplist
+	private static final QuestDroplist DROPLIST = QuestDroplist.builder()
+			.addSingleDrop(20934, HONEY_POUCH, 1, 2, 70.0) // Wasp Worker
+			.addSingleDrop(20935, HONEY_POUCH, 1, 2, 77.0) // Wasp Leader
+			.build();
 	// Rewards
-	private static final List<QuestItemHolder> REWARDS = new ArrayList<>(5);
+	private static final List<ItemChanceHolder> REWARDS = List.of(
+			new ItemChanceHolder(57, 400, 2500), // Adena
+			new ItemChanceHolder(1865, 550, 50), // Varnish
+			new ItemChanceHolder(1870, 700, 50), // Coal
+			new ItemChanceHolder(1869, 850, 50), // Iron Ore
+			new ItemChanceHolder(1871, 1000, 50) // Charcoal
+	);
 	// Misc
 	private static final int MIN_LVL = 34;
-	static {
-		MONSTERS_CHANCES.put(20934, 700); // Wasp Worker
-		MONSTERS_CHANCES.put(20935, 770); // Wasp Leader
-		REWARDS.add(new QuestItemHolder(57, 400, 2500)); // Adena
-		REWARDS.add(new QuestItemHolder(1865, 550, 50)); // Varnish
-		REWARDS.add(new QuestItemHolder(1870, 700, 50)); // Coal
-		REWARDS.add(new QuestItemHolder(1869, 850, 50)); // Iron Ore
-		REWARDS.add(new QuestItemHolder(1871, 1000, 50)); // Charcoal
-	}
 	
 	public Q00299_GatherIngredientsForPie() {
 		super(299, Q00299_GatherIngredientsForPie.class.getSimpleName(), "Gather Ingredients for Pie");
 		addStartNpc(EMILLY);
 		addTalkId(LARS, BRIGHT, EMILLY);
-		addKillId(MONSTERS_CHANCES.keySet());
-		registerQuestItems(FRUIT_BASKET, HONEY_POUCH, AVELLAN_SPICE);
+		addKillId(DROPLIST.getNpcIds());
+		registerQuestItems(FRUIT_BASKET, HONEY_POUCH.getId(), AVELLAN_SPICE);
 	}
 	
 	@Override
@@ -99,8 +98,8 @@ public final class Q00299_GatherIngredientsForPie extends Quest {
 				break;
 			}
 			case "30620-06.html": {
-				if (qs.isCond(2) && (getQuestItemsCount(player, HONEY_POUCH) >= 100)) {
-					takeItems(player, HONEY_POUCH, -1);
+				if (qs.isCond(2) && hasItemsAtLimit(player, HONEY_POUCH)) {
+					takeItems(player, HONEY_POUCH.getId(), -1);
 					qs.setCond(3, true);
 					html = event;
 				} else {
@@ -122,7 +121,7 @@ public final class Q00299_GatherIngredientsForPie extends Quest {
 				if (qs.isCond(6) && hasQuestItems(player, FRUIT_BASKET)) {
 					takeItems(player, FRUIT_BASKET, -1);
 					final int chance = getRandom(1000);
-					for (QuestItemHolder holder : REWARDS) {
+					for (ItemChanceHolder holder : REWARDS) {
 						if (holder.getChance() > chance) {
 							rewardItems(player, holder);
 							break;
@@ -142,10 +141,8 @@ public final class Q00299_GatherIngredientsForPie extends Quest {
 	@Override
 	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
 		final QuestState qs = getRandomPartyMemberState(killer, 1, 3, npc);
-		if ((qs != null) && (getRandom(1000) < MONSTERS_CHANCES.get(npc.getId())) && (getQuestItemsCount(killer, HONEY_POUCH) < 100)) {
-			if (giveItemRandomly(killer, npc, HONEY_POUCH, 1, 2, 100, 1, true)) {
-				qs.setCond(2);
-			}
+		if ((qs != null) && giveItemRandomly(qs.getPlayer(), npc, DROPLIST.get(npc), true)) {
+			qs.setCond(2);
 		}
 		return super.onKill(npc, killer, isSummon);
 	}
@@ -194,7 +191,7 @@ public final class Q00299_GatherIngredientsForPie extends Quest {
 								break;
 							}
 							case 2: {
-								if (getQuestItemsCount(talker, HONEY_POUCH) >= 100) {
+								if (hasItemsAtLimit(talker, HONEY_POUCH)) {
 									html = "30620-04.html";
 								}
 								break;

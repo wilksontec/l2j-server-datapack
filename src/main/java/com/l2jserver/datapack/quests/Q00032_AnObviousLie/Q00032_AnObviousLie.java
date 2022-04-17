@@ -18,14 +18,14 @@
  */
 package com.l2jserver.datapack.quests.Q00032_AnObviousLie;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
 import com.l2jserver.gameserver.model.holders.ItemHolder;
+import com.l2jserver.gameserver.model.holders.QuestItemChanceHolder;
 import com.l2jserver.gameserver.model.quest.Quest;
 import com.l2jserver.gameserver.model.quest.QuestState;
+
+import java.util.Map;
 
 /**
  * An Obvious Lie (32).
@@ -40,19 +40,17 @@ public final class Q00032_AnObviousLie extends Quest {
 	private static final int ALLIGATOR = 20135;
 	// Items
 	private static final int MAP_OF_GENTLER = 7165;
-	private static final ItemHolder MEDICINAL_HERB = new ItemHolder(7166, 20);
 	private static final ItemHolder SPIRIT_ORE = new ItemHolder(3031, 500);
 	private static final ItemHolder THREAD = new ItemHolder(1868, 1000);
 	private static final ItemHolder SUEDE = new ItemHolder(1866, 500);
+	private static final QuestItemChanceHolder MEDICINAL_HERB = new QuestItemChanceHolder(7166, 20L);
 	// Misc
 	private static final int MIN_LVL = 45;
 	// Reward
-	private static final Map<String, Integer> EARS = new HashMap<>();
-	{
-		EARS.put("cat", 6843); // Cat Ears
-		EARS.put("raccoon", 7680); // Raccoon ears
-		EARS.put("rabbit", 7683); // Rabbit ears
-	}
+	private static final Map<String, Integer> EARS = Map.of(
+			"cat", 6843, // Cat Ears
+			"raccoon", 7680, // Raccoon ears
+			"rabbit", 7683); // Rabbit ears
 	
 	public Q00032_AnObviousLie() {
 		super(32, Q00032_AnObviousLie.class.getSimpleName(), "An Obvious Lie");
@@ -69,7 +67,7 @@ public final class Q00032_AnObviousLie extends Quest {
 		if (qs == null) {
 			return htmltext;
 		}
-		
+
 		switch (event) {
 			case "30120-02.html": {
 				if (qs.isCreated()) {
@@ -147,7 +145,7 @@ public final class Q00032_AnObviousLie extends Quest {
 	@Override
 	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
 		final QuestState qs = getRandomPartyMemberState(killer, 3, 3, npc);
-		if ((qs != null) && giveItemRandomly(qs.getPlayer(), npc, MEDICINAL_HERB.getId(), 1, MEDICINAL_HERB.getCount(), 1.0, true)) {
+		if ((qs != null) && giveItemRandomly(qs.getPlayer(), npc, MEDICINAL_HERB, true)) {
 			qs.setCond(4);
 		}
 		return super.onKill(npc, killer, isSummon);
@@ -172,63 +170,32 @@ public final class Q00032_AnObviousLie extends Quest {
 			}
 			case GENTLER: {
 				switch (qs.getCond()) {
-					case 1: {
-						htmltext = "30094-01.html";
-						break;
-					}
-					case 2: {
-						htmltext = "30094-03.html";
-						break;
-					}
-					case 4: {
-						htmltext = (hasItem(player, MEDICINAL_HERB) ? "30094-04.html" : "30094-05.html");
-						break;
-					}
-					case 5: {
-						htmltext = (hasItem(player, SPIRIT_ORE) ? "30094-07.html" : "30094-08.html");
-						break;
-					}
-					case 6: {
-						htmltext = "30094-10.html";
-						break;
-					}
-					case 7: {
-						htmltext = "30094-11.html";
-						break;
-					}
-					case 8: {
+					case 1 -> htmltext = "30094-01.html";
+					case 2 -> htmltext = "30094-03.html";
+					case 4 -> htmltext = (hasItem(player, MEDICINAL_HERB) ? "30094-04.html" : "30094-05.html");
+					case 5 -> htmltext = (hasItem(player, SPIRIT_ORE) ? "30094-07.html" : "30094-08.html");
+					case 6 -> htmltext = "30094-10.html";
+					case 7 -> htmltext = "30094-11.html";
+					case 8 -> {
 						if (hasAllItems(player, true, THREAD, SUEDE)) {
 							htmltext = "30094-13.html";
 						} else {
 							htmltext = "30094-14.html";
 						}
-						break;
 					}
 				}
 				break;
 			}
 			case MIKI_THE_CAT: {
 				switch (qs.getCond()) {
-					case 2: {
+					case 2 -> {
 						if (hasQuestItems(player, MAP_OF_GENTLER)) {
 							htmltext = "31706-01.html";
 						}
-						break;
 					}
-					case 3:
-					case 4:
-					case 5: {
-						htmltext = "31706-03.html";
-						break;
-					}
-					case 6: {
-						htmltext = "31706-04.html";
-						break;
-					}
-					case 7: {
-						htmltext = "31706-06.html";
-						break;
-					}
+					case 3, 4, 5 -> htmltext = "31706-03.html";
+					case 6 -> htmltext = "31706-04.html";
+					case 7 -> htmltext = "31706-06.html";
 				}
 				break;
 			}

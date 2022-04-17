@@ -21,7 +21,9 @@ package com.l2jserver.datapack.quests.Q00340_SubjugationOfLizardmen;
 import com.l2jserver.gameserver.enums.audio.Sound;
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
+import com.l2jserver.gameserver.model.holders.QuestItemChanceHolder;
 import com.l2jserver.gameserver.model.quest.Quest;
+import com.l2jserver.gameserver.model.quest.QuestDroplist;
 import com.l2jserver.gameserver.model.quest.QuestState;
 import com.l2jserver.gameserver.util.Util;
 
@@ -35,11 +37,6 @@ public final class Q00340_SubjugationOfLizardmen extends Quest {
 	private static final int PRIEST_ADONIUS = 30375;
 	private static final int GUARD_WEISZ = 30385;
 	private static final int CHEST_OF_BIFRONS = 30989;
-	// Items
-	private static final int TRADE_CARGO = 4255;
-	private static final int AGNESS_HOLY_SYMBOL = 4256;
-	private static final int AGNESS_ROSARY = 4257;
-	private static final int SINISTER_TOTEM = 4258;
 	// Monster
 	private static final int FELIM_LIZARDMAN = 20008;
 	private static final int FELIM_LIZARDMAN_SCOUT = 20010;
@@ -47,6 +44,17 @@ public final class Q00340_SubjugationOfLizardmen extends Quest {
 	private static final int LANGK_LIZARDMAN_WARRIOR = 20024;
 	private static final int LANGK_LIZARDMAN_SCOUT = 20027;
 	private static final int LANGK_LIZARDMAN = 20030;
+	// Items
+	private static final int AGNESS_HOLY_SYMBOL = 4256;
+	private static final int AGNESS_ROSARY = 4257;
+	private static final int SINISTER_TOTEM = 4258;
+	private static final QuestItemChanceHolder TRADE_CARGO = new QuestItemChanceHolder(4255, 30L);
+	// Droplist
+	private static final QuestDroplist DROPLIST = QuestDroplist.builder()
+			.addSingleDrop(FELIM_LIZARDMAN, TRADE_CARGO, 63.0)
+			.addSingleDrop(FELIM_LIZARDMAN_SCOUT, TRADE_CARGO, 63.0)
+			.addSingleDrop(FELIM_LIZARDMAN_WARRIOR, TRADE_CARGO, 68.0)
+			.build();
 	// Raid Boss
 	private static final int SERPENT_DEMON_BIFRONS = 25146;
 	// Misc
@@ -57,7 +65,7 @@ public final class Q00340_SubjugationOfLizardmen extends Quest {
 		addStartNpc(GUARD_WEISZ);
 		addTalkId(GUARD_WEISZ, HIGH_PRIESTESS_LEVIAN, PRIEST_ADONIUS, CHEST_OF_BIFRONS);
 		addKillId(FELIM_LIZARDMAN, FELIM_LIZARDMAN_SCOUT, FELIM_LIZARDMAN_WARRIOR, LANGK_LIZARDMAN_WARRIOR, LANGK_LIZARDMAN_SCOUT, LANGK_LIZARDMAN, SERPENT_DEMON_BIFRONS);
-		registerQuestItems(TRADE_CARGO, AGNESS_HOLY_SYMBOL, AGNESS_ROSARY, SINISTER_TOTEM);
+		registerQuestItems(TRADE_CARGO.getId(), AGNESS_HOLY_SYMBOL, AGNESS_ROSARY, SINISTER_TOTEM);
 	}
 	
 	@Override
@@ -83,25 +91,25 @@ public final class Q00340_SubjugationOfLizardmen extends Quest {
 				break;
 			}
 			case "30385-07.html": {
-				takeItems(player, TRADE_CARGO, -1);
+				takeItems(player, TRADE_CARGO.getId(), -1);
 				qs.setMemoState(2);
 				qs.setCond(2, true);
 				htmltext = event;
 				break;
 			}
 			case "30385-09.html": {
-				if (getQuestItemsCount(player, TRADE_CARGO) >= 30) {
+				if (hasItemsAtLimit(player, TRADE_CARGO)) {
 					giveAdena(player, 4090, true);
-					takeItems(player, TRADE_CARGO, -1);
+					takeItems(player, TRADE_CARGO.getId(), -1);
 					qs.setMemoState(1);
 					htmltext = event;
 				}
 				break;
 			}
 			case "30385-10.html": {
-				if (getQuestItemsCount(player, TRADE_CARGO) >= 30) {
+				if (hasItemsAtLimit(player, TRADE_CARGO)) {
 					giveAdena(player, 4090, true);
-					takeItems(player, TRADE_CARGO, -1);
+					takeItems(player, TRADE_CARGO.getId(), -1);
 					qs.exitQuest(false, true);
 					htmltext = event;
 				}
@@ -139,20 +147,12 @@ public final class Q00340_SubjugationOfLizardmen extends Quest {
 		final QuestState qs = getQuestState(killer, false);
 		if ((qs != null) && qs.isStarted() && Util.checkIfInRange(1500, npc, killer, true)) {
 			switch (npc.getId()) {
-				case FELIM_LIZARDMAN:
-				case FELIM_LIZARDMAN_SCOUT: {
+				case FELIM_LIZARDMAN, FELIM_LIZARDMAN_SCOUT, FELIM_LIZARDMAN_WARRIOR -> {
 					if (qs.isMemoState(1)) {
-						giveItemRandomly(killer, npc, TRADE_CARGO, 1, 30, 0.63, true);
+						giveItemRandomly(killer, npc, DROPLIST.get(npc), true);
 					}
-					break;
 				}
-				case FELIM_LIZARDMAN_WARRIOR: {
-					if (qs.isMemoState(1)) {
-						giveItemRandomly(killer, npc, TRADE_CARGO, 1, 30, 0.68, true);
-					}
-					break;
-				}
-				case LANGK_LIZARDMAN_WARRIOR: {
+				case LANGK_LIZARDMAN_WARRIOR -> {
 					if (qs.isMemoState(3)) {
 						if (!hasQuestItems(killer, AGNESS_HOLY_SYMBOL) && (getRandom(100) <= 19)) {
 							giveItems(killer, AGNESS_HOLY_SYMBOL, 1);
@@ -162,10 +162,8 @@ public final class Q00340_SubjugationOfLizardmen extends Quest {
 							playSound(killer, Sound.ITEMSOUND_QUEST_ITEMGET);
 						}
 					}
-					break;
 				}
-				case LANGK_LIZARDMAN_SCOUT:
-				case LANGK_LIZARDMAN: {
+				case LANGK_LIZARDMAN_SCOUT, LANGK_LIZARDMAN -> {
 					if (qs.isMemoState(3)) {
 						if (!hasQuestItems(killer, AGNESS_HOLY_SYMBOL) && (getRandom(100) <= 18)) {
 							giveItems(killer, AGNESS_HOLY_SYMBOL, 1);
@@ -175,12 +173,8 @@ public final class Q00340_SubjugationOfLizardmen extends Quest {
 							playSound(killer, Sound.ITEMSOUND_QUEST_ITEMGET);
 						}
 					}
-					break;
 				}
-				case SERPENT_DEMON_BIFRONS: {
-					addSpawn(CHEST_OF_BIFRONS, npc, true, 30000);
-					break;
-				}
+				case SERPENT_DEMON_BIFRONS -> addSpawn(CHEST_OF_BIFRONS, npc, true, 30000);
 			}
 		}
 		return super.onKill(npc, killer, isSummon);
@@ -199,7 +193,7 @@ public final class Q00340_SubjugationOfLizardmen extends Quest {
 			switch (npc.getId()) {
 				case GUARD_WEISZ: {
 					if (memoState == 1) {
-						if (getQuestItemsCount(player, TRADE_CARGO) < 30) {
+						if (!hasItemsAtLimit(player, TRADE_CARGO)) {
 							htmltext = "30385-05.html";
 						} else {
 							htmltext = "30385-06.html";

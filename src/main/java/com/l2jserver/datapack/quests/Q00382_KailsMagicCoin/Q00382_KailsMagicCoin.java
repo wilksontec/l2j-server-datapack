@@ -18,13 +18,10 @@
  */
 package com.l2jserver.datapack.quests.Q00382_KailsMagicCoin;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
-import com.l2jserver.gameserver.model.holders.ItemChanceHolder;
 import com.l2jserver.gameserver.model.quest.Quest;
+import com.l2jserver.gameserver.model.quest.QuestDroplist;
 import com.l2jserver.gameserver.model.quest.QuestState;
 import com.l2jserver.gameserver.util.Util;
 
@@ -45,14 +42,16 @@ public final class Q00382_KailsMagicCoin extends Quest {
 	private static final int KAILS_SILVER_BASILISK = 5961;
 	private static final int KAILS_GOLD_GOLEM = 5962;
 	private static final int KAILS_BLOOD_DRAGON = 5963;
-	// Drops
-	private static final double ORC_CAPTAIN_DROP_CHANCE = 0.069;
-	private static final Map<Integer, ItemChanceHolder> MONSTER_DROPS = new HashMap<>();
-	static {
-		MONSTER_DROPS.put(FALLEN_ORC, new ItemChanceHolder(KAILS_SILVER_BASILISK, 0.073));
-		MONSTER_DROPS.put(FALLEN_ORC_ARCHER, new ItemChanceHolder(KAILS_GOLD_GOLEM, 0.075));
-		MONSTER_DROPS.put(FALLEN_ORC_SHAMAN, new ItemChanceHolder(KAILS_BLOOD_DRAGON, 0.073));
-	}
+	// Droplist
+	private static final QuestDroplist DROPLIST = QuestDroplist.builder()
+			.addGroupedDrop(FALLEN_ORC_CAPTAIN, 6.9)
+				.withDropItem(KAILS_SILVER_BASILISK, 33.333)
+				.withDropItem(KAILS_GOLD_GOLEM, 33.333)
+				.withDropItem(KAILS_BLOOD_DRAGON, 33.334).build()
+			.addSingleDrop(FALLEN_ORC, KAILS_SILVER_BASILISK, 7.3)
+			.addSingleDrop(FALLEN_ORC_ARCHER, KAILS_GOLD_GOLEM, 7.5)
+			.addSingleDrop(FALLEN_ORC_SHAMAN, KAILS_BLOOD_DRAGON, 7.3)
+			.build();
 	// Misc
 	private static final int MIN_LVL = 55;
 	
@@ -105,13 +104,8 @@ public final class Q00382_KailsMagicCoin extends Quest {
 	@Override
 	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
 		final QuestState qs = getQuestState(killer, false);
-		if ((qs != null) && hasQuestItems(killer, ROYAL_MEMBERSHIP) && Util.checkIfInRange(1500, npc, killer, true)) {
-			if (npc.getId() == FALLEN_ORC_CAPTAIN) {
-				giveItemRandomly(killer, KAILS_SILVER_BASILISK + getRandom(3), 1, 0, ORC_CAPTAIN_DROP_CHANCE, true);
-			} else {
-				final ItemChanceHolder ih = MONSTER_DROPS.get(npc.getId());
-				giveItemRandomly(killer, ih.getId(), 1, 0, ih.getChance(), true);
-			}
+		if ((qs != null) && hasQuestItems(qs.getPlayer(), ROYAL_MEMBERSHIP) && Util.checkIfInRange(1500, npc, qs.getPlayer(), true)) {
+			giveItemRandomly(qs.getPlayer(), npc, DROPLIST.get(npc), true);
 		}
 		return super.onKill(npc, killer, isSummon);
 	}

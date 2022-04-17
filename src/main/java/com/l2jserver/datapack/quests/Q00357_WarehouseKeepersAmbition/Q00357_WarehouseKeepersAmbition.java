@@ -18,12 +18,10 @@
  */
 package com.l2jserver.datapack.quests.Q00357_WarehouseKeepersAmbition;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
 import com.l2jserver.gameserver.model.quest.Quest;
+import com.l2jserver.gameserver.model.quest.QuestDroplist;
 import com.l2jserver.gameserver.model.quest.QuestState;
 
 /**
@@ -35,14 +33,13 @@ public final class Q00357_WarehouseKeepersAmbition extends Quest {
 	private static final int SILVA = 30686;
 	// Item
 	private static final int JADE_CRYSTAL = 5867;
-	// Monsters
-	private final Map<Integer, Double> DROP_DATA = new HashMap<>();
-	{
-		DROP_DATA.put(20594, 0.577); // Forest Runner
-		DROP_DATA.put(20595, 0.6); // Fline Elder
-		DROP_DATA.put(20596, 0.638); // Liele Elder
-		DROP_DATA.put(20597, 0.062); // Valley Treant Elder
-	}
+	// Droplist
+	private final QuestDroplist DROPLIST = QuestDroplist.builder()
+			.addSingleDrop(20594, JADE_CRYSTAL, 57.7) // Forest Runner
+			.addSingleDrop(20595, JADE_CRYSTAL, 60.0) // Fline Elder
+			.addSingleDrop(20596, JADE_CRYSTAL, 63.8) // Liele Elder
+			.addSingleDrop(20597, JADE_CRYSTAL, 62.0) // Valley Treant Elder
+			.build();
 	// Misc
 	private static final int MIN_LVL = 47;
 	
@@ -50,7 +47,7 @@ public final class Q00357_WarehouseKeepersAmbition extends Quest {
 		super(357, Q00357_WarehouseKeepersAmbition.class.getSimpleName(), "Warehouse Keeper's Ambition");
 		addStartNpc(SILVA);
 		addTalkId(SILVA);
-		addKillId(DROP_DATA.keySet());
+		addKillId(DROPLIST.getNpcIds());
 		registerQuestItems(JADE_CRYSTAL);
 	}
 	
@@ -121,7 +118,7 @@ public final class Q00357_WarehouseKeepersAmbition extends Quest {
 	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
 		final QuestState qs = getRandomPartyMemberState(killer, -1, 3, npc);
 		if (qs != null) {
-			giveItemRandomly(qs.getPlayer(), npc, JADE_CRYSTAL, 1, 0, DROP_DATA.get(npc.getId()), true);
+			giveItemRandomly(qs.getPlayer(), npc, DROPLIST.get(npc), true);
 		}
 		return super.onKill(npc, killer, isSummon);
 	}

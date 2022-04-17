@@ -18,12 +18,11 @@
  */
 package com.l2jserver.datapack.quests.Q00603_DaimonTheWhiteEyedPart1;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
+import com.l2jserver.gameserver.model.holders.QuestItemChanceHolder;
 import com.l2jserver.gameserver.model.quest.Quest;
+import com.l2jserver.gameserver.model.quest.QuestDroplist;
 import com.l2jserver.gameserver.model.quest.QuestState;
 import com.l2jserver.gameserver.model.quest.State;
 
@@ -40,15 +39,14 @@ public final class Q00603_DaimonTheWhiteEyedPart1 extends Quest {
 	private static final int TABLET_4 = 31551;
 	private static final int TABLET_5 = 31552;
 	// Items
-	private static final int SPIRIT_OF_DARKNESS = 7190;
 	private static final int BROKEN_CRYSTAL = 7191;
-	// Monsters
-	private final Map<Integer, Double> MONSTER_CHANCES = new HashMap<>();
-	{
-		MONSTER_CHANCES.put(21297, 0.5); // Canyon Bandersnatch Slave
-		MONSTER_CHANCES.put(21299, 0.519); // Buffalo Slave
-		MONSTER_CHANCES.put(21304, 0.673); // Grendel Slave
-	}
+	private static final QuestItemChanceHolder SPIRIT_OF_DARKNESS = new QuestItemChanceHolder(7190, 200L);
+	// Droplist
+	private static final QuestDroplist DROPLIST = QuestDroplist.builder()
+			.addSingleDrop(21297, SPIRIT_OF_DARKNESS, 50.0) // Canyon Bandersnatch Slave
+			.addSingleDrop(21299, SPIRIT_OF_DARKNESS, 51.9) // Buffalo Slave
+			.addSingleDrop(21304, SPIRIT_OF_DARKNESS, 67.3) // Grendel Slave
+			.build();
 	// Reward
 	private static final int UNFINISHED_CRYSTAL = 7192;
 	// Misc
@@ -58,8 +56,8 @@ public final class Q00603_DaimonTheWhiteEyedPart1 extends Quest {
 		super(603, Q00603_DaimonTheWhiteEyedPart1.class.getSimpleName(), "Daimon the White-Eyed - Part 1");
 		addStartNpc(EYE_OF_ARGOS);
 		addTalkId(EYE_OF_ARGOS, TABLET_1, TABLET_2, TABLET_3, TABLET_4, TABLET_5);
-		addKillId(MONSTER_CHANCES.keySet());
-		registerQuestItems(SPIRIT_OF_DARKNESS, BROKEN_CRYSTAL);
+		addKillId(DROPLIST.getNpcIds());
+		registerQuestItems(SPIRIT_OF_DARKNESS.getId(), BROKEN_CRYSTAL);
 	}
 	
 	@Override
@@ -106,8 +104,8 @@ public final class Q00603_DaimonTheWhiteEyedPart1 extends Quest {
 			}
 			case "31683-10.html": {
 				if (qs.isCond(8)) {
-					if (getQuestItemsCount(player, SPIRIT_OF_DARKNESS) >= 200) {
-						takeItems(player, SPIRIT_OF_DARKNESS, -1);
+					if (hasItemsAtLimit(player, SPIRIT_OF_DARKNESS)) {
+						takeItems(player, SPIRIT_OF_DARKNESS.getId(), -1);
 						giveItems(player, UNFINISHED_CRYSTAL, 1);
 						qs.exitQuest(true, true);
 						htmltext = event;
@@ -175,8 +173,8 @@ public final class Q00603_DaimonTheWhiteEyedPart1 extends Quest {
 	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
 		final QuestState qs = getRandomPartyMemberState(killer, 7, 3, npc);
 		if (qs != null) {
-			if (giveItemRandomly(qs.getPlayer(), npc, SPIRIT_OF_DARKNESS, 1, 200, MONSTER_CHANCES.get(npc.getId()), true)) {
-				qs.setCond(8, true);
+			if (giveItemRandomly(qs.getPlayer(), npc, DROPLIST.get(npc), true)) {
+				qs.setCond(8);
 			}
 		}
 		return super.onKill(npc, killer, isSummon);

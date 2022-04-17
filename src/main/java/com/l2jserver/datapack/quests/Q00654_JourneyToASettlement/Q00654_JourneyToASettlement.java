@@ -18,13 +18,12 @@
  */
 package com.l2jserver.datapack.quests.Q00654_JourneyToASettlement;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import com.l2jserver.datapack.quests.Q00119_LastImperialPrince.Q00119_LastImperialPrince;
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
+import com.l2jserver.gameserver.model.holders.QuestItemChanceHolder;
 import com.l2jserver.gameserver.model.quest.Quest;
+import com.l2jserver.gameserver.model.quest.QuestDroplist;
 import com.l2jserver.gameserver.model.quest.QuestState;
 
 /**
@@ -35,23 +34,23 @@ public final class Q00654_JourneyToASettlement extends Quest {
 	// NPC
 	private static final int NAMELESS_SPIRIT = 31453;
 	// Items
-	private static final int ANTELOPE_SKIN = 8072;
 	private static final int FRINTEZZAS_SCROLL = 8073;
+	private static final QuestItemChanceHolder ANTELOPE_SKIN = new QuestItemChanceHolder(8072, 1L);
+	// Droplist
+	private static final QuestDroplist DROPLIST = QuestDroplist.builder()
+			.addSingleDrop(21294, ANTELOPE_SKIN, 84.0) // Canyon Antelope
+			.addSingleDrop(21295, ANTELOPE_SKIN, 89.3) // Canyon Antelope Slave
+			.build();
 	// Misc
 	private static final int MIN_LEVEL = 74;
-	
-	private static final Map<Integer, Double> MOBS_SKIN = new HashMap<>();
-	static {
-		MOBS_SKIN.put(21294, 0.840); // Canyon Antelope
-		MOBS_SKIN.put(21295, 0.893); // Canyon Antelope Slave
-	}
-	
+
+
 	public Q00654_JourneyToASettlement() {
 		super(654, Q00654_JourneyToASettlement.class.getSimpleName(), "Journey to a Settlement");
 		addStartNpc(NAMELESS_SPIRIT);
 		addTalkId(NAMELESS_SPIRIT);
-		addKillId(MOBS_SKIN.keySet());
-		registerQuestItems(ANTELOPE_SKIN);
+		addKillId(DROPLIST.getNpcIds());
+		registerQuestItems(ANTELOPE_SKIN.getId());
 	}
 	
 	@Override
@@ -77,7 +76,7 @@ public final class Q00654_JourneyToASettlement extends Quest {
 				}
 			}
 			case "31453-07.html": {
-				if (st.isMemoState(2) && st.hasQuestItems(ANTELOPE_SKIN)) {
+				if (st.isMemoState(2) && st.hasQuestItems(ANTELOPE_SKIN.getId())) {
 					giveItems(player, FRINTEZZAS_SCROLL, 1);
 					st.exitQuest(true, true);
 					htmltext = event;
@@ -90,7 +89,7 @@ public final class Q00654_JourneyToASettlement extends Quest {
 	@Override
 	public String onKill(L2Npc npc, L2PcInstance player, boolean isSummon) {
 		final QuestState st = getRandomPartyMemberState(player, 2, 3, npc);
-		if ((st != null) && giveItemRandomly(st.getPlayer(), npc, ANTELOPE_SKIN, 1, 1, MOBS_SKIN.get(npc.getId()), true)) {
+		if ((st != null) && giveItemRandomly(st.getPlayer(), npc, DROPLIST.get(npc), true)) {
 			st.setCond(3);
 		}
 		return super.onKill(npc, player, isSummon);
@@ -108,7 +107,7 @@ public final class Q00654_JourneyToASettlement extends Quest {
 				st.setCond(2, true);
 				htmltext = "31453-03.html";
 			} else if (st.isMemoState(2)) {
-				htmltext = (hasQuestItems(player, ANTELOPE_SKIN) ? "31453-06.html" : "31453-05.html");
+				htmltext = (hasQuestItems(player, ANTELOPE_SKIN.getId()) ? "31453-06.html" : "31453-05.html");
 			}
 		}
 		return htmltext;
