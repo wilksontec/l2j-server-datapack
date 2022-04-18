@@ -19,12 +19,12 @@
 package com.l2jserver.datapack.quests.Q00134_TempleMissionary;
 
 import java.util.HashMap;
-import java.util.Map;
 
 import com.l2jserver.gameserver.enums.audio.Sound;
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
 import com.l2jserver.gameserver.model.quest.Quest;
+import com.l2jserver.gameserver.model.quest.QuestDroplist;
 import com.l2jserver.gameserver.model.quest.QuestState;
 import com.l2jserver.gameserver.model.quest.State;
 
@@ -36,24 +36,25 @@ public class Q00134_TempleMissionary extends Quest {
 	// NPCs
 	private static final int GLYVKA = 30067;
 	private static final int ROUKE = 31418;
+	// Monsters
+	private static final int CRUMA_MARSHLANDS_TRAITOR = 27339;
 	// Items
 	private static final int GIANTS_EXPERIMENTAL_TOOL_FRAGMENT = 10335;
 	private static final int GIANTS_EXPERIMENTAL_TOOL = 10336;
 	private static final int GIANTS_TECHNOLOGY_REPORT = 10337;
 	private static final int ROUKES_REPOT = 10338;
 	private static final int BADGE_TEMPLE_MISSIONARY = 10339;
-	// Monsters
-	private static final int CRUMA_MARSHLANDS_TRAITOR = 27339;
-	private static final Map<Integer, Integer> MOBS = new HashMap<>();
-	static {
-		MOBS.put(20157, 78); // Marsh Stakato
-		MOBS.put(20229, 75); // Stinger Wasp
-		MOBS.put(20230, 86); // Marsh Stakato Worker
-		MOBS.put(20231, 83); // Toad Lord
-		MOBS.put(20232, 81); // Marsh Stakato Soldier
-		MOBS.put(20233, 95); // Marsh Spider
-		MOBS.put(20234, 96); // Marsh Stakato Drone
-	}
+	// Droplist
+	private static final QuestDroplist DROPLIST = QuestDroplist.builder()
+			.addSingleDrop(20157, GIANTS_EXPERIMENTAL_TOOL_FRAGMENT, 78.0) // Marsh Stakato
+			.addSingleDrop(20229, GIANTS_EXPERIMENTAL_TOOL_FRAGMENT, 75.0) // Stinger Wasp
+			.addSingleDrop(20230, GIANTS_EXPERIMENTAL_TOOL_FRAGMENT, 86.0) // Marsh Stakato Worker
+			.addSingleDrop(20231, GIANTS_EXPERIMENTAL_TOOL_FRAGMENT, 83.0) // Toad Lord
+			.addSingleDrop(20232, GIANTS_EXPERIMENTAL_TOOL_FRAGMENT, 81.0) // Marsh Stakato Soldier
+			.addSingleDrop(20233, GIANTS_EXPERIMENTAL_TOOL_FRAGMENT, 95.0) // Marsh Spider
+			.addSingleDrop(20234, GIANTS_EXPERIMENTAL_TOOL_FRAGMENT, 96.0) // Marsh Stakato Drone
+			.build();
+
 	// Misc
 	private static final int MIN_LEVEL = 35;
 	private static final int MAX_REWARD_LEVEL = 41;
@@ -65,7 +66,7 @@ public class Q00134_TempleMissionary extends Quest {
 		addStartNpc(GLYVKA);
 		addTalkId(GLYVKA, ROUKE);
 		addKillId(CRUMA_MARSHLANDS_TRAITOR);
-		addKillId(MOBS.keySet());
+		addKillId(DROPLIST.getNpcIds());
 		registerQuestItems(GIANTS_EXPERIMENTAL_TOOL_FRAGMENT, GIANTS_EXPERIMENTAL_TOOL, GIANTS_TECHNOLOGY_REPORT, ROUKES_REPOT);
 	}
 	
@@ -131,9 +132,8 @@ public class Q00134_TempleMissionary extends Quest {
 				if (getRandom(100) != 0) {
 					addSpawn(CRUMA_MARSHLANDS_TRAITOR, npc.getX() + 20, npc.getY() + 20, npc.getZ(), npc.getHeading(), false, 60000);
 				}
-			} else if (getRandom(100) < MOBS.get(npc.getId())) {
-				st.giveItems(GIANTS_EXPERIMENTAL_TOOL_FRAGMENT, 1);
-				st.playSound(Sound.ITEMSOUND_QUEST_ITEMGET);
+			} else {
+				giveItemRandomly(st.getPlayer(), npc, DROPLIST.get(npc), true);
 			}
 		}
 		return super.onKill(npc, player, isSummon);
@@ -188,7 +188,7 @@ public class Q00134_TempleMissionary extends Quest {
 							if ((st.getQuestItemsCount(GIANTS_EXPERIMENTAL_TOOL_FRAGMENT) < FRAGMENT_COUNT) && (st.getQuestItemsCount(GIANTS_TECHNOLOGY_REPORT) < REPORT_COUNT)) {
 								htmltext = "31418-04.html";
 							} else if (st.getQuestItemsCount(GIANTS_EXPERIMENTAL_TOOL_FRAGMENT) >= FRAGMENT_COUNT) {
-								final int count = (int) (st.getQuestItemsCount(GIANTS_EXPERIMENTAL_TOOL_FRAGMENT) / 10);
+								final long count = st.getQuestItemsCount(GIANTS_EXPERIMENTAL_TOOL_FRAGMENT) / 10;
 								st.takeItems(GIANTS_EXPERIMENTAL_TOOL_FRAGMENT, count * 10);
 								st.giveItems(GIANTS_EXPERIMENTAL_TOOL, count);
 								htmltext = "31418-05.html";

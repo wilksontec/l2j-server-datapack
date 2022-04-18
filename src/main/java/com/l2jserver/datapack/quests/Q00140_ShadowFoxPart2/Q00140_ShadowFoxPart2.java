@@ -18,14 +18,11 @@
  */
 package com.l2jserver.datapack.quests.Q00140_ShadowFoxPart2;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import com.l2jserver.datapack.quests.Q00139_ShadowFoxPart1.Q00139_ShadowFoxPart1;
-import com.l2jserver.gameserver.enums.audio.Sound;
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
 import com.l2jserver.gameserver.model.quest.Quest;
+import com.l2jserver.gameserver.model.quest.QuestDroplist;
 import com.l2jserver.gameserver.model.quest.QuestState;
 import com.l2jserver.gameserver.model.quest.State;
 
@@ -41,14 +38,13 @@ public class Q00140_ShadowFoxPart2 extends Quest {
 	private static final int DARK_CRYSTAL = 10347;
 	private static final int DARK_OXYDE = 10348;
 	private static final int CRYPTOGRAM_OF_THE_GODDESS_SWORD = 10349;
-	// Monsters
-	private static final Map<Integer, Integer> MOBS = new HashMap<>();
-	static {
-		MOBS.put(20789, 45); // Crokian
-		MOBS.put(20790, 58); // Dailaon
-		MOBS.put(20791, 100);// Crokian Warrior
-		MOBS.put(20792, 92); // Farhite
-	}
+	// Droplist
+	private static final QuestDroplist DROPLIST = QuestDroplist.builder()
+			.addSingleDrop(20789, DARK_CRYSTAL, 45.0) // Crokian
+			.addSingleDrop(20790, DARK_CRYSTAL, 58.0) // Dailaon
+			.addSingleDrop(20791, DARK_CRYSTAL, 100.0) // Crokian Warrior
+			.addSingleDrop(20792, DARK_CRYSTAL, 92.0) // Farhite
+			.build();
 	// Misc
 	private static final int MIN_LEVEL = 37;
 	private static final int MAX_REWARD_LEVEL = 42;
@@ -60,7 +56,7 @@ public class Q00140_ShadowFoxPart2 extends Quest {
 		super(140, Q00140_ShadowFoxPart2.class.getSimpleName(), "Shadow Fox - 2");
 		addStartNpc(KLUCK);
 		addTalkId(KLUCK, XENOVIA);
-		addKillId(MOBS.keySet());
+		addKillId(DROPLIST.getNpcIds());
 		registerQuestItems(DARK_CRYSTAL, DARK_OXYDE, CRYPTOGRAM_OF_THE_GODDESS_SWORD);
 	}
 	
@@ -125,14 +121,9 @@ public class Q00140_ShadowFoxPart2 extends Quest {
 	
 	@Override
 	public String onKill(L2Npc npc, L2PcInstance player, boolean isSummon) {
-		final L2PcInstance member = getRandomPartyMember(player, 3);
-		if (member == null) {
-			return super.onKill(npc, player, isSummon);
-		}
-		final QuestState st = getQuestState(member, false);
-		if (getRandom(100) < MOBS.get(npc.getId())) {
-			st.giveItems(DARK_CRYSTAL, 1);
-			st.playSound(Sound.ITEMSOUND_QUEST_ITEMGET);
+		QuestState st = getRandomPartyMemberState(player, 3, 1, npc);
+		if (st != null) {
+			giveItemRandomly(st.getPlayer(), npc, DROPLIST.get(npc), true);
 		}
 		return super.onKill(npc, player, isSummon);
 	}

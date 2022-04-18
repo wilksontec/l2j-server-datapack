@@ -18,9 +18,9 @@
  */
 package com.l2jserver.datapack.quests.Q00137_TempleChampionPart1;
 
-import com.l2jserver.gameserver.enums.audio.Sound;
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
+import com.l2jserver.gameserver.model.holders.QuestItemChanceHolder;
 import com.l2jserver.gameserver.model.quest.Quest;
 import com.l2jserver.gameserver.model.quest.QuestState;
 
@@ -31,7 +31,8 @@ import com.l2jserver.gameserver.model.quest.QuestState;
 public class Q00137_TempleChampionPart1 extends Quest {
 	// NPCs
 	private static final int SYLVAIN = 30070;
-	private static final int MOBS[] = {
+	// Monsters
+	private static final int[] MOBS = {
 		20083, // Granite Golem
 		20144, // Hangman Tree
 		20199, // Amber Basilisk
@@ -40,16 +41,16 @@ public class Q00137_TempleChampionPart1 extends Quest {
 		20202, // Dead Seeker
 	};
 	// Items
-	private static final int FRAGMENT = 10340;
 	private static final int EXECUTOR = 10334;
 	private static final int MISSIONARY = 10339;
-	
+	private static final QuestItemChanceHolder FRAGMENT = new QuestItemChanceHolder(10340, 30L);
+
 	public Q00137_TempleChampionPart1() {
 		super(137, Q00137_TempleChampionPart1.class.getSimpleName(), "Temple Champion - 1");
 		addStartNpc(SYLVAIN);
 		addTalkId(SYLVAIN);
 		addKillId(MOBS);
-		registerQuestItems(FRAGMENT);
+		registerQuestItems(FRAGMENT.getId());
 	}
 	
 	@Override
@@ -90,12 +91,9 @@ public class Q00137_TempleChampionPart1 extends Quest {
 	@Override
 	public String onKill(L2Npc npc, L2PcInstance player, boolean isSummon) {
 		final QuestState st = getQuestState(player, false);
-		if ((st != null) && st.isStarted() && st.isCond(2) && (st.getQuestItemsCount(FRAGMENT) < 30)) {
-			st.giveItems(FRAGMENT, 1);
-			if (st.getQuestItemsCount(FRAGMENT) >= 30) {
-				st.setCond(3, true);
-			} else {
-				st.playSound(Sound.ITEMSOUND_QUEST_ITEMGET);
+		if ((st != null) && st.isStarted() && st.isCond(2)) {
+			if (giveItemRandomly(st.getPlayer(), npc, FRAGMENT, true)) {
+				st.setCond(3);
 			}
 		}
 		return super.onKill(npc, player, isSummon);
@@ -128,10 +126,10 @@ public class Q00137_TempleChampionPart1 extends Quest {
 			case 3:
 				if (st.getInt("talk") == 1) {
 					htmltext = "30070-10.html";
-				} else if (st.getQuestItemsCount(FRAGMENT) >= 30) {
+				} else if (hasItemsAtLimit(st.getPlayer(), FRAGMENT)) {
 					st.set("talk", "1");
 					htmltext = "30070-09.html";
-					st.takeItems(FRAGMENT, -1);
+					st.takeItems(FRAGMENT.getId(), -1);
 				}
 				break;
 			default:

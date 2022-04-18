@@ -18,12 +18,12 @@
  */
 package com.l2jserver.datapack.quests.Q00135_TempleExecutor;
 
-import java.util.HashMap;
-import java.util.Map;
-
+import com.l2jserver.gameserver.enums.audio.Sound;
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
+import com.l2jserver.gameserver.model.holders.QuestItemChanceHolder;
 import com.l2jserver.gameserver.model.quest.Quest;
+import com.l2jserver.gameserver.model.quest.QuestDroplist;
 import com.l2jserver.gameserver.model.quest.QuestState;
 import com.l2jserver.gameserver.model.quest.State;
 
@@ -38,33 +38,31 @@ public class Q00135_TempleExecutor extends Quest {
 	private static final int ALEX = 30291;
 	private static final int SONIN = 31773;
 	// Items
-	private static final int STOLEN_CARGO = 10328;
-	private static final int HATE_CRYSTAL = 10329;
-	private static final int OLD_TREASURE_MAP = 10330;
 	private static final int SONINS_CREDENTIALS = 10331;
 	private static final int PANOS_CREDENTIALS = 10332;
 	private static final int ALEXS_CREDENTIALS = 10333;
 	private static final int BADGE_TEMPLE_EXECUTOR = 10334;
-	// Monsters
-	private static final Map<Integer, Integer> MOBS = new HashMap<>();
-	static {
-		MOBS.put(20781, 439); // Delu Lizardman Shaman
-		MOBS.put(21104, 439); // Delu Lizardman Supplier
-		MOBS.put(21105, 504); // Delu Lizardman Special Agent
-		MOBS.put(21106, 423); // Cursed Seer
-		MOBS.put(21107, 902); // Delu Lizardman Commander
-	}
+	private static final QuestItemChanceHolder STOLEN_CARGO = new QuestItemChanceHolder(10328, 10L);
+	private static final QuestItemChanceHolder HATE_CRYSTAL = new QuestItemChanceHolder(10329, 10L);
+	private static final QuestItemChanceHolder OLD_TREASURE_MAP = new QuestItemChanceHolder(10330, 10L);
+	// Droplist
+	private static final QuestDroplist DROPLIST = QuestDroplist.builder()
+			.addSingleDrop(20781, STOLEN_CARGO, 43.9).addSingleDrop(20781, HATE_CRYSTAL, 43.9).addSingleDrop(20781, OLD_TREASURE_MAP, 43.9) // Delu Lizardman Shaman
+			.addSingleDrop(21104, STOLEN_CARGO, 43.9).addSingleDrop(21104, HATE_CRYSTAL, 43.9).addSingleDrop(21104, OLD_TREASURE_MAP, 43.9) // Delu Lizardman Supplier
+			.addSingleDrop(21105, STOLEN_CARGO, 50.4).addSingleDrop(21105, HATE_CRYSTAL, 50.4).addSingleDrop(21105, OLD_TREASURE_MAP, 50.4) // Delu Lizardman Special Agent
+			.addSingleDrop(21106, STOLEN_CARGO, 42.3).addSingleDrop(21106, HATE_CRYSTAL, 42.3).addSingleDrop(21106, OLD_TREASURE_MAP, 42.3) // Cursed Seer
+			.addSingleDrop(21107, STOLEN_CARGO, 90.2).addSingleDrop(21107, HATE_CRYSTAL, 90.2).addSingleDrop(21107, OLD_TREASURE_MAP, 90.2) // Delu Lizardman Commander
+			.build();
 	// Misc
 	private static final int MIN_LEVEL = 35;
-	private static final int ITEM_COUNT = 10;
 	private static final int MAX_REWARD_LEVEL = 41;
 	
 	public Q00135_TempleExecutor() {
 		super(135, Q00135_TempleExecutor.class.getSimpleName(), "Temple Executor");
 		addStartNpc(SHEGFIELD);
 		addTalkId(SHEGFIELD, ALEX, SONIN, PANO);
-		addKillId(MOBS.keySet());
-		registerQuestItems(STOLEN_CARGO, HATE_CRYSTAL, OLD_TREASURE_MAP, SONINS_CREDENTIALS, PANOS_CREDENTIALS, ALEXS_CREDENTIALS);
+		addKillId(DROPLIST.getNpcIds());
+		registerQuestItems(STOLEN_CARGO.getId(), HATE_CRYSTAL.getId(), OLD_TREASURE_MAP.getId(), SONINS_CREDENTIALS, PANOS_CREDENTIALS, ALEXS_CREDENTIALS);
 	}
 	
 	@Override
@@ -116,18 +114,18 @@ public class Q00135_TempleExecutor extends Quest {
 			return super.onKill(npc, player, isSummon);
 		}
 		final QuestState st = getQuestState(member, false);
-		if ((getRandom(1000) < MOBS.get(npc.getId()))) {
-			if (st.getQuestItemsCount(STOLEN_CARGO) < ITEM_COUNT) {
-				st.giveItems(STOLEN_CARGO, 1);
-			} else if (st.getQuestItemsCount(HATE_CRYSTAL) < ITEM_COUNT) {
-				st.giveItems(HATE_CRYSTAL, 1);
-			} else {
-				st.giveItems(OLD_TREASURE_MAP, 1);
-			}
+		if (!hasItemsAtLimit(st.getPlayer(), STOLEN_CARGO)) {
+			giveItemRandomly(st.getPlayer(), npc, DROPLIST.get(npc), false);
+		} else if (!hasItemsAtLimit(st.getPlayer(), HATE_CRYSTAL)) {
+			giveItemRandomly(st.getPlayer(), npc, DROPLIST.get(npc, HATE_CRYSTAL), false);
+		} else {
+			giveItemRandomly(st.getPlayer(), npc, DROPLIST.get(npc, OLD_TREASURE_MAP), false);
+		}
 			
-			if ((st.getQuestItemsCount(STOLEN_CARGO) >= ITEM_COUNT) && (st.getQuestItemsCount(HATE_CRYSTAL) >= ITEM_COUNT) && (st.getQuestItemsCount(OLD_TREASURE_MAP) >= ITEM_COUNT)) {
-				st.setCond(4, true);
-			}
+		if (hasItemsAtLimit(st.getPlayer(), STOLEN_CARGO, HATE_CRYSTAL, OLD_TREASURE_MAP)) {
+			st.setCond(4, true);
+		} else {
+			playSound(st.getPlayer(), Sound.ITEMSOUND_QUEST_ITEMGET);
 		}
 		return super.onKill(npc, player, isSummon);
 	}
@@ -194,11 +192,11 @@ public class Q00135_TempleExecutor extends Quest {
 							break;
 						case 4:
 							if (st.hasQuestItems(PANOS_CREDENTIALS, SONINS_CREDENTIALS)) {
-								if (st.getQuestItemsCount(OLD_TREASURE_MAP) < ITEM_COUNT) {
+								if (!hasItemsAtLimit(st.getPlayer(), OLD_TREASURE_MAP)) {
 									return htmltext;
 								}
 								st.setCond(5, true);
-								st.takeItems(OLD_TREASURE_MAP, -1);
+								st.takeItems(OLD_TREASURE_MAP.getId(), -1);
 								st.giveItems(ALEXS_CREDENTIALS, 1);
 								htmltext = "30291-10.html";
 							} else {
@@ -225,10 +223,10 @@ public class Q00135_TempleExecutor extends Quest {
 							break;
 						case 4:
 							if (!st.isSet("Pano")) {
-								if (st.getQuestItemsCount(HATE_CRYSTAL) < ITEM_COUNT) {
+								if (!hasItemsAtLimit(st.getPlayer(), HATE_CRYSTAL)) {
 									return htmltext;
 								}
-								st.takeItems(HATE_CRYSTAL, -1);
+								st.takeItems(HATE_CRYSTAL.getId(), -1);
 								st.giveItems(PANOS_CREDENTIALS, 1);
 								st.set("Pano", "1");
 								htmltext = "30078-04.html";
@@ -254,10 +252,10 @@ public class Q00135_TempleExecutor extends Quest {
 							break;
 						case 4:
 							if (!st.isSet("Sonin")) {
-								if (st.getQuestItemsCount(STOLEN_CARGO) < ITEM_COUNT) {
+								if (!hasItemsAtLimit(st.getPlayer(), STOLEN_CARGO)) {
 									return htmltext;
 								}
-								st.takeItems(STOLEN_CARGO, -1);
+								st.takeItems(STOLEN_CARGO.getId(), -1);
 								st.giveItems(SONINS_CREDENTIALS, 1);
 								st.set("Sonin", "1");
 								htmltext = "31773-04.html";

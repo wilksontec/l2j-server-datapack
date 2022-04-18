@@ -19,9 +19,9 @@
 package com.l2jserver.datapack.quests.Q00138_TempleChampionPart2;
 
 import com.l2jserver.datapack.quests.Q00137_TempleChampionPart1.Q00137_TempleChampionPart1;
-import com.l2jserver.gameserver.enums.audio.Sound;
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
+import com.l2jserver.gameserver.model.holders.QuestItemChanceHolder;
 import com.l2jserver.gameserver.model.quest.Quest;
 import com.l2jserver.gameserver.model.quest.QuestState;
 
@@ -35,7 +35,8 @@ public class Q00138_TempleChampionPart2 extends Quest {
 	private static final int PUPINA = 30118;
 	private static final int ANGUS = 30474;
 	private static final int SLA = 30666;
-	private static final int MOBS[] = {
+	// Monsters
+	private static final int[] MOBS = {
 		20176, // Wyrm
 		20550, // Guardian Basilisk
 		20551, // Road Scavenger
@@ -43,16 +44,16 @@ public class Q00138_TempleChampionPart2 extends Quest {
 	};
 	// Items
 	private static final int TEMPLE_MANIFESTO = 10341;
-	private static final int RELICS_OF_THE_DARK_ELF_TRAINEE = 10342;
 	private static final int ANGUS_RECOMMENDATION = 10343;
 	private static final int PUPINAS_RECOMMENDATION = 10344;
+	private static final QuestItemChanceHolder RELICS_OF_THE_DARK_ELF_TRAINEE = new QuestItemChanceHolder(10342, 10L);
 	
 	public Q00138_TempleChampionPart2() {
 		super(138, Q00138_TempleChampionPart2.class.getSimpleName(), "Temple Champion - 2");
 		addStartNpc(SYLVAIN);
 		addTalkId(SYLVAIN, PUPINA, ANGUS, SLA);
 		addKillId(MOBS);
-		registerQuestItems(TEMPLE_MANIFESTO, RELICS_OF_THE_DARK_ELF_TRAINEE, ANGUS_RECOMMENDATION, PUPINAS_RECOMMENDATION);
+		registerQuestItems(TEMPLE_MANIFESTO, RELICS_OF_THE_DARK_ELF_TRAINEE.getId(), ANGUS_RECOMMENDATION, PUPINAS_RECOMMENDATION);
 	}
 	
 	@Override
@@ -109,13 +110,8 @@ public class Q00138_TempleChampionPart2 extends Quest {
 	@Override
 	public String onKill(L2Npc npc, L2PcInstance player, boolean isSummon) {
 		final QuestState st = getQuestState(player, false);
-		if ((st != null) && st.isStarted() && st.isCond(4) && (st.getQuestItemsCount(RELICS_OF_THE_DARK_ELF_TRAINEE) < 10)) {
-			st.giveItems(RELICS_OF_THE_DARK_ELF_TRAINEE, 1);
-			if (st.getQuestItemsCount(RELICS_OF_THE_DARK_ELF_TRAINEE) >= 10) {
-				st.playSound(Sound.ITEMSOUND_QUEST_MIDDLE);
-			} else {
-				st.playSound(Sound.ITEMSOUND_QUEST_ITEMGET);
-			}
+		if ((st != null) && st.isStarted() && st.isCond(4)) {
+			giveItemRandomly(st.getPlayer(), npc, RELICS_OF_THE_DARK_ELF_TRAINEE, true);
 		}
 		return super.onKill(npc, player, isSummon);
 	}
@@ -174,8 +170,8 @@ public class Q00138_TempleChampionPart2 extends Quest {
 						htmltext = "30474-01.html";
 						break;
 					case 4:
-						if (st.getQuestItemsCount(RELICS_OF_THE_DARK_ELF_TRAINEE) >= 10) {
-							st.takeItems(RELICS_OF_THE_DARK_ELF_TRAINEE, -1);
+						if (hasItemsAtLimit(st.getPlayer(), RELICS_OF_THE_DARK_ELF_TRAINEE)) {
+							st.takeItems(RELICS_OF_THE_DARK_ELF_TRAINEE.getId(), -1);
 							st.giveItems(ANGUS_RECOMMENDATION, 1);
 							st.setCond(5, true);
 							htmltext = "30474-04.html";

@@ -22,13 +22,19 @@ import com.l2jserver.gameserver.enums.audio.Sound;
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
 import com.l2jserver.gameserver.model.base.ClassId;
+import com.l2jserver.gameserver.model.holders.QuestItemChanceHolder;
 import com.l2jserver.gameserver.model.quest.Quest;
+import com.l2jserver.gameserver.model.quest.QuestDroplist;
+import com.l2jserver.gameserver.model.quest.QuestDroplist.QuestDropInfo;
 import com.l2jserver.gameserver.model.quest.QuestState;
 import com.l2jserver.gameserver.network.NpcStringId;
 import com.l2jserver.gameserver.network.clientpackets.Say2;
 import com.l2jserver.gameserver.network.serverpackets.NpcSay;
 import com.l2jserver.gameserver.network.serverpackets.SocialAction;
 import com.l2jserver.gameserver.util.Util;
+
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Test Of Magus (228)
@@ -43,33 +49,6 @@ public final class Q00228_TestOfMagus extends Quest {
 	private static final int WATER_UNDINE = 30413;
 	private static final int ELDER_CASIAN = 30612;
 	private static final int BARD_RUKAL = 30629;
-	// Items
-	private static final int RUKALS_LETTER = 2841;
-	private static final int PARINAS_LETTER = 2842;
-	private static final int LILAC_CHARM = 2843;
-	private static final int GOLDEN_SEED_1ST = 2844;
-	private static final int GOLDEN_SEED_2ND = 2845;
-	private static final int GOLDEN_SEED_3RD = 2846;
-	private static final int SCORE_OF_ELEMENTS = 2847;
-	private static final int DAZZLING_DROP = 2848;
-	private static final int FLAME_CRYSTAL = 2849;
-	private static final int HARPYS_FEATHER = 2850;
-	private static final int WYRMS_WINGBONE = 2851;
-	private static final int WINDSUS_MANE = 2852;
-	private static final int ENCHANTED_MONSTER_EYE_SHELL = 2853;
-	private static final int ENCHANTED_GOLEM_POWDER = 2854;
-	private static final int ENCHANTED_IRON_GOLEM_SCRAP = 2855;
-	private static final int TONE_OF_WATER = 2856;
-	private static final int TONE_OF_FIRE = 2857;
-	private static final int TONE_OF_WIND = 2858;
-	private static final int TONE_OF_EARTH = 2859;
-	private static final int SALAMANDER_CHARM = 2860;
-	private static final int SYLPH_CHARM = 2861;
-	private static final int UNDINE_CHARM = 2862;
-	private static final int SERPENT_CHARM = 2863;
-	// Reward
-	private static final int MARK_OF_MAGUS = 2840;
-	private static final int DIMENSIONAL_DIAMOND = 7562;
 	// Monster
 	private static final int HARPY = 20145;
 	private static final int MARSH_STAKATO = 20157;
@@ -87,6 +66,64 @@ public final class Q00228_TestOfMagus extends Quest {
 	private static final int SINGING_FLOWER_NIGTMATE = 27096;
 	private static final int SINGING_FLOWER_DARKLING = 27097;
 	private static final int GHOST_FIRE = 27098;
+	// Items
+	private static final int RUKALS_LETTER = 2841;
+	private static final int PARINAS_LETTER = 2842;
+	private static final int LILAC_CHARM = 2843;
+	private static final int GOLDEN_SEED_1ST = 2844;
+	private static final int GOLDEN_SEED_2ND = 2845;
+	private static final int GOLDEN_SEED_3RD = 2846;
+	private static final int SCORE_OF_ELEMENTS = 2847;
+	private static final int TONE_OF_WATER = 2856;
+	private static final int TONE_OF_FIRE = 2857;
+	private static final int TONE_OF_WIND = 2858;
+	private static final int TONE_OF_EARTH = 2859;
+	private static final int SALAMANDER_CHARM = 2860;
+	private static final int SYLPH_CHARM = 2861;
+	private static final int UNDINE_CHARM = 2862;
+	private static final int SERPENT_CHARM = 2863;
+	private static final QuestItemChanceHolder DAZZLING_DROP = new QuestItemChanceHolder(2848, 20L);
+	private static final QuestItemChanceHolder FLAME_CRYSTAL = new QuestItemChanceHolder(2849, 50.0, 5L);
+	private static final QuestItemChanceHolder HARPYS_FEATHER = new QuestItemChanceHolder(2850, 20L);
+	private static final QuestItemChanceHolder WYRMS_WINGBONE = new QuestItemChanceHolder(2851, 50.0, 10L);
+	private static final QuestItemChanceHolder WINDSUS_MANE = new QuestItemChanceHolder(2852, 50.0, 10L);
+	private static final QuestItemChanceHolder ENCHANTED_MONSTER_EYE_SHELL = new QuestItemChanceHolder(2853, 10L);
+	private static final QuestItemChanceHolder ENCHANTED_GOLEM_POWDER = new QuestItemChanceHolder(2854, 10L);
+	private static final QuestItemChanceHolder ENCHANTED_IRON_GOLEM_SCRAP = new QuestItemChanceHolder(2855, 10L);
+	// Droplist
+	private static final QuestDroplist DROPLIST = QuestDroplist.builder()
+			.addSingleDrop(HARPY, HARPYS_FEATHER)
+			.bulkAddSingleDrop(DAZZLING_DROP)
+				.withNpcs(MARSH_STAKATO, MARSH_STAKATO_WORKER, TOAD_LORD, MARSH_STAKATO_SOLDIER, MARSH_STAKATO_DRONE).build()
+			.addSingleDrop(WYRM, WYRMS_WINGBONE)
+			.addSingleDrop(WINDSUS, WINDSUS_MANE)
+			.addSingleDrop(ENCHANTED_MONSTEREYE, ENCHANTED_MONSTER_EYE_SHELL)
+			.addSingleDrop(ENCHANTED_STOLEN_GOLEM, ENCHANTED_GOLEM_POWDER)
+			.addSingleDrop(ENCHANTED_IRON_GOLEM, ENCHANTED_IRON_GOLEM_SCRAP)
+			.addSingleDrop(GHOST_FIRE, FLAME_CRYSTAL)
+			.build();
+	private static final int[] SYLPH_REQUIRED_ITEMS = { SCORE_OF_ELEMENTS, SYLPH_CHARM };
+	private static final int[] UNDINE_REQUIRED_ITEMS = { SCORE_OF_ELEMENTS, UNDINE_CHARM };
+	private static final int[] SERPENT_REQUIRED_ITEMS = { SCORE_OF_ELEMENTS, SERPENT_CHARM };
+	private static final int[] SALAMANDER_REQUIRED_ITEMS = { SCORE_OF_ELEMENTS, SALAMANDER_CHARM };
+	private static final Map<Integer, int[]> MOBS_REQUIRED_ITEMS = new HashMap<>();
+	static {
+		MOBS_REQUIRED_ITEMS.put(HARPY, SYLPH_REQUIRED_ITEMS);
+		MOBS_REQUIRED_ITEMS.put(MARSH_STAKATO, UNDINE_REQUIRED_ITEMS);
+		MOBS_REQUIRED_ITEMS.put(MARSH_STAKATO_WORKER, UNDINE_REQUIRED_ITEMS);
+		MOBS_REQUIRED_ITEMS.put(TOAD_LORD, UNDINE_REQUIRED_ITEMS);
+		MOBS_REQUIRED_ITEMS.put(MARSH_STAKATO_SOLDIER, UNDINE_REQUIRED_ITEMS);
+		MOBS_REQUIRED_ITEMS.put(MARSH_STAKATO_DRONE, UNDINE_REQUIRED_ITEMS);
+		MOBS_REQUIRED_ITEMS.put(WYRM, SYLPH_REQUIRED_ITEMS);
+		MOBS_REQUIRED_ITEMS.put(WINDSUS, SYLPH_REQUIRED_ITEMS);
+		MOBS_REQUIRED_ITEMS.put(ENCHANTED_MONSTEREYE, SERPENT_REQUIRED_ITEMS);
+		MOBS_REQUIRED_ITEMS.put(ENCHANTED_STOLEN_GOLEM, SERPENT_REQUIRED_ITEMS);
+		MOBS_REQUIRED_ITEMS.put(ENCHANTED_IRON_GOLEM, SERPENT_REQUIRED_ITEMS);
+		MOBS_REQUIRED_ITEMS.put(GHOST_FIRE, SALAMANDER_REQUIRED_ITEMS);
+	}
+	// Reward
+	private static final int MARK_OF_MAGUS = 2840;
+	private static final int DIMENSIONAL_DIAMOND = 7562;
 	// Misc
 	private static final int MIN_LVL = 39;
 	
@@ -95,7 +132,7 @@ public final class Q00228_TestOfMagus extends Quest {
 		addStartNpc(BARD_RUKAL);
 		addTalkId(BARD_RUKAL, PARINA, EARTH_SNAKE, FLAME_SALAMANDER, WIND_SYLPH, WATER_UNDINE, ELDER_CASIAN);
 		addKillId(HARPY, MARSH_STAKATO, WYRM, MARSH_STAKATO_WORKER, TOAD_LORD, MARSH_STAKATO_SOLDIER, MARSH_STAKATO_DRONE, WINDSUS, ENCHANTED_MONSTEREYE, ENCHANTED_STOLEN_GOLEM, ENCHANTED_IRON_GOLEM, SINGING_FLOWER_PHANTASM, SINGING_FLOWER_NIGTMATE, SINGING_FLOWER_DARKLING, GHOST_FIRE);
-		registerQuestItems(RUKALS_LETTER, PARINAS_LETTER, LILAC_CHARM, GOLDEN_SEED_1ST, GOLDEN_SEED_2ND, GOLDEN_SEED_3RD, SCORE_OF_ELEMENTS, DAZZLING_DROP, FLAME_CRYSTAL, HARPYS_FEATHER, WYRMS_WINGBONE, WINDSUS_MANE, ENCHANTED_MONSTER_EYE_SHELL, ENCHANTED_GOLEM_POWDER, ENCHANTED_IRON_GOLEM_SCRAP, TONE_OF_WATER, TONE_OF_FIRE, TONE_OF_WIND, TONE_OF_EARTH, SALAMANDER_CHARM, SYLPH_CHARM, UNDINE_CHARM, SERPENT_CHARM);
+		registerQuestItems(RUKALS_LETTER, PARINAS_LETTER, LILAC_CHARM, GOLDEN_SEED_1ST, GOLDEN_SEED_2ND, GOLDEN_SEED_3RD, SCORE_OF_ELEMENTS, DAZZLING_DROP.getId(), FLAME_CRYSTAL.getId(), HARPYS_FEATHER.getId(), WYRMS_WINGBONE.getId(), WINDSUS_MANE.getId(), ENCHANTED_MONSTER_EYE_SHELL.getId(), ENCHANTED_GOLEM_POWDER.getId(), ENCHANTED_IRON_GOLEM_SCRAP.getId(), TONE_OF_WATER, TONE_OF_FIRE, TONE_OF_WIND, TONE_OF_EARTH, SALAMANDER_CHARM, SYLPH_CHARM, UNDINE_CHARM, SERPENT_CHARM);
 	}
 	
 	@Override
@@ -172,138 +209,42 @@ public final class Q00228_TestOfMagus extends Quest {
 	@Override
 	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
 		final QuestState qs = getQuestState(killer, false);
-		if ((qs != null) && qs.isStarted() && Util.checkIfInRange(1500, npc, killer, true)) {
-			switch (npc.getId()) {
-				case HARPY: {
-					if (hasQuestItems(killer, SCORE_OF_ELEMENTS, SYLPH_CHARM) && (getQuestItemsCount(killer, HARPYS_FEATHER) < 20)) {
-						giveItems(killer, HARPYS_FEATHER, 1);
-						if (getQuestItemsCount(killer, HARPYS_FEATHER) >= 20) {
+		if ((qs != null) && qs.isStarted() && Util.checkIfInRange(1500, npc, qs.getPlayer(), true)) {
+			QuestDropInfo dropInfo = DROPLIST.get(npc);
+			if (dropInfo != null && hasQuestItems(qs.getPlayer(), MOBS_REQUIRED_ITEMS.get(npc.getId()))) {
+				giveItemRandomly(qs.getPlayer(), npc, dropInfo, true);
+			} else {
+				switch (npc.getId()) {
+					case SINGING_FLOWER_PHANTASM -> {
+						if (hasQuestItems(killer, LILAC_CHARM) && !hasQuestItems(killer, GOLDEN_SEED_1ST)) {
+							giveItems(killer, GOLDEN_SEED_1ST, 1);
+							npc.broadcastPacket(new NpcSay(npc, Say2.NPC_ALL, NpcStringId.I_AM_A_TREE_OF_NOTHING_A_TREE_THAT_KNOWS_WHERE_TO_RETURN));
 							playSound(killer, Sound.ITEMSOUND_QUEST_MIDDLE);
-						} else {
-							playSound(killer, Sound.ITEMSOUND_QUEST_ITEMGET);
-						}
-					}
-					break;
-				}
-				case MARSH_STAKATO:
-				case MARSH_STAKATO_WORKER:
-				case TOAD_LORD:
-				case MARSH_STAKATO_SOLDIER:
-				case MARSH_STAKATO_DRONE: {
-					if (hasQuestItems(killer, SCORE_OF_ELEMENTS, UNDINE_CHARM) && (getQuestItemsCount(killer, DAZZLING_DROP) < 20)) {
-						giveItems(killer, DAZZLING_DROP, 1);
-						if (getQuestItemsCount(killer, DAZZLING_DROP) >= 20) {
-							playSound(killer, Sound.ITEMSOUND_QUEST_MIDDLE);
-						} else {
-							playSound(killer, Sound.ITEMSOUND_QUEST_ITEMGET);
-						}
-					}
-					break;
-				}
-				case WYRM: {
-					if (hasQuestItems(killer, SCORE_OF_ELEMENTS, SYLPH_CHARM) && (getQuestItemsCount(killer, WYRMS_WINGBONE) < 10)) {
-						if (getRandom(100) < 50) {
-							giveItems(killer, WYRMS_WINGBONE, 1);
-							if (getQuestItemsCount(killer, WYRMS_WINGBONE) >= 10) {
-								playSound(killer, Sound.ITEMSOUND_QUEST_MIDDLE);
-							} else {
-								playSound(killer, Sound.ITEMSOUND_QUEST_ITEMGET);
+							if (hasQuestItems(killer, GOLDEN_SEED_2ND, GOLDEN_SEED_3RD)) {
+								qs.setCond(4);
 							}
 						}
 					}
-					break;
-				}
-				case WINDSUS: {
-					if (hasQuestItems(killer, SCORE_OF_ELEMENTS, SYLPH_CHARM) && (getQuestItemsCount(killer, WINDSUS_MANE) < 10)) {
-						if (getRandom(100) < 50) {
-							giveItems(killer, WINDSUS_MANE, 1);
-							if (getQuestItemsCount(killer, WINDSUS_MANE) >= 10) {
-								playSound(killer, Sound.ITEMSOUND_QUEST_MIDDLE);
-							} else {
-								playSound(killer, Sound.ITEMSOUND_QUEST_ITEMGET);
+					case SINGING_FLOWER_NIGTMATE -> {
+						if (hasQuestItems(killer, LILAC_CHARM) && !hasQuestItems(killer, GOLDEN_SEED_2ND)) {
+							giveItems(killer, GOLDEN_SEED_2ND, 1);
+							npc.broadcastPacket(new NpcSay(npc, Say2.NPC_ALL, NpcStringId.I_AM_A_CREATURE_THAT_SHOWS_THE_TRUTH_OF_THE_PLACE_DEEP_IN_MY_HEART));
+							playSound(killer, Sound.ITEMSOUND_QUEST_MIDDLE);
+							if (hasQuestItems(killer, GOLDEN_SEED_1ST, GOLDEN_SEED_3RD)) {
+								qs.setCond(4);
 							}
 						}
 					}
-					break;
-				}
-				case ENCHANTED_MONSTEREYE: {
-					if (hasQuestItems(killer, SCORE_OF_ELEMENTS, SERPENT_CHARM) && (getQuestItemsCount(killer, ENCHANTED_MONSTER_EYE_SHELL) < 10)) {
-						giveItems(killer, ENCHANTED_MONSTER_EYE_SHELL, 1);
-						if (getQuestItemsCount(killer, ENCHANTED_MONSTER_EYE_SHELL) >= 10) {
+					case SINGING_FLOWER_DARKLING -> {
+						if (hasQuestItems(killer, LILAC_CHARM) && !hasQuestItems(killer, GOLDEN_SEED_3RD)) {
+							giveItems(killer, GOLDEN_SEED_3RD, 1);
+							npc.broadcastPacket(new NpcSay(npc, Say2.NPC_ALL, NpcStringId.I_AM_A_MIRROR_OF_DARKNESS_A_VIRTUAL_IMAGE_OF_DARKNESS));
 							playSound(killer, Sound.ITEMSOUND_QUEST_MIDDLE);
-						} else {
-							playSound(killer, Sound.ITEMSOUND_QUEST_ITEMGET);
-						}
-					}
-					break;
-				}
-				case ENCHANTED_STOLEN_GOLEM: {
-					if (hasQuestItems(killer, SCORE_OF_ELEMENTS, SERPENT_CHARM) && (getQuestItemsCount(killer, ENCHANTED_GOLEM_POWDER) < 10)) {
-						giveItems(killer, ENCHANTED_GOLEM_POWDER, 1);
-						if (getQuestItemsCount(killer, ENCHANTED_GOLEM_POWDER) >= 10) {
-							playSound(killer, Sound.ITEMSOUND_QUEST_MIDDLE);
-						} else {
-							playSound(killer, Sound.ITEMSOUND_QUEST_ITEMGET);
-						}
-					}
-					break;
-				}
-				case ENCHANTED_IRON_GOLEM: {
-					if (hasQuestItems(killer, SCORE_OF_ELEMENTS, SERPENT_CHARM) && (getQuestItemsCount(killer, ENCHANTED_IRON_GOLEM_SCRAP) < 10)) {
-						giveItems(killer, ENCHANTED_IRON_GOLEM_SCRAP, 1);
-						if (getQuestItemsCount(killer, ENCHANTED_IRON_GOLEM_SCRAP) >= 10) {
-							playSound(killer, Sound.ITEMSOUND_QUEST_MIDDLE);
-						} else {
-							playSound(killer, Sound.ITEMSOUND_QUEST_ITEMGET);
-						}
-					}
-					break;
-				}
-				case SINGING_FLOWER_PHANTASM: {
-					if (hasQuestItems(killer, LILAC_CHARM) && !hasQuestItems(killer, GOLDEN_SEED_1ST)) {
-						giveItems(killer, GOLDEN_SEED_1ST, 1);
-						npc.broadcastPacket(new NpcSay(npc, Say2.NPC_ALL, NpcStringId.I_AM_A_TREE_OF_NOTHING_A_TREE_THAT_KNOWS_WHERE_TO_RETURN));
-						playSound(killer, Sound.ITEMSOUND_QUEST_MIDDLE);
-						if (hasQuestItems(killer, GOLDEN_SEED_2ND, GOLDEN_SEED_3RD)) {
-							qs.setCond(4);
-						}
-					}
-					break;
-				}
-				case SINGING_FLOWER_NIGTMATE: {
-					if (hasQuestItems(killer, LILAC_CHARM) && !hasQuestItems(killer, GOLDEN_SEED_2ND)) {
-						giveItems(killer, GOLDEN_SEED_2ND, 1);
-						npc.broadcastPacket(new NpcSay(npc, Say2.NPC_ALL, NpcStringId.I_AM_A_CREATURE_THAT_SHOWS_THE_TRUTH_OF_THE_PLACE_DEEP_IN_MY_HEART));
-						playSound(killer, Sound.ITEMSOUND_QUEST_MIDDLE);
-						if (hasQuestItems(killer, GOLDEN_SEED_1ST, GOLDEN_SEED_3RD)) {
-							qs.setCond(4);
-						}
-					}
-					break;
-				}
-				case SINGING_FLOWER_DARKLING: {
-					if (hasQuestItems(killer, LILAC_CHARM) && !hasQuestItems(killer, GOLDEN_SEED_3RD)) {
-						giveItems(killer, GOLDEN_SEED_3RD, 1);
-						npc.broadcastPacket(new NpcSay(npc, Say2.NPC_ALL, NpcStringId.I_AM_A_MIRROR_OF_DARKNESS_A_VIRTUAL_IMAGE_OF_DARKNESS));
-						playSound(killer, Sound.ITEMSOUND_QUEST_MIDDLE);
-						if (hasQuestItems(killer, GOLDEN_SEED_1ST, GOLDEN_SEED_2ND)) {
-							qs.setCond(4);
-						}
-					}
-					break;
-				}
-				case GHOST_FIRE: {
-					if (hasQuestItems(killer, SCORE_OF_ELEMENTS, SALAMANDER_CHARM) && (getQuestItemsCount(killer, FLAME_CRYSTAL) < 5)) {
-						if (getRandom(100) < 50) {
-							giveItems(killer, FLAME_CRYSTAL, 1);
-							if (getQuestItemsCount(killer, FLAME_CRYSTAL) >= 5) {
-								playSound(killer, Sound.ITEMSOUND_QUEST_MIDDLE);
-							} else {
-								playSound(killer, Sound.ITEMSOUND_QUEST_ITEMGET);
+							if (hasQuestItems(killer, GOLDEN_SEED_1ST, GOLDEN_SEED_2ND)) {
+								qs.setCond(4);
 							}
 						}
 					}
-					break;
 				}
 			}
 		}
@@ -370,10 +311,10 @@ public final class Q00228_TestOfMagus extends Quest {
 						if (!hasAtLeastOneQuestItem(player, TONE_OF_EARTH, SERPENT_CHARM)) {
 							htmltext = "30409-01.html";
 						} else if (hasQuestItems(player, SERPENT_CHARM)) {
-							if ((getQuestItemsCount(player, ENCHANTED_MONSTER_EYE_SHELL) >= 10) && (getQuestItemsCount(player, ENCHANTED_GOLEM_POWDER) >= 10) && (getQuestItemsCount(player, ENCHANTED_IRON_GOLEM_SCRAP) >= 10)) {
-								takeItems(player, ENCHANTED_MONSTER_EYE_SHELL, -1);
-								takeItems(player, ENCHANTED_GOLEM_POWDER, -1);
-								takeItems(player, ENCHANTED_IRON_GOLEM_SCRAP, -1);
+							if (hasItemsAtLimit(player, ENCHANTED_MONSTER_EYE_SHELL, ENCHANTED_GOLEM_POWDER, ENCHANTED_IRON_GOLEM_SCRAP)) {
+								takeItems(player, ENCHANTED_MONSTER_EYE_SHELL.getId(), -1);
+								takeItems(player, ENCHANTED_GOLEM_POWDER.getId(), -1);
+								takeItems(player, ENCHANTED_IRON_GOLEM_SCRAP.getId(), -1);
 								giveItems(player, TONE_OF_EARTH, 1);
 								takeItems(player, SERPENT_CHARM, 1);
 								if (hasQuestItems(player, TONE_OF_FIRE, TONE_OF_WATER, TONE_OF_WIND)) {
@@ -395,10 +336,10 @@ public final class Q00228_TestOfMagus extends Quest {
 							htmltext = "30411-01.html";
 							giveItems(player, SALAMANDER_CHARM, 1);
 						} else if (hasQuestItems(player, SALAMANDER_CHARM)) {
-							if (getQuestItemsCount(player, FLAME_CRYSTAL) < 5) {
+							if (!hasItemsAtLimit(player, FLAME_CRYSTAL)) {
 								htmltext = "30411-02.html";
 							} else {
-								takeItems(player, FLAME_CRYSTAL, -1);
+								takeItems(player, FLAME_CRYSTAL.getId(), -1);
 								giveItems(player, TONE_OF_FIRE, 1);
 								takeItems(player, SALAMANDER_CHARM, 1);
 								if (hasQuestItems(player, TONE_OF_WATER, TONE_OF_WIND, TONE_OF_EARTH)) {
@@ -417,10 +358,10 @@ public final class Q00228_TestOfMagus extends Quest {
 						if (!hasAtLeastOneQuestItem(player, TONE_OF_WIND, SYLPH_CHARM)) {
 							htmltext = "30412-01.html";
 						} else if (hasQuestItems(player, SYLPH_CHARM)) {
-							if ((getQuestItemsCount(player, HARPYS_FEATHER) >= 20) && (getQuestItemsCount(player, WYRMS_WINGBONE) >= 10) && (getQuestItemsCount(player, WINDSUS_MANE) >= 10)) {
-								takeItems(player, HARPYS_FEATHER, -1);
-								takeItems(player, WYRMS_WINGBONE, -1);
-								takeItems(player, WINDSUS_MANE, -1);
+							if (hasItemsAtLimit(player, HARPYS_FEATHER, WYRMS_WINGBONE, WINDSUS_MANE)) {
+								takeItems(player, HARPYS_FEATHER.getId(), -1);
+								takeItems(player, WYRMS_WINGBONE.getId(), -1);
+								takeItems(player, WINDSUS_MANE.getId(), -1);
 								giveItems(player, TONE_OF_WIND, 1);
 								takeItems(player, SYLPH_CHARM, 1);
 								if (hasQuestItems(player, TONE_OF_WATER, TONE_OF_FIRE, TONE_OF_EARTH)) {
@@ -442,10 +383,10 @@ public final class Q00228_TestOfMagus extends Quest {
 							htmltext = "30413-01.html";
 							giveItems(player, UNDINE_CHARM, 1);
 						} else if (hasQuestItems(player, UNDINE_CHARM)) {
-							if (getQuestItemsCount(player, DAZZLING_DROP) < 20) {
+							if (!hasItemsAtLimit(player, DAZZLING_DROP)) {
 								htmltext = "30413-02.html";
 							} else {
-								takeItems(player, DAZZLING_DROP, -1);
+								takeItems(player, DAZZLING_DROP.getId(), -1);
 								giveItems(player, TONE_OF_WATER, 1);
 								takeItems(player, UNDINE_CHARM, 1);
 								if (hasQuestItems(player, TONE_OF_FIRE, TONE_OF_WIND, TONE_OF_EARTH)) {

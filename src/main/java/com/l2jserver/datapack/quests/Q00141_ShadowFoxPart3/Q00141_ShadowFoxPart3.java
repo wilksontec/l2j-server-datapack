@@ -18,16 +18,14 @@
  */
 package com.l2jserver.datapack.quests.Q00141_ShadowFoxPart3;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import com.l2jserver.datapack.quests.Q00140_ShadowFoxPart2.Q00140_ShadowFoxPart2;
 import com.l2jserver.datapack.quests.Q00998_FallenAngelSelect.Q00998_FallenAngelSelect;
-import com.l2jserver.gameserver.enums.audio.Sound;
 import com.l2jserver.gameserver.instancemanager.QuestManager;
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
+import com.l2jserver.gameserver.model.holders.QuestItemChanceHolder;
 import com.l2jserver.gameserver.model.quest.Quest;
+import com.l2jserver.gameserver.model.quest.QuestDroplist;
 import com.l2jserver.gameserver.model.quest.QuestState;
 import com.l2jserver.gameserver.model.quest.State;
 
@@ -38,26 +36,24 @@ import com.l2jserver.gameserver.model.quest.State;
 public class Q00141_ShadowFoxPart3 extends Quest {
 	// NPCs
 	private static final int NATOOLS = 30894;
-	// Monsters
-	private static final Map<Integer, Integer> MOBS = new HashMap<>();
-	static {
-		MOBS.put(20135, 53); // Alligator
-		MOBS.put(20791, 100); // Crokian Warrior
-		MOBS.put(20792, 92); // Farhite
-	}
 	// Items
-	private static final int PREDECESSORS_REPORT = 10350;
+	private static final QuestItemChanceHolder PREDECESSORS_REPORT = new QuestItemChanceHolder(10350, 30L);
+	// Droplist
+	private static final QuestDroplist DROPLIST = QuestDroplist.builder()
+			.addSingleDrop(20135, PREDECESSORS_REPORT, 53.0) // Alligator
+			.addSingleDrop(20791, PREDECESSORS_REPORT, 100.0) // Crokian Warrior
+			.addSingleDrop(20792, PREDECESSORS_REPORT, 92.0) // Farhite
+			.build();
 	// Misc
 	private static final int MIN_LEVEL = 37;
 	private static final int MAX_REWARD_LEVEL = 42;
-	private static final int REPORT_COUNT = 30;
-	
+
 	public Q00141_ShadowFoxPart3() {
 		super(141, Q00141_ShadowFoxPart3.class.getSimpleName(), "Shadow Fox - 3");
 		addStartNpc(NATOOLS);
 		addTalkId(NATOOLS);
-		addKillId(MOBS.keySet());
-		registerQuestItems(PREDECESSORS_REPORT);
+		addKillId(DROPLIST.getNpcIds());
+		registerQuestItems(PREDECESSORS_REPORT.getId());
 	}
 	
 	@Override
@@ -114,18 +110,9 @@ public class Q00141_ShadowFoxPart3 extends Quest {
 	
 	@Override
 	public String onKill(L2Npc npc, L2PcInstance player, boolean isSummon) {
-		final L2PcInstance member = getRandomPartyMember(player, 2);
-		if (member == null) {
-			return super.onKill(npc, player, isSummon);
-		}
-		final QuestState st = getQuestState(member, false);
-		if ((getRandom(100) < MOBS.get(npc.getId()))) {
-			st.giveItems(PREDECESSORS_REPORT, 1);
-			if (st.getQuestItemsCount(PREDECESSORS_REPORT) >= REPORT_COUNT) {
-				st.setCond(3, true);
-			} else {
-				st.playSound(Sound.ITEMSOUND_QUEST_ITEMGET);
-			}
+		QuestState st = getRandomPartyMemberState(player, 2, 1, npc);
+		if (st != null && giveItemRandomly(st.getPlayer(), npc, DROPLIST.get(npc), true)) {
+			st.setCond(3);
 		}
 		return super.onKill(npc, player, isSummon);
 	}
@@ -153,7 +140,7 @@ public class Q00141_ShadowFoxPart3 extends Quest {
 							htmltext = "30894-16.html";
 						} else {
 							htmltext = "30894-08.html";
-							st.takeItems(PREDECESSORS_REPORT, -1);
+							st.takeItems(PREDECESSORS_REPORT.getId(), -1);
 							st.set("talk", "1");
 						}
 						break;
