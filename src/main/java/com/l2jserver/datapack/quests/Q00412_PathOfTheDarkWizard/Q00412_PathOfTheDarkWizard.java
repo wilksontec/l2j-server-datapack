@@ -18,14 +18,17 @@
  */
 package com.l2jserver.datapack.quests.Q00412_PathOfTheDarkWizard;
 
-import com.l2jserver.gameserver.enums.audio.Sound;
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
 import com.l2jserver.gameserver.model.base.ClassId;
+import com.l2jserver.gameserver.model.holders.QuestItemChanceHolder;
 import com.l2jserver.gameserver.model.quest.Quest;
+import com.l2jserver.gameserver.model.quest.QuestDroplist;
 import com.l2jserver.gameserver.model.quest.QuestState;
 import com.l2jserver.gameserver.network.serverpackets.SocialAction;
 import com.l2jserver.gameserver.util.Util;
+
+import java.util.Map;
 
 /**
  * Path Of The Dark Wizard (412)
@@ -37,25 +40,37 @@ public final class Q00412_PathOfTheDarkWizard extends Quest {
 	private static final int ANNIKA = 30418;
 	private static final int ARKENIA = 30419;
 	private static final int VARIKA = 30421;
-	// Items
-	private static final int SEEDS_OF_ANGER = 1253;
-	private static final int SEEDS_OF_DESPAIR = 1254;
-	private static final int SEEDS_OF_HORROR = 1255;
-	private static final int SEEDS_OF_LUNACY = 1256;
-	private static final int FAMILYS_REMAINS = 1257;
-	private static final int KNEE_BONE = 1259;
-	private static final int HEART_OF_LUNACY = 1260;
-	private static final int LUCKY_KEY = 1277;
-	private static final int CANDLE = 1278;
-	private static final int HUB_SCENT = 1279;
-	// Reward
-	private static final int JEWEL_OF_DARKNESS = 1261;
 	// Monster
 	private static final int MARSH_ZOMBIE = 20015;
 	private static final int MISERY_SKELETON = 20022;
 	private static final int SKELETON_SCOUT = 20045;
 	private static final int SKELETON_HUNTER = 20517;
 	private static final int SKELETON_HUNTER_ARCHER = 20518;
+	// Items
+	private static final int SEEDS_OF_ANGER = 1253;
+	private static final int SEEDS_OF_DESPAIR = 1254;
+	private static final int SEEDS_OF_HORROR = 1255;
+	private static final int SEEDS_OF_LUNACY = 1256;
+	private static final int LUCKY_KEY = 1277;
+	private static final int CANDLE = 1278;
+	private static final int HUB_SCENT = 1279;
+	private static final QuestItemChanceHolder FAMILYS_REMAINS = new QuestItemChanceHolder(1257, 50.0, 3L);
+	private static final QuestItemChanceHolder KNEE_BONE = new QuestItemChanceHolder(1259, 50.0, 2L);
+	private static final QuestItemChanceHolder HEART_OF_LUNACY = new QuestItemChanceHolder(1260, 50.0, 3L);
+	// Droplist
+	private static final QuestDroplist DROPLIST = QuestDroplist.builder()
+			.addSingleDrop(MARSH_ZOMBIE, FAMILYS_REMAINS)
+			.bulkAddSingleDrop(KNEE_BONE).withNpcs(MISERY_SKELETON, SKELETON_HUNTER, SKELETON_HUNTER_ARCHER).build()
+			.addSingleDrop(SKELETON_SCOUT, HEART_OF_LUNACY)
+			.build();
+	private static final Map<Integer, Integer> MOBS_REQUIRED_ITEM = Map.of(
+			MARSH_ZOMBIE, LUCKY_KEY,
+			MISERY_SKELETON, CANDLE,
+			SKELETON_HUNTER, CANDLE,
+			SKELETON_HUNTER_ARCHER, CANDLE,
+			SKELETON_SCOUT, HUB_SCENT);
+	// Reward
+	private static final int JEWEL_OF_DARKNESS = 1261;
 	// Misc
 	private static final int MIN_LEVEL = 18;
 	
@@ -64,7 +79,7 @@ public final class Q00412_PathOfTheDarkWizard extends Quest {
 		addStartNpc(VARIKA);
 		addTalkId(VARIKA, CHARKEREN, ANNIKA, ARKENIA);
 		addKillId(MARSH_ZOMBIE, MISERY_SKELETON, SKELETON_SCOUT, SKELETON_HUNTER, SKELETON_HUNTER_ARCHER);
-		registerQuestItems(SEEDS_OF_ANGER, SEEDS_OF_DESPAIR, SEEDS_OF_HORROR, SEEDS_OF_LUNACY, FAMILYS_REMAINS, KNEE_BONE, HEART_OF_LUNACY, LUCKY_KEY, CANDLE, HUB_SCENT);
+		registerQuestItems(SEEDS_OF_ANGER, SEEDS_OF_DESPAIR, SEEDS_OF_HORROR, SEEDS_OF_LUNACY, FAMILYS_REMAINS.getId(), KNEE_BONE.getId(), HEART_OF_LUNACY.getId(), LUCKY_KEY, CANDLE, HUB_SCENT);
 	}
 	
 	@Override
@@ -142,49 +157,9 @@ public final class Q00412_PathOfTheDarkWizard extends Quest {
 	@Override
 	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
 		final QuestState qs = getQuestState(killer, false);
-		if ((qs != null) && qs.isStarted() && Util.checkIfInRange(1500, npc, killer, true)) {
-			switch (npc.getId()) {
-				case MARSH_ZOMBIE: {
-					if (hasQuestItems(killer, LUCKY_KEY) && (getQuestItemsCount(killer, FAMILYS_REMAINS) < 3)) {
-						if (getRandom(2) == 0) {
-							giveItems(killer, FAMILYS_REMAINS, 1);
-							if (getQuestItemsCount(killer, FAMILYS_REMAINS) == 3) {
-								playSound(killer, Sound.ITEMSOUND_QUEST_MIDDLE);
-							} else {
-								playSound(killer, Sound.ITEMSOUND_QUEST_ITEMGET);
-							}
-						}
-					}
-					break;
-				}
-				case MISERY_SKELETON:
-				case SKELETON_HUNTER:
-				case SKELETON_HUNTER_ARCHER: {
-					if (hasQuestItems(killer, CANDLE) && (getQuestItemsCount(killer, KNEE_BONE) < 2)) {
-						if (getRandom(2) == 0) {
-							giveItems(killer, KNEE_BONE, 1);
-							if (getQuestItemsCount(killer, KNEE_BONE) == 2) {
-								playSound(killer, Sound.ITEMSOUND_QUEST_MIDDLE);
-							} else {
-								playSound(killer, Sound.ITEMSOUND_QUEST_ITEMGET);
-							}
-						}
-					}
-					break;
-				}
-				case SKELETON_SCOUT: {
-					if (hasQuestItems(killer, HUB_SCENT) && (getQuestItemsCount(killer, HEART_OF_LUNACY) < 3)) {
-						if (getRandom(2) == 0) {
-							giveItems(killer, HEART_OF_LUNACY, 1);
-							if (getQuestItemsCount(killer, HEART_OF_LUNACY) == 3) {
-								playSound(killer, Sound.ITEMSOUND_QUEST_MIDDLE);
-							} else {
-								playSound(killer, Sound.ITEMSOUND_QUEST_ITEMGET);
-							}
-						}
-					}
-					break;
-				}
+		if ((qs != null) && qs.isStarted() && Util.checkIfInRange(1500, npc, qs.getPlayer(), true)) {
+			if (hasQuestItems(qs.getPlayer(), MOBS_REQUIRED_ITEM.get(npc.getId()))) {
+				giveItemRandomly(qs.getPlayer(), npc, DROPLIST.get(npc), true);
 			}
 		}
 		return super.onKill(npc, killer, isSummon);
@@ -221,7 +196,7 @@ public final class Q00412_PathOfTheDarkWizard extends Quest {
 						qs.saveGlobalQuestVar("1ClassQuestFinished", "1");
 						htmltext = "30421-13.html";
 					} else if (hasQuestItems(player, SEEDS_OF_DESPAIR)) {
-						if (!hasAtLeastOneQuestItem(player, FAMILYS_REMAINS, LUCKY_KEY, CANDLE, HUB_SCENT, KNEE_BONE, HEART_OF_LUNACY)) {
+						if (!hasAtLeastOneQuestItem(player, FAMILYS_REMAINS.getId(), LUCKY_KEY, CANDLE, HUB_SCENT, KNEE_BONE.getId(), HEART_OF_LUNACY.getId())) {
 							htmltext = "30421-14.html";
 						} else if (!hasQuestItems(player, SEEDS_OF_ANGER)) {
 							htmltext = "30421-08.html";
@@ -235,13 +210,13 @@ public final class Q00412_PathOfTheDarkWizard extends Quest {
 				}
 				case CHARKEREN: {
 					if (!hasQuestItems(player, SEEDS_OF_ANGER) && hasQuestItems(player, SEEDS_OF_DESPAIR)) {
-						if (!hasAtLeastOneQuestItem(player, FAMILYS_REMAINS, LUCKY_KEY)) {
+						if (!hasAtLeastOneQuestItem(player, FAMILYS_REMAINS.getId(), LUCKY_KEY)) {
 							htmltext = "30415-01.html";
-						} else if (hasQuestItems(player, LUCKY_KEY) && (getQuestItemsCount(player, FAMILYS_REMAINS) < 3)) {
+						} else if (hasQuestItems(player, LUCKY_KEY) && !hasItemsAtLimit(player, FAMILYS_REMAINS)) {
 							htmltext = "30415-04.html";
 						} else {
 							giveItems(player, SEEDS_OF_ANGER, 1);
-							takeItems(player, FAMILYS_REMAINS, -1);
+							takeItems(player, FAMILYS_REMAINS.getId(), -1);
 							takeItems(player, LUCKY_KEY, 1);
 							htmltext = "30415-05.html";
 						}
@@ -252,13 +227,13 @@ public final class Q00412_PathOfTheDarkWizard extends Quest {
 				}
 				case ANNIKA: {
 					if (!hasQuestItems(player, SEEDS_OF_HORROR) && hasQuestItems(player, SEEDS_OF_DESPAIR)) {
-						if (!hasAtLeastOneQuestItem(player, CANDLE, KNEE_BONE)) {
+						if (!hasAtLeastOneQuestItem(player, CANDLE, KNEE_BONE.getId())) {
 							htmltext = "30418-01.html";
-						} else if (hasQuestItems(player, CANDLE) && (getQuestItemsCount(player, KNEE_BONE) < 2)) {
+						} else if (hasQuestItems(player, CANDLE) && !hasItemsAtLimit(player, KNEE_BONE)) {
 							htmltext = "30418-03.html";
 						} else {
 							giveItems(player, SEEDS_OF_HORROR, 1);
-							takeItems(player, KNEE_BONE, -1);
+							takeItems(player, KNEE_BONE.getId(), -1);
 							takeItems(player, CANDLE, 1);
 							htmltext = "30418-04.html";
 						}
@@ -267,14 +242,14 @@ public final class Q00412_PathOfTheDarkWizard extends Quest {
 				}
 				case ARKENIA: {
 					if (!hasQuestItems(player, SEEDS_OF_LUNACY)) {
-						if (!hasAtLeastOneQuestItem(player, HUB_SCENT, HEART_OF_LUNACY)) {
+						if (!hasAtLeastOneQuestItem(player, HUB_SCENT, HEART_OF_LUNACY.getId())) {
 							giveItems(player, HUB_SCENT, 1);
 							htmltext = "30419-01.html";
-						} else if (hasQuestItems(player, HUB_SCENT) && (getQuestItemsCount(player, HEART_OF_LUNACY) < 3)) {
+						} else if (hasQuestItems(player, HUB_SCENT) && !hasItemsAtLimit(player, HEART_OF_LUNACY)) {
 							htmltext = "30419-02.html";
 						} else {
 							giveItems(player, SEEDS_OF_LUNACY, 1);
-							takeItems(player, HEART_OF_LUNACY, -1);
+							takeItems(player, HEART_OF_LUNACY.getId(), -1);
 							takeItems(player, HUB_SCENT, 1);
 							htmltext = "30419-03.html";
 						}
