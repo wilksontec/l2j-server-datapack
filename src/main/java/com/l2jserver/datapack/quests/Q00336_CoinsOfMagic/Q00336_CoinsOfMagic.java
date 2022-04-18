@@ -21,6 +21,7 @@ package com.l2jserver.datapack.quests.Q00336_CoinsOfMagic;
 import com.l2jserver.gameserver.enums.audio.Sound;
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
+import com.l2jserver.gameserver.model.holders.QuestItemChanceHolder;
 import com.l2jserver.gameserver.model.quest.Quest;
 import com.l2jserver.gameserver.model.quest.QuestDroplist;
 import com.l2jserver.gameserver.model.quest.QuestState;
@@ -127,10 +128,10 @@ public final class Q00336_CoinsOfMagic extends Quest {
 	private static final int Q_MANAKS_SILVER_DRYAD = 3497;
 	private static final int Q_NIAS_SILVER_FAIRY = 3498;
 	private static final int Q_COIN_DIAGRAM = 3811;
-	private static final int Q_KALDIS_GOLD_DRAGON = 3812;
 	private static final int Q_CC_MEMBERSHIP_1 = 3813;
 	private static final int Q_CC_MEMBERSHIP_2 = 3814;
 	private static final int Q_CC_MEMBERSHIP_3 = 3815;
+	private static final QuestItemChanceHolder Q_KALDIS_GOLD_DRAGON = new QuestItemChanceHolder(3812, 63.0, 1L);
 	// Droplist
 	private static final QuestDroplist DROPLIST = QuestDroplist.builder()
 			// Gold Wyvern
@@ -197,7 +198,7 @@ public final class Q00336_CoinsOfMagic extends Quest {
 		addStartNpc(WAREHOUSE_KEEPER_SORINT);
 		addTalkId(PANO, COLLOB, RAPIN, HAGGER, STAN, RESEARCHER_LORAIN, BLACKSMITH_DUNING, MAGISTER_PAGE, UNION_PRESIDENT_BERNARD, HEAD_BLACKSMITH_FERRIS);
 		addKillId(HEADLESS_KNIGHT, OEL_MAHUM, SHACKLE, ROYAL_CAVE_SERVANT, MALRUK_SUCCUBUS_TUREN, ROYAL_CAVE_SERVANT_HOLD, SHACKLE_HOLD, HEADLESS_KNIGHT_HOLD, H_MALRUK_SUCCUBUS_TUREN, BYFOOT, BYFOOT_SIGEL, TARLK_BUGBEAR_BOSS, OEL_MAHUM_WARRIOR, OEL_MAHUM_WITCH_DOCTOR, TIMAK_ORC, TIMAK_ORC_ARCHER, TIMAK_ORC_SOLDIER, TIMAK_ORC_SHAMAN, LAKIN, HARIT_LIZARDMAN_SHAMAN, HARIT_LIZARDM_MATRIARCH, HATAR_HANISHEE, DOOM_KNIGHT, PUNISHMENT_OF_UNDEAD, VANOR_SILENOS_SHAMAN, HUNGRY_CORPSE, NIHIL_INVADER, DARK_GUARD, BLOODY_GHOST, FLOAT_OF_GRAVE, DOOM_SERVANT, DOOM_ARCHER, KUKABURO, KUKABURO_A, KUKABURO_B, ANTELOPE, ANTELOPE_A, ANTELOPE_B, BANDERSNATCH, BANDERSNATCH_A, BANDERSNATCH_B, BUFFALO, BUFFALO_A, BUFFALO_B, BRILLIANT_CLAW, BRILLIANT_CLAW_1, BRILLIANT_WISDOM, BRILLIANT_VENGEANCE, BRILLIANT_VENGEANCE_1, BRILLIANT_ANGUISH, BRILLIANT_ANGUISH_1);
-		registerQuestItems(Q_COIN_DIAGRAM, Q_KALDIS_GOLD_DRAGON, Q_CC_MEMBERSHIP_1, Q_CC_MEMBERSHIP_2, Q_CC_MEMBERSHIP_3);
+		registerQuestItems(Q_COIN_DIAGRAM, Q_KALDIS_GOLD_DRAGON.getId(), Q_CC_MEMBERSHIP_1, Q_CC_MEMBERSHIP_2, Q_CC_MEMBERSHIP_3);
 	}
 	
 	@Override
@@ -257,13 +258,13 @@ public final class Q00336_CoinsOfMagic extends Quest {
 					return "30232-02.htm";
 				}
 				if (qs.isStarted()) {
-					if (!qs.hasQuestItems(Q_KALDIS_GOLD_DRAGON) && ((qs.getMemoState() == 1) || (qs.getMemoState() == 2))) {
+					if (!qs.hasQuestItems(Q_KALDIS_GOLD_DRAGON.getId()) && ((qs.getMemoState() == 1) || (qs.getMemoState() == 2))) {
 						return "30232-06.html";
 					}
-					if (qs.hasQuestItems(Q_KALDIS_GOLD_DRAGON) && ((qs.getMemoState() == 1) || (qs.getMemoState() == 2))) {
+					if (qs.hasQuestItems(Q_KALDIS_GOLD_DRAGON.getId()) && ((qs.getMemoState() == 1) || (qs.getMemoState() == 2))) {
 						qs.giveItems(Q_CC_MEMBERSHIP_3, 1);
 						qs.takeItems(Q_COIN_DIAGRAM, -1);
-						qs.takeItems(Q_KALDIS_GOLD_DRAGON, 1);
+						qs.takeItems(Q_KALDIS_GOLD_DRAGON.getId(), -1);
 						qs.setMemoState(3);
 						qs.setCond(4);
 						qs.showQuestionMark(336);
@@ -1340,7 +1341,7 @@ public final class Q00336_CoinsOfMagic extends Quest {
 	private QuestState getRandomPlayerFromPartyCoin(L2PcInstance player, L2Npc npc, int memoState) {
 		QuestState qs = getQuestState(player, false);
 		final List<QuestState> candidates = new ArrayList<>();
-		if ((qs != null) && qs.isStarted() && (qs.getMemoState() == memoState) && !qs.hasQuestItems(Q_KALDIS_GOLD_DRAGON)) {
+		if ((qs != null) && qs.isStarted() && (qs.getMemoState() == memoState) && !qs.hasQuestItems(Q_KALDIS_GOLD_DRAGON.getId())) {
 			candidates.add(qs);
 			candidates.add(qs);
 		}
@@ -1349,7 +1350,7 @@ public final class Q00336_CoinsOfMagic extends Quest {
 			player.getParty().getMembers().stream().forEach(pm -> {
 				
 				QuestState qss = getQuestState(pm, false);
-				if ((qss != null) && qss.isStarted() && (qss.getMemoState() == memoState) && !qss.hasQuestItems(Q_KALDIS_GOLD_DRAGON) && Util.checkIfInRange(1500, npc, pm, true)) {
+				if ((qss != null) && qss.isStarted() && (qss.getMemoState() == memoState) && !qss.hasQuestItems(Q_KALDIS_GOLD_DRAGON.getId()) && Util.checkIfInRange(1500, npc, pm, true)) {
 					candidates.add(qss);
 				}
 			});
