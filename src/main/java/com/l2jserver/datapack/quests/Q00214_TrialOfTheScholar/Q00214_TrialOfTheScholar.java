@@ -22,7 +22,9 @@ import com.l2jserver.gameserver.enums.audio.Sound;
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
 import com.l2jserver.gameserver.model.base.ClassId;
+import com.l2jserver.gameserver.model.holders.QuestItemChanceHolder;
 import com.l2jserver.gameserver.model.quest.Quest;
+import com.l2jserver.gameserver.model.quest.QuestDroplist;
 import com.l2jserver.gameserver.model.quest.QuestState;
 import com.l2jserver.gameserver.network.serverpackets.SocialAction;
 import com.l2jserver.gameserver.util.Util;
@@ -47,6 +49,17 @@ public final class Q00214_TrialOfTheScholar extends Quest {
 	private static final int ELDER_CRONOS = 30610;
 	private static final int DRUNKARD_TRIFF = 30611;
 	private static final int ELDER_CASIAN = 30612;
+	// Monsters
+	private static final int MONSTER_EYE_DESTROYER = 20068;
+	private static final int MEDUSA = 20158;
+	private static final int GHOUL = 20201;
+	private static final int SHACKLE1 = 20235;
+	private static final int BREKA_ORC_SHAMAN = 20269;
+	private static final int SHACKLE2 = 20279;
+	private static final int FETTERED_SOUL = 20552;
+	private static final int GRANDIS = 20554;
+	private static final int ENCHANTED_GARGOYLE = 20567;
+	private static final int LETO_LIZARDMAN_WARRIOR = 20580;
 	// Items
 	private static final int MIRIENS_1ST_SIGIL = 2675;
 	private static final int MIRIENS_2ND_SIGIL = 2676;
@@ -60,7 +73,6 @@ public final class Q00214_TrialOfTheScholar extends Quest {
 	private static final int CRERAS_PAINTING1 = 2684;
 	private static final int CRERAS_PAINTING2 = 2685;
 	private static final int CRERAS_PAINTING3 = 2686;
-	private static final int BROWN_SCROLL_SCRAP = 2687;
 	private static final int CRYSTAL_OF_PURITY1 = 2688;
 	private static final int HIGH_PRIESTS_SIGIL = 2689;
 	private static final int GRAND_MAGISTER_SIGIL = 2690;
@@ -68,9 +80,6 @@ public final class Q00214_TrialOfTheScholar extends Quest {
 	private static final int SYLVAINS_LETTER = 2692;
 	private static final int SYMBOL_OF_SYLVAIN = 2693;
 	private static final int JUREKS_LIST = 2694;
-	private static final int MONSTER_EYE_DESTROYER_SKIN = 2695;
-	private static final int SHAMANS_NECKLACE = 2696;
-	private static final int SHACKLES_SCALP = 2697;
 	private static final int SYMBOL_OF_JUREK = 2698;
 	private static final int CRONOS_LETTER = 2699;
 	private static final int DIETERS_KEY = 2700;
@@ -88,25 +97,31 @@ public final class Q00214_TrialOfTheScholar extends Quest {
 	private static final int STRONG_LIGUOR = 2713;
 	private static final int CRYSTAL_OF_PURITY2 = 2714;
 	private static final int CASIANS_LIST = 2715;
-	private static final int GHOULS_SKIN = 2716;
-	private static final int MEDUSAS_BLOOD = 2717;
-	private static final int FETTERED_SOULS_ICHOR = 2718;
-	private static final int ENCHANTED_GARGOYLES_NAIL = 2719;
 	private static final int SYMBOL_OF_CRONOS = 2720;
+	private static final QuestItemChanceHolder BROWN_SCROLL_SCRAP = new QuestItemChanceHolder(2687, 5L);
+	private static final QuestItemChanceHolder MONSTER_EYE_DESTROYER_SKIN = new QuestItemChanceHolder(2695, 5L);
+	private static final QuestItemChanceHolder SHAMANS_NECKLACE = new QuestItemChanceHolder(2696, 5L);
+	private static final QuestItemChanceHolder SHACKLES_SCALP = new QuestItemChanceHolder(2697, 2L);
+	private static final QuestItemChanceHolder GHOULS_SKIN = new QuestItemChanceHolder(2716, 10L);
+	private static final QuestItemChanceHolder MEDUSAS_BLOOD = new QuestItemChanceHolder(2717, 12L);
+	private static final QuestItemChanceHolder FETTERED_SOULS_ICHOR = new QuestItemChanceHolder(2718, 5L);
+	private static final QuestItemChanceHolder ENCHANTED_GARGOYLES_NAIL = new QuestItemChanceHolder(2719, 5L);
+	// Droplists
+	private static final QuestDroplist DROPLIST_JUREK = QuestDroplist.builder()
+			.addSingleDrop(MONSTER_EYE_DESTROYER, MONSTER_EYE_DESTROYER_SKIN)
+			.addSingleDrop(SHACKLE1, SHACKLES_SCALP)
+			.addSingleDrop(SHACKLE2, SHACKLES_SCALP)
+			.addSingleDrop(BREKA_ORC_SHAMAN, SHAMANS_NECKLACE)
+			.build();
+	private static final QuestDroplist DROPLIST_CASIAN = QuestDroplist.builder()
+			.addSingleDrop(MEDUSA, MEDUSAS_BLOOD)
+			.addSingleDrop(GHOUL, GHOULS_SKIN)
+			.addSingleDrop(FETTERED_SOUL, FETTERED_SOULS_ICHOR)
+			.addSingleDrop(ENCHANTED_GARGOYLE, ENCHANTED_GARGOYLES_NAIL)
+			.build();
 	// Reward
 	private static final int MARK_OF_SCHOLAR = 2674;
 	private static final int DIMENSIONAL_DIAMOND = 7562;
-	// Monsters
-	private static final int MONSTER_EYE_DESTREOYER = 20068;
-	private static final int MEDUSA = 20158;
-	private static final int GHOUL = 20201;
-	private static final int SHACKLE1 = 20235;
-	private static final int BREKA_ORC_SHAMAN = 20269;
-	private static final int SHACKLE2 = 20279;
-	private static final int FETTERED_SOUL = 20552;
-	private static final int GRANDIS = 20554;
-	private static final int ENCHANTED_GARGOYLE = 20567;
-	private static final int LETO_LIZARDMAN_WARRIOR = 20580;
 	// Misc
 	private static final int MIN_LVL = 35;
 	private static final int LEVEL = 36;
@@ -115,8 +130,8 @@ public final class Q00214_TrialOfTheScholar extends Quest {
 		super(214, Q00214_TrialOfTheScholar.class.getSimpleName(), "Trial Of The Scholar");
 		addStartNpc(MAGISTER_MIRIEN);
 		addTalkId(MAGISTER_MIRIEN, HIGH_PRIEST_SYLVAIN, CAPTAIN_LUCAS, WAREHOUSE_KEEPER_VALKON, MAGISTER_DIETER, GRAND_MAGISTER_JUREK, TRADER_EDROC, WAREHOUSE_KEEPER_RAUT, BLACKSMITH_POITAN, MARIA, ASTROLOGER_CRETA, ELDER_CRONOS, DRUNKARD_TRIFF, ELDER_CASIAN);
-		addKillId(MONSTER_EYE_DESTREOYER, MEDUSA, GHOUL, SHACKLE1, BREKA_ORC_SHAMAN, SHACKLE2, FETTERED_SOUL, GRANDIS, ENCHANTED_GARGOYLE, LETO_LIZARDMAN_WARRIOR);
-		registerQuestItems(MIRIENS_1ST_SIGIL, MIRIENS_2ND_SIGIL, MIRIENS_3RD_SIGIL, MIRIENS_INSTRUCTION, MARIAS_1ST_LETTER, MARIAS_2ND_LETTER, LUCASS_LETTER, LUCILLAS_HANDBAG, CRETAS_1ST_LETTER, CRERAS_PAINTING1, CRERAS_PAINTING1, CRERAS_PAINTING3, BROWN_SCROLL_SCRAP, CRYSTAL_OF_PURITY1, HIGH_PRIESTS_SIGIL, GRAND_MAGISTER_SIGIL, CRONOS_SIGIL, SYLVAINS_LETTER, SYMBOL_OF_SYLVAIN, JUREKS_LIST, MONSTER_EYE_DESTROYER_SKIN, SHAMANS_NECKLACE, SHACKLES_SCALP, SYMBOL_OF_JUREK, CRONOS_LETTER, DIETERS_KEY, CRETAS_2ND_LETTER, DIETERS_LETTER, DIETERS_DIARY, RAUTS_LETTER_ENVELOPE, TRIFFS_RING, SCRIPTURE_CHAPTER_1, SCRIPTURE_CHAPTER_2, SCRIPTURE_CHAPTER_3, SCRIPTURE_CHAPTER_4, VALKONS_REQUEST, POITANS_NOTES, STRONG_LIGUOR, CRYSTAL_OF_PURITY2, CASIANS_LIST, GHOULS_SKIN, MEDUSAS_BLOOD, FETTERED_SOULS_ICHOR, ENCHANTED_GARGOYLES_NAIL, SYMBOL_OF_CRONOS);
+		addKillId(MONSTER_EYE_DESTROYER, MEDUSA, GHOUL, SHACKLE1, BREKA_ORC_SHAMAN, SHACKLE2, FETTERED_SOUL, GRANDIS, ENCHANTED_GARGOYLE, LETO_LIZARDMAN_WARRIOR);
+		registerQuestItems(MIRIENS_1ST_SIGIL, MIRIENS_2ND_SIGIL, MIRIENS_3RD_SIGIL, MIRIENS_INSTRUCTION, MARIAS_1ST_LETTER, MARIAS_2ND_LETTER, LUCASS_LETTER, LUCILLAS_HANDBAG, CRETAS_1ST_LETTER, CRERAS_PAINTING1, CRERAS_PAINTING1, CRERAS_PAINTING3, BROWN_SCROLL_SCRAP.getId(), CRYSTAL_OF_PURITY1, HIGH_PRIESTS_SIGIL, GRAND_MAGISTER_SIGIL, CRONOS_SIGIL, SYLVAINS_LETTER, SYMBOL_OF_SYLVAIN, JUREKS_LIST, MONSTER_EYE_DESTROYER_SKIN.getId(), SHAMANS_NECKLACE.getId(), SHACKLES_SCALP.getId(), SYMBOL_OF_JUREK, CRONOS_LETTER, DIETERS_KEY, CRETAS_2ND_LETTER, DIETERS_LETTER, DIETERS_DIARY, RAUTS_LETTER_ENVELOPE, TRIFFS_RING, SCRIPTURE_CHAPTER_1, SCRIPTURE_CHAPTER_2, SCRIPTURE_CHAPTER_3, SCRIPTURE_CHAPTER_4, VALKONS_REQUEST, POITANS_NOTES, STRONG_LIGUOR, CRYSTAL_OF_PURITY2, CASIANS_LIST, GHOULS_SKIN.getId(), MEDUSAS_BLOOD.getId(), FETTERED_SOULS_ICHOR.getId(), ENCHANTED_GARGOYLES_NAIL.getId(), SYMBOL_OF_CRONOS);
 	}
 	
 	@Override
@@ -274,7 +289,7 @@ public final class Q00214_TrialOfTheScholar extends Quest {
 			case "30608-14.html": {
 				if (hasQuestItems(player, CRERAS_PAINTING3)) {
 					takeItems(player, CRERAS_PAINTING3, 1);
-					takeItems(player, BROWN_SCROLL_SCRAP, -1);
+					takeItems(player, BROWN_SCROLL_SCRAP.getId(), -1);
 					giveItems(player, CRYSTAL_OF_PURITY1, 1);
 					qs.setCond(13, true);
 					htmltext = event;
@@ -349,10 +364,10 @@ public final class Q00214_TrialOfTheScholar extends Quest {
 				giveItems(player, SCRIPTURE_CHAPTER_4, 1);
 				takeItems(player, POITANS_NOTES, 1);
 				takeItems(player, CASIANS_LIST, 1);
-				takeItems(player, GHOULS_SKIN, -1);
-				takeItems(player, MEDUSAS_BLOOD, -1);
-				takeItems(player, FETTERED_SOULS_ICHOR, -1);
-				takeItems(player, ENCHANTED_GARGOYLES_NAIL, -1);
+				takeItems(player, GHOULS_SKIN.getId(), -1);
+				takeItems(player, MEDUSAS_BLOOD.getId(), -1);
+				takeItems(player, FETTERED_SOULS_ICHOR.getId(), -1);
+				takeItems(player, ENCHANTED_GARGOYLES_NAIL.getId(), -1);
 				qs.setCond(30, true);
 				htmltext = event;
 				break;
@@ -365,102 +380,30 @@ public final class Q00214_TrialOfTheScholar extends Quest {
 	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
 		final QuestState qs = getQuestState(killer, false);
 		if ((qs != null) && qs.isStarted() && Util.checkIfInRange(1500, npc, killer, true)) {
-			switch (npc.getId()) {
-				case MONSTER_EYE_DESTREOYER: {
-					if (hasQuestItems(killer, MIRIENS_2ND_SIGIL, GRAND_MAGISTER_SIGIL, JUREKS_LIST) && (getQuestItemsCount(killer, MONSTER_EYE_DESTROYER_SKIN) < 5)) {
-						giveItems(killer, MONSTER_EYE_DESTROYER_SKIN, 1);
-						if ((getQuestItemsCount(killer, MONSTER_EYE_DESTROYER_SKIN) == 5) && (getQuestItemsCount(killer, SHAMANS_NECKLACE) >= 5) && (getQuestItemsCount(killer, SHACKLES_SCALP) >= 2)) {
-							qs.setCond(17, true);
-						} else {
-							playSound(killer, Sound.ITEMSOUND_QUEST_ITEMGET);
-						}
-					}
-					break;
+			if (DROPLIST_JUREK.get(npc) != null && hasQuestItems(qs.getPlayer(), MIRIENS_2ND_SIGIL, GRAND_MAGISTER_SIGIL, JUREKS_LIST)) {
+				if (giveItemRandomly(qs.getPlayer(), npc, DROPLIST_JUREK.get(npc), true)
+						&& hasItemsAtLimit(qs.getPlayer(), MONSTER_EYE_DESTROYER_SKIN, SHAMANS_NECKLACE, SHACKLES_SCALP)) {
+					qs.setCond(17);
 				}
-				case MEDUSA: {
-					if (hasQuestItems(killer, TRIFFS_RING, POITANS_NOTES, CASIANS_LIST) && (getQuestItemsCount(killer, MEDUSAS_BLOOD) < 12)) {
-						giveItems(killer, MEDUSAS_BLOOD, 1);
-						if (getQuestItemsCount(killer, MEDUSAS_BLOOD) == 12) {
+			} else if (DROPLIST_CASIAN.get(npc) != null && hasQuestItems(qs.getPlayer(), TRIFFS_RING, POITANS_NOTES, CASIANS_LIST)) {
+				if (giveItemRandomly(qs.getPlayer(), npc, DROPLIST_CASIAN.get(npc), true)
+						&& hasItemsAtLimit(qs.getPlayer(), MEDUSAS_BLOOD, GHOULS_SKIN, FETTERED_SOULS_ICHOR, ENCHANTED_GARGOYLES_NAIL)) {
+					qs.setCond(29);
+				}
+			} else {
+				switch (npc.getId()) {
+					case GRANDIS -> {
+						if (hasQuestItems(killer, MIRIENS_3RD_SIGIL, CRONOS_SIGIL, TRIFFS_RING) && !hasQuestItems(killer, SCRIPTURE_CHAPTER_3)) {
+							giveItems(killer, SCRIPTURE_CHAPTER_3, 1);
 							playSound(killer, Sound.ITEMSOUND_QUEST_MIDDLE);
-						} else {
-							playSound(killer, Sound.ITEMSOUND_QUEST_ITEMGET);
 						}
 					}
-					break;
-				}
-				case GHOUL: {
-					if (hasQuestItems(killer, TRIFFS_RING, POITANS_NOTES, CASIANS_LIST) && (getQuestItemsCount(killer, GHOULS_SKIN) < 10)) {
-						giveItems(killer, GHOULS_SKIN, 1);
-						if (getQuestItemsCount(killer, GHOULS_SKIN) == 10) {
-							qs.setCond(29, true);
-						} else {
-							playSound(killer, Sound.ITEMSOUND_QUEST_ITEMGET);
+					case LETO_LIZARDMAN_WARRIOR -> {
+						if (hasQuestItems(killer, MIRIENS_1ST_SIGIL, HIGH_PRIESTS_SIGIL, CRERAS_PAINTING3)
+								&& giveItemRandomly(qs.getPlayer(), npc, BROWN_SCROLL_SCRAP, true)) {
+							qs.setCond(12);
 						}
 					}
-					break;
-				}
-				case SHACKLE1:
-				case SHACKLE2: {
-					if (hasQuestItems(killer, MIRIENS_2ND_SIGIL, GRAND_MAGISTER_SIGIL, JUREKS_LIST) && (getQuestItemsCount(killer, SHACKLES_SCALP) < 2)) {
-						giveItems(killer, SHACKLES_SCALP, 1);
-						if ((getQuestItemsCount(killer, MONSTER_EYE_DESTROYER_SKIN) >= 5) && (getQuestItemsCount(killer, SHAMANS_NECKLACE) >= 5) && (getQuestItemsCount(killer, SHACKLES_SCALP) == 2)) {
-							qs.setCond(17, true);
-						} else {
-							playSound(killer, Sound.ITEMSOUND_QUEST_ITEMGET);
-						}
-					}
-					break;
-				}
-				case BREKA_ORC_SHAMAN: {
-					if (hasQuestItems(killer, MIRIENS_2ND_SIGIL, GRAND_MAGISTER_SIGIL, JUREKS_LIST) && (getQuestItemsCount(killer, SHAMANS_NECKLACE) < 5)) {
-						giveItems(killer, SHAMANS_NECKLACE, 1);
-						if ((getQuestItemsCount(killer, MONSTER_EYE_DESTROYER_SKIN) >= 5) && (getQuestItemsCount(killer, SHAMANS_NECKLACE) == 5) && (getQuestItemsCount(killer, SHACKLES_SCALP) >= 2)) {
-							qs.setCond(17, true);
-						} else {
-							playSound(killer, Sound.ITEMSOUND_QUEST_ITEMGET);
-						}
-					}
-					break;
-				}
-				case FETTERED_SOUL: {
-					if (hasQuestItems(killer, TRIFFS_RING, POITANS_NOTES, CASIANS_LIST) && (getQuestItemsCount(killer, FETTERED_SOULS_ICHOR) < 5)) {
-						giveItems(killer, FETTERED_SOULS_ICHOR, 1);
-						if (getQuestItemsCount(killer, FETTERED_SOULS_ICHOR) >= 5) {
-							playSound(killer, Sound.ITEMSOUND_QUEST_MIDDLE);
-						} else {
-							playSound(killer, Sound.ITEMSOUND_QUEST_ITEMGET);
-						}
-					}
-					break;
-				}
-				case GRANDIS: {
-					if (hasQuestItems(killer, MIRIENS_3RD_SIGIL, CRONOS_SIGIL, TRIFFS_RING) && !hasQuestItems(killer, SCRIPTURE_CHAPTER_3)) {
-						giveItems(killer, SCRIPTURE_CHAPTER_3, 1);
-						playSound(killer, Sound.ITEMSOUND_QUEST_MIDDLE);
-					}
-					break;
-				}
-				case ENCHANTED_GARGOYLE: {
-					if (hasQuestItems(killer, TRIFFS_RING, POITANS_NOTES, CASIANS_LIST) && (getQuestItemsCount(killer, ENCHANTED_GARGOYLES_NAIL) < 5)) {
-						giveItems(killer, ENCHANTED_GARGOYLES_NAIL, 1);
-						if (getQuestItemsCount(killer, ENCHANTED_GARGOYLES_NAIL) >= 5) {
-							playSound(killer, Sound.ITEMSOUND_QUEST_MIDDLE);
-						} else {
-							playSound(killer, Sound.ITEMSOUND_QUEST_ITEMGET);
-						}
-					}
-					break;
-				}
-				case LETO_LIZARDMAN_WARRIOR: {
-					if (hasQuestItems(killer, MIRIENS_1ST_SIGIL, HIGH_PRIESTS_SIGIL, CRERAS_PAINTING3) && (getQuestItemsCount(killer, BROWN_SCROLL_SCRAP) < 5)) {
-						giveItems(killer, BROWN_SCROLL_SCRAP, 1);
-						if (getQuestItemsCount(killer, BROWN_SCROLL_SCRAP) == 5) {
-							qs.setCond(12, true);
-						} else {
-							playSound(killer, Sound.ITEMSOUND_QUEST_ITEMGET);
-						}
-					}
-					break;
 				}
 			}
 		}
@@ -555,7 +498,7 @@ public final class Q00214_TrialOfTheScholar extends Quest {
 						} else if (hasQuestItems(player, CRERAS_PAINTING2)) {
 							htmltext = "30071-03.html";
 						} else if (hasQuestItems(player, CRERAS_PAINTING3)) {
-							if (getQuestItemsCount(player, BROWN_SCROLL_SCRAP) < 5) {
+							if (!hasItemsAtLimit(player, BROWN_SCROLL_SCRAP)) {
 								htmltext = "30071-05.html";
 							} else {
 								htmltext = "30071-06.html";
@@ -611,14 +554,14 @@ public final class Q00214_TrialOfTheScholar extends Quest {
 						if (!hasAtLeastOneQuestItem(player, GRAND_MAGISTER_SIGIL, SYMBOL_OF_JUREK)) {
 							htmltext = "30115-01.html";
 						} else if (hasQuestItems(player, JUREKS_LIST)) {
-							if ((getQuestItemsCount(player, MONSTER_EYE_DESTROYER_SKIN) + getQuestItemsCount(player, SHAMANS_NECKLACE) + getQuestItemsCount(player, SHACKLES_SCALP)) < 12) {
+							if (!hasItemsAtLimit(qs.getPlayer(), MONSTER_EYE_DESTROYER_SKIN, SHAMANS_NECKLACE, SHACKLES_SCALP)) {
 								htmltext = "30115-04.html";
 							} else {
 								takeItems(player, GRAND_MAGISTER_SIGIL, 1);
 								takeItems(player, JUREKS_LIST, 1);
-								takeItems(player, MONSTER_EYE_DESTROYER_SKIN, -1);
-								takeItems(player, SHAMANS_NECKLACE, -1);
-								takeItems(player, SHACKLES_SCALP, -1);
+								takeItems(player, MONSTER_EYE_DESTROYER_SKIN.getId(), -1);
+								takeItems(player, SHAMANS_NECKLACE.getId(), -1);
+								takeItems(player, SHACKLES_SCALP.getId(), -1);
 								giveItems(player, SYMBOL_OF_JUREK, 1);
 								qs.setCond(18, true);
 								htmltext = "30115-05.html";
@@ -695,7 +638,7 @@ public final class Q00214_TrialOfTheScholar extends Quest {
 						} else if (hasQuestItems(player, CRERAS_PAINTING2)) {
 							htmltext = "30608-11.html";
 						} else if (hasQuestItems(player, CRERAS_PAINTING3)) {
-							if (getQuestItemsCount(player, BROWN_SCROLL_SCRAP) < 5) {
+							if (!hasItemsAtLimit(player, BROWN_SCROLL_SCRAP)) {
 								qs.setCond(11, true);
 								htmltext = "30608-12.html";
 							} else {
@@ -772,7 +715,7 @@ public final class Q00214_TrialOfTheScholar extends Quest {
 								htmltext = "30612-01.html";
 							}
 						} else {
-							if ((getQuestItemsCount(player, GHOULS_SKIN) + getQuestItemsCount(player, MEDUSAS_BLOOD) + getQuestItemsCount(player, FETTERED_SOULS_ICHOR) + getQuestItemsCount(player, ENCHANTED_GARGOYLES_NAIL)) < 32) {
+							if (!hasItemsAtLimit(player, GHOULS_SKIN, MEDUSAS_BLOOD, FETTERED_SOULS_ICHOR, ENCHANTED_GARGOYLES_NAIL)) {
 								htmltext = "30612-05.html";
 							} else {
 								htmltext = "30612-06.html";

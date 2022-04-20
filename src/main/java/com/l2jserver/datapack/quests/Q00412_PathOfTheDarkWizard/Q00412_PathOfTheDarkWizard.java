@@ -28,8 +28,6 @@ import com.l2jserver.gameserver.model.quest.QuestState;
 import com.l2jserver.gameserver.network.serverpackets.SocialAction;
 import com.l2jserver.gameserver.util.Util;
 
-import java.util.Map;
-
 /**
  * Path Of The Dark Wizard (412)
  * @author ivantotov
@@ -59,16 +57,10 @@ public final class Q00412_PathOfTheDarkWizard extends Quest {
 	private static final QuestItemChanceHolder HEART_OF_LUNACY = new QuestItemChanceHolder(1260, 50.0, 3L);
 	// Droplist
 	private static final QuestDroplist DROPLIST = QuestDroplist.builder()
-			.addSingleDrop(MARSH_ZOMBIE, FAMILYS_REMAINS)
-			.bulkAddSingleDrop(KNEE_BONE).withNpcs(MISERY_SKELETON, SKELETON_HUNTER, SKELETON_HUNTER_ARCHER).build()
-			.addSingleDrop(SKELETON_SCOUT, HEART_OF_LUNACY)
+			.addSingleDrop(MARSH_ZOMBIE, FAMILYS_REMAINS).withRequiredItems(LUCKY_KEY)
+			.bulkAddSingleDrop(KNEE_BONE).withNpcs(MISERY_SKELETON, SKELETON_HUNTER, SKELETON_HUNTER_ARCHER).withRequiredItems(CANDLE).build()
+			.addSingleDrop(SKELETON_SCOUT, HEART_OF_LUNACY).withRequiredItems(HUB_SCENT)
 			.build();
-	private static final Map<Integer, Integer> MOBS_REQUIRED_ITEM = Map.of(
-			MARSH_ZOMBIE, LUCKY_KEY,
-			MISERY_SKELETON, CANDLE,
-			SKELETON_HUNTER, CANDLE,
-			SKELETON_HUNTER_ARCHER, CANDLE,
-			SKELETON_SCOUT, HUB_SCENT);
 	// Reward
 	private static final int JEWEL_OF_DARKNESS = 1261;
 	// Misc
@@ -158,7 +150,7 @@ public final class Q00412_PathOfTheDarkWizard extends Quest {
 	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
 		final QuestState qs = getQuestState(killer, false);
 		if ((qs != null) && qs.isStarted() && Util.checkIfInRange(1500, npc, qs.getPlayer(), true)) {
-			if (hasQuestItems(qs.getPlayer(), MOBS_REQUIRED_ITEM.get(npc.getId()))) {
+			if (hasQuestItems(qs.getPlayer(), DROPLIST.get(npc).requiredItems())) {
 				giveItemRandomly(qs.getPlayer(), npc, DROPLIST.get(npc), true);
 			}
 		}

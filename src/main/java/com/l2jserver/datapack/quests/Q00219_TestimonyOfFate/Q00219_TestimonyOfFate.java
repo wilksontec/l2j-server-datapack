@@ -23,7 +23,9 @@ import com.l2jserver.gameserver.enums.Race;
 import com.l2jserver.gameserver.enums.audio.Sound;
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
+import com.l2jserver.gameserver.model.holders.QuestItemChanceHolder;
 import com.l2jserver.gameserver.model.quest.Quest;
+import com.l2jserver.gameserver.model.quest.QuestDroplist;
 import com.l2jserver.gameserver.model.quest.QuestState;
 import com.l2jserver.gameserver.network.serverpackets.SocialAction;
 import com.l2jserver.gameserver.util.Util;
@@ -44,17 +46,27 @@ public final class Q00219_TestimonyOfFate extends Quest {
 	private static final int BROTHER_METHEUS = 30614;
 	private static final int BLOODY_PIXY = 31845;
 	private static final int BLIGHT_TREANT = 31850;
+	// Monster
+	private static final int HANGMAN_TREE = 20144;
+	private static final int MARSH_STAKATO = 20157;
+	private static final int MEDUSA = 20158;
+	private static final int TYRANT = 20192;
+	private static final int TYRANT_KINGPIN = 20193;
+	private static final int DEAD_SEEKER = 20202;
+	private static final int MARSH_STAKATO_WORKER = 20230;
+	private static final int MARSH_STAKATO_SOLDIER = 20232;
+	private static final int MARSH_SPIDER = 20233;
+	private static final int MARSH_STAKATO_DRONE = 20234;
+	private static final int BREKA_ORC_OVERLORD = 20270;
+	private static final int GRANDIS = 20554;
+	private static final int LETO_LIZARDMAN_OVERLORD = 20582;
+	private static final int KARUL_BUGBEAR = 20600;
 	// Items
 	private static final int KAIRAS_LETTER = 3173;
 	private static final int METHEUSS_FUNERAL_JAR = 3174;
 	private static final int KASANDRAS_REMAINS = 3175;
 	private static final int HERBALISM_TEXTBOOK = 3176;
 	private static final int IXIAS_LIST = 3177;
-	private static final int MEDUSAS_ICHOR = 3178;
-	private static final int MARSH_SPIDER_FLUIDS = 3179;
-	private static final int DEAD_SEEKER_DUNG = 3180;
-	private static final int TYRANTS_BLOOD = 3181;
-	private static final int NIGHTSHADE_ROOT = 3182;
 	private static final int BELLADONNA = 3183;
 	private static final int ALDERS_SKULL1 = 3184;
 	private static final int ALDERS_SKULL2 = 3185;
@@ -75,24 +87,22 @@ public final class Q00219_TestimonyOfFate extends Quest {
 	private static final int BLACK_WILLOW_LEAF = 3200;
 	private static final int BLIGHT_TREANT_SAP = 3201;
 	private static final int ARKENIAS_LETTER = 3202;
+	private static final QuestItemChanceHolder MEDUSAS_ICHOR = new QuestItemChanceHolder(3178, 10L);
+	private static final QuestItemChanceHolder MARSH_SPIDER_FLUIDS = new QuestItemChanceHolder(3179, 10L);
+	private static final QuestItemChanceHolder DEAD_SEEKER_DUNG = new QuestItemChanceHolder(3180, 10L);
+	private static final QuestItemChanceHolder TYRANTS_BLOOD = new QuestItemChanceHolder(3181, 10L);
+	private static final QuestItemChanceHolder NIGHTSHADE_ROOT = new QuestItemChanceHolder(3182, 10L);
+	// Droplist
+	private static final QuestDroplist DROPLIST = QuestDroplist.builder()
+			.bulkAddSingleDrop(NIGHTSHADE_ROOT).withNpcs(MARSH_STAKATO, MARSH_STAKATO_WORKER, MARSH_STAKATO_SOLDIER, MARSH_STAKATO_DRONE).withRequiredItems(IXIAS_LIST).build()
+			.addSingleDrop(MEDUSA, MEDUSAS_ICHOR).withRequiredItems(IXIAS_LIST)
+			.bulkAddSingleDrop(TYRANTS_BLOOD).withNpcs(TYRANT, TYRANT_KINGPIN).withRequiredItems(IXIAS_LIST).build()
+			.addSingleDrop(DEAD_SEEKER, DEAD_SEEKER_DUNG).withRequiredItems(IXIAS_LIST)
+			.addSingleDrop(MARSH_SPIDER, MARSH_SPIDER_FLUIDS).withRequiredItems(IXIAS_LIST)
+			.build();
 	// Reward
 	private static final int MARK_OF_FATE = 3172;
 	private static final int DIMENSIONAL_DIAMOND = 7562;
-	// Monster
-	private static final int HANGMAN_TREE = 20144;
-	private static final int MARSH_STAKATO = 20157;
-	private static final int MEDUSA = 20158;
-	private static final int TYRANT = 20192;
-	private static final int TYRANT_KINGPIN = 20193;
-	private static final int DEAD_SEEKER = 20202;
-	private static final int MARSH_STAKATO_WORKER = 20230;
-	private static final int MARSH_STAKATO_SOLDIER = 20232;
-	private static final int MARSH_SPIDER = 20233;
-	private static final int MARSH_STAKATO_DRONE = 20234;
-	private static final int BREKA_ORC_OVERLORD = 20270;
-	private static final int GRANDIS = 20554;
-	private static final int LETO_LIZARDMAN_OVERLORD = 20582;
-	private static final int KARUL_BUGBEAR = 20600;
 	// Quest Monster
 	private static final int BLACK_WILLOW_LURKER = 27079;
 	// Misc
@@ -103,7 +113,7 @@ public final class Q00219_TestimonyOfFate extends Quest {
 		addStartNpc(MAGISTER_KAIRA);
 		addTalkId(MAGISTER_KAIRA, MAGISTER_ROA, WAREHOUSE_KEEPER_NORMAN, TETRARCH_THIFIELL, ARKENIA, MASTER_IXIA, ALDERS_SPIRIT, BROTHER_METHEUS, BLOODY_PIXY, BLIGHT_TREANT);
 		addKillId(HANGMAN_TREE, MARSH_STAKATO, MEDUSA, TYRANT, TYRANT_KINGPIN, DEAD_SEEKER, MARSH_STAKATO_WORKER, MARSH_STAKATO_SOLDIER, MARSH_SPIDER, MARSH_STAKATO_DRONE, BREKA_ORC_OVERLORD, GRANDIS, LETO_LIZARDMAN_OVERLORD, KARUL_BUGBEAR, BLACK_WILLOW_LURKER);
-		registerQuestItems(KAIRAS_LETTER, METHEUSS_FUNERAL_JAR, KASANDRAS_REMAINS, HERBALISM_TEXTBOOK, IXIAS_LIST, MEDUSAS_ICHOR, MARSH_SPIDER_FLUIDS, DEAD_SEEKER_DUNG, TYRANTS_BLOOD, NIGHTSHADE_ROOT, BELLADONNA, ALDERS_SKULL1, ALDERS_SKULL2, ALDERS_RECEIPT, REVELATIONS_MANUSCRIPT, KAIRAS_RECOMMENDATION, KAIRAS_INSTRUCTIONS, PALUS_CHARM, THIFIELLS_LETTER, ARKENIAS_NOTE, PIXY_GARNET, GRANDISS_SKULL, KARUL_BUGBEAR_SKULL, BREKA_OVERLORD_SKULL, LETO_OVERLORD_SKULL, RED_FAIRY_DUST, TIMIRIRAN_SEED, BLACK_WILLOW_LEAF, BLIGHT_TREANT_SAP, ARKENIAS_LETTER);
+		registerQuestItems(KAIRAS_LETTER, METHEUSS_FUNERAL_JAR, KASANDRAS_REMAINS, HERBALISM_TEXTBOOK, IXIAS_LIST, MEDUSAS_ICHOR.getId(), MARSH_SPIDER_FLUIDS.getId(), DEAD_SEEKER_DUNG.getId(), TYRANTS_BLOOD.getId(), NIGHTSHADE_ROOT.getId(), BELLADONNA, ALDERS_SKULL1, ALDERS_SKULL2, ALDERS_RECEIPT, REVELATIONS_MANUSCRIPT, KAIRAS_RECOMMENDATION, KAIRAS_INSTRUCTIONS, PALUS_CHARM, THIFIELLS_LETTER, ARKENIAS_NOTE, PIXY_GARNET, GRANDISS_SKULL, KARUL_BUGBEAR_SKULL, BREKA_OVERLORD_SKULL, LETO_OVERLORD_SKULL, RED_FAIRY_DUST, TIMIRIRAN_SEED, BLACK_WILLOW_LEAF, BLIGHT_TREANT_SAP, ARKENIAS_LETTER);
 	}
 	
 	@Override
@@ -194,136 +204,58 @@ public final class Q00219_TestimonyOfFate extends Quest {
 	@Override
 	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
 		final QuestState qs = getQuestState(killer, false);
-		if ((qs != null) && qs.isStarted() && Util.checkIfInRange(1500, npc, killer, true)) {
+		if ((qs != null) && qs.isStarted() && Util.checkIfInRange(1500, npc, qs.getPlayer(), true)) {
+			if (DROPLIST.get(npc) != null && hasQuestItems(qs.getPlayer(), DROPLIST.get(npc).requiredItems())) {
+				if (giveItemRandomly(qs.getPlayer(), npc, DROPLIST.get(npc), true)
+						&& hasItemsAtLimit(qs.getPlayer(), MEDUSAS_ICHOR, MARSH_SPIDER_FLUIDS, DEAD_SEEKER_DUNG, TYRANTS_BLOOD, NIGHTSHADE_ROOT)) {
+					qs.setCond(7);
+				}
+			}
 			switch (npc.getId()) {
-				case HANGMAN_TREE: {
+				case HANGMAN_TREE -> {
 					if (hasQuestItems(killer, METHEUSS_FUNERAL_JAR) && !hasQuestItems(killer, KASANDRAS_REMAINS)) {
 						takeItems(killer, METHEUSS_FUNERAL_JAR, 1);
 						giveItems(killer, KASANDRAS_REMAINS, 1);
 						qs.setCond(3, true);
 					}
 				}
-				case MARSH_STAKATO:
-				case MARSH_STAKATO_WORKER:
-				case MARSH_STAKATO_SOLDIER:
-				case MARSH_STAKATO_DRONE: {
-					if (hasQuestItems(killer, IXIAS_LIST) && (getQuestItemsCount(killer, NIGHTSHADE_ROOT) < 10)) {
-						if (getQuestItemsCount(killer, NIGHTSHADE_ROOT) == 9) {
-							giveItems(killer, NIGHTSHADE_ROOT, 1);
-							playSound(killer, Sound.ITEMSOUND_QUEST_MIDDLE);
-							if ((getQuestItemsCount(killer, MEDUSAS_ICHOR) >= 10) && (getQuestItemsCount(killer, MARSH_SPIDER_FLUIDS) >= 10) && (getQuestItemsCount(killer, DEAD_SEEKER_DUNG) >= 10) && (getQuestItemsCount(killer, TYRANTS_BLOOD) >= 10)) {
-								qs.setCond(7);
-							}
-						} else {
-							giveItems(killer, NIGHTSHADE_ROOT, 1);
-							playSound(killer, Sound.ITEMSOUND_QUEST_ITEMGET);
-						}
-					}
-					break;
-				}
-				case MEDUSA: {
-					if (hasQuestItems(killer, IXIAS_LIST) && (getQuestItemsCount(killer, MEDUSAS_ICHOR) < 10)) {
-						if (getQuestItemsCount(killer, MEDUSAS_ICHOR) == 9) {
-							giveItems(killer, MEDUSAS_ICHOR, 1);
-							playSound(killer, Sound.ITEMSOUND_QUEST_MIDDLE);
-							if ((getQuestItemsCount(killer, MARSH_SPIDER_FLUIDS) >= 10) && (getQuestItemsCount(killer, DEAD_SEEKER_DUNG) >= 10) && (getQuestItemsCount(killer, TYRANTS_BLOOD) >= 10) && (getQuestItemsCount(killer, NIGHTSHADE_ROOT) >= 10)) {
-								qs.setCond(7);
-							}
-						} else {
-							giveItems(killer, MEDUSAS_ICHOR, 1);
-							playSound(killer, Sound.ITEMSOUND_QUEST_ITEMGET);
-						}
-					}
-					break;
-				}
-				case TYRANT:
-				case TYRANT_KINGPIN: {
-					if (hasQuestItems(killer, IXIAS_LIST) && (getQuestItemsCount(killer, TYRANTS_BLOOD) < 10)) {
-						if (getQuestItemsCount(killer, TYRANTS_BLOOD) == 9) {
-							giveItems(killer, TYRANTS_BLOOD, 1);
-							playSound(killer, Sound.ITEMSOUND_QUEST_MIDDLE);
-							if ((getQuestItemsCount(killer, MEDUSAS_ICHOR) >= 10) && (getQuestItemsCount(killer, MARSH_SPIDER_FLUIDS) >= 10) && (getQuestItemsCount(killer, DEAD_SEEKER_DUNG) >= 10) && (getQuestItemsCount(killer, NIGHTSHADE_ROOT) >= 10)) {
-								qs.setCond(7);
-							}
-						} else {
-							giveItems(killer, TYRANTS_BLOOD, 1);
-							playSound(killer, Sound.ITEMSOUND_QUEST_ITEMGET);
-						}
-					}
-					break;
-				}
-				case DEAD_SEEKER: {
-					if (hasQuestItems(killer, IXIAS_LIST) && (getQuestItemsCount(killer, DEAD_SEEKER_DUNG) < 10)) {
-						if (getQuestItemsCount(killer, DEAD_SEEKER_DUNG) == 9) {
-							giveItems(killer, DEAD_SEEKER_DUNG, 1);
-							playSound(killer, Sound.ITEMSOUND_QUEST_MIDDLE);
-							if ((getQuestItemsCount(killer, MEDUSAS_ICHOR) >= 10) && (getQuestItemsCount(killer, MARSH_SPIDER_FLUIDS) >= 10) && (getQuestItemsCount(killer, TYRANTS_BLOOD) >= 10) && (getQuestItemsCount(killer, NIGHTSHADE_ROOT) >= 10)) {
-								qs.setCond(7);
-							}
-						} else {
-							giveItems(killer, DEAD_SEEKER_DUNG, 1);
-							playSound(killer, Sound.ITEMSOUND_QUEST_ITEMGET);
-						}
-					}
-					break;
-				}
-				case MARSH_SPIDER: {
-					if (hasQuestItems(killer, IXIAS_LIST) && (getQuestItemsCount(killer, MARSH_SPIDER_FLUIDS) < 10)) {
-						if (getQuestItemsCount(killer, MARSH_SPIDER_FLUIDS) == 9) {
-							giveItems(killer, MARSH_SPIDER_FLUIDS, 1);
-							playSound(killer, Sound.ITEMSOUND_QUEST_MIDDLE);
-							if ((getQuestItemsCount(killer, MEDUSAS_ICHOR) >= 10) && (getQuestItemsCount(killer, DEAD_SEEKER_DUNG) >= 10) && (getQuestItemsCount(killer, TYRANTS_BLOOD) >= 10) && (getQuestItemsCount(killer, NIGHTSHADE_ROOT) >= 10)) {
-								qs.setCond(7);
-							}
-						} else {
-							giveItems(killer, MARSH_SPIDER_FLUIDS, 1);
-							playSound(killer, Sound.ITEMSOUND_QUEST_ITEMGET);
-						}
-					}
-					break;
-				}
-				case BREKA_ORC_OVERLORD: {
+				case BREKA_ORC_OVERLORD -> {
 					if (hasQuestItems(killer, PALUS_CHARM, ARKENIAS_NOTE, PIXY_GARNET) && !hasQuestItems(killer, RED_FAIRY_DUST, BREKA_OVERLORD_SKULL)) {
 						if (!hasQuestItems(killer, BREKA_OVERLORD_SKULL)) {
 							giveItems(killer, BREKA_OVERLORD_SKULL, 1);
 							playSound(killer, Sound.ITEMSOUND_QUEST_MIDDLE);
 						}
 					}
-					break;
 				}
-				case GRANDIS: {
+				case GRANDIS -> {
 					if (hasQuestItems(killer, PALUS_CHARM, ARKENIAS_NOTE, PIXY_GARNET) && !hasQuestItems(killer, RED_FAIRY_DUST, GRANDISS_SKULL)) {
 						if (!hasQuestItems(killer, GRANDISS_SKULL)) {
 							giveItems(killer, GRANDISS_SKULL, 1);
 							playSound(killer, Sound.ITEMSOUND_QUEST_MIDDLE);
 						}
 					}
-					break;
 				}
-				case LETO_LIZARDMAN_OVERLORD: {
+				case LETO_LIZARDMAN_OVERLORD -> {
 					if (hasQuestItems(killer, PALUS_CHARM, ARKENIAS_NOTE, PIXY_GARNET) && !hasQuestItems(killer, RED_FAIRY_DUST, LETO_OVERLORD_SKULL)) {
 						if (!hasQuestItems(killer, LETO_OVERLORD_SKULL)) {
 							giveItems(killer, LETO_OVERLORD_SKULL, 1);
 							playSound(killer, Sound.ITEMSOUND_QUEST_MIDDLE);
 						}
 					}
-					break;
 				}
-				case KARUL_BUGBEAR: {
+				case KARUL_BUGBEAR -> {
 					if (hasQuestItems(killer, PALUS_CHARM, ARKENIAS_NOTE, PIXY_GARNET) && !hasQuestItems(killer, RED_FAIRY_DUST, KARUL_BUGBEAR_SKULL)) {
 						if (!hasQuestItems(killer, KARUL_BUGBEAR_SKULL)) {
 							giveItems(killer, KARUL_BUGBEAR_SKULL, 1);
 							playSound(killer, Sound.ITEMSOUND_QUEST_MIDDLE);
 						}
 					}
-					break;
 				}
-				case BLACK_WILLOW_LURKER: {
+				case BLACK_WILLOW_LURKER -> {
 					if (hasQuestItems(killer, PALUS_CHARM, ARKENIAS_NOTE, TIMIRIRAN_SEED) && !hasQuestItems(killer, BLIGHT_TREANT_SAP, BLACK_WILLOW_LEAF)) {
 						giveItems(killer, BLACK_WILLOW_LEAF, 1);
 						playSound(killer, Sound.ITEMSOUND_QUEST_MIDDLE);
 					}
-					break;
 				}
 			}
 		}
@@ -414,14 +346,13 @@ public final class Q00219_TestimonyOfFate extends Quest {
 						qs.setCond(6, true);
 						htmltext = "30463-01.html";
 					} else if (hasQuestItems(player, IXIAS_LIST)) {
-						if ((getQuestItemsCount(player, MEDUSAS_ICHOR) >= 10) && (getQuestItemsCount(player, MARSH_SPIDER_FLUIDS) >= 10) && (getQuestItemsCount(player, DEAD_SEEKER_DUNG) >= 10) && (getQuestItemsCount(player, TYRANTS_BLOOD) >= 10)
-							&& (getQuestItemsCount(player, NIGHTSHADE_ROOT) >= 10)) {
+						if (hasItemsAtLimit(player, MEDUSAS_ICHOR, MARSH_SPIDER_FLUIDS, DEAD_SEEKER_DUNG, TYRANTS_BLOOD, NIGHTSHADE_ROOT)) {
 							takeItems(player, IXIAS_LIST, 1);
-							takeItems(player, MEDUSAS_ICHOR, -1);
-							takeItems(player, MARSH_SPIDER_FLUIDS, -1);
-							takeItems(player, DEAD_SEEKER_DUNG, -1);
-							takeItems(player, TYRANTS_BLOOD, -1);
-							takeItems(player, NIGHTSHADE_ROOT, -1);
+							takeItems(player, MEDUSAS_ICHOR.getId(), -1);
+							takeItems(player, MARSH_SPIDER_FLUIDS.getId(), -1);
+							takeItems(player, DEAD_SEEKER_DUNG.getId(), -1);
+							takeItems(player, TYRANTS_BLOOD.getId(), -1);
+							takeItems(player, NIGHTSHADE_ROOT.getId(), -1);
 							giveItems(player, BELLADONNA, 1);
 							qs.setCond(8, true);
 							htmltext = "30463-03.html";

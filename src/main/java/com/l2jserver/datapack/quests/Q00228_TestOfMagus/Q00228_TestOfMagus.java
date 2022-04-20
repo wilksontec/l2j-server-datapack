@@ -25,16 +25,12 @@ import com.l2jserver.gameserver.model.base.ClassId;
 import com.l2jserver.gameserver.model.holders.QuestItemChanceHolder;
 import com.l2jserver.gameserver.model.quest.Quest;
 import com.l2jserver.gameserver.model.quest.QuestDroplist;
-import com.l2jserver.gameserver.model.quest.QuestDroplist.QuestDropInfo;
 import com.l2jserver.gameserver.model.quest.QuestState;
 import com.l2jserver.gameserver.network.NpcStringId;
 import com.l2jserver.gameserver.network.clientpackets.Say2;
 import com.l2jserver.gameserver.network.serverpackets.NpcSay;
 import com.l2jserver.gameserver.network.serverpackets.SocialAction;
 import com.l2jserver.gameserver.util.Util;
-
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * Test Of Magus (228)
@@ -92,35 +88,17 @@ public final class Q00228_TestOfMagus extends Quest {
 	private static final QuestItemChanceHolder ENCHANTED_IRON_GOLEM_SCRAP = new QuestItemChanceHolder(2855, 10L);
 	// Droplist
 	private static final QuestDroplist DROPLIST = QuestDroplist.builder()
-			.addSingleDrop(HARPY, HARPYS_FEATHER)
+			.addSingleDrop(HARPY, HARPYS_FEATHER).withRequiredItems(SCORE_OF_ELEMENTS, SYLPH_CHARM)
 			.bulkAddSingleDrop(DAZZLING_DROP)
-				.withNpcs(MARSH_STAKATO, MARSH_STAKATO_WORKER, TOAD_LORD, MARSH_STAKATO_SOLDIER, MARSH_STAKATO_DRONE).build()
-			.addSingleDrop(WYRM, WYRMS_WINGBONE)
-			.addSingleDrop(WINDSUS, WINDSUS_MANE)
-			.addSingleDrop(ENCHANTED_MONSTEREYE, ENCHANTED_MONSTER_EYE_SHELL)
-			.addSingleDrop(ENCHANTED_STOLEN_GOLEM, ENCHANTED_GOLEM_POWDER)
-			.addSingleDrop(ENCHANTED_IRON_GOLEM, ENCHANTED_IRON_GOLEM_SCRAP)
-			.addSingleDrop(GHOST_FIRE, FLAME_CRYSTAL)
+				.withNpcs(MARSH_STAKATO, MARSH_STAKATO_WORKER, TOAD_LORD, MARSH_STAKATO_SOLDIER, MARSH_STAKATO_DRONE)
+				.withRequiredItems(SCORE_OF_ELEMENTS, UNDINE_CHARM).build()
+			.addSingleDrop(WYRM, WYRMS_WINGBONE).withRequiredItems(SCORE_OF_ELEMENTS, SYLPH_CHARM)
+			.addSingleDrop(WINDSUS, WINDSUS_MANE).withRequiredItems(SCORE_OF_ELEMENTS, SYLPH_CHARM)
+			.addSingleDrop(ENCHANTED_MONSTEREYE, ENCHANTED_MONSTER_EYE_SHELL).withRequiredItems(SCORE_OF_ELEMENTS, SERPENT_CHARM)
+			.addSingleDrop(ENCHANTED_STOLEN_GOLEM, ENCHANTED_GOLEM_POWDER).withRequiredItems(SCORE_OF_ELEMENTS, SERPENT_CHARM)
+			.addSingleDrop(ENCHANTED_IRON_GOLEM, ENCHANTED_IRON_GOLEM_SCRAP).withRequiredItems(SCORE_OF_ELEMENTS, SERPENT_CHARM)
+			.addSingleDrop(GHOST_FIRE, FLAME_CRYSTAL).withRequiredItems(SCORE_OF_ELEMENTS, SALAMANDER_CHARM)
 			.build();
-	private static final int[] SYLPH_REQUIRED_ITEMS = { SCORE_OF_ELEMENTS, SYLPH_CHARM };
-	private static final int[] UNDINE_REQUIRED_ITEMS = { SCORE_OF_ELEMENTS, UNDINE_CHARM };
-	private static final int[] SERPENT_REQUIRED_ITEMS = { SCORE_OF_ELEMENTS, SERPENT_CHARM };
-	private static final int[] SALAMANDER_REQUIRED_ITEMS = { SCORE_OF_ELEMENTS, SALAMANDER_CHARM };
-	private static final Map<Integer, int[]> MOBS_REQUIRED_ITEMS = new HashMap<>();
-	static {
-		MOBS_REQUIRED_ITEMS.put(HARPY, SYLPH_REQUIRED_ITEMS);
-		MOBS_REQUIRED_ITEMS.put(MARSH_STAKATO, UNDINE_REQUIRED_ITEMS);
-		MOBS_REQUIRED_ITEMS.put(MARSH_STAKATO_WORKER, UNDINE_REQUIRED_ITEMS);
-		MOBS_REQUIRED_ITEMS.put(TOAD_LORD, UNDINE_REQUIRED_ITEMS);
-		MOBS_REQUIRED_ITEMS.put(MARSH_STAKATO_SOLDIER, UNDINE_REQUIRED_ITEMS);
-		MOBS_REQUIRED_ITEMS.put(MARSH_STAKATO_DRONE, UNDINE_REQUIRED_ITEMS);
-		MOBS_REQUIRED_ITEMS.put(WYRM, SYLPH_REQUIRED_ITEMS);
-		MOBS_REQUIRED_ITEMS.put(WINDSUS, SYLPH_REQUIRED_ITEMS);
-		MOBS_REQUIRED_ITEMS.put(ENCHANTED_MONSTEREYE, SERPENT_REQUIRED_ITEMS);
-		MOBS_REQUIRED_ITEMS.put(ENCHANTED_STOLEN_GOLEM, SERPENT_REQUIRED_ITEMS);
-		MOBS_REQUIRED_ITEMS.put(ENCHANTED_IRON_GOLEM, SERPENT_REQUIRED_ITEMS);
-		MOBS_REQUIRED_ITEMS.put(GHOST_FIRE, SALAMANDER_REQUIRED_ITEMS);
-	}
 	// Reward
 	private static final int MARK_OF_MAGUS = 2840;
 	private static final int DIMENSIONAL_DIAMOND = 7562;
@@ -210,9 +188,8 @@ public final class Q00228_TestOfMagus extends Quest {
 	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
 		final QuestState qs = getQuestState(killer, false);
 		if ((qs != null) && qs.isStarted() && Util.checkIfInRange(1500, npc, qs.getPlayer(), true)) {
-			QuestDropInfo dropInfo = DROPLIST.get(npc);
-			if (dropInfo != null && hasQuestItems(qs.getPlayer(), MOBS_REQUIRED_ITEMS.get(npc.getId()))) {
-				giveItemRandomly(qs.getPlayer(), npc, dropInfo, true);
+			if (DROPLIST.get(npc) != null && hasQuestItems(qs.getPlayer(), DROPLIST.get(npc).requiredItems())) {
+				giveItemRandomly(qs.getPlayer(), npc, DROPLIST.get(npc), true);
 			} else {
 				switch (npc.getId()) {
 					case SINGING_FLOWER_PHANTASM -> {

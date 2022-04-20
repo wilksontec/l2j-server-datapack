@@ -18,11 +18,7 @@
  */
 package com.l2jserver.datapack.quests.Q00419_GetAPet;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import com.l2jserver.gameserver.enums.Race;
-import com.l2jserver.gameserver.enums.audio.Sound;
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
 import com.l2jserver.gameserver.model.holders.QuestItemChanceHolder;
@@ -30,6 +26,9 @@ import com.l2jserver.gameserver.model.quest.Quest;
 import com.l2jserver.gameserver.model.quest.QuestDroplist;
 import com.l2jserver.gameserver.model.quest.QuestState;
 import com.l2jserver.gameserver.util.Util;
+
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Get A Pet (419)
@@ -73,40 +72,22 @@ public final class Q00419_GetAPet extends Quest {
 	private static final QuestItemChanceHolder BLOODY_RED_CLAW = new QuestItemChanceHolder(10165, 50L);
 	// Droplist
 	private static final QuestDroplist DROPLIST = QuestDroplist.builder()
-			.addSingleDrop(LESSER_DARK_HORROR, BLOODY_NAIL, 60.0)
-			.addSingleDrop(PROWLER, BLOODY_NAIL, 100.0)
-			.addSingleDrop(GIANT_SPIDER, BLOODY_FANG, 60.0)
-			.addSingleDrop(DARK_HORROR, BLOODY_NAIL, 75.0)
-			.addSingleDrop(TALON_SPIDER, BLOODY_FANG, 75.0)
-			.addSingleDrop(BLADE_SPIDER, BLOODY_FANG, 100.0)
-			.addSingleDrop(HOOK_SPIDER, BLOODY_CLAW, 75.0)
-			.addSingleDrop(HUNTER_TARANTULA, BLOODY_TARANTULA_NAIL, 75.0)
-			.addSingleDrop(CRIMSON_SPIDER, BLOODY_CLAW, 60.0)
-			.addSingleDrop(PINCER_SPIDER, BLOODY_CLAW, 100.0)
-			.addSingleDrop(KASHA_SPIDER, BLOODY_KASHA_FANG, 60.0)
-			.addSingleDrop(KASHA_FANG_SPIDER, BLOODY_KASHA_FANG, 75.0)
-			.addSingleDrop(KASHA_BLADE_SPIDER, BLOODY_KASHA_FANG, 100.0)
-			.addSingleDrop(PLUNDER_TARANTULA, BLOODY_TARANTULA_NAIL, 100.0)
-			.addSingleDrop(CRIMSON_SPIDER2, BLOODY_RED_CLAW, 75.0)
+			.addSingleDrop(LESSER_DARK_HORROR, BLOODY_NAIL, 60.0).withRequiredItems(ANIMAL_SLAYERS_3RD_LIST)
+			.addSingleDrop(PROWLER, BLOODY_NAIL, 100.0).withRequiredItems(ANIMAL_SLAYERS_3RD_LIST)
+			.addSingleDrop(GIANT_SPIDER, BLOODY_FANG, 60.0).withRequiredItems(ANIMAL_SLAYERS_1ST_LIST)
+			.addSingleDrop(DARK_HORROR, BLOODY_NAIL, 75.0).withRequiredItems(ANIMAL_SLAYERS_3RD_LIST)
+			.addSingleDrop(TALON_SPIDER, BLOODY_FANG, 75.0).withRequiredItems(ANIMAL_SLAYERS_1ST_LIST)
+			.addSingleDrop(BLADE_SPIDER, BLOODY_FANG, 100.0).withRequiredItems(ANIMAL_SLAYERS_1ST_LIST)
+			.addSingleDrop(HOOK_SPIDER, BLOODY_CLAW, 75.0).withRequiredItems(ANIMAL_SLAYERS_2ND_LIST)
+			.addSingleDrop(HUNTER_TARANTULA, BLOODY_TARANTULA_NAIL, 75.0).withRequiredItems(ANIMAL_SLAYERS_5TH_LIST)
+			.addSingleDrop(CRIMSON_SPIDER, BLOODY_CLAW, 60.0).withRequiredItems(ANIMAL_SLAYERS_2ND_LIST)
+			.addSingleDrop(PINCER_SPIDER, BLOODY_CLAW, 100.0).withRequiredItems(ANIMAL_SLAYERS_2ND_LIST)
+			.addSingleDrop(KASHA_SPIDER, BLOODY_KASHA_FANG, 60.0).withRequiredItems(ANIMAL_SLAYERS_4TH_LIST)
+			.addSingleDrop(KASHA_FANG_SPIDER, BLOODY_KASHA_FANG, 75.0).withRequiredItems(ANIMAL_SLAYERS_4TH_LIST)
+			.addSingleDrop(KASHA_BLADE_SPIDER, BLOODY_KASHA_FANG, 100.0).withRequiredItems(ANIMAL_SLAYERS_4TH_LIST)
+			.addSingleDrop(PLUNDER_TARANTULA, BLOODY_TARANTULA_NAIL, 100.0).withRequiredItems(ANIMAL_SLAYERS_5TH_LIST)
+			.addSingleDrop(CRIMSON_SPIDER2, BLOODY_RED_CLAW, 75.0).withRequiredItems(ANIMAL_SLAYERS_LIST)
 			.build();
-	private static final Map<Integer, Integer> MOBS_REQUIRED_ITEM = new HashMap<>();
-	static {
-		MOBS_REQUIRED_ITEM.put(LESSER_DARK_HORROR, ANIMAL_SLAYERS_3RD_LIST);
-		MOBS_REQUIRED_ITEM.put(PROWLER, ANIMAL_SLAYERS_3RD_LIST);
-		MOBS_REQUIRED_ITEM.put(GIANT_SPIDER, ANIMAL_SLAYERS_1ST_LIST);
-		MOBS_REQUIRED_ITEM.put(DARK_HORROR, ANIMAL_SLAYERS_3RD_LIST);
-		MOBS_REQUIRED_ITEM.put(TALON_SPIDER, ANIMAL_SLAYERS_1ST_LIST);
-		MOBS_REQUIRED_ITEM.put(BLADE_SPIDER, ANIMAL_SLAYERS_1ST_LIST);
-		MOBS_REQUIRED_ITEM.put(HOOK_SPIDER, ANIMAL_SLAYERS_2ND_LIST);
-		MOBS_REQUIRED_ITEM.put(HUNTER_TARANTULA, ANIMAL_SLAYERS_5TH_LIST);
-		MOBS_REQUIRED_ITEM.put(CRIMSON_SPIDER, ANIMAL_SLAYERS_2ND_LIST);
-		MOBS_REQUIRED_ITEM.put(PINCER_SPIDER, ANIMAL_SLAYERS_2ND_LIST);
-		MOBS_REQUIRED_ITEM.put(KASHA_SPIDER, ANIMAL_SLAYERS_4TH_LIST);
-		MOBS_REQUIRED_ITEM.put(KASHA_FANG_SPIDER, ANIMAL_SLAYERS_4TH_LIST);
-		MOBS_REQUIRED_ITEM.put(KASHA_BLADE_SPIDER, ANIMAL_SLAYERS_4TH_LIST);
-		MOBS_REQUIRED_ITEM.put(PLUNDER_TARANTULA, ANIMAL_SLAYERS_5TH_LIST);
-		MOBS_REQUIRED_ITEM.put(CRIMSON_SPIDER2, ANIMAL_SLAYERS_LIST);
-	}
 	// Reward
 	private static final int WOLF_COLLAR = 2375;
 	// Misc
@@ -353,7 +334,7 @@ public final class Q00419_GetAPet extends Quest {
 	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
 		final QuestState qs = getQuestState(killer, false);
 		if ((qs != null) && qs.isStarted() && Util.checkIfInRange(1500, npc, qs.getPlayer(), true)) {
-			if (hasQuestItems(qs.getPlayer(), MOBS_REQUIRED_ITEM.get(npc.getId()))) {
+			if (hasQuestItems(qs.getPlayer(), DROPLIST.get(npc).requiredItems())) {
 				giveItemRandomly(qs.getPlayer(), npc, DROPLIST.get(npc), true);
 			}
 		}
