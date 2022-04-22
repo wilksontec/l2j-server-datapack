@@ -76,6 +76,7 @@
 	</skill>
 	<skill id="2104" levels="1" name="Greater Compressed Package of Soulshots: No-grade">
 		<!-- Confirmed CT2.5 -->
+		<set name="affectScope" val="SINGLE" />
 		<set name="isMagic" val="2" />
 		<set name="magicLvl" val="1" />
 		<set name="operateType" val="A1" />
@@ -95,6 +96,7 @@
 	</skill>
 	<skill id="2105" levels="1" name="Greater Compressed Package of Soulshots: D-grade">
 		<!-- Confirmed CT2.5 -->
+		<set name="affectScope" val="SINGLE" />
 		<set name="isMagic" val="2" />
 		<set name="magicLvl" val="1" />
 		<set name="operateType" val="A1" />
@@ -114,6 +116,7 @@
 	</skill>
 	<skill id="2106" levels="1" name="Greater Compressed Package of Soulshots: C-grade">
 		<!-- Confirmed CT2.5 -->
+		<set name="affectScope" val="SINGLE" />
 		<set name="isMagic" val="2" />
 		<set name="magicLvl" val="1" />
 		<set name="operateType" val="A1" />
@@ -133,6 +136,7 @@
 	</skill>
 	<skill id="2107" levels="1" name="Greater Compressed Package of Soulshots: B-grade">
 		<!-- Confirmed CT2.5 -->
+		<set name="affectScope" val="SINGLE" />
 		<set name="isMagic" val="2" />
 		<set name="magicLvl" val="1" />
 		<set name="operateType" val="A1" />
@@ -152,6 +156,7 @@
 	</skill>
 	<skill id="2108" levels="1" name="Greater Compressed Package of Soulshots: A-grade">
 		<!-- Confirmed CT2.5 -->
+		<set name="affectScope" val="SINGLE" />
 		<set name="isMagic" val="2" />
 		<set name="magicLvl" val="1" />
 		<set name="operateType" val="A1" />
@@ -171,6 +176,7 @@
 	</skill>
 	<skill id="2109" levels="1" name="Greater Compressed Package of Soulshots: S-grade">
 		<!-- Confirmed CT2.5 -->
+		<set name="affectScope" val="SINGLE" />
 		<set name="isMagic" val="2" />
 		<set name="magicLvl" val="1" />
 		<set name="operateType" val="A1" />
@@ -190,6 +196,7 @@
 	</skill>
 	<skill id="2110" levels="1" name="Greater Compressed Package of Spiritshots: No-grade">
 		<!-- Confirmed CT2.5 -->
+		<set name="affectScope" val="SINGLE" />
 		<set name="isMagic" val="2" />
 		<set name="magicLvl" val="1" />
 		<set name="operateType" val="A1" />
@@ -209,6 +216,7 @@
 	</skill>
 	<skill id="2111" levels="1" name="Greater Compressed Package of Spiritshots: D-grade">
 		<!-- Confirmed CT2.5 -->
+		<set name="affectScope" val="SINGLE" />
 		<set name="isMagic" val="2" />
 		<set name="magicLvl" val="1" />
 		<set name="operateType" val="A1" />
@@ -228,6 +236,7 @@
 	</skill>
 	<skill id="2112" levels="1" name="Greater Compressed Package of Spiritshots: C-grade">
 		<!-- Confirmed CT2.5 -->
+		<set name="affectScope" val="SINGLE" />
 		<set name="isMagic" val="2" />
 		<set name="magicLvl" val="1" />
 		<set name="operateType" val="A1" />
@@ -247,6 +256,7 @@
 	</skill>
 	<skill id="2113" levels="1" name="Greater Compressed Package of Spiritshots: B-grade">
 		<!-- Confirmed CT2.5 -->
+		<set name="affectScope" val="SINGLE" />
 		<set name="isMagic" val="2" />
 		<set name="magicLvl" val="1" />
 		<set name="operateType" val="A1" />
@@ -266,6 +276,7 @@
 	</skill>
 	<skill id="2114" levels="1" name="Greater Compressed Package of Spiritshots: A-grade">
 		<!-- Confirmed CT2.5 -->
+		<set name="affectScope" val="SINGLE" />
 		<set name="isMagic" val="2" />
 		<set name="magicLvl" val="1" />
 		<set name="operateType" val="A1" />
@@ -285,6 +296,7 @@
 	</skill>
 	<skill id="2115" levels="1" name="Greater Compressed Package of Spiritshots: S-grade">
 		<!-- Confirmed CT2.5 -->
+		<set name="affectScope" val="SINGLE" />
 		<set name="isMagic" val="2" />
 		<set name="magicLvl" val="1" />
 		<set name="operateType" val="A1" />
@@ -304,6 +316,7 @@
 	</skill>
 	<skill id="2116" levels="1" name="Greater Compressed Package of Blessed Spiritshots: No-grade">
 		<!-- Confirmed CT2.5 -->
+		<set name="affectScope" val="SINGLE" />
 		<set name="isMagic" val="2" />
 		<set name="magicLvl" val="1" />
 		<set name="operateType" val="A1" />
@@ -323,6 +336,7 @@
 	</skill>
 	<skill id="2117" levels="1" name="Greater Compressed Package of Blessed Spiritshots: D-grade">
 		<!-- Confirmed CT2.5 -->
+		<set name="affectScope" val="SINGLE" />
 		<set name="isMagic" val="2" />
 		<set name="magicLvl" val="1" />
 		<set name="operateType" val="A1" />
@@ -342,6 +356,7 @@
 	</skill>
 	<skill id="2118" levels="1" name="Greater Compressed Package of Blessed Spiritshots: C-grade">
 		<!-- Confirmed CT2.5 -->
+		<set name="affectScope" val="SINGLE" />
 		<set name="isMagic" val="2" />
 		<set name="magicLvl" val="1" />
 		<set name="operateType" val="A1" />
@@ -361,6 +376,7 @@
 	</skill>
 	<skill id="2119" levels="1" name="Greater Compressed Package of Blessed Spiritshots: B-grade">
 		<!-- Confirmed CT2.5 -->
+		<set name="affectScope" val="SINGLE" />
 		<set name="isMagic" val="2" />
 		<set name="magicLvl" val="1" />
 		<set name="operateType" val="A1" />
@@ -380,6 +396,7 @@
 	</skill>
 	<skill id="2120" levels="1" name="Greater Compressed Package of Blessed Spiritshots: A-grade">
 		<!-- Confirmed CT2.5 -->
+		<set name="affectScope" val="SINGLE" />
 		<set name="isMagic" val="2" />
 		<set name="magicLvl" val="1" />
 		<set name="operateType" val="A1" />
@@ -399,6 +416,7 @@
 	</skill>
 	<skill id="2121" levels="1" name="Greater Compressed Package of Blessed Spiritshots: S-grade">
 		<!-- Confirmed CT2.5 -->
+		<set name="affectScope" val="SINGLE" />
 		<set name="isMagic" val="2" />
 		<set name="magicLvl" val="1" />
 		<set name="operateType" val="A1" />
