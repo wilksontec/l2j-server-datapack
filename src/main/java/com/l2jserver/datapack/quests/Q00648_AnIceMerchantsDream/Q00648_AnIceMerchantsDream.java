@@ -82,7 +82,7 @@ public final class Q00648_AnIceMerchantsDream extends Quest {
 		
 		String htmltext = null;
 		switch (event) {
-			case "ACCEPT": {
+			case "ACCEPT" -> {
 				st.startQuest();
 				if ((q115 != null) && (q115.isCompleted())) {
 					htmltext = "32020-04.htm";
@@ -90,21 +90,18 @@ public final class Q00648_AnIceMerchantsDream extends Quest {
 					st.setCond(2);
 					htmltext = "32020-05.htm";
 				}
-				break;
 			}
-			case "ASK": {
+			case "ASK" -> {
 				if (st.getCond() >= 1) {
 					htmltext = ((q115 != null) && !q115.isCompleted()) ? "32020-14.html" : "32020-15.html";
 				}
-				break;
 			}
-			case "LATER": {
+			case "LATER" -> {
 				if (st.getCond() >= 1) {
 					htmltext = ((q115 != null) && !q115.isCompleted()) ? "32020-19.html" : "32020-20.html";
 				}
-				break;
 			}
-			case "REWARD": {
+			case "REWARD" -> {
 				if (st.getCond() >= 1) {
 					final long silverCryCount = getQuestItemsCount(player, SILVER_ICE_CRYSTAL);
 					final long blackCryCount = getQuestItemsCount(player, BLACK_ICE_CRYSTAL);
@@ -116,9 +113,8 @@ public final class Q00648_AnIceMerchantsDream extends Quest {
 						htmltext = "32020-18.html";
 					}
 				}
-				break;
 			}
-			case "QUIT": {
+			case "QUIT" -> {
 				if (st.getCond() >= 1) {
 					if ((q115 != null) && !q115.isCompleted()) {
 						htmltext = "32020-21.html";
@@ -127,32 +123,25 @@ public final class Q00648_AnIceMerchantsDream extends Quest {
 						htmltext = "32020-22.html";
 					}
 				}
-				break;
 			}
-			case "32020-06.html":
-			case "32020-07.html":
-			case "32020-08.html":
-			case "32020-09.html": {
+			case "32020-06.html", "32020-07.html", "32020-08.html", "32020-09.html" -> {
 				if (st.getCond() >= 1) {
 					htmltext = event;
 				}
-				break;
 			}
-			case "32020-23.html": {
+			case "32020-23.html" -> {
 				if (st.getCond() >= 1) {
 					st.exitQuest(true, true);
 					htmltext = event;
 				}
-				break;
 			}
-			case "32023-04.html": {
+			case "32023-04.html" -> {
 				if ((st.getCond() >= 1) && hasQuestItems(player, SILVER_ICE_CRYSTAL) && (st.getInt("ex") == 0)) {
 					st.set("ex", ((getRandom(4) + 1) * 10));
 					htmltext = event;
 				}
-				break;
 			}
-			case "32023-05.html": {
+			case "32023-05.html" -> {
 				if ((st.getCond() >= 1) && hasQuestItems(player, SILVER_ICE_CRYSTAL) && (st.getInt("ex") > 0)) {
 					takeItems(player, SILVER_ICE_CRYSTAL, 1);
 					int val = (st.getInt("ex") + 1);
@@ -160,9 +149,8 @@ public final class Q00648_AnIceMerchantsDream extends Quest {
 					playSound(player, Sound.ITEMSOUND_BROKEN_KEY);
 					htmltext = event;
 				}
-				break;
 			}
-			case "32023-06.html": {
+			case "32023-06.html" -> {
 				if ((st.getCond() >= 1) && hasQuestItems(player, SILVER_ICE_CRYSTAL) && (st.getInt("ex") > 0)) {
 					takeItems(player, SILVER_ICE_CRYSTAL, 1);
 					int val = (st.getInt("ex") + 2);
@@ -170,9 +158,8 @@ public final class Q00648_AnIceMerchantsDream extends Quest {
 					playSound(player, Sound.ITEMSOUND_BROKEN_KEY);
 					htmltext = event;
 				}
-				break;
 			}
-			case "REPLY4": {
+			case "REPLY4" -> {
 				if ((st.getCond() >= 1) && (st.getInt("ex") > 0)) {
 					int ex = st.getInt("ex");
 					int val1 = ex / 10;
@@ -187,9 +174,8 @@ public final class Q00648_AnIceMerchantsDream extends Quest {
 					}
 					st.set("ex", 0);
 				}
-				break;
 			}
-			case "REPLY5": {
+			case "REPLY5" -> {
 				if ((st.getCond() >= 1) && (st.getInt("ex") > 0)) {
 					int ex = st.getInt("ex");
 					int val1 = ex / 10;
@@ -204,7 +190,6 @@ public final class Q00648_AnIceMerchantsDream extends Quest {
 					}
 					st.set("ex", 0);
 				}
-				break;
 			}
 		}
 		return htmltext;
@@ -219,11 +204,9 @@ public final class Q00648_AnIceMerchantsDream extends Quest {
 			}
 
 			QuestDropInfo hemocyteDropInfo = DROPLIST.get(npc.getId(), SILVER_HEMOCYTE);
-			if (hemocyteDropInfo != null) {
-				final QuestState st2 = st.getPlayer().getQuestState(Q00115_TheOtherSideOfTruth.class.getSimpleName());
-				if ((st.getCond() >= 2) && (st2 != null) && st2.isCompleted()) {
-					giveItemRandomly(st.getPlayer(), npc, hemocyteDropInfo, true);
-				}
+			if (hemocyteDropInfo != null && (st.getCond() >= 2)
+					&& st.getPlayer().hasQuestCompleted(Q00115_TheOtherSideOfTruth.class.getSimpleName())) {
+				giveItemRandomly(st.getPlayer(), npc, hemocyteDropInfo, true);
 			}
 		}
 		return super.onKill(npc, killer, isSummon);
@@ -234,7 +217,7 @@ public final class Q00648_AnIceMerchantsDream extends Quest {
 		final QuestState st = getQuestState(player, true);
 		String htmltext = getNoQuestMsg(player);
 		switch (npc.getId()) {
-			case RAFFORTY: {
+			case RAFFORTY -> {
 				if (st.isCreated()) {
 					if (player.getLevel() < MIN_LVL) {
 						htmltext = "32020-01.htm";
@@ -252,14 +235,13 @@ public final class Q00648_AnIceMerchantsDream extends Quest {
 						htmltext = (hasQuestItems > 0) ? "32020-12.html" : "32020-10.html";
 					}
 				}
-				break;
 			}
-			case ICE_SHELF: {
+			case ICE_SHELF -> {
 				// TODO: In High Five this quest have an updated reward system.
 				if (st.isStarted()) {
 					if (hasQuestItems(player, SILVER_ICE_CRYSTAL)) {
 						final int val = st.getInt("ex") % 10;
-						if (val == 0) {
+						if (!st.isSet("ex") || val == 0) {
 							htmltext = "32023-03.html";
 							st.set("ex", 0);
 						} else {
@@ -271,7 +253,6 @@ public final class Q00648_AnIceMerchantsDream extends Quest {
 				} else {
 					htmltext = "32023-01.html";
 				}
-				break;
 			}
 		}
 		return htmltext;
