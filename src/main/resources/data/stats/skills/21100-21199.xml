@@ -2280,7 +2280,7 @@
 				<param id="20002" />
 			</effect>
 			<effect name="Buff">
-				<sub stat="vitalityConsumeRate" val="1" />
+				<sub stat="vitalityConsumeRate" val="10" />
 			</effect>
 		</effects>
 	</skill>
@@ -2310,7 +2310,7 @@
 				<param id="20003" />
 			</effect>
 			<effect name="Buff">
-				<sub stat="vitalityConsumeRate" val="1" />
+				<sub stat="vitalityConsumeRate" val="10" />
 			</effect>
 		</effects>
 	</skill>
@@ -2401,7 +2401,7 @@
 				<param value="20000" />
 			</effect>
 			<effect name="Buff">
-				<sub stat="vitalityConsumeRate" val="0" />
+				<mul stat="vitalityConsumeRate" val="0" />
 			</effect>
 		</effects>
 	</skill>

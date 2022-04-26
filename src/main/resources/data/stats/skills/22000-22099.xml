@@ -125,6 +125,7 @@
 		<set name="abnormalTime" val="300" />
 		<set name="abnormalType" val="BR_EVENT_BUF2" />
 		<set name="abnormalVisualEffect" val="VP_UP" />
+		<set name="affectScope" val="SINGLE" />
 		<set name="blockedInOlympiad" val="true" />
 		<set name="effectPoint" val="100" />
 		<set name="hitTime" val="100" />
@@ -140,7 +141,6 @@
 				<sub stat="vitalityConsumeRate" val="10" />
 			</effect>
 		</effects>
-		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="22005" levels="1" name="Energy Red Ginseng">
 		<!-- Confirmed CT2.5 -->
@@ -773,7 +773,7 @@
 		</cond>
 		<effects>
 			<effect name="Buff">
-				<add stat="vitalityConsumeRate" val="1" />
+				<sub stat="vitalityConsumeRate" val="10" />
 			</effect>
 		</effects>
 	</skill>
@@ -1239,8 +1239,9 @@
 	<skill id="22054" levels="1" name="Potion of Energy Maintenance">
 		<set name="abnormalLvl" val="1" />
 		<set name="abnormalTime" val="600" />
-		<set name="abnormalType" val="VP_UP" />
+		<set name="abnormalType" val="VP_KEEP" />
 		<set name="abnormalVisualEffect" val="VP_UP" />
+		<set name="affectScope" val="SINGLE" />
 		<set name="blockedInOlympiad" val="true" />
 		<set name="icon" val="icon.skilltransform4" />
 		<set name="irreplaceableBuff" val="true" />
@@ -1255,7 +1256,6 @@
 				<mul stat="vitalityConsumeRate" val="0" />
 			</effect>
 		</effects>
-		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="22055" levels="1" name="Potion of Energy Replenishing">
 		<!-- Confirmed CT2.5 -->

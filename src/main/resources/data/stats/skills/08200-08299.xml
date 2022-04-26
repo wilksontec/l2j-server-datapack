@@ -1176,6 +1176,7 @@
 		<set name="abnormalLvl" val="1" />
 		<set name="abnormalTime" val="7200" />
 		<set name="abnormalType" val="TRANSFORM" />
+		<set name="affectScope" val="SINGLE" />
 		<set name="blockedInOlympiad" val="true" />
 		<set name="effectPoint" val="1" />
 		<set name="icon" val="icon.skilltransform3" />
@@ -1194,7 +1195,6 @@
 				<sub stat="vitalityConsumeRate" val="10" />
 			</effect>
 		</effects>
-		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="8245" levels="1" name="Summon Agathion - Love">
 		<!-- Confirmed CT2.5 -->

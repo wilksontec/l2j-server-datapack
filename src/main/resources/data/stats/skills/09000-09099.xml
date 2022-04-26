@@ -592,7 +592,7 @@
 		<set name="targetType" val="SELF" />
 		<effects>
 			<effect name="Debuff">
-				<sub stat="vitalityConsumeRate" val="0" />
+				<mul stat="vitalityConsumeRate" val="0" />
 			</effect>
 		</effects>
 	</skill>
@@ -1224,6 +1224,7 @@
 		<set name="abnormalTime" val="600" />
 		<set name="abnormalType" val="VP_KEEP" />
 		<set name="abnormalVisualEffect" val="VP_KEEP" />
+		<set name="affectScope" val="SINGLE" />
 		<set name="effectPoint" val="100" />
 		<set name="icon" val="icon.etc_lesser_potion_blue_i00" />
 		<set name="irreplaceableBuff" val="true" />
@@ -1240,13 +1241,13 @@
 				<mul stat="vitalityConsumeRate" val="0" />
 			</effect>
 		</effects>
-		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="9068" levels="2" name="Potion of Vitality Maintenance">
 		<!-- Confirmed CT2.5 -->
 		<set name="abnormalLvl" val="3" />
 		<set name="abnormalTime" val="1800" />
 		<set name="abnormalType" val="VP_KEEP" />
+		<set name="affectScope" val="SINGLE" />
 		<set name="effectPoint" val="100" />
 		<set name="icon" val="icon.etc_lesser_potion_scarlet_i00" />
 		<set name="irreplaceableBuff" val="true" />
@@ -1262,7 +1263,6 @@
 				<mul stat="vitalityConsumeRate" val="0" />
 			</effect>
 		</effects>
-		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="9069" levels="1" name="10,000 SP scroll">
 		<!-- Confirmed CT2.5 -->

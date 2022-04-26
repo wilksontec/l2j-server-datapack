@@ -1211,6 +1211,7 @@
 		<set name="abnormalLvl" val="1" />
 		<set name="abnormalTime" val="7200" />
 		<set name="abnormalType" val="TRANSFORM" />
+		<set name="affectScope" val="SINGLE" />
 		<set name="effectPoint" val="1" />
 		<set name="hitTime" val="2500" />
 		<set name="icon" val="icon.skilltransform1" />
@@ -1231,7 +1232,6 @@
 				<sub stat="vitalityConsumeRate" val="10" />
 			</effect>
 		</effects>
-		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="5656" levels="85" name="Gatekeeper Aura Flare">
 		<!-- High Five Confirmed -->

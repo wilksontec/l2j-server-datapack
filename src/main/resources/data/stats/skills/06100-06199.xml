@@ -426,7 +426,7 @@
 		<set name="targetType" val="SELF" />
 		<effects>
 			<effect name="Debuff">
-				<sub stat="vitalityConsumeRate" val="0" />
+				<mul stat="vitalityConsumeRate" val="0" />
 			</effect>
 		</effects>
 	</skill>

@@ -1748,7 +1748,7 @@
 		<set name="targetType" val="SELF" />
 		<effects>
 			<effect name="Buff">
-				<add stat="vitalityConsumeRate" val="1" />
+				<sub stat="vitalityConsumeRate" val="10" />
 			</effect>
 		</effects>
 	</skill>
