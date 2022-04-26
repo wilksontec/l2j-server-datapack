@@ -360,6 +360,7 @@
 	</skill>
 	<skill id="6121" levels="1" name="Agathion's New Year's Gift 1">
 		<!-- Confirmed CT2.5 -->
+		<set name="affectScope" val="SINGLE" />
 		<set name="coolTime" val="1000" />
 		<set name="hitTime" val="2700" />
 		<set name="isMagic" val="2" />
@@ -382,6 +383,7 @@
 	</skill>
 	<skill id="6122" levels="1" name="Agathion's New Year's Gift 2">
 		<!-- Confirmed CT2.5 -->
+		<set name="affectScope" val="SINGLE" />
 		<set name="coolTime" val="1000" />
 		<set name="hitTime" val="2700" />
 		<set name="isMagic" val="2" />

@@ -996,10 +996,10 @@
 	</skill>
 	<skill id="323" levels="1" name="Quiver of Arrow: A Grade">
 		<!-- High Five Confirmed -->
-		<set name="affectScope" val="SINGLE" />
 		<table name="#extractableItems">
 			1344,700,30;1344,1400,50;1344,2800,20
 		</table>
+		<set name="affectScope" val="SINGLE" />
 		<set name="capsuled_items_skill" val="#extractableItems" />
 		<set name="hitCancelTime" val="500" />
 		<set name="hitTime" val="3000" />
@@ -1025,10 +1025,10 @@
 	</skill>
 	<skill id="324" levels="1" name="Quiver of Arrow: S Grade">
 		<!-- High Five Confirmed -->
-		<set name="affectScope" val="SINGLE" />
 		<table name="#extractableItems">
 			1345,900,30;1345,1800,50;1345,3600,20
 		</table>
+		<set name="affectScope" val="SINGLE" />
 		<set name="capsuled_items_skill" val="#extractableItems" />
 		<set name="hitCancelTime" val="500" />
 		<set name="hitTime" val="3000" />

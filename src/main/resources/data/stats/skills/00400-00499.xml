@@ -1126,6 +1126,7 @@
 		</table>
 		<table name="#magicLvl"> 46 58 66 74 </table>
 		<table name="#mpConsume2"> 122 159 183 204 </table>
+		<set name="affectScope" val="SINGLE" />
 		<set name="capsuled_items_skill" val="#extractableItems" />
 		<set name="hitTime" val="3000" />
 		<set name="icon" val="icon.skill0419" />
@@ -1137,7 +1138,6 @@
 		<set name="reuseDelay" val="600000" />
 		<set name="rideState" val="NONE" />
 		<set name="targetType" val="SELF" />
-		<set name="affectScope" val="SINGLE" />
 		<cond msgId="129">
 			<and>
 				<player invSize="10" />

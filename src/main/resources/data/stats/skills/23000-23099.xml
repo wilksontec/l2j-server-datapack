@@ -1320,6 +1320,7 @@
 		<table name="#extractableItems">
 			57,2009,99;57,20090,0.99;57,200900,0.099;57,2009000,0.0099
 		</table>
+		<set name="affectScope" val="SINGLE" />
 		<set name="blockedInOlympiad" val="true" />
 		<set name="capsuled_items_skill" val="#extractableItems" />
 		<set name="icon" val="icon.skill_agathion_special" />

@@ -1797,6 +1797,7 @@
 	</skill>
 	<skill id="23184" levels="1" name="Ball Trapping Gnosian Agathion Special Skill - Soccer Ball of Cheers">
 		<!-- Confirmed CT2.5 -->
+		<set name="affectScope" val="SINGLE" />
 		<set name="icon" val="icon.skill_agathion_special" />
 		<set name="isMagic" val="2" />
 		<set name="magicLvl" val="1" />
@@ -1835,6 +1836,7 @@
 	</skill>
 	<skill id="23186" levels="1" name="Ball Trapping Orodriel Agathion Special Skill - Soccer Ball of Cheers">
 		<!-- Confirmed CT2.5 -->
+		<set name="affectScope" val="SINGLE" />
 		<set name="icon" val="icon.skill_agathion_special" />
 		<set name="isMagic" val="2" />
 		<set name="magicLvl" val="1" />
@@ -1873,6 +1875,7 @@
 	</skill>
 	<skill id="23188" levels="1" name="Ball Trapping Penalty Kick Agathion Special Skill - Soccer Ball of Cheers">
 		<!-- Confirmed CT2.5 -->
+		<set name="affectScope" val="SINGLE" />
 		<set name="icon" val="icon.skill_agathion_special" />
 		<set name="isMagic" val="2" />
 		<set name="magicLvl" val="1" />
@@ -1911,6 +1914,7 @@
 	</skill>
 	<skill id="23190" levels="1" name="Ball Trapping Gnosian Agathion Special Skill - Soccer Ball of Cheers">
 		<!-- Confirmed CT2.5 -->
+		<set name="affectScope" val="SINGLE" />
 		<set name="icon" val="icon.skill_agathion_special" />
 		<set name="isMagic" val="2" />
 		<set name="magicLvl" val="1" />
@@ -1949,6 +1953,7 @@
 	</skill>
 	<skill id="23192" levels="1" name="Ball Trapping Orodriel Agathion Special Skill - Soccer Ball of Cheers">
 		<!-- Confirmed CT2.5 -->
+		<set name="affectScope" val="SINGLE" />
 		<set name="icon" val="icon.skill_agathion_special" />
 		<set name="isMagic" val="2" />
 		<set name="magicLvl" val="1" />
@@ -1987,6 +1992,7 @@
 	</skill>
 	<skill id="23194" levels="1" name="Ball Trapping Penalty Kick Agathion Special Skill - Soccer Ball of Cheers">
 		<!-- Confirmed CT2.5 -->
+		<set name="affectScope" val="SINGLE" />
 		<set name="icon" val="icon.skill_agathion_special" />
 		<set name="isMagic" val="2" />
 		<set name="magicLvl" val="1" />
@@ -2025,6 +2031,7 @@
 	</skill>
 	<skill id="23196" levels="1" name="Ball Trapping Gnosian Agathion Special Skill - Soccer Ball of Cheers">
 		<!-- Confirmed CT2.5 -->
+		<set name="affectScope" val="SINGLE" />
 		<set name="icon" val="icon.skill_agathion_special" />
 		<set name="isMagic" val="2" />
 		<set name="magicLvl" val="1" />
@@ -2063,6 +2070,7 @@
 	</skill>
 	<skill id="23198" levels="1" name="Ball Trapping Orodriel Agathion Special Skill - Soccer Ball of Cheers">
 		<!-- Confirmed CT2.5 -->
+		<set name="affectScope" val="SINGLE" />
 		<set name="icon" val="icon.skill_agathion_special" />
 		<set name="isMagic" val="2" />
 		<set name="magicLvl" val="1" />

@@ -605,6 +605,7 @@
 	</skill>
 	<skill id="1324" levels="1" name="Summon CP Potion">
 		<!-- Confirmed CT2.5 -->
+		<set name="affectScope" val="SINGLE" />
 		<set name="hitTime" val="20000" />
 		<set name="icon" val="icon.skill1324" />
 		<set name="isMagic" val="1" />
@@ -616,7 +617,6 @@
 		<set name="reuseDelay" val="600000" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
-		<set name="affectScope" val="SINGLE" />
 		<cond msgId="129">
 			<and>
 				<player invSize="10" />
@@ -3809,6 +3809,7 @@
 		<table name="#itemConsumeCount"> 40 80 160 </table>
 		<table name="#magicLvl"> 58 66 74 </table>
 		<table name="#mpConsume2"> 318 366 407 </table>
+		<set name="affectScope" val="SINGLE" />
 		<set name="capsuled_items_skill" val="#extractableItems" />
 		<set name="hitTime" val="10000" />
 		<set name="icon" val="icon.skill1387" />
@@ -3821,7 +3822,6 @@
 		<set name="reuseDelay" val="600000" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
-		<set name="affectScope" val="SINGLE" />
 		<cond msgId="129">
 			<and>
 				<player invSize="10" />

@@ -862,6 +862,7 @@
 		<set name="abnormalLvl" val="1" />
 		<set name="abnormalTime" val="90" />
 		<set name="abnormalType" val="PINCH" />
+		<set name="affectScope" val="SINGLE" />
 		<set name="effectPoint" val="303" />
 		<set name="hitTime" val="1500" />
 		<set name="icon" val="icon.action105" />

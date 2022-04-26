@@ -575,6 +575,7 @@
 	</skill>
 	<skill id="6239" levels="1" name="Proof of Space and Time">
 		<!-- Confirmed CT2.5 -->
+		<set name="affectScope" val="SINGLE" />
 		<set name="coolTime" val="1000" />
 		<set name="hitTime" val="2700" />
 		<set name="isMagic" val="2" />

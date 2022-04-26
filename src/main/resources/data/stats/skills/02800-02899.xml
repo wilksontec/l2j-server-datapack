@@ -802,6 +802,7 @@
 		<table name="#extractableItems">
 			9442,1,8.3333;9443,1,8.3333;9444,1,8.3333;9445,1,8.3333;9446,1,8.3333;9447,1,8.3333;9448,1,8.3333;9449,1,8.3333;9450,1,8.3333;10252,1,8.3333;10004,1,8.3333;10253,1,8.3333
 		</table>
+		<set name="affectScope" val="SINGLE" />
 		<set name="capsuled_items_skill" val="#extractableItems" />
 		<set name="isMagic" val="2" />
 		<set name="magicLvl" val="1" />
@@ -823,6 +824,7 @@
 		<table name="#extractableItems">
 			9514,1,6.25;9515,1,6.25;9516,1,6.25;9517,1,6.25;9518,1,6.25;9519,1,6.25;9520,1,6.25;9521,1,6.25;9522,1,6.25;9523,1,6.25;9524,1,6.25;9525,1,6.25;9526,1,6.25;9527,1,6.25;9528,1,6.25;9529,1,6.25
 		</table>
+		<set name="affectScope" val="SINGLE" />
 		<set name="capsuled_items_skill" val="#extractableItems" />
 		<set name="isMagic" val="2" />
 		<set name="magicLvl" val="1" />
@@ -844,6 +846,7 @@
 		<table name="#extractableItems">
 			7575,1,9.0909;6364,1,9.0909;6365,1,9.0909;6366,1,9.0909;6367,1,9.0909;6369,1,9.0909;6370,1,9.0909;6371,1,9.0909;6372,1,9.0909;6579,1,9.0909;6580,1,9.0909
 		</table>
+		<set name="affectScope" val="SINGLE" />
 		<set name="capsuled_items_skill" val="#extractableItems" />
 		<set name="isMagic" val="2" />
 		<set name="magicLvl" val="1" />
@@ -865,6 +868,7 @@
 		<table name="#extractableItems">
 			6674,1,7.142857;6675,1,7.142857;6676,1,7.142857;6677,1,7.142857;6678,1,7.142857;6679,1,7.142857;6680,1,7.142857;6681,1,7.142857;6682,1,7.142857;6683,1,7.142857;6684,1,7.142857;6685,1,7.142857;6686,1,7.142857;6687,1,7.142857
 		</table>
+		<set name="affectScope" val="SINGLE" />
 		<set name="capsuled_items_skill" val="#extractableItems" />
 		<set name="isMagic" val="2" />
 		<set name="magicLvl" val="1" />
@@ -886,6 +890,7 @@
 		<table name="#extractableItems">
 			6724,1,33.3333;6725,1,33.3333;6726,1,33.3333
 		</table>
+		<set name="affectScope" val="SINGLE" />
 		<set name="capsuled_items_skill" val="#extractableItems" />
 		<set name="isMagic" val="2" />
 		<set name="magicLvl" val="1" />
@@ -916,6 +921,7 @@
 		<table name="#extractableItems">
 			9628,1,35.0;9629,1,30.0;9630,1,35.0
 		</table>
+		<set name="affectScope" val="SINGLE" />
 		<set name="capsuled_items_skill" val="#extractableItems" />
 		<set name="isMagic" val="2" />
 		<set name="magicLvl" val="1" />
@@ -989,6 +995,7 @@
 		<table name="#extractableItems">
 			8627,6,8633,6,8639,6,9628,4,9630,3,9629,3,86.5;10554,1,1.92;14213,1,1.93;10577,1,1.93;14209,1,1.93;14208,1,1.93;14212,1,1.93;14027,1,1.93
 		</table>
+		<set name="affectScope" val="SINGLE" />
 		<set name="capsuled_items_skill" val="#extractableItems" />
 		<set name="isMagic" val="2" />
 		<set name="itemConsumeCount" val="1" />
@@ -1012,6 +1019,7 @@
 		<table name="#extractableItems">
 			8627,6,8633,6,8639,6,9628,4,9630,3,9629,3,92.5;10554,1,1.07;14213,1,1.07;10577,1,1.07;14209,1,1.07;14208,1,1.07;14212,1,1.07;14027,1,1.08
 		</table>
+		<set name="affectScope" val="SINGLE" />
 		<set name="capsuled_items_skill" val="#extractableItems" />
 		<set name="isMagic" val="2" />
 		<set name="itemConsumeCount" val="1" />
@@ -1035,6 +1043,7 @@
 		<table name="#extractableItems">
 			8627,6,8633,6,8639,6,9628,4,9630,3,39.00;8627,6,8633,6,8639,6,9628,4,9630,3,9629,3,60.00;14027,1,1.00
 		</table>
+		<set name="affectScope" val="SINGLE" />
 		<set name="capsuled_items_skill" val="#extractableItems" />
 		<set name="isMagic" val="2" />
 		<set name="itemConsumeCount" val="1" />
@@ -1058,6 +1067,7 @@
 		<table name="#extractableItems">
 			8627,6,8633,6,8639,6,9628,4,9630,3,80.00;8627,6,8633,6,8639,6,9628,4,9630,3,9629,3,19.5;14027,1,0.5
 		</table>
+		<set name="affectScope" val="SINGLE" />
 		<set name="capsuled_items_skill" val="#extractableItems" />
 		<set name="isMagic" val="2" />
 		<set name="itemConsumeCount" val="1" />
@@ -1081,6 +1091,7 @@
 		<table name="#extractableItems">
 			8627,6,8633,6,8639,6,9628,4,25.44;8627,6,8633,6,8639,6,9628,4,9630,3,74.56
 		</table>
+		<set name="affectScope" val="SINGLE" />
 		<set name="capsuled_items_skill" val="#extractableItems" />
 		<set name="isMagic" val="2" />
 		<set name="itemConsumeCount" val="1" />
@@ -1104,6 +1115,7 @@
 		<table name="#extractableItems">
 			8627,6,8633,6,8639,6,9628,4,75.44;8627,6,8633,6,8639,6,9628,4,9630,3,24.56
 		</table>
+		<set name="affectScope" val="SINGLE" />
 		<set name="capsuled_items_skill" val="#extractableItems" />
 		<set name="isMagic" val="2" />
 		<set name="itemConsumeCount" val="1" />
@@ -1127,6 +1139,7 @@
 		<table name="#extractableItems">
 			8627,6,8633,6,8639,6,19.0;8627,6,8633,6,8639,6,9628,4,81.0
 		</table>
+		<set name="affectScope" val="SINGLE" />
 		<set name="capsuled_items_skill" val="#extractableItems" />
 		<set name="isMagic" val="2" />
 		<set name="itemConsumeCount" val="1" />
@@ -1150,6 +1163,7 @@
 		<table name="#extractableItems">
 			8627,6,8633,6,8639,6,100
 		</table>
+		<set name="affectScope" val="SINGLE" />
 		<set name="capsuled_items_skill" val="#extractableItems" />
 		<set name="isMagic" val="2" />
 		<set name="itemConsumeCount" val="1" />
@@ -1173,6 +1187,7 @@
 		<table name="#extractableItems">
 			8627,5,8633,5,8639,5,100
 		</table>
+		<set name="affectScope" val="SINGLE" />
 		<set name="capsuled_items_skill" val="#extractableItems" />
 		<set name="isMagic" val="2" />
 		<set name="itemConsumeCount" val="1" />
@@ -1196,6 +1211,7 @@
 		<table name="#extractableItems">
 			8627,4,8633,4,8639,4,100
 		</table>
+		<set name="affectScope" val="SINGLE" />
 		<set name="capsuled_items_skill" val="#extractableItems" />
 		<set name="isMagic" val="2" />
 		<set name="itemConsumeCount" val="1" />
@@ -1219,6 +1235,7 @@
 		<table name="#extractableItems">
 			57,583000,90.0;57,524700,9628,2,10.0
 		</table>
+		<set name="affectScope" val="SINGLE" />
 		<set name="capsuled_items_skill" val="#extractableItems" />
 		<set name="isMagic" val="2" />
 		<set name="itemConsumeCount" val="1" />
@@ -1242,6 +1259,7 @@
 		<table name="#extractableItems">
 			57,605000,80.0;57,484000,9630,3,20.0
 		</table>
+		<set name="affectScope" val="SINGLE" />
 		<set name="capsuled_items_skill" val="#extractableItems" />
 		<set name="isMagic" val="2" />
 		<set name="itemConsumeCount" val="1" />
@@ -1265,6 +1283,7 @@
 		<table name="#extractableItems">
 			57,626000,70.0;57,438200,9629,4,30.0
 		</table>
+		<set name="affectScope" val="SINGLE" />
 		<set name="capsuled_items_skill" val="#extractableItems" />
 		<set name="isMagic" val="2" />
 		<set name="itemConsumeCount" val="1" />
@@ -1288,6 +1307,7 @@
 		<table name="#extractableItems">
 			57,697000,60.0;57,418200,9628,2,9630,2,9629,2,30.0
 		</table>
+		<set name="affectScope" val="SINGLE" />
 		<set name="capsuled_items_skill" val="#extractableItems" />
 		<set name="isMagic" val="2" />
 		<set name="itemConsumeCount" val="1" />
@@ -1383,6 +1403,7 @@
 		<table name="#extractableItems">
 			14611,1,14619,1,17.665;14611,1,14614,1,17.665;5561,1,14619,1,23.665;5561,1,14614,1,23.665;14617,1,14619,1,8.665;14617,1,14614,1,8.665;14620,1,0.01
 		</table>
+		<set name="affectScope" val="SINGLE" />
 		<set name="capsuled_items_skill" val="#extractableItems" />
 		<set name="isMagic" val="2" />
 		<set name="itemConsumeCount" val="1" />
@@ -1514,6 +1535,7 @@
 		<table name="#extractableItems">
 			14700,3,40.0;14701,3,26.0;9625,1,4.0;9626,1,4.0;14716,1,6.0;14717,1,6.0;14718,1,6.0;14709,1,3.9;14710,1,1.95;14711,1,0.15;14704,1,0.65;14705,1,0.325;14706,1,0.025;14678,1,0.6;14679,1,0.26;14680,1,0.13;14681,1,0.01
 		</table>
+		<set name="affectScope" val="SINGLE" />
 		<set name="capsuled_items_skill" val="#extractableItems" />
 		<set name="isMagic" val="2" />
 		<set name="itemConsumeCount" val="1" />
@@ -1537,6 +1559,7 @@
 		<table name="#extractableItems">
 			14700,3,40.0;14701,3,26.0;9625,1,4.0;9626,1,4.0;14716,1,6.0;14717,1,6.0;14718,1,6.0;14709,1,3.9;14710,1,1.95;14711,1,0.15;14704,1,0.65;14705,1,0.325;14706,1,0.025;14678,1,0.6;14679,1,0.26;14680,1,0.13;14681,1,0.01
 		</table>
+		<set name="affectScope" val="SINGLE" />
 		<set name="capsuled_items_skill" val="#extractableItems" />
 		<set name="isMagic" val="2" />
 		<set name="itemConsumeCount" val="1" />
@@ -1825,6 +1848,7 @@
 		<table name="#extractableItems">
 			14733,1,35.1;14737,1,22.1;14736,1,22.1;14735,1,10.1;14734,1,6.1;14731,1,3.0;14730,1,1.5
 		</table>
+		<set name="affectScope" val="SINGLE" />
 		<set name="capsuled_items_skill" val="#extractableItems" />
 		<set name="isMagic" val="2" />
 		<set name="itemConsumeCount" val="1" />
@@ -2076,6 +2100,7 @@
 		<table name="#extractableItems">
 			14769,5,14772,1,10;14769,5,14773,1,40;14769,5,14776,1,50
 		</table>
+		<set name="affectScope" val="SINGLE" />
 		<set name="capsuled_items_skill" val="#extractableItems" />
 		<set name="isMagic" val="2" />
 		<set name="itemConsumeCount" val="1" />
@@ -2099,6 +2124,7 @@
 		<table name="#extractableItems">
 			14769,1,14771,1,50;14769,1,14775,1,50
 		</table>
+		<set name="affectScope" val="SINGLE" />
 		<set name="capsuled_items_skill" val="#extractableItems" />
 		<set name="isMagic" val="2" />
 		<set name="itemConsumeCount" val="1" />

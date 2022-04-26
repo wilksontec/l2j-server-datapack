@@ -53,11 +53,12 @@
 		<table name="#extractableItems">
 			13259,1,0.8130;13258,1,1.626;13260,1,16.260;13261,10,4.645;13262,10,4.645;13263,10,4.645;13264,10,4.645;13265,10,4.645;13266,10,4.645;13267,10,4.645;13268,10,32.5260;13269,10,16.260
 		</table>
-		<!-- set name="reuseDelay" val="86400000" / -->
+		<set name="affectScope" val="SINGLE" />
 		<set name="capsuled_items_skill" val="#extractableItems" />
 		<set name="isMagic" val="2" />
 		<set name="magicLvl" val="1" />
 		<set name="operateType" val="A1" />
+		<!-- set name="reuseDelay" val="86400000" / -->
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
 		<cond msgId="129">
@@ -200,6 +201,7 @@
 	</skill>
 	<skill id="2615" levels="1" name="Destroyed Darkness Fragment Powder">
 		<!-- Confirmed CT2.5 -->
+		<set name="affectScope" val="SINGLE" />
 		<set name="isMagic" val="2" />
 		<set name="itemConsumeCount" val="1" />
 		<set name="itemConsumeId" val="13853" /> <!-- Destroyed Darkness Fragment Powder -->
@@ -563,6 +565,7 @@
 		<table name="#extractableItems">
 			9546,1,16.6;9547,1,16.6;9548,1,16.6;9549,1,16.6;9550,1,16.6;9551,1,17.0
 		</table>
+		<set name="affectScope" val="SINGLE" />
 		<set name="capsuled_items_skill" val="#extractableItems" />
 		<set name="isMagic" val="2" />
 		<set name="itemConsumeCount" val="1" />
@@ -586,6 +589,7 @@
 		<table name="#extractableItems">
 			9546,2,16.6;9547,2,16.6;9548,2,16.6;9549,2,16.6;9550,2,16.6;9551,2,17.0
 		</table>
+		<set name="affectScope" val="SINGLE" />
 		<set name="capsuled_items_skill" val="#extractableItems" />
 		<set name="isMagic" val="2" />
 		<set name="itemConsumeCount" val="1" />
@@ -609,6 +613,7 @@
 		<table name="#extractableItems">
 			10260,1,9.0;10261,1,9.0;10262,1,9.0;10263,1,9.0;10264,1,9.0;10265,1,9.0;10266,1,9.0;10267,1,9.0;10268,1,9.0;10269,1,9.0;10270,1,10.0
 		</table>
+		<set name="affectScope" val="SINGLE" />
 		<set name="capsuled_items_skill" val="#extractableItems" />
 		<set name="isMagic" val="2" />
 		<set name="itemConsumeCount" val="1" />
@@ -632,6 +637,7 @@
 		<table name="#extractableItems">
 			10260,2,9.0;10261,2,9.0;10262,2,9.0;10263,2,9.0;10264,2,9.0;10265,2,9.0;10266,2,9.0;10267,2,9.0;10268,2,9.0;10269,2,9.0;10270,2,10.0
 		</table>
+		<set name="affectScope" val="SINGLE" />
 		<set name="capsuled_items_skill" val="#extractableItems" />
 		<set name="isMagic" val="2" />
 		<set name="itemConsumeCount" val="1" />
@@ -655,6 +661,7 @@
 		<table name="#extractableItems">
 			10260,3,9.0;10261,3,9.0;10262,3,9.0;10263,3,9.0;10264,3,9.0;10265,3,9.0;10266,3,9.0;10267,3,9.0;10268,3,9.0;10269,3,9.0;10270,3,10.0
 		</table>
+		<set name="affectScope" val="SINGLE" />
 		<set name="capsuled_items_skill" val="#extractableItems" />
 		<set name="isMagic" val="2" />
 		<set name="itemConsumeCount" val="1" />
@@ -678,6 +685,7 @@
 		<table name="#extractableItems">
 			7122,1,7.14;7123,1,7.14;7124,1,7.14;7125,1,7.14;7126,1,7.14;7127,1,7.14;7128,1,7.14;7129,1,7.14;7130,1,7.18;7131,1,7.14;7132,1,7.14;7133,1,7.14;7134,1,7.14;7135,1,7.14
 		</table>
+		<set name="affectScope" val="SINGLE" />
 		<set name="capsuled_items_skill" val="#extractableItems" />
 		<set name="isMagic" val="2" />
 		<set name="itemConsumeCount" val="1" />
@@ -701,6 +709,7 @@
 		<table name="#extractableItems">
 			7122,2,7.14;7123,2,7.14;7124,2,7.14;7125,2,7.14;7126,2,7.14;7127,2,7.14;7128,2,7.14;7129,2,7.14;7130,2,7.18;7131,2,7.14;7132,2,7.14;7133,2,7.14;7134,2,7.14;7135,2,7.14
 		</table>
+		<set name="affectScope" val="SINGLE" />
 		<set name="capsuled_items_skill" val="#extractableItems" />
 		<set name="isMagic" val="2" />
 		<set name="itemConsumeCount" val="1" />
