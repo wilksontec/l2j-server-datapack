@@ -188,16 +188,19 @@
 		<!-- "When used, you can obtain at random one 3-, 7-, 10-, 30-day, or unlimited National Representative Warrior's accessory set. Upon skill use, 10 Proofs of Cheers are consumed, and it can be cancelled when attacked." -->
 		<set name="operateType" val="P" />
 		<set name="targetType" val="NONE" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="8513" levels="1" name="National Representative Spell of Blessing">
 		<!-- "When used, you can obtain at random a Blessed Scroll of Escape or a B~S grade Blessed Weapon/Armor Strengthening Scroll. Upon skill use, 10 Proofs of Cheers are consumed, and it can be cancelled when attacked." -->
 		<set name="operateType" val="P" />
 		<set name="targetType" val="NONE" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="8514" levels="1" name="National Representative Energy of Victory">
 		<!-- "When used, you can obtain at random one Nevit's Hourglass 1~4 hours and Nevit's Voice. Upon skill use, 10 Proofs of Cheers are consumed, and it can be cancelled when attacked." -->
 		<set name="operateType" val="P" />
 		<set name="targetType" val="NONE" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="8515" levels="1" name="Release Seal on Agathion - Ball Trapping Gnosian">
 		<!-- High Five Skill -->
@@ -214,6 +217,7 @@
 				<param npcId="1576" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="8516" levels="1" name="Release Seal on Agathion - Ball Trapping Orodriel">
 		<!-- High Five Skill -->
@@ -230,6 +234,7 @@
 				<param npcId="1577" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="8517" levels="1" name="Release Seal on Agathion - Penalty Kick">
 		<!-- High Five Skill -->
@@ -246,21 +251,25 @@
 				<param npcId="1578" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="8518" levels="1" name="Notifier">
 		<!-- Informs you of the re-supply time of the gift given by the Agathion. -->
 		<set name="operateType" val="P" />
 		<set name="targetType" val="NONE" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="8519" levels="1" name="Notifier">
 		<!-- Informs you of the re-supply time of the gift given by the Agathion. -->
 		<set name="operateType" val="P" />
 		<set name="targetType" val="NONE" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="8520" levels="1" name="Notifier">
 		<!-- Informs you of the re-supply time of the gift given by the Agathion. -->
 		<set name="operateType" val="P" />
 		<set name="targetType" val="NONE" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="8521" levels="1" name="Release Seal on Agathion - Antharas">
 		<!-- High Five Skill -->
@@ -275,6 +284,7 @@
 				<param npcId="16077" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="8522" levels="1" name="Release Seal on Agathion - Nevit's Messenger Kanna">
 		<!-- High Five Skill -->
@@ -289,6 +299,7 @@
 				<param npcId="16078" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="8523" levels="1" name="Release Seal on Agathion - Guardian of the Dawn Kallesin">
 		<!-- High Five Skill -->
@@ -303,6 +314,7 @@
 				<param npcId="16079" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="8524" levels="1" name="Hero's Holy Attack">
 		<!-- High Five Confirmed -->

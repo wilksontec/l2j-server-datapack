@@ -11,6 +11,7 @@
 		<cond msgId="2292">
 			<player agathionId="1501" />
 		</cond>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="23001" levels="1" name="Gold Majo Agathion Cute Trick">
 		<set name="hitTime" val="3000" />
@@ -23,6 +24,7 @@
 		<cond msgId="2292">
 			<player agathionId="1502" />
 		</cond>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="23002" levels="1" name="Black Majo Agathion Cute Trick">
 		<set name="hitTime" val="3000" />
@@ -35,6 +37,7 @@
 		<cond msgId="2292">
 			<player agathionId="1503" />
 		</cond>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="23003" levels="1" name="Plaipitak Agathion Cute Trick">
 		<set name="hitTime" val="3000" />
@@ -47,6 +50,7 @@
 		<cond msgId="2292">
 			<player agathionId="1504" />
 		</cond>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="23004" levels="1" name="Majo Agathion Special Skill - Mysterious Power">
 		<set name="abnormalLvl" val="0" />
@@ -67,6 +71,7 @@
 		<cond msgId="2292">
 			<player agathionId="1501" />
 		</cond>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="23005" levels="1" name="Gold Majo Agathion Special Skill - Power of Blessed Resurrection">
 		<set name="blockedInOlympiad" val="true" />
@@ -92,6 +97,7 @@
 				<param power="100" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="23006" levels="1" name="Black Majo Agathion Special Skill - Blessed Escape">
 		<!-- High Five Confirmed -->
@@ -142,6 +148,7 @@
 		<cond msgId="2292">
 			<player agathionId="1504" />
 		</cond>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="23008" levels="1" name="Plaipitak Agathion Special Skill - Blessed Escape">
 		<!-- High Five Confirmed -->
@@ -197,6 +204,7 @@
 				<param power="100" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="23010" levels="1" name="Baby Panda Agathion Cute Trick">
 		<set name="hitTime" val="3000" />
@@ -209,6 +217,7 @@
 		<cond msgId="2292">
 			<player agathionId="1505" />
 		</cond>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="23011" levels="1" name="Bamboo Panda Agathion Cute Trick">
 		<set name="hitTime" val="3000" />
@@ -221,6 +230,7 @@
 		<cond msgId="2292">
 			<player agathionId="1506" />
 		</cond>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="23012" levels="1" name="Sexy Panda Agathion Cute Trick">
 		<set name="hitTime" val="3000" />
@@ -233,6 +243,7 @@
 		<cond msgId="2292">
 			<player agathionId="1507" />
 		</cond>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="23013" levels="1" name="Baby Panda Agathion Special Skill - Mysterious Power">
 		<set name="abnormalLvl" val="0" />
@@ -253,6 +264,7 @@
 		<cond msgId="2292">
 			<player agathionId="1505" />
 		</cond>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="23014" levels="1" name="Bamboo Panda Agathion Special Skill - Power of Blessed Resurrection">
 		<set name="blockedInOlympiad" val="true" />
@@ -278,6 +290,7 @@
 				<param power="100" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="23015" levels="1" name="Sexy Panda Agathion Special Skill - Blessed Escape">
 		<!-- High Five Confirmed -->
@@ -333,6 +346,7 @@
 				<sub stat="vitalityConsumeRate" val="10" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="23017" levels="1" name="Christmas Festival">
 		<!-- High Five Confirmed -->
@@ -564,6 +578,7 @@
 				<sub stat="vitalityConsumeRate" val="10" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="23025" levels="1" name="Charming Cupid Agathion Cute Trick">
 		<set name="hitTime" val="3000" />
@@ -576,6 +591,7 @@
 		<cond msgId="2292">
 			<player agathionId="1508" />
 		</cond>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="23026" levels="1" name="Naughty Cupid Agathion Cute Trick">
 		<set name="hitTime" val="3000" />
@@ -588,6 +604,7 @@
 		<cond msgId="2292">
 			<player agathionId="1509" />
 		</cond>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="23027" levels="1" name="White Maneki Neko Agathion Cute Trick I">
 		<set name="hitTime" val="3000" />
@@ -600,6 +617,7 @@
 		<cond msgId="2292">
 			<player agathionId="1510" />
 		</cond>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="23028" levels="1" name="Black Maneki Neko Agathion Cute Trick I">
 		<set name="hitTime" val="3000" />
@@ -612,6 +630,7 @@
 		<cond msgId="2292">
 			<player agathionId="1511" />
 		</cond>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="23029" levels="1" name="Brown Maneki Neko Agathion Cute Trick I">
 		<set name="hitTime" val="3000" />
@@ -624,6 +643,7 @@
 		<cond msgId="2292">
 			<player agathionId="1512" />
 		</cond>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="23030" levels="1" name="White Maneki Neko Agathion Special Skill - Blessed Resurrection Ability">
 		<set name="blockedInOlympiad" val="true" />
@@ -649,6 +669,7 @@
 				<param power="100" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="23031" levels="1" name="Black Maneki Neko Agathion Special Skill - Ability of Blessed Return">
 		<!-- High Five Confirmed -->
@@ -705,6 +726,7 @@
 				<sub stat="vitalityConsumeRate" val="10" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="23033" levels="1" name="One-Eyed Bat Drove Agathion Cute Trick">
 		<set name="hitTime" val="3000" />
@@ -717,6 +739,7 @@
 		<cond msgId="2292">
 			<player agathionId="1513" />
 		</cond>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="23034" levels="1" name="One-eyed Bat Drove Agathion Special Skill - Ability of Resist Unholy">
 		<!-- Increases resistance to darkness type attacks by 30% for 5 minutes. Reuse Delay 1 hours -->
@@ -743,6 +766,7 @@
 				<add stat="darkRes" val="30" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="23035" levels="1" name="One-eyed Bat Drove Agathion Special Skill - Ability of Energy Recovery">
 		<!-- Recovers energy when acquiring Exp. for 5 minutes. Reuse Delay 1 hours -->
@@ -769,6 +793,7 @@
 				<sub stat="vitalityConsumeRate" val="10" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="23036" levels="1" name="Pegasus Agathion Cute Trick">
 		<set name="hitTime" val="3000" />
@@ -781,6 +806,7 @@
 		<cond msgId="2292">
 			<player agathionId="1514" />
 		</cond>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="23037" levels="1" name="Pegasus Agathion Special Skill - Ability of Wind Walk">
 		<!-- Increases moving speed by 33 for 5 minutes. Reuse Delay 4 hours -->
@@ -807,6 +833,7 @@
 				<add stat="runSpd" val="33" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="23038" levels="1" name="Pegasus Agathion Special Skill - Ability of Blessed Return">
 		<!-- High Five Confirmed -->
@@ -849,6 +876,7 @@
 		<cond msgId="2292">
 			<player agathionId="1515" />
 		</cond>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="23040" levels="1" name="Blue-Robed Tojigong Agathion Cute Trick">
 		<set name="hitTime" val="3000" />
@@ -861,6 +889,7 @@
 		<cond msgId="2292">
 			<player agathionId="1516" />
 		</cond>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="23041" levels="1" name="Green-Robed Tojigong Agathion Cute Trick">
 		<set name="hitTime" val="3000" />
@@ -873,6 +902,7 @@
 		<cond msgId="2292">
 			<player agathionId="1517" />
 		</cond>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="23042" levels="1" name="Yellow-robed Tojigong Agathion Special Skill - Ability of Greater Heal">
 		<!-- Recovers HP by 444 and increases HP Recovery by 30 for 15 seconds. Reuse Delay 4 hours -->
@@ -902,6 +932,7 @@
 				<param power="444" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="23043" levels="1" name="Blue-robed Tojigong Agathion Special Skill - Ability of Reflect Damage">
 		<!-- For 5 minutes, returns 20% of the damage back to the enemy. Excludes skill and long-range attacks. Reuse Delay 1 hours -->
@@ -928,6 +959,7 @@
 				<add stat="reflectDam" val="20" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="23044" levels="1" name="Green-robed Tojigong Agathion Special Skill - Ability of Mana Regeneration">
 		<!-- High Five Confirmed -->
@@ -969,6 +1001,7 @@
 		<cond msgId="2292">
 			<player agathionId="1518" />
 		</cond>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="23046" levels="1" name="White Maneki Neko Agathion Cute Trick II">
 		<set name="hitTime" val="3000" />
@@ -981,6 +1014,7 @@
 		<cond msgId="2292">
 			<player agathionId="1510" />
 		</cond>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="23047" levels="1" name="Black Maneki Neko Agathion Cute Trick II">
 		<set name="hitTime" val="3000" />
@@ -993,6 +1027,7 @@
 		<cond msgId="2292">
 			<player agathionId="1511" />
 		</cond>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="23048" levels="1" name="Brown Maneki Neko Agathion Cute Trick II">
 		<set name="hitTime" val="3000" />
@@ -1005,6 +1040,7 @@
 		<cond msgId="2292">
 			<player agathionId="1512" />
 		</cond>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="23049" levels="1" name="Red Sumo Wrestler Agathion Cute Trick">
 		<set name="hitTime" val="3000" />
@@ -1017,6 +1053,7 @@
 		<cond msgId="2292">
 			<player agathionId="1519" />
 		</cond>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="23050" levels="1" name="Blue Sumo Wrestler Agathion Cute Trick">
 		<set name="hitTime" val="3000" />
@@ -1029,6 +1066,7 @@
 		<cond msgId="2292">
 			<player agathionId="1520" />
 		</cond>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="23051" levels="1" name="Great Sumo Match Agathion Cute Trick">
 		<set name="hitTime" val="3000" />
@@ -1041,6 +1079,7 @@
 		<cond msgId="2292">
 			<player agathionId="1521" />
 		</cond>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="23052" levels="1" name="Button-Eyed Bear Doll Agathion Cute Trick">
 		<set name="hitTime" val="3000" />
@@ -1053,6 +1092,7 @@
 		<cond msgId="2292">
 			<player agathionId="1522" />
 		</cond>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="23053" levels="1" name="God of Fortune Agathion Cute Trick">
 		<set name="hitTime" val="3000" />
@@ -1065,6 +1105,7 @@
 		<cond msgId="2292">
 			<player agathionId="1523" />
 		</cond>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="23054" levels="1" name="Dryad Agathion Cute Trick">
 		<set name="hitTime" val="3000" />
@@ -1077,6 +1118,7 @@
 		<cond msgId="2292">
 			<player agathionId="1524" />
 		</cond>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="23055" levels="1" name="Wonboso Agathion Cute Trick">
 		<set name="hitTime" val="3000" />
@@ -1089,6 +1131,7 @@
 		<cond msgId="2292">
 			<player agathionId="1525" />
 		</cond>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="23056" levels="1" name="Daewoonso Agathion Cute Trick">
 		<set name="hitTime" val="3000" />
@@ -1101,6 +1144,7 @@
 		<cond msgId="2292">
 			<player agathionId="1526" />
 		</cond>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="23057" levels="1" name="Red Sumo Wrestler Agathion Special Skill - Death Whisper Ability">
 		<!-- Increases Critical attack power by 35% for 5 minutes. Reuse Delay 1 hours -->
@@ -1125,6 +1169,7 @@
 				<mul stat="critDmg" val="1.35" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="23058" levels="1" name="Blue Sumo Wrestler Agathion Special Skill - Wild Magic Ability">
 		<!-- For 5 minutes, increases by 2% the occurrence rate of damage that is caused by damage magic. Reuse Delay 1 hours -->
@@ -1149,6 +1194,7 @@
 				<add stat="mCritRate" val="2" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="23059" levels="1" name="Great Sumo Match Agathion Special Skill - Mysterious Power">
 		<!-- A mysterious power that no one knows. Use with caution! Reuse Delay 1 hour -->
@@ -1170,6 +1216,7 @@
 		<cond msgId="2292">
 			<player agathionId="1521" />
 		</cond>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="23060" levels="1" name="Great Sumo Match Agathion Special Skill - Ability of Firework">
 		<set name="blockedInOlympiad" val="true" />
@@ -1183,6 +1230,7 @@
 		<cond msgId="2292">
 			<player agathionId="1521" />
 		</cond>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="23061" levels="1" name="Button-Eyed Bear Doll Agathion Special Skill - Ability of Blessed Return">
 		<!-- High Five Confirmed -->
@@ -1238,6 +1286,7 @@
 				<param power="100" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="23063" levels="1" name="Button-Eyed Bear Doll Agathion Special Skill - Ability of Energy Recovery">
 		<!-- Recovers energy when acquiring Exp. for 5 minutes. Reuse Delay 1 hours -->
@@ -1264,6 +1313,7 @@
 				<sub stat="vitalityConsumeRate" val="10" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="23064" levels="1" name="God of Fortune Agathion Special Skill - Energy Recovery Ability">
 		<!-- Recovers energy when acquiring Exp. for 5 minutes. Reuse Delay 1 hours -->
@@ -1290,6 +1340,7 @@
 				<sub stat="vitalityConsumeRate" val="10" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="23065" levels="1" name="Wonboso Agathion Special Skill - Wind Walk Ability">
 		<!-- Increases moving speed by 20 for 5 minutes. Reuse Delay 1 hours -->
@@ -1314,6 +1365,7 @@
 				<add stat="runSpd" val="20" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="23066" levels="1" name="Daewoonso Agathion Special Skill - New Year's Gift Ability">
 		<!-- Confirmed CT2.5 -->
@@ -1354,6 +1406,7 @@
 		<cond msgId="2292">
 			<player agathionId="1527" />
 		</cond>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="23068" levels="1" name="Pomona Agathion Special Skill - Mental Shield Ability">
 		<!-- Confirmed CT2.5 -->
@@ -1378,6 +1431,7 @@
 				<param DERANGEMENT="50" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="23069" levels="1" name="Threatening Roar">
 		<!-- High Five Confirmed -->
@@ -1556,6 +1610,7 @@
 		<cond msgId="2292">
 			<player agathionId="1528" />
 		</cond>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="23077" levels="1" name="Weaver Agathion Special Skill - Power of the Golden Calf">
 		<!-- High Five Confirmed -->
@@ -1695,6 +1750,7 @@
 		<cond msgId="2292">
 			<player agathionId="1529" />
 		</cond>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="23080" levels="1" name="Chon-chon Agathion Special Skill - Great Warrior Soul Power">
 		<!-- Confirmed CT2.5 -->
@@ -1723,6 +1779,7 @@
 				<mul stat="critDmg" val="1.2" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="23081" levels="1" name="Tang-tang Agathion Cute Trick">
 		<!-- Confirmed CT2.5 -->
@@ -1736,6 +1793,7 @@
 		<cond msgId="2292">
 			<player agathionId="1530" />
 		</cond>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="23082" levels="1" name="Tang-tang Agathion Special Skill - Great Wizard Soul Power">
 		<!-- Confirmed CT2.5 -->
@@ -1764,6 +1822,7 @@
 				<mul stat="mAtkSpd" val="1.2" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="23083" levels="1" name="Dancing Kid Agathion Cute Trick">
 		<!-- Confirmed CT2.5 -->
@@ -1777,6 +1836,7 @@
 		<cond msgId="2292">
 			<player agathionId="1531" />
 		</cond>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="23084" levels="1" name="Dancing Kid Agathion Special Skill - Great Adventurer Soul Power">
 		<!-- Confirmed CT2.5 -->
@@ -1811,6 +1871,7 @@
 				<mul stat="regHp" val="1.2" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="23085" levels="1" name="Monkey King Agathion Cute Trick">
 		<!-- Confirmed CT2.5 -->
@@ -1824,6 +1885,7 @@
 		<cond msgId="2292">
 			<player agathionId="1532" />
 		</cond>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="23086" levels="1" name="Monkey King Agathion Special Skill - Great Wizard Soul Power">
 		<!-- Confirmed CT2.5 -->
@@ -1852,6 +1914,7 @@
 				<mul stat="mAtkSpd" val="1.2" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="23087" levels="1" name="Utanka Agathion Cute Trick">
 		<!-- Confirmed CT2.5 -->
@@ -1865,6 +1928,7 @@
 		<cond msgId="2292">
 			<player agathionId="1533" />
 		</cond>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="23088" levels="1" name="Utanka Agathion Special Skill - Great Warrior Soul Power">
 		<!-- Confirmed CT2.5 -->
@@ -1893,6 +1957,7 @@
 				<mul stat="critDmg" val="1.2" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="23089" levels="1" name="Bonus B Agathion Cute Trick">
 		<!-- Confirmed CT2.5 -->
@@ -1906,6 +1971,7 @@
 		<cond msgId="2292">
 			<player agathionId="1534" />
 		</cond>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="23090" levels="1" name="Bonus B Agathion Special Skill - Great Adventurer Soul Power">
 		<!-- Confirmed CT2.5 -->
@@ -1940,6 +2006,7 @@
 				<mul stat="regHp" val="1.2" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="23091" levels="1" name="Three Siblings' Trickery">
 		<!-- High Five Confirmed -->

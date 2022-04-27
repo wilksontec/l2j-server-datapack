@@ -224,6 +224,7 @@
 				<param amount="1200" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="8309" levels="1" name="Red Talisman - Territory Convoy">
 		<!-- Confirmed CT2.5 -->
@@ -249,6 +250,7 @@
 				<param amount="800" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="8310" levels="1" name="Arcana Sigil">
 		<set name="icon" val="icon.arcana_sigil_i00" />
@@ -453,6 +455,7 @@
 		<set name="reuseDelay" val="15000" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="NONE" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="8324" levels="1" name="Warrior's Shirt">
 		<set name="magicLvl" val="75" />
@@ -644,6 +647,7 @@
 				<param amount="1500" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="8334" levels="1" name="Blue Talisman - Lord's Divine Protection">
 		<!-- Confirmed CT2.5 -->
@@ -667,6 +671,7 @@
 				<mul stat="pvpPhysDef" val="1.75" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="8335" levels="1" name="White Talisman - Attribute Resistance">
 		<!-- Confirmed CT2.5 -->
@@ -694,6 +699,7 @@
 				<add stat="darkRes" val="15" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="8336" levels="1" name="Guardian's Strider Mount">
 		<!-- High Five Confirmed -->
@@ -1110,6 +1116,7 @@
 		<set name="reuseDelay" val="15000" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="NONE" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="8360" levels="1" name="Energy Maintenance Effect">
 		<!-- Confirmed CT2.5 -->
@@ -1131,6 +1138,7 @@
 				<mul stat="vitalityConsumeRate" val="0" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="8361" levels="1" name="Sixth Anniversary Party Earring">
 		<!-- High Five Confirmed -->

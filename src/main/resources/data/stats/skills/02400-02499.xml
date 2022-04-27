@@ -39,6 +39,7 @@
 				<param amount="360" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2402" levels="1" name="Lesser Battlefield CP Potion">
 		<!-- Confirmed CT2.5 -->
@@ -56,6 +57,7 @@
 				<param amount="1000" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2403" levels="1" name="Spring CP Potion">
 		<!-- Confirmed CT2.5 -->
@@ -70,6 +72,7 @@
 				<param amount="1000" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2404" levels="1" name="Might">
 		<!-- Confirmed CT2.5 -->
@@ -88,6 +91,7 @@
 				<mul stat="pAtk" val="1.12" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2405" levels="1" name="Shield">
 		<!-- Confirmed CT2.5 -->
@@ -106,6 +110,7 @@
 				<mul stat="pDef" val="1.12" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2406" levels="1" name="Wind Walk">
 		<!-- Confirmed CT2.5 -->
@@ -124,6 +129,7 @@
 				<add stat="runSpd" val="33" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2407" levels="1" name="Focus">
 		<!-- Confirmed CT2.5 -->
@@ -142,6 +148,7 @@
 				<mul stat="critRate" val="1.25" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2408" levels="1" name="Death Whisper">
 		<!-- Confirmed CT2.5 -->
@@ -160,6 +167,7 @@
 				<mul stat="critDmg" val="1.3" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2409" levels="1" name="Guidance">
 		<!-- Confirmed CT2.5 -->
@@ -178,6 +186,7 @@
 				<add stat="accCombat" val="3" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2410" levels="1" name="Bless Shield">
 		<!-- Confirmed CT2.5 -->
@@ -196,6 +205,7 @@
 				<mul stat="rShld" val="1.1" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2411" levels="1" name="Blessed Body">
 		<!-- Confirmed CT2.5 -->
@@ -215,6 +225,7 @@
 				<param type="PER" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2412" levels="1" name="Haste">
 		<!-- Confirmed CT2.5 -->
@@ -233,6 +244,7 @@
 				<mul stat="pAtkSpd" val="1.15" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2413" levels="1" name="Vampiric Rage">
 		<!-- High Five Confirmed -->
@@ -278,6 +290,7 @@
 				<sub stat="rEvas" val="2" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2415" levels="1" name="Magic Barrier">
 		<!-- Confirmed CT2.5 -->
@@ -296,6 +309,7 @@
 				<mul stat="mDef" val="1.23" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2416" levels="1" name="Blessed Soul">
 		<!-- Confirmed CT2.5 -->
@@ -315,6 +329,7 @@
 				<param type="PER" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2417" levels="1" name="Empower">
 		<!-- Confirmed CT2.5 -->
@@ -333,6 +348,7 @@
 				<mul stat="mAtk" val="1.65" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2418" levels="1" name="Acumen">
 		<!-- Confirmed CT2.5 -->
@@ -351,6 +367,7 @@
 				<mul stat="mAtkSpd" val="1.23" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2419" levels="1" name="Clarity">
 		<!-- Confirmed CT2.5 -->
@@ -371,6 +388,7 @@
 				<mul stat="danceMpConsumeRate" val="0.9" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2420" levels="1" name="White Seed of Evil Lump">
 		<!-- Confirmed CT2.5 -->
@@ -566,6 +584,7 @@
 				<param id="105" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2429" levels="1" name="Haste Juice">
 		<!-- Confirmed CT2.5 -->
@@ -586,6 +605,7 @@
 				<mul stat="pAtkSpd" val="1.33" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2430" levels="1" name="Accuracy Juice">
 		<!-- Confirmed CT2.5 -->
@@ -606,6 +626,7 @@
 				<add stat="accCombat" val="4" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2431" levels="1" name="Critical Power Juice">
 		<!-- Confirmed CT2.5 -->
@@ -626,6 +647,7 @@
 				<mul stat="critDmg" val="1.35" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2432" levels="1" name="Critical Attack Juice">
 		<!-- Confirmed CT2.5 -->
@@ -646,6 +668,7 @@
 				<mul stat="critRate" val="1.3" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2433" levels="1" name="Casting Speed Juice">
 		<!-- Confirmed CT2.5 -->
@@ -666,6 +689,7 @@
 				<mul stat="mAtkSpd" val="1.3" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2434" levels="1" name="Evasion Juice">
 		<!-- Confirmed CT2.5 -->
@@ -686,6 +710,7 @@
 				<add stat="rEvas" val="4" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2435" levels="1" name="Magic Power Juice">
 		<!-- Confirmed CT2.5 -->
@@ -706,6 +731,7 @@
 				<mul stat="mAtk" val="1.75" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2436" levels="1" name="Power Juice">
 		<!-- Confirmed CT2.5 -->
@@ -726,6 +752,7 @@
 				<mul stat="pAtk" val="1.15" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2437" levels="1" name="Speed Juice">
 		<!-- Confirmed CT2.5 -->
@@ -746,6 +773,7 @@
 				<add stat="runSpd" val="33" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2438" levels="1" name="Defense Juice">
 		<!-- Confirmed CT2.5 -->
@@ -766,6 +794,7 @@
 				<mul stat="pDef" val="1.15" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2439" levels="1" name="MP Consumption Juice">
 		<!-- Confirmed CT2.5 -->
@@ -788,6 +817,7 @@
 				<mul stat="danceMpConsumeRate" val="0.9" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2440" levels="1" name="Ancient Tome of the Demon">
 		<!-- Confirmed CT2.5 -->
@@ -835,6 +865,7 @@
 				<param skillId="755" skillLvl="1" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2442" levels="1" name="Protection of Elemental">
 		<!-- Confirmed CT2.5 -->
@@ -860,6 +891,7 @@
 				<param skillId="756" skillLvl="1" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2443" levels="1" name="Protection of Alignment">
 		<!-- Confirmed CT2.5 -->
@@ -885,6 +917,7 @@
 				<param skillId="757" skillLvl="1" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2444" levels="1" name="Fighter's Will">
 		<!-- Confirmed CT2.5 -->
@@ -910,6 +943,7 @@
 				<param skillId="758" skillLvl="1" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2445" levels="1" name="Archer's Will">
 		<!-- Confirmed CT2.5 -->
@@ -935,6 +969,7 @@
 				<param skillId="759" skillLvl="1" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2446" levels="1" name="Anti-magic Armor">
 		<!-- Confirmed CT2.5 -->
@@ -960,6 +995,7 @@
 				<param skillId="760" skillLvl="1" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2447" levels="1" name="Seed of Revenge">
 		<!-- Confirmed CT2.5 -->
@@ -988,6 +1024,7 @@
 				<param skillId="762" skillLvl="1" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2448" levels="1" name="Hell Scream">
 		<!-- Confirmed CT2.5 -->
@@ -1013,6 +1050,7 @@
 				<param skillId="763" skillLvl="1" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2449" levels="1" name="Song of Wind Storm">
 		<!-- Confirmed CT2.5 -->
@@ -1038,6 +1076,7 @@
 				<param skillId="764" skillLvl="1" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2450" levels="1" name="Dance of Blade Storm">
 		<!-- Confirmed CT2.5 -->
@@ -1063,6 +1102,7 @@
 				<param skillId="765" skillLvl="1" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2451" levels="1" name="Sixth Sense">
 		<!-- Confirmed CT2.5 -->
@@ -1088,6 +1128,7 @@
 				<param skillId="766" skillLvl="1" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2452" levels="1" name="Expose Weak Point">
 		<!-- Confirmed CT2.5 -->
@@ -1113,6 +1154,7 @@
 				<param skillId="767" skillLvl="1" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2453" levels="1" name="Exciting Adventure">
 		<!-- Confirmed CT2.5 -->
@@ -1138,6 +1180,7 @@
 				<param skillId="768" skillLvl="1" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2454" levels="1" name="Wind Riding">
 		<!-- Confirmed CT2.5 -->
@@ -1163,6 +1206,7 @@
 				<param skillId="769" skillLvl="1" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2455" levels="1" name="Ghost Walking">
 		<!-- Confirmed CT2.5 -->
@@ -1188,6 +1232,7 @@
 				<param skillId="770" skillLvl="1" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2456" levels="1" name="Flame Hawk">
 		<!-- Confirmed CT2.5 -->
@@ -1213,6 +1258,7 @@
 				<param skillId="771" skillLvl="1" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2457" levels="1" name="Arrow Rain">
 		<!-- Confirmed CT2.5 -->
@@ -1238,6 +1284,7 @@
 				<param skillId="772" skillLvl="1" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2458" levels="1" name="Ghost Piercing">
 		<!-- Confirmed CT2.5 -->
@@ -1263,6 +1310,7 @@
 				<param skillId="773" skillLvl="1" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2459" levels="1" name="Dread Pool">
 		<!-- Confirmed CT2.5 -->
@@ -1288,6 +1336,7 @@
 				<param skillId="774" skillLvl="1" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2460" levels="1" name="Weapon Blockade">
 		<!-- Confirmed CT2.5 -->
@@ -1313,6 +1362,7 @@
 				<param skillId="775" skillLvl="1" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2461" levels="1" name="Force of Destruction">
 		<!-- High Five Confirmed -->
@@ -1365,6 +1415,7 @@
 				<param skillId="777" skillLvl="1" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2463" levels="1" name="Golem Armor">
 		<!-- Confirmed CT2.5 -->
@@ -1390,6 +1441,7 @@
 				<param skillId="778" skillLvl="1" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2464" levels="1" name="Flame Armor">
 		<!-- Confirmed CT2.5 -->
@@ -1415,6 +1467,7 @@
 				<param skillId="1492" skillLvl="1" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2465" levels="1" name="Frost Armor">
 		<!-- Confirmed CT2.5 -->
@@ -1440,6 +1493,7 @@
 				<param skillId="1493" skillLvl="1" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2466" levels="1" name="Hurricane Armor">
 		<!-- Confirmed CT2.5 -->
@@ -1465,6 +1519,7 @@
 				<param skillId="1494" skillLvl="1" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2467" levels="1" name="Vampiric Mist">
 		<!-- Confirmed CT2.5 -->
@@ -1490,6 +1545,7 @@
 				<param skillId="1495" skillLvl="1" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2468" levels="1" name="Servitor Barrier">
 		<!-- Confirmed CT2.5 -->
@@ -1515,6 +1571,7 @@
 				<param skillId="1496" skillLvl="1" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2469" levels="1" name="Excessive Loyalty">
 		<!-- Confirmed CT2.5 -->
@@ -1540,6 +1597,7 @@
 				<param skillId="1497" skillLvl="1" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2470" levels="1" name="Mutual Response">
 		<!-- Confirmed CT2.5 -->
@@ -1565,6 +1623,7 @@
 				<param skillId="1498" skillLvl="1" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2471" levels="1" name="Improve Combat">
 		<!-- Confirmed CT2.5 -->
@@ -1590,6 +1649,7 @@
 				<param skillId="1499" skillLvl="1" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2472" levels="1" name="Improve Magic">
 		<!-- Confirmed CT2.5 -->
@@ -1615,6 +1675,7 @@
 				<param skillId="1500" skillLvl="1" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2473" levels="1" name="Improve Condition">
 		<!-- Confirmed CT2.5 -->
@@ -1640,6 +1701,7 @@
 				<param skillId="1501" skillLvl="1" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2474" levels="1" name="Improve Critical">
 		<!-- Confirmed CT2.5 -->
@@ -1665,6 +1727,7 @@
 				<param skillId="1502" skillLvl="1" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2475" levels="1" name="Improve Shield Defense">
 		<!-- Confirmed CT2.5 -->
@@ -1690,6 +1753,7 @@
 				<param skillId="1503" skillLvl="1" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2476" levels="1" name="Improve Movement">
 		<!-- Confirmed CT2.5 -->
@@ -1715,6 +1779,7 @@
 				<param skillId="1504" skillLvl="1" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2477" levels="1" name="Sublime Self-sacrifice">
 		<!-- Confirmed CT2.5 -->
@@ -1740,6 +1805,7 @@
 				<param skillId="1505" skillLvl="1" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2478" levels="1" name="Blessing of Eva">
 		<!-- Confirmed CT2.5 -->
@@ -1765,6 +1831,7 @@
 				<param skillId="1506" skillLvl="1" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2479" levels="1" name="Lord of Vampire">
 		<!-- Confirmed CT2.5 -->
@@ -1790,6 +1857,7 @@
 				<param skillId="1507" skillLvl="1" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2480" levels="1" name="Throne Root">
 		<!-- Confirmed CT2.5 -->
@@ -1815,6 +1883,7 @@
 				<param skillId="1508" skillLvl="1" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2481" levels="1" name="Seal of Limit">
 		<!-- Confirmed CT2.5 -->
@@ -1840,6 +1909,7 @@
 				<param skillId="1509" skillLvl="1" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2482" levels="1" name="Spirit of Phoenix">
 		<!-- Confirmed CT2.5 -->
@@ -1868,6 +1938,7 @@
 				<param skillId="785" skillLvl="1" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2483" levels="1" name="Eva's Will">
 		<!-- Confirmed CT2.5 -->
@@ -1896,6 +1967,7 @@
 				<param skillId="787" skillLvl="1" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2484" levels="1" name="Pain of Shilen">
 		<!-- Confirmed CT2.5 -->
@@ -1924,6 +1996,7 @@
 				<param skillId="789" skillLvl="1" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2485" levels="1" name="Herb of Life">
 		<!-- High Five Confirmed -->
@@ -1980,6 +2053,7 @@
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2488" levels="1" name="Wild Shot">
 		<!-- Confirmed CT2.5 -->
@@ -2005,6 +2079,7 @@
 				<param skillId="790" skillLvl="1" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2489" levels="1" name="Lightning Shock">
 		<!-- Confirmed CT2.5 -->
@@ -2030,6 +2105,7 @@
 				<param skillId="791" skillLvl="1" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2490" levels="1" name="Magic Defense Toolkit for beginners">
 		<!-- Confirmed CT2.5 -->
@@ -2066,6 +2142,7 @@
 				<param skillId="663" skillLvl="1" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2492" levels="1" name="Transform Anakim">
 		<!-- Confirmed CT2.5 -->
@@ -2080,6 +2157,7 @@
 				<param skillId="664" skillLvl="1" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2493" levels="1" name="Transform Venom">
 		<!-- Confirmed CT2.5 -->
@@ -2094,6 +2172,7 @@
 				<param skillId="665" skillLvl="1" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2494" levels="1" name="Transform Gordon">
 		<!-- Confirmed CT2.5 -->
@@ -2108,6 +2187,7 @@
 				<param skillId="666" skillLvl="1" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2495" levels="1" name="Transform Ranku">
 		<!-- Confirmed CT2.5 -->
@@ -2122,6 +2202,7 @@
 				<param skillId="667" skillLvl="1" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2496" levels="1" name="Transform Kietch">
 		<!-- Confirmed CT2.5 -->
@@ -2136,6 +2217,7 @@
 				<param skillId="668" skillLvl="1" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2497" levels="1" name="Transform Demon Prince">
 		<!-- Confirmed CT2.5 -->
@@ -2150,6 +2232,7 @@
 				<param skillId="669" skillLvl="1" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2498" levels="1" name="Bottle of Empty Soul">
 		<!-- Confirmed CT2.5 -->
@@ -2184,5 +2267,6 @@
 				<param charge="5" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 </list>

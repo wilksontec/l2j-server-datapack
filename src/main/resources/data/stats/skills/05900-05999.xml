@@ -99,6 +99,7 @@
 		<effects>
 			<effect name="TargetCancel" />
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="5903" levels="1" name="Burst of Misplace">
 		<!-- High Five Confirmed -->
@@ -687,6 +688,7 @@
 				<mul stat="mAtk" val="1.03" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="5924" levels="1" name="Devour Soul">
 		<!-- High Five Confirmed -->

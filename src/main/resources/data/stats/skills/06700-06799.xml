@@ -1479,6 +1479,7 @@
 				<mul stat="pAtkSpd" val="1.33" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="6763" levels="1" name="Dragon Earth Strike">
 		<!-- High Five Confirmed -->

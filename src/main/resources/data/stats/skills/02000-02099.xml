@@ -86,6 +86,7 @@
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2007" levels="1" name="Scroll: Enchant Armor (Grade A)">
 		<set name="isMagic" val="2" />
@@ -93,6 +94,7 @@
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2008" levels="1" name="Item - Beast Spirit Shot">
 		<set name="isMagic" val="2" />
@@ -100,6 +102,7 @@
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2009" levels="1" name="Item - Beast Blessed Spirit Shot">
 		<set name="isMagic" val="2" />
@@ -107,6 +110,7 @@
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2010" levels="1" name="Endeavor Potion">
 		<!-- High Five Confirmed -->
@@ -210,6 +214,7 @@
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2016" levels="1" name="Scroll: Enchant Armor (Grade B)">
 		<set name="isMagic" val="2" />
@@ -217,6 +222,7 @@
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2017" levels="1" name="Scroll: Enchant Weapon (Grade C)">
 		<set name="isMagic" val="2" />
@@ -224,6 +230,7 @@
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2018" levels="1" name="Scroll: Enchant Armor (Grade C)">
 		<set name="isMagic" val="2" />
@@ -231,6 +238,7 @@
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2019" levels="1" name="Scroll: Enchant Weapon (Grade D)">
 		<set name="isMagic" val="2" />
@@ -238,6 +246,7 @@
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2020" levels="1" name="Scroll: Enchant Armor (Grade D)">
 		<set name="isMagic" val="2" />
@@ -245,6 +254,7 @@
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2021" levels="1" name="Scroll: Enchant Weapon (Grade S)">
 		<set name="isMagic" val="2" />
@@ -252,6 +262,7 @@
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2022" levels="1" name="Scroll: Enchant Armor (Grade S)">
 		<set name="isMagic" val="2" />
@@ -259,6 +270,7 @@
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2023" levels="1" name="Star Shard">
 		<!-- High Five Confirmed -->
@@ -303,6 +315,7 @@
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2027" levels="1" name="Scroll: Enchant Weapon (Grade A)">
 		<!-- Blessed Enchant -->
@@ -311,6 +324,7 @@
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2028" levels="1" name="Scroll: Enchant Weapon (Grade B)">
 		<!-- Blessed Enchant -->
@@ -319,6 +333,7 @@
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2029" levels="1" name="Scroll: Enchant Weapon (Grade C)">
 		<!-- Blessed Enchant -->
@@ -327,6 +342,7 @@
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2030" levels="1" name="Scroll: Enchant Weapon (Grade D)">
 		<!-- Blessed Enchant -->
@@ -335,6 +351,7 @@
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2031" levels="1" name="Lesser Healing Potion">
 		<!-- High Five Confirmed -->
@@ -382,6 +399,7 @@
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2034" levels="1" name="Greater Haste Potion">
 		<!-- High Five Confirmed -->
@@ -486,6 +504,7 @@
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2040" levels="1" name="Scroll of Escape: Clan Hall">
 		<!-- High Five Confirmed -->
@@ -615,6 +634,7 @@
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2048" levels="1" name="Wolves' Food">
 		<!-- High Five Confirmed -->
@@ -895,6 +915,7 @@
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2062" levels="1" name="Blessed Scroll of Resurrection">
 		<!-- High Five Confirmed -->

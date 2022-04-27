@@ -1251,6 +1251,7 @@
 				<param id="117" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="5857" levels="1" name="Transform Lure Tow">
 		<!-- Confirmed CT2.5 -->
@@ -1273,6 +1274,7 @@
 				<param id="118" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="5858" levels="1" name="Transform Heavy Tow">
 		<!-- Confirmed CT2.5 -->
@@ -1295,6 +1297,7 @@
 				<param id="119" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="5859" levels="1" name="Transform Wing Tow">
 		<!-- Confirmed CT2.5 -->
@@ -1317,6 +1320,7 @@
 				<param id="120" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="5860" levels="1" name="Wrath of Valakas">
 		<!-- High Five Confirmed -->
@@ -2544,7 +2548,7 @@
 		<set name="mpConsume2" val="82" />
 		<set name="operateType" val="A1" />
 		<set name="reuseDelay" val="1000" />
-		<set name="rideState" val="NONE" /> 
+		<set name="rideState" val="NONE" />
 		<set name="targetType" val="PC_BODY" />
 		<selfEffects>
 			<effect name="HpPerMax">

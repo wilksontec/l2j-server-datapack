@@ -30,11 +30,13 @@
 		<!-- Summons a dimensional door that moves the PC to the Dimensional Door B. -->
 		<set name="operateType" val="P" />
 		<set name="targetType" val="NONE" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="23302" levels="1" name="Dimensional Door B">
 		<!-- Summons a dimensional door that moves the PC to the Dimensional Door A. -->
 		<set name="operateType" val="P" />
 		<set name="targetType" val="NONE" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="23303" levels="1" name="Move">
 		<!-- High Five Confirmed -->

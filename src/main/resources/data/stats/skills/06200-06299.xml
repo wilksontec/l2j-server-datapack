@@ -302,6 +302,7 @@
 				<add stat="runSpd" val="66" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="6208" levels="1" name="Blessed Guidance">
 		<!-- High Five Confirmed -->
@@ -482,6 +483,7 @@
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="6235" levels="1" name="Blessed Focus">
 		<!-- High Five Confirmed -->
@@ -609,6 +611,7 @@
 		<set name="reuseDelay" val="1000" />
 		<set name="rideState" val="NONE" />
 		<set name="targetType" val="NONE" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="6241" levels="1" name="Heatstroke Prevention Effect - Gludio">
 		<!-- High Five Confirmed -->
@@ -1428,6 +1431,7 @@
 				<add stat="vengeanceMdam" val="20" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="6283" levels="1" name="Ice Storm">
 		<!-- Confirmed CT2.5 -->
@@ -1470,6 +1474,7 @@
 				<mul stat="pAtkSpd" val="1.15" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="6285" levels="1" name="Rage of Ice">
 		<!-- High Five Confirmed -->

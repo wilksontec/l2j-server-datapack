@@ -198,10 +198,10 @@
 		<effects>
 			<effect name="Stun" />
 			<effect name="BlockDamage">
-				<param block="HP"/>
+				<param block="HP" />
 			</effect>
 			<effect name="BlockDamage">
-				<param block="MP"/>
+				<param block="MP" />
 			</effect>
 			<effect name="BlockBuff" />
 			<effect name="BlockDebuff" />
@@ -665,6 +665,7 @@
 				<mul stat="pDef" val="0.1" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="6426" levels="1" name="Priest's Ire">
 		<!-- High Five Confirmed -->
@@ -1246,6 +1247,7 @@
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="6446" levels="1" name="Presentation - Freya's Message 2">
 		<!-- Confirmed CT2.5 -->
@@ -1256,6 +1258,7 @@
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="6447" levels="1" name="Presentation - Freya's Message 3">
 		<!-- Confirmed CT2.5 -->
@@ -1266,6 +1269,7 @@
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="6448" levels="1" name="Presentation - Freya's Message 4">
 		<!-- Confirmed CT2.5 -->
@@ -1276,6 +1280,7 @@
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="6449" levels="1" name="Presentation - Freya's Message 5">
 		<!-- Confirmed CT2.5 -->
@@ -1286,6 +1291,7 @@
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="6450" levels="1" name="Presentation - Freya Nova">
 		<!-- Confirmed CT2.5 -->
@@ -1296,6 +1302,7 @@
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="6451" levels="1" name="Presentation - Freya Move">
 		<!-- Confirmed CT2.5 -->
@@ -1306,6 +1313,7 @@
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="6452" levels="1" name="Presentation - Freya Space Change">
 		<!-- Confirmed CT2.5 -->
@@ -1316,6 +1324,7 @@
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="6453" levels="1" name="Presentation - Freya Death">
 		<!-- Confirmed CT2.5 -->
@@ -1326,6 +1335,7 @@
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="6454" levels="1" name="Presentation - Freya Frustration">
 		<!-- Confirmed CT2.5 -->
@@ -1336,6 +1346,7 @@
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="6455" levels="1" name="Presentation - Freya Destroy">
 		<!-- Confirmed CT2.5 -->
@@ -1346,6 +1357,7 @@
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="6456" levels="1" name="Presentation - Freya Eternal Blizzard">
 		<!-- High Five Confirmed -->
@@ -1367,6 +1379,7 @@
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="6458" levels="1" name="Presentation - Transform of Sirr">
 		<!-- Confirmed CT2.5 -->
@@ -1377,6 +1390,7 @@
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="6459" levels="1" name="Presentation - Kegor Super Buff">
 		<!-- Confirmed CT2.5 -->
@@ -1387,6 +1401,7 @@
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="6460" levels="1" name="Presentation - Jinia Super Buff">
 		<!-- Confirmed CT2.5 -->
@@ -1397,6 +1412,7 @@
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="6461" levels="1" name="Presentation - Kegor's Message 1">
 		<!-- Confirmed CT2.5 -->
@@ -1407,6 +1423,7 @@
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="6462" levels="1" name="Presentation - Kegor's Message 1">
 		<!-- Confirmed CT2.5 -->
@@ -1417,6 +1434,7 @@
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="6463" levels="1" name="Presentation - Transfer Achievement">
 		<!-- High Five Confirmed -->

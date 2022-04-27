@@ -441,6 +441,7 @@
 		<cond msgId="2292">
 			<player agathionId="16063" />
 		</cond>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="6125" levels="1" name="Paralysis">
 		<!-- High Five Confirmed -->
@@ -716,6 +717,7 @@
 		<cond msgId="2292">
 			<player agathionId="16064" />
 		</cond>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="6137" levels="1" name="Agathion Juju - Effect of Doubt">
 		<!-- High Five Confirmed -->
@@ -958,6 +960,7 @@
 				<add stat="reflectDam" val="70" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="6148" levels="1" name="Altar's Curse">
 		<!-- You have been weakened by the Altar's Curse. You probably can't fight in this condition. -->
@@ -1392,6 +1395,7 @@
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="6174" levels="1" name="Presentation - Incense for Relic">
 		<!-- Confirmed CT2.5 -->
@@ -1402,6 +1406,7 @@
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="6175" levels="1" name="Presentation - High Ranking Dawn Priest's Prayer">
 		<!-- Confirmed CT2.5 -->
@@ -1413,6 +1418,7 @@
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="6176" levels="1" name="Presentation - Dawn's Seal Stone">
 		<!-- Confirmed CT2.5 -->
@@ -1423,6 +1429,7 @@
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="6177" levels="1" name="Presentation - Anakim's Message">
 		<!-- Confirmed CT2.5 -->
@@ -1434,6 +1441,7 @@
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="6178" levels="1" name="Presentation - Ultimate Seal Motion1">
 		<!-- Confirmed CT2.5 -->
@@ -1444,6 +1452,7 @@
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="6179" levels="1" name="Presentation - Ultimate Seal Motion2">
 		<!-- Confirmed CT2.5 -->
@@ -1454,6 +1463,7 @@
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="6180" levels="1" name="Presentation - Lilith Presentation1">
 		<!-- High Five Confirmed -->

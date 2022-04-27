@@ -738,6 +738,7 @@
 				<param SHOCK="#trait_shock" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="3634" levels="1" name="Special Ability: Infinity Sword">
 		<!-- Confirmed CT2.5 and Updated to H5 -->
@@ -1299,6 +1300,7 @@
 				<param type="PER" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="3665" levels="2" name="Red Talisman - CP Regeneration">
 		<!-- Confirmed CT2.5 -->
@@ -1322,6 +1324,7 @@
 				<mul stat="regCp" val="1.3" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="3666" levels="1" name="Yellow Talisman - Increase Force">
 		<!-- Confirmed CT2.5 -->

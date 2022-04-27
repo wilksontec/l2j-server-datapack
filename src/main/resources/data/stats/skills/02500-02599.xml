@@ -106,6 +106,7 @@
 				<param skillId="1517" skillLvl="1" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2506" levels="1" name="Chant of Critical Attack">
 		<!-- Confirmed CT2.5 -->
@@ -131,6 +132,7 @@
 				<param skillId="1518" skillLvl="1" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2507" levels="1" name="Chant of Blood Awakening">
 		<!-- Confirmed CT2.5 -->
@@ -156,6 +158,7 @@
 				<param skillId="1519" skillLvl="1" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2508" levels="1" name="Squash Seed">
 		<!-- Confirmed CT2.5 -->
@@ -174,6 +177,7 @@
 				<param npcId="12774" npcCount="1" despawnDelay="180000" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2509" levels="1" name="Large Squash Seed">
 		<!-- Confirmed CT2.5 -->
@@ -192,6 +196,7 @@
 				<param npcId="12777" npcCount="1" despawnDelay="180000" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2510" levels="1" name="Wondrous Cubic">
 		<!-- Confirmed CT2.5 and Updated to H5 -->
@@ -236,6 +241,7 @@
 				<param id="107" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2512" levels="1" name="Herb of Vampiric Rage">
 		<!-- High Five Confirmed -->
@@ -330,6 +336,7 @@
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="NONE" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2516" levels="1" name="Lucky Clover - C-Grade">
 		<set name="isMagic" val="2" />
@@ -337,6 +344,7 @@
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="NONE" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2517" levels="1" name="Lucky Clover - B-Grade">
 		<set name="isMagic" val="2" />
@@ -344,6 +352,7 @@
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="NONE" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2518" levels="1" name="Lucky Clover - A-Grade">
 		<set name="isMagic" val="2" />
@@ -351,6 +360,7 @@
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="NONE" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2519" levels="1" name="Lucky Clover - S-Grade">
 		<set name="isMagic" val="2" />
@@ -358,6 +368,7 @@
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="NONE" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2520" levels="1" name="Lucky Clover - D-Grade">
 		<set name="isMagic" val="2" />
@@ -365,6 +376,7 @@
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="NONE" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2521" levels="1" name="Lucky Clover - C-Grade">
 		<set name="isMagic" val="2" />
@@ -372,6 +384,7 @@
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="NONE" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2522" levels="1" name="Lucky Clover - B-Grade">
 		<set name="isMagic" val="2" />
@@ -379,6 +392,7 @@
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="NONE" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2523" levels="1" name="Lucky Clover - A-Grade">
 		<set name="isMagic" val="2" />
@@ -386,6 +400,7 @@
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="NONE" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2524" levels="1" name="Lucky Clover - S-Grade">
 		<set name="isMagic" val="2" />
@@ -393,6 +408,7 @@
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="NONE" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2525" levels="1" name="Scroll to move to Kamael Village">
 		<!-- High Five Confirmed -->
@@ -444,6 +460,7 @@
 				<param skillId="818" skillLvl="1" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2527" levels="1" name="Evasion Chance">
 		<!-- Confirmed CT2.5 -->
@@ -469,6 +486,7 @@
 				<param skillId="819" skillLvl="1" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2528" levels="1" name="Evasion Haste">
 		<!-- Confirmed CT2.5 -->
@@ -494,6 +512,7 @@
 				<param skillId="820" skillLvl="1" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2529" levels="1" name="Shadow Step">
 		<!-- Confirmed CT2.5 -->
@@ -519,6 +538,7 @@
 				<param skillId="821" skillLvl="1" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2530" levels="1" name="Recovery Item for Battlefield Use">
 		<!-- Confirmed CT2.5 -->
@@ -534,6 +554,7 @@
 				<param dispel="DEATH_PENALTY,-1" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2531" levels="1" name="Adventurer's Scroll of Escape">
 		<!-- High Five Confirmed -->
@@ -1653,16 +1674,17 @@
 		<set name="targetType" val="SELF" />
 		<effects>
 			<effect name="BlockDamage">
-				<param block="HP"/>
+				<param block="HP" />
 			</effect>
 			<effect name="BlockDamage">
-				<param block="MP"/>
+				<param block="MP" />
 			</effect>
 			<effect name="BlockDebuff" />
 			<effect name="Buff">
 				<sub stat="cancelVuln" val="100" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2578" levels="1" name="Cure Poison Paralyze">
 		<!-- Confirmed CT2.5 -->
@@ -1676,6 +1698,7 @@
 				<param dispel="POISON,9" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2579" levels="1" name="Cure Death Clock">
 		<!-- Confirmed CT2.5 -->
@@ -1689,6 +1712,7 @@
 				<param dispel="DEATH_CLACK,1" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2580" levels="1" name="Vitality Replenishing Herb">
 		<!-- High Five Confirmed -->
@@ -1725,6 +1749,7 @@
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="NONE" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2582" levels="1" name="not_used">
 		<set name="effectPoint" val="1" />
@@ -1733,6 +1758,7 @@
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="NONE" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2583" levels="1" name="not_used">
 		<set name="effectPoint" val="1" />
@@ -1741,6 +1767,7 @@
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="NONE" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2584" levels="1" name="Item - Special Sound Crystal">
 		<set name="isMagic" val="2" />
@@ -1748,6 +1775,7 @@
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2585" levels="1" name="Item - Special Sound Crystal">
 		<set name="isMagic" val="2" />
@@ -1755,6 +1783,7 @@
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2586" levels="2" name="Energy Replenishing Potion">
 		<!-- Confirmed CT2.5 -->
@@ -1770,6 +1799,7 @@
 				<param value="#value" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2587" levels="1" name="Increase number of teleport slots.">
 		<set name="isMagic" val="2" />
@@ -1779,6 +1809,7 @@
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="NONE" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2588" levels="1" name="My Teleport">
 		<set name="hitTime" val="20000" />
@@ -1787,6 +1818,7 @@
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="NONE" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2589" levels="1" name="Extra Entrance Pass - Kamaloka (Hall of the Abyss)">
 		<set name="isMagic" val="2" />
@@ -1796,6 +1828,7 @@
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="NONE" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2590" levels="1" name="Extra Entrance Pass - Near Kamaloka">
 		<set name="isMagic" val="2" />
@@ -1805,6 +1838,7 @@
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="NONE" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2591" levels="1" name="Extra Entrance Pass - Kamaloka (Labyrinth of the Abyss)">
 		<set name="isMagic" val="2" />
@@ -1814,6 +1848,7 @@
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="NONE" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2592" levels="1" name="Quick Healing Potion">
 		<set name="isMagic" val="2" />
@@ -1826,6 +1861,7 @@
 				<param power="30" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2593" levels="1" name="Bow/Crossbow Attack Resistance Potion">
 		<set name="abnormalLvl" val="4" />
@@ -1846,6 +1882,7 @@
 				<param CROSSBOW="20" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2594" levels="1" name="Pailaka Scroll of Escape">
 		<!-- High Five Confirmed -->
@@ -1918,6 +1955,7 @@
 				<param power="100" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2597" levels="1" name="Gran Kain's Echo Crystal - Theme of Journey">
 		<set name="isMagic" val="2" />
@@ -1925,6 +1963,7 @@
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2598" levels="1" name="Gran Kain's Echo Crystal - Theme of Battle">
 		<set name="isMagic" val="2" />
@@ -1932,6 +1971,7 @@
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2599" levels="1" name="Gran Kain's Echo Crystal - Theme of Love">
 		<set name="isMagic" val="2" />
@@ -1939,5 +1979,6 @@
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 </list>

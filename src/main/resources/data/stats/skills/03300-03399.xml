@@ -284,6 +284,7 @@
 				<mul stat="defCritRate" val="0.95" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="3322" levels="1" name="Brass Bracelet">
 		<!-- Confirmed CT2.5 -->
@@ -563,6 +564,7 @@
 				<param id="102" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="3336" levels="1" name="Transform Buffalo">
 		<!-- Confirmed CT2.5 -->
@@ -589,6 +591,7 @@
 				<param dispel="BIG_HEAD,9" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="3337" levels="1" name="Transform Cutie Pig">
 		<!-- Confirmed CT2.5 -->
@@ -613,6 +616,7 @@
 				<param id="104" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="3338" levels="1" name="Shield Master">
 		<!-- High Five Confirmed -->
@@ -914,6 +918,7 @@
 				<param id="101" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="3360" levels="1" name="Cheap Shot">
 		<!-- Confirmed CT2.5 -->

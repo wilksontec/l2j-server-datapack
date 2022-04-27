@@ -23,6 +23,7 @@
 		<!-- Slams down on the treasure chest with a hammer to open it. -->
 		<set name="operateType" val="P" />
 		<set name="targetType" val="NONE" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="20002" levels="1" name="Dragon Kick">
 		<!-- High Five Confirmed -->
@@ -163,5 +164,6 @@
 				<param heal="true" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 </list>

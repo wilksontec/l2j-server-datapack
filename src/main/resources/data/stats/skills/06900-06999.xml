@@ -82,6 +82,7 @@
 				<param id="22" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="6909" levels="1" name="Charming">
 		<!-- High Five Confirmed -->
@@ -91,6 +92,7 @@
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE" />
 		<set name="targetType" val="SELF" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="6910" levels="1" name="Dance">
 		<!-- High Five Confirmed -->
@@ -100,6 +102,7 @@
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE" />
 		<set name="targetType" val="SELF" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="6911" levels="1" name="Greeting">
 		<!-- High Five Confirmed -->
@@ -109,6 +112,7 @@
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE" />
 		<set name="targetType" val="SELF" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="6912" levels="1" name="Stigma Aftermath">
 		<!-- High Five Confirmed -->
@@ -184,6 +188,7 @@
 				<mul stat="pAtkSpd" val="#rate" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="6915" levels="10" name="npc Acumen">
 		<!-- High Five Confirmed -->
@@ -203,6 +208,7 @@
 				<mul stat="mAtkSpd" val="#mAtkSpd" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="6916" levels="1" name="Antharas's Cute Tricks">
 		<!-- High Five Confirmed -->
@@ -214,6 +220,7 @@
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="6917" levels="1" name="Kanna's Splendor">
 		<!-- High Five Confirmed -->
@@ -225,6 +232,7 @@
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="6918" levels="1" name="Kallesin's Splendor">
 		<!-- High Five Confirmed -->
@@ -236,6 +244,7 @@
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="6919" levels="1" name="Challenge Acceptance">
 		<!-- High Five Confirmed -->
@@ -269,6 +278,7 @@
 				<mul stat="rEvas" val="1.15" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="6920" levels="1" name="Collector's Fortune">
 		<!-- High Five Confirmed -->

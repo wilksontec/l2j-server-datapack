@@ -87,6 +87,7 @@
 				<add stat="runSpd" val="20" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="21005" levels="1" name="Agility">
 		<!-- Confirmed CT2.5 -->
@@ -107,6 +108,7 @@
 				<add stat="rEvas" val="4" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="21006" levels="1" name="Large Firework Effect">
 		<!-- Confirmed CT2.5 -->
@@ -117,6 +119,7 @@
 		<set name="reuseDelay" val="3600000" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="21007" levels="1" name="Ability of Doubt">
 		<!-- Confirmed CT2.5 -->
@@ -134,6 +137,7 @@
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
 		<set name="trait" val="ETC" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="21008" levels="1" name="Release Seal on Agathion - Baby Panda">
 		<!-- Confirmed CT2.5 -->
@@ -204,6 +208,7 @@
 				<sub stat="vitalityConsumeRate" val="10" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="21012" levels="1" name="Energy Recovery">
 		<!-- Recovers energy when acquiring Exp. for 20 minutes -->
@@ -226,6 +231,7 @@
 				<sub stat="vitalityConsumeRate" val="10" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="21013" levels="1" name="Energy Recovery">
 		<!-- Recovers energy when acquiring Exp. for 20 minutes -->
@@ -248,6 +254,7 @@
 				<sub stat="vitalityConsumeRate" val="10" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="21014" levels="1" name="Scissors">
 		<!-- High Five Confirmed -->
@@ -729,6 +736,7 @@
 				<param power="50" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="21043" levels="1" name="Agathion Seal Cancel - Red Sumo Wrestler">
 		<!-- Confirmed CT2.5 -->
@@ -877,6 +885,7 @@
 				<param id="110" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="21052" levels="1" name="Bless the Body">
 		<!-- Confirmed CT2.5 -->
@@ -898,6 +907,7 @@
 				<param type="PER" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="21053" levels="1" name="Bless the Soul">
 		<!-- Confirmed CT2.5 -->
@@ -919,6 +929,7 @@
 				<param type="PER" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="21054" levels="1" name="Blessed Resurrection Ability">
 		<!-- Confirmed CT2.5 -->
@@ -942,6 +953,7 @@
 				<param power="100" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="21055" levels="1" name="Wind Walk">
 		<!-- Confirmed CT2.5 -->
@@ -963,6 +975,7 @@
 				<add stat="runSpd" val="20" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="21056" levels="1" name="Agility">
 		<!-- Confirmed CT2.5 -->
@@ -983,6 +996,7 @@
 				<add stat="rEvas" val="4" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="21057" levels="1" name="Reflect">
 		<!-- Confirmed CT2.5 -->
@@ -1006,6 +1020,7 @@
 				<add stat="reflectDam" val="20" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="21058" levels="1" name="Mana Regeneration">
 		<!-- High Five Confirmed -->
@@ -1059,6 +1074,7 @@
 				<param power="444" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="21060" levels="1" name="Death Whisper">
 		<!-- Confirmed CT2.5 -->
@@ -1080,6 +1096,7 @@
 				<mul stat="critDmg" val="1.35" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="21061" levels="1" name="Agility">
 		<!-- Confirmed CT2.5 -->
@@ -1100,6 +1117,7 @@
 				<add stat="rEvas" val="4" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="21062" levels="1" name="Wild Magic">
 		<!-- Confirmed CT2.5 -->
@@ -1121,6 +1139,7 @@
 				<add stat="mCritRate" val="2" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="21063" levels="1" name="Wind Walk">
 		<!-- Confirmed CT2.5 -->
@@ -1142,6 +1161,7 @@
 				<add stat="runSpd" val="20" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="21064" levels="1" name="Mana Regeneration">
 		<!-- High Five Confirmed -->
@@ -1191,6 +1211,7 @@
 				<add stat="reflectDam" val="20" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="21066" levels="1" name="Energy Recovery">
 		<!-- Confirmed CT2.5 -->
@@ -1214,6 +1235,7 @@
 				<sub stat="vitalityConsumeRate" val="10" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="21067" levels="1" name="Blessed Escape">
 		<!-- High Five Confirmed -->
@@ -1264,6 +1286,7 @@
 				<add stat="darkRes" val="30" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="21069" levels="1" name="Wind Walk">
 		<!-- Confirmed CT2.5 -->
@@ -1285,6 +1308,7 @@
 				<add stat="runSpd" val="20" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="21070" levels="1" name="Death Whisper">
 		<!-- Confirmed CT2.5 -->
@@ -1306,6 +1330,7 @@
 				<mul stat="critDmg" val="1.35" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="21071" levels="1" name="Agility">
 		<!-- Confirmed CT2.5 -->
@@ -1326,6 +1351,7 @@
 				<add stat="rEvas" val="4" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="21072" levels="1" name="Wild Magic">
 		<!-- Confirmed CT2.5 -->
@@ -1347,6 +1373,7 @@
 				<add stat="mCritRate" val="2" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="21073" levels="1" name="Mana Regeneration">
 		<!-- High Five Confirmed -->
@@ -1396,6 +1423,7 @@
 				<add stat="reflectDam" val="20" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="21075" levels="1" name="Greater Heal">
 		<!-- Confirmed CT2.5 -->
@@ -1423,6 +1451,7 @@
 				<param power="444" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="21076" levels="1" name="Resist Unholy">
 		<!-- Confirmed CT2.5 -->
@@ -1446,6 +1475,7 @@
 				<add stat="darkRes" val="30" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="21077" levels="1" name="Wind Walk">
 		<!-- Confirmed CT2.5 -->
@@ -1467,6 +1497,7 @@
 				<add stat="runSpd" val="20" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="21078" levels="1" name="Death Whisper">
 		<!-- Confirmed CT2.5 -->
@@ -1488,6 +1519,7 @@
 				<mul stat="critDmg" val="1.35" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="21079" levels="1" name="Agility">
 		<!-- Confirmed CT2.5 -->
@@ -1508,6 +1540,7 @@
 				<add stat="rEvas" val="4" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="21080" levels="1" name="Wild Magic">
 		<!-- Confirmed CT2.5 -->
@@ -1529,6 +1562,7 @@
 				<add stat="mCritRate" val="2" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="21081" levels="1" name="Mana Regeneration">
 		<!-- High Five Confirmed -->
@@ -1578,6 +1612,7 @@
 				<add stat="reflectDam" val="20" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="21083" levels="1" name="Greater Heal">
 		<!-- Confirmed CT2.5 -->
@@ -1605,6 +1640,7 @@
 				<param power="444" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="21084" levels="1" name="Energy Recovery">
 		<!-- Confirmed CT2.5 -->
@@ -1628,6 +1664,7 @@
 				<sub stat="vitalityConsumeRate" val="10" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="21085" levels="1" name="Agathion Seal Cancel - Pomona">
 		<!-- Confirmed CT2.5 -->
@@ -1674,6 +1711,7 @@
 				<sub stat="cancelVuln" val="100" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="21087" levels="1" name="Berserker Spirit">
 		<!-- Confirmed CT2.5 -->
@@ -1702,6 +1740,7 @@
 				<sub stat="rEvas" val="4" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="21088" levels="1" name="Summon Friend">
 		<!-- High Five Confirmed -->
@@ -1756,6 +1795,7 @@
 				<mul stat="runSpd" val="0.5" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="21090" levels="1" name="Soul of Phoenix">
 		<!-- Confirmed CT2.5 -->
@@ -1780,6 +1820,7 @@
 				<param resRecovery="100" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="21091" levels="1" name="Agathion Seal Cancel - Weaver">
 		<!-- Confirmed CT2.5 -->
@@ -1837,6 +1878,7 @@
 				<param power="100" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="21096" levels="1" name="Ability of Cool Watermelon">
 		<!-- Confirmed CT2.5 -->
@@ -1859,6 +1901,7 @@
 				<mul stat="critDmg" val="1.35" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="21097" levels="1" name="Summon Friend">
 		<!-- High Five Confirmed -->
@@ -1921,6 +1964,7 @@
 				<sub stat="debuffVuln" val="10" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="21099" levels="1" name="Great Warrior's Soul Power: Strength">
 		<!-- Confirmed CT2.5 -->
@@ -1945,5 +1989,6 @@
 				<add stat="absorbDam" val="5" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 </list>

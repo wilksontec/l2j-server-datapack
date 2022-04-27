@@ -23,6 +23,7 @@
 				<mul stat="mDef" val="0.34" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="5701" levels="7" name="Decrease P. Atk">
 		<!-- Lvl 1 - Kamaloka (Labyrinth of the Abyss) 29 -->
@@ -47,6 +48,7 @@
 				<mul stat="pAtk" val="0.34" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="5702" levels="2" name="Adiantum Round Fighter">
 		<!-- High Five Confirmed -->
@@ -508,6 +510,7 @@
 				<mul stat="pAtk" val="1.50" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="5719" levels="1" name="Kamabion Susceptibility">
 		<!-- High Five Confirmed -->
@@ -1484,6 +1487,7 @@
 		<effects>
 			<effect name="Buff" />
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="5754" levels="1" name="Presentation - Adiantum Round Fighter">
 		<!-- High Five Confirmed -->
@@ -1551,6 +1555,7 @@
 		<set name="reuseDelay" val="3000" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="5759" levels="1" name="Presentation - The Rise of Latana">
 		<!-- High Five Confirmed -->
@@ -1559,6 +1564,7 @@
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE" />
 		<set name="targetType" val="SELF" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="5760" levels="9" name="Critical Hit">
 		<!-- High Five Confirmed -->
@@ -1590,6 +1596,7 @@
 				<param allowWeapons="ALL" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="5761" levels="2" name="Power Strike">
 		<!-- High Five Confirmed -->
@@ -1878,6 +1885,7 @@
 		<effects>
 			<effect name="Buff" />
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="5772" levels="1" name="Surrender to Fire">
 		<!-- High Five Confirmed -->
@@ -2077,6 +2085,7 @@
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE" />
 		<set name="targetType" val="SELF" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="5782" levels="1" name="Presentation - Lindvior Gust">
 		<!-- Confirmed CT2.5 -->
@@ -2085,6 +2094,7 @@
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE" />
 		<set name="targetType" val="SELF" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="5783" levels="1" name="Presentation - Lindvior Descent">
 		<!-- Confirmed CT2.5 -->
@@ -2093,6 +2103,7 @@
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE" />
 		<set name="targetType" val="SELF" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="5784" levels="1" name="Presentation - Lindvior Dust">
 		<!-- Confirmed CT2.5 -->
@@ -2101,6 +2112,7 @@
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE" />
 		<set name="targetType" val="SELF" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="5785" levels="1" name="Presentation - Dimensional Door">
 		<!-- Confirmed CT2.5 -->
@@ -2108,6 +2120,7 @@
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE" />
 		<set name="targetType" val="SELF" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="5786" levels="1" name="Presentation - Ekimus Separation">
 		<!-- Confirmed CT2.5 -->
@@ -2117,6 +2130,7 @@
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="5787" levels="1" name="Presentation - Ekimus Approach">
 		<!-- Confirmed CT2.5 -->
@@ -2126,6 +2140,7 @@
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="5788" levels="1" name="Presentation - Ekimus Blood Hail">
 		<!-- Confirmed CT2.5 -->
@@ -2135,6 +2150,7 @@
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="5789" levels="1" name="Presentation - Ekimus Sneer">
 		<!-- Confirmed CT2.5 -->
@@ -2144,6 +2160,7 @@
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="5790" levels="1" name="Presentation - Ekimus Aftereffect">
 		<!-- Confirmed CT2.5 -->
@@ -2151,6 +2168,7 @@
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE" />
 		<set name="targetType" val="SELF" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="5791" levels="1" name="Presentation - Magyun's Entrance">
 		<!-- Confirmed CT2.5 -->
@@ -2160,6 +2178,7 @@
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="5792" levels="1" name="Presentation - Summon Banshee Queen Boomi">
 		<!-- Confirmed CT2.5 -->
@@ -2168,6 +2187,7 @@
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE" />
 		<set name="targetType" val="SELF" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="5793" levels="1" name="Presentation - Summon Boomi">
 		<!-- Confirmed CT2.5 -->
@@ -2176,6 +2196,7 @@
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE" />
 		<set name="targetType" val="SELF" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="5794" levels="1" name="Decrease Spd.">
 		<!-- High Five Confirmed -->

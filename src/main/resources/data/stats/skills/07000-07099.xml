@@ -73,6 +73,7 @@
 				<param dispel="TURN_STONE,2" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="7005" levels="4" name="Greater Chant of Vampire">
 		<!-- This skill only has one level, 4. -->
@@ -1481,6 +1482,7 @@
 				<param npcId="30048" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="7073" levels="1" name="Test - Find Trap">
 		<!-- High Five Confirmed -->

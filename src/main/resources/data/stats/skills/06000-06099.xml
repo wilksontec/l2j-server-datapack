@@ -162,6 +162,7 @@
 				<mul stat="mAtk" val="1.06" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="6021" levels="1" name="Soul Retain">
 		<!-- Confirmed CT2.5 -->
@@ -184,6 +185,7 @@
 				<mul stat="mAtk" val="1.09" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="6022" levels="1" name="Soul Retain">
 		<!-- Confirmed CT2.5 -->
@@ -206,6 +208,7 @@
 				<mul stat="mAtk" val="1.12" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="6023" levels="1" name="Soul Retain">
 		<!-- Confirmed CT2.5 -->
@@ -228,6 +231,7 @@
 				<mul stat="mAtk" val="1.15" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="6024" levels="1" name="Weight Aerial Cleft">
 		<!-- High Five Confirmed -->
@@ -705,6 +709,7 @@
 				<mul stat="mDef" val="#amount" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="6050" levels="14" name="Power Smash">
 		<!-- High Five Confirmed -->
@@ -815,6 +820,7 @@
 				<mul stat="mDef" val="#amount" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="6054" levels="1" name="Switch State">
 		<!-- Confirmed CT2.5 -->
@@ -933,6 +939,7 @@
 				</mul>
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="6060" levels="1" name="Great Fury">
 		<!-- High Five Confirmed -->
@@ -1267,6 +1274,7 @@
 				<mul stat="runSpd" val="0.9" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="6094" levels="11" name="Panther Cancel">
 		<!-- Confirmed CT2.5 -->

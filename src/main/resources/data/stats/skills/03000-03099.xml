@@ -54,7 +54,7 @@
 		<set name="icon" val="icon.skill0042" />
 		<set name="operateType" val="P" />
 		<set name="targetType" val="SELF" />
-			<!-- TODO: Implement proper effect. -->
+		<!-- TODO: Implement proper effect. -->
 	</skill>
 	<skill id="3007" levels="6" name="Special Ability: Guidance">
 		<!-- Confirmed CT2.5 -->
@@ -819,6 +819,7 @@
 				<param power="8.39" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="3050" levels="2" name="Special Ability: Focus">
 		<!-- Confirmed CT2.5 -->
@@ -1710,10 +1711,10 @@
 		<effects>
 			<effect name="Stun" />
 			<effect name="BlockDamage">
-				<param block="HP"/>
+				<param block="HP" />
 			</effect>
 			<effect name="BlockDamage">
-				<param block="MP"/>
+				<param block="MP" />
 			</effect>
 			<effect name="BlockBuff" />
 			<effect name="BlockDebuff" />

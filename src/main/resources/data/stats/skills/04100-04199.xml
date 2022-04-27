@@ -733,6 +733,7 @@
 				<mul stat="regHp" val="0.05" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="4126" levels="1" name="Reduction in recovery time">
 		<!-- High Five Confirmed -->

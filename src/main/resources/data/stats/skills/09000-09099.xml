@@ -6,6 +6,7 @@
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="NONE" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="9001" levels="1" name="PC room private armor strengthening order sheet - C grade">
 		<set name="isMagic" val="2" />
@@ -13,6 +14,7 @@
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="NONE" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="9002" levels="1" name="PC room private armor strengthening order sheet - B grade">
 		<set name="isMagic" val="2" />
@@ -20,6 +22,7 @@
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="NONE" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="9003" levels="1" name="PC room private weapon strengthening order sheet - A grade">
 		<set name="isMagic" val="2" />
@@ -27,6 +30,7 @@
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="NONE" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="9004" levels="1" name="PC room private armor strengthening order sheet - S grade">
 		<set name="isMagic" val="2" />
@@ -34,6 +38,7 @@
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="NONE" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="9005" levels="1" name="PC room private blessed weapon strengthening order sheet - D grade">
 		<set name="isMagic" val="2" />
@@ -41,6 +46,7 @@
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="NONE" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="9006" levels="1" name="PC room private blessed weapon strengthening order sheet - C grade">
 		<set name="isMagic" val="2" />
@@ -48,6 +54,7 @@
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="NONE" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="9007" levels="1" name="PC room private blessed weapon strengthening order sheet - B grade">
 		<set name="isMagic" val="2" />
@@ -55,6 +62,7 @@
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="NONE" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="9008" levels="1" name="PC room private blessed weapon strengthening order sheet - A grade">
 		<set name="isMagic" val="2" />
@@ -62,6 +70,7 @@
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="NONE" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="9009" levels="1" name="PC room private blessed weapon strengthening order sheet - S grade">
 		<set name="isMagic" val="2" />
@@ -69,6 +78,7 @@
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="NONE" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="9010" levels="1" name="Cool air cannon">
 		<!-- High Five Confirmed -->
@@ -114,6 +124,7 @@
 				<mul stat="pAtk" val="1.15" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="9012" levels="1" name="Shield">
 		<!-- Confirmed CT2.5 -->
@@ -132,6 +143,7 @@
 				<mul stat="pDef" val="1.15" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="9013" levels="1" name="Wind Walk">
 		<!-- Confirmed CT2.5 -->
@@ -150,6 +162,7 @@
 				<add stat="runSpd" val="33" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="9014" levels="1" name="Focus">
 		<!-- Confirmed CT2.5 -->
@@ -168,6 +181,7 @@
 				<mul stat="critRate" val="1.3" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="9015" levels="1" name="Death Whisper">
 		<!-- Confirmed CT2.5 -->
@@ -186,6 +200,7 @@
 				<mul stat="critDmg" val="1.35" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="9016" levels="1" name="Guidance">
 		<!-- Confirmed CT2.5 -->
@@ -204,6 +219,7 @@
 				<add stat="accCombat" val="4" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="9017" levels="1" name="Blessed Shield">
 		<!-- Confirmed CT2.5 -->
@@ -222,6 +238,7 @@
 				<mul stat="rShld" val="1.3" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="9018" levels="1" name="Blessed Body">
 		<!-- Confirmed CT2.5 -->
@@ -241,6 +258,7 @@
 				<param type="PER" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="9019" levels="1" name="Haste">
 		<!-- Confirmed CT2.5 -->
@@ -259,6 +277,7 @@
 				<mul stat="pAtkSpd" val="1.33" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="9020" levels="1" name="Vampiric Rage">
 		<!-- High Five Confirmed -->
@@ -304,6 +323,7 @@
 				<sub stat="rEvas" val="4" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="9022" levels="1" name="Magic Barrier">
 		<!-- Confirmed CT2.5 -->
@@ -322,6 +342,7 @@
 				<mul stat="mDef" val="1.3" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="9023" levels="1" name="Blessed Soul">
 		<!-- Confirmed CT2.5 -->
@@ -341,6 +362,7 @@
 				<param type="PER" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="9024" levels="1" name="Empower">
 		<!-- Confirmed CT2.5 -->
@@ -359,6 +381,7 @@
 				<mul stat="mAtk" val="1.75" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="9025" levels="1" name="Acumen">
 		<!-- Confirmed CT2.5 -->
@@ -377,6 +400,7 @@
 				<mul stat="mAtkSpd" val="1.3" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="9026" levels="1" name="Clarity">
 		<!-- Confirmed CT2.5 -->
@@ -397,6 +421,7 @@
 				<mul stat="danceMpConsumeRate" val="0.8" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="9027" levels="1" name="PC cafe personal instant lottery">
 		<!-- Confirmed CT2.5 -->
@@ -466,6 +491,7 @@
 				<param npcId="13271" npcCount="1" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="9030" levels="1" name="Honey Watermelon Seed">
 		<!-- Confirmed CT2.5 -->
@@ -483,6 +509,7 @@
 				<param npcId="13275" npcCount="1" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="9031" levels="1" name="Copied Watermelon Seed">
 		<!-- Confirmed CT2.5 -->
@@ -500,6 +527,7 @@
 				<param npcId="13271" npcCount="1" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="9032" levels="1" name="Copied Honey Watermelon Seed">
 		<!-- Confirmed CT2.5 -->
@@ -517,6 +545,7 @@
 				<param npcId="13275" npcCount="1" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="9033" levels="1" name="Herdsman's Love Scroll">
 		<set name="isMagic" val="2" />
@@ -526,6 +555,7 @@
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="NONE" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="9034" levels="1" name="Vitality Belt Enchant Scroll">
 		<set name="isMagic" val="2" />
@@ -535,6 +565,7 @@
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="NONE" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="9035" levels="1" name="Steamed Rice Cake">
 		<!-- High Five Confirmed -->
@@ -628,6 +659,7 @@
 				<param value="20000" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="9039" levels="1" name="Steamed Rice Cake">
 		<!-- Confirmed CT2.5 -->
@@ -644,6 +676,7 @@
 				<param value="20000" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="9040" levels="1" name="PC Cafe Points">
 		<set name="isMagic" val="2" />
@@ -654,6 +687,7 @@
 		<set name="reuseDelay" val="604800000" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="NONE" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="9041" levels="1" name="Sixth Anniversary Cake">
 		<set name="abnormalLvl" val="8" />
@@ -671,6 +705,7 @@
 		<set name="reuseDelay" val="43200000" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="NONE" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="9042" levels="1" name="6th Anniversary Cube">
 		<!-- Confirmed CT2.5 -->
@@ -1084,6 +1119,7 @@
 		<set name="reuseDelay" val="10000" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="NONE" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="9062" levels="1" name="Belldandy Summon Scroll">
 		<set name="isMagic" val="2" />
@@ -1094,6 +1130,7 @@
 		<set name="reuseDelay" val="10000" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="NONE" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="9063" levels="1" name="Skooldie Summon Scroll">
 		<set name="isMagic" val="2" />
@@ -1104,6 +1141,7 @@
 		<set name="reuseDelay" val="10000" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="NONE" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="9064" levels="1" name="Halloween Toy Chest">
 		<!-- Confirmed CT2.5 -->
@@ -1202,6 +1240,7 @@
 				<mul stat="vitalityConsumeRate" val="0" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="9068" levels="2" name="Potion of Vitality Maintenance">
 		<!-- Confirmed CT2.5 -->
@@ -1223,6 +1262,7 @@
 				<mul stat="vitalityConsumeRate" val="0" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="9069" levels="1" name="10,000 SP scroll">
 		<!-- Confirmed CT2.5 -->
@@ -1239,6 +1279,7 @@
 				<param sp="10000" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="9070" levels="1" name="Halloween Pumpkin">
 		<!-- Confirmed CT2.5 -->
@@ -1351,6 +1392,7 @@
 				<param amount="2300" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="9075" levels="1" name="Awful Soup">
 		<!-- High Five Confirmed -->
@@ -1437,6 +1479,7 @@
 				<mul stat="regCp" val="1.3" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="9079" levels="1" name="Santa's Buff Scroll">
 		<!-- Confirmed CT2.5 -->
@@ -1476,6 +1519,7 @@
 				<mul stat="runSpd" val="0.8" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="9080" levels="1" name="Santa's Sock">
 		<!-- Confirmed CT2.5 -->
@@ -1518,6 +1562,7 @@
 				<param value="20000" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="9082" levels="1" name="White Christmas Petition">
 		<!-- Confirmed CT2.5 -->
@@ -1542,6 +1587,7 @@
 				<mul stat="vitalityConsumeRate" val="0" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="9083" levels="1" name="Christmas Cake - event">
 		<!-- Confirmed CT2.5 -->
@@ -1560,6 +1606,7 @@
 				<param value="20000" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="9084" levels="1" name="White Christmas Petition - event">
 		<!-- Confirmed CT2.5 -->
@@ -1583,6 +1630,7 @@
 				<mul stat="vitalityConsumeRate" val="0" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="9085" levels="1" name="Santa Claus's Gift">
 		<!-- Confirmed CT2.5 -->
@@ -1621,6 +1669,7 @@
 				<param amount="300" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="9087" levels="1" name="Create Item">
 		<!-- Confirmed CT2.5 -->
@@ -1647,6 +1696,7 @@
 				<param skillId="172" skillLvl="10" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="9088" levels="1" name="Cupid's Arrow">
 		<set name="effectPoint" val="-1000" />
@@ -1659,6 +1709,7 @@
 		<set name="reuseDelay" val="1000" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="NONE" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="9089" levels="1" name="Cupid's Major Cure">
 		<set name="effectPoint" val="-1000" />
@@ -1671,6 +1722,7 @@
 		<set name="reuseDelay" val="4000" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="NONE" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="9090" levels="1" name="Fighter's Will">
 		<!-- Confirmed CT2.5 -->
@@ -1696,6 +1748,7 @@
 				<param skillId="758" skillLvl="1" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="9091" levels="1" name="Archer's Will">
 		<!-- Confirmed CT2.5 -->
@@ -1721,6 +1774,7 @@
 				<param skillId="759" skillLvl="1" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="9092" levels="1" name="Magician's Will">
 		<!-- Confirmed CT2.5 -->
@@ -1746,6 +1800,7 @@
 				<param skillId="945" skillLvl="1" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="9093" levels="1" name="Protection of Rune">
 		<!-- Confirmed CT2.5 -->
@@ -1771,6 +1826,7 @@
 				<param skillId="755" skillLvl="1" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="9094" levels="1" name="Protection of Elemental">
 		<!-- Confirmed CT2.5 -->
@@ -1796,6 +1852,7 @@
 				<param skillId="756" skillLvl="1" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="9095" levels="1" name="Protection of Alignment">
 		<!-- Confirmed CT2.5 -->
@@ -1821,6 +1878,7 @@
 				<param skillId="757" skillLvl="1" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="9096" levels="1" name="Event - White Baby Tiger Scroll">
 		<!-- Confirmed CT2.5 -->
@@ -1837,6 +1895,7 @@
 				<param npcId="13286" npcCount="1" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="9097" levels="1" name="Event - White Baby King-Tiger Scroll">
 		<!-- Confirmed CT2.5 -->
@@ -1853,6 +1912,7 @@
 				<param npcId="13287" npcCount="1" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="9098" levels="1" name="Event - Sad White Baby Tiger Scroll">
 		<!-- Confirmed CT2.5 -->
@@ -1869,6 +1929,7 @@
 				<param npcId="13293" npcCount="1" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="9099" levels="1" name="Event - Sad White Baby King-Tiger Scroll">
 		<!-- Confirmed CT2.5 -->
@@ -1885,5 +1946,6 @@
 				<param npcId="13294" npcCount="1" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 </list>

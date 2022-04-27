@@ -60,6 +60,7 @@
 				<player transformationId="103" />
 			</not>
 		</cond>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="3405" levels="1" name="Large Firecracker Effect">
 		<set name="isMagic" val="2" />
@@ -68,6 +69,7 @@
 		<set name="reuseDelay" val="1200000" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="3406" levels="1" name="Weight Decrease Ring">
 		<!-- Confirmed CT2.5 -->
@@ -99,6 +101,7 @@
 				<mul stat="runSpd" val="0.6" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="3408" levels="1" name="Blessed Ring of Escape">
 		<!-- High Five Confirmed -->
@@ -147,6 +150,7 @@
 				<param power="100" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="3410" levels="1" name="Blue Talisman of Reflection">
 		<set name="abnormalLvl" val="1" />
@@ -167,6 +171,7 @@
 				<add stat="reflectDam" val="10" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="3411" levels="1" name="Special Ability: Focus">
 		<set name="icon" val="icon.skill1077" />
@@ -307,6 +312,7 @@
 				<param id="104" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="3419" levels="1" name="Magic Immunity">
 		<set name="icon" val="icon.etc_stripe_shirts_s_i05" />
@@ -341,6 +347,7 @@
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="NONE" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="3422" levels="1" name="Wolf Dismount">
 		<set name="blockedInOlympiad" val="true" />
@@ -350,6 +357,7 @@
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="NONE" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="3423" levels="1" name="Little Angel Agathion - Summon (or Release)">
 		<!-- Confirmed CT2.5 -->
@@ -439,7 +447,7 @@
 				<mul stat="pvpMagicalDmg" val="1.07" />
 				<mul stat="pvpPhysSkillsDmg" val="1.07" />
 				<add stat="reflectDam" val="9" />
-			</effect>			
+			</effect>
 			<effect name="TriggerSkillByAttack">
 				<param attackerType="L2Character" minAttackerLevel="1" maxAttackerLevel="100" />
 				<param isCritical="true" />
@@ -472,6 +480,7 @@
 				<mul stat="pAtkSpd" val="1.1" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="3429" levels="1" name="Red Talisman - Life Force">
 		<!-- Confirmed CT2.5 -->
@@ -491,6 +500,7 @@
 				<param power="100" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="3430" levels="1" name="White Talisman - Darkness">
 		<!-- Confirmed CT2.5 -->
@@ -513,6 +523,7 @@
 				<add stat="darkRes" val="50" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="3431" levels="1" name="White Talisman - Storm">
 		<!-- Confirmed CT2.5 -->
@@ -535,6 +546,7 @@
 				<add stat="windRes" val="50" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="3432" levels="1" name="White Talisman - Water">
 		<!-- Confirmed CT2.5 -->
@@ -557,6 +569,7 @@
 				<add stat="waterRes" val="50" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="3433" levels="1" name="White Talisman - Fire">
 		<!-- Confirmed CT2.5 -->
@@ -579,6 +592,7 @@
 				<add stat="fireRes" val="50" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="3434" levels="1" name="White Talisman - Earth">
 		<!-- Confirmed CT2.5 -->
@@ -601,6 +615,7 @@
 				<add stat="earthRes" val="50" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="3435" levels="1" name="White Talisman - Light">
 		<!-- Confirmed CT2.5 -->
@@ -623,6 +638,7 @@
 				<add stat="holyRes" val="50" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="3436" levels="1" name="Blue Talisman of Self destruction">
 		<!-- High Five Confirmed -->
@@ -668,6 +684,7 @@
 				<mul stat="mAtk" val="1.55" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="3438" levels="1" name="Blue Talisman - Great Healing">
 		<!-- Confirmed CT2.5 -->
@@ -690,6 +707,7 @@
 				<add stat="healEffect" val="1000" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="3439" levels="1" name="Silk Shirt">
 		<set name="magicLvl" val="49" />
@@ -1264,6 +1282,7 @@
 				<add stat="pAtk" val="9.4" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="3488" levels="1" name="Blue Talisman of Protection">
 		<!-- Confirmed CT2.5 -->
@@ -1286,6 +1305,7 @@
 				<add stat="sDef" val="63" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="3489" levels="1" name="Yellow Talisman of Arcane Power">
 		<!-- Confirmed CT2.5 -->
@@ -1392,6 +1412,7 @@
 				<param amount="100" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="3497" levels="1" name="Yellow Talisman of MP Regeneration">
 		<!-- Confirmed CT2.5 -->
@@ -1431,5 +1452,6 @@
 				<param dispel="TRANSFORM,9" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 </list>

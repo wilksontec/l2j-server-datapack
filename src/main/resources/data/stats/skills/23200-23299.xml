@@ -172,6 +172,7 @@
 		<set name="reuseDelay" val="1000" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="NONE" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="23211" levels="85" name="Prominence">
 		<table name="#effectPoint"> -92 -97 -101 -106 -111 -116 -121 -126 -132 -138 -143 -149 -156 -162 -168 -175 -182 -189 -196 -204 -211 -219 -227 -235 -243 -251 -259 -268 -277 -285 -294 -303 -313 -322 -331 -341 -350 -360 -369 -379 -389 -399 -408 -418 -428 -438 -448 -457 -467 -477 -486 -495 -505 -514 -523 -532 -541 -549 -558 -566 -574 -582 -590 -597 -604 -611 -617 -624 -630 -635 -641 -646 -650 -655 -659 -662 -666 -669 -673 -676 -679 -681 -684 -687 -689 </table>
@@ -184,6 +185,7 @@
 		<set name="reuseDelay" val="2000" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="NONE" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="23212" levels="85" name="Flame Strike">
 		<table name="#effectPoint"> -92 -97 -101 -106 -111 -116 -121 -126 -132 -138 -143 -149 -156 -162 -168 -175 -182 -189 -196 -204 -211 -219 -227 -235 -243 -251 -259 -268 -277 -285 -294 -303 -313 -322 -331 -341 -350 -360 -369 -379 -389 -399 -408 -418 -428 -438 -448 -457 -467 -477 -486 -495 -505 -514 -523 -532 -541 -549 -558 -566 -574 -582 -590 -597 -604 -611 -617 -624 -630 -635 -641 -646 -650 -655 -659 -662 -666 -669 -673 -676 -679 -681 -684 -687 -689 </table>
@@ -213,6 +215,7 @@
 		<set name="reuseDelay" val="6000" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="NONE" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="23214" levels="1" name="Good/Bad of Life">
 		<!-- Confirmed CT2.5 -->
@@ -228,6 +231,7 @@
 				<param amount="500" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="23215" levels="1" name="Good/Bad of Mind">
 		<!-- Confirmed CT2.5 -->
@@ -243,6 +247,7 @@
 				<param amount="500" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="23216" levels="1" name="Granny Tiger Agathion Cute Trick">
 		<set name="icon" val="icon.skill_agathion_cute" />
@@ -251,6 +256,7 @@
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="NONE" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="23217" levels="1" name="Granny Tiger Agathion Special Skill - Fundamentals">
 		<!-- For 1 minute(s), 50% of the standard short-range physical damage inflicted on the enemy is recovered as HP. Reuse delay is 1 hours. -->
@@ -266,6 +272,7 @@
 		<set name="reuseDelay" val="3600000" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="NONE" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="23218" levels="1" name="Flower Fairy Spirit Agathion Cute Trick">
 		<set name="icon" val="icon.skill_agathion_cute" />
@@ -274,6 +281,7 @@
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="NONE" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="23219" levels="1" name="Flower Fairy Spirit Agathion Special Skill - Fairy's Blessing">
 		<!-- For 5 minutes, increases Atk. Spd. by 30% and all attribute defense by 10. Reuse delay is 1 hours. -->
@@ -289,6 +297,7 @@
 		<set name="reuseDelay" val="3600000" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="NONE" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="23220" levels="1" name="Cheerleader Orodriel Agathion Cute Trick">
 		<set name="icon" val="icon.skill_agathion_cute" />
@@ -297,6 +306,7 @@
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="NONE" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="23221" levels="1" name="Cheerleader Orodriel Agathion Special Skill - Joy of Cheering">
 		<!-- For 20 minutes, increases Casting Spd. by 10% and Atk. Spd. by 10%. Decreases MP consumption for skill use by 30%. Reuse delay is 2 hours. -->
@@ -312,6 +322,7 @@
 		<set name="reuseDelay" val="7200000" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="NONE" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="23222" levels="1" name="Cheerleader Lana Agathion Cute Trick">
 		<set name="icon" val="icon.skill_agathion_cute" />
@@ -320,6 +331,7 @@
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="NONE" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="23223" levels="1" name="Cheerleader Lana Agathion Special Skill - Joy of Cheering">
 		<!-- For 20 minutes, increases Casting Spd. by 10% and Atk. Spd. by 10%. Decreases MP consumption for skill use by 30%. Reuse delay is 2 hours. -->
@@ -335,6 +347,7 @@
 		<set name="reuseDelay" val="7200000" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="NONE" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="23224" levels="1" name="Cheerleader Naonin Agathion Cute Trick">
 		<set name="icon" val="icon.skill_agathion_cute" />
@@ -343,6 +356,7 @@
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="NONE" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="23225" levels="1" name="Cheerleader Naonin Agathion Special Skill - Joy of Cheering">
 		<!-- For 20 minutes, increases Casting Spd. by 10% and Atk. Spd. by 10%. Decreases MP consumption for skill use by 30%. Reuse delay is 2 hours. -->
@@ -358,6 +372,7 @@
 		<set name="reuseDelay" val="7200000" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="NONE" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="23226" levels="1" name="Cheerleader Mortia Agathion Cute Trick">
 		<set name="icon" val="icon.skill_agathion_cute" />
@@ -366,6 +381,7 @@
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="NONE" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="23227" levels="1" name="Cheerleader Mortia Agathion Special Skill - Joy of Cheering">
 		<!-- For 20 minutes, increases Casting Spd. by 10% and Atk. Spd. by 10%. Decreases MP consumption for skill use by 30%. Reuse delay is 2 hours. -->
@@ -381,6 +397,7 @@
 		<set name="reuseDelay" val="7200000" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="NONE" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="23228" levels="1" name="Cheerleader Kaurin Agathion Cute Trick">
 		<set name="icon" val="icon.skill_agathion_cute" />
@@ -389,6 +406,7 @@
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="NONE" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="23229" levels="1" name="Cheerleader Kaurin Agathion Special Skill - Joy of Cheering">
 		<!-- For 20 minutes, increases Casting Spd. by 10% and Atk. Spd. by 10%. Decreases MP consumption for skill use by 30%. Reuse delay is 2 hours. -->
@@ -404,6 +422,7 @@
 		<set name="reuseDelay" val="7200000" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="NONE" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="23230" levels="1" name="Cheerleader Meruril Agathion Cute Trick">
 		<set name="icon" val="icon.skill_agathion_cute" />
@@ -412,6 +431,7 @@
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="NONE" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="23231" levels="1" name="Cheerleader Meruril Agathion Special Skill - Joy of Cheering">
 		<!-- For 20 minutes, increases Casting Spd. by 10% and Atk. Spd. by 10%. Decreases MP consumption for skill use by 30%. Reuse delay is 2 hours. -->
@@ -427,6 +447,7 @@
 		<set name="reuseDelay" val="7200000" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="NONE" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="23232" levels="1" name="Handy Agathion Cute Trick">
 		<set name="icon" val="icon.skill_agathion_cute" />
@@ -435,6 +456,7 @@
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="NONE" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="23233" levels="1" name="Handy Agathion Special Skill - Halloween's Blessing">
 		<!-- For 1 hour, increases Max HP by 40% and Max MP by 40%. Increases Atk. Spd. by 20% and P. Atk. by 10%. Increases resistance to darkness by 20. Reuse delay is 2 hours. -->
@@ -450,26 +472,31 @@
 		<set name="reuseDelay" val="7200000" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="NONE" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="23234" levels="1" name="Singer Dancer Agathion Cute Trick">
 		<!-- You can see the summoned spirit's cute tricks. -->
 		<set name="operateType" val="P" />
 		<set name="targetType" val="NONE" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="23235" levels="1" name="Singer Dancer Agathion Special Skill - Song of Hunter">
 		<!-- Increases critical attack rate by 100% for 2 minutes. Reuse delay 20 minutes. -->
 		<set name="operateType" val="P" />
 		<set name="targetType" val="NONE" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="23236" levels="1" name="Zaken Spirit Sword Cute Trick">
 		<!-- You can see the summoned spirit's cute tricks. -->
 		<set name="operateType" val="P" />
 		<set name="targetType" val="NONE" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="23237" levels="1" name="Zaken Spirit Sword Special Skill - Song of the Sword">
 		<!-- "For 30 minutes, increases Max HP by 40% and Max MP by 40%. Increases Atk. Spd. by 20% and P. Atk. by 10%. Reuse delay is 2 hours." -->
 		<set name="operateType" val="P" />
 		<set name="targetType" val="NONE" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="23238" levels="1" name="Master's Blessing - Eye of Pa'agrio">
 		<!-- High Five Confirmed -->

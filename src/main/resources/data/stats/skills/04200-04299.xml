@@ -569,6 +569,7 @@
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE" />
 		<set name="targetType" val="SELF" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="4223" levels="1" name="Face Chance: Night to Day">
 		<!-- Confirmed CT2.5 -->
@@ -586,6 +587,7 @@
 		<effects>
 			<effect name="Buff" />
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="4224" levels="1" name="Face Chance: Day to Night">
 		<!-- Confirmed CT2.5 -->
@@ -604,6 +606,7 @@
 			<!-- TODO: Abnormal Change Texture for Day to Night Face -->
 			<effect name="Buff" />
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="4225" levels="5" name="Resist Shock">
 		<!-- Freya retail confirmed -->
@@ -643,6 +646,7 @@
 				<mul stat="regHp" val="20" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="4228" levels="12" name="NPC Double Dagger Attack">
 		<!-- High Five Confirmed -->
@@ -923,6 +927,7 @@
 				<mul stat="regHp" val="0.4" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="4240" levels="1" name="Antharas Regeneration">
 		<!-- Confirmed CT2.5 -->
@@ -939,6 +944,7 @@
 				<mul stat="regHp" val="0.7" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="4241" levels="1" name="Antharas Regeneration">
 		<!-- Confirmed CT2.5 -->
@@ -955,6 +961,7 @@
 				<mul stat="regHp" val="1" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="4242" levels="1" name="Zaken Regeneration">
 		<!-- Confirmed CT2.5 -->
@@ -969,6 +976,7 @@
 		<effects>
 			<effect name="Buff" />
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="4243" levels="1" name="Venomous Poison">
 		<!-- Freya retail confirmed -->

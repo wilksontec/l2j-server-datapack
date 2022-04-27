@@ -25,6 +25,7 @@
 				<mul stat="mReuse" val="0.85" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="3201" levels="3" name="Item Skill: Music Refresh">
 		<!-- Confirmed CT2.5 -->
@@ -51,6 +52,7 @@
 				<mul stat="dReuse" val="0.85" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="3202" levels="3" name="Item Skill: Refresh">
 		<!-- Confirmed CT2.5 -->
@@ -79,6 +81,7 @@
 				<mul stat="dReuse" val="0.85" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="3203" levels="1" name="Item Skill: Mystery Skill">
 		<!-- Confirmed CT2.5 -->
@@ -96,6 +99,7 @@
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
 		<set name="trait" val="ETC" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="3204" levels="3" name="Item Skill: Reflect Damage">
 		<!-- Confirmed CT2.5 -->
@@ -124,6 +128,7 @@
 				<add stat="reflectDam" val="#reflectDam" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="3205" levels="2" name="Item Skill: Party Recall">
 		<!-- High Five Confirmed -->
@@ -171,6 +176,7 @@
 		<set name="reuseDelay" val="12000" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="3207" levels="10" name="Item Skill: Heal">
 		<!-- Confirmed CT2.5 -->
@@ -1109,6 +1115,7 @@
 				<param power="100" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="3264" levels="1" name="Blessed Escape">
 		<!-- High Five Confirmed -->
@@ -1149,6 +1156,7 @@
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
 		<set name="trait" val="ETC" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="3266" levels="1" name="Large Fireworks Ability">
 		<!-- Allows the use of Large Fireworks. -->
@@ -1161,6 +1169,7 @@
 		<set name="reuseDelay" val="300000" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="3267" levels="1" name="Dismiss Agathion">
 		<!-- Confirmed CT2.5 -->
@@ -1245,6 +1254,7 @@
 				<add stat="pAtk" val="63" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="3272" levels="1" name="Blue Talisman of Defense">
 		<!-- Confirmed CT2.5 -->
@@ -1267,6 +1277,7 @@
 				<add stat="pDef" val="72" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="3273" levels="1" name="Red Talisman of Recovery">
 		<!-- Confirmed CT2.5 -->
@@ -1289,6 +1300,7 @@
 				<param amount="200" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="3274" levels="1" name="Blue Talisman of Protection">
 		<!-- Confirmed CT2.5 -->
@@ -1311,6 +1323,7 @@
 				<add stat="sDef" val="220" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="3275" levels="1" name="Blue Talisman of Protection">
 		<!-- Confirmed CT2.5 -->
@@ -1333,6 +1346,7 @@
 				<mul stat="rShld" val="1.3" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="3276" levels="1" name="Blue Talisman - Magic Resistance">
 		<!-- Confirmed CT2.5 -->
@@ -1355,6 +1369,7 @@
 				<add stat="mDef" val="100" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="3277" levels="1" name="Blue Talisman of Wild Magic">
 		<!-- Confirmed CT2.5 -->
@@ -1377,6 +1392,7 @@
 				<add stat="mCritRate" val="2" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="3278" levels="1" name="Red Talisman of Mental Regeneration">
 		<!-- Confirmed CT2.5 -->
@@ -1399,6 +1415,7 @@
 				<mul stat="regMp" val="1.1" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="3279" levels="1" name="Red Talisman of Meditation">
 		<!-- High Five Confirmed -->
@@ -1454,6 +1471,7 @@
 				<mul stat="runSpd" val="0.6" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="3281" levels="1" name="Red Talisman of Minimum Clarity">
 		<!-- Confirmed CT2.5 -->
@@ -1478,6 +1496,7 @@
 				<mul stat="danceMpConsumeRate" val="0.9" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="3282" levels="1" name="Red Talisman of Maximum Clarity">
 		<!-- Confirmed CT2.5 -->
@@ -1502,6 +1521,7 @@
 				<mul stat="danceMpConsumeRate" val="0" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="3283" levels="1" name="Blue Talisman of Healing">
 		<!-- Confirmed CT2.5 -->
@@ -1524,6 +1544,7 @@
 				<add stat="healEffect" val="100" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="3284" levels="1" name="Blue Talisman - Divine Protection">
 		<!-- Confirmed CT2.5 -->
@@ -1547,6 +1568,7 @@
 				<add stat="mDef" val="2700" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="3285" levels="1" name="Blue Talisman of Defense">
 		<!-- Confirmed CT2.5 -->
@@ -1576,6 +1598,7 @@
 				<sub stat="rEvas" val="1" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="3286" levels="1" name="Black Talisman - Mending">
 		<!-- Confirmed CT2.5 -->
@@ -1595,6 +1618,7 @@
 				<param dispel="BLEEDING,9" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="3287" levels="1" name="Black Talisman of Physical Freedom">
 		<!-- Confirmed CT2.5 -->
@@ -1614,6 +1638,7 @@
 				<param dispel="ROOT_PHYSICALLY,9" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="3288" levels="1" name="Black Talisman of Arcane Freedom">
 		<!-- Confirmed CT2.5 -->
@@ -1633,6 +1658,7 @@
 				<param dispel="ROOT_MAGICALLY,9" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="3289" levels="1" name="Black Talisman - Escape">
 		<!-- Confirmed CT2.5 -->
@@ -1652,6 +1678,7 @@
 				<param dispel="ROOT_PHYSICALLY,3;ROOT_MAGICALLY,3" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="3290" levels="1" name="Black Talisman of Rescue">
 		<!-- Confirmed CT2.5 -->
@@ -1671,6 +1698,7 @@
 				<param dispel="SILENCE_PHYSICAL,9" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="3291" levels="1" name="Black Talisman of Vocalization">
 		<!-- Confirmed CT2.5 -->
@@ -1690,6 +1718,7 @@
 				<param dispel="SILENCE,9" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="3292" levels="1" name="Black Talisman of Free Speech">
 		<!-- Confirmed CT2.5 -->
@@ -1709,6 +1738,7 @@
 				<param dispel="SILENCE_ALL,9" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="3293" levels="1" name="Yellow Talisman of Power">
 		<!-- Confirmed CT2.5 -->

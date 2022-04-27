@@ -73,6 +73,7 @@
 				<player transformationId="103" />
 			</not>
 		</cond>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2104" levels="1" name="Greater Compressed Package of Soulshots: No-grade">
 		<!-- Confirmed CT2.5 -->
@@ -693,6 +694,7 @@
 				<param power="1" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2137" levels="1" name="Summon Regular Tree">
 		<!-- Confirmed CT2.5 -->
@@ -751,6 +753,7 @@
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2141" levels="1" name="Item - Carol Sound Crystal">
 		<set name="isMagic" val="2" />
@@ -758,6 +761,7 @@
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2142" levels="1" name="Item - Carol Sound Crystal">
 		<set name="isMagic" val="2" />
@@ -765,6 +769,7 @@
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2143" levels="1" name="Item - Carol Sound Crystal">
 		<set name="isMagic" val="2" />
@@ -772,6 +777,7 @@
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2144" levels="1" name="Item - Carol Sound Crystal">
 		<set name="isMagic" val="2" />
@@ -779,6 +785,7 @@
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2145" levels="1" name="Item - Carol Sound Crystal">
 		<set name="isMagic" val="2" />
@@ -786,6 +793,7 @@
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2146" levels="1" name="Item - Carol Sound Crystal">
 		<set name="isMagic" val="2" />
@@ -793,6 +801,7 @@
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2147" levels="1" name="Item - Carol Sound Crystal">
 		<set name="isMagic" val="2" />
@@ -800,6 +809,7 @@
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2148" levels="1" name="Item - Carol Sound Crystal">
 		<set name="isMagic" val="2" />
@@ -807,6 +817,7 @@
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2149" levels="1" name="Item - Carol Sound Crystal">
 		<set name="isMagic" val="2" />
@@ -814,6 +825,7 @@
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2150" levels="1" name="Soulshot: D-Grade">
 		<set name="isMagic" val="2" />
@@ -821,6 +833,7 @@
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2151" levels="1" name="Soulshot: C-Grade">
 		<set name="isMagic" val="2" />
@@ -828,6 +841,7 @@
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2152" levels="1" name="Soulshot: B-Grade">
 		<set name="isMagic" val="2" />
@@ -835,6 +849,7 @@
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2153" levels="1" name="Soulshot: A-Grade">
 		<set name="isMagic" val="2" />
@@ -842,6 +857,7 @@
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2154" levels="1" name="Soulshot: S-Grade">
 		<set name="isMagic" val="2" />
@@ -849,6 +865,7 @@
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2155" levels="1" name="Spiritshot: D-Grade">
 		<set name="isMagic" val="2" />
@@ -856,6 +873,7 @@
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2156" levels="1" name="Spiritshot: C-Grade">
 		<set name="isMagic" val="2" />
@@ -863,6 +881,7 @@
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2157" levels="1" name="Spiritshot: B-Grade">
 		<set name="isMagic" val="2" />
@@ -870,6 +889,7 @@
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2158" levels="1" name="Spiritshot: A-Grade">
 		<set name="isMagic" val="2" />
@@ -877,6 +897,7 @@
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2159" levels="1" name="Spiritshot: S-Grade">
 		<set name="isMagic" val="2" />
@@ -884,6 +905,7 @@
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2160" levels="1" name="Blessed Spiritshot: D-Grade">
 		<set name="isMagic" val="2" />
@@ -891,6 +913,7 @@
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2161" levels="1" name="Blessed Spiritshot: C-Grade">
 		<set name="isMagic" val="2" />
@@ -898,6 +921,7 @@
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2162" levels="1" name="Blessed Spiritshot: B-Grade">
 		<set name="isMagic" val="2" />
@@ -905,6 +929,7 @@
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2163" levels="1" name="Blessed Spiritshot: A-Grade">
 		<set name="isMagic" val="2" />
@@ -912,6 +937,7 @@
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2164" levels="1" name="Blessed Spiritshot: S-Grade">
 		<set name="isMagic" val="2" />
@@ -919,6 +945,7 @@
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2165" levels="1" name="Energy Stone">
 		<!-- Confirmed CT2.5 -->
@@ -932,6 +959,7 @@
 				<param charge="2" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2166" levels="2" name="CP Gauge Potion">
 		<table name="#amount"> 50 200 </table>
@@ -945,6 +973,7 @@
 				<param amount="#amount" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2167" levels="4" name="Scroll of SP">
 		<!-- Confirmed CT2.5 -->
@@ -964,6 +993,7 @@
 				<param sp="#amount" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2168" levels="6" name="Raid Blessing">
 		<table name="#abnormalLvl"> 1 2 3 4 5 6 </table>
@@ -986,6 +1016,7 @@
 				<mul stat="reduceDeathPenaltyByRaid" val="0" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2169" levels="2" name="Magic Haste Potion">
 		<!-- Lvl 2 is Greater Magic Haste Potion -->
@@ -1007,6 +1038,7 @@
 				<mul stat="mAtkSpd" val="#mAtkSpd" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2170" levels="1" name="Scroll: Cancel Sleep">
 		<!-- High Five Confirmed -->
@@ -1266,6 +1298,7 @@
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="NONE" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2182" levels="1" name="Item - Fishing Shot">
 		<set name="isMagic" val="2" />
@@ -1273,6 +1306,7 @@
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="NONE" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2183" levels="1" name="Item - Fishing Shot">
 		<set name="isMagic" val="2" />
@@ -1280,6 +1314,7 @@
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="NONE" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2184" levels="1" name="Item - Fishing Shot">
 		<set name="isMagic" val="2" />
@@ -1287,6 +1322,7 @@
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="NONE" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2185" levels="1" name="Item - Fishing Shot">
 		<set name="isMagic" val="2" />
@@ -1294,6 +1330,7 @@
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="NONE" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2186" levels="1" name="Item - Fishing Shot">
 		<set name="isMagic" val="2" />
@@ -1301,6 +1338,7 @@
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="NONE" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2187" levels="1" name="Item - Special Sound Crystal">
 		<set name="isMagic" val="2" />
@@ -1308,6 +1346,7 @@
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2188" levels="1" name="Golden Spice">
 		<!-- Confirmed CT2.5 -->

@@ -659,6 +659,7 @@
 				<param CROSSBOW="6" />
 			</effect>
 		</enchant2Effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="1515" levels="1" name="Lightning Barrier" enchantGroup1="5" enchantGroup2="5" enchantGroup3="5">
 		<!-- Confirmed CT2.5 -->
@@ -724,6 +725,7 @@
 				<param targetType="ONE" />
 			</effect>
 		</enchant3Effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="1516" levels="1" name="Soul Strike" enchantGroup1="6" enchantGroup2="6">
 		<!-- High Five Confirmed -->
@@ -910,6 +912,7 @@
 				<param id="316" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="1521" levels="1" name="Inquisitor">
 		<!-- Confirmed CT2.5 -->
@@ -936,6 +939,7 @@
 				<param id="317" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="1522" levels="1" name="Inquisitor">
 		<!-- Confirmed CT2.5 -->
@@ -962,6 +966,7 @@
 				<param id="318" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="1523" levels="42" name="Divine Punishment">
 		<!-- High Five Confirmed -->
@@ -1335,6 +1340,7 @@
 				<mul stat="magicalMpConsumeRate" val="0.1" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="1533" levels="1" name="Enlightenment">
 		<set name="abnormalLvl" val="1" />
@@ -1360,6 +1366,7 @@
 				<mul stat="magicalMpConsumeRate" val="0.1" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="1534" levels="1" name="Courage of Pa'agrio">
 		<!-- High Five Confirmed -->
@@ -1636,6 +1643,7 @@
 				<mul stat="regHp" val="0" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="1541" levels="1" name="Curse of Desparion">
 		<!-- Confirmed CT2.5 -->
@@ -2315,6 +2323,7 @@
 				<param heal="true" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="1562" levels="2" name="Chant of Berserker">
 		<!-- High Five Confirmed -->

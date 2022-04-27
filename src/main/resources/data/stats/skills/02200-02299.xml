@@ -198,6 +198,7 @@
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="NONE" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2209" levels="1" name="Item - Blessed Scroll of Enchant Armor">
 		<set name="isMagic" val="2" />
@@ -205,6 +206,7 @@
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="NONE" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2210" levels="1" name="Item - Blessed Scroll of Enchant Armor">
 		<set name="isMagic" val="2" />
@@ -212,6 +214,7 @@
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="NONE" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2211" levels="1" name="Item - Blessed Scroll of Enchant Armor">
 		<set name="isMagic" val="2" />
@@ -219,6 +222,7 @@
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="NONE" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2212" levels="1" name="Item - Blessed Scroll of Enchant Armor">
 		<set name="isMagic" val="2" />
@@ -226,6 +230,7 @@
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="NONE" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2213" levels="22" name="Escape - Talking Island Village">
 		<!-- High Five Confirmed -->
@@ -713,6 +718,7 @@
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2231" levels="1" name="Amulet: Protection of Valakas">
 		<!-- Confirmed CT2.5 -->
@@ -734,6 +740,7 @@
 				<param VALAKAS="11" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2232" levels="1" name="Amulet: Slay Valakas">
 		<!-- Confirmed CT2.5 -->
@@ -755,6 +762,7 @@
 				<param VALAKAS="-20" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2233" levels="1" name="Amulet: Flames of Valakas">
 		<!-- Confirmed CT2.5 -->
@@ -772,6 +780,7 @@
 				<param dispel="DRAGON_BREATH,1" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2234" levels="1" name="Soul Breaking Arrow">
 		<!-- High Five Confirmed -->
@@ -1156,6 +1165,7 @@
 				<add stat="firePower" val="20" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2249" levels="1" name="Bless of Water">
 		<set name="abnormalLvl" val="1" />
@@ -1176,6 +1186,7 @@
 				<add stat="waterPower" val="20" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2250" levels="1" name="Bless of Wind">
 		<set name="abnormalLvl" val="1" />
@@ -1196,6 +1207,7 @@
 				<add stat="windPower" val="20" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2251" levels="1" name="Bless of Earth">
 		<set name="abnormalLvl" val="1" />
@@ -1216,6 +1228,7 @@
 				<add stat="earthPower" val="20" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2252" levels="1" name="Bless of Darkness">
 		<set name="abnormalLvl" val="1" />
@@ -1236,6 +1249,7 @@
 				<add stat="darkPower" val="20" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2253" levels="1" name="Bless of Sacredness">
 		<set name="abnormalLvl" val="1" />
@@ -1256,6 +1270,7 @@
 				<add stat="holyPower" val="20" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2254" levels="3" name="Crystal of Fire">
 		<set name="hitTime" val="1000" />
@@ -1267,6 +1282,7 @@
 		<set name="reuseDelay" val="10000" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="NONE" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2255" levels="3" name="Crystal of Water">
 		<set name="hitTime" val="1000" />
@@ -1278,6 +1294,7 @@
 		<set name="reuseDelay" val="10000" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="NONE" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2256" levels="3" name="Crystal of Wind">
 		<set name="hitTime" val="1000" />
@@ -1289,6 +1306,7 @@
 		<set name="reuseDelay" val="10000" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="NONE" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2257" levels="3" name="Crystal of Earth">
 		<set name="hitTime" val="1000" />
@@ -1300,6 +1318,7 @@
 		<set name="reuseDelay" val="10000" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="NONE" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2258" levels="3" name="Crystal of Darkness">
 		<set name="hitTime" val="1000" />
@@ -1311,6 +1330,7 @@
 		<set name="reuseDelay" val="10000" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="NONE" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2259" levels="3" name="Crystal of Sacredness">
 		<set name="hitTime" val="1000" />
@@ -1322,6 +1342,7 @@
 		<set name="reuseDelay" val="10000" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="NONE" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2260" levels="1" name="Key of Riddles">
 		<!-- Confirmed CT2.5 -->
@@ -1673,6 +1694,7 @@
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2273" levels="1" name="Item - Red Devil Support Box">
 		<!-- Confirmed CT2.5 -->
@@ -1714,6 +1736,7 @@
 		<effects>
 			<effect name="ChangeFishingMastery" />
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2275" levels="1" name="Fisherman's Recovery Potion">
 		<!-- Confirmed CT2.5 -->
@@ -1728,6 +1751,7 @@
 				<param dispel="FISHING_MASTERY_DOWN,1" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2276" levels="1" name="Dewdrop of Destruction">
 		<!-- High Five Confirmed -->
@@ -2092,6 +2116,7 @@
 		<effects>
 			<effect name="ChangeFace" />
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2292" levels="1" name="Facelifting Potion">
 		<!-- Confirmed CT2.5 -->
@@ -2108,6 +2133,7 @@
 				<param value="1" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2293" levels="1" name="Facelifting Potion">
 		<!-- Confirmed CT2.5 -->
@@ -2124,6 +2150,7 @@
 				<param value="2" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2294" levels="1" name="Dye Potion">
 		<!-- Confirmed CT2.5 -->
@@ -2138,6 +2165,7 @@
 		<effects>
 			<effect name="ChangeHairColor" />
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2295" levels="1" name="Dye Potion">
 		<!-- Confirmed CT2.5 -->
@@ -2154,6 +2182,7 @@
 				<param value="1" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2296" levels="1" name="Dye Potion">
 		<!-- Confirmed CT2.5 -->
@@ -2170,6 +2199,7 @@
 				<param value="2" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2297" levels="1" name="Dye Potion">
 		<!-- Confirmed CT2.5 -->
@@ -2186,6 +2216,7 @@
 				<param value="3" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2298" levels="1" name="Hair Style Change Potion">
 		<!-- Confirmed CT2.5 -->
@@ -2200,6 +2231,7 @@
 		<effects>
 			<effect name="ChangeHairStyle" />
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2299" levels="1" name="Hair Style Change Potion">
 		<!-- Confirmed CT2.5 -->
@@ -2216,5 +2248,6 @@
 				<param value="1" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 </list>

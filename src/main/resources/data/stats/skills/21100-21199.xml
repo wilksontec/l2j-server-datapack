@@ -23,6 +23,7 @@
 				<mul stat="magicalMpConsumeRate" val="0.95" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="21101" levels="1" name="Blessed Scroll of Escape">
 		<!-- High Five Confirmed -->
@@ -73,6 +74,7 @@
 				<param power="100" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="21103" levels="1" name="Great Adventurer's Soul Power : Endless">
 		<!-- For five minutes, the Great Spirit increases maximum HP by 20%, maximum MP by 20%, moving speed by 20%, and resistance against debuff by 10%. -->
@@ -103,6 +105,7 @@
 				<sub stat="debuffVuln" val="10" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="21104" levels="1" name="Appetite for Destruction">
 		<!-- High Five Confirmed -->
@@ -258,6 +261,7 @@
 				<sub stat="debuffVuln" val="10" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="21112" levels="1" name="Great Warrior's Soul Power: Strength">
 		<!-- Increase attack speed by 20%, P. Atk by 10%, P. Def. by 20% with help of a spirit for 5 minutes. Bestows the ability to recover as HP 5% of the standard short-range physical damage inflicted on the enemy. Reuse Delay 1 hour. -->
@@ -282,6 +286,7 @@
 				<add stat="absorbDam" val="5" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="21113" levels="1" name="Great Wizard's Soul Power: Acuity">
 		<!-- Increase Casting Speed by 20%, Magic Power by 20%, Magic Def. by 20% with help of a spirit for 5 minutes. Reduce consumed MP for skill usage by 5%. Reuse Delay 1 hour. -->
@@ -306,6 +311,7 @@
 				<mul stat="magicalMpConsumeRate" val="0.95" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="21114" levels="1" name="Great Adventurer's Soul Power: Resilience">
 		<!-- Increase max HP 20%, max MP 20%, Spd. 20% with help of a spirit for 5 minutes. Increase resistance by 10% against debuff. Reuse Delay 1 hour. -->
@@ -336,6 +342,7 @@
 				<sub stat="debuffVuln" val="10" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="21115" levels="1" name="Great Warrior's Soul Power: Strength">
 		<!-- Increase attack speed by 20%, P. Atk by 10%, P. Def. by 20% with help of a spirit for 5 minutes. Bestows the ability to recover as HP 5% of the standard short-range physical damage inflicted on the enemy. Reuse Delay 1 hour. -->
@@ -360,6 +367,7 @@
 				<add stat="absorbDam" val="5" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="21116" levels="1" name="Great Wizard's Soul Power: Acuity">
 		<!-- Increase Casting Speed by 20%, Magic Power by 20%, Magic Def. by 20% with help of a spirit for 5 minutes. Reduce consumed MP for skill usage by 5%. Reuse Delay 1 hour. -->
@@ -384,6 +392,7 @@
 				<mul stat="magicalMpConsumeRate" val="0.95" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="21117" levels="1" name="Great Adventurer's Soul Power : Immortality">
 		<!-- Increase max HP 20%, max MP 20%, Spd. 20% with help of a spirit for 5 minutes. Increase HP recovery bonus by 20%, MP recovery bonus by 20%. Reuse Delay 1 hour. -->
@@ -415,6 +424,7 @@
 				<mul stat="regMp" val="1.2" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="21118" levels="1" name="Great Warrior's Soul Power: Destruction">
 		<!-- Increase attack speed by 20%, P. Atk by 10%, P. Def. by 20% with help of a spirit for 5 minutes. Increase power of Critical Attack by 20%, Chance of Critical Attack by 20%. Reuse Delay 1 hour. -->
@@ -440,6 +450,7 @@
 				<mul stat="critRate" val="1.2" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="21119" levels="1" name="Great Wizard's Soul Power: Brilliance">
 		<!-- Increase Casting Speed by 20%, Magic Power by 20%, Magic Def. by 20% with help of a spirit for 5 minutes. Increase power of Prominent Damage caused with damage magic by 20%, chance of Prominent Damage caused with damage magic by 2. Reuse Delay 1 hour. -->
@@ -464,6 +475,7 @@
 				<add stat="mCritRate" val="2" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="21120" levels="1" name="Jack O'Lantern Card">
 		<!-- High Five Confirmed -->
@@ -523,6 +535,7 @@
 				<add stat="darkRes" val="20" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="21123" levels="1" name="Blessing of Skooldy : Protection of Darkness">
 		<!-- Increase max HP by 20%, max MP by 20%, physical Def. by 20%, magic Def. by 20% for 1 hour. Increase dark attack resistance by 20. Reuse Delay 1 hour. -->
@@ -554,6 +567,7 @@
 				<add stat="darkRes" val="20" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="21124" levels="1" name="Blessing of Skooldy : Protection of Darkness">
 		<!-- Increase max HP by 20%, max MP by 20%, physical Def. by 20%, magic Def. by 20% for 1 hour. Increase dark attack resistance by 20. Reuse Delay 1 hour. -->
@@ -585,6 +599,7 @@
 				<add stat="darkRes" val="20" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="21125" levels="1" name="Blessing of Skooldy : Protection of Darkness">
 		<!-- Increase max HP by 20%, max MP by 20%, physical Def. by 20%, magic Def. by 20% for 1 hour. Increase dark attack resistance by 20. Reuse Delay 1 hour. -->
@@ -616,6 +631,7 @@
 				<add stat="darkRes" val="20" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="21126" levels="1" name="Blessing of Skooldy : Protection of Darkness">
 		<!-- Increase max HP by 20%, max MP by 20%, physical Def. by 20%, magic Def. by 20% for 1 hour. Increase dark attack resistance by 20. Reuse Delay 1 hour. -->
@@ -647,6 +663,7 @@
 				<add stat="darkRes" val="20" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="21127" levels="1" name="Blessing of Halloween">
 		<!-- Increase max HP by 40%, max MP by 40%, attack speed by 20%, attack power by 10% for 1 hour.Increase dark attack resistance by 20. Reuse Delay 2 hours. -->
@@ -678,6 +695,7 @@
 				<add stat="darkRes" val="20" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="21128" levels="1" name="Blessing of Halloween">
 		<!-- Increase max HP by 40%, max MP by 40%, chance of critical by 10%, critical damage by 10% for 1 hour. Increase dark attack resistance by 20. Reuse Delay 2 hours. -->
@@ -709,6 +727,7 @@
 				<add stat="darkRes" val="20" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="21129" levels="1" name="Blessing of Halloween">
 		<!-- Increase max HP by 40%, max MP by 40%, speed by 10% for 1 hour. Bestows the ability to recover as HP 5% of the standard short-range physical damage inflicted on the enemy. Increase dark attack resistance by 20. Reuse Delay 2 hours. -->
@@ -740,6 +759,7 @@
 				<add stat="darkRes" val="20" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="21130" levels="1" name="Blessing of Halloween">
 		<!-- Increase max HP by 40%, max MP by 40%, speed by 20% for 1 hour. Reduce consumed MP for skill usage by 5%. Increase dark attack resistance by 20. Reuse Delay 2 hours. -->
@@ -772,6 +792,7 @@
 				<add stat="darkRes" val="20" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="21131" levels="1" name="Blessing of Halloween">
 		<!-- Increase max HP by 40%, max MP by 40%, casting speed by 20% for 1 hour. Increases chance of prominent damage by Damage Magic by 2. Increase dark attack resistance by 20. Reuse Delay 2 hours. -->
@@ -802,6 +823,7 @@
 				<add stat="darkRes" val="20" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="21132" levels="1" name="Ability of Shadow">
 		<!-- Decrease own speed by 30% and will not receive monster's preemptive attack for 2 minutes. Reuse Delay 1 hour. -->
@@ -823,6 +845,7 @@
 				<mul stat="runSpd" val="0.7" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="21133" levels="1" name="Agathion Seal Cancel - Zombie">
 		<!-- Confirmed CT2.5 -->
@@ -948,6 +971,7 @@
 				<add stat="darkRes" val="20" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="21138" levels="1" name="Blessing of Halloween">
 		<!-- Increase max HP by 40%, max MP by 40%, chance of critical by 10%, critical damage by 10% for 10 minutes. Increase dark attack resistance by 20. Reuse Delay 1 hour. -->
@@ -979,6 +1003,7 @@
 				<add stat="darkRes" val="20" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="21139" levels="1" name="Blessing of Halloween">
 		<!-- Increase max HP by 40%, max MP by 40%, speed by 10% for 10 minutes. Bestows the ability to recover as HP 5% of the standard short-range physical damage inflicted on the enemy. Increase dark attack resistance by 20. Reuse Delay 1 hour. -->
@@ -1010,6 +1035,7 @@
 				<add stat="darkRes" val="20" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="21140" levels="1" name="Blessing of Halloween">
 		<!-- Increase max HP by 40%, max MP by 40%, speed by 20% for 10 minutes. Reduce consumed MP for skill usage by 5%. Increase dark attack resistance by 20. Reuse Delay 1 hour. -->
@@ -1043,6 +1069,7 @@
 				<add stat="darkRes" val="20" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="21141" levels="1" name="Blessing of Halloween">
 		<!-- For 10 minutes, increases Max HP by 40%, Max MP by 40%, and Casting Spd. by 20%. Increases the rate of causing exceptional magic damage by 2. Increases Resistance to Dark by 20. Reuse delay is 1 hour. -->
@@ -1074,6 +1101,7 @@
 				<add stat="darkRes" val="20" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="21142" levels="1" name="Agathion Seal Cancel - Gwangong">
 		<!-- Confirmed CT2.5 -->
@@ -1243,6 +1271,7 @@
 		<set name="reuseDelay" val="300000" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="21153" levels="1" name="Blessed Body">
 		<!-- Increases Max HP by 25% for 20 minutes. Reuse Delay 1 hours. -->
@@ -1263,6 +1292,7 @@
 				<param type="PER" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="21154" levels="1" name="Blessed Soul">
 		<!-- Increases Max MP by 25% for 20 minutes. Reuse Delay 1 hours. -->
@@ -1283,6 +1313,7 @@
 				<param type="PER" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="21155" levels="1" name="Scent of Flavorful Cheese">
 		<!-- For 5 minutes, receives the soul's help to raise Atk. Spd. by 20%, P. Atk. by 10%, and P. Def. by 20%. Increases Critical attack power by 20% and Critical attack rate by 20%. Reuse delay is 1 hour. -->
@@ -1308,6 +1339,7 @@
 				<mul stat="critRate" val="1.2" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="21156" levels="1" name="Scent of Sweet Cheese">
 		<!-- For 5 minutes, receives the soul's help to raise Casting Spd. by 20%, M. Atk. by 20%, and M. Def. by 20%. Raises Prominent Damage power via damage magic by 20% and the chance of Prominent Damage occurring via damage magic by 2. Reuse delay is 1 hour. -->
@@ -1333,6 +1365,7 @@
 				<mul stat="mCritPower" val="1.2" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="21157" levels="1" name="Agathion Seal Cancel - Iken">
 		<!-- Confirmed CT2.5 -->
@@ -1546,6 +1579,7 @@
 				<param id="20000" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="21170" levels="1" name="Blessed Soul">
 		<!-- Increases Max MP by 25% for 20 minutes. Reuse delay is 1 hours. -->
@@ -1566,6 +1600,7 @@
 				<param type="PER" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="21171" levels="1" name="Riding Jet Bike">
 		<!-- Confirmed CT2.5 -->
@@ -1589,6 +1624,7 @@
 				<param id="20001" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="21172" levels="1" name="Enhanced Authority - CON+1 STR+1">
 		<!-- High Five Confirmed -->

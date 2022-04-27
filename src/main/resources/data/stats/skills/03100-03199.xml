@@ -92,10 +92,10 @@
 		<effects>
 			<effect name="Stun" />
 			<effect name="BlockDamage">
-				<param block="HP"/>
+				<param block="HP" />
 			</effect>
 			<effect name="BlockDamage">
-				<param block="MP"/>
+				<param block="MP" />
 			</effect>
 			<effect name="BlockBuff" />
 			<effect name="BlockDebuff" />
@@ -508,10 +508,10 @@
 		<effects>
 			<effect name="Stun" />
 			<effect name="BlockDamage">
-				<param block="HP"/>
+				<param block="HP" />
 			</effect>
 			<effect name="BlockDamage">
-				<param block="MP"/>
+				<param block="MP" />
 			</effect>
 			<effect name="BlockBuff" />
 			<effect name="BlockDebuff" />
@@ -686,6 +686,7 @@
 				<param power="#amount" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="3124" levels="10" name="Item Skill: Blessed Body">
 		<!-- Confirmed CT2.5 -->
@@ -713,6 +714,7 @@
 				<param power="#maxHp" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="3125" levels="10" name="Item Skill: Battle Roar">
 		<!-- High Five Confirmed -->
@@ -771,6 +773,7 @@
 				<mul stat="healEffect" val="#healEffect" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="3127" levels="10" name="Item Skill: Recharge">
 		<!-- High Five Confirmed -->
@@ -827,6 +830,7 @@
 				<param power="#maxMp" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="3129" levels="10" name="Item Skill: Mana Gain">
 		<!-- Confirmed CT2.5 -->
@@ -854,6 +858,7 @@
 				<add stat="manaCharge" val="#manaCharge" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="3130" levels="10" name="Item Skill: Ritual">
 		<!-- Confirmed CT2.5 -->
@@ -878,6 +883,7 @@
 				<param amount="#amount" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="3131" levels="10" name="Item Skill: Cheer">
 		<!-- Confirmed CT2.5 -->
@@ -905,6 +911,7 @@
 				<param power="#maxCp" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="3132" levels="10" name="Item Skill: Might">
 		<!-- Confirmed CT2.5 -->
@@ -932,6 +939,7 @@
 				<add stat="pAtk" val="#pAtk" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="3133" levels="10" name="Item Skill: Empower">
 		<!-- Confirmed CT2.5 -->
@@ -959,6 +967,7 @@
 				<add stat="mAtk" val="#mAtk" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="3134" levels="10" name="Item Skill: Duel Might">
 		<!-- Confirmed CT2.5 -->
@@ -986,6 +995,7 @@
 				<mul stat="pvpPhysSkillsDmg" val="1.05" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="3135" levels="10" name="Item Skill: Shield">
 		<!-- Confirmed CT2.5 -->
@@ -1013,6 +1023,7 @@
 				<add stat="pDef" val="#pDef" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="3136" levels="10" name="Item Skill: Magic Barrier">
 		<!-- Confirmed CT2.5 -->
@@ -1040,6 +1051,7 @@
 				<add stat="mDef" val="#mDef" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="3137" levels="10" name="Item Skill: Duel Weakness">
 		<!-- Confirmed CT2.5 -->
@@ -1100,6 +1112,7 @@
 				<add stat="healEffect" val="#healEffect" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="3139" levels="10" name="Item Skill: Agility">
 		<!-- Confirmed CT2.5 -->
@@ -1127,6 +1140,7 @@
 				<add stat="rEvas" val="#rEvas" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="3140" levels="10" name="Item Skill: Guidance">
 		<!-- Confirmed CT2.5 -->
@@ -1154,6 +1168,7 @@
 				<add stat="accCombat" val="#accCombat" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="3141" levels="10" name="Item Skill: Focus">
 		<!-- Confirmed CT2.5 -->
@@ -1181,6 +1196,7 @@
 				<mul stat="critRate" val="#rCrit" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="3142" levels="10" name="Item Skill: Wild Magic">
 		<!-- Confirmed CT2.5 -->
@@ -1208,6 +1224,7 @@
 				<add stat="mCritRate" val="#mCritRate" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="3143" levels="10" name="Item Skill: Kiss of Eva">
 		<!-- Confirmed CT2.5 -->
@@ -1234,6 +1251,7 @@
 				<mul stat="breath" val="7" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="3144" levels="10" name="Item Skill: Acrobatics">
 		<!-- Confirmed CT2.5 -->
@@ -1260,6 +1278,7 @@
 				<sub stat="fall" val="100" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="3145" levels="10" name="Item Skill: Iron Body">
 		<!-- Confirmed CT2.5 -->
@@ -1287,6 +1306,7 @@
 				<sub stat="damageZoneVuln" val="#damageZoneVuln" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="3146" levels="1" name="Item Skill: Recall">
 		<!-- High Five Confirmed -->
@@ -1578,6 +1598,7 @@
 		<set name="reuseDelay" val="300000" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="3157" levels="1" name="Item Skill: Large Firework">
 		<!-- Confirmed CT2.5 -->
@@ -1589,6 +1610,7 @@
 		<set name="reuseDelay" val="300000" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="3158" levels="1" name="Item Skill: Lesser Celestial Shield">
 		<!-- Confirmed CT2.5 -->
@@ -1608,12 +1630,13 @@
 		<set name="targetType" val="SELF" />
 		<effects>
 			<effect name="BlockDamage">
-				<param block="HP"/>
+				<param block="HP" />
 			</effect>
 			<effect name="BlockDamage">
-				<param block="MP"/>
+				<param block="MP" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="3159" levels="3" name="Item Skill: Stealth">
 		<!-- Confirmed CT2.5 -->
@@ -1644,6 +1667,7 @@
 				<mul stat="pAtk" val="0.55" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="3160" levels="9" name="Item Skill: Resurrection">
 		<!-- Confirmed CT2.5 -->
@@ -1674,6 +1698,7 @@
 				<param power="#power" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="3161" levels="3" name="Item Skill: Skill Clarity">
 		<!-- Confirmed CT2.5 -->
@@ -1701,6 +1726,7 @@
 				<mul stat="physicalMpConsumeRate" val="#PhysicalMpConsumeRate" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="3162" levels="3" name="Item Skill: Spell Clarity">
 		<!-- Confirmed CT2.5 -->
@@ -1728,6 +1754,7 @@
 				<mul stat="magicalMpConsumeRate" val="#MagicalMpConsumeRate" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="3163" levels="3" name="Item Skill: Music Clarity">
 		<!-- Confirmed CT2.5 -->
@@ -1755,6 +1782,7 @@
 				<mul stat="danceMpConsumeRate" val="#DanceMpConsumeRate" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="3164" levels="3" name="Item Skill: Clarity">
 		<!-- Confirmed CT2.5 -->
@@ -1785,6 +1813,7 @@
 				<mul stat="danceMpConsumeRate" val="0.9" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="3165" levels="10" name="Item Skill: Prominence">
 		<!-- High Five Confirmed -->
@@ -2731,10 +2760,10 @@
 		<effects>
 			<effect name="Stun" />
 			<effect name="BlockDamage">
-				<param block="HP"/>
+				<param block="HP" />
 			</effect>
 			<effect name="BlockDamage">
-				<param block="MP"/>
+				<param block="MP" />
 			</effect>
 			<effect name="BlockBuff" />
 			<effect name="BlockDebuff" />
@@ -2949,5 +2978,6 @@
 				<mul stat="pReuse" val="0.85" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 </list>

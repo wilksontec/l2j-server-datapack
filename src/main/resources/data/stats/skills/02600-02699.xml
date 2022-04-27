@@ -6,6 +6,7 @@
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2601" levels="1" name="Gran Kain's Echo Crystal - Theme of the Feast">
 		<set name="isMagic" val="2" />
@@ -13,6 +14,7 @@
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2602" levels="1" name="Gran Kain's Echo Crystal - Theme of Celebration">
 		<set name="isMagic" val="2" />
@@ -20,6 +22,7 @@
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2603" levels="1" name="Gran Kain's Echo Crystal - Theme of Comedy">
 		<set name="isMagic" val="2" />
@@ -27,6 +30,7 @@
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2604" levels="1" name="Gran Kain's Firework">
 		<set name="isMagic" val="2" />
@@ -37,6 +41,7 @@
 		<set name="reuseDelay" val="1000" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2605" levels="1" name="Gran Kain's Large Firework">
 		<set name="isMagic" val="2" />
@@ -47,6 +52,7 @@
 		<set name="reuseDelay" val="3000" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2606" levels="1" name="Gran Kain's Gift Box">
 		<!-- Confirmed CT2.5 -->
@@ -119,6 +125,7 @@
 				<param sp="#amount" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2609" levels="20" name="Escape - Talking Island Village">
 		<!-- High Five Confirmed -->
@@ -158,6 +165,7 @@
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="NONE" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2611" levels="1" name="Large Firework">
 		<!-- High Five Confirmed -->
@@ -304,6 +312,7 @@
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="NONE" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2620" levels="1" name="Extra Entrance Pass - Near Kamaloka (Event)">
 		<set name="isMagic" val="2" />
@@ -313,6 +322,7 @@
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="NONE" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2621" levels="1" name="Extra Entrance Pass - Kamaloka (Labyrinth of the Abyss) (Event)">
 		<set name="isMagic" val="2" />
@@ -322,6 +332,7 @@
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="NONE" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2622" levels="1" name="Summon Life-size Decoy">
 		<!-- Confirmed CT2.5 -->
@@ -352,6 +363,7 @@
 		<set name="operateType" val="A2" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="NONE" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2624" levels="1" name="Life Aid Banding">
 		<set name="abnormalLvl" val="4" />
@@ -364,6 +376,7 @@
 		<set name="operateType" val="A2" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="NONE" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2625" levels="1" name="Embalming">
 		<set name="isMagic" val="1" />
@@ -371,6 +384,7 @@
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="NONE" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2626" levels="1" name="Lighting Incense">
 		<set name="isMagic" val="1" />
@@ -378,6 +392,7 @@
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="NONE" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2627" levels="1" name="Elixir Miracle">
 		<set name="isMagic" val="1" />
@@ -385,6 +400,7 @@
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="NONE" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2628" levels="1" name="Structure Scarab">
 		<set name="abnormalLvl" val="1" />
@@ -405,6 +421,7 @@
 				<param resRecovery="50" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2629" levels="1" name="Ancient Treasure Sack">
 		<set name="isMagic" val="2" />
@@ -412,6 +429,7 @@
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="NONE" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2630" levels="1" name="Presentation - Collect Items">
 		<!-- High Five Confirmed -->
@@ -453,6 +471,7 @@
 				<param id="111" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2632" levels="1" name="Scroll of Transformation - Young Child">
 		<set name="abnormalLvl" val="1" />
@@ -474,6 +493,7 @@
 				<param id="112" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2633" levels="1" name="Elmore-Aden's Holy Water">
 		<!-- High Five Confirmed -->
@@ -536,6 +556,7 @@
 				<add stat="firePower" val="20" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2636" levels="1" name="Blessing of Earth">
 		<set name="abnormalLvl" val="1" />
@@ -552,6 +573,7 @@
 				<add stat="earthPower" val="20" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2637" levels="1" name="Scroll: Enchant Weapon (Event)">
 		<set name="isMagic" val="2" />
@@ -559,6 +581,7 @@
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="NONE" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2638" levels="1" name="Five-year anniversary event box">
 		<!-- Confirmed CT2.5 -->
@@ -743,6 +766,7 @@
 				<param value="20000" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2646" levels="1" name="Honey Wheat Cake">
 		<!-- Confirmed CT2.5 -->
@@ -758,6 +782,7 @@
 				<param value="20000" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2647" levels="1" name="Energy Star Stone">
 		<!-- Confirmed CT2.5 -->
@@ -776,6 +801,7 @@
 				<param value="25" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2648" levels="1" name="High Quality Energy Star Stone">
 		<!-- Confirmed CT2.5 -->
@@ -794,6 +820,7 @@
 				<param value="100" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2649" levels="9" name="Escape - Gludin Village">
 		<!-- High Five Confirmed -->
@@ -875,6 +902,7 @@
 				<param skillId="913" skillLvl="1" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2652" levels="1" name="Song of Purification">
 		<!-- Confirmed CT2.5 -->
@@ -900,6 +928,7 @@
 				<param skillId="914" skillLvl="1" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2653" levels="1" name="Dance of Berserker">
 		<!-- Confirmed CT2.5 -->
@@ -925,6 +954,7 @@
 				<param skillId="915" skillLvl="1" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2654" levels="1" name="Final Secret">
 		<!-- Confirmed CT2.5 -->
@@ -950,6 +980,7 @@
 				<param skillId="917" skillLvl="1" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2655" levels="1" name="Maximum Force Focus">
 		<!-- Confirmed CT2.5 -->
@@ -975,6 +1006,7 @@
 				<param skillId="918" skillLvl="1" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2656" levels="1" name="Maximum Sonic Focus">
 		<!-- Confirmed CT2.5 -->
@@ -1000,6 +1032,7 @@
 				<param skillId="919" skillLvl="1" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2657" levels="1" name="Hide">
 		<!-- Confirmed CT2.5 -->
@@ -1025,6 +1058,7 @@
 				<param skillId="922" skillLvl="1" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2658" levels="1" name="Dual Dagger Mastery">
 		<!-- Confirmed CT2.5 -->
@@ -1050,6 +1084,7 @@
 				<param skillId="923" skillLvl="1" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2659" levels="1" name="Seven Arrow">
 		<!-- Confirmed CT2.5 -->
@@ -1075,6 +1110,7 @@
 				<param skillId="924" skillLvl="1" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2660" levels="1" name="Enlightenment">
 		<!-- Confirmed CT2.5 -->
@@ -1100,6 +1136,7 @@
 				<param skillId="1532" skillLvl="1" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2661" levels="1" name="Enlightenment">
 		<!-- Confirmed CT2.5 -->
@@ -1125,6 +1162,7 @@
 				<param skillId="1533" skillLvl="1" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2662" levels="1" name="Chant of Movement">
 		<!-- Confirmed CT2.5 -->
@@ -1150,6 +1188,7 @@
 				<param skillId="1535" skillLvl="1" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2663" levels="1" name="Combat of Pa'agrio">
 		<!-- Confirmed CT2.5 -->
@@ -1175,6 +1214,7 @@
 				<param skillId="1536" skillLvl="1" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2664" levels="1" name="Critical of Pa'agrio">
 		<!-- Confirmed CT2.5 -->
@@ -1200,6 +1240,7 @@
 				<param skillId="1537" skillLvl="1" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2665" levels="1" name="Condition of Pa'agrio">
 		<!-- Confirmed CT2.5 -->
@@ -1225,6 +1266,7 @@
 				<param skillId="1538" skillLvl="1" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2666" levels="1" name="Dual Blow">
 		<!-- Confirmed CT2.5 -->
@@ -1250,6 +1292,7 @@
 				<param skillId="928" skillLvl="1" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2667" levels="1" name="Spirit of the Cat">
 		<!-- Confirmed CT2.5 -->
@@ -1275,6 +1318,7 @@
 				<param skillId="929" skillLvl="1" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2668" levels="1" name="Spirit of the Phantom">
 		<!-- Confirmed CT2.5 -->
@@ -1300,6 +1344,7 @@
 				<param skillId="930" skillLvl="1" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2669" levels="1" name="Spirit of the Unicorn">
 		<!-- Confirmed CT2.5 -->
@@ -1325,6 +1370,7 @@
 				<param skillId="931" skillLvl="1" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2670" levels="1" name="Scroll of Transformation - Red">
 		<!-- Confirmed CT2.5 -->
@@ -1347,6 +1393,7 @@
 				<param id="121" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2671" levels="1" name="Scroll of Transformation - Blue">
 		<!-- Confirmed CT2.5 -->
@@ -1369,6 +1416,7 @@
 				<param id="122" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2672" levels="1" name="Gludio Human Mercenary">
 		<set name="abnormalLvl" val="1" />
@@ -1401,6 +1449,7 @@
 				<param id="10" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2673" levels="1" name="Gludio Elf Mercenary">
 		<set name="abnormalLvl" val="1" />
@@ -1433,6 +1482,7 @@
 				<param id="11" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2674" levels="1" name="Gludio Dark Elf Mercenary">
 		<set name="abnormalLvl" val="1" />
@@ -1465,6 +1515,7 @@
 				<param id="12" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2675" levels="1" name="Gludio Orc Mercenary">
 		<set name="abnormalLvl" val="1" />
@@ -1497,6 +1548,7 @@
 				<param id="13" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2676" levels="1" name="Gludio Dwarf Mercenary">
 		<set name="abnormalLvl" val="1" />
@@ -1529,6 +1581,7 @@
 				<param id="14" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2677" levels="1" name="Gludio Kamael Mercenary">
 		<set name="abnormalLvl" val="1" />
@@ -1561,6 +1614,7 @@
 				<param id="15" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2678" levels="1" name="Gludio Knight Mercenary">
 		<set name="abnormalLvl" val="1" />
@@ -1593,6 +1647,7 @@
 				<param id="16" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2679" levels="1" name="Gludio Archer Mercenary">
 		<set name="abnormalLvl" val="1" />
@@ -1625,6 +1680,7 @@
 				<param id="17" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2680" levels="1" name="Gludio Wizard Mercenary">
 		<set name="abnormalLvl" val="1" />
@@ -1657,6 +1713,7 @@
 				<param id="18" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2681" levels="1" name="Gludio Kamael Captain Mercenary">
 		<set name="abnormalLvl" val="1" />
@@ -1689,6 +1746,7 @@
 				<param id="19" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2682" levels="1" name="Gludio Knight Captain Mercenary">
 		<set name="abnormalLvl" val="1" />
@@ -1721,6 +1779,7 @@
 				<param id="20" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2683" levels="1" name="Gludio Commander Mercenary">
 		<set name="abnormalLvl" val="1" />
@@ -1753,6 +1812,7 @@
 				<param id="21" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2684" levels="1" name="Dion Human Mercenary">
 		<set name="abnormalLvl" val="1" />
@@ -1785,6 +1845,7 @@
 				<param id="10" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2685" levels="1" name="Dion Elf Mercenary">
 		<set name="abnormalLvl" val="1" />
@@ -1817,6 +1878,7 @@
 				<param id="11" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2686" levels="1" name="Dion Dark Elf Mercenary">
 		<set name="abnormalLvl" val="1" />
@@ -1849,6 +1911,7 @@
 				<param id="12" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2687" levels="1" name="Dion Orc Mercenary">
 		<set name="abnormalLvl" val="1" />
@@ -1881,6 +1944,7 @@
 				<param id="13" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2688" levels="1" name="Dion Dwarf Mercenary">
 		<set name="abnormalLvl" val="1" />
@@ -1913,6 +1977,7 @@
 				<param id="14" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2689" levels="1" name="Dion Kamael Mercenary">
 		<set name="abnormalLvl" val="1" />
@@ -1945,6 +2010,7 @@
 				<param id="15" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2690" levels="1" name="Dion Knight Mercenary">
 		<set name="abnormalLvl" val="1" />
@@ -1977,6 +2043,7 @@
 				<param id="16" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2691" levels="1" name="Dion Archer Mercenary">
 		<set name="abnormalLvl" val="1" />
@@ -2009,6 +2076,7 @@
 				<param id="17" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2692" levels="1" name="Dion Wizard Mercenary">
 		<set name="abnormalLvl" val="1" />
@@ -2041,6 +2109,7 @@
 				<param id="18" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2693" levels="1" name="Dion Kamael Captain Mercenary">
 		<set name="abnormalLvl" val="1" />
@@ -2073,6 +2142,7 @@
 				<param id="19" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2694" levels="1" name="Dion Knight Captain Mercenary">
 		<set name="abnormalLvl" val="1" />
@@ -2105,6 +2175,7 @@
 				<param id="20" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2695" levels="1" name="Dion Commander Mercenary">
 		<set name="abnormalLvl" val="1" />
@@ -2137,6 +2208,7 @@
 				<param id="21" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2696" levels="1" name="Giran Human Mercenary">
 		<set name="abnormalLvl" val="1" />
@@ -2169,6 +2241,7 @@
 				<param id="10" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2697" levels="1" name="Giran Elf Mercenary">
 		<set name="abnormalLvl" val="1" />
@@ -2201,6 +2274,7 @@
 				<param id="11" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2698" levels="1" name="Giran Dark Elf Mercenary">
 		<set name="abnormalLvl" val="1" />
@@ -2233,6 +2307,7 @@
 				<param id="12" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2699" levels="1" name="Giran Orc Mercenary">
 		<set name="abnormalLvl" val="1" />
@@ -2265,5 +2340,6 @@
 				<param id="13" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 </list>

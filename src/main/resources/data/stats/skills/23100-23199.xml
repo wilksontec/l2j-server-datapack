@@ -659,6 +659,7 @@
 				<add stat="runSpd" val="20" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="23141" levels="1" name="Iken Agathion Cute Trick">
 		<!-- High Five Confirmed -->
@@ -1725,6 +1726,7 @@
 				<mul stat="vitalityConsumeRate" val="0" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="23180" levels="1" name="Joy of Vitality">
 		<!-- Confirmed CT2.5 -->
@@ -1742,6 +1744,7 @@
 				<param value="20000" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="23181" levels="1" name="Three-headed Dragon Agathion Cute Trick">
 		<set name="hitTime" val="3000" />
@@ -1754,6 +1757,7 @@
 		<cond msgId="2292">
 			<player agathionId="1575" />
 		</cond>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="23182" levels="1" name="Three-headed Dragon Agathion Special Skill - Wind Walk">
 		<!-- Increases moving speed by 20 for 20 minutes. Reuse delay is 1 hours. -->
@@ -1779,6 +1783,7 @@
 				<add stat="runSpd" val="20" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="23183" levels="1" name="Ball Trapping Gnosian Agathion Special Skill - Buff of Cheers">
 		<!-- With the power of cheers, for 1 hour, increases Max MP, MP Recovery Bonus, HP Recovery Bonus, Critical Attack Power, P. Def., Atk. Spd., M. Atk., M. Def., Casting Spd. by 20%, the occurrence rate of Prominent Damage through damage magic by 2, P. Atk. by 10%, and resistance to de-buffs by 10%. Also decreases MP consumption needed for skill use by 5% and moving speed by 20%. Reuse Delay 1 hour. Consumes 30 energy. -->
@@ -1794,6 +1799,7 @@
 		<set name="reuseDelay" val="3600000" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="NONE" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="23184" levels="1" name="Ball Trapping Gnosian Agathion Special Skill - Soccer Ball of Cheers">
 		<!-- Confirmed CT2.5 -->
@@ -1833,6 +1839,7 @@
 		<set name="reuseDelay" val="3600000" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="NONE" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="23186" levels="1" name="Ball Trapping Orodriel Agathion Special Skill - Soccer Ball of Cheers">
 		<!-- Confirmed CT2.5 -->
@@ -1872,6 +1879,7 @@
 		<set name="reuseDelay" val="3600000" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="NONE" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="23188" levels="1" name="Ball Trapping Penalty Kick Agathion Special Skill - Soccer Ball of Cheers">
 		<!-- Confirmed CT2.5 -->
@@ -1911,6 +1919,7 @@
 		<set name="reuseDelay" val="3600000" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="NONE" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="23190" levels="1" name="Ball Trapping Gnosian Agathion Special Skill - Soccer Ball of Cheers">
 		<!-- Confirmed CT2.5 -->
@@ -1950,6 +1959,7 @@
 		<set name="reuseDelay" val="3600000" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="NONE" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="23192" levels="1" name="Ball Trapping Orodriel Agathion Special Skill - Soccer Ball of Cheers">
 		<!-- Confirmed CT2.5 -->
@@ -1989,6 +1999,7 @@
 		<set name="reuseDelay" val="3600000" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="NONE" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="23194" levels="1" name="Ball Trapping Penalty Kick Agathion Special Skill - Soccer Ball of Cheers">
 		<!-- Confirmed CT2.5 -->
@@ -2028,6 +2039,7 @@
 		<set name="reuseDelay" val="3600000" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="NONE" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="23196" levels="1" name="Ball Trapping Gnosian Agathion Special Skill - Soccer Ball of Cheers">
 		<!-- Confirmed CT2.5 -->
@@ -2067,6 +2079,7 @@
 		<set name="reuseDelay" val="3600000" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="NONE" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="23198" levels="1" name="Ball Trapping Orodriel Agathion Special Skill - Soccer Ball of Cheers">
 		<!-- Confirmed CT2.5 -->
@@ -2106,5 +2119,6 @@
 		<set name="reuseDelay" val="3600000" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="NONE" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 </list>

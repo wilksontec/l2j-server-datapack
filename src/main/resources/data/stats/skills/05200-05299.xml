@@ -129,6 +129,7 @@
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE" />
 		<set name="targetType" val="SELF" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="5205" levels="1" name="Boss Regeneration">
 		<!-- High Five Confirmed -->
@@ -543,6 +544,7 @@
 				<mul stat="pDef" val="1.5" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="5225" levels="1" name="Invincible">
 		<!-- Confirmed CT2.5 -->
@@ -571,6 +573,7 @@
 				<sub stat="cancelVuln" val="100" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="5226" levels="1" name="Imprison">
 		<!-- High Five Confirmed -->
@@ -838,6 +841,7 @@
 				<add stat="runSpd" val="33" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="5237" levels="1" name="Speed Down">
 		<!-- Confirmed CT2.5 -->
@@ -857,6 +861,7 @@
 				<mul stat="runSpd" val="0.8" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="5238" levels="1" name="Freezing">
 		<!-- High Five Confirmed -->
@@ -1431,6 +1436,7 @@
 				<param fullLethal="#lethalStrikeRate" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="5258" levels="12" name="Mana Burn">
 		<!-- High Five Confirmed -->
@@ -1540,6 +1546,7 @@
 				<param id="303" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="5262" levels="12" name="NPC - Rise Shot">
 		<!-- High Five Confirmed -->
@@ -1689,6 +1696,7 @@
 				<mul stat="danceMpConsumeRate" val="#val" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="5267" levels="21" name="Trap Explosion">
 		<!-- High Five Confirmed -->

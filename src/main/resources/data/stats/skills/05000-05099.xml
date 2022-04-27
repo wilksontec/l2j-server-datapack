@@ -2079,6 +2079,7 @@
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE" />
 		<set name="targetType" val="SELF" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="5091" levels="1" name="Sailren Production 2">
 		<!-- Confirmed CT2.5 -->
@@ -2087,6 +2088,7 @@
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE" />
 		<set name="targetType" val="SELF" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="5092" levels="1" name="Antharas Terror">
 		<!-- High Five Confirmed -->

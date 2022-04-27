@@ -455,6 +455,7 @@
 				<mul stat="regHp" val="10" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="5518" levels="1" name="Last Stand">
 		<!-- High Five Confirmed -->
@@ -878,6 +879,7 @@
 		<cond msgId="2292">
 			<player agathionId="16031" />
 		</cond>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="5536" levels="1" name="Little Devil Cuteness Trick">
 		<set name="icon" val="icon.skill_agathion_cute" />
@@ -889,6 +891,7 @@
 		<cond msgId="2292">
 			<player agathionId="16032" />
 		</cond>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="5537" levels="1" name="Rudolph Cuteness Trick">
 		<set name="icon" val="icon.skill_agathion_cute" />
@@ -900,6 +903,7 @@
 		<cond msgId="2292">
 			<player agathionId="16033" />
 		</cond>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="5538" levels="1" name="Little Angel Agathion Special Skill - Firecrackers">
 		<set name="icon" val="icon.skill_agathion_special" />
@@ -912,6 +916,7 @@
 		<cond msgId="2292">
 			<player agathionId="16031" />
 		</cond>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="5539" levels="1" name="Little Angel Agathion Special Skill - Mysterious Power">
 		<set name="abnormalLvl" val="0" />
@@ -930,6 +935,7 @@
 		<cond msgId="2292">
 			<player agathionId="16031" />
 		</cond>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="5540" levels="1" name="Little Angel Agathion Special Skill - Blessed Escape">
 		<!-- High Five Confirmed -->
@@ -985,6 +991,7 @@
 				<param power="100" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="5542" levels="1" name="Little Devil Agathion Special Skill - Firecrackers">
 		<set name="icon" val="icon.skill_agathion_special" />
@@ -997,6 +1004,7 @@
 		<cond msgId="2292">
 			<player agathionId="16032" />
 		</cond>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="5543" levels="1" name="Little Devil Agathion Special Skill - Mysterious Power">
 		<set name="abnormalLvl" val="0" />
@@ -1015,6 +1023,7 @@
 		<cond msgId="2292">
 			<player agathionId="16032" />
 		</cond>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="5544" levels="1" name="Little Devil Agathion Special Skill - Blessed Escape">
 		<!-- High Five Confirmed -->
@@ -1070,6 +1079,7 @@
 				<param power="100" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="5546" levels="1" name="Alert">
 		<!-- High Five Confirmed -->
@@ -1138,6 +1148,7 @@
 				<param charge="1" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="5549" levels="1" name="Physical Short-range Weakness">
 		<set name="magicLvl" val="70" />

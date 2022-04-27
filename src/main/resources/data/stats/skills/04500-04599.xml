@@ -270,6 +270,7 @@
 				<add stat="rEvas" val="30" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="4524" levels="1" name="Quest - BOSS Bluff">
 		<set name="abnormalLvl" val="1" />
@@ -285,6 +286,7 @@
 		<effects>
 			<effect name="Buff" />
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="4525" levels="1" name="Quest - BOSS Defend">
 		<set name="abnormalVisualEffect" val="NONE" />
@@ -314,6 +316,7 @@
 				<param mode="PER" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="4527" levels="1" name="Quest - BOSS Inc HP to Summoned">
 		<!-- High Five Confirmed -->
@@ -710,6 +713,7 @@
 				<mul stat="pAtk" val="#pAtk" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="4545" levels="1" name="Quest - BOSS Reflect">
 		<set name="abnormalVisualEffect" val="NONE" />

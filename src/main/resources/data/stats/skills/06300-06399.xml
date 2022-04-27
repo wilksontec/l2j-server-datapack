@@ -72,6 +72,7 @@
 				<mul stat="mDef" val="1.15" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="6303" levels="1" name="Trial of the Coup">
 		<!-- Confirmed CT2.5 -->
@@ -436,6 +437,7 @@
 				<param power="15" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="6317" levels="1" name="Sacred Tacit">
 		<!-- High Five Confirmed -->
@@ -819,6 +821,7 @@
 				<mul stat="pAtkSpd" val="0.7" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="6332" levels="1" name="Camp Fire Full">
 		<!-- Confirmed CT2.5 -->
@@ -842,6 +845,7 @@
 				<mul stat="pAtkSpd" val="0.7" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="6333" levels="1" name="Electric Bolt 1">
 		<!-- Confirmed CT2.5 -->

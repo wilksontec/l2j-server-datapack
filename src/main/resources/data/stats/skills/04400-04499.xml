@@ -1151,6 +1151,7 @@
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE" />
 		<set name="targetType" val="SELF" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="4470" levels="1" name="NPC Spoils">
 		<!-- High Five Confirmed -->
@@ -1192,6 +1193,7 @@
 				<mul stat="pDef" val="#pAtkDef" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="4472" levels="12" name="NPC Strike Golem">
 		<!-- High Five Confirmed -->

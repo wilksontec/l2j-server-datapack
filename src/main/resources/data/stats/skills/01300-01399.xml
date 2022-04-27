@@ -709,6 +709,7 @@
 				<param CROSSBOW="6" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="1327" levels="1" name="Symphony of Noblesse">
 		<!-- High Five Confirmed -->
@@ -761,6 +762,7 @@
 				<param CROSSBOW="6" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="1328" levels="8" name="Mass Summon Storm Cubic" enchantGroup1="2">
 		<!-- High Five Confirmed -->

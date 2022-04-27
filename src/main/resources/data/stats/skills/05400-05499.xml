@@ -48,6 +48,7 @@
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE" />
 		<set name="targetType" val="SELF" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="5403" levels="1" name="Presentation - Balor 3">
 		<!-- Balor - Magic Skill2 -->
@@ -57,6 +58,7 @@
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE" />
 		<set name="targetType" val="SELF" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="5404" levels="1" name="Presentation - Balor 4">
 		<!-- High Five Confirmed -->
@@ -438,6 +440,7 @@
 				<mul stat="mAtkSpd" val="0.85" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="5427" levels="1" name="Counter Rapid Shot">
 		<!-- High Five Confirmed -->
@@ -495,6 +498,7 @@
 				<param power="49" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="5430" levels="1" name="Spoil Bomb">
 		<!-- High Five Confirmed -->
@@ -929,6 +933,7 @@
 		<effects>
 			<effect name="TargetCancel" />
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="5449" levels="1" name="Weak Constitution">
 		<!-- Confirmed CT2.5 -->
@@ -942,6 +947,7 @@
 		<effects>
 			<effect name="Stun" />
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="5450" levels="7" name="Thin Skin">
 		<!-- Confirmed CT2.5 -->
@@ -964,6 +970,7 @@
 				<param ticks="5" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="5451" levels="1" name="Enervation">
 		<!-- Confirmed CT2.5 -->
@@ -981,6 +988,7 @@
 				<mul stat="mAtkSpd" val="0.7" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="5452" levels="3" name="Spite">
 		<!-- Confirmed CT2.5 -->
@@ -999,6 +1007,7 @@
 				<mul stat="defCritDamage" val="#defCritDamage" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="5453" levels="4" name="Mental Impoverish">
 		<!-- Confirmed CT2.5 -->
@@ -1013,6 +1022,7 @@
 				<param power="#power" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="5454" levels="1" name="Shadow Bind">
 		<!-- High Five Confirmed -->
@@ -1604,6 +1614,7 @@
 				<param flyRadius="300" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="5495" levels="1" name="Bleed">
 		<!-- High Five Confirmed -->

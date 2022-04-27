@@ -992,6 +992,7 @@
 				<param npcId="13028" npcCount="1" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="1423" levels="1" name="Gehenna">
 		<set name="affectLimit" val="15-25" />
@@ -1189,6 +1190,7 @@
 		<effects>
 			<effect name="CallParty" />
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="1430" levels="5" name="Invocation">
 		<!-- High Five Confirmed -->
@@ -1731,6 +1733,7 @@
 				<mul stat="mAtk" val="#mAtk" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="1442" levels="3" name="Protection from Darkness" enchantGroup1="1" enchantGroup2="1">
 		<!-- High Five Confirmed -->
@@ -2611,6 +2614,7 @@
 				<add stat="healEffect" val="#ench1Power" />
 			</effect>
 		</enchant1Effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="1460" levels="1" name="Mana Gain" enchantGroup1="5" enchantGroup2="5">
 		<!-- High Five Confirmed -->
@@ -3889,6 +3893,7 @@
 				<add stat="waterRes" val="60" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="1494" levels="1" name="Hurricane Armor">
 		<!-- High Five Confirmed -->
@@ -3918,6 +3923,7 @@
 				<add stat="windRes" val="60" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="1495" levels="1" name="Vampiric Mist">
 		<!-- High Five Confirmed -->

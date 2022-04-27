@@ -120,6 +120,7 @@
 		<set name="reuseDelay" val="2000" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="NONE" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2905" levels="1" name="Growth Accelerator">
 		<!-- High Five Confirmed -->
@@ -170,6 +171,7 @@
 				<param amount="1900" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2908" levels="5" name="Battlefield Use Secret Medicine of Mind">
 		<!-- Confirmed CT2.5 -->
@@ -187,6 +189,7 @@
 				<param amount="360" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2909" levels="5" name="Battlefield Use Secret Medicine of Will">
 		<!-- Confirmed CT2.5 -->
@@ -204,6 +207,7 @@
 				<param amount="360" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2910" levels="1" name="Skull Key of Pain">
 		<set name="isMagic" val="2" />
@@ -213,6 +217,7 @@
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="NONE" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2911" levels="1" name="Skull Key of Erosion">
 		<set name="isMagic" val="2" />
@@ -222,6 +227,7 @@
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="NONE" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2912" levels="1" name="Skull Key of the Heart">
 		<set name="isMagic" val="2" />
@@ -231,6 +237,7 @@
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="NONE" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2913" levels="1" name="Soul Extraction">
 		<set name="effectPoint" val="-100" />
@@ -240,6 +247,7 @@
 		<set name="reuseDelay" val="60000" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="NONE" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2914" levels="3" name="Equipment Set 90 Day Pack">
 		<!-- Confirmed CT2.5 -->
@@ -259,6 +267,7 @@
 				<param npcId="#npcId" npcCount="1" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2915" levels="1" name="Clear Five-Colored Crystal">
 		<!-- High Five Confirmed -->
@@ -2138,6 +2147,7 @@
 		<set name="reuseDelay" val="2000" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="NONE" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2994" levels="1" name="Disguised Half - Aqua Elf">
 		<set name="abnormalLvl" val="1" />
@@ -2159,6 +2169,7 @@
 				<param id="125" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2995" levels="1" name="PC room private weapon strengthening order sheet - D grade">
 		<set name="isMagic" val="2" />
@@ -2166,6 +2177,7 @@
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2996" levels="1" name="PC room private weapon strengthening order sheet - C grade">
 		<set name="isMagic" val="2" />
@@ -2173,6 +2185,7 @@
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2997" levels="1" name="PC room private weapon strengthening order sheet - B grade">
 		<set name="isMagic" val="2" />
@@ -2180,6 +2193,7 @@
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2998" levels="1" name="PC room private weapon strengthening order sheet - A grade">
 		<set name="isMagic" val="2" />
@@ -2187,6 +2201,7 @@
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2999" levels="1" name="PC room private weapon strengthening order sheet - S grade">
 		<set name="isMagic" val="2" />
@@ -2194,5 +2209,6 @@
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 </list>

@@ -15,6 +15,7 @@
 				<param value="2" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2301" levels="1" name="Hair Style Change Potion">
 		<!-- Confirmed CT2.5 -->
@@ -31,6 +32,7 @@
 				<param value="3" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2302" levels="1" name="Hair Style Change Potion">
 		<!-- Confirmed CT2.5 -->
@@ -47,6 +49,7 @@
 				<param value="4" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2303" levels="1" name="Hair Style Change Potion">
 		<!-- Confirmed CT2.5 -->
@@ -66,6 +69,7 @@
 				<param value="5" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2304" levels="1" name="Hair Style Change Potion">
 		<!-- Confirmed CT2.5 -->
@@ -85,6 +89,7 @@
 				<param value="6" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2305" levels="1" name="Primeval Potion">
 		<!-- Confirmed CT2.5 -->
@@ -101,6 +106,7 @@
 				<param SHOCK="15" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2306" levels="3" name="Primeval Crystals">
 		<!-- Lvl 1 Name - Blue Primeval Crystal -->
@@ -125,6 +131,7 @@
 				<param sp="#amount" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2307" levels="1" name="Remove Petrification Scroll">
 		<!-- Confirmed CT2.5 -->
@@ -141,6 +148,7 @@
 				<param dispel="TURN_STONE" rate="99" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2308" levels="36" name="Event Item">
 		<!-- Confirmed CT2.5 -->
@@ -239,6 +247,7 @@
 				<add stat="accCombat" val="4" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2311" levels="1" name="Scroll of Death Whisper - Event Use">
 		<set name="abnormalLvl" val="4" />
@@ -258,6 +267,7 @@
 				<mul stat="critDmg" val="1.35" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2312" levels="1" name="Scroll of Focus - Event Use">
 		<set name="abnormalLvl" val="4" />
@@ -277,6 +287,7 @@
 				<mul stat="critRate" val="1.3" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2313" levels="1" name="Scroll of Acumen - Event Use">
 		<set name="abnormalLvl" val="4" />
@@ -296,6 +307,7 @@
 				<mul stat="mAtkSpd" val="1.3" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2314" levels="1" name="Scroll of Haste - Event Use">
 		<set name="abnormalLvl" val="3" />
@@ -315,6 +327,7 @@
 				<mul stat="pAtkSpd" val="1.33" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2315" levels="1" name="Scroll of Agility - Event Use">
 		<set name="abnormalLvl" val="4" />
@@ -334,6 +347,7 @@
 				<add stat="rEvas" val="4" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2316" levels="1" name="Scroll of Empower - Event Use">
 		<set name="abnormalLvl" val="4" />
@@ -353,6 +367,7 @@
 				<mul stat="mAtk" val="1.75" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2317" levels="1" name="Scroll of Might - Event Use">
 		<set name="abnormalLvl" val="4" />
@@ -372,6 +387,7 @@
 				<mul stat="pAtk" val="1.15" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2318" levels="1" name="Scroll of Wind Walk - Event Use">
 		<set name="abnormalLvl" val="3" />
@@ -391,6 +407,7 @@
 				<add stat="runSpd" val="33" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2319" levels="1" name="Scroll of Shield - Event Use">
 		<set name="abnormalLvl" val="4" />
@@ -410,6 +427,7 @@
 				<mul stat="pDef" val="1.15" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2320" levels="1" name="Blessed Scroll of Escape - Event Use">
 		<!-- High Five Confirmed -->
@@ -456,6 +474,7 @@
 				<param power="100" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2322" levels="1" name="Chest Key - For Events Only">
 		<!-- High Five Confirmed -->
@@ -628,6 +647,7 @@
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="NONE" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2330" levels="4" name="Water Stone">
 		<set name="isMagic" val="2" />
@@ -635,6 +655,7 @@
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="NONE" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2331" levels="4" name="Wind Stone">
 		<set name="isMagic" val="2" />
@@ -642,6 +663,7 @@
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="NONE" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2332" levels="4" name="Earth Stone">
 		<set name="isMagic" val="2" />
@@ -649,6 +671,7 @@
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="NONE" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2333" levels="4" name="Divine Stone">
 		<set name="isMagic" val="2" />
@@ -656,6 +679,7 @@
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="NONE" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2334" levels="4" name="Dark Stone">
 		<set name="isMagic" val="2" />
@@ -663,6 +687,7 @@
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="NONE" />
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2335" levels="1" name="Fire Resist Potion">
 		<set name="abnormalLvl" val="1" />
@@ -680,6 +705,7 @@
 				<add stat="fireRes" val="30" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2336" levels="1" name="Water Resist Potion">
 		<set name="abnormalLvl" val="1" />
@@ -697,6 +723,7 @@
 				<add stat="waterRes" val="30" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2337" levels="1" name="Wind Resist Potion">
 		<set name="abnormalLvl" val="1" />
@@ -714,6 +741,7 @@
 				<add stat="windRes" val="30" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2338" levels="1" name="Earth Resist Potion">
 		<set name="abnormalLvl" val="1" />
@@ -731,6 +759,7 @@
 				<add stat="earthRes" val="30" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2339" levels="1" name="Holy Resist Potion">
 		<set name="abnormalLvl" val="1" />
@@ -748,6 +777,7 @@
 				<add stat="holyRes" val="30" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2340" levels="1" name="Unholy Resist Potion">
 		<set name="abnormalLvl" val="1" />
@@ -765,6 +795,7 @@
 				<add stat="darkRes" val="30" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2341" levels="1" name="Caravan's Secret Medicine">
 		<set name="abnormalLvl" val="2" />
@@ -779,6 +810,7 @@
 		<effects>
 			<effect name="Buff" />
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2342" levels="1" name="Ballista Bomb">
 		<!-- High Five Confirmed -->
@@ -1174,6 +1206,7 @@
 		<effects>
 			<effect name="Buff" />
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2358" levels="1" name="Holy Water">
 		<!-- High Five Confirmed -->
@@ -1458,6 +1491,7 @@
 				<param id="104" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2371" levels="1" name="Transform Sealbook - Onyx Beast">
 		<!-- Confirmed CT2.5 -->
@@ -1481,6 +1515,7 @@
 				<param id="1" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2372" levels="1" name="Transform Sealbook - Death Blader">
 		<!-- Confirmed CT2.5 -->
@@ -1504,6 +1539,7 @@
 				<param id="2" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2373" levels="1" name="Transform Sealbook - Grail Apostle">
 		<!-- Confirmed CT2.5 -->
@@ -1528,6 +1564,7 @@
 				<param id="202" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2374" levels="1" name="Transform Sealbook - Unicorn">
 		<!-- Confirmed CT2.5 -->
@@ -1552,6 +1589,7 @@
 				<param id="205" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2375" levels="1" name="Transform Sealbook - Lilim Knight">
 		<!-- Confirmed CT2.5 -->
@@ -1576,6 +1614,7 @@
 				<param id="208" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2376" levels="1" name="Transform Sealbook - Golem Guardian">
 		<!-- Confirmed CT2.5 -->
@@ -1600,6 +1639,7 @@
 				<param id="211" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2377" levels="1" name="Transform Sealbook - Inferno Drake">
 		<!-- Confirmed CT2.5 -->
@@ -1624,6 +1664,7 @@
 				<param id="214" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2378" levels="1" name="Transform Sealbook - Dragon Bomber">
 		<!-- Confirmed CT2.5 -->
@@ -1648,6 +1689,7 @@
 				<param id="217" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2379" levels="1" name="Wind">
 		<!-- Confirmed CT2.5 -->
@@ -1665,6 +1707,7 @@
 				<add stat="runSpd" val="33" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2380" levels="1" name="Shield">
 		<!-- Confirmed CT2.5 -->
@@ -1682,6 +1725,7 @@
 				<mul stat="pDef" val="1.15" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2381" levels="1" name="Magic Barrier">
 		<!-- Confirmed CT2.5 -->
@@ -1699,6 +1743,7 @@
 				<mul stat="mDef" val="1.23" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2382" levels="1" name="Bless Shield">
 		<!-- Confirmed CT2.5 -->
@@ -1716,6 +1761,7 @@
 				<mul stat="rShld" val="1.35" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2383" levels="1" name="Haste">
 		<!-- Confirmed CT2.5 -->
@@ -1733,6 +1779,7 @@
 				<mul stat="pAtkSpd" val="1.15" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2384" levels="1" name="Acumen">
 		<!-- Confirmed CT2.5 -->
@@ -1750,6 +1797,7 @@
 				<mul stat="mAtkSpd" val="1.15" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2385" levels="1" name="Empower">
 		<!-- Confirmed CT2.5 -->
@@ -1767,6 +1815,7 @@
 				<mul stat="mAtk" val="1.55" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2386" levels="1" name="Divine Power">
 		<!-- Confirmed CT2.5 -->
@@ -1784,6 +1833,7 @@
 				<add stat="healEffect" val="100" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2387" levels="1" name="Might">
 		<!-- Confirmed CT2.5 -->
@@ -1801,6 +1851,7 @@
 				<mul stat="pAtk" val="1.15" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2388" levels="1" name="Focus">
 		<!-- Confirmed CT2.5 -->
@@ -1818,6 +1869,7 @@
 				<mul stat="critRate" val="1.15" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2389" levels="1" name="Guidance">
 		<!-- Confirmed CT2.5 -->
@@ -1835,6 +1887,7 @@
 				<add stat="accCombat" val="2" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2390" levels="1" name="Berserker Spirit">
 		<!-- Confirmed CT2.5 -->
@@ -1859,6 +1912,7 @@
 				<sub stat="rEvas" val="4" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2391" levels="1" name="Clarity">
 		<!-- Confirmed CT2.5 -->
@@ -1878,6 +1932,7 @@
 				<mul stat="danceMpConsumeRate" val="0.9" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2392" levels="1" name="Blessed Scroll of Battlefield Escape">
 		<!-- High Five Confirmed -->
@@ -1925,6 +1980,7 @@
 				<param power="100" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2394" levels="1" name="Scroll of Battlefield Transformation">
 		<!-- Confirmed CT2.5 -->
@@ -1949,6 +2005,7 @@
 				<param id="304" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2395" levels="1" name="Lesser Battlefield Healing Potion">
 		<!-- Confirmed CT2.5 -->
@@ -1969,6 +2026,7 @@
 				<param amount="1900" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2396" levels="1" name="Mental Potion">
 		<!-- Confirmed CT2.5 -->
@@ -1988,6 +2046,7 @@
 				<param DERANGEMENT="20" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2397" levels="1" name="Medusa Potion">
 		<!-- Confirmed CT2.5 -->
@@ -2004,10 +2063,10 @@
 		<effects>
 			<effect name="Stun" />
 			<effect name="BlockDamage">
-				<param block="HP"/>
+				<param block="HP" />
 			</effect>
 			<effect name="BlockDamage">
-				<param block="MP"/>
+				<param block="MP" />
 			</effect>
 			<effect name="BlockBuff" />
 			<effect name="BlockDebuff" />
@@ -2015,6 +2074,7 @@
 				<mul stat="regHp" val="0" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2398" levels="1" name="Instant Haste Potion">
 		<!-- Confirmed CT2.5 -->
@@ -2032,6 +2092,7 @@
 				<add stat="runSpd" val="66" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2399" levels="1" name="Capture Rope">
 		<!-- Confirmed CT2.5 -->
