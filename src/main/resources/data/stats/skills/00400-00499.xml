@@ -819,6 +819,7 @@
 				<mul stat="blowRate" val="#ench2Chance" />
 			</effect>
 		</enchant2Effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="411" levels="3" name="Stealth" enchantGroup1="1" enchantGroup2="1">
 		<table name="#abnormalLvl"> 1 2 3 </table>
@@ -853,6 +854,7 @@
 				<mul stat="pAtk" val="0.55" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="412" levels="10" name="Sand Bomb" enchantGroup1="1" enchantGroup2="1">
 		<!-- Confirmed CT2.5 -->
@@ -945,6 +947,7 @@
 				</mul>
 			</effect>
 		</enchant1Effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="414" levels="8" name="Dead Eye" enchantGroup1="1">
 		<!-- High Five Confirmed -->
@@ -1069,6 +1072,7 @@
 				<mul stat="pReuse" val="#pReuse" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="417" levels="5" name="Pain of Sagittarius" enchantGroup1="1">
 		<!-- High Five Confirmed -->
@@ -1840,6 +1844,7 @@
 				<param resRecovery="100" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="439" levels="1" name="Shield of Revenge">
 		<set name="abnormalLvl" val="1" />
@@ -1859,6 +1864,7 @@
 				<add stat="vengeancePdam" val="20" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="440" levels="1" name="Braveheart" enchantGroup1="5">
 		<!-- High Five Confirmed -->
@@ -2041,6 +2047,7 @@
 				<param targetType="ONE" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="446" levels="1" name="Dodge">
 		<set name="abnormalLvl" val="1" />
@@ -2060,6 +2067,7 @@
 				<add stat="pSkillEvas" val="90" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="447" levels="1" name="Counterattack">
 		<set name="abnormalLvl" val="1" />
@@ -2079,6 +2087,7 @@
 				<add stat="vengeancePdam" val="90" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="448" levels="1" name="Summon Swoop Cannon" enchantGroup1="1">
 		<table name="#ench1npcId"> 14840 14841 14842 14843 14844 14845 14846 14847 14848 14849 14850 14851 14852 14853 14854 14855 14856 14857 14858 14859 14860 14861 14862 14863 14864 14865 14866 14867 14868 14869 </table>
@@ -3176,6 +3185,7 @@
 				<mul stat="runSpd" val="#ench2runSpd" />
 			</effect>
 		</enchant2Effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="484" levels="1" name="Rush">
 		<!-- High Five Confirmed -->
@@ -3349,6 +3359,7 @@
 				</mul>
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="491" levels="1" name="Not In Use">
 		<!-- Confirmed CT2.5 -->
@@ -3368,6 +3379,7 @@
 				<player weight="80" />
 			</and>
 		</cond>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="492" levels="25" name="Spread Wing" enchantGroup1="2" enchantGroup2="2">
 		<!-- High Five Confirmed -->
@@ -3933,5 +3945,6 @@
 				<param DERANGEMENT="#trait_derangement" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 </list>

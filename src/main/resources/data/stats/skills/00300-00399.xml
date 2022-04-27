@@ -1135,6 +1135,7 @@
 				<sub stat="cancelVuln" val="100" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="328" levels="1" name="Wisdom" enchantGroup1="5" enchantGroup2="5" enchantGroup3="5">
 		<table name="#enchMagicLvl"> 81 81 81 82 82 82 83 83 83 84 84 84 85 85 85 </table>
@@ -1997,6 +1998,7 @@
 				</add>
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="352" levels="1" name="Shield Bash" enchantGroup1="6" enchantGroup2="6" enchantGroup3="6" enchantGroup4="6" enchantGroup5="6">
 		<table name="#ench-Res"> 7 10 13 15 18 21 23 26 29 31 34 37 39 42 45 </table>
@@ -2236,6 +2238,7 @@
 				</mul>
 			</effect>
 		</enchant2Effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="356" levels="1" name="Focus Chance" enchantGroup1="5" enchantGroup2="5">
 		<table name="#ench1rCrit"> 1.903 1.906 1.909 1.913 1.916 1.919 1.923 1.926 1.929 1.933 1.936 1.939 1.942 1.946 1.949 </table>
@@ -2306,6 +2309,7 @@
 				</mul>
 			</effect>
 		</enchant2Effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="357" levels="1" name="Focus Power" enchantGroup1="5" enchantGroup2="5">
 		<table name="#ench1cAtk"> 1.61 1.62 1.62 1.63 1.64 1.64 1.65 1.65 1.66 1.67 1.67 1.68 1.69 1.69 1.7 </table>
@@ -2376,6 +2380,7 @@
 				</mul>
 			</effect>
 		</enchant2Effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="358" levels="1" name="Bluff" enchantGroup1="6">
 		<!-- Confirmed CT2.5 -->
@@ -3381,6 +3386,7 @@
 				<add stat="runSpd" val="5" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="396" levels="1" name="Heroic Berserker">
 		<!-- Confirmed CT2.5 -->
@@ -3415,6 +3421,7 @@
 				<add stat="runSpd" val="20" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="397" levels="1" name="none">
 		<!-- Confirmed CT2.5 -->

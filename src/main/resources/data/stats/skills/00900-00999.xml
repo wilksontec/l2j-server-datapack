@@ -669,6 +669,7 @@
 		<effects>
 			<effect name="FocusMaxEnergy" />
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="919" levels="1" name="Maximum Focus Sonic">
 		<!-- High Five Confirmed -->
@@ -2593,6 +2594,7 @@
 				<mul stat="pAtkSpd" val="#amount" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="989" levels="1" name="Defense Motion">
 		<!-- High Five Confirmed -->
@@ -2620,6 +2622,7 @@
 				<mul stat="mDef" val="1.1" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="990" levels="1" name="Death Shot">
 		<!-- High Five Confirmed -->

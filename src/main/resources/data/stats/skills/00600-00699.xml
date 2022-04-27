@@ -257,6 +257,7 @@
 				<param id="1" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="618" levels="1" name="Transform Death Blader">
 		<set name="abnormalLvl" val="1" />
@@ -281,6 +282,7 @@
 				<param id="2" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="619" levels="1" name="Transform Dispel">
 		<!-- Confirmed CT2.5 -->
@@ -299,6 +301,7 @@
 				<param dispel="TRANSFORM,-1" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="620" levels="1" name="Quiver of Bolts - Grade B">
 		<!-- Confirmed CT2.5 -->
@@ -381,6 +384,7 @@
 				<add stat="pSkillEvas" val="#pSkillEvas" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="623" levels="1" name="Find Trap">
 		<!-- High Five Confirmed -->
@@ -455,6 +459,7 @@
 				<param charge="50" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="626" levels="4" name="Critical Sense" enchantGroup1="1" enchantGroup2="1">
 		<!-- Confirmed CT2.5 -->
@@ -1038,6 +1043,7 @@
 				<param id="253" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="657" levels="3" name="Transform Divine Knight">
 		<table name="#reuseDelay"> 14400000 7200000 3600000 </table>
@@ -1065,6 +1071,7 @@
 				<param id="252" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="658" levels="3" name="Transform Divine Rogue">
 		<table name="#reuseDelay"> 14400000 7200000 3600000 </table>
@@ -1092,6 +1099,7 @@
 				<param id="254" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="659" levels="3" name="Transform Divine Wizard">
 		<table name="#reuseDelay"> 14400000 7200000 3600000 </table>
@@ -1119,6 +1127,7 @@
 				<param id="256" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="660" levels="3" name="Transform Divine Summoner">
 		<table name="#reuseDelay"> 14400000 7200000 3600000 </table>
@@ -1146,6 +1155,7 @@
 				<param id="258" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="661" levels="3" name="Transform Divine Healer">
 		<table name="#reuseDelay"> 14400000 7200000 3600000 </table>
@@ -1173,6 +1183,7 @@
 				<param id="255" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="662" levels="3" name="Transform Divine Enchanter">
 		<table name="#reuseDelay"> 14400000 7200000 3600000 </table>
@@ -1200,6 +1211,7 @@
 				<param id="257" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="663" levels="1" name="Transform Zaken">
 		<set name="abnormalLvl" val="1" />
@@ -1226,6 +1238,7 @@
 				<param id="305" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="664" levels="1" name="Transform Anakim">
 		<set name="abnormalLvl" val="1" />
@@ -1252,6 +1265,7 @@
 				<param id="306" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="665" levels="1" name="Transform Venom">
 		<set name="abnormalLvl" val="1" />
@@ -1278,6 +1292,7 @@
 				<param id="307" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="666" levels="1" name="Transform Gordon">
 		<set name="abnormalLvl" val="1" />
@@ -1304,6 +1319,7 @@
 				<param id="308" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="667" levels="1" name="Transform Ranku">
 		<set name="abnormalLvl" val="1" />
@@ -1330,6 +1346,7 @@
 				<param id="309" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="668" levels="1" name="Transform Kechi">
 		<set name="abnormalLvl" val="1" />
@@ -1356,6 +1373,7 @@
 				<param id="310" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="669" levels="1" name="Transform Demon Prince">
 		<set name="abnormalLvl" val="1" />
@@ -1382,6 +1400,7 @@
 				<param id="311" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="670" levels="1" name="Transform Heretic">
 		<set name="abnormalLvl" val="1" />
@@ -1408,6 +1427,7 @@
 				<param id="3" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="671" levels="1" name="Transform Vale Master">
 		<set name="abnormalLvl" val="1" />
@@ -1434,6 +1454,7 @@
 				<param id="4" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="672" levels="1" name="Transform Saber Tooth Tiger">
 		<set name="abnormalLvl" val="1" />
@@ -1460,6 +1481,7 @@
 				<param id="5" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="673" levels="1" name="Transform Oel Mahum">
 		<set name="abnormalLvl" val="1" />
@@ -1486,6 +1508,7 @@
 				<param id="6" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="674" levels="1" name="Transform Doll Blader">
 		<set name="abnormalLvl" val="1" />
@@ -1512,6 +1535,7 @@
 				<param id="7" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="675" levels="1" name="Divine Warrior Cross Slash">
 		<!-- High Five Confirmed -->
@@ -1603,6 +1627,7 @@
 				<mul stat="pAtk" val="1.25" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="679" levels="1" name="Sacrifice Warrior">
 		<!-- High Five Confirmed -->

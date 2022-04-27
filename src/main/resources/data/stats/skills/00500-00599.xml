@@ -124,6 +124,7 @@
 				<param charge="#ench1souls" />
 			</effect>
 		</enchant1Effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="503" levels="3" name="Scorn">
 		<!-- High Five Confirmed -->
@@ -672,6 +673,7 @@
 				<player weight="80" />
 			</and>
 		</cond>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="513" levels="1" name="Create Dark Seed">
 		<!-- Confirmed CT2.5 -->
@@ -743,6 +745,7 @@
 				<param npcId="13045" />
 			</effect>
 		</enchant2Effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="515" levels="6" name="Poison Trap" enchantGroup1="2" enchantGroup2="2">
 		<!-- Confirmed CT2.5 and Updated to H5 -->
@@ -786,6 +789,7 @@
 				<param npcId="13051" />
 			</effect>
 		</enchant2Effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="516" levels="6" name="Slow Trap" enchantGroup1="2" enchantGroup2="2">
 		<!-- Confirmed CT2.5 and Updated to H5 -->
@@ -829,6 +833,7 @@
 				<param npcId="13070" />
 			</effect>
 		</enchant2Effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="517" levels="5" name="Flash Trap" enchantGroup1="2" enchantGroup2="2">
 		<!-- Confirmed CT2.5 and Updated to H5 -->
@@ -872,6 +877,7 @@
 				<param npcId="13056" />
 			</effect>
 		</enchant2Effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="518" levels="8" name="Binding Trap" enchantGroup1="2" enchantGroup2="2">
 		<!-- Confirmed CT2.5 and Updated to H5 -->
@@ -915,6 +921,7 @@
 				<param npcId="13064" />
 			</effect>
 		</enchant2Effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="519" levels="1" name="Quiver of Bolts: A-Grade">
 		<!-- Confirmed CT2.5 -->
@@ -1191,6 +1198,7 @@
 				<param dispel="DARK_SEED,9" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="525" levels="6" name="Decoy" enchantGroup1="1" enchantGroup2="1" enchantGroup3="1">
 		<!-- Confirmed CT2.5 -->
@@ -1229,6 +1237,7 @@
 				<param npcId="#ench3npcId" npcCount="1" />
 			</effect>
 		</enchant3Effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="526" levels="1" name="Enuma Elish" enchantGroup1="6" enchantGroup2="6" enchantGroup3="6" enchantGroup4="6">
 		<!-- High Five Confirmed -->
@@ -1657,6 +1666,7 @@
 				<mul stat="mDef" val="2" /> <!-- mDef +100% -->
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="539" levels="1" name="Nail Attack">
 		<!-- High Five Confirmed -->
@@ -1736,6 +1746,7 @@
 				<param id="201" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="542" levels="1" name="Transform Grail Apostle">
 		<!-- Confirmed CT2.5 -->
@@ -1763,6 +1774,7 @@
 				<param id="202" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="543" levels="1" name="Transform Grail Apostle">
 		<!-- Confirmed CT2.5 -->
@@ -1790,6 +1802,7 @@
 				<param id="203" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="544" levels="1" name="Transform Unicorn">
 		<!-- Confirmed CT2.5 -->
@@ -1817,6 +1830,7 @@
 				<param id="204" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="545" levels="1" name="Transform Unicorn">
 		<!-- Confirmed CT2.5 -->
@@ -1844,6 +1858,7 @@
 				<param id="205" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="546" levels="1" name="Transform Unicorn">
 		<!-- Confirmed CT2.5 -->
@@ -1871,6 +1886,7 @@
 				<param id="206" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="547" levels="1" name="Transform Lilim Knight">
 		<!-- Confirmed CT2.5 -->
@@ -1898,6 +1914,7 @@
 				<param id="207" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="548" levels="1" name="Transform Lilim Knight">
 		<!-- Confirmed CT2.5 -->
@@ -1925,6 +1942,7 @@
 				<param id="208" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="549" levels="1" name="Transform Lilim Knight">
 		<!-- Confirmed CT2.5 -->
@@ -1952,6 +1970,7 @@
 				<param id="209" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="550" levels="1" name="Transform Golem Guardian">
 		<!-- Confirmed CT2.5 -->
@@ -1979,6 +1998,7 @@
 				<param id="210" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="551" levels="1" name="Transform Golem Guardian">
 		<!-- Confirmed CT2.5 -->
@@ -2006,6 +2026,7 @@
 				<param id="211" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="552" levels="1" name="Transform Golem Guardian">
 		<!-- Confirmed CT2.5 -->
@@ -2033,6 +2054,7 @@
 				<param id="212" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="553" levels="1" name="Transform Inferno Drake">
 		<!-- Confirmed CT2.5 -->
@@ -2060,6 +2082,7 @@
 				<param id="213" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="554" levels="1" name="Transform Inferno Drake">
 		<!-- Confirmed CT2.5 -->
@@ -2087,6 +2110,7 @@
 				<param id="214" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="555" levels="1" name="Transform Inferno Drake">
 		<!-- Confirmed CT2.5 -->
@@ -2114,6 +2138,7 @@
 				<param id="215" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="556" levels="1" name="Transform Dragon Bomber">
 		<!-- Confirmed CT2.5 -->
@@ -2141,6 +2166,7 @@
 				<param id="216" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="557" levels="1" name="Transform Dragon Bomber">
 		<!-- Confirmed CT2.5 -->
@@ -2168,6 +2194,7 @@
 				<param id="217" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="558" levels="1" name="Transform Dragon Bomber">
 		<!-- Confirmed CT2.5 -->
@@ -2195,6 +2222,7 @@
 				<param id="218" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="559" levels="4" name="Spear">
 		<!-- High Five Confirmed -->
@@ -2663,6 +2691,7 @@
 				<param npcId="#npcId" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="575" levels="4" name="Steel Cutter">
 		<!-- High Five Confirmed -->
@@ -2959,6 +2988,7 @@
 		<effects>
 			<effect name="SilentMove" />
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="584" levels="1" name="Power Claw">
 		<!-- High Five Confirmed -->
@@ -3003,6 +3033,7 @@
 				<add stat="runSpd" val="66" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="586" levels="2" name="Rolling Attack">
 		<!-- High Five Confirmed -->

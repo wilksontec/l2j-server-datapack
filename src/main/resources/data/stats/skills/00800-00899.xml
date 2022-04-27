@@ -113,6 +113,7 @@
 				<mul stat="pAtk" val="1.4" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="808" levels="1" name="Golem Punch">
 		<!-- High Five Confirmed -->
@@ -856,6 +857,7 @@
 				<param power="100" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="834" levels="1" name="Blood Pact">
 		<!-- High Five Confirmed -->
@@ -947,6 +949,7 @@
 				<param npcId="#npcId" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="837" levels="1" name="Painkiller">
 		<!-- Confirmed CT2.5 -->
@@ -973,6 +976,7 @@
 			</effect>
 			<effect name="BlockDebuff" />
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="838" levels="1" name="Switch Stance">
 		<!-- Confirmed CT2.5 -->
@@ -989,6 +993,7 @@
 				<param dispel="TRANSFORM,-1" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="839" levels="1" name="Dismount">
 		<!-- Confirmed CT2.5 -->
@@ -1004,6 +1009,7 @@
 				<param dispel="TRANSFORM,-1" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="840" levels="1" name="Final Flying Form">
 		<set name="abnormalLvl" val="1" />
@@ -1042,6 +1048,7 @@
 				<mul stat="reduceExpLostByRaid" val="0.1" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="841" levels="1" name="Aura Bird - Falcon">
 		<set name="abnormalLvl" val="1" />
@@ -1075,6 +1082,7 @@
 				<mul stat="reduceExpLostByRaid" val="0.1" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="842" levels="1" name="Aura Bird - Owl">
 		<set name="abnormalLvl" val="1" />
@@ -1108,6 +1116,7 @@
 				<mul stat="reduceExpLostByRaid" val="0.1" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="843" levels="1" name="Shooting Star">
 		<!-- High Five Confirmed -->
@@ -1148,6 +1157,7 @@
 		<effects>
 			<effect name="OutpostCreate" />
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="845" levels="1" name="Outpost Demolition">
 		<set name="affectScope" val="SINGLE" />
@@ -1343,6 +1353,7 @@
 				<param id="10" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="858" levels="1" name="Elf Mercenary">
 		<set name="abnormalLvl" val="1" />
@@ -1367,6 +1378,7 @@
 				<param id="11" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="859" levels="1" name="Dark Elf Mercenary">
 		<set name="abnormalLvl" val="1" />
@@ -1391,6 +1403,7 @@
 				<param id="12" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="860" levels="1" name="Orc Mercenary">
 		<set name="abnormalLvl" val="1" />
@@ -1415,6 +1428,7 @@
 				<param id="13" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="861" levels="1" name="Dwarf Mercenary">
 		<set name="abnormalLvl" val="1" />
@@ -1439,6 +1453,7 @@
 				<param id="14" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="862" levels="1" name="Kamael Mercenary">
 		<set name="abnormalLvl" val="1" />
@@ -1463,6 +1478,7 @@
 				<param id="15" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="863" levels="1" name="Royal Guard Captain">
 		<set name="abnormalLvl" val="1" />
@@ -1487,6 +1503,7 @@
 				<param id="16" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="864" levels="1" name="Archer Captain">
 		<set name="abnormalLvl" val="1" />
@@ -1511,6 +1528,7 @@
 				<param id="17" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="865" levels="1" name="Magic Leader">
 		<set name="abnormalLvl" val="1" />
@@ -1535,6 +1553,7 @@
 				<param id="18" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="866" levels="1" name="Kamael Guard Captain">
 		<set name="abnormalLvl" val="1" />
@@ -1559,6 +1578,7 @@
 				<param id="19" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="867" levels="1" name="Knight of Dawn">
 		<set name="abnormalLvl" val="1" />
@@ -1583,6 +1603,7 @@
 				<param id="20" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="868" levels="1" name="Fortress Captain">
 		<set name="abnormalLvl" val="1" />
@@ -1607,6 +1628,7 @@
 				<param id="21" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="869" levels="9" name="Mercenary Power Strike">
 		<!-- High Five Confirmed -->
@@ -2350,6 +2372,7 @@
 				<mul stat="pAtkSpd" val="1.2" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="895" levels="1" name="Exhilarate">
 		<!-- Aurabird Owl -->
@@ -2376,6 +2399,7 @@
 				<sub stat="debuffVuln" val="10" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="896" levels="6" name="Rolling Step">
 		<!-- High Five Confirmed -->

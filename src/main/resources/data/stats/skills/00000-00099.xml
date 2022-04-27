@@ -924,6 +924,7 @@
 				<param dispel="#dispelAbnormals" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="22" levels="7" name="Summon Vampiric Cubic" enchantGroup1="2">
 		<!-- Confirmed CT2.5 -->
@@ -1527,6 +1528,7 @@
 				<param dispel="#dispelAbnormals" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="45" levels="9" name="Divine Heal">
 		<!-- High Five Confirmed -->
@@ -1916,6 +1918,7 @@
 				<param dispel="BLEEDING,9" />
 			</effect>
 		</enchant4Effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="60" levels="1" name="Fake Death">
 		<!-- High Five Confirmed -->

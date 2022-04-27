@@ -710,6 +710,7 @@
 				<mul stat="movementVuln" val="#ench4Vuln" />
 			</effect>
 		</enchant4Effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="231" levels="50" name="Heavy Armor Mastery" enchantGroup1="1" enchantGroup2="1">
 		<table name="#magicLvl"> 18 20 22 24 26 27 28 30 31 32 34 35 36 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 </table>

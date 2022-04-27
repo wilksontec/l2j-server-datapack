@@ -913,6 +913,7 @@
 				<mul stat="mDef" val="#ench2power" />
 			</effect>
 		</enchant2Effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="127" levels="14" name="Hamstring" enchantGroup1="1" enchantGroup2="1">
 		<table name="#effectPoint"> -408 -438 -467 -495 -523 -549 -566 -582 -597 -611 -624 -635 -646 -655 </table>
@@ -1059,6 +1060,7 @@
 				<mul stat="pDef" val="0.9" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="134" levels="1" name="Toughness" enchantGroup1="1">
 		<table name="#ench1Traits"> 21 21 21 22 22 22 23 23 23 24 24 24 24 25 25 25 26 26 26 27 27 27 27 28 28 28 29 29 29 30 </table>

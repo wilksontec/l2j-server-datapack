@@ -495,6 +495,7 @@
 				<param expMultiplier="0.7" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="711" levels="1" name="Divine Summoner Transfer Pain">
 		<set name="abnormalVisualEffect" val="NONE" />
@@ -912,6 +913,7 @@
 				<param slot="DEBUFF" rate="100" max="10" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="725" levels="2" name="Venom Power Smash">
 		<!-- High Five Confirmed -->
@@ -984,6 +986,7 @@
 				<mul stat="pAtk" val="1.08" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="728" levels="1" name="Gordon Beast Attack">
 		<!-- High Five Confirmed -->
@@ -1593,6 +1596,7 @@
 				<add stat="runSpd" val="33" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="749" levels="3" name="Oel Mahum Stun Attack">
 		<!-- High Five Confirmed -->
@@ -1944,6 +1948,7 @@
 				<add stat="pAtk" val="100" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="762" levels="1" name="Insane Crusher">
 		<!-- High Five Confirmed -->
@@ -2173,6 +2178,7 @@
 				<add stat="pSkillEvas" val="40" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="769" levels="1" name="Wind Riding">
 		<set name="abnormalLvl" val="2" />
@@ -2197,6 +2203,7 @@
 				<add stat="pSkillEvas" val="75" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="770" levels="1" name="Ghost Walking">
 		<set name="abnormalLvl" val="2" />
@@ -2221,6 +2228,7 @@
 				<add stat="pSkillEvas" val="60" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="771" levels="1" name="Flame Hawk">
 		<!-- High Five Confirmed -->
@@ -2489,6 +2497,7 @@
 				<param id="259" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="779" levels="1" name="Summon Smart Cubic">
 		<!-- High Five Confirmed -->
@@ -2801,6 +2810,7 @@
 				<mul stat="critDmg" val="1.1" />
 			</effect>
 		</effects>
+		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="789" levels="1" name="Spirit of Shilen">
 		<!-- High Five Confirmed -->
