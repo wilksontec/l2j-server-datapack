@@ -898,6 +898,10 @@
 				<param power="500" />
 			</effect>
 		</channelingEffects>
+		<set name="affectScope" val="POINT_BLANK" />
+		<set name="affectLimit" val="15-25" />
+		<set name="affectRange" val="200" />
+		<set name="affectObject" val="NOT_FRIEND" />
 	</skill>
 	<skill id="1420" levels="1" name="Cyclone">
 		<set name="affectLimit" val="15-25" />
@@ -928,6 +932,10 @@
 				<param power="500" />
 			</effect>
 		</channelingEffects>
+		<set name="affectScope" val="POINT_BLANK" />
+		<set name="affectLimit" val="15-25" />
+		<set name="affectRange" val="200" />
+		<set name="affectObject" val="NOT_FRIEND" />
 	</skill>
 	<skill id="1421" levels="1" name="Raging Waves">
 		<!-- High Five Confirmed -->
@@ -1023,6 +1031,10 @@
 				<param power="500" />
 			</effect>
 		</channelingEffects>
+		<set name="affectScope" val="POINT_BLANK" />
+		<set name="affectLimit" val="15-25" />
+		<set name="affectRange" val="200" />
+		<set name="affectObject" val="NOT_FRIEND" />
 	</skill>
 	<skill id="1424" levels="1" name="Anti-Summoning Field">
 		<!-- High Five Confirmed -->
