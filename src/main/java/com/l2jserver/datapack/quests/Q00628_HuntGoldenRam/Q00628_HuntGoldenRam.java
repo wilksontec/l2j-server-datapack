@@ -120,10 +120,12 @@ public final class Q00628_HuntGoldenRam extends Quest {
 	@Override
 	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
 		final QuestState qs = getRandomPartyMemberState(killer, -1, 1, npc);
-		if (qs != null) {
-			switch (qs.getCond()) {
-				case 1 -> giveItemRandomly(qs.getPlayer(), npc, SPLINTER_DROPLIST.get(npc), true);
-				case 2 -> giveItemRandomly(qs.getPlayer(), npc, NEEDLE_DROPLIST.get(npc), true);
+		if (qs != null && !qs.isCond(3)) {
+			if (qs.getCond() >= 1) {
+				giveItemRandomly(qs.getPlayer(), npc, SPLINTER_DROPLIST.get(npc), true);
+				if (qs.isCond(2)) {
+					giveItemRandomly(qs.getPlayer(), npc, NEEDLE_DROPLIST.get(npc), true);
+				}
 			}
 		}
 		return super.onKill(npc, killer, isSummon);
