@@ -70,21 +70,19 @@ public final class MaxMp extends AbstractEffect {
 		
 		synchronized (charStat) {
 			switch (_type) {
-				case DIFF: {
-					charStat.getActiveChar().addStatFunc(new FuncAdd(Stats.MAX_MP, 1, this, _power, null));
+				case DIFF -> {
+					charStat.getActiveChar().addStatFuncs(new FuncAdd(Stats.MAX_MP, 1, this, _power, null));
 					if (_heal) {
 						effected.setCurrentMp((currentMp + _power));
 					}
-					break;
 				}
-				case PER: {
+				case PER -> {
 					final double maxMp = effected.getMaxMp();
-					charStat.getActiveChar().addStatFunc(new FuncMul(Stats.MAX_MP, 1, this, _power, null));
+					charStat.getActiveChar().addStatFuncs(new FuncMul(Stats.MAX_MP, 1, this, _power, null));
 					if (_heal) {
 						amount = (_power - 1) * maxMp;
 						effected.setCurrentMp(currentMp + amount);
 					}
-					break;
 				}
 			}
 		}

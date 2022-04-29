@@ -68,22 +68,19 @@ public final class MaxHp extends AbstractEffect {
 		
 		synchronized (charStat) {
 			switch (_type) {
-				case DIFF: {
-					
-					charStat.getActiveChar().addStatFunc(new FuncAdd(Stats.MAX_HP, 1, this, _power, null));
+				case DIFF -> {
+					charStat.getActiveChar().addStatFuncs(new FuncAdd(Stats.MAX_HP, 1, this, _power, null));
 					if (_heal) {
 						effected.setCurrentHp((currentHp + _power));
 					}
-					break;
 				}
-				case PER: {
+				case PER -> {
 					final double maxHp = effected.getMaxHp();
-					charStat.getActiveChar().addStatFunc(new FuncMul(Stats.MAX_HP, 1, this, _power, null));
+					charStat.getActiveChar().addStatFuncs(new FuncMul(Stats.MAX_HP, 1, this, _power, null));
 					if (_heal) {
 						amount = (_power - 1) * maxHp;
 						effected.setCurrentHp(currentHp + amount);
 					}
-					break;
 				}
 			}
 		}
