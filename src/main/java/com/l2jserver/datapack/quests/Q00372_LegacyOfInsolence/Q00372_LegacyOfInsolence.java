@@ -18,395 +18,182 @@
  */
 package com.l2jserver.datapack.quests.Q00372_LegacyOfInsolence;
 
-import com.l2jserver.gameserver.enums.audio.Sound;
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
-import com.l2jserver.gameserver.model.holders.ItemChanceHolder;
 import com.l2jserver.gameserver.model.quest.Quest;
+import com.l2jserver.gameserver.model.quest.QuestDroplist;
 import com.l2jserver.gameserver.model.quest.QuestState;
-import com.l2jserver.gameserver.util.Util;
 
-import java.util.HashMap;
 import java.util.Map;
 
 /**
  * Legacy Of Insolence (372)
  * @author ivantotov
+ * @author Noé Caratini aka Kita
  */
 public final class Q00372_LegacyOfInsolence extends Quest {
+	// Misc
+	private static final int MIN_LEVEL = 59;
 	// NPCs
 	private static final int TRADER_HOLLY = 30839;
 	private static final int WAREHOUSE_KEEPER_WALDERAL = 30844;
 	private static final int MAGISTER_DESMOND = 30855;
 	private static final int ANTIQUE_DEALER_PATRIN = 30929;
 	private static final int CLAUDIA_ATHEBALDT = 31001;
+	// Monsters
+	private static final int CORRUPT_SAGE = 20817;
+	private static final int ERIN_EDIUNCE = 20821;
+	private static final int HALLATES_INSPECTOR = 20825;
+	private static final int PLATINUM_TRIBE_OVERLORD = 20829;
+	private static final int MESSENGER_ANGEL = 21062;
+	private static final int PLATINUM_GUARDIAN_PREFECT = 21069;
 	// Items
 	private static final int ANCIENT_RED_PAPYRUS = 5966;
 	private static final int ANCIENT_BLUE_PAPYRUS = 5967;
 	private static final int ANCIENT_BLACK_PAPYRUS = 5968;
 	private static final int ANCIENT_WHITE_PAPYRUS = 5969;
-	private static final int REVELATION_OF_THE_SEALS_CHAPTER_OF_AVARICE = 5972;
-	private static final int REVELATION_OF_THE_SEALS_CHAPTER_OF_GNOSIS = 5973;
-	private static final int REVELATION_OF_THE_SEALS_CHAPTER_OF_STRIFE = 5974;
-	private static final int REVELATION_OF_THE_SEALS_CHAPTER_OF_VENGEANCE = 5975;
-	private static final int REVELATION_OF_THE_SEALS_CHAPTER_OF_AWEKENING = 5976;
-	private static final int REVELATION_OF_THE_SEALS_CHAPTER_OF_CALAMITY = 5977;
-	private static final int REVELATION_OF_THE_SEALS_CHAPTER_OF_DESCENT = 5978;
-	private static final int ANCIENT_EPIC_CHAPTER_1 = 5979;
-	private static final int ANCIENT_EPIC_CHAPTER_2 = 5980;
-	private static final int ANCIENT_EPIC_CHAPTER_3 = 5981;
-	private static final int ANCIENT_EPIC_CHAPTER_4 = 5982;
-	private static final int ANCIENT_EPIC_CHAPTER_5 = 5983;
-	private static final int IMPERIAL_GENEALOGY_1 = 5984;
-	private static final int IMPERIAL_GENEALOGY_2 = 5985;
-	private static final int IMPERIAL_GENEALOGY_3 = 5986;
-	private static final int IMPERIAL_GENEALOGY_4 = 5987;
-	private static final int IMPERIAL_GENEALOGY_5 = 5988;
-	private static final int BLUEPRINT_TOWER_OF_INSOLENCE_1ST_FLOOR = 5989;
-	private static final int BLUEPRINT_TOWER_OF_INSOLENCE_2ND_FLOOR = 5990;
-	private static final int BLUEPRINT_TOWER_OF_INSOLENCE_3RD_FLOOR = 5991;
-	private static final int BLUEPRINT_TOWER_OF_INSOLENCE_4TH_FLOOR = 5992;
-	private static final int BLUEPRINT_TOWER_OF_INSOLENCE_5TH_FLOOR = 5993;
-	private static final int BLUEPRINT_TOWER_OF_INSOLENCE_6TH_FLOOR = 5994;
-	private static final int BLUEPRINT_TOWER_OF_INSOLENCE_7TH_FLOOR = 5995;
-	private static final int BLUEPRINT_TOWER_OF_INSOLENCE_8TH_FLOOR = 5996;
-	private static final int BLUEPRINT_TOWER_OF_INSOLENCE_9TH_FLOOR = 5997;
-	private static final int BLUEPRINT_TOWER_OF_INSOLENCE_10TH_FLOOR = 5998;
-	private static final int BLUEPRINT_TOWER_OF_INSOLENCE_11TH_FLOOR = 5999;
-	private static final int BLUEPRINT_TOWER_OF_INSOLENCE_12TH_FLOOR = 6000;
-	private static final int BLUEPRINT_TOWER_OF_INSOLENCE_13TH_FLOOR = 6001;
+	private static final int[] REVELATION_OF_THE_SEALS = {5972, 5973, 5974, 5975, 5976, 5977, 5978};
+	private static final int[] ANCIENT_EPIC = {5979, 5980, 5981, 5982, 5983};
+	private static final int[] IMPERIAL_GENEALOGY = {5984, 5985, 5986, 5987, 5988};
+	private static final int[] BLUEPRINTS = {5989, 5990, 5991, 5992, 5993, 5994, 5995, 5996, 5997, 5998, 5999, 6000, 6001};
+	// Droplist
+	private static final QuestDroplist DROPLIST = QuestDroplist.builder()
+			.addSingleDrop(CORRUPT_SAGE, ANCIENT_RED_PAPYRUS, 30.2)
+			.addSingleDrop(ERIN_EDIUNCE, ANCIENT_RED_PAPYRUS, 41.0)
+			.addSingleDrop(HALLATES_INSPECTOR, ANCIENT_RED_PAPYRUS, 44.7)
+			.addSingleDrop(PLATINUM_TRIBE_OVERLORD, ANCIENT_BLUE_PAPYRUS, 45.1)
+			.addSingleDrop(MESSENGER_ANGEL, ANCIENT_WHITE_PAPYRUS, 29.0)
+			.addSingleDrop(PLATINUM_GUARDIAN_PREFECT, ANCIENT_BLACK_PAPYRUS, 28.0)
+			.build();
+	private static final Map<Integer, Integer> QS_KILLER_CHANCE = Map.of(
+			CORRUPT_SAGE, 1,
+			ERIN_EDIUNCE, 1,
+			HALLATES_INSPECTOR, 3,
+			PLATINUM_TRIBE_OVERLORD, 3,
+			MESSENGER_ANGEL, 1,
+			PLATINUM_GUARDIAN_PREFECT, 1
+	);
 	// Rewards
-	private static final int RECIPE_SEALED_DARK_CRYSTAL_BOOTS_60 = 5368;
-	private static final int RECIPE_SEALED_TALLUM_BOOTS_60 = 5370;
-	private static final int RECIPE_SEALED_BOOTS_OF_NIGHTMARE_60 = 5380;
-	private static final int RECIPE_SEALED_MAJESTIC_BOOTS_60 = 5382;
-	private static final int RECIPE_SEALED_DARK_CRYSTAL_GLOVES_60 = 5392;
-	private static final int RECIPE_SEALED_TALLUM_GLOVES_60 = 5394;
-	private static final int RECIPE_SEALED_GAUNTLETS_OF_NIGHTMARE_60 = 5404;
-	private static final int RECIPE_SEALED_MAJESTIC_GAUNTLETS_60 = 5406;
-	private static final int RECIPE_SEALED_DARK_CRYSTAL_HELMET_60 = 5426;
-	private static final int RECIPE_SEALED_TALLUM_HELMET_60 = 5428;
-	private static final int RECIPE_SEALED_HELM_OF_NIGHTMARE_60 = 5430;
-	private static final int RECIPE_SEALED_MAJESTIC_CIRCLET_60 = 5432;
-	private static final int SEALED_DARK_CRYSTAL_BOOTS_LINING = 5496;
-	private static final int SEALED_TALLUM_BOOTS_LINING = 5497;
-	private static final int SEALED_BOOTS_OF_NIGHTMARE_LINING = 5502;
-	private static final int SEALED_MAJESTIC_BOOTS_LINING = 5503;
-	private static final int SEALED_DARK_CRYSTAL_GLOVES_DESIGN = 5508;
-	private static final int SEALED_TALLUM_GLOVES_DESIGN = 5509;
-	private static final int SEALED_GAUNTLETS_OF_NIGHTMARE_DESIGN = 5514;
-	private static final int SEALED_MAJESTIC_GAUNTLETS_DESIGN = 5515;
-	private static final int SEALED_DARK_CRYSTAL_HELMET_DESIGN = 5525;
-	private static final int SEALED_TALLUM_HELM_DESIGN = 5526;
-	private static final int SEALED_HELM_OF_NIGHTMARE_DESIGN = 5527;
-	private static final int SEALED_MAJESTIC_CIRCLET_DESIGN = 5528;
-	// Monsters
-	private static final int HALLATES_INSPECTOR = 20825;
-	private static final Map<Integer, ItemChanceHolder> MONSTER_REWARDS = new HashMap<>();
-	
-	static {
-		MONSTER_REWARDS.put(20817, new ItemChanceHolder(ANCIENT_RED_PAPYRUS, 302, 1));
-		MONSTER_REWARDS.put(20821, new ItemChanceHolder(ANCIENT_RED_PAPYRUS, 410, 1));
-		MONSTER_REWARDS.put(HALLATES_INSPECTOR, new ItemChanceHolder(ANCIENT_RED_PAPYRUS, 1, 447));
-		MONSTER_REWARDS.put(20829, new ItemChanceHolder(ANCIENT_BLUE_PAPYRUS, 451, 1));
-		MONSTER_REWARDS.put(21062, new ItemChanceHolder(ANCIENT_WHITE_PAPYRUS, 290, 1));
-		MONSTER_REWARDS.put(21069, new ItemChanceHolder(ANCIENT_BLACK_PAPYRUS, 280, 1));
-	}
-	
-	// Misc
-	private static final int MIN_LEVEL = 59;
+	private static final RewardsGroup REWARDS_DARK_CRYSTAL = new RewardsGroup(
+			5496, // Sealed Dark Crystal Boots Lining
+			5508, // Sealed Dark Crystal Gloves Design
+			5525, // Sealed Dark Crystal Helmet Design
+			5368, // Recipe: Sealed Dark Crystal Boots(60%)
+			5392, // Recipe: Sealed Dark Crystal Gloves(60%)
+			5426 // Recipe: Sealed Dark Crystal Helmet(60%)
+	);
+	private static final RewardsGroup REWARDS_TALLUM = new RewardsGroup(
+			5497, // Sealed Tallum Boots Lining
+			5509, // Sealed Tallum Gloves Design
+			5526, // Sealed Tallum Helm Design
+			5370, // Recipe: Sealed Tallum Boots(60%)
+			5394, // Recipe: Sealed Tallum Gloves(60%)
+			5428 // Recipe: Sealed Tallum Helmet(60%)
+	);
+	private static final RewardsGroup REWARDS_NIGHTMARE = new RewardsGroup(
+			5502, // Sealed Boots of Nightmare Lining
+			5514, // Sealed Gauntlets of Nightmare Design
+			5527, // Sealed Helm of Nightmare Design
+			5380, // Recipe: Sealed Boots of Nightmare(60%)
+			5404, // Recipe: Sealed Gauntlets of Nightmare(60%)
+			5430 // Recipe: Sealed Helm of Nightmare(60%)
+	);
+	private static final RewardsGroup REWARDS_MAJESTIC = new RewardsGroup(
+			5503, // Sealed Majestic Boots Lining
+			5515, // Sealed Majestic Gauntlets Design
+			5528, // Sealed Majestic Circlet Design
+			5382, // Recipe: Sealed Majestic Boots(60%)
+			5406, // Recipe: Sealed Majestic Gauntlets(60%)
+			5432 // Recipe: Sealed Majestic Circlet (60%)
+	);
+	private static final int[] WALDERAL_CHANCES_LOW_A = {10, 20, 30, 40, 51, 62, 79, 100};
+	private static final int[] WALDERAL_CHANCES_HIGH_A = {17, 34, 49, 58, 70, 82, 92, 100};
+	private static final int[] OTHER_CHANCES_LOW_A = {30, 60, 80, 90, 100};
+	private static final int[] OTHER_CHANCES_HIGH_A = {31, 62, 75, 83, 100};
 	
 	public Q00372_LegacyOfInsolence() {
 		super(372, Q00372_LegacyOfInsolence.class.getSimpleName(), "Legacy Of Insolence");
 		addStartNpc(WAREHOUSE_KEEPER_WALDERAL);
 		addTalkId(WAREHOUSE_KEEPER_WALDERAL, TRADER_HOLLY, MAGISTER_DESMOND, ANTIQUE_DEALER_PATRIN, CLAUDIA_ATHEBALDT);
-		addKillId(MONSTER_REWARDS.keySet());
+		addKillId(DROPLIST.getNpcIds());
 	}
 	
 	@Override
 	public String onAdvEvent(String event, L2Npc npc, L2PcInstance player) {
 		final QuestState qs = getQuestState(player, false);
-		final int chance = getRandom(100);
-		
 		if (qs == null) {
 			return super.onAdvEvent(event, npc, player);
 		}
 		
-		String htmltext = null;
 		switch (event) {
-			case "30844-04.htm": {
+			case "30844-04.htm" -> {
 				if (qs.isCreated()) {
 					qs.startQuest();
-					htmltext = event;
-				}
-				break;
-			}
-			case "30844-07.html": {
-				if (hasQuestItems(player, BLUEPRINT_TOWER_OF_INSOLENCE_1ST_FLOOR, BLUEPRINT_TOWER_OF_INSOLENCE_2ND_FLOOR, BLUEPRINT_TOWER_OF_INSOLENCE_3RD_FLOOR, //
-					BLUEPRINT_TOWER_OF_INSOLENCE_4TH_FLOOR, BLUEPRINT_TOWER_OF_INSOLENCE_5TH_FLOOR, BLUEPRINT_TOWER_OF_INSOLENCE_6TH_FLOOR, BLUEPRINT_TOWER_OF_INSOLENCE_7TH_FLOOR, //
-					BLUEPRINT_TOWER_OF_INSOLENCE_8TH_FLOOR, BLUEPRINT_TOWER_OF_INSOLENCE_9TH_FLOOR, BLUEPRINT_TOWER_OF_INSOLENCE_10TH_FLOOR, BLUEPRINT_TOWER_OF_INSOLENCE_11TH_FLOOR, //
-					BLUEPRINT_TOWER_OF_INSOLENCE_12TH_FLOOR, BLUEPRINT_TOWER_OF_INSOLENCE_13TH_FLOOR)) {
-					htmltext = event;
 				} else {
-					htmltext = "30844-06.html";
+					return null;
 				}
-				break;
 			}
-			case "30844-09.html": {
-				qs.exitQuest(true, true);
-				htmltext = event;
-				break;
+			case "30844-05b.html" -> qs.setCond(2);
+			case "30844-07.html" -> {
+				if (!hasQuestItems(player, BLUEPRINTS)) {
+					return "30844-06.html";
+				}
 			}
-			case "30844-07a.html": {
-				if (hasQuestItems(player, BLUEPRINT_TOWER_OF_INSOLENCE_1ST_FLOOR, BLUEPRINT_TOWER_OF_INSOLENCE_2ND_FLOOR, BLUEPRINT_TOWER_OF_INSOLENCE_3RD_FLOOR, //
-					BLUEPRINT_TOWER_OF_INSOLENCE_4TH_FLOOR, BLUEPRINT_TOWER_OF_INSOLENCE_5TH_FLOOR, BLUEPRINT_TOWER_OF_INSOLENCE_6TH_FLOOR, BLUEPRINT_TOWER_OF_INSOLENCE_7TH_FLOOR, //
-					BLUEPRINT_TOWER_OF_INSOLENCE_8TH_FLOOR, BLUEPRINT_TOWER_OF_INSOLENCE_9TH_FLOOR, BLUEPRINT_TOWER_OF_INSOLENCE_10TH_FLOOR, BLUEPRINT_TOWER_OF_INSOLENCE_11TH_FLOOR, //
-					BLUEPRINT_TOWER_OF_INSOLENCE_12TH_FLOOR, BLUEPRINT_TOWER_OF_INSOLENCE_13TH_FLOOR)) {
-					takeItems(player, BLUEPRINT_TOWER_OF_INSOLENCE_1ST_FLOOR, 1);
-					takeItems(player, BLUEPRINT_TOWER_OF_INSOLENCE_2ND_FLOOR, 1);
-					takeItems(player, BLUEPRINT_TOWER_OF_INSOLENCE_3RD_FLOOR, 1);
-					takeItems(player, BLUEPRINT_TOWER_OF_INSOLENCE_4TH_FLOOR, 1);
-					takeItems(player, BLUEPRINT_TOWER_OF_INSOLENCE_5TH_FLOOR, 1);
-					takeItems(player, BLUEPRINT_TOWER_OF_INSOLENCE_6TH_FLOOR, 1);
-					takeItems(player, BLUEPRINT_TOWER_OF_INSOLENCE_7TH_FLOOR, 1);
-					takeItems(player, BLUEPRINT_TOWER_OF_INSOLENCE_8TH_FLOOR, 1);
-					takeItems(player, BLUEPRINT_TOWER_OF_INSOLENCE_9TH_FLOOR, 1);
-					takeItems(player, BLUEPRINT_TOWER_OF_INSOLENCE_10TH_FLOOR, 1);
-					takeItems(player, BLUEPRINT_TOWER_OF_INSOLENCE_11TH_FLOOR, 1);
-					takeItems(player, BLUEPRINT_TOWER_OF_INSOLENCE_12TH_FLOOR, 1);
-					takeItems(player, BLUEPRINT_TOWER_OF_INSOLENCE_13TH_FLOOR, 1);
-					
-					if (chance < 10) {
-						giveItems(player, SEALED_DARK_CRYSTAL_BOOTS_LINING, 1);
-					} else if (chance < 20) {
-						giveItems(player, SEALED_DARK_CRYSTAL_GLOVES_DESIGN, 1);
-					} else if (chance < 30) {
-						giveItems(player, SEALED_DARK_CRYSTAL_HELMET_DESIGN, 1);
-					} else if (chance < 40) {
-						giveItems(player, SEALED_DARK_CRYSTAL_BOOTS_LINING, 1);
-						giveItems(player, SEALED_DARK_CRYSTAL_GLOVES_DESIGN, 1);
-						giveItems(player, SEALED_DARK_CRYSTAL_HELMET_DESIGN, 1);
-					} else if (chance < 51) {
-						giveItems(player, RECIPE_SEALED_DARK_CRYSTAL_BOOTS_60, 1);
-					} else if (chance < 62) {
-						giveItems(player, RECIPE_SEALED_DARK_CRYSTAL_GLOVES_60, 1);
-					} else if (chance < 79) {
-						giveItems(player, RECIPE_SEALED_DARK_CRYSTAL_HELMET_60, 1);
-					} else if (chance < 100) {
-						giveItems(player, RECIPE_SEALED_DARK_CRYSTAL_BOOTS_60, 1);
-						giveItems(player, RECIPE_SEALED_DARK_CRYSTAL_GLOVES_60, 1);
-						giveItems(player, RECIPE_SEALED_DARK_CRYSTAL_HELMET_60, 1);
-					}
-					htmltext = event;
+			case "30844-07a.html" -> {
+				if (hasQuestItems(player, BLUEPRINTS)) {
+					takeItems(player, 1, BLUEPRINTS);
+					walderalGiveRewards(player, REWARDS_DARK_CRYSTAL, WALDERAL_CHANCES_LOW_A);
 				} else {
-					htmltext = "30844-07e.html";
+					return "30844-07e.html";
 				}
-				break;
 			}
-			case "30844-07b.html": {
-				if (hasQuestItems(player, BLUEPRINT_TOWER_OF_INSOLENCE_1ST_FLOOR, BLUEPRINT_TOWER_OF_INSOLENCE_2ND_FLOOR, BLUEPRINT_TOWER_OF_INSOLENCE_3RD_FLOOR, //
-					BLUEPRINT_TOWER_OF_INSOLENCE_4TH_FLOOR, BLUEPRINT_TOWER_OF_INSOLENCE_5TH_FLOOR, BLUEPRINT_TOWER_OF_INSOLENCE_6TH_FLOOR, BLUEPRINT_TOWER_OF_INSOLENCE_7TH_FLOOR, //
-					BLUEPRINT_TOWER_OF_INSOLENCE_8TH_FLOOR, BLUEPRINT_TOWER_OF_INSOLENCE_9TH_FLOOR, BLUEPRINT_TOWER_OF_INSOLENCE_10TH_FLOOR, BLUEPRINT_TOWER_OF_INSOLENCE_11TH_FLOOR, //
-					BLUEPRINT_TOWER_OF_INSOLENCE_12TH_FLOOR, BLUEPRINT_TOWER_OF_INSOLENCE_13TH_FLOOR)) {
-					takeItems(player, BLUEPRINT_TOWER_OF_INSOLENCE_1ST_FLOOR, 1);
-					takeItems(player, BLUEPRINT_TOWER_OF_INSOLENCE_2ND_FLOOR, 1);
-					takeItems(player, BLUEPRINT_TOWER_OF_INSOLENCE_3RD_FLOOR, 1);
-					takeItems(player, BLUEPRINT_TOWER_OF_INSOLENCE_4TH_FLOOR, 1);
-					takeItems(player, BLUEPRINT_TOWER_OF_INSOLENCE_5TH_FLOOR, 1);
-					takeItems(player, BLUEPRINT_TOWER_OF_INSOLENCE_6TH_FLOOR, 1);
-					takeItems(player, BLUEPRINT_TOWER_OF_INSOLENCE_7TH_FLOOR, 1);
-					takeItems(player, BLUEPRINT_TOWER_OF_INSOLENCE_8TH_FLOOR, 1);
-					takeItems(player, BLUEPRINT_TOWER_OF_INSOLENCE_9TH_FLOOR, 1);
-					takeItems(player, BLUEPRINT_TOWER_OF_INSOLENCE_10TH_FLOOR, 1);
-					takeItems(player, BLUEPRINT_TOWER_OF_INSOLENCE_11TH_FLOOR, 1);
-					takeItems(player, BLUEPRINT_TOWER_OF_INSOLENCE_12TH_FLOOR, 1);
-					takeItems(player, BLUEPRINT_TOWER_OF_INSOLENCE_13TH_FLOOR, 1);
-					
-					if (chance < 10) {
-						giveItems(player, SEALED_TALLUM_BOOTS_LINING, 1);
-					} else if (chance < 20) {
-						giveItems(player, SEALED_TALLUM_GLOVES_DESIGN, 1);
-					} else if (chance < 30) {
-						giveItems(player, SEALED_TALLUM_HELM_DESIGN, 1);
-					} else if (chance < 40) {
-						giveItems(player, SEALED_TALLUM_BOOTS_LINING, 1);
-						giveItems(player, SEALED_TALLUM_GLOVES_DESIGN, 1);
-						giveItems(player, SEALED_TALLUM_HELM_DESIGN, 1);
-					} else if (chance < 51) {
-						giveItems(player, RECIPE_SEALED_TALLUM_BOOTS_60, 1);
-					} else if (chance < 62) {
-						giveItems(player, RECIPE_SEALED_TALLUM_GLOVES_60, 1);
-					} else if (chance < 79) {
-						giveItems(player, RECIPE_SEALED_TALLUM_HELMET_60, 1);
-					} else if (chance < 100) {
-						giveItems(player, RECIPE_SEALED_TALLUM_BOOTS_60, 1);
-						giveItems(player, RECIPE_SEALED_TALLUM_GLOVES_60, 1);
-						giveItems(player, RECIPE_SEALED_TALLUM_HELMET_60, 1);
-					}
-					htmltext = event;
+			case "30844-07b.html" -> {
+				if (hasQuestItems(player, BLUEPRINTS)) {
+					takeItems(player, 1, BLUEPRINTS);
+					walderalGiveRewards(player, REWARDS_TALLUM, WALDERAL_CHANCES_LOW_A);
 				} else {
-					htmltext = "30844-07e.html";
+					return "30844-07e.html";
 				}
-				break;
 			}
-			case "30844-07c.html": {
-				if (hasQuestItems(player, BLUEPRINT_TOWER_OF_INSOLENCE_1ST_FLOOR, BLUEPRINT_TOWER_OF_INSOLENCE_2ND_FLOOR, BLUEPRINT_TOWER_OF_INSOLENCE_3RD_FLOOR, //
-					BLUEPRINT_TOWER_OF_INSOLENCE_4TH_FLOOR, BLUEPRINT_TOWER_OF_INSOLENCE_5TH_FLOOR, BLUEPRINT_TOWER_OF_INSOLENCE_6TH_FLOOR, BLUEPRINT_TOWER_OF_INSOLENCE_7TH_FLOOR, //
-					BLUEPRINT_TOWER_OF_INSOLENCE_8TH_FLOOR, BLUEPRINT_TOWER_OF_INSOLENCE_9TH_FLOOR, BLUEPRINT_TOWER_OF_INSOLENCE_10TH_FLOOR, BLUEPRINT_TOWER_OF_INSOLENCE_11TH_FLOOR, //
-					BLUEPRINT_TOWER_OF_INSOLENCE_12TH_FLOOR, BLUEPRINT_TOWER_OF_INSOLENCE_13TH_FLOOR)) {
-					takeItems(player, BLUEPRINT_TOWER_OF_INSOLENCE_1ST_FLOOR, 1);
-					takeItems(player, BLUEPRINT_TOWER_OF_INSOLENCE_2ND_FLOOR, 1);
-					takeItems(player, BLUEPRINT_TOWER_OF_INSOLENCE_3RD_FLOOR, 1);
-					takeItems(player, BLUEPRINT_TOWER_OF_INSOLENCE_4TH_FLOOR, 1);
-					takeItems(player, BLUEPRINT_TOWER_OF_INSOLENCE_5TH_FLOOR, 1);
-					takeItems(player, BLUEPRINT_TOWER_OF_INSOLENCE_6TH_FLOOR, 1);
-					takeItems(player, BLUEPRINT_TOWER_OF_INSOLENCE_7TH_FLOOR, 1);
-					takeItems(player, BLUEPRINT_TOWER_OF_INSOLENCE_8TH_FLOOR, 1);
-					takeItems(player, BLUEPRINT_TOWER_OF_INSOLENCE_9TH_FLOOR, 1);
-					takeItems(player, BLUEPRINT_TOWER_OF_INSOLENCE_10TH_FLOOR, 1);
-					takeItems(player, BLUEPRINT_TOWER_OF_INSOLENCE_11TH_FLOOR, 1);
-					takeItems(player, BLUEPRINT_TOWER_OF_INSOLENCE_12TH_FLOOR, 1);
-					takeItems(player, BLUEPRINT_TOWER_OF_INSOLENCE_13TH_FLOOR, 1);
-					
-					if (chance < 17) {
-						giveItems(player, SEALED_BOOTS_OF_NIGHTMARE_LINING, 1);
-					} else if (chance < 34) {
-						giveItems(player, SEALED_GAUNTLETS_OF_NIGHTMARE_DESIGN, 1);
-					} else if (chance < 49) {
-						giveItems(player, SEALED_HELM_OF_NIGHTMARE_DESIGN, 1);
-					} else if (chance < 58) {
-						giveItems(player, SEALED_BOOTS_OF_NIGHTMARE_LINING, 1);
-						giveItems(player, SEALED_GAUNTLETS_OF_NIGHTMARE_DESIGN, 1);
-						giveItems(player, SEALED_HELM_OF_NIGHTMARE_DESIGN, 1);
-					} else if (chance < 70) {
-						giveItems(player, RECIPE_SEALED_BOOTS_OF_NIGHTMARE_60, 1);
-					} else if (chance < 82) {
-						giveItems(player, RECIPE_SEALED_GAUNTLETS_OF_NIGHTMARE_60, 1);
-					} else if (chance < 92) {
-						giveItems(player, RECIPE_SEALED_HELM_OF_NIGHTMARE_60, 1);
-					} else if (chance < 100) {
-						giveItems(player, RECIPE_SEALED_BOOTS_OF_NIGHTMARE_60, 1);
-						giveItems(player, RECIPE_SEALED_GAUNTLETS_OF_NIGHTMARE_60, 1);
-						giveItems(player, RECIPE_SEALED_HELM_OF_NIGHTMARE_60, 1);
-					}
-					htmltext = event;
+			case "30844-07c.html" -> {
+				if (hasQuestItems(player, BLUEPRINTS)) {
+					takeItems(player, 1, BLUEPRINTS);
+					walderalGiveRewards(player, REWARDS_NIGHTMARE, WALDERAL_CHANCES_HIGH_A);
 				} else {
-					htmltext = "30844-07e.html";
+					return "30844-07e.html";
 				}
-				break;
 			}
-			case "30844-07d.html": {
-				if (hasQuestItems(player, BLUEPRINT_TOWER_OF_INSOLENCE_1ST_FLOOR, BLUEPRINT_TOWER_OF_INSOLENCE_2ND_FLOOR, BLUEPRINT_TOWER_OF_INSOLENCE_3RD_FLOOR, //
-					BLUEPRINT_TOWER_OF_INSOLENCE_4TH_FLOOR, BLUEPRINT_TOWER_OF_INSOLENCE_5TH_FLOOR, BLUEPRINT_TOWER_OF_INSOLENCE_6TH_FLOOR, BLUEPRINT_TOWER_OF_INSOLENCE_7TH_FLOOR, //
-					BLUEPRINT_TOWER_OF_INSOLENCE_8TH_FLOOR, BLUEPRINT_TOWER_OF_INSOLENCE_9TH_FLOOR, BLUEPRINT_TOWER_OF_INSOLENCE_10TH_FLOOR, BLUEPRINT_TOWER_OF_INSOLENCE_11TH_FLOOR, //
-					BLUEPRINT_TOWER_OF_INSOLENCE_12TH_FLOOR, BLUEPRINT_TOWER_OF_INSOLENCE_13TH_FLOOR)) {
-					takeItems(player, BLUEPRINT_TOWER_OF_INSOLENCE_1ST_FLOOR, 1);
-					takeItems(player, BLUEPRINT_TOWER_OF_INSOLENCE_2ND_FLOOR, 1);
-					takeItems(player, BLUEPRINT_TOWER_OF_INSOLENCE_3RD_FLOOR, 1);
-					takeItems(player, BLUEPRINT_TOWER_OF_INSOLENCE_4TH_FLOOR, 1);
-					takeItems(player, BLUEPRINT_TOWER_OF_INSOLENCE_5TH_FLOOR, 1);
-					takeItems(player, BLUEPRINT_TOWER_OF_INSOLENCE_6TH_FLOOR, 1);
-					takeItems(player, BLUEPRINT_TOWER_OF_INSOLENCE_7TH_FLOOR, 1);
-					takeItems(player, BLUEPRINT_TOWER_OF_INSOLENCE_8TH_FLOOR, 1);
-					takeItems(player, BLUEPRINT_TOWER_OF_INSOLENCE_9TH_FLOOR, 1);
-					takeItems(player, BLUEPRINT_TOWER_OF_INSOLENCE_10TH_FLOOR, 1);
-					takeItems(player, BLUEPRINT_TOWER_OF_INSOLENCE_11TH_FLOOR, 1);
-					takeItems(player, BLUEPRINT_TOWER_OF_INSOLENCE_12TH_FLOOR, 1);
-					takeItems(player, BLUEPRINT_TOWER_OF_INSOLENCE_13TH_FLOOR, 1);
-					
-					if (chance < 17) {
-						giveItems(player, SEALED_MAJESTIC_BOOTS_LINING, 1);
-					} else if (chance < 34) {
-						giveItems(player, SEALED_MAJESTIC_GAUNTLETS_DESIGN, 1);
-					} else if (chance < 49) {
-						giveItems(player, SEALED_MAJESTIC_CIRCLET_DESIGN, 1);
-					} else if (chance < 58) {
-						giveItems(player, SEALED_MAJESTIC_BOOTS_LINING, 1);
-						giveItems(player, SEALED_MAJESTIC_GAUNTLETS_DESIGN, 1);
-						giveItems(player, SEALED_MAJESTIC_CIRCLET_DESIGN, 1);
-					} else if (chance < 70) {
-						giveItems(player, RECIPE_SEALED_MAJESTIC_BOOTS_60, 1);
-					} else if (chance < 82) {
-						giveItems(player, RECIPE_SEALED_MAJESTIC_GAUNTLETS_60, 1);
-					} else if (chance < 92) {
-						giveItems(player, RECIPE_SEALED_MAJESTIC_CIRCLET_60, 1);
-					} else if (chance < 100) {
-						giveItems(player, RECIPE_SEALED_MAJESTIC_BOOTS_60, 1);
-						giveItems(player, RECIPE_SEALED_MAJESTIC_GAUNTLETS_60, 1);
-						giveItems(player, RECIPE_SEALED_MAJESTIC_CIRCLET_60, 1);
-					}
-					htmltext = event;
+			case "30844-07d.html" -> {
+				if (hasQuestItems(player, BLUEPRINTS)) {
+					takeItems(player, 1, BLUEPRINTS);
+					walderalGiveRewards(player, REWARDS_MAJESTIC, WALDERAL_CHANCES_HIGH_A);
 				} else {
-					htmltext = "30844-07e.html";
+					return "30844-07e.html";
 				}
-				break;
 			}
-			case "30844-05b.html": {
-				qs.setCond(2);
-				htmltext = event;
-				break;
+			case "30844-09.html" -> qs.exitQuest(true, true);
+			case "30844-03.htm", "30844-05.html", "30844-05a.html", "30844-08.html", "30844-10.html", "30844-11.html" -> {
+				return event;
 			}
-			case "30844-03.htm":
-			case "30844-05.html":
-			case "30844-05a.html":
-			case "30844-08.html":
-			case "30844-10.html":
-			case "30844-11.html": {
-				htmltext = event;
-				break;
+			default -> {
+				return null;
 			}
 		}
-		return htmltext;
+		return event;
 	}
 	
 	@Override
 	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
-		final ItemChanceHolder item = MONSTER_REWARDS.get(npc.getId());
-		if (npc.getId() == HALLATES_INSPECTOR) {
-			if (getRandom(1000) < item.getChance()) {
-				final QuestState qs = getRandomPartyMemberState(killer, -1, 3, npc);
-				if (qs != null) {
-					giveItems(qs.getPlayer(), item.getId(), item.getCount());
-					playSound(qs.getPlayer(), Sound.ITEMSOUND_QUEST_ITEMGET);
-				}
-			}
-			return super.onKill(npc, killer, isSummon);
+		final QuestState qs = getRandomPartyMemberState(killer, -1, QS_KILLER_CHANCE.get(npc.getId()), npc);
+		if (qs != null) {
+			giveItemRandomly(qs.getPlayer(), npc, DROPLIST.get(npc), true);
 		}
-		
-		if (Util.checkIfInRange(1500, npc, killer, true) && (getRandom(1000) < item.getChance())) {
-			L2PcInstance rewardedPlayer = null;
-			if (!killer.isInParty()) {
-				final QuestState qs = getQuestState(killer, false);
-				if ((qs != null) && qs.isStarted()) {
-					rewardedPlayer = killer;
-				}
-			} else {
-				int chance = 0;
-				for (L2PcInstance partyMember : killer.getParty().getMembers()) {
-					final QuestState partyMemberQuestState = getQuestState(partyMember, false);
-					if ((partyMemberQuestState != null) && partyMemberQuestState.isStarted()) {
-						final int chance2 = getRandom(1000);
-						if (chance < chance2) {
-							chance = chance2;
-							rewardedPlayer = partyMember;
-						}
-					}
-				}
-			}
-			
-			if ((rewardedPlayer != null) && Util.checkIfInRange(1500, npc, rewardedPlayer, true)) {
-				giveItems(rewardedPlayer, item.getId(), item.getCount());
-				playSound(rewardedPlayer, Sound.ITEMSOUND_QUEST_ITEMGET);
-			}
-		}
-		
 		return super.onKill(npc, killer, isSummon);
 	}
 	
 	@Override
 	public String onTalk(L2Npc npc, L2PcInstance player) {
 		final QuestState qs = getQuestState(player, true);
-		final int chance = getRandom(100);
 		String htmltext = getNoQuestMsg(player);
 		if (qs.isCreated()) {
 			if (npc.getId() == WAREHOUSE_KEEPER_WALDERAL) {
@@ -418,128 +205,94 @@ public final class Q00372_LegacyOfInsolence extends Quest {
 			}
 		} else if (qs.isStarted()) {
 			switch (npc.getId()) {
-				case WAREHOUSE_KEEPER_WALDERAL: {
-					htmltext = "30844-05.html";
-					break;
-				}
-				case TRADER_HOLLY: {
-					if (hasQuestItems(player, IMPERIAL_GENEALOGY_1, IMPERIAL_GENEALOGY_2, IMPERIAL_GENEALOGY_3, IMPERIAL_GENEALOGY_4, IMPERIAL_GENEALOGY_5)) {
-						takeItems(player, IMPERIAL_GENEALOGY_1, 1);
-						takeItems(player, IMPERIAL_GENEALOGY_2, 1);
-						takeItems(player, IMPERIAL_GENEALOGY_3, 1);
-						takeItems(player, IMPERIAL_GENEALOGY_4, 1);
-						takeItems(player, IMPERIAL_GENEALOGY_5, 1);
-						
-						if (chance < 30) {
-							giveItems(player, SEALED_DARK_CRYSTAL_BOOTS_LINING, 1);
-						} else if (chance < 60) {
-							giveItems(player, SEALED_DARK_CRYSTAL_GLOVES_DESIGN, 1);
-						} else if (chance < 80) {
-							giveItems(player, SEALED_DARK_CRYSTAL_HELMET_DESIGN, 1);
-						} else if (chance < 90) {
-							giveItems(player, SEALED_DARK_CRYSTAL_BOOTS_LINING, 1);
-							giveItems(player, SEALED_DARK_CRYSTAL_GLOVES_DESIGN, 1);
-							giveItems(player, SEALED_DARK_CRYSTAL_HELMET_DESIGN, 1);
-						} else if (chance < 100) {
-							giveAdena(player, 4000, true);
-						}
+				case WAREHOUSE_KEEPER_WALDERAL -> htmltext = "30844-05.html";
+				case TRADER_HOLLY -> {
+					if (hasQuestItems(player, IMPERIAL_GENEALOGY)) {
+						takeItems(player, 1, IMPERIAL_GENEALOGY);
+						otherGiveRewards(player, REWARDS_DARK_CRYSTAL, OTHER_CHANCES_LOW_A);
 						htmltext = "30839-02.html";
 					} else {
 						htmltext = "30839-01.html";
 					}
-					break;
 				}
-				case MAGISTER_DESMOND: {
-					if (hasQuestItems(player, REVELATION_OF_THE_SEALS_CHAPTER_OF_AVARICE, REVELATION_OF_THE_SEALS_CHAPTER_OF_GNOSIS, REVELATION_OF_THE_SEALS_CHAPTER_OF_STRIFE, //
-						REVELATION_OF_THE_SEALS_CHAPTER_OF_VENGEANCE, REVELATION_OF_THE_SEALS_CHAPTER_OF_AWEKENING, REVELATION_OF_THE_SEALS_CHAPTER_OF_CALAMITY, //
-						REVELATION_OF_THE_SEALS_CHAPTER_OF_DESCENT)) {
-						takeItems(player, REVELATION_OF_THE_SEALS_CHAPTER_OF_AVARICE, 1);
-						takeItems(player, REVELATION_OF_THE_SEALS_CHAPTER_OF_GNOSIS, 1);
-						takeItems(player, REVELATION_OF_THE_SEALS_CHAPTER_OF_STRIFE, 1);
-						takeItems(player, REVELATION_OF_THE_SEALS_CHAPTER_OF_VENGEANCE, 1);
-						takeItems(player, REVELATION_OF_THE_SEALS_CHAPTER_OF_AWEKENING, 1);
-						takeItems(player, REVELATION_OF_THE_SEALS_CHAPTER_OF_CALAMITY, 1);
-						takeItems(player, REVELATION_OF_THE_SEALS_CHAPTER_OF_DESCENT, 1);
-						
-						if (chance < 31) {
-							giveItems(player, SEALED_MAJESTIC_BOOTS_LINING, 1);
-						} else if (chance < 62) {
-							giveItems(player, SEALED_MAJESTIC_GAUNTLETS_DESIGN, 1);
-						} else if (chance < 75) {
-							giveItems(player, SEALED_MAJESTIC_CIRCLET_DESIGN, 1);
-						} else if (chance < 83) {
-							giveItems(player, SEALED_MAJESTIC_BOOTS_LINING, 1);
-							giveItems(player, SEALED_MAJESTIC_GAUNTLETS_DESIGN, 1);
-							giveItems(player, SEALED_MAJESTIC_CIRCLET_DESIGN, 1);
-						} else if (chance < 100) {
-							giveAdena(player, 4000, true);
-						}
+				case MAGISTER_DESMOND -> {
+					if (hasQuestItems(player, REVELATION_OF_THE_SEALS)) {
+						takeItems(player, 1, REVELATION_OF_THE_SEALS);
+						otherGiveRewards(player, REWARDS_MAJESTIC, OTHER_CHANCES_HIGH_A);
 						htmltext = "30855-02.html";
 					} else {
 						htmltext = "30855-01.html";
 					}
-					break;
 				}
-				case ANTIQUE_DEALER_PATRIN: {
-					if (hasQuestItems(player, ANCIENT_EPIC_CHAPTER_1, ANCIENT_EPIC_CHAPTER_2, ANCIENT_EPIC_CHAPTER_3, ANCIENT_EPIC_CHAPTER_4, ANCIENT_EPIC_CHAPTER_5)) {
-						takeItems(player, ANCIENT_EPIC_CHAPTER_1, 1);
-						takeItems(player, ANCIENT_EPIC_CHAPTER_2, 1);
-						takeItems(player, ANCIENT_EPIC_CHAPTER_3, 1);
-						takeItems(player, ANCIENT_EPIC_CHAPTER_4, 1);
-						takeItems(player, ANCIENT_EPIC_CHAPTER_5, 1);
-						
-						if (chance < 30) {
-							giveItems(player, SEALED_TALLUM_BOOTS_LINING, 1);
-						} else if (chance < 60) {
-							giveItems(player, SEALED_TALLUM_GLOVES_DESIGN, 1);
-						} else if (chance < 80) {
-							giveItems(player, SEALED_TALLUM_HELM_DESIGN, 1);
-						} else if (chance < 90) {
-							giveItems(player, SEALED_TALLUM_BOOTS_LINING, 1);
-							giveItems(player, SEALED_TALLUM_GLOVES_DESIGN, 1);
-							giveItems(player, SEALED_TALLUM_HELM_DESIGN, 1);
-						} else if (chance < 100) {
-							giveAdena(player, 4000, true);
-						}
+				case ANTIQUE_DEALER_PATRIN -> {
+					if (hasQuestItems(player, ANCIENT_EPIC)) {
+						takeItems(player, 1, ANCIENT_EPIC);
+						otherGiveRewards(player, REWARDS_TALLUM, OTHER_CHANCES_LOW_A);
 						htmltext = "30929-02.html";
 					} else {
-						htmltext = "30929-02.html";
+						htmltext = "30929-01.html";
 					}
-					break;
 				}
-				case CLAUDIA_ATHEBALDT: {
-					if (hasQuestItems(player, REVELATION_OF_THE_SEALS_CHAPTER_OF_AVARICE, REVELATION_OF_THE_SEALS_CHAPTER_OF_GNOSIS, REVELATION_OF_THE_SEALS_CHAPTER_OF_STRIFE, //
-						REVELATION_OF_THE_SEALS_CHAPTER_OF_VENGEANCE, REVELATION_OF_THE_SEALS_CHAPTER_OF_AWEKENING, REVELATION_OF_THE_SEALS_CHAPTER_OF_CALAMITY, //
-						REVELATION_OF_THE_SEALS_CHAPTER_OF_DESCENT)) {
-						takeItems(player, REVELATION_OF_THE_SEALS_CHAPTER_OF_AVARICE, 1);
-						takeItems(player, REVELATION_OF_THE_SEALS_CHAPTER_OF_GNOSIS, 1);
-						takeItems(player, REVELATION_OF_THE_SEALS_CHAPTER_OF_STRIFE, 1);
-						takeItems(player, REVELATION_OF_THE_SEALS_CHAPTER_OF_VENGEANCE, 1);
-						takeItems(player, REVELATION_OF_THE_SEALS_CHAPTER_OF_AWEKENING, 1);
-						takeItems(player, REVELATION_OF_THE_SEALS_CHAPTER_OF_CALAMITY, 1);
-						takeItems(player, REVELATION_OF_THE_SEALS_CHAPTER_OF_DESCENT, 1);
-						
-						if (chance < 31) {
-							giveItems(player, SEALED_BOOTS_OF_NIGHTMARE_LINING, 1);
-						} else if (chance < 62) {
-							giveItems(player, SEALED_GAUNTLETS_OF_NIGHTMARE_DESIGN, 1);
-						} else if (chance < 75) {
-							giveItems(player, SEALED_HELM_OF_NIGHTMARE_DESIGN, 1);
-						} else if (chance < 83) {
-							giveItems(player, SEALED_BOOTS_OF_NIGHTMARE_LINING, 1);
-							giveItems(player, SEALED_GAUNTLETS_OF_NIGHTMARE_DESIGN, 1);
-							giveItems(player, SEALED_HELM_OF_NIGHTMARE_DESIGN, 1);
-						} else if (chance < 100) {
-							giveAdena(player, 4000, true);
-						}
+				case CLAUDIA_ATHEBALDT -> {
+					if (hasQuestItems(player, REVELATION_OF_THE_SEALS)) {
+						takeItems(player, 1, REVELATION_OF_THE_SEALS);
+						otherGiveRewards(player, REWARDS_NIGHTMARE, OTHER_CHANCES_HIGH_A);
 						htmltext = "31001-02.html";
 					} else {
 						htmltext = "31001-01.html";
 					}
-					break;
 				}
 			}
 		}
 		return htmltext;
 	}
+	
+	private void walderalGiveRewards(L2PcInstance player, RewardsGroup rewardsGroup, int[] chances) {
+		final int chance = getRandom(100);
+		
+		if (chance < chances[0]) {
+			giveItems(player, rewardsGroup.partBoots, 1);
+		} else if (chance < chances[1]) {
+			giveItems(player, rewardsGroup.partGloves, 1);
+		} else if (chance < chances[2]) {
+			giveItems(player, rewardsGroup.partHelmet, 1);
+		} else if (chance < chances[3]) {
+			giveItems(player, rewardsGroup.partBoots, 1);
+			giveItems(player, rewardsGroup.partGloves, 1);
+			giveItems(player, rewardsGroup.partHelmet, 1);
+		} else if (chance < chances[4]) {
+			giveItems(player, rewardsGroup.recipeBoots, 1);
+		} else if (chance < chances[5]) {
+			giveItems(player, rewardsGroup.recipeGloves, 1);
+		} else if (chance < chances[6]) {
+			giveItems(player, rewardsGroup.recipeHelmet, 1);
+		} else if (chance < chances[7]) {
+			giveItems(player, rewardsGroup.recipeBoots, 1);
+			giveItems(player, rewardsGroup.recipeGloves, 1);
+			giveItems(player, rewardsGroup.recipeHelmet, 1);
+		}
+	}
+	
+	private void otherGiveRewards(L2PcInstance player, RewardsGroup rewardsGroup, int[] chances) {
+		final int chance = getRandom(100);
+		
+		if (chance < chances[0]) {
+			giveItems(player, rewardsGroup.partBoots, 1);
+		} else if (chance < chances[1]) {
+			giveItems(player, rewardsGroup.partGloves, 1);
+		} else if (chance < chances[2]) {
+			giveItems(player, rewardsGroup.partHelmet, 1);
+		} else if (chance < chances[3]) {
+			giveItems(player, rewardsGroup.partBoots, 1);
+			giveItems(player, rewardsGroup.partGloves, 1);
+			giveItems(player, rewardsGroup.partHelmet, 1);
+		} else if (chance < chances[4]) {
+			giveAdena(player, 4000, true);
+		}
+	}
+	
+	private record RewardsGroup(
+			int partBoots, int partGloves, int partHelmet,
+			int recipeBoots, int recipeGloves, int recipeHelmet
+	) {}
 }
