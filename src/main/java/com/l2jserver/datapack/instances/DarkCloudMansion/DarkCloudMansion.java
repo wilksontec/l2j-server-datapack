@@ -24,6 +24,7 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 import com.l2jserver.datapack.instances.AbstractInstance;
+import com.l2jserver.gameserver.ai.CtrlIntention;
 import com.l2jserver.gameserver.instancemanager.InstanceManager;
 import com.l2jserver.gameserver.model.L2Party;
 import com.l2jserver.gameserver.model.Location;
@@ -599,6 +600,7 @@ public final class DarkCloudMansion extends AbstractInstance {
 			thisnpc = new DMCNpc();
 			thisnpc.npc = addSpawn(BS[idx], x, 182145, -6117, 48810, false, 0, false, world.getInstanceId());
 			thisnpc.npc.setIsNoRndWalk(true);
+			thisnpc.npc.disableCoreAI(true);
 			thisnpc.order = idx;
 			thisnpc.status = temp[idx];
 			thisnpc.count = 0;
@@ -680,6 +682,8 @@ public final class DarkCloudMansion extends AbstractInstance {
 						startQuestTimer("decayMe", 1500, npc, player);
 					} else {
 						FifthRoom.reset = 1;
+						mob.npc.disableCoreAI(false);
+						mob.npc.getAI().setIntention(CtrlIntention.AI_INTENTION_ATTACK, player);
 						mob.npc.broadcastPacket(new NpcSay(mob.npc.getObjectId(), Say2.NPC_ALL, mob.npc.getId(), _faildChat[getRandom(_faildChat.length)]));
 						startQuestTimer("decayChatBelethSamples", 4000, npc, player);
 						startQuestTimer("decayBelethSamples", 4500, npc, player);
