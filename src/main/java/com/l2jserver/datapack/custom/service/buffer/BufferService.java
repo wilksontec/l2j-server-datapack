@@ -1,5 +1,5 @@
 /*
- * Copyright © 2004-2021 L2J DataPack
+ * Copyright © 2004-2022 L2J DataPack
  * 
  * This file is part of L2J DataPack.
  * 
@@ -76,6 +76,7 @@ public final class BufferService extends CustomServiceScript {
 	private static final Map<Integer, Long> LAST_PLAYABLES_HEAL_TIME = new ConcurrentHashMap<>();
 	
 	private static final Map<Integer, String> ACTIVE_PLAYER_BUFFLISTS = new ConcurrentHashMap<>();
+	private static final Map<Integer, String> ACTIVE_PLAYER_CATEGORIES = new ConcurrentHashMap<>();
 	
 	BufferService() {
 		super(SCRIPT_NAME);
@@ -115,6 +116,14 @@ public final class BufferService extends CustomServiceScript {
 				placeholders.put("active_unique", ulistPlaceholder);
 			}
 		}
+
+		String activeCategoryId = ACTIVE_PLAYER_CATEGORIES.get(player.getObjectId());
+		if (activeCategoryId != null) {
+			HTMLTemplatePlaceholder catPlaceholder = BufferServiceRepository.getInstance().getBuffCategoryPlaceholder(activeCategoryId);
+			if (catPlaceholder != null) {
+				placeholders.put("active_category", catPlaceholder);
+			}
+		}
 		
 		HTMLTemplatePlaceholder playerPlaceholder = new HTMLTemplatePlaceholder("player", null);
 		playerPlaceholder.addChild("name", player.getName());
@@ -124,6 +133,11 @@ public final class BufferService extends CustomServiceScript {
 		placeholders.put(playerPlaceholder.getName(), playerPlaceholder);
 		
 		super.showAdvancedHtml(player, buffer, npc, htmlPath, placeholders);
+	}
+	
+	private boolean htmlShowAny(L2PcInstance player, AbstractBuffer buffer, L2Npc npc, String html) {
+		showAdvancedHtml(player, buffer, npc, html, new HashMap<>());
+		return true;
 	}
 	
 	private boolean htmlShowMain(L2PcInstance player, AbstractBuffer buffer, L2Npc npc) {
@@ -376,6 +390,27 @@ public final class BufferService extends CustomServiceScript {
 		}
 	}
 	
+	private void categorySelect(L2PcInstance player, AbstractBuffer buffer, String categoryIdent) {
+		BuffCategory cat = buffer.getBuffCats().get(categoryIdent);
+		if (cat == null) {
+			return;
+		}
+		
+		ACTIVE_PLAYER_CATEGORIES.put(player.getObjectId(), categoryIdent);
+	}
+	
+	private void categoryDeselect(L2PcInstance player) {
+		ACTIVE_PLAYER_CATEGORIES.remove(player.getObjectId());
+	}
+	
+	private void executeCategoryCommand(L2PcInstance player, AbstractBuffer buffer, CommandProcessor command) {
+		if (command.matchAndRemove("select ", "s ")) {
+			categorySelect(player, buffer, command.getRemaining());
+		} else if (command.matchAndRemove("deselect ", "des ")) {
+			categoryDeselect(player);
+		}
+	}
+	
 	private boolean uniqueCreate(L2PcInstance player, String uniqueName) {
 		if (!BufferServiceRepository.getInstance().canHaveMoreBufflists(player)) {
 			player.sendMessage("Maximum number of unique bufflists reached!");
@@ -491,7 +526,9 @@ public final class BufferService extends CustomServiceScript {
 			return false;
 		}
 		
-		if (command.matchAndRemove("main", "m")) {
+		if (command.matchAndRemove("any ", "a ")) {
+			return htmlShowAny(player, buffer, npc, command.getRemaining());
+		} else if (command.matchAndRemove("main", "m")) {
 			return htmlShowMain(player, buffer, npc);
 		} else if (command.matchAndRemove("category ", "c ")) {
 			return htmlShowCategory(player, buffer, npc, command.getRemaining());
@@ -552,6 +589,8 @@ public final class BufferService extends CustomServiceScript {
 		
 		if (command.matchAndRemove("target ", "t ")) {
 			executeTargetCommand(player, buffer, command);
+		} else if (command.matchAndRemove("category ", "c ")) {
+			executeCategoryCommand(player, buffer, command);
 		} else if (command.matchAndRemove("unique ", "u ")) {
 			executeUniqueCommand(player, buffer, command);
 		}

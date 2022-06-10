@@ -1,5 +1,5 @@
 /*
- * Copyright © 2004-2021 L2J DataPack
+ * Copyright © 2004-2022 L2J DataPack
  * 
  * This file is part of L2J DataPack.
  * 
@@ -43,11 +43,15 @@ public final class GlobalConfig {
 	}
 	
 	public BuffSkill getBuff(String id) {
-		return buffs.get(id);
+		return getBuffs().get(id);
 	}
 	
 	public final Map<String, BuffSkill> getBuffs() {
 		return buffs;
+	}
+	
+	public final BuffCategory getCategory(String id) {
+		return getCategories().get(id);
 	}
 	
 	public final Map<String, BuffCategory> getCategories() {

@@ -1,5 +1,5 @@
 /*
- * Copyright © 2004-2021 L2J DataPack
+ * Copyright © 2004-2022 L2J DataPack
  * 
  * This file is part of L2J DataPack.
  * 
@@ -34,6 +34,7 @@ import com.l2jserver.commons.database.ConnectionFactory;
 import com.l2jserver.datapack.custom.service.base.util.htmltmpls.HTMLTemplatePlaceholder;
 import com.l2jserver.datapack.custom.service.buffer.model.BufferConfig;
 import com.l2jserver.datapack.custom.service.buffer.model.UniqueBufflist;
+import com.l2jserver.datapack.custom.service.buffer.model.entity.BuffCategory;
 import com.l2jserver.datapack.custom.service.buffer.model.entity.BuffSkill;
 import com.l2jserver.gameserver.config.Configuration;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
@@ -227,6 +228,19 @@ public final class BufferServiceRepository {
 			return null;
 		}
 		return Collections.unmodifiableList(ulist);
+	}
+	
+	public BuffCategory getBuffCategory(String categoryIdent) {
+		return getConfig().getGlobal().getCategory(categoryIdent);
+	}
+	
+	public HTMLTemplatePlaceholder getBuffCategoryPlaceholder(String categoryIdent) {
+		BuffCategory cat = getBuffCategory(categoryIdent);
+		if (cat == null) {
+			return null;
+		}
+		
+		return cat.getPlaceholder();
 	}
 	
 	public HTMLTemplatePlaceholder getPlayersUListPlaceholder(int playerObjectId, String ulistName) {
