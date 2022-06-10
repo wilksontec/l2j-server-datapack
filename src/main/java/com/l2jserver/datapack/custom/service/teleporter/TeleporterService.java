@@ -1,5 +1,5 @@
 /*
- * Copyright © 2004-2021 L2J DataPack
+ * Copyright © 2004-2022 L2J DataPack
  * 
  * This file is part of L2J DataPack.
  * 
@@ -160,6 +160,11 @@ public final class TeleporterService extends CustomServiceScript {
 	// ////////////////////////////////////
 	// HTML COMMANDS
 	// ////////////////////////////////////
+	private boolean _showAnyHtml(L2PcInstance player, AbstractTeleporter teleporter, L2Npc npc, String html) {
+		showAdvancedHtml(player, teleporter, npc, html, new HashMap<>());
+		return true;
+	}
+
 	private boolean _showMainHtml(L2PcInstance player, AbstractTeleporter teleporter, L2Npc npc) {
 		_showAdvancedHtml(player, teleporter, npc, "main.html", new HashMap<String, HTMLTemplatePlaceholder>());
 		return true;
@@ -469,7 +474,9 @@ public final class TeleporterService extends CustomServiceScript {
 			return false;
 		}
 		
-		if (command.matchAndRemove("main", "m")) {
+		if (command.matchAndRemove("any ", "a ")) {
+			return _showAnyHtml(player, teleporter, npc, command.getRemaining());
+		} else if (command.matchAndRemove("main", "m")) {
 			return _showMainHtml(player, teleporter, npc);
 		} else if (command.matchAndRemove("solo_category_list", "scl")) {
 			return _showSoloCategoryList(player, teleporter, npc);
