@@ -2945,7 +2945,7 @@
 				<mul stat="debuffVuln" val="0.9" />
 			</effect>
 			<effect name="Buff">
-				<mul stat="runSpd" val="0.8" />
+				<mul stat="runSpd" val="#ench3RunSpd" />
 			</effect>
 		</enchant3Effects>
 	</skill>
