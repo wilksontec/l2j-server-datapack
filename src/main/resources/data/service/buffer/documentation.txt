@@ -49,29 +49,60 @@ Examples:
 		bypass voice .bufferservice h c BC_DWARFEN
 	Select unique bufflist as active:
 		bypass voice .bufferservice u s MyList
+Notes:
+    While the html commands open a specific html dialog, the other commands
+    (internally called action commands) open the last used html command the
+    player used.
 	
 
 ########
 # HTML #
 ########
-On all HTML files, the following placeholders are available:
-buffer
-	name
-player
-	name
-	unique_max_buffs
-	unique_max_song_dances
-active_unique (if one is selected)
-active_category (if one is selected)
+Html files are the dialogs which are displayed in the game.
 
-Following is a list of html files and their additional available placeholders.
+The htmls of this buffer currently support a template engine which enables you
+to output several placeholders. To output a placeholder value, you have to put
+%placeholder.name% on the html page. If the placeholder does not exist, nothing
+is put in it's place. All available placeholders are: 
+|-------------------------------|----------------------|-------------------------------------|
+| Placeholder                   | Type                 | Description                         |
+|-------------------------------|----------------------|-------------------------------------|
+| buffer.name                   | string               | The buffers name                    |
+| buffer.bypass_prefix          | string               | The buffers bypass prefix           |
+| buffer.can_heal               | boolean              | Whatever the buffer can heal        |
+| buffer.can_cancel             | boolean              | Whatever the buffer can cancel buffs|
+| buffer.presets                | list(BuffCategory)   | List of preset buff categories      |
+| buffer.categories             | list(BuffCategory)   | List of buff categories             |
+| buffer.max_unique_lists       | number               | Max number unique lists per player  |
+| player.name                   | string               | The players name                    |
+| player.unique_max_buffs       | number               | The players unique max buffs        |
+| player.unique_max_song_dances | number               | The players unique max songs/dances |
+| active_unique                 | list(UniqueBufflist) | Only defined if one is selected     |
+| active_category               | list(BuffCategory)   | Only defined if one is selected     |
+|-------------------------------|----------------------|-------------------------------------|
 
-category.html
-	category
-buff.html
-	category
-	buff
-preset.html
-	preset
-unique.html
-	unique
+Following is a list of html files and their additional available placeholders:
+|-----------------|----------------|------------------------------------------|
+| Placeholder     | Type           | Description                              |
+|-----------------|----------------|------------------------------------------|
+| # category.html                                                             |
+| category        | BuffCategory   | The buff category to be displayed        |
+|-----------------|----------------|------------------------------------------|
+| # buff.html                                                                 |
+| category        | BuffCategory   | The buff category of the buff            |
+| buff            | BuffSkill      | The buff skill to be displayed           |
+|-----------------|----------------|------------------------------------------|
+| # preset.html                                                               |
+| preset          | BuffCategory   | The preset buff category to be displayed |
+|-----------------|----------------|------------------------------------------|
+| # unique.html                                                               |
+| unique          | UniqueBufflist | The unique bufflist to be displayed      |
+|-----------------|----------------|------------------------------------------|
+
+When building bypasses on a html page, you have to put a bypass prefix before
+you write one of the commands above. On the htmls opened with the "html" command
+described above, you can do this with the placeholder %buffer.bypass_prefix%.
+This is required because npc buffers and the voiced buffer have different bypass
+prefixes. Example:
+<a action="%buffer.bypass_prefix% h m">Open main.html</a>
+<a action="%buffer.bypass_prefix% u c NewUniqueBufflist">Create an empty unique bufflist named NewUniqueBufflist</a>
