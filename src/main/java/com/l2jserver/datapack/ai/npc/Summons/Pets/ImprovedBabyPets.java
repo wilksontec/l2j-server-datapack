@@ -35,6 +35,8 @@ import com.l2jserver.gameserver.network.SystemMessageId;
 import com.l2jserver.gameserver.network.serverpackets.SystemMessage;
 import com.l2jserver.gameserver.util.Util;
 
+import java.util.Optional;
+
 /**
  * Improved Baby Pets AI.
  * @author St3eT
@@ -66,29 +68,27 @@ public final class ImprovedBabyPets extends AbstractNpcAI {
 			} else if (event.equals("CAST_HEAL") && player.isInCombat() && !pet.isHungry()) {
 				final double hpPer = (player.getCurrentHp() / player.getMaxHp()) * 100;
 				final double mpPer = (player.getCurrentMp() / player.getMaxMp()) * 100;
-				final int healStep = (int) Math.floor((pet.getLevel() / 5) - 11);
+				final int healStep = (int) Math.floor((pet.getLevel() / 5.) - 11);
 				final int healType = pet.getTemplate().getParameters().getInt("heal_type", 0);
 				
 				switch (healType) {
-					case 0: {
+					case 0 -> {
 						if (hpPer < 30) {
 							castHealSkill(pet, Util.constrain(healStep, 0, 3), 2);
 						} else if (mpPer < 60) {
 							castHealSkill(pet, Util.constrain(healStep, 0, 3), 1);
 						}
-						break;
 					}
-					case 1: {
+					case 1 -> {
 						if ((hpPer >= 30) && (hpPer < 70)) {
 							castHealSkill(pet, Util.constrain(healStep, 0, 3), 1);
 						} else if (hpPer < 30) {
 							castHealSkill(pet, Util.constrain(healStep, 0, 3), 2);
 						}
-						break;
 					}
 				}
 			} else if (event.equals("CAST_BUFF") && !pet.isAffectedBySkill(BUFF_CONTROL) && !pet.isHungry()) {
-				final int buffStep = (int) Util.constrain(Math.floor((pet.getLevel() / 5) - 11), 0, 3);
+				final int buffStep = (int) Util.constrain(Math.floor((pet.getLevel() / 5.) - 11), 0, 3);
 				for (int i = 1; i <= (2 * (1 + buffStep)); i++) {
 					castBuffSkill(pet, buffStep, i);
 				}
@@ -117,16 +117,13 @@ public final class ImprovedBabyPets extends AbstractNpcAI {
 		}
 		
 		final StatsSet parameters = summon.getTemplate().getParameters();
-		final SkillHolder skill = parameters.getObject("step" + stepNumber + "_buff0" + buffNumber, SkillHolder.class);
+		
+		final SkillHolder skill = Optional.ofNullable(parameters.getObject("step" + stepNumber + "_merged_buff0" + buffNumber, SkillHolder.class))
+						.orElseGet(() -> parameters.getObject("step" + stepNumber + "_buff0" + buffNumber, SkillHolder.class));
 		
 		if (skill != null) {
-			final SkillHolder mergedSkill = parameters.getObject("step" + stepNumber + "_merged_buff0" + buffNumber, SkillHolder.class);
 			final int targetType = parameters.getInt("step" + stepNumber + "_buff_target0" + buffNumber, 0);
 			if (!hasAbnormal(owner, skill.getSkill().getAbnormalType()) && summon.checkDoCastConditions(skill.getSkill())) {
-				if ((mergedSkill != null) && hasAbnormal(owner, mergedSkill.getSkill().getAbnormalType())) {
-					return false;
-				}
-				
 				final boolean previousFollowStatus = summon.getFollowStatus();
 				
 				if (!previousFollowStatus && !summon.isInsideRadius(owner, skill.getSkill().getCastRange(), true, true)) {
