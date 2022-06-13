@@ -161,7 +161,7 @@ public final class TeleporterService extends CustomServiceScript {
 	// HTML COMMANDS
 	// ////////////////////////////////////
 	private boolean _showAnyHtml(L2PcInstance player, AbstractTeleporter teleporter, L2Npc npc, String html) {
-		showAdvancedHtml(player, teleporter, npc, html, new HashMap<>());
+		_showAdvancedHtml(player, teleporter, npc, html, new HashMap<>());
 		return true;
 	}
 
