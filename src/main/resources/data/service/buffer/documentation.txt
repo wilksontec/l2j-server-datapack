@@ -7,53 +7,53 @@ the bypass prefix for a voiced buffer with the default command .bufferservice.
 Usage: bypass voice .bufferservice [COMMAND]
 Commands:
   html, h
-    any, a [html]							Opens [html]
-    main, m									Opens main.html
-    category, c [categoryId]				Opens category.html
-    preset, p [presetId]					Opens preset.html
-    buff, b [categoryId] [buffId]			Opens buff.html
-    unique, u [uniqueName]					Opens unique.html
-  target, t [target]						[target] can either be player or
-    										summon
-    buff, b [categoryId] [buffId]			Apply a buff to the target
-    unique, u [uniqueName]					Apply a unique bufflist to the
-    										target
-    preset, p [presetId]					Apply a preset bufflist to the
-    										target
-    heal, h									Heal the target
-    cancel, c								Cancel bufs of the target
+    any, a [html]                          Opens [html]
+    main, m                                Opens main.html
+    category, c [categoryId]               Opens category.html
+    preset, p [presetId]                   Opens preset.html
+    buff, b [categoryId] [buffId]          Opens buff.html
+    unique, u [uniqueName]                 Opens unique.html
+  target, t [target]                       [target] can either be player or
+                                           summon
+    buff, b [categoryId] [buffId]          Apply a buff to the target
+    unique, u [uniqueName]                 Apply a unique bufflist to the
+                                           target
+    preset, p [presetId]                   Apply a preset bufflist to the
+                                           target
+    heal, h                                Heal the target
+    cancel, c                              Cancel bufs of the target
   category, c
-    select, s [categoryId]					Select a buff category as active.
-    										The selected buff category can be
-    										referenced to on any html by
-    										%active_category%
-    deselect, des [categoryId]				Deselect the active buff category
+    select, s [categoryId]                 Select a buff category as active.
+                                           The selected buff category can be
+                                           referenced to on any html by
+                                           %active_category%
+    deselect, des [categoryId]             Deselect the active buff category
   unique, u
-    create, c [name]						Creates a unique bufflist
-    create_from_effects, cfe [name]			Creates a unique bufflist based on
-    										buffs
-    delete, del [name]						Delete a unique bufflist
-    add, a [name] [categoryId] [buffId]		Add a buff to the unique bufflist
-    remove, r [name] [categoryId] [buffId]	Remove a buff from unique bufflist
-    select, s [name]						Select a unique bufflist as active.
-    										The selected unique bufflist can be
-    										referenced to on any html by
-    										%active_unique%
-    deselect, des							Deselects the active unique bufflist
+    create, c [name]                       Creates a unique bufflist
+    create_from_effects, cfe [name]        Creates a unique bufflist based on
+                                           buffs
+    delete, del [name]                     Delete a unique bufflist
+    add, a [name] [categoryId] [buffId]    Add a buff to the unique bufflist
+    remove, r [name] [categoryId] [buffId] Remove a buff from unique bufflist
+    select, s [name]                       Select a unique bufflist as active.
+                                           The selected unique bufflist can be
+                                           referenced to on any html by
+                                           %active_unique%
+    deselect, des                          Deselects the active unique bufflist
 Examples:
-	Create a unique bufflist
-		bypass voice .bufferservice u c MyList
-	Add a buff to a bufflist:
-		bypass voice .bufferservice u a MyList BC_DWARFEN DWARFEN_0
-	Show category.html:
-		bypass voice .bufferservice h c BC_DWARFEN
-	Select unique bufflist as active:
-		bypass voice .bufferservice u s MyList
+    Create a unique bufflist
+        bypass voice .bufferservice u c MyList
+    Add a buff to a bufflist:
+        bypass voice .bufferservice u a MyList BC_DWARFEN DWARFEN_0
+    Show category.html:
+        bypass voice .bufferservice h c BC_DWARFEN
+    Select unique bufflist as active:
+        bypass voice .bufferservice u s MyList
 Notes:
     While the html commands open a specific html dialog, the other commands
     (internally called action commands) open the last used html command the
     player used.
-	
+    
 
 ########
 # HTML #
