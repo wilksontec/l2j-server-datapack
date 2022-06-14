@@ -13,6 +13,7 @@ Commands:
     preset, p [presetId]                   Opens preset.html
     buff, b [categoryId] [buffId]          Opens buff.html
     unique, u [uniqueName]                 Opens unique.html
+  target, t [deselect, des]                Deselect the active target
   target, t [target]                       [target] can either be player or
                                            summon
     buff, b [categoryId] [buffId]          Apply a buff to the target
@@ -22,6 +23,7 @@ Commands:
                                            target
     heal, h                                Heal the target
     cancel, c                              Cancel bufs of the target
+    select, s                              Select target as active
   category, c
     select, s [categoryId]                 Select a buff category as active.
                                            The selected buff category can be
@@ -79,6 +81,7 @@ is put in it's place. All available placeholders are:
 | player.unique_max_song_dances | number               | The players unique max songs/dances |
 | active_unique                 | list(UniqueBufflist) | Only defined if one is selected     |
 | active_category               | list(BuffCategory)   | Only defined if one is selected     |
+| active_target                 | string               | Only defined if one is selected     |
 |-------------------------------|----------------------|-------------------------------------|
 
 Following is a list of html files and their additional available placeholders:

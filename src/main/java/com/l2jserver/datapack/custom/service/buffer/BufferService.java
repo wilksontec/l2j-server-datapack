@@ -77,6 +77,7 @@ public final class BufferService extends CustomServiceScript {
 	
 	private static final Map<Integer, String> ACTIVE_PLAYER_BUFFLISTS = new ConcurrentHashMap<>();
 	private static final Map<Integer, String> ACTIVE_PLAYER_CATEGORIES = new ConcurrentHashMap<>();
+	private static final Map<Integer, String> ACTIVE_PLAYER_TARGETS = new ConcurrentHashMap<>();
 	
 	BufferService() {
 		super(SCRIPT_NAME);
@@ -123,6 +124,11 @@ public final class BufferService extends CustomServiceScript {
 			if (catPlaceholder != null) {
 				placeholders.put("active_category", catPlaceholder);
 			}
+		}
+		
+		String activeTarget = ACTIVE_PLAYER_TARGETS.get(player.getObjectId());
+		if (activeTarget != null) {
+			placeholders.put("active_target", new HTMLTemplatePlaceholder("active_taget", activeTarget));
 		}
 		
 		HTMLTemplatePlaceholder playerPlaceholder = new HTMLTemplatePlaceholder("player", null);
@@ -355,7 +361,20 @@ public final class BufferService extends CustomServiceScript {
 		target.stopAllEffectsExceptThoseThatLastThroughDeath();
 	}
 	
+	private void targetSelect(L2PcInstance player, L2Playable target) {
+		ACTIVE_PLAYER_TARGETS.put(player.getObjectId(), target.isSummon() ? "summon" : "player");
+	}
+	
+	private void targetDeselect(L2PcInstance player) {
+		ACTIVE_PLAYER_TARGETS.remove(player.getObjectId());
+	}
+	
 	private void executeTargetCommand(L2PcInstance player, AbstractBuffer buffer, CommandProcessor command) {
+		if (command.matchAndRemove("deselect", "des")) {
+			targetDeselect(player);
+			return;
+		}
+		
 		// first determine the target
 		L2Playable target;
 		if (command.matchAndRemove("player ", "p ")) {
@@ -387,6 +406,8 @@ public final class BufferService extends CustomServiceScript {
 			targetHeal(player, target, buffer);
 		} else if (command.matchAndRemove("cancel", "c")) {
 			targetCancel(player, target, buffer);
+		} else if (command.matchAndRemove("select", "s")) {
+			targetSelect(player, target);
 		}
 	}
 	
