@@ -560,6 +560,7 @@ public final class DarkCloudMansion extends AbstractInstance {
 			for (int y = 179280; y > 178405; y -= 125) {
 				thisnpc = new DMCNpc();
 				thisnpc.npc = addSpawn(SC, x, y, -6115, 16215, false, 0, false, world.getInstanceId());
+				thisnpc.npc.disableCoreAI(true);
 				thisnpc.status = templist[yy][xx];
 				thisnpc.order = yy;
 				ForthRoom.npcList.add(thisnpc);
@@ -886,6 +887,10 @@ public final class DarkCloudMansion extends AbstractInstance {
 				DMCRoom ForthRoom = world.rooms.get("ForthRoom");
 				for (DMCNpc mob : ForthRoom.npcList) {
 					if (mob.npc == npc) {
+						if (mob.npc.isCoreAIDisabled()) {
+							mob.npc.disableCoreAI(false);
+							mob.npc.getAI().setIntention(CtrlIntention.AI_INTENTION_ATTACK, attacker);
+						}
 						if (mob.npc.isInvul() && (getRandom(100) < 12)) {
 							addSpawn(BM[getRandom(BM.length)], attacker.getX(), attacker.getY(), attacker.getZ(), 0, false, 0, false, world.getInstanceId());
 						}
