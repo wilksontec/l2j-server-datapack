@@ -321,7 +321,7 @@ public final class NewbieGuide extends AbstractNpcAI {
 						break;
 					}
 					case 2: {
-						if (talker.getClassId().level() == 2) {
+						if (talker.getClassId().level() == 1) {
 							if (talker.getLevel() < 40) {
 								if (getOneTimeQuestFlag(talker, 208) == 0) {
 									qs.giveItems(ADVENTURERS_MAGIC_ACCESSORY_EXCHANGE_COUPON, SECOND_COUPON_SIZE);
