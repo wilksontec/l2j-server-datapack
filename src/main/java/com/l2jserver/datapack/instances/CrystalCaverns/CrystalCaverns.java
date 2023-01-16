@@ -1,5 +1,5 @@
 /*
- * Copyright © 2004-2021 L2J DataPack
+ * Copyright © 2004-2023 L2J DataPack
  * 
  * This file is part of L2J DataPack.
  * 
@@ -55,8 +55,6 @@ import com.l2jserver.gameserver.network.serverpackets.SpecialCamera;
 import com.l2jserver.gameserver.network.serverpackets.SystemMessage;
 import com.l2jserver.gameserver.network.serverpackets.ValidateLocation;
 import com.l2jserver.gameserver.util.Util;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -77,7 +75,6 @@ import static com.l2jserver.gameserver.config.Configuration.rates;
  * Original sources: theone, L2JEmu, L2JOfficial, L2JFree Contributing authors: TGS, Lantoc, Janiii, Gigiikun, RosT Please maintain consistency between the Crystal Caverns scripts.
  */
 public final class CrystalCaverns extends AbstractInstance {
-	private static final Logger LOG = LoggerFactory.getLogger(CrystalCaverns.class);
 	
 	protected static class CrystalGolem {
 		protected L2ItemInstance foodItem = null;

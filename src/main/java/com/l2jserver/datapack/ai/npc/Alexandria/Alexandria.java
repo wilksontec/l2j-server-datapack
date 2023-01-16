@@ -1,5 +1,5 @@
 /*
- * Copyright © 2004-2021 L2J DataPack
+ * Copyright © 2004-2023 L2J DataPack
  * 
  * This file is part of L2J DataPack.
  * 
@@ -92,8 +92,8 @@ public final class Alexandria extends AbstractNpcAI {
 						giveItems(player, agathion);
 						htmltext = "30098-03.html";
 						
-						if (agathion instanceof ItemChanceHolder) {
-							giveItems(player, ((AdditionalQuestItemHolder) agathion).getAdditionalId(), 1);
+						if (agathion instanceof AdditionalQuestItemHolder questItemHolder) {
+							giveItems(player, questItemHolder.getAdditionalId(), 1);
 							htmltext = "30098-03a.html";
 						}
 					} else {

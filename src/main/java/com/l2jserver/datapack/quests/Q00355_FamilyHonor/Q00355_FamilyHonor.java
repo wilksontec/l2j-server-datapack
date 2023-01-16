@@ -1,5 +1,5 @@
 /*
- * Copyright © 2004-2021 L2J DataPack
+ * Copyright © 2004-2023 L2J DataPack
  * 
  * This file is part of L2J DataPack.
  * 
@@ -30,23 +30,6 @@ import com.l2jserver.gameserver.util.Util;
  * @author Adry_85
  */
 public final class Q00355_FamilyHonor extends Quest {
-	private static final class DropInfo {
-		public final int _firstChance;
-		public final int _secondChance;
-		
-		public DropInfo(int firstChance, int secondChance) {
-			_firstChance = firstChance;
-			_secondChance = secondChance;
-		}
-		
-		public int getFirstChance() {
-			return _firstChance;
-		}
-		
-		public int getSecondChance() {
-			return _secondChance;
-		}
-	}
 	
 	// NPCs
 	private static final int GALIBREDO = 30181;

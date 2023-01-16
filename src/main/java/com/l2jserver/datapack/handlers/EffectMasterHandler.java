@@ -1,5 +1,5 @@
 /*
- * Copyright © 2004-2021 L2J DataPack
+ * Copyright © 2004-2023 L2J DataPack
  * 
  * This file is part of L2J DataPack.
  * 
@@ -114,6 +114,8 @@ public final class EffectMasterHandler {
 		BlockParty.class,
 		BlockResurrection.class,
 		Bluff.class,
+		BonusCountUp.class,
+		BonusTimeLimitUp.class,
 		Buff.class,
 		CallParty.class,
 		CallPc.class,
@@ -193,8 +195,6 @@ public final class EffectMasterHandler {
 		Mp.class,
 		MpPerMax.class,
 		Mute.class,
-		BonusCountUp.class,
-		BonusTimeLimitUp.class,
 		NoblesseBless.class,
 		OpenChest.class,
 		OpenCommonRecipeBook.class,
@@ -258,8 +258,8 @@ public final class EffectMasterHandler {
 		TickMp.class,
 		TransferDamage.class,
 		TransferHate.class,
-		TransformHangover.class,
 		Transformation.class,
+		TransformHangover.class,
 		TrapDetect.class,
 		TrapRemove.class,
 		TriggerSkillByAttack.class,
