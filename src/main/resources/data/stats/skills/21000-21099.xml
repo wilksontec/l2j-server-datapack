@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <list xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../xsd/skills.xsd">
 	<skill id="21000" levels="1" name="Release Seal on Agathion - Majo">
-		<!-- Confirmed CT2.5 -->
+		<!-- High Five Confirmed -->
 		<set name="affectScope" val="SINGLE" />
 		<set name="blockedInOlympiad" val="true" />
 		<set name="hitTime" val="3000" />
@@ -17,8 +17,8 @@
 			</effect>
 		</effects>
 	</skill>
-	<skill id="21001" levels="1" name="Release Seal on Agathion - Gold Majo">
-		<!-- Confirmed CT2.5 -->
+	<skill id="21001" levels="1" name="Release Seal on Agathion - Gold Crown Majo">
+		<!-- High Five Confirmed -->
 		<set name="affectScope" val="SINGLE" />
 		<set name="blockedInOlympiad" val="true" />
 		<set name="hitTime" val="3000" />
@@ -34,8 +34,8 @@
 			</effect>
 		</effects>
 	</skill>
-	<skill id="21002" levels="1" name="Release Seal on Agathion - Black Majo">
-		<!-- Confirmed CT2.5 -->
+	<skill id="21002" levels="1" name="Release Seal on Agathion - Black Crown Majo">
+		<!-- High Five Confirmed -->
 		<set name="affectScope" val="SINGLE" />
 		<set name="blockedInOlympiad" val="true" />
 		<set name="hitTime" val="3000" />
@@ -52,7 +52,7 @@
 		</effects>
 	</skill>
 	<skill id="21003" levels="1" name="Release Seal on Agathion - Plaipitak">
-		<!-- Confirmed CT2.5 -->
+		<!-- High Five Confirmed -->
 		<set name="affectScope" val="SINGLE" />
 		<set name="hitTime" val="3000" />
 		<set name="icon" val="icon.etc_summon_aga_agit_i00" />
@@ -140,7 +140,7 @@
 		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="21008" levels="1" name="Release Seal on Agathion - Baby Panda">
-		<!-- Confirmed CT2.5 -->
+		<!-- High Five Confirmed -->
 		<set name="affectScope" val="SINGLE" />
 		<set name="hitTime" val="3000" />
 		<set name="icon" val="icon.etc_summon_aga_agit_i00" />
@@ -156,7 +156,7 @@
 		</effects>
 	</skill>
 	<skill id="21009" levels="1" name="Release Seal on Agathion - Bamboo Panda">
-		<!-- Confirmed CT2.5 -->
+		<!-- High Five Confirmed -->
 		<set name="affectScope" val="SINGLE" />
 		<set name="hitTime" val="3000" />
 		<set name="icon" val="icon.etc_summon_aga_agit_i00" />
@@ -172,7 +172,7 @@
 		</effects>
 	</skill>
 	<skill id="21010" levels="1" name="Release Seal on Agathion - Sexy Panda">
-		<!-- Confirmed CT2.5 -->
+		<!-- High Five Confirmed -->
 		<set name="affectScope" val="SINGLE" />
 		<set name="hitTime" val="3000" />
 		<set name="icon" val="icon.etc_summon_aga_agit_i00" />
@@ -541,8 +541,8 @@
 			</effect>
 		</effects>
 	</skill>
-	<skill id="21031" levels="1" name="Agathion Seal Release - Charming Cupid">
-		<!-- Confirmed CT2.5 -->
+	<skill id="21031" levels="1" name="Release Seal on Agathion - White Cupid">
+		<!-- High Five Confirmed -->
 		<set name="affectScope" val="SINGLE" />
 		<set name="hitTime" val="3000" />
 		<set name="icon" val="icon.etc_summon_aga_agit_i00" />
@@ -557,8 +557,8 @@
 			</effect>
 		</effects>
 	</skill>
-	<skill id="21032" levels="1" name="Agathion Seal Release - Naughty Cupid">
-		<!-- Confirmed CT2.5 -->
+	<skill id="21032" levels="1" name="Release Seal on Agathion - Dark Cupid">
+		<!-- High Five Confirmed -->
 		<set name="affectScope" val="SINGLE" />
 		<set name="hitTime" val="3000" />
 		<set name="icon" val="icon.etc_summon_aga_agit_i00" />
@@ -574,7 +574,7 @@
 		</effects>
 	</skill>
 	<skill id="21033" levels="1" name="Release Seal on Agathion - White Maneki Neko">
-		<!-- Confirmed CT2.5 -->
+		<!-- High Five Confirmed -->
 		<set name="affectScope" val="SINGLE" />
 		<set name="hitTime" val="3000" />
 		<set name="icon" val="icon.etc_summon_aga_agit_i00" />
@@ -590,7 +590,7 @@
 		</effects>
 	</skill>
 	<skill id="21034" levels="1" name="Release Seal on Agathion - Black Maneki Neko">
-		<!-- Confirmed CT2.5 -->
+		<!-- High Five Confirmed -->
 		<set name="affectScope" val="SINGLE" />
 		<set name="hitTime" val="3000" />
 		<set name="icon" val="icon.etc_summon_aga_agit_i00" />
@@ -606,7 +606,7 @@
 		</effects>
 	</skill>
 	<skill id="21035" levels="1" name="Release Seal on Agathion - Brown Maneki Neko">
-		<!-- Confirmed CT2.5 -->
+		<!-- High Five Confirmed -->
 		<set name="affectScope" val="SINGLE" />
 		<set name="hitTime" val="3000" />
 		<set name="icon" val="icon.etc_summon_aga_agit_i00" />
@@ -622,7 +622,7 @@
 		</effects>
 	</skill>
 	<skill id="21036" levels="1" name="Release Seal on Agathion - One-eyed Bat Drove">
-		<!-- Confirmed CT2.5 -->
+		<!-- High Five Confirmed -->
 		<set name="affectScope" val="SINGLE" />
 		<set name="hitTime" val="3000" />
 		<set name="icon" val="icon.etc_summon_aga_agit_i00" />
@@ -638,7 +638,7 @@
 		</effects>
 	</skill>
 	<skill id="21037" levels="1" name="Release Seal on Agathion - Pegasus">
-		<!-- Confirmed CT2.5 -->
+		<!-- High Five Confirmed -->
 		<set name="affectScope" val="SINGLE" />
 		<set name="hitTime" val="3000" />
 		<set name="icon" val="icon.etc_summon_aga_agit_i00" />
@@ -654,7 +654,7 @@
 		</effects>
 	</skill>
 	<skill id="21038" levels="1" name="Release Seal on Agathion - Yellow-robed Tojigong">
-		<!-- Confirmed CT2.5 -->
+		<!-- High Five Confirmed -->
 		<set name="affectScope" val="SINGLE" />
 		<set name="hitTime" val="3000" />
 		<set name="icon" val="icon.etc_summon_aga_agit_i00" />
@@ -670,7 +670,7 @@
 		</effects>
 	</skill>
 	<skill id="21039" levels="1" name="Release Seal on Agathion - Blue-robed Tojigong">
-		<!-- Confirmed CT2.5 -->
+		<!-- High Five Confirmed -->
 		<set name="affectScope" val="SINGLE" />
 		<set name="hitTime" val="3000" />
 		<set name="icon" val="icon.etc_summon_aga_agit_i00" />
@@ -685,8 +685,8 @@
 			</effect>
 		</effects>
 	</skill>
-	<skill id="21040" levels="1" name="Release Seal on Agathion - Green-robed Tojigong">
-		<!-- Confirmed CT2.5 -->
+	<skill id="21040" levels="1" name="Release Seal on Agathion - Yellow-robed Tojigong">
+		<!-- High Five Confirmed -->
 		<set name="affectScope" val="SINGLE" />
 		<set name="hitTime" val="3000" />
 		<set name="icon" val="icon.etc_summon_aga_agit_i00" />
@@ -702,7 +702,7 @@
 		</effects>
 	</skill>
 	<skill id="21041" levels="1" name="Release Seal on Agathion - Bugbear">
-		<!-- Confirmed CT2.5 -->
+		<!-- High Five Confirmed -->
 		<set name="affectScope" val="SINGLE" />
 		<set name="hitTime" val="3000" />
 		<set name="icon" val="icon.etc_summon_aga_agit_i00" />
@@ -717,8 +717,9 @@
 			</effect>
 		</effects>
 	</skill>
-	<skill id="21042" levels="1" name="Baguette's Blessing">
-		<!-- Confirmed CT2.5 -->
+	<skill id="21042" levels="1" name="Blessing of Baguette">
+		<!-- High Five Confirmed -->
+		<set name="affectScope" val="SINGLE" />
 		<set name="blockedInOlympiad" val="true" />
 		<set name="hitTime" val="3000" />
 		<set name="icon" val="icon.skill3123" />
@@ -726,6 +727,7 @@
 		<set name="magicLvl" val="1" />
 		<set name="operateType" val="A1" />
 		<set name="reuseDelay" val="1800000" />
+		<set name="reuseDelayType" val="S" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
 		<effects>
@@ -736,10 +738,9 @@
 				<param power="50" />
 			</effect>
 		</effects>
-		<set name="affectScope" val="SINGLE" />
 	</skill>
-	<skill id="21043" levels="1" name="Agathion Seal Cancel - Red Sumo Wrestler">
-		<!-- Confirmed CT2.5 -->
+	<skill id="21043" levels="1" name="Release Seal on Agathion - Red Sumo Wrestler">
+		<!-- High Five Confirmed -->
 		<set name="affectScope" val="SINGLE" />
 		<set name="hitTime" val="3000" />
 		<set name="icon" val="icon.etc_summon_aga_agit_i00" />
@@ -754,8 +755,8 @@
 			</effect>
 		</effects>
 	</skill>
-	<skill id="21044" levels="1" name="Agathion Seal Cancel - Blue Sumo Wrestler Agathion">
-		<!-- Confirmed CT2.5 -->
+	<skill id="21044" levels="1" name="Release Seal on Agathion - Blue Sumo Wrestler Agathion">
+		<!-- High Five Confirmed -->
 		<set name="affectScope" val="SINGLE" />
 		<set name="hitTime" val="3000" />
 		<set name="icon" val="icon.etc_summon_aga_agit_i00" />
@@ -770,8 +771,8 @@
 			</effect>
 		</effects>
 	</skill>
-	<skill id="21045" levels="1" name="Agathion Seal Cancel - Great Sumo Match">
-		<!-- Confirmed CT2.5 -->
+	<skill id="21045" levels="1" name="Release Seal on Agathion - Great Sumo Match">
+		<!-- High Five Confirmed -->
 		<set name="affectScope" val="SINGLE" />
 		<set name="hitTime" val="3000" />
 		<set name="icon" val="icon.etc_summon_aga_agit_i00" />
@@ -786,8 +787,8 @@
 			</effect>
 		</effects>
 	</skill>
-	<skill id="21046" levels="1" name="Agathion Seal Cancel - Button-Eyed Bear Doll">
-		<!-- Confirmed CT2.5 -->
+	<skill id="21046" levels="1" name="Release Seal on Agathion - Button-Eyed Bear Doll">
+		<!-- High Five Confirmed -->
 		<set name="affectScope" val="SINGLE" />
 		<set name="hitTime" val="3000" />
 		<set name="icon" val="icon.etc_summon_aga_agit_i00" />
@@ -802,8 +803,8 @@
 			</effect>
 		</effects>
 	</skill>
-	<skill id="21047" levels="1" name="Agathion Seal Cancel - God of Fortune">
-		<!-- Confirmed CT2.5 -->
+	<skill id="21047" levels="1" name="Release Seal on Agathion - God of Fortune">
+		<!-- High Five Confirmed -->
 		<set name="affectScope" val="SINGLE" />
 		<set name="hitTime" val="3000" />
 		<set name="icon" val="icon.etc_summon_aga_agit_i00" />
@@ -818,8 +819,8 @@
 			</effect>
 		</effects>
 	</skill>
-	<skill id="21048" levels="1" name="Agathion Seal Cancel - Dryad">
-		<!-- Confirmed CT2.5 -->
+	<skill id="21048" levels="1" name="Release Seal on Agathion - Dryad">
+		<!-- High Five Confirmed -->
 		<set name="affectScope" val="SINGLE" />
 		<set name="hitTime" val="3000" />
 		<set name="icon" val="icon.etc_summon_aga_agit_i00" />
@@ -834,8 +835,8 @@
 			</effect>
 		</effects>
 	</skill>
-	<skill id="21049" levels="1" name="Agathion Seal Cancel - Wonboso">
-		<!-- Confirmed CT2.5 -->
+	<skill id="21049" levels="1" name="Release Seal on Agathion - Wonboso">
+		<!-- High Five Confirmed -->
 		<set name="affectScope" val="SINGLE" />
 		<set name="hitTime" val="3000" />
 		<set name="icon" val="icon.etc_summon_aga_agit_i00" />
@@ -850,8 +851,8 @@
 			</effect>
 		</effects>
 	</skill>
-	<skill id="21050" levels="1" name="Agathion Seal Cancel - Daewoonso">
-		<!-- Confirmed CT2.5 -->
+	<skill id="21050" levels="1" name="Release Seal on Agathion - Daewoonso">
+		<!-- High Five Confirmed -->
 		<set name="affectScope" val="SINGLE" />
 		<set name="hitTime" val="3000" />
 		<set name="icon" val="icon.etc_summon_aga_agit_i00" />
@@ -1666,8 +1667,8 @@
 		</effects>
 		<set name="affectScope" val="SINGLE" />
 	</skill>
-	<skill id="21085" levels="1" name="Agathion Seal Cancel - Pomona">
-		<!-- Confirmed CT2.5 -->
+	<skill id="21085" levels="1" name="Release Seal on Agathion - Live Event Souvenir">
+		<!-- High Five Confirmed -->
 		<set name="affectScope" val="SINGLE" />
 		<set name="hitTime" val="3000" />
 		<set name="icon" val="icon.etc_summon_aga_agit_i00" />
@@ -1822,8 +1823,8 @@
 		</effects>
 		<set name="affectScope" val="SINGLE" />
 	</skill>
-	<skill id="21091" levels="1" name="Agathion Seal Cancel - Weaver">
-		<!-- Confirmed CT2.5 -->
+	<skill id="21091" levels="1" name="Release Seal on Agathion - Weaver">
+		<!-- High Five Confirmed -->
 		<set name="affectScope" val="SINGLE" />
 		<set name="hitTime" val="3000" />
 		<set name="icon" val="icon.etc_summon_aga_agit_i00" />

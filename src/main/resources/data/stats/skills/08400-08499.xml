@@ -1179,8 +1179,8 @@
 			</effect>
 		</effects>
 	</skill>
-	<skill id="8464" levels="1" name="Release the Seal on Agathion - Kid Rudolph">
-		<!-- Confirmed CT2.5 -->
+	<skill id="8464" levels="1" name="Release Seal on Agathion - Kid Rudolph">
+		<!-- High Five Confirmed -->
 		<set name="affectScope" val="SINGLE" />
 		<set name="hitTime" val="3000" />
 		<set name="icon" val="icon.etc_summon_aga_agit_i00" />

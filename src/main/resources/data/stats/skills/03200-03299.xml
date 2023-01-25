@@ -1172,7 +1172,7 @@
 		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="3267" levels="1" name="Dismiss Agathion">
-		<!-- Confirmed CT2.5 -->
+		<!-- High Five Confirmed -->
 		<set name="affectScope" val="SINGLE" />
 		<set name="hitTime" val="3000" />
 		<set name="icon" val="icon.etc_unsummon_aga_agit_i01" />
@@ -1185,8 +1185,8 @@
 			<effect name="UnsummonAgathion" />
 		</effects>
 	</skill>
-	<skill id="3268" levels="1" name="Summon Agathion - Castle">
-		<!-- Confirmed CT2.5 -->
+	<skill id="3268" levels="1" name="Release Seal on Agathion - Castle">
+		<!-- High Five Confirmed -->
 		<set name="affectScope" val="SINGLE" />
 		<set name="hitTime" val="3000" />
 		<set name="icon" val="icon.etc_summon_aga_agit_i00" />
@@ -1201,8 +1201,8 @@
 			</effect>
 		</effects>
 	</skill>
-	<skill id="3269" levels="1" name="Summon Agathion - Rainbow Clan Hall">
-		<!-- Confirmed CT2.5 -->
+	<skill id="3269" levels="1" name="Release Seal on Agathion - Rainbow Clan Hall">
+		<!-- High Five Confirmed -->
 		<set name="affectScope" val="SINGLE" />
 		<set name="hitTime" val="3000" />
 		<set name="icon" val="icon.etc_summon_aga_agit_i00" />
@@ -1217,8 +1217,8 @@
 			</effect>
 		</effects>
 	</skill>
-	<skill id="3270" levels="1" name="Summon Agathion - Beast Farm">
-		<!-- Confirmed CT2.5 -->
+	<skill id="3270" levels="1" name="Release Seal on Agathion - Beast Farm">
+		<!-- High Five Confirmed -->
 		<set name="affectScope" val="SINGLE" />
 		<set name="hitTime" val="3000" />
 		<set name="icon" val="icon.etc_summon_aga_agit_i00" />

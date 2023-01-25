@@ -279,6 +279,7 @@
 		<!-- Confirmed CT2.5 and Updated to H5 -->
 		<table name="#ench1npcId"> 14871 14872 14873 14874 14875 14876 14877 14878 14879 14880 14881 14882 14883 14884 14885 </table>
 		<table name="#enchMagicLvl"> 81 81 81 82 82 82 83 83 83 84 84 84 85 85 85 </table>
+		<set name="affectScope" val="SINGLE" />
 		<set name="hitTime" val="6000" />
 		<set name="icon" val="icon.skill1406" />
 		<set name="isMagic" val="1" />
@@ -291,7 +292,6 @@
 		<set name="reuseDelay" val="5000" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
-		<set name="affectScope" val="SINGLE" />
 		<enchant1 name="magicLvl" val="#enchMagicLvl" />
 		<enchant1 name="mpConsume2" val="116" />
 		<enchant1 name="mpConsume1" val="29" />
@@ -317,6 +317,7 @@
 		<!-- Confirmed CT2.5 and Updated to H5 -->
 		<table name="#ench1npcId"> 14886 14887 14888 14889 14890 14891 14892 14893 14894 14895 14896 14897 14898 14899 14900 </table>
 		<table name="#enchMagicLvl"> 81 81 81 82 82 82 83 83 83 84 84 84 85 85 85 </table>
+		<set name="affectScope" val="SINGLE" />
 		<set name="hitTime" val="6000" />
 		<set name="icon" val="icon.skill1407" />
 		<set name="isMagic" val="1" />
@@ -329,7 +330,6 @@
 		<set name="reuseDelay" val="5000" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
-		<set name="affectScope" val="SINGLE" />
 		<enchant1 name="magicLvl" val="#enchMagicLvl" />
 		<enchant1 name="mpConsume2" val="116" />
 		<enchant1 name="mpConsume1" val="29" />
@@ -871,74 +871,71 @@
 	</skill>
 	<skill id="1419" levels="1" name="Volcano">
 		<set name="affectLimit" val="15-25" />
+		<set name="affectObject" val="NOT_FRIEND" />
 		<set name="affectRange" val="200" />
+		<set name="affectScope" val="POINT_BLANK" />
+		<set name="attributePower" val="20" />
+		<set name="attributeType" val="FIRE" />
 		<set name="blockedInOlympiad" val="true" />
 		<set name="castRange" val="900" />
 		<set name="channelingSkillId" val="1419" />
 		<set name="channelingTickInterval" val="2" />
 		<set name="effectPoint" val="-676" />
-		<set name="attributeType" val="FIRE" />
-		<set name="attributePower" val="20" />
+		<set name="effectRange" val="1000" />
+		<set name="hitCancelTime" val="4000" />
 		<set name="hitTime" val="15000" />
 		<set name="icon" val="icon.skill1419" />
 		<set name="isMagic" val="1" />
 		<set name="itemConsumeCount" val="1" />
-		<set name="itemConsumeId" val="8876" /> <!-- Magic Symbol -->
+		<set name="itemConsumeId" val="8876" />
 		<set name="magicLvl" val="80" />
-		<set name="mpConsume2" val="36" />
 		<set name="mpConsume1" val="36" />
 		<set name="mpPerChanneling" val="80" />
 		<set name="operateType" val="CA1" />
 		<set name="reuseDelay" val="1800000" />
-		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="reuseDelayLock" val="true" />
+		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="GROUND" />
 		<channelingEffects>
 			<effect name="MagicalAttack">
 				<param power="500" />
 			</effect>
 		</channelingEffects>
-		<set name="affectScope" val="POINT_BLANK" />
-		<set name="affectLimit" val="15-25" />
-		<set name="affectRange" val="200" />
-		<set name="affectObject" val="NOT_FRIEND" />
 	</skill>
 	<skill id="1420" levels="1" name="Cyclone">
 		<set name="affectLimit" val="15-25" />
+		<set name="affectObject" val="NOT_FRIEND" />
 		<set name="affectRange" val="200" />
+		<set name="affectScope" val="POINT_BLANK" />
+		<set name="attributePower" val="20" />
+		<set name="attributeType" val="WIND" />
 		<set name="blockedInOlympiad" val="true" />
 		<set name="castRange" val="900" />
 		<set name="channelingSkillId" val="1420" />
 		<set name="channelingTickInterval" val="2" />
 		<set name="effectPoint" val="-676" />
-		<set name="attributeType" val="WIND" />
-		<set name="attributePower" val="20" />
+		<set name="effectRange" val="1000" />
+		<set name="hitCancelTime" val="4000" />
 		<set name="hitTime" val="15000" />
 		<set name="icon" val="icon.skill1420" />
 		<set name="isMagic" val="1" />
 		<set name="itemConsumeCount" val="1" />
-		<set name="itemConsumeId" val="8876" /> <!-- Magic Symbol -->
+		<set name="itemConsumeId" val="8876" />
 		<set name="magicLvl" val="80" />
-		<set name="mpConsume2" val="36" />
 		<set name="mpConsume1" val="36" />
 		<set name="mpPerChanneling" val="80" />
 		<set name="operateType" val="CA1" />
 		<set name="reuseDelay" val="1800000" />
-		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="reuseDelayLock" val="true" />
+		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="GROUND" />
 		<channelingEffects>
 			<effect name="MagicalAttack">
 				<param power="500" />
 			</effect>
 		</channelingEffects>
-		<set name="affectScope" val="POINT_BLANK" />
-		<set name="affectLimit" val="15-25" />
-		<set name="affectRange" val="200" />
-		<set name="affectObject" val="NOT_FRIEND" />
 	</skill>
 	<skill id="1421" levels="1" name="Raging Waves">
-		<!-- High Five Confirmed -->
 		<set name="affectLimit" val="15-25" />
 		<set name="affectObject" val="NOT_FRIEND" />
 		<set name="affectRange" val="200" />
@@ -965,14 +962,6 @@
 		<set name="reuseDelayLock" val="true" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="GROUND" />
-		<startEffects>
-			<effect name="InstantDispelBySlotMyself">
-				<param dispel="MAGICAL_STANCE" />
-			</effect>
-			<effect name="MagicalAttack">
-				<param power="500" />
-			</effect>
-		</startEffects>
 		<channelingEffects>
 			<effect name="MagicalAttack">
 				<param power="500" />
@@ -980,61 +969,68 @@
 		</channelingEffects>
 	</skill>
 	<skill id="1422" levels="1" name="Day of Doom">
+		<!-- High Five Confirmed -->
+		<set name="affectScope" val="SINGLE" />
+		<set name="attributePower" val="20" />
+		<set name="attributeType" val="FIRE" />
 		<set name="blockedInOlympiad" val="true" />
 		<set name="castRange" val="900" />
+		<set name="effectRange" val="1000" />
+		<set name="hitCancelTime" val="500" />
 		<set name="hitTime" val="5000" />
 		<set name="icon" val="icon.skill1422" />
 		<set name="isMagic" val="1" />
 		<set name="itemConsumeCount" val="1" />
-		<set name="itemConsumeId" val="8876" /> <!-- Magic Symbol -->
+		<set name="itemConsumeId" val="8876" />
 		<set name="magicLvl" val="80" />
-		<set name="mpConsume2" val="58" />
 		<set name="mpConsume1" val="15" />
+		<set name="mpConsume2" val="58" />
 		<set name="operateType" val="A1" />
 		<set name="reuseDelay" val="1800000" />
-		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="reuseDelayLock" val="true" />
+		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="GROUND" />
 		<effects>
+			<effect name="InstantDispelBySlotMyself">
+				<param dispel="MAGICAL_STANCE" />
+			</effect>
 			<effect name="SummonNpc">
 				<param npcId="13028" npcCount="1" />
 			</effect>
 		</effects>
-		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="1423" levels="1" name="Gehenna">
 		<set name="affectLimit" val="15-25" />
+		<set name="affectObject" val="NOT_FRIEND" />
 		<set name="affectRange" val="200" />
+		<set name="affectScope" val="POINT_BLANK" />
+		<set name="attributePower" val="20" />
+		<set name="attributeType" val="UNHOLY" />
 		<set name="blockedInOlympiad" val="true" />
 		<set name="castRange" val="900" />
 		<set name="channelingSkillId" val="1423" />
 		<set name="channelingTickInterval" val="2" />
 		<set name="effectPoint" val="-676" />
-		<set name="attributeType" val="UNHOLY" />
-		<set name="attributePower" val="20" />
+		<set name="effectRange" val="1000" />
+		<set name="hitCancelTime" val="4000" />
 		<set name="hitTime" val="15000" />
 		<set name="icon" val="icon.skill1423" />
 		<set name="isMagic" val="1" />
 		<set name="itemConsumeCount" val="1" />
-		<set name="itemConsumeId" val="8876" /> <!-- Magic Symbol -->
+		<set name="itemConsumeId" val="8876" />
 		<set name="magicLvl" val="80" />
-		<set name="mpConsume2" val="36" />
 		<set name="mpConsume1" val="36" />
 		<set name="mpPerChanneling" val="80" />
 		<set name="operateType" val="CA1" />
 		<set name="reuseDelay" val="1800000" />
-		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="reuseDelayLock" val="true" />
+		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="GROUND" />
 		<channelingEffects>
 			<effect name="MagicalAttack">
 				<param power="500" />
 			</effect>
 		</channelingEffects>
-		<set name="affectScope" val="POINT_BLANK" />
-		<set name="affectLimit" val="15-25" />
-		<set name="affectRange" val="200" />
-		<set name="affectObject" val="NOT_FRIEND" />
 	</skill>
 	<skill id="1424" levels="1" name="Anti-Summoning Field">
 		<!-- High Five Confirmed -->
@@ -1176,20 +1172,23 @@
 		</effects>
 	</skill>
 	<skill id="1429" levels="1" name="Gate Chant">
-		<!-- Confirmed CT2.5 -->
+		<!-- High Five Confirmed -->
+		<set name="affectRange" val="-2" />
+		<set name="affectScope" val="SINGLE" />
 		<set name="effectPoint" val="467" />
+		<set name="hitCancelTime" val="500" />
 		<set name="hitTime" val="15000" />
 		<set name="icon" val="icon.skill1429" />
 		<set name="isMagic" val="1" />
 		<set name="itemConsumeCount" val="4" />
-		<set name="itemConsumeId" val="8615" /> <!-- Summoning Crystal -->
+		<set name="itemConsumeId" val="8615" />
 		<set name="magicLvl" val="78" />
-		<set name="mpConsume2" val="57" />
-		<set name="mpConsume1" val="227" />
+		<set name="mpConsume1" val="57" />
+		<set name="mpConsume2" val="227" />
 		<set name="operateType" val="A1" />
 		<set name="reuseDelay" val="600000" />
-		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="reuseDelayLock" val="true" />
+		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
 		<cond>
 			<player callPc="true" />
@@ -1202,7 +1201,6 @@
 		<effects>
 			<effect name="CallParty" />
 		</effects>
-		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="1430" levels="5" name="Invocation">
 		<!-- High Five Confirmed -->
@@ -1273,13 +1271,13 @@
 		</effects>
 	</skill>
 	<skill id="1432" levels="2" name="Increase Power">
-		<!-- Confirmed CT2.5 -->
+		<!-- High Five Confirmed -->
 		<table name="#abnormalLvl"> 1 2 </table>
 		<table name="#effectPoint"> 138 268 </table>
 		<table name="#magicLvl"> 10 28 </table>
-		<table name="#mpConsume2"> 10 20 </table>
 		<table name="#mpConsume1"> 3 5 </table>
-		<table name="#rate"> 1.08 1.12 </table>
+		<table name="#mpConsume2"> 10 20 </table>
+		<table name="#pAtk"> 1.08 1.12 </table>
 		<set name="abnormalLvl" val="#abnormalLvl" />
 		<set name="abnormalTime" val="1200" />
 		<set name="abnormalType" val="PA_UP" />
@@ -1290,15 +1288,15 @@
 		<set name="icon" val="icon.skill1432" />
 		<set name="isMagic" val="1" />
 		<set name="magicLvl" val="#magicLvl" />
-		<set name="mpConsume2" val="#mpConsume2" />
 		<set name="mpConsume1" val="#mpConsume1" />
+		<set name="mpConsume2" val="#mpConsume2" />
 		<set name="operateType" val="A2" />
 		<set name="reuseDelay" val="2000" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
 		<effects>
 			<effect name="Buff">
-				<mul stat="pAtk" val="#rate" />
+				<mul stat="pAtk" val="#pAtk" />
 			</effect>
 		</effects>
 	</skill>
@@ -1719,23 +1717,25 @@
 		</effects>
 	</skill>
 	<skill id="1441" levels="3" name="Soul to Empower">
-		<!-- Confirmed CT2.5 and Updated to H5 -->
+		<!-- High Five Confirmed -->
 		<table name="#abnormalLvl"> 1 2 3 </table>
-		<table name="#effectPoint"> 408 523 523 </table>
-		<table name="#magicLvl"> 43 55 64 </table>
+		<table name="#effectPoint"> 408 523 597 </table>
 		<table name="#mAtk"> 1.55 1.65 1.75 </table>
-		<table name="#mpConsume2"> 30 40 48 </table>
+		<table name="#magicLvl"> 43 55 64 </table>
 		<table name="#mpConsume1"> 8 10 12 </table>
+		<table name="#mpConsume2"> 30 40 48 </table>
 		<set name="abnormalLvl" val="#abnormalLvl" />
 		<set name="abnormalTime" val="1200" />
 		<set name="abnormalType" val="MA_UP" />
+		<set name="affectScope" val="SINGLE" />
 		<set name="effectPoint" val="#effectPoint" />
+		<set name="hitCancelTime" val="500" />
 		<set name="hitTime" val="2000" />
 		<set name="icon" val="icon.skill1441" />
 		<set name="isMagic" val="1" />
 		<set name="magicLvl" val="#magicLvl" />
-		<set name="mpConsume2" val="#mpConsume2" />
 		<set name="mpConsume1" val="#mpConsume1" />
+		<set name="mpConsume2" val="#mpConsume2" />
 		<set name="operateType" val="A2" />
 		<set name="reuseDelay" val="2000" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
@@ -1745,7 +1745,6 @@
 				<mul stat="mAtk" val="#mAtk" />
 			</effect>
 		</effects>
-		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="1442" levels="3" name="Protection from Darkness" enchantGroup1="1" enchantGroup2="1">
 		<!-- High Five Confirmed -->
@@ -2600,21 +2599,31 @@
 		</enchant1Effects>
 	</skill>
 	<skill id="1459" levels="1" name="Divine Power" enchantGroup1="5" enchantGroup2="5">
+		<!-- High Five Confirmed -->
+		<table name="#ench1MagicLvl"> 81 81 81 82 82 82 83 83 83 84 84 84 85 85 85 </table>
 		<table name="#ench1Power"> 1033 1066 1100 1133 1166 1200 1233 1266 1300 1333 1366 1400 1433 1466 1500 </table>
-		<table name="#ench2MpConsume2"> 105 101 97 93 90 86 82 78 76 72 68 65 61 57 53 </table>
+		<table name="#ench2MagicLvl"> 81 81 81 82 82 82 83 83 83 84 84 84 85 85 85 </table>
+		<table name="#ench2MpConsume1"> 21 20 19 18 18 17 16 15 15 14 13 13 12 11 10 </table>
+		<table name="#ench2MpConsume2"> 84 81 78 75 72 69 66 63 61 58 55 52 49 46 43 </table>
 		<set name="abnormalLvl" val="1" />
 		<set name="abnormalTime" val="15" />
 		<set name="abnormalType" val="HEAL_POWER_UP" />
+		<set name="affectScope" val="SINGLE" />
 		<set name="effectPoint" val="1" />
+		<set name="hitCancelTime" val="500" />
 		<set name="hitTime" val="2000" />
 		<set name="icon" val="icon.skill1459" />
 		<set name="isMagic" val="1" />
 		<set name="magicLvl" val="79" />
-		<set name="mpConsume2" val="109" />
+		<set name="mpConsume1" val="22" />
+		<set name="mpConsume2" val="87" />
 		<set name="operateType" val="A2" />
 		<set name="reuseDelay" val="900000" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
+		<enchant1 name="magicLvl" val="#ench1MagicLvl" />
+		<enchant2 name="magicLvl" val="#ench2MagicLvl" />
+		<enchant2 name="mpConsume1" val="#ench2MpConsume1" />
 		<enchant2 name="mpConsume2" val="#ench2MpConsume2" />
 		<effects>
 			<effect name="Buff">
@@ -2626,7 +2635,6 @@
 				<add stat="healEffect" val="#ench1Power" />
 			</effect>
 		</enchant1Effects>
-		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="1460" levels="1" name="Mana Gain" enchantGroup1="5" enchantGroup2="5">
 		<!-- High Five Confirmed -->
@@ -3091,15 +3099,16 @@
 		</channelingEffects>
 	</skill>
 	<skill id="1473" levels="1" name="Change Weapon">
-		<!-- Confirmed CT2.5 -->
+		<!-- High Five Confirmed -->
 		<set name="affectScope" val="SINGLE" />
 		<set name="effectPoint" val="10" />
+		<set name="hitCancelTime" val="500" />
 		<set name="hitTime" val="5000" />
 		<set name="icon" val="icon.skill1473" />
 		<set name="isMagic" val="1" />
 		<set name="magicLvl" val="20" />
-		<set name="mpConsume2" val="23" />
 		<set name="mpConsume1" val="6" />
+		<set name="mpConsume2" val="23" />
 		<set name="operateType" val="A1" />
 		<set name="reuseDelay" val="15000" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
@@ -3882,13 +3891,15 @@
 		<set name="abnormalLvl" val="1" />
 		<set name="abnormalTime" val="1200" />
 		<set name="abnormalType" val="ELEMENTAL_ARMOR" />
+		<set name="affectScope" val="SINGLE" />
 		<set name="effectPoint" val="138" />
+		<set name="hitCancelTime" val="500" />
 		<set name="hitTime" val="3000" />
 		<set name="icon" val="icon.skill1493" />
 		<set name="isMagic" val="1" />
 		<set name="magicLvl" val="81" />
-		<set name="mpConsume2" val="29" />
 		<set name="mpConsume1" val="8" />
+		<set name="mpConsume2" val="29" />
 		<set name="operateType" val="A2" />
 		<set name="reuseDelay" val="2000" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
@@ -3905,20 +3916,21 @@
 				<add stat="waterRes" val="60" />
 			</effect>
 		</effects>
-		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="1494" levels="1" name="Hurricane Armor">
 		<!-- High Five Confirmed -->
 		<set name="abnormalLvl" val="1" />
 		<set name="abnormalTime" val="1200" />
 		<set name="abnormalType" val="ELEMENTAL_ARMOR" />
+		<set name="affectScope" val="SINGLE" />
 		<set name="effectPoint" val="138" />
+		<set name="hitCancelTime" val="500" />
 		<set name="hitTime" val="3000" />
 		<set name="icon" val="icon.skill1494" />
 		<set name="isMagic" val="1" />
 		<set name="magicLvl" val="81" />
-		<set name="mpConsume2" val="29" />
 		<set name="mpConsume1" val="8" />
+		<set name="mpConsume2" val="29" />
 		<set name="operateType" val="A2" />
 		<set name="reuseDelay" val="2000" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
@@ -3935,7 +3947,6 @@
 				<add stat="windRes" val="60" />
 			</effect>
 		</effects>
-		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="1495" levels="1" name="Vampiric Mist">
 		<!-- High Five Confirmed -->

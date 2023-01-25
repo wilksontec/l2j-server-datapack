@@ -335,17 +335,18 @@
 		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2622" levels="1" name="Summon Life-size Decoy">
-		<!-- Confirmed CT2.5 -->
+		<!-- High Five Confirmed -->
+		<set name="affectScope" val="SINGLE" />
+		<set name="hitCancelTime" val="500" />
 		<set name="hitTime" val="2000" />
 		<set name="isMagic" val="1" />
 		<set name="magicLvl" val="1" />
-		<set name="mpConsume2" val="60" />
 		<set name="mpConsume1" val="15" />
+		<set name="mpConsume2" val="60" />
 		<set name="operateType" val="A1" />
 		<set name="reuseDelay" val="1800000" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
-		<set name="affectScope" val="SINGLE" />
 		<effects>
 			<effect name="SummonNpc">
 				<param npcId="32544" npcCount="1" />

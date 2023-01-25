@@ -359,8 +359,8 @@
 		<set name="targetType" val="NONE" />
 		<set name="affectScope" val="SINGLE" />
 	</skill>
-	<skill id="3423" levels="1" name="Little Angel Agathion - Summon (or Release)">
-		<!-- Confirmed CT2.5 -->
+	<skill id="3423" levels="1" name="Release Seal on Agathion - Little Angel Agathion">
+		<!-- High Five Confirmed -->
 		<set name="affectScope" val="SINGLE" />
 		<set name="hitTime" val="3000" />
 		<set name="icon" val="icon.etc_summon_aga_agit_i00" />
@@ -375,8 +375,8 @@
 			</effect>
 		</effects>
 	</skill>
-	<skill id="3424" levels="1" name="Little Devil Agathion - Summon (or Release)">
-		<!-- Confirmed CT2.5 -->
+	<skill id="3424" levels="1" name="Release Seal on Agathion - Little Devil Agathion">
+		<!-- High Five Confirmed -->
 		<set name="affectScope" val="SINGLE" />
 		<set name="hitTime" val="3000" />
 		<set name="icon" val="icon.etc_summon_aga_agit_i00" />
@@ -391,8 +391,8 @@
 			</effect>
 		</effects>
 	</skill>
-	<skill id="3425" levels="1" name="Rudolph Agathion - Summon (or Release)">
-		<!-- Confirmed CT2.5 -->
+	<skill id="3425" levels="1" name="Release Seal on Agathion - Rudolph Agathion">
+		<!-- High Five Confirmed -->
 		<set name="affectScope" val="SINGLE" />
 		<set name="hitTime" val="3000" />
 		<set name="icon" val="icon.etc_summon_aga_agit_i00" />

@@ -551,7 +551,7 @@
 		<set name="targetType" val="SELF" />
 	</skill>
 	<skill id="1321" levels="1" name="Dwarven Craft">
-		<!-- Confirmed CT2.5 -->
+		<!-- High Five Confirmed -->
 		<set name="affectScope" val="SINGLE" />
 		<set name="icon" val="icon.skill0172" />
 		<set name="isMagic" val="2" />
@@ -564,7 +564,7 @@
 		</effects>
 	</skill>
 	<skill id="1322" levels="1" name="Common Craft">
-		<!-- Confirmed CT2.5 -->
+		<!-- High Five Confirmed -->
 		<set name="affectScope" val="SINGLE" />
 		<set name="icon" val="icon.skill0172" />
 		<set name="isMagic" val="2" />
@@ -664,18 +664,21 @@
 		<set name="abnormalTime" val="15" />
 		<set name="abnormalType" val="PD_UP_SPECIAL" />
 		<set name="abnormalVisualEffect" val="ULTIMATE_DEFENCE" />
+		<set name="affectScope" val="SINGLE" />
 		<set name="effectPoint" val="659" />
+		<set name="hitCancelTime" val="500" />
 		<set name="hitTime" val="1000" />
 		<set name="hpConsume" val="200" />
 		<set name="icon" val="icon.skill1326" />
 		<set name="isMagic" val="1" />
 		<set name="itemConsumeCount" val="5" />
-		<set name="itemConsumeId" val="3031" /> <!-- Spirit Ore -->
+		<set name="itemConsumeId" val="3031" />
 		<set name="magicLvl" val="1" />
-		<set name="mpConsume2" val="80" />
 		<set name="mpConsume1" val="20" />
+		<set name="mpConsume2" val="80" />
 		<set name="operateType" val="A2" />
 		<set name="reuseDelay" val="900000" />
+		<set name="reuseDelayType" val="S" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
 		<cond msgId="113" addName="1">
@@ -685,18 +688,15 @@
 			</and>
 		</cond>
 		<effects>
-			<effect name="Buff">
-				<add stat="pDef" val="3000" />
+			<effect name="Cp">
+				<param amount="-20" />
+				<param mode="PER" />
 			</effect>
-			<effect name="Buff">
-				<mul stat="runSpd" val="1.25" />
+			<effect name="DefenceTrait">
+				<param BOW="10" />
 			</effect>
-			<effect name="Buff">
-				<sub stat="cancelVuln" val="80" />
-			</effect>
-			<effect name="MaxCp">
-				<param power="-20" />
-				<param type="PER" />
+			<effect name="DefenceTrait">
+				<param CROSSBOW="6" />
 			</effect>
 			<effect name="Buff">
 				<mul stat="maxRecoverableCp" val="0.6" />
@@ -704,12 +704,16 @@
 			<effect name="Buff">
 				<mul stat="maxRecoverableHp" val="0.7" />
 			</effect>
-			<effect name="DefenceTrait">
-				<param BOW="10" />
-				<param CROSSBOW="6" />
+			<effect name="Buff">
+				<add stat="pDef" val="3000" />
+			</effect>
+			<effect name="Debuff">
+				<mul stat="cancelVuln" val="0.2" />
+			</effect>
+			<effect name="Buff">
+				<mul stat="runSpd" val="1.25" />
 			</effect>
 		</effects>
-		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="1327" levels="1" name="Symphony of Noblesse">
 		<!-- High Five Confirmed -->
@@ -717,18 +721,21 @@
 		<set name="abnormalTime" val="15" />
 		<set name="abnormalType" val="PD_UP_SPECIAL" />
 		<set name="abnormalVisualEffect" val="ULTIMATE_DEFENCE" />
+		<set name="affectScope" val="SINGLE" />
 		<set name="effectPoint" val="659" />
+		<set name="hitCancelTime" val="500" />
 		<set name="hitTime" val="1000" />
 		<set name="hpConsume" val="200" />
 		<set name="icon" val="icon.skill1327" />
 		<set name="isMagic" val="1" />
 		<set name="itemConsumeCount" val="5" />
-		<set name="itemConsumeId" val="3031" /> <!-- Spirit Ore -->
+		<set name="itemConsumeId" val="3031" />
 		<set name="magicLvl" val="1" />
-		<set name="mpConsume2" val="80" />
 		<set name="mpConsume1" val="20" />
+		<set name="mpConsume2" val="80" />
 		<set name="operateType" val="A2" />
 		<set name="reuseDelay" val="900000" />
+		<set name="reuseDelayType" val="S" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
 		<cond msgId="113" addName="1">
@@ -738,18 +745,15 @@
 			</and>
 		</cond>
 		<effects>
-			<effect name="Buff">
-				<add stat="mDef" val="4500" />
+			<effect name="Cp">
+				<param amount="-20" />
+				<param mode="PER" />
 			</effect>
-			<effect name="Buff">
-				<mul stat="runSpd" val="1.25" />
+			<effect name="DefenceTrait">
+				<param BOW="10" />
 			</effect>
-			<effect name="Buff">
-				<sub stat="cancelVuln" val="80" />
-			</effect>
-			<effect name="MaxCp">
-				<param power="-20" />
-				<param type="PER" />
+			<effect name="DefenceTrait">
+				<param CROSSBOW="6" />
 			</effect>
 			<effect name="Buff">
 				<mul stat="maxRecoverableCp" val="0.6" />
@@ -757,12 +761,16 @@
 			<effect name="Buff">
 				<mul stat="maxRecoverableHp" val="0.7" />
 			</effect>
-			<effect name="DefenceTrait">
-				<param BOW="10" />
-				<param CROSSBOW="6" />
+			<effect name="Buff">
+				<add stat="mDef" val="4500" />
+			</effect>
+			<effect name="Debuff">
+				<mul stat="cancelVuln" val="0.2" />
+			</effect>
+			<effect name="Buff">
+				<mul stat="runSpd" val="1.25" />
 			</effect>
 		</effects>
-		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="1328" levels="8" name="Mass Summon Storm Cubic" enchantGroup1="2">
 		<!-- High Five Confirmed -->
@@ -1005,22 +1013,25 @@
 		<table name="#mpConsume2"> 82 88 95 101 104 106 109 </table>
 		<table name="#mpConsume1"> 21 22 24 26 26 27 28 </table>
 		<table name="#npcIds"> 14074 14075 14076 14077 14078 14079 14080 </table>
+		<table name="#ench1MagicLvl"> 76 76 76 77 77 77 78 78 78 79 79 79 80 80 80 81 81 81 82 82 82 83 83 83 84 84 84 85 85 85 </table>
 		<table name="#enchNpcId"> 14081 14082 14083 14084 14085 14086 14087 14088 14089 14090 14091 14092 14093 14094 14095 14096 14097 14098 14099 14100 14101 14102 14103 14104 14105 14106 14107 14108 14109 14110 </table>
+		<set name="affectScope" val="SINGLE" />
+		<!-- set name="castRange" val="40" / -->
+		<!-- set name="effectRange" val="400" / -->
+		<set name="hitCancelTime" val="500" />
+		<set name="hitTime" val="15000" />
 		<set name="icon" val="icon.skill1334" />
+		<set name="isMagic" val="1" />
 		<set name="itemConsumeCount" val="#itemConsumeCount" />
 		<set name="itemConsumeId" val="3031" />
 		<set name="magicLvl" val="#magicLvl" />
-		<set name="mpConsume2" val="#mpConsume2" />
 		<set name="mpConsume1" val="#mpConsume1" />
-		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
-		<!-- set name="castRange" val="40" / -->
-		<!-- set name="effectRange" val="400" / -->
-		<set name="hitTime" val="15000" />
-		<set name="isMagic" val="1" />
+		<set name="mpConsume2" val="#mpConsume2" />
 		<set name="operateType" val="A1" />
 		<set name="reuseDelay" val="5000" />
+		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
-		<set name="affectScope" val="SINGLE" />
+		<enchant1 name="magicLvl" val="#ench1MagicLvl" />
 		<cond>
 			<player canSummon="true" />
 		</cond>

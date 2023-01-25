@@ -136,8 +136,8 @@
 			</effect>
 		</effects>
 	</skill>
-	<skill id="21105" levels="1" name="Agathion Seal Cancel - Chon-chon">
-		<!-- Confirmed CT2.5 -->
+	<skill id="21105" levels="1" name="Release Seal on Agathion - Lucky Girl">
+		<!-- High Five Confirmed -->
 		<set name="affectScope" val="SINGLE" />
 		<set name="hitTime" val="3000" />
 		<set name="icon" val="icon.etc_summon_aga_agit_i00" />
@@ -152,8 +152,8 @@
 			</effect>
 		</effects>
 	</skill>
-	<skill id="21106" levels="1" name="Agathion Seal Cancel - Tang-tang">
-		<!-- Confirmed CT2.5 -->
+	<skill id="21106" levels="1" name="Release Seal on Agathion - Lucky Boy">
+		<!-- High Five Confirmed -->
 		<set name="affectScope" val="SINGLE" />
 		<set name="hitTime" val="3000" />
 		<set name="icon" val="icon.etc_summon_aga_agit_i00" />
@@ -168,8 +168,8 @@
 			</effect>
 		</effects>
 	</skill>
-	<skill id="21107" levels="1" name="Agathion Seal Cancel - Dancing Lucky Kid">
-		<!-- Confirmed CT2.5 -->
+	<skill id="21107" levels="1" name="Release Seal on Agathion - Dancing Child of Fortune">
+		<!-- High Five Confirmed -->
 		<set name="affectScope" val="SINGLE" />
 		<set name="hitTime" val="3000" />
 		<set name="icon" val="icon.etc_summon_aga_agit_i00" />
@@ -184,8 +184,8 @@
 			</effect>
 		</effects>
 	</skill>
-	<skill id="21108" levels="1" name="Agathion Seal Cancel - Monkey King">
-		<!-- Confirmed CT2.5 -->
+	<skill id="21108" levels="1" name="Release Seal on Agathion - Son-o-gong">
+		<!-- High Five Confirmed -->
 		<set name="affectScope" val="SINGLE" />
 		<set name="hitTime" val="3000" />
 		<set name="icon" val="icon.etc_summon_aga_agit_i00" />
@@ -200,8 +200,8 @@
 			</effect>
 		</effects>
 	</skill>
-	<skill id="21109" levels="1" name="Agathion Seal Cancel - Utanka">
-		<!-- Confirmed CT2.5 -->
+	<skill id="21109" levels="1" name="Release Seal on Agathion - Wutangka">
+		<!-- High Five Confirmed -->
 		<set name="affectScope" val="SINGLE" />
 		<set name="hitTime" val="3000" />
 		<set name="icon" val="icon.etc_summon_aga_agit_i00" />
@@ -216,8 +216,8 @@
 			</effect>
 		</effects>
 	</skill>
-	<skill id="21110" levels="1" name="Agathion Seal Cancel - Bonus B">
-		<!-- Confirmed CT2.5 -->
+	<skill id="21110" levels="1" name="Release Seal on Agathion - Bonus B">
+		<!-- High Five Confirmed -->
 		<set name="affectScope" val="SINGLE" />
 		<set name="hitTime" val="3000" />
 		<set name="icon" val="icon.etc_summon_aga_agit_i00" />
@@ -847,8 +847,8 @@
 		</effects>
 		<set name="affectScope" val="SINGLE" />
 	</skill>
-	<skill id="21133" levels="1" name="Agathion Seal Cancel - Zombie">
-		<!-- Confirmed CT2.5 -->
+	<skill id="21133" levels="1" name="Release Seal on Agathion - Frozen Corpse">
+		<!-- High Five Confirmed -->
 		<set name="affectScope" val="SINGLE" />
 		<set name="hitTime" val="3000" />
 		<set name="icon" val="icon.etc_summon_aga_agit_i00" />
@@ -863,8 +863,8 @@
 			</effect>
 		</effects>
 	</skill>
-	<skill id="21134" levels="1" name="Agathion Seal Cancel - Baekyi Hwamae">
-		<!-- Confirmed CT2.5 -->
+	<skill id="21134" levels="1" name="Release Seal on Agathion - Bluebird">
+		<!-- High Five Confirmed -->
 		<set name="affectScope" val="SINGLE" />
 		<set name="hitTime" val="3000" />
 		<set name="icon" val="icon.etc_summon_aga_agit_i00" />
@@ -879,8 +879,8 @@
 			</effect>
 		</effects>
 	</skill>
-	<skill id="21135" levels="1" name="Agathion Seal Cancel - Kwanwoo Hwamae">
-		<!-- Confirmed CT2.5 -->
+	<skill id="21135" levels="1" name="Release Seal on Agathion - Hatbird">
+		<!-- High Five Confirmed -->
 		<set name="affectScope" val="SINGLE" />
 		<set name="hitTime" val="3000" />
 		<set name="icon" val="icon.etc_summon_aga_agit_i00" />
@@ -1103,8 +1103,8 @@
 		</effects>
 		<set name="affectScope" val="SINGLE" />
 	</skill>
-	<skill id="21142" levels="1" name="Agathion Seal Cancel - Gwangong">
-		<!-- Confirmed CT2.5 -->
+	<skill id="21142" levels="1" name="Release Seal on Agathion - Gwangong">
+		<!-- High Five Confirmed -->
 		<set name="affectScope" val="SINGLE" />
 		<set name="hitTime" val="3000" />
 		<set name="icon" val="icon.etc_summon_aga_agit_i00" />
@@ -1119,8 +1119,8 @@
 			</effect>
 		</effects>
 	</skill>
-	<skill id="21143" levels="1" name="Agathion Seal Cancel - Gwanseum Nyang Nyang">
-		<!-- Confirmed CT2.5 -->
+	<skill id="21143" levels="1" name="Release Seal on Agathion - Gwanseum Nyang Nyang">
+		<!-- High Five Confirmed -->
 		<set name="affectScope" val="SINGLE" />
 		<set name="hitTime" val="3000" />
 		<set name="icon" val="icon.etc_summon_aga_agit_i00" />
@@ -1135,8 +1135,8 @@
 			</effect>
 		</effects>
 	</skill>
-	<skill id="21144" levels="1" name="Agathion Seal Cancel - Blue Opera">
-		<!-- Confirmed CT2.5 -->
+	<skill id="21144" levels="1" name="Release Seal on Agathion - Blue Opera">
+		<!-- High Five Confirmed -->
 		<set name="affectScope" val="SINGLE" />
 		<set name="hitTime" val="3000" />
 		<set name="icon" val="icon.etc_summon_aga_agit_i00" />
@@ -1151,8 +1151,8 @@
 			</effect>
 		</effects>
 	</skill>
-	<skill id="21145" levels="1" name="Agathion Seal Cancel - Blue Opera">
-		<!-- Confirmed CT2.5 -->
+	<skill id="21145" levels="1" name="Release Seal on Agathion - Blue Opera">
+		<!-- High Five Confirmed -->
 		<set name="affectScope" val="SINGLE" />
 		<set name="hitTime" val="3000" />
 		<set name="icon" val="icon.etc_summon_aga_agit_i00" />
@@ -1167,8 +1167,8 @@
 			</effect>
 		</effects>
 	</skill>
-	<skill id="21146" levels="1" name="Agathion Seal Cancel - Red Opera">
-		<!-- Confirmed CT2.5 -->
+	<skill id="21146" levels="1" name="Release Seal on Agathion - Red Opera">
+		<!-- High Five Confirmed -->
 		<set name="affectScope" val="SINGLE" />
 		<set name="hitTime" val="3000" />
 		<set name="icon" val="icon.etc_summon_aga_agit_i00" />
@@ -1183,8 +1183,8 @@
 			</effect>
 		</effects>
 	</skill>
-	<skill id="21147" levels="1" name="Agathion Seal Cancel - Opera">
-		<!-- Confirmed CT2.5 -->
+	<skill id="21147" levels="1" name="Release Seal on Agathion - Opera">
+		<!-- High Five Confirmed -->
 		<set name="affectScope" val="SINGLE" />
 		<set name="hitTime" val="3000" />
 		<set name="icon" val="icon.etc_summon_aga_agit_i00" />
@@ -1199,8 +1199,8 @@
 			</effect>
 		</effects>
 	</skill>
-	<skill id="21148" levels="1" name="Agathion Seal Cancel - Miss Chipao">
-		<!-- Confirmed CT2.5 -->
+	<skill id="21148" levels="1" name="Release Seal on Agathion - Miss Chipao">
+		<!-- High Five Confirmed -->
 		<set name="affectScope" val="SINGLE" />
 		<set name="hitTime" val="3000" />
 		<set name="icon" val="icon.etc_summon_aga_agit_i00" />
@@ -1215,8 +1215,8 @@
 			</effect>
 		</effects>
 	</skill>
-	<skill id="21149" levels="1" name="Agathion Seal Cancel - Nepal Snow">
-		<!-- Confirmed CT2.5 -->
+	<skill id="21149" levels="1" name="Release Seal on Agathion - Nepal Snow">
+		<!-- High Five Confirmed -->
 		<set name="affectScope" val="SINGLE" />
 		<set name="hitTime" val="3000" />
 		<set name="icon" val="icon.etc_summon_aga_agit_i00" />
@@ -1231,8 +1231,8 @@
 			</effect>
 		</effects>
 	</skill>
-	<skill id="21150" levels="1" name="Agathion Seal Cancel - Round Ball Snow">
-		<!-- Confirmed CT2.5 -->
+	<skill id="21150" levels="1" name="Release Seal on Agathion - Round Ball Snow">
+		<!-- High Five Confirmed -->
 		<set name="affectScope" val="SINGLE" />
 		<set name="hitTime" val="3000" />
 		<set name="icon" val="icon.etc_summon_aga_agit_i00" />
@@ -1247,8 +1247,8 @@
 			</effect>
 		</effects>
 	</skill>
-	<skill id="21151" levels="1" name="Agathion Seal Cancel - Ladder Snow">
-		<!-- Confirmed CT2.5 -->
+	<skill id="21151" levels="1" name="Release Seal on Agathion - Ladder Snow">
+		<!-- High Five Confirmed -->
 		<set name="affectScope" val="SINGLE" />
 		<set name="hitTime" val="3000" />
 		<set name="icon" val="icon.etc_summon_aga_agit_i00" />
@@ -1367,8 +1367,8 @@
 		</effects>
 		<set name="affectScope" val="SINGLE" />
 	</skill>
-	<skill id="21157" levels="1" name="Agathion Seal Cancel - Iken">
-		<!-- Confirmed CT2.5 -->
+	<skill id="21157" levels="1" name="Release Seal on Agathion - Iken">
+		<!-- High Five Confirmed -->
 		<set name="affectScope" val="SINGLE" />
 		<set name="hitTime" val="3000" />
 		<set name="icon" val="icon.etc_summon_aga_agit_i00" />
@@ -1383,8 +1383,8 @@
 			</effect>
 		</effects>
 	</skill>
-	<skill id="21158" levels="1" name="Agathion Seal Cancel - Lana">
-		<!-- Confirmed CT2.5 -->
+	<skill id="21158" levels="1" name="Release Seal on Agathion - Lana">
+		<!-- High Five Confirmed -->
 		<set name="affectScope" val="SINGLE" />
 		<set name="hitTime" val="3000" />
 		<set name="icon" val="icon.etc_summon_aga_agit_i00" />
@@ -1399,8 +1399,8 @@
 			</effect>
 		</effects>
 	</skill>
-	<skill id="21159" levels="1" name="Agathion Seal Cancel - Gnocian">
-		<!-- Confirmed CT2.5 -->
+	<skill id="21159" levels="1" name="Release Seal on Agathion - Gnocian">
+		<!-- High Five Confirmed -->
 		<set name="affectScope" val="SINGLE" />
 		<set name="hitTime" val="3000" />
 		<set name="icon" val="icon.etc_summon_aga_agit_i00" />
@@ -1415,8 +1415,8 @@
 			</effect>
 		</effects>
 	</skill>
-	<skill id="21160" levels="1" name="Agathion Seal Cancel - Orodriel">
-		<!-- Confirmed CT2.5 -->
+	<skill id="21160" levels="1" name="Release Seal on Agathion - Orodriel">
+		<!-- High Five Confirmed -->
 		<set name="affectScope" val="SINGLE" />
 		<set name="hitTime" val="3000" />
 		<set name="icon" val="icon.etc_summon_aga_agit_i00" />
@@ -1431,8 +1431,8 @@
 			</effect>
 		</effects>
 	</skill>
-	<skill id="21161" levels="1" name="Agathion Seal Cancel - Lakinos">
-		<!-- Confirmed CT2.5 -->
+	<skill id="21161" levels="1" name="Release Seal on Agathion - Lakinos">
+		<!-- High Five Confirmed -->
 		<set name="affectScope" val="SINGLE" />
 		<set name="hitTime" val="3000" />
 		<set name="icon" val="icon.etc_summon_aga_agit_i00" />
@@ -1447,8 +1447,8 @@
 			</effect>
 		</effects>
 	</skill>
-	<skill id="21162" levels="1" name="Agathion Seal Cancel - Mortia">
-		<!-- Confirmed CT2.5 -->
+	<skill id="21162" levels="1" name="Release Seal on Agathion - Mortia">
+		<!-- High Five Confirmed -->
 		<set name="affectScope" val="SINGLE" />
 		<set name="hitTime" val="3000" />
 		<set name="icon" val="icon.etc_summon_aga_agit_i00" />
@@ -1463,8 +1463,8 @@
 			</effect>
 		</effects>
 	</skill>
-	<skill id="21163" levels="1" name="Agathion Seal Cancel - Hayance">
-		<!-- Confirmed CT2.5 -->
+	<skill id="21163" levels="1" name="Release Seal on Agathion - Heintz">
+		<!-- High Five Confirmed -->
 		<set name="affectScope" val="SINGLE" />
 		<set name="hitTime" val="3000" />
 		<set name="icon" val="icon.etc_summon_aga_agit_i00" />
@@ -1479,8 +1479,8 @@
 			</effect>
 		</effects>
 	</skill>
-	<skill id="21164" levels="1" name="Agathion Seal Cancel - Meruril">
-		<!-- Confirmed CT2.5 -->
+	<skill id="21164" levels="1" name="Release Seal on Agathion - Meruril">
+		<!-- High Five Confirmed -->
 		<set name="affectScope" val="SINGLE" />
 		<set name="hitTime" val="3000" />
 		<set name="icon" val="icon.etc_summon_aga_agit_i00" />
@@ -1495,8 +1495,8 @@
 			</effect>
 		</effects>
 	</skill>
-	<skill id="21165" levels="1" name="Agathion Seal Cancel - Taman ze Lapatui">
-		<!-- Confirmed CT2.5 -->
+	<skill id="21165" levels="1" name="Release Seal on Agathion - Taman Zu Rapatui">
+		<!-- High Five Confirmed -->
 		<set name="affectScope" val="SINGLE" />
 		<set name="hitTime" val="3000" />
 		<set name="icon" val="icon.etc_summon_aga_agit_i00" />
@@ -1511,8 +1511,8 @@
 			</effect>
 		</effects>
 	</skill>
-	<skill id="21166" levels="1" name="Agathion Seal Cancel - Kaurin">
-		<!-- Confirmed CT2.5 -->
+	<skill id="21166" levels="1" name="Release Seal on Agathion - Kaurin">
+		<!-- High Five Confirmed -->
 		<set name="affectScope" val="SINGLE" />
 		<set name="hitTime" val="3000" />
 		<set name="icon" val="icon.etc_summon_aga_agit_i00" />
@@ -1527,8 +1527,8 @@
 			</effect>
 		</effects>
 	</skill>
-	<skill id="21167" levels="1" name="Agathion Seal Cancel - Ahertbein">
-		<!-- Confirmed CT2.5 -->
+	<skill id="21167" levels="1" name="Release Seal on Agathion - Ahertbein">
+		<!-- High Five Confirmed -->
 		<set name="affectScope" val="SINGLE" />
 		<set name="hitTime" val="3000" />
 		<set name="icon" val="icon.etc_summon_aga_agit_i00" />
@@ -1543,8 +1543,8 @@
 			</effect>
 		</effects>
 	</skill>
-	<skill id="21168" levels="1" name="Agathion Seal Cancel - Naonin">
-		<!-- Confirmed CT2.5 -->
+	<skill id="21168" levels="1" name="Release Seal on Agathion - Naonin">
+		<!-- High Five Confirmed -->
 		<set name="affectScope" val="SINGLE" />
 		<set name="hitTime" val="3000" />
 		<set name="icon" val="icon.etc_summon_aga_agit_i00" />

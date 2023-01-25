@@ -36,8 +36,8 @@
 		<set name="targetType" val="NONE" />
 		<set name="affectScope" val="SINGLE" />
 	</skill>
-	<skill id="21202" levels="1" name="Agathion Seal Cancel - Ball Trapping Gnocian">
-		<!-- Confirmed CT2.5 -->
+	<skill id="21202" levels="1" name="Release Seal on Agathion - Ball Trapping Gnocian">
+		<!-- High Five Confirmed -->
 		<set name="affectScope" val="SINGLE" />
 		<set name="hitTime" val="3000" />
 		<set name="icon" val="icon.etc_summon_aga_agit_i00" />
@@ -52,8 +52,8 @@
 			</effect>
 		</effects>
 	</skill>
-	<skill id="21203" levels="1" name="Agathion Seal Cancel - Ball Trapping Orodriel">
-		<!-- Confirmed CT2.5 -->
+	<skill id="21203" levels="1" name="Release Seal on Agathion - Ball Trapping Orodriel">
+		<!-- High Five Confirmed -->
 		<set name="affectScope" val="SINGLE" />
 		<set name="hitTime" val="3000" />
 		<set name="icon" val="icon.etc_summon_aga_agit_i00" />
@@ -68,8 +68,8 @@
 			</effect>
 		</effects>
 	</skill>
-	<skill id="21204" levels="1" name="Agathion Seal Cancel - Penalty Kick">
-		<!-- Confirmed CT2.5 -->
+	<skill id="21204" levels="1" name="Release Seal on Agathion - Penalty Kick">
+		<!-- High Five Confirmed -->
 		<set name="affectScope" val="SINGLE" />
 		<set name="hitTime" val="3000" />
 		<set name="icon" val="icon.etc_summon_aga_agit_i00" />
@@ -84,8 +84,8 @@
 			</effect>
 		</effects>
 	</skill>
-	<skill id="21205" levels="1" name="Agathion Seal Cancel - Ball Trapping Gnocian">
-		<!-- Confirmed CT2.5 -->
+	<skill id="21205" levels="1" name="Release Seal on Agathion - Ball Trapping Gnocian">
+		<!-- High Five Confirmed -->
 		<set name="affectScope" val="SINGLE" />
 		<set name="hitTime" val="3000" />
 		<set name="icon" val="icon.etc_summon_aga_agit_i00" />
@@ -100,8 +100,8 @@
 			</effect>
 		</effects>
 	</skill>
-	<skill id="21206" levels="1" name="Agathion Seal Cancel - Ball Trapping Orodriel">
-		<!-- Confirmed CT2.5 -->
+	<skill id="21206" levels="1" name="Release Seal on Agathion - Ball Trapping Orodriel">
+		<!-- High Five Confirmed -->
 		<set name="affectScope" val="SINGLE" />
 		<set name="hitTime" val="3000" />
 		<set name="icon" val="icon.etc_summon_aga_agit_i00" />
@@ -116,8 +116,8 @@
 			</effect>
 		</effects>
 	</skill>
-	<skill id="21207" levels="1" name="Agathion Seal Cancel - Penalty Kick">
-		<!-- Confirmed CT2.5 -->
+	<skill id="21207" levels="1" name="Release Seal on Agathion - Penalty Kick">
+		<!-- High Five Confirmed -->
 		<set name="affectScope" val="SINGLE" />
 		<set name="hitTime" val="3000" />
 		<set name="icon" val="icon.etc_summon_aga_agit_i00" />
@@ -132,8 +132,8 @@
 			</effect>
 		</effects>
 	</skill>
-	<skill id="21208" levels="1" name="Agathion Seal Cancel - Ball Trapping Gnocian">
-		<!-- Confirmed CT2.5 -->
+	<skill id="21208" levels="1" name="Release Seal on Agathion - Ball Trapping Gnocian">
+		<!-- High Five Confirmed -->
 		<set name="affectScope" val="SINGLE" />
 		<set name="hitTime" val="3000" />
 		<set name="icon" val="icon.etc_summon_aga_agit_i00" />
@@ -148,8 +148,8 @@
 			</effect>
 		</effects>
 	</skill>
-	<skill id="21209" levels="1" name="Agathion Seal Cancel - Ball Trapping Orodriel">
-		<!-- Confirmed CT2.5 -->
+	<skill id="21209" levels="1" name="Release Seal on Agathion - Ball Trapping Orodriel">
+		<!-- High Five Confirmed -->
 		<set name="affectScope" val="SINGLE" />
 		<set name="hitTime" val="3000" />
 		<set name="icon" val="icon.etc_summon_aga_agit_i00" />
@@ -164,8 +164,8 @@
 			</effect>
 		</effects>
 	</skill>
-	<skill id="21210" levels="1" name="Agathion Seal Cancel - Penalty Kick">
-		<!-- Confirmed CT2.5 -->
+	<skill id="21210" levels="1" name="Release Seal on Agathion - Penalty Kick">
+		<!-- High Five Confirmed -->
 		<set name="affectScope" val="SINGLE" />
 		<set name="hitTime" val="3000" />
 		<set name="icon" val="icon.etc_summon_aga_agit_i00" />
@@ -181,14 +181,20 @@
 		</effects>
 	</skill>
 	<skill id="21211" levels="1" name="Blessing of Victory">
-		<!-- Increases moving speed by 2% through the Blessing of Victory. -->
+		<!-- High Five Confirmed -->
+		<set name="blockedInOlympiad" val="true" />
 		<set name="icon" val="BranchSys2.icon.br_worldcup_hair_i02" />
 		<set name="magicLvl" val="1" />
 		<set name="operateType" val="P" />
-		<set name="targetType" val="NONE" />
+		<set name="targetType" val="SELF" />
+		<effects>
+			<effect name="Buff">
+				<mul stat="runSpd" val="1.02" />
+			</effect>
+		</effects>
 	</skill>
-	<skill id="21212" levels="1" name="Agathion Seal Cancel - Granny Tiger">
-		<!-- Confirmed CT2.5 -->
+	<skill id="21212" levels="1" name="Release Seal on Agathion - Granny Tiger">
+		<!-- High Five Confirmed -->
 		<set name="affectScope" val="SINGLE" />
 		<set name="hitTime" val="3000" />
 		<set name="icon" val="icon.etc_summon_aga_agit_i00" />
@@ -203,8 +209,8 @@
 			</effect>
 		</effects>
 	</skill>
-	<skill id="21213" levels="1" name="Agathion Seal Cancel - Flower Fairy Spirit">
-		<!-- Confirmed CT2.5 -->
+	<skill id="21213" levels="1" name="Release Seal on Agathion - Flower Fairy Spirit">
+		<!-- High Five Confirmed -->
 		<set name="affectScope" val="SINGLE" />
 		<set name="hitTime" val="3000" />
 		<set name="icon" val="icon.etc_summon_aga_agit_i00" />
@@ -219,8 +225,8 @@
 			</effect>
 		</effects>
 	</skill>
-	<skill id="21214" levels="1" name="Agathion Seal Cancel - Cheerleader Orodriel">
-		<!-- Confirmed CT2.5 -->
+	<skill id="21214" levels="1" name="Release Seal on Agathion - Cheerleader Orodriel">
+		<!-- High Five Confirmed -->
 		<set name="affectScope" val="SINGLE" />
 		<set name="hitTime" val="3000" />
 		<set name="icon" val="icon.etc_summon_aga_agit_i00" />
@@ -235,8 +241,8 @@
 			</effect>
 		</effects>
 	</skill>
-	<skill id="21215" levels="1" name="Agathion Seal Cancel - Cheerleader Lana">
-		<!-- Confirmed CT2.5 -->
+	<skill id="21215" levels="1" name="Release Seal on Agathion - Cheerleader Lana">
+		<!-- High Five Confirmed -->
 		<set name="affectScope" val="SINGLE" />
 		<set name="hitTime" val="3000" />
 		<set name="icon" val="icon.etc_summon_aga_agit_i00" />
@@ -251,8 +257,8 @@
 			</effect>
 		</effects>
 	</skill>
-	<skill id="21216" levels="1" name="Agathion Seal Cancel - Cheerleader Naonin">
-		<!-- Confirmed CT2.5 -->
+	<skill id="21216" levels="1" name="Release Seal on Agathion - Cheerleader Naonin">
+		<!-- High Five Confirmed -->
 		<set name="affectScope" val="SINGLE" />
 		<set name="hitTime" val="3000" />
 		<set name="icon" val="icon.etc_summon_aga_agit_i00" />
@@ -267,8 +273,8 @@
 			</effect>
 		</effects>
 	</skill>
-	<skill id="21217" levels="1" name="Agathion Seal Cancel - Cheerleader Mortia">
-		<!-- Confirmed CT2.5 -->
+	<skill id="21217" levels="1" name="Release Seal on Agathion - Cheerleader Mortia">
+		<!-- High Five Confirmed -->
 		<set name="affectScope" val="SINGLE" />
 		<set name="hitTime" val="3000" />
 		<set name="icon" val="icon.etc_summon_aga_agit_i00" />
@@ -283,8 +289,8 @@
 			</effect>
 		</effects>
 	</skill>
-	<skill id="21218" levels="1" name="Agathion Seal Cancel - Cheerleader Kaurin">
-		<!-- Confirmed CT2.5 -->
+	<skill id="21218" levels="1" name="Release Seal on Agathion - Cheerleader Kaurin">
+		<!-- High Five Confirmed -->
 		<set name="affectScope" val="SINGLE" />
 		<set name="hitTime" val="3000" />
 		<set name="icon" val="icon.etc_summon_aga_agit_i00" />
@@ -299,8 +305,8 @@
 			</effect>
 		</effects>
 	</skill>
-	<skill id="21219" levels="1" name="Agathion Seal Cancel - Cheerleader Meruril">
-		<!-- Confirmed CT2.5 -->
+	<skill id="21219" levels="1" name="Release Seal on Agathion - Cheerleader Meruril">
+		<!-- High Five Confirmed -->
 		<set name="affectScope" val="SINGLE" />
 		<set name="hitTime" val="3000" />
 		<set name="icon" val="icon.etc_summon_aga_agit_i00" />
@@ -315,8 +321,8 @@
 			</effect>
 		</effects>
 	</skill>
-	<skill id="21220" levels="1" name="Agathion Seal Cancel - Handy">
-		<!-- Confirmed CT2.5 -->
+	<skill id="21220" levels="1" name="Release Seal on Agathion - Handy">
+		<!-- High Five Confirmed -->
 		<set name="affectScope" val="SINGLE" />
 		<set name="hitTime" val="3000" />
 		<set name="icon" val="icon.etc_summon_aga_agit_i00" />
@@ -345,10 +351,38 @@
 		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="21222" levels="1" name="Resist Elemental">
-		<!-- "For 1 hour, increases Resistance to Fire/Water/Wind/Earth by 20. Reuse delay is 4 hours." -->
-		<set name="operateType" val="P" />
-		<set name="targetType" val="NONE" />
+		<!-- High Five Confirmed -->
+		<set name="abnormalLvl" val="26" />
+		<set name="abnormalTime" val="3600" />
+		<set name="abnormalType" val="MD_UP_ATTR" />
 		<set name="affectScope" val="SINGLE" />
+		<set name="blockedInOlympiad" val="true" />
+		<set name="buffProtectLevel" val="1" />
+		<set name="hitTime" val="3000" />
+		<set name="icon" val="BranchSys2.icon.br_polar_bear_cap_i00" />
+		<set name="irreplaceableBuff" val="true" />
+		<set name="isMagic" val="2" />
+		<set name="magicLvl" val="-1" />
+		<set name="operateType" val="A2" />
+		<set name="reuseDelay" val="14400000" />
+		<set name="reuseDelayLock" val="true" />
+		<set name="reuseDelayType" val="S" />
+		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
+		<set name="targetType" val="SELF" />
+		<effects>
+			<effect name="Buff">
+				<add stat="fireRes" val="20" />
+			</effect>
+			<effect name="Buff">
+				<add stat="waterRes" val="20" />
+			</effect>
+			<effect name="Buff">
+				<add stat="windRes" val="20" />
+			</effect>
+			<effect name="Buff">
+				<add stat="earthRes" val="20" />
+			</effect>
+		</effects>
 	</skill>
 	<skill id="21223" levels="1" name="Ultimate Defense">
 		<!-- High Five Confirmed -->
@@ -384,74 +418,341 @@
 		</effects>
 	</skill>
 	<skill id="21224" levels="1" name="Soul of an Adventurer of Immortality's Ability">
-		<!-- "For 5 minutes, receives the soul's help to raise Max HP by 20%, Max MP by 20%, and Speed by 20%. Increases Resistance to de-buffs by 10%. Reuse delay is 1 hour." -->
-		<set name="operateType" val="P" />
-		<set name="targetType" val="NONE" />
+		<!-- High Five Confirmed -->
+		<set name="abnormalLvl" val="26" />
+		<set name="abnormalTime" val="300" />
+		<set name="abnormalType" val="MULTI_BUFF" />
 		<set name="affectScope" val="SINGLE" />
+		<set name="blockedInOlympiad" val="true" />
+		<set name="buffProtectLevel" val="1" />
+		<set name="hitCancelTime" val="500" />
+		<set name="hitTime" val="4000" />
+		<set name="icon" val="BranchSys2.icon.br_stagbeetle_cap_i00" />
+		<set name="irreplaceableBuff" val="true" />
+		<set name="isMagic" val="2" />
+		<set name="magicLvl" val="-1" />
+		<set name="operateType" val="A2" />
+		<set name="reuseDelay" val="3600000" />
+		<set name="reuseDelayLock" val="true" />
+		<set name="reuseDelayType" val="S" />
+		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
+		<set name="targetType" val="SELF" />
+		<effects>
+			<effect name="MaxHp">
+				<param power="20" />
+				<param type="PER" />
+			</effect>
+			<effect name="MaxMp">
+				<param power="20" />
+				<param type="PER" />
+			</effect>
+			<effect name="Debuff">
+				<mul stat="debuffVuln" val="0.9" />
+			</effect>
+			<effect name="Buff">
+				<mul stat="runSpd" val="1.2" />
+			</effect>
+		</effects>
 	</skill>
 	<skill id="21225" levels="1" name="Soul of a Strong Warrior's Ability">
-		<!-- "For 5 minutes, increases Atk. Spd. by 20%, P. Atk. by 10%, and P. Def. by 20% with the soul's help. Bestows the ability to recover as HP 5% of the standard short-range physical damage inflicted on an enemy. Reuse delay is 1 hour." -->
-		<set name="operateType" val="P" />
-		<set name="targetType" val="NONE" />
+		<!-- High Five Confirmed -->
+		<set name="abnormalLvl" val="26" />
+		<set name="abnormalTime" val="300" />
+		<set name="abnormalType" val="MULTI_BUFF" />
 		<set name="affectScope" val="SINGLE" />
+		<set name="blockedInOlympiad" val="true" />
+		<set name="buffProtectLevel" val="1" />
+		<set name="hitCancelTime" val="500" />
+		<set name="hitTime" val="4000" />
+		<set name="icon" val="BranchSys2.icon.br_hornbeetle_cap_i00" />
+		<set name="irreplaceableBuff" val="true" />
+		<set name="isMagic" val="2" />
+		<set name="magicLvl" val="-1" />
+		<set name="operateType" val="A2" />
+		<set name="reuseDelay" val="3600000" />
+		<set name="reuseDelayLock" val="true" />
+		<set name="reuseDelayType" val="S" />
+		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
+		<set name="targetType" val="SELF" />
+		<effects>
+			<effect name="Buff">
+				<mul stat="pAtkSpd" val="1.2" />
+			</effect>
+			<effect name="Buff">
+				<mul stat="pAtk" val="1.1" />
+			</effect>
+			<effect name="Buff">
+				<mul stat="pDef" val="1.2" />
+			</effect>
+			<effect name="Buff">
+				<add stat="absorbDam" val="5" />
+			</effect>
+		</effects>
 	</skill>
 	<skill id="21226" levels="1" name="Soul of a Wise Magician's Ability">
-		<!-- "For 5 minutes, receives the soul's help to raise Casting Spd. by 20%, M. Atk. by 20%, and M. Def. by 20%. Decreases MP consumption for skill use by 5%. Reuse delay is 1 hour." -->
-		<set name="operateType" val="P" />
-		<set name="targetType" val="NONE" />
+		<!-- High Five Confirmed -->
+		<set name="abnormalLvl" val="26" />
+		<set name="abnormalTime" val="300" />
+		<set name="abnormalType" val="MULTI_BUFF" />
 		<set name="affectScope" val="SINGLE" />
+		<set name="blockedInOlympiad" val="true" />
+		<set name="buffProtectLevel" val="1" />
+		<set name="hitCancelTime" val="500" />
+		<set name="hitTime" val="4000" />
+		<set name="icon" val="BranchSys2.icon.br_ladybug_cap_i00" />
+		<set name="irreplaceableBuff" val="true" />
+		<set name="isMagic" val="2" />
+		<set name="magicLvl" val="-1" />
+		<set name="operateType" val="A2" />
+		<set name="reuseDelay" val="3600000" />
+		<set name="reuseDelayLock" val="true" />
+		<set name="reuseDelayType" val="S" />
+		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
+		<set name="targetType" val="SELF" />
+		<effects>
+			<effect name="Debuff">
+				<mul stat="magicalMpConsumeRate" val="0.95" />
+			</effect>
+			<effect name="Buff">
+				<mul stat="magicalMpConsumeRate" val="0.95" />
+			</effect>
+			<effect name="Buff">
+				<mul stat="magicalMpConsumeRate" val="0.95" />
+			</effect>
+			<effect name="Buff">
+				<mul stat="mAtkSpd" val="1.2" />
+			</effect>
+			<effect name="Buff">
+				<mul stat="mAtk" val="1.2" />
+			</effect>
+			<effect name="Buff">
+				<mul stat="mDef" val="1.2" />
+			</effect>
+		</effects>
 	</skill>
 	<skill id="21227" levels="1" name="Ability of Prominent Adventure's Soul">
-		<!-- "For 5 minutes, receives the soul's help to raise Max HP by 20%, Max MP by 20%, and Speed by 20%. Increases HP Recovery Bonus by 20% and MP Recovery Bonus by 20%. Reuse delay is 1 hour." -->
-		<set name="operateType" val="P" />
-		<set name="targetType" val="NONE" />
+		<!-- High Five Confirmed -->
+		<set name="abnormalLvl" val="26" />
+		<set name="abnormalTime" val="300" />
+		<set name="abnormalType" val="MULTI_BUFF" />
 		<set name="affectScope" val="SINGLE" />
+		<set name="blockedInOlympiad" val="true" />
+		<set name="buffProtectLevel" val="1" />
+		<set name="hitCancelTime" val="500" />
+		<set name="hitTime" val="4000" />
+		<set name="icon" val="BranchSys2.icon.br_mantis_cap_i00" />
+		<set name="irreplaceableBuff" val="true" />
+		<set name="isMagic" val="2" />
+		<set name="magicLvl" val="-1" />
+		<set name="operateType" val="A2" />
+		<set name="reuseDelay" val="3600000" />
+		<set name="reuseDelayLock" val="true" />
+		<set name="reuseDelayType" val="S" />
+		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
+		<set name="targetType" val="SELF" />
+		<effects>
+			<effect name="Buff">
+				<mul stat="regHp" val="1.2" />
+			</effect>
+			<effect name="MaxHp">
+				<param power="20" />
+				<param type="PER" />
+			</effect>
+			<effect name="MaxMp">
+				<param power="20" />
+				<param type="PER" />
+			</effect>
+			<effect name="Buff">
+				<mul stat="regMp" val="1.2" />
+			</effect>
+			<effect name="Buff">
+				<mul stat="runSpd" val="1.2" />
+			</effect>
+		</effects>
 	</skill>
 	<skill id="21228" levels="1" name="Soul of a Brave Warrior's Ability">
-		<!-- "For 5 minutes, increases Atk. Spd. by 20%, P. Atk. by 10%, and P. Def. by 20% with the soul's help. Increases Critical Damage by 20% and critical rate by 20%. Reuse delay is 1 hour." -->
-		<set name="operateType" val="P" />
-		<set name="targetType" val="NONE" />
+		<!-- High Five Confirmed -->
+		<set name="abnormalLvl" val="26" />
+		<set name="abnormalTime" val="300" />
+		<set name="abnormalType" val="MULTI_BUFF" />
 		<set name="affectScope" val="SINGLE" />
+		<set name="blockedInOlympiad" val="true" />
+		<set name="buffProtectLevel" val="1" />
+		<set name="hitCancelTime" val="500" />
+		<set name="hitTime" val="4000" />
+		<set name="icon" val="BranchSys2.icon.br_locust_cap_i00" />
+		<set name="irreplaceableBuff" val="true" />
+		<set name="isMagic" val="2" />
+		<set name="magicLvl" val="-1" />
+		<set name="operateType" val="A2" />
+		<set name="reuseDelay" val="3600000" />
+		<set name="reuseDelayLock" val="true" />
+		<set name="reuseDelayType" val="S" />
+		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
+		<set name="targetType" val="SELF" />
+		<effects>
+			<effect name="Buff">
+				<mul stat="pAtkSpd" val="1.2" />
+			</effect>
+			<effect name="Buff">
+				<mul stat="critDmg" val="1.2" />
+			</effect>
+			<effect name="Buff">
+				<mul stat="critRate" val="1.2" />
+			</effect>
+			<effect name="Buff">
+				<mul stat="pAtk" val="1.1" />
+			</effect>
+			<effect name="Buff">
+				<mul stat="pDef" val="1.2" />
+			</effect>
+		</effects>
 	</skill>
 	<skill id="21229" levels="1" name="Blood Awakening">
-		<!-- "Combines general attack damage absorption and Atk. Spd. increase for a more advanced blood awakening effect. For 1 hour, increases Atk. Spd. by 33% and bestows the ability to recover as HP 9% of the standard short-range physical damage inflicted on an enemy. Reuse delay is 4 hours." -->
-		<set name="operateType" val="P" />
-		<set name="targetType" val="NONE" />
+		<!-- High Five Confirmed -->
+		<set name="abnormalLvl" val="26" />
+		<set name="abnormalTime" val="3600" />
+		<set name="abnormalType" val="IMPROVE_VAMPIRIC_HASTE" />
 		<set name="affectScope" val="SINGLE" />
+		<set name="blockedInOlympiad" val="true" />
+		<set name="buffProtectLevel" val="1" />
+		<set name="hitTime" val="1500" />
+		<set name="icon" val="BranchSys2.icon.br_close_helmet_i00" />
+		<set name="irreplaceableBuff" val="true" />
+		<set name="isMagic" val="1" />
+		<set name="magicLvl" val="-1" />
+		<set name="operateType" val="A2" />
+		<set name="reuseDelay" val="14400000" />
+		<set name="reuseDelayLock" val="true" />
+		<set name="reuseDelayType" val="S" />
+		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
+		<set name="targetType" val="SELF" />
+		<effects>
+			<effect name="DispelBySlot">
+				<param dispel="VAMPIRIC_ATTACK,9" />
+			</effect>
+			<effect name="DispelBySlot">
+				<param dispel="ATTACK_TIME_DOWN,9" />
+			</effect>
+			<effect name="Buff">
+				<mul stat="pAtkSpd" val="1.33" />
+			</effect>
+			<effect name="BlockBuffSlot">
+				<param slot="VAMPIRIC_ATTACK;ATTACK_TIME_DOWN" />
+			</effect>
+			<effect name="Buff">
+				<add stat="absorbDam" val="9" />
+			</effect>
+		</effects>
 	</skill>
 	<skill id="21230" levels="1" name="Improved Magic">
-		<!-- "Combines M. Atk. increase and M. Def. increase to have more advanced magic ability increase effect. For 1 hour, increases M. Atk. by 75% and M. Def. by 30%. Reuse delay is 4 hours." -->
-		<set name="operateType" val="P" />
-		<set name="targetType" val="NONE" />
+		<!-- High Five Confirmed -->
+		<set name="abnormalLvl" val="26" />
+		<set name="abnormalTime" val="3600" />
+		<set name="abnormalType" val="IMPROVE_MA_MD_UP" />
 		<set name="affectScope" val="SINGLE" />
+		<set name="blockedInOlympiad" val="true" />
+		<set name="buffProtectLevel" val="1" />
+		<set name="hitTime" val="3000" />
+		<set name="icon" val="BranchSys2.icon.br_navy_cap_i00" />
+		<set name="irreplaceableBuff" val="true" />
+		<set name="isMagic" val="1" />
+		<set name="magicLvl" val="-1" />
+		<set name="operateType" val="A2" />
+		<set name="reuseDelay" val="14400000" />
+		<set name="reuseDelayLock" val="true" />
+		<set name="reuseDelayType" val="S" />
+		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
+		<set name="targetType" val="SELF" />
+		<effects>
+			<effect name="DispelBySlot">
+				<param dispel="MA_UP,9" />
+			</effect>
+			<effect name="DispelBySlot">
+				<param dispel="MD_UP,9" />
+			</effect>
+			<effect name="BlockBuffSlot">
+				<param slot="MA_UP;MD_UP" />
+			</effect>
+			<effect name="Buff">
+				<mul stat="mAtk" val="1.75" />
+			</effect>
+			<effect name="Buff">
+				<mul stat="mDef" val="1.3" />
+			</effect>
+		</effects>
 	</skill>
 	<skill id="21231" levels="1" name="Improved Critical Attack">
-		<!-- "Combines critical rate increase and Critical Damage increase to have more advanced critical increase effect. For 1 hour, increases critical rate by 30% and Critical Damage by 35%. Reuse delay is 4 hours." -->
-		<set name="operateType" val="P" />
-		<set name="targetType" val="NONE" />
+		<!-- High Five Confirmed -->
+		<set name="abnormalLvl" val="26" />
+		<set name="abnormalTime" val="3600" />
+		<set name="abnormalType" val="IMPROVE_CRT_RATE_DMG_UP" />
 		<set name="affectScope" val="SINGLE" />
+		<set name="blockedInOlympiad" val="true" />
+		<set name="buffProtectLevel" val="1" />
+		<set name="hitTime" val="3000" />
+		<set name="icon" val="BranchSys2.icon.br_gold_eyeglass_i00" />
+		<set name="irreplaceableBuff" val="true" />
+		<set name="isMagic" val="1" />
+		<set name="magicLvl" val="-1" />
+		<set name="operateType" val="A2" />
+		<set name="reuseDelay" val="14400000" />
+		<set name="reuseDelayLock" val="true" />
+		<set name="reuseDelayType" val="S" />
+		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
+		<set name="targetType" val="SELF" />
+		<effects>
+			<effect name="DispelBySlot">
+				<param dispel="CRITICAL_PROB_UP,9" />
+			</effect>
+			<effect name="DispelBySlot">
+				<param dispel="CRITICAL_DMG_UP,9" />
+			</effect>
+			<effect name="BlockBuffSlot">
+				<param slot="CRITICAL_PROB_UP;CRITICAL_DMG_UP" />
+			</effect>
+			<effect name="Buff">
+				<mul stat="critDmg" val="1.35" />
+			</effect>
+			<effect name="Buff">
+				<mul stat="critRate" val="1.3" />
+			</effect>
+		</effects>
 	</skill>
 	<skill id="21232" levels="1" name="Shiny Lit Platform">
-		<!-- High Five Skill -->
-		<!-- Steps onto the shiny lit platform. -->
-		<set name="abnormalTime" val="-1" />
+		<!-- High Five Confirmed -->
+		<set name="abnormalLvl" val="1" />
+		<set name="abnormalTime" val="3600" />
 		<set name="abnormalType" val="TRANSFORM" />
+		<set name="affectScope" val="SINGLE" />
 		<set name="blockedInOlympiad" val="true" />
+		<set name="buffProtectLevel" val="1" />
+		<set name="effectPoint" val="1" />
+		<set name="icon" val="icon.skilltransform3" />
 		<set name="irreplaceableBuff" val="true" />
+		<set name="isMagic" val="2" />
+		<set name="magicLvl" val="85" />
 		<set name="operateType" val="A2" />
-		<set name="rideState" val="NONE" />
+		<set name="reuseDelayType" val="S" />
+		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
+		<cond msgId="2195">
+			<and>
+				<player souls="20" />
+				<player canTransform="true" />
+			</and>
+		</cond>
 		<effects>
 			<effect name="Transformation">
 				<param id="20004" />
-				<mul stat="runSpd" val="1.5" />
 			</effect>
 		</effects>
-		<set name="affectScope" val="SINGLE" />
 	</skill>
-	<skill id="21233" levels="1" name="Release Seal on Agathion - Singer Dancer">
-		<!-- High Five Skill -->
+	<skill id="21233" levels="1" name="Release Seal on Agathion - Singer &amp; Dancer">
+		<!-- High Five Confirmed -->
+		<set name="affectScope" val="SINGLE" />
 		<set name="hitTime" val="3000" />
+		<set name="icon" val="icon.etc_summon_aga_agit_i00" />
 		<set name="isMagic" val="2" />
 		<set name="magicLvl" val="85" />
 		<set name="operateType" val="A1" />
@@ -462,11 +763,12 @@
 				<param npcId="1594" />
 			</effect>
 		</effects>
-		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="21234" levels="1" name="Release Seal on Agathion - Zaken Spirit Sword">
-		<!-- High Five Skill -->
+		<!-- High Five Confirmed -->
+		<set name="affectScope" val="SINGLE" />
 		<set name="hitTime" val="3000" />
+		<set name="icon" val="icon.etc_summon_aga_agit_i00" />
 		<set name="isMagic" val="2" />
 		<set name="magicLvl" val="85" />
 		<set name="operateType" val="A1" />
@@ -477,7 +779,6 @@
 				<param npcId="1595" />
 			</effect>
 		</effects>
-		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="21235" levels="1" name="7th Anniversary T-shirt: Speed">
 		<!-- High Five Skill -->

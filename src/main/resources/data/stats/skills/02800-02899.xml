@@ -1686,16 +1686,17 @@
 		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="2871" levels="1" name="Summon Gloomy Milk Cow">
-		<!-- Confirmed CT2.5 -->
+		<!-- High Five Confirmed -->
+		<set name="affectScope" val="SINGLE" />
+		<set name="hitCancelTime" val="1500" />
 		<set name="icon" val="icon.etc_scroll_of_return_i00" />
 		<set name="isMagic" val="2" />
 		<set name="itemConsumeCount" val="1" />
-		<set name="itemConsumeId" val="14726" /> <!-- Event - Gloomy Milk Cow Summon Scroll -->
+		<set name="itemConsumeId" val="14726" />
 		<set name="magicLvl" val="1" />
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
-		<set name="affectScope" val="SINGLE" />
 		<effects>
 			<effect name="SummonNpc">
 				<param npcId="13191" npcCount="1" />
@@ -1703,16 +1704,17 @@
 		</effects>
 	</skill>
 	<skill id="2872" levels="1" name="Summon Head Gloomy Milk Cow">
-		<!-- Confirmed CT2.5 -->
+		<!-- High Five Confirmed -->
+		<set name="affectScope" val="SINGLE" />
+		<set name="hitCancelTime" val="1500" />
 		<set name="icon" val="icon.etc_scroll_of_return_i00" />
 		<set name="isMagic" val="2" />
 		<set name="itemConsumeCount" val="1" />
-		<set name="itemConsumeId" val="14727" /> <!-- Event - Gloomy Head Milk Cow Summon Scroll -->
+		<set name="itemConsumeId" val="14727" />
 		<set name="magicLvl" val="1" />
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
-		<set name="affectScope" val="SINGLE" />
 		<effects>
 			<effect name="SummonNpc">
 				<param npcId="13192" npcCount="1" />

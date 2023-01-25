@@ -406,16 +406,16 @@
 		</effects>
 	</skill>
 	<skill id="22116" levels="1" name="Summon Flames Box">
-		<!-- Confirmed CT2.5 -->
+		<!-- High Five Confirmed -->
+		<set name="affectScope" val="SINGLE" />
 		<set name="icon" val="BranchSys.icon.br_fire_box_i00" />
 		<set name="isMagic" val="2" />
 		<set name="itemConsumeCount" val="1" />
-		<set name="itemConsumeId" val="20788" /> <!-- Flame Box -->
+		<set name="itemConsumeId" val="20788" />
 		<set name="magicLvl" val="1" />
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
-		<set name="affectScope" val="SINGLE" />
 		<effects>
 			<effect name="SummonNpc">
 				<param npcId="29" npcCount="1" />
@@ -660,18 +660,19 @@
 		</cond>
 	</skill>
 	<skill id="22127" levels="1" name="Summon Warm Kotatz">
-		<!-- Confirmed CT2.5 and Updated to H5 -->
+		<!-- High Five Confirmed -->
+		<set name="affectScope" val="SINGLE" />
 		<set name="blockedInOlympiad" val="true" />
 		<set name="icon" val="BranchSys.icon.br_kotatsu_i00" />
 		<set name="isMagic" val="2" />
 		<set name="itemConsumeCount" val="1" />
-		<set name="itemConsumeId" val="20868" /> <!-- Kotatz -->
+		<set name="itemConsumeId" val="20868" />
 		<set name="magicLvl" val="1" />
 		<set name="operateType" val="A1" />
 		<set name="reuseDelay" val="600000" />
+		<set name="reuseDelayLock" val="true" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
-		<set name="affectScope" val="SINGLE" />
 		<effects>
 			<effect name="SummonNpc">
 				<param npcId="127" npcCount="1" despawnDelay="7200" />

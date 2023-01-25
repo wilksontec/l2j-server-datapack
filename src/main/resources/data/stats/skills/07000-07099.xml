@@ -430,17 +430,19 @@
 		</effects>
 	</skill>
 	<skill id="7030" levels="1" name="Summon King Bugbear">
+		<set name="affectScope" val="SINGLE" />
+		<set name="hitCancelTime" val="500" />
 		<set name="hitTime" val="4000" />
 		<set name="isMagic" val="1" />
 		<set name="itemConsumeCount" val="8" />
 		<set name="itemConsumeId" val="1458" />
 		<set name="magicLvl" val="1" />
-		<set name="mpConsume2" val="3" />
+		<set name="mpConsume1" val="1" />
+		<set name="mpConsume2" val="2" />
 		<set name="operateType" val="A1" />
-		<set name="reuseDelay" val="4000" />
+		<set name="reuseDelay" val="4500" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
-		<set name="affectScope" val="SINGLE" />
 		<cond>
 			<player canSummon="true" />
 		</cond>
@@ -452,17 +454,19 @@
 		</effects>
 	</skill>
 	<skill id="7031" levels="1" name="Summon Skeleton Royal Guard">
+		<set name="affectScope" val="SINGLE" />
+		<set name="hitCancelTime" val="500" />
 		<set name="hitTime" val="4000" />
 		<set name="isMagic" val="1" />
 		<set name="itemConsumeCount" val="8" />
 		<set name="itemConsumeId" val="1458" />
 		<set name="magicLvl" val="1" />
-		<set name="mpConsume2" val="3" />
+		<set name="mpConsume1" val="1" />
+		<set name="mpConsume2" val="2" />
 		<set name="operateType" val="A1" />
-		<set name="reuseDelay" val="4000" />
+		<set name="reuseDelay" val="4500" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
-		<set name="affectScope" val="SINGLE" />
 		<cond>
 			<player canSummon="true" />
 		</cond>
@@ -474,17 +478,19 @@
 		</effects>
 	</skill>
 	<skill id="7032" levels="1" name="Summon Hunter Gargoyle">
+		<set name="affectScope" val="SINGLE" />
+		<set name="hitCancelTime" val="500" />
 		<set name="hitTime" val="4000" />
 		<set name="isMagic" val="1" />
 		<set name="itemConsumeCount" val="8" />
 		<set name="itemConsumeId" val="1458" />
 		<set name="magicLvl" val="1" />
-		<set name="mpConsume2" val="3" />
+		<set name="mpConsume1" val="1" />
+		<set name="mpConsume2" val="2" />
 		<set name="operateType" val="A1" />
-		<set name="reuseDelay" val="4000" />
+		<set name="reuseDelay" val="4500" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
-		<set name="affectScope" val="SINGLE" />
 		<cond>
 			<player canSummon="true" />
 		</cond>
@@ -496,44 +502,60 @@
 		</effects>
 	</skill>
 	<skill id="7033" levels="1" name="not_used">
+		<!-- High Five Confirmed -->
+		<set name="blockedInOlympiad" val="true" />
 		<set name="magicLvl" val="1" />
 		<set name="operateType" val="P" />
-		<set name="targetType" val="NONE" />
+		<set name="targetType" val="SELF" />
 	</skill>
 	<skill id="7034" levels="1" name="not_used">
+		<!-- High Five Confirmed -->
+		<set name="blockedInOlympiad" val="true" />
 		<set name="magicLvl" val="1" />
 		<set name="operateType" val="P" />
-		<set name="targetType" val="NONE" />
+		<set name="targetType" val="SELF" />
 	</skill>
 	<skill id="7035" levels="1" name="not_used">
+		<!-- High Five Confirmed -->
+		<set name="blockedInOlympiad" val="true" />
 		<set name="magicLvl" val="1" />
 		<set name="operateType" val="P" />
-		<set name="targetType" val="NONE" />
+		<set name="targetType" val="SELF" />
 	</skill>
 	<skill id="7036" levels="1" name="not_used">
+		<!-- High Five Confirmed -->
+		<set name="blockedInOlympiad" val="true" />
 		<set name="magicLvl" val="1" />
 		<set name="operateType" val="P" />
-		<set name="targetType" val="NONE" />
+		<set name="targetType" val="SELF" />
 	</skill>
 	<skill id="7037" levels="1" name="not_used">
+		<!-- High Five Confirmed -->
+		<set name="blockedInOlympiad" val="true" />
 		<set name="magicLvl" val="1" />
 		<set name="operateType" val="P" />
-		<set name="targetType" val="NONE" />
+		<set name="targetType" val="SELF" />
 	</skill>
 	<skill id="7038" levels="1" name="not_used">
+		<!-- High Five Confirmed -->
+		<set name="blockedInOlympiad" val="true" />
 		<set name="magicLvl" val="1" />
 		<set name="operateType" val="P" />
-		<set name="targetType" val="NONE" />
+		<set name="targetType" val="SELF" />
 	</skill>
 	<skill id="7039" levels="1" name="not_used">
+		<!-- High Five Confirmed -->
+		<set name="blockedInOlympiad" val="true" />
 		<set name="magicLvl" val="1" />
 		<set name="operateType" val="P" />
-		<set name="targetType" val="NONE" />
+		<set name="targetType" val="SELF" />
 	</skill>
 	<skill id="7040" levels="1" name="not_used">
+		<!-- High Five Confirmed -->
+		<set name="blockedInOlympiad" val="true" />
 		<set name="magicLvl" val="1" />
 		<set name="operateType" val="P" />
-		<set name="targetType" val="NONE" />
+		<set name="targetType" val="SELF" />
 	</skill>
 	<skill id="7041" levels="1" name="Master's Blessing - Focus">
 		<!-- High Five Confirmed -->

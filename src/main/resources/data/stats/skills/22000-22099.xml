@@ -1999,38 +1999,38 @@
 		</effects>
 	</skill>
 	<skill id="22095" levels="1" name="Summon Spirit of Fire">
-		<!-- Confirmed CT2.5 -->
+		<!-- High Five Confirmed -->
+		<set name="affectScope" val="SINGLE" />
 		<set name="blockedInOlympiad" val="true" />
 		<set name="hitTime" val="3000" />
 		<set name="isMagic" val="2" />
 		<set name="itemConsumeCount" val="1" />
-		<set name="itemConsumeId" val="20585" /> <!-- Seed of Fire (event) -->
+		<set name="itemConsumeId" val="20585" />
 		<set name="magicLvl" val="1" />
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
-		<set name="affectScope" val="SINGLE" />
 		<effects>
 			<effect name="SummonNpc">
-				<param npcId="8" npcCount="1" despawnDelay="60000" isSummonSpawn="true" />
+				<param npcId="107" npcCount="1" despawnDelay="60000" isSummonSpawn="true" />
 			</effect>
 		</effects>
 	</skill>
 	<skill id="22096" levels="1" name="Summon Reckless Spirit of Fire">
-		<!-- Confirmed CT2.5 -->
+		<!-- High Five Confirmed -->
+		<set name="affectScope" val="SINGLE" />
 		<set name="blockedInOlympiad" val="true" />
 		<set name="hitTime" val="3000" />
 		<set name="isMagic" val="2" />
 		<set name="itemConsumeCount" val="1" />
-		<set name="itemConsumeId" val="20586" /> <!-- Explosive Seed of Fire (Event) -->
+		<set name="itemConsumeId" val="20586" />
 		<set name="magicLvl" val="1" />
 		<set name="operateType" val="A1" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
-		<set name="affectScope" val="SINGLE" />
 		<effects>
 			<effect name="SummonNpc">
-				<param npcId="9" npcCount="1" despawnDelay="60000" isSummonSpawn="true" />
+				<param npcId="108" npcCount="1" despawnDelay="60000" isSummonSpawn="true" />
 			</effect>
 		</effects>
 	</skill>

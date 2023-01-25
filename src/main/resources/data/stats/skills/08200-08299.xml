@@ -1196,8 +1196,8 @@
 			</effect>
 		</effects>
 	</skill>
-	<skill id="8245" levels="1" name="Summon Agathion - Love">
-		<!-- Confirmed CT2.5 -->
+	<skill id="8245" levels="1" name="Release Seal on Agathion - Love">
+		<!-- High Five Confirmed -->
 		<set name="affectScope" val="SINGLE" />
 		<set name="hitTime" val="3000" />
 		<set name="icon" val="icon.etc_summon_aga_agit_i00" />
@@ -1292,30 +1292,32 @@
 		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="8250" levels="2" name="Summon Tigress">
-		<table name="#npcIds"> 14916 14917 </table>
+		<!-- High Five Confirmed -->
+		<table name="#npcId"> 14916 14917 </table>
+		<set name="affectScope" val="SINGLE" />
+		<set name="hitCancelTime" val="500" />
 		<set name="hitTime" val="15000" />
 		<set name="icon" val="icon.skill0283" />
 		<set name="isMagic" val="2" />
 		<set name="magicLvl" val="63" />
-		<set name="magicLvl" val="63" />
-		<set name="mpConsume2" val="117" />
+		<set name="mpConsume1" val="24" />
+		<set name="mpConsume2" val="93" />
 		<set name="operateType" val="A1" />
 		<set name="reuseDelay" val="20000" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
-		<set name="affectScope" val="SINGLE" />
 		<cond>
 			<player canSummon="true" />
 		</cond>
 		<effects>
 			<effect name="Summon">
-				<param npcId="#npcIds" />
+				<param npcId="#npcId" />
 				<param lifeTime="1200" />
 			</effect>
 		</effects>
 	</skill>
 	<skill id="8251" levels="1" name="Collection Agathion Release Seal">
-		<!-- Confirmed CT2.5 -->
+		<!-- High Five Confirmed -->
 		<set name="affectScope" val="SINGLE" />
 		<set name="hitTime" val="3000" />
 		<set name="icon" val="icon.etc_summon_aga_agit_i00" />
@@ -1379,7 +1381,7 @@
 		</effects>
 	</skill>
 	<skill id="8254" levels="1" name="Release Seal on Agathion - Monkey">
-		<!-- Confirmed CT2.5 -->
+		<!-- High Five Confirmed -->
 		<set name="affectScope" val="SINGLE" />
 		<set name="hitTime" val="3000" />
 		<set name="icon" val="icon.etc_summon_aga_agit_i00" />
@@ -1395,7 +1397,7 @@
 		</effects>
 	</skill>
 	<skill id="8255" levels="1" name="Release Seal on Agathion - Griffin">
-		<!-- Confirmed CT2.5 -->
+		<!-- High Five Confirmed -->
 		<set name="affectScope" val="SINGLE" />
 		<set name="hitTime" val="3000" />
 		<set name="icon" val="icon.etc_summon_aga_agit_i00" />
@@ -1411,7 +1413,7 @@
 		</effects>
 	</skill>
 	<skill id="8256" levels="1" name="Release Seal on Agathion - Joy">
-		<!-- Confirmed CT2.5 -->
+		<!-- High Five Confirmed -->
 		<set name="affectScope" val="SINGLE" />
 		<set name="hitTime" val="3000" />
 		<set name="icon" val="icon.etc_summon_aga_agit_i00" />
@@ -1427,7 +1429,7 @@
 		</effects>
 	</skill>
 	<skill id="8257" levels="1" name="Release Seal on Agathion - Anger">
-		<!-- Confirmed CT2.5 -->
+		<!-- High Five Confirmed -->
 		<set name="affectScope" val="SINGLE" />
 		<set name="hitTime" val="3000" />
 		<set name="icon" val="icon.etc_summon_aga_agit_i00" />
@@ -1443,7 +1445,7 @@
 		</effects>
 	</skill>
 	<skill id="8258" levels="1" name="Release Seal on Agathion - Sorrow">
-		<!-- Confirmed CT2.5 -->
+		<!-- High Five Confirmed -->
 		<set name="affectScope" val="SINGLE" />
 		<set name="hitTime" val="3000" />
 		<set name="icon" val="icon.etc_summon_aga_agit_i00" />
@@ -1459,7 +1461,7 @@
 		</effects>
 	</skill>
 	<skill id="8259" levels="1" name="Release Seal on Agathion - Girl Teddy Boy">
-		<!-- Confirmed CT2.5 -->
+		<!-- High Five Confirmed -->
 		<set name="affectScope" val="SINGLE" />
 		<set name="hitTime" val="3000" />
 		<set name="icon" val="icon.etc_summon_aga_agit_i00" />
@@ -1475,7 +1477,7 @@
 		</effects>
 	</skill>
 	<skill id="8260" levels="1" name="Release Seal on Agathion - Girl Teddy Girl">
-		<!-- Confirmed CT2.5 -->
+		<!-- High Five Confirmed -->
 		<set name="affectScope" val="SINGLE" />
 		<set name="hitTime" val="3000" />
 		<set name="icon" val="icon.etc_summon_aga_agit_i00" />
