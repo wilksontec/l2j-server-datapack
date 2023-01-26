@@ -13,13 +13,13 @@
 		<!-- L2J -->
 		<l2j-server-game.version>2.6.3.0-SNAPSHOT</l2j-server-game.version>
 		<!-- Test -->
-		<junit-jupiter.version>5.8.0</junit-jupiter.version>
-		<mockito.version>4.5.1</mockito.version>
-		<assertj-core.version>3.22.0</assertj-core.version>
+		<junit-jupiter.version>5.9.2</junit-jupiter.version>
+		<mockito.version>5.0.0</mockito.version>
+		<assertj-core.version>3.24.2</assertj-core.version>
 		<!-- Plugins -->
-		<maven-surefire-plugin.version>2.22.2</maven-surefire-plugin.version>
-		<maven-jar-plugin.version>3.2.0</maven-jar-plugin.version>
-		<maven-assembly-plugin.version>3.3.0</maven-assembly-plugin.version>
+		<maven-surefire-plugin.version>3.0.0-M8</maven-surefire-plugin.version>
+		<maven-jar-plugin.version>3.3.0</maven-jar-plugin.version>
+		<maven-assembly-plugin.version>3.4.2</maven-assembly-plugin.version>
 	</properties>
 	<dependencies>
 		<dependency>
