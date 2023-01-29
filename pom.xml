@@ -9,7 +9,6 @@
 		<maven.compiler.target>17</maven.compiler.target>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-		<slf4j.version>1.7.32</slf4j.version>
 		<!-- L2J -->
 		<l2j-server-game.version>2.6.3.0-SNAPSHOT</l2j-server-game.version>
 		<!-- Test -->
@@ -22,11 +21,6 @@
 		<maven-assembly-plugin.version>3.4.2</maven-assembly-plugin.version>
 	</properties>
 	<dependencies>
-		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>slf4j-api</artifactId>
-			<version>${slf4j.version}</version>
-		</dependency>
 		<dependency>
 			<groupId>com.l2jserver</groupId>
 			<artifactId>l2j-server-game</artifactId>
@@ -95,7 +89,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-assembly-plugin</artifactId>
-				<version>${maven-assembly-plugin.version}</version><!--$NO-MVN-MAN-VER$ -->
+				<version>${maven-assembly-plugin.version}</version>
 				<executions>
 					<execution>
 						<phase>package</phase>
