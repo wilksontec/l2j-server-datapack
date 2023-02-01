@@ -158,12 +158,12 @@ public final class NewbieGuide extends AbstractNpcAI {
 			} else {
 				teleportRequest(talker, npc, Integer.parseInt(tel[1]));
 			}
-			return event;
+			return super.onAdvEvent(event, npc, talker);
 		}
+		
 		final QuestState qs = getQuestState(talker, true);
 		int ask = Integer.parseInt(event.split(";")[0]);
 		int reply = Integer.parseInt(event.split(";")[1]);
-		
 		switch (ask) {
 			case -7: {
 				switch (reply) {
