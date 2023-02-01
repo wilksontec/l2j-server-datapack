@@ -1170,15 +1170,14 @@
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="TARGET" />
 		<effects>
-			<effect name="TriggerSkillByDamage">
-				<param attackerType="L2Character" minAttackerLevel="1" maxAttackerLevel="100" />
-				<param minDamage="300" />
-				<param chance="80" />
-				<param skillId="6059" skillLevel="1" />
-				<param targetType="SELF" />
-			</effect>
 			<effect name="Debuff">
 				<mul stat="defCritDamage" val="0.7" />
+			</effect>
+			<effect name="TriggerSkillByDamage">
+				<param attackerType="ENEMY_ALL" maxAttackerLevel="100" minAttackerLevel="1" />
+				<param chance="80.0" minDamage="300" mode="DIFF" />
+				<param skillId="6059" skillLevel="1" />
+				<param targetType="SELF" />
 			</effect>
 		</effects>
 	</skill>
@@ -2748,15 +2747,14 @@
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
 		<effects>
-			<effect name="TriggerSkillByDamage">
-				<param attackerType="L2Character" minAttackerLevel="1" maxAttackerLevel="100" />
-				<param minDamage="300" />
-				<param chance="80" />
-				<param skillId="6059" skillLevel="1" />
-				<param targetType="SELF" />
-			</effect>
 			<effect name="Debuff">
 				<mul stat="defCritDamage" val="0.7" />
+			</effect>
+			<effect name="TriggerSkillByDamage">
+				<param attackerType="ENEMY_ALL" maxAttackerLevel="100" minAttackerLevel="1" />
+				<param chance="80.0" minDamage="300" mode="DIFF" />
+				<param skillId="6059" skillLevel="1" />
+				<param targetType="SELF" />
 			</effect>
 		</effects>
 	</skill>

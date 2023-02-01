@@ -2429,9 +2429,8 @@
 		<set name="targetType" val="SELF" />
 		<effects>
 			<effect name="TriggerSkillByDamage">
-				<param attackerType="L2Character" minAttackerLevel="1" maxAttackerLevel="99" />
-				<param minDamage="1" />
-				<param chance="10" />
+				<param attackerType="ENEMY_ALL" maxAttackerLevel="99" minAttackerLevel="1" />
+				<param chance="10.0" minDamage="1" mode="DIFF" />
 				<param skillId="6687" skillLevel="1" />
 				<param targetType="SELF" />
 			</effect>

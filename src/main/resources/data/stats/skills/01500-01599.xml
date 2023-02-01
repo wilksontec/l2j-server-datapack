@@ -401,16 +401,17 @@
 		</effects>
 	</skill>
 	<skill id="1511" levels="8" name="Curse of Life Flow" enchantGroup1="1" enchantGroup2="1">
-		<!-- Confirmed CT2.5 -->
+		<!-- High Five Confirmed -->
 		<table name="#abnormalLvl"> 1 2 3 4 5 6 7 8 </table>
 		<table name="#effectPoint"> -566 -582 -597 -611 -624 -635 -646 -655 </table>
 		<table name="#magicLvl"> 60 62 64 66 68 70 72 74 </table>
-		<table name="#mpConsume2"> 27 28 29 30 31 31 32 33 </table>
 		<table name="#mpConsume1"> 7 7 8 8 8 8 8 9 </table>
-		<table name="#triggeredLevel"> 1 2 3 4 5 6 7 8 </table>
-		<table name="#ench1AbnormalTimes"> 39 48 57 66 75 84 93 102 111 120 129 138 147 156 165 174 183 192 201 210 219 228 237 246 255 264 273 282 291 300 </table>
-		<table name="#ench2ActivateRates"> 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 98 99 100 </table>
-		<table name="#enchMagicLvl"> 76 76 76 77 77 77 78 78 78 79 79 79 80 80 80 81 81 81 82 82 82 83 83 83 84 84 84 85 85 85 </table>
+		<table name="#mpConsume2"> 27 28 29 30 31 31 32 33 </table>
+		<table name="#triggerSkillByDamageLevel"> 1 2 3 4 5 6 7 8 </table>
+		<table name="#ench1AbnormalTime"> 39 48 57 66 75 84 93 102 111 120 129 138 147 156 165 174 183 192 201 210 219 228 237 246 255 264 273 282 291 300 </table>
+		<table name="#ench1MagicLvl"> 76 76 76 77 77 77 78 78 78 79 79 79 80 80 80 81 81 81 82 82 82 83 83 83 84 84 84 85 85 85 </table>
+		<table name="#ench2ActivateRate"> 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 98 99 100 </table>
+		<table name="#ench2MagicLvl"> 76 76 76 77 77 77 78 78 78 79 79 79 80 80 80 81 81 81 82 82 82 83 83 83 84 84 84 85 85 85 </table>
 		<set name="abnormalLvl" val="#abnormalLvl" />
 		<set name="abnormalTime" val="30" />
 		<set name="abnormalType" val="CURSE_LIFE_FLOW" />
@@ -421,32 +422,48 @@
 		<set name="castRange" val="600" />
 		<set name="effectPoint" val="#effectPoint" />
 		<set name="effectRange" val="1100" />
+		<set name="hitCancelTime" val="500" />
 		<set name="hitTime" val="3000" />
 		<set name="icon" val="icon.skill1511" />
 		<set name="isDebuff" val="true" />
 		<set name="isMagic" val="1" />
 		<set name="lvlBonusRate" val="1" />
 		<set name="magicLvl" val="#magicLvl" />
-		<set name="mpConsume2" val="#mpConsume2" />
 		<set name="mpConsume1" val="#mpConsume1" />
+		<set name="mpConsume2" val="#mpConsume2" />
 		<set name="operateType" val="A2" />
 		<set name="reuseDelay" val="15000" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="ENEMY_ONLY" />
 		<set name="trait" val="BLEED" />
-		<enchant1 name="abnormalTime" val="#ench1AbnormalTimes" />
-		<enchant1 name="magicLvl" val="#enchMagicLvl" />
-		<enchant2 name="activateRate" val="#ench2ActivateRates" />
-		<enchant2 name="magicLvl" val="#enchMagicLvl" />
+		<enchant1 name="abnormalTime" val="#ench1AbnormalTime" />
+		<enchant1 name="magicLvl" val="#ench1MagicLvl" />
+		<enchant2 name="activateRate" val="#ench2ActivateRate" />
+		<enchant2 name="magicLvl" val="#ench2MagicLvl" />
 		<effects>
 			<effect name="TriggerSkillByDamage">
-				<param attackerType="L2Character" minAttackerLevel="1" maxAttackerLevel="99" />
-				<param minDamage="100" />
-				<param chance="30" />
-				<param skillId="5591" skillLevel="#triggeredLevel" /> <!-- Light Flow -->
-				<param targetType="ONE" />
+				<param attackerType="ENEMY_ALL" maxAttackerLevel="99" minAttackerLevel="1" />
+				<param chance="30.0" minDamage="100" mode="DIFF" />
+				<param skillId="5591" skillLevel="#triggerSkillByDamageLevel" />
+				<param targetType="TARGET" />
 			</effect>
 		</effects>
+		<enchant1Effects>
+			<effect name="TriggerSkillByDamage">
+				<param attackerType="ENEMY_ALL" maxAttackerLevel="99" minAttackerLevel="1" />
+				<param chance="30.0" minDamage="100" mode="DIFF" />
+				<param skillId="5591" skillLevel="8" />
+				<param targetType="TARGET" />
+			</effect>
+		</enchant1Effects>
+		<enchant2Effects>
+			<effect name="TriggerSkillByDamage">
+				<param attackerType="ENEMY_ALL" maxAttackerLevel="99" minAttackerLevel="1" />
+				<param chance="30.0" minDamage="100" mode="DIFF" />
+				<param skillId="5591" skillLevel="8" />
+				<param targetType="TARGET" />
+			</effect>
+		</enchant2Effects>
 	</skill>
 	<skill id="1512" levels="1" name="Soul Vortex" enchantGroup1="6" enchantGroup2="6" enchantGroup3="6" enchantGroup4="6">
 		<!-- High Five Confirmed -->
@@ -703,38 +720,34 @@
 		<enchant3 name="magicLvl" val="#ench3MagicLvl" />
 		<effects>
 			<effect name="TriggerSkillByDamage">
-				<param attackerType="L2Character" minAttackerLevel="1" maxAttackerLevel="99" />
-				<param minDamage="100" />
-				<param chance="20" />
-				<param skillId="5592" skillLevel="1" /> <!-- Lightning Barrier -->
-				<param targetType="ONE" />
+				<param attackerType="ENEMY_ALL" maxAttackerLevel="99" minAttackerLevel="1" />
+				<param chance="20.0" minDamage="100" mode="DIFF" />
+				<param skillId="5592" skillLevel="1" />
+				<param targetType="TARGET" />
 			</effect>
 		</effects>
 		<enchant1Effects>
 			<effect name="TriggerSkillByDamage">
-				<param attackerType="L2Character" minAttackerLevel="1" maxAttackerLevel="99" />
-				<param minDamage="100" />
-				<param chance="#ench1Chance" />
-				<param skillId="5592" skillLevel="1" /> <!-- Lightning Barrier -->
-				<param targetType="ONE" />
+				<param attackerType="ENEMY_ALL" maxAttackerLevel="99" minAttackerLevel="1" />
+				<param chance="#ench1Chance" minDamage="100" mode="DIFF" />
+				<param skillId="5592" skillLevel="1" />
+				<param targetType="TARGET" />
 			</effect>
 		</enchant1Effects>
 		<enchant2Effects>
 			<effect name="TriggerSkillByDamage">
-				<param attackerType="L2Character" minAttackerLevel="1" maxAttackerLevel="99" />
-				<param minDamage="100" />
-				<param chance="#ench2Chance" />
-				<param skillId="5592" skillLevel="#ench2Trigger" /> <!-- Lightning Barrier -->
-				<param targetType="ONE" />
+				<param attackerType="ENEMY_ALL" maxAttackerLevel="99" minAttackerLevel="1" />
+				<param chance="#ench2Chance" minDamage="100" mode="DIFF" />
+				<param skillId="5592" skillLevel="#ench2Trigger" />
+				<param targetType="TARGET" />
 			</effect>
 		</enchant2Effects>
 		<enchant3Effects>
 			<effect name="TriggerSkillByDamage">
-				<param attackerType="L2Character" minAttackerLevel="1" maxAttackerLevel="99" />
-				<param minDamage="100" />
-				<param chance="20" />
-				<param skillId="5592" skillLevel="#ench3Trigger" /> <!-- Lightning Barrier -->
-				<param targetType="ONE" />
+				<param attackerType="ENEMY_ALL" maxAttackerLevel="99" minAttackerLevel="1" />
+				<param chance="20.0" minDamage="100" mode="DIFF" />
+				<param skillId="5592" skillLevel="#ench3Trigger" />
+				<param targetType="TARGET" />
 			</effect>
 		</enchant3Effects>
 	</skill>
@@ -1276,10 +1289,11 @@
 		<table name="#magicLvl"> 40 48 56 60 64 68 72 </table>
 		<table name="#mpConsume1"> 7 9 11 11 12 13 14 </table>
 		<table name="#mpConsume2"> 28 35 41 44 48 51 53 </table>
-		<table name="#triggeredLevel"> 1 2 3 4 5 6 7 </table>
-		<table name="#ench1triggeredLevel"> 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 </table>
-		<table name="#ench2AbnormalTimes"> 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 </table>
-		<table name="#enchMagicLvl"> 76 76 76 77 77 77 78 78 78 79 79 79 80 80 80 81 81 81 82 82 82 83 83 83 84 84 84 85 85 85 </table>
+		<table name="#triggerSkillByDamageLevel"> 1 2 3 4 5 6 7 </table>
+		<table name="#ench1MagicLvl"> 76 76 76 77 77 77 78 78 78 79 79 79 80 80 80 81 81 81 82 82 82 83 83 83 84 84 84 85 85 85 </table>
+		<table name="#ench1TriggerSkillByDamageLevel"> 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 </table>
+		<table name="#ench2AbnormalTime"> 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 </table>
+		<table name="#ench2MagicLvl"> 76 76 76 77 77 77 78 78 78 79 79 79 80 80 80 81 81 81 82 82 82 83 83 83 84 84 84 85 85 85 </table>
 		<set name="abnormalLvl" val="1" />
 		<set name="abnormalTime" val="15" />
 		<set name="abnormalType" val="BLESS_THE_BLOOD" />
@@ -1299,31 +1313,27 @@
 		<set name="reuseDelayLock" val="true" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="TARGET" />
-		<enchant1 name="magicLvl" val="#enchMagicLvl" />
-		<enchant1 name="mpConsume1" val="14" />
+		<enchant1 name="magicLvl" val="#ench1MagicLvl" />
 		<enchant1 name="mpConsume2" val="54" />
-		<enchant2 name="abnormalTime" val="#ench2AbnormalTimes" />
-		<enchant2 name="magicLvl" val="#enchMagicLvl" />
-		<enchant2 name="mpConsume1" val="14" />
+		<enchant2 name="abnormalTime" val="#ench2AbnormalTime" />
+		<enchant2 name="magicLvl" val="#ench2MagicLvl" />
 		<enchant2 name="mpConsume2" val="54" />
 		<cond msgId="113" addName="1">
 			<target myParty="INCLUDE_ME" />
 		</cond>
 		<effects>
 			<effect name="TriggerSkillByDamage">
-				<param attackerType="L2Character" minAttackerLevel="1" maxAttackerLevel="99" />
-				<param minDamage="60" />
-				<param chance="60" />
-				<param skillId="5698" skillLevel="#triggeredLevel" /> <!-- Bless the Blood -->
+				<param attackerType="ENEMY_ALL" maxAttackerLevel="99" minAttackerLevel="1" />
+				<param chance="60.0" minDamage="60" mode="DIFF" />
+				<param skillId="5698" skillLevel="#triggerSkillByDamageLevel" />
 				<param targetType="SELF" />
 			</effect>
 		</effects>
 		<enchant1Effects>
 			<effect name="TriggerSkillByDamage">
-				<param attackerType="L2Character" minAttackerLevel="1" maxAttackerLevel="99" />
-				<param minDamage="60" />
-				<param chance="60" />
-				<param skillId="5698" skillLevel="#ench1triggeredLevel" /> <!-- Bless the Blood -->
+				<param attackerType="ENEMY_ALL" maxAttackerLevel="99" minAttackerLevel="1" />
+				<param chance="60.0" minDamage="60" mode="DIFF" />
+				<param skillId="5698" skillLevel="#ench1TriggerSkillByDamageLevel" />
 				<param targetType="SELF" />
 			</effect>
 		</enchant1Effects>
@@ -1733,13 +1743,14 @@
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="TARGET" />
 		<effects>
-			<effect name="TriggerSkillByDamage">
-				<param attackerType="L2Character" minAttackerLevel="1" maxAttackerLevel="100" />
-				<param minDamage="300" />
-				<param chance="80" />
-				<param skillId="6059" skillLevel="1" /> <!-- Counter Critical -->
-				<param targetType="SELF" />
+			<effect name="Debuff">
 				<mul stat="defCritDamage" val="0.7" />
+			</effect>
+			<effect name="TriggerSkillByDamage">
+				<param attackerType="ENEMY_ALL" maxAttackerLevel="100" minAttackerLevel="1" />
+				<param chance="80.0" minDamage="300" mode="DIFF" />
+				<param skillId="6059" skillLevel="1" />
+				<param targetType="SELF" />
 			</effect>
 		</effects>
 	</skill>

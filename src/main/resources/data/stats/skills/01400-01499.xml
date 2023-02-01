@@ -3410,16 +3410,17 @@
 		</effects>
 	</skill>
 	<skill id="1481" levels="7" name="Oblivion" enchantGroup1="1" enchantGroup2="1">
-		<!-- Confirmed CT2.5 -->
+		<!-- High Five Confirmed -->
 		<table name="#effectPoint"> -408 -467 -523 -566 -597 -624 -646 </table>
 		<table name="#magicLvl"> 43 49 55 60 64 68 72 </table>
-		<table name="#mpConsume2"> 30 35 40 44 48 51 53 </table>
 		<table name="#mpConsume1"> 8 9 10 11 12 13 14 </table>
-		<table name="#ench1AbnormalTimes"> 62 64 66 68 70 72 74 76 78 80 82 84 86 88 90 92 94 96 98 100 102 104 106 108 110 112 114 116 118 120 </table>
-		<table name="#ench1MpConsume2"> 52 51 50 50 49 48 47 46 45 44 43 43 42 41 40 39 38 37 36 36 35 34 33 32 31 30 29 28 28 27 </table>
+		<table name="#mpConsume2"> 30 35 40 44 48 51 53 </table>
+		<table name="#ench1AbnormalTime"> 62 64 66 68 70 72 74 76 78 80 82 84 86 88 90 92 94 96 98 100 102 104 106 108 110 112 114 116 118 120 </table>
+		<table name="#ench1MagicLvl"> 76 76 76 77 77 77 78 78 78 79 79 79 80 80 80 81 81 81 82 82 82 83 83 83 84 84 84 85 85 85 </table>
 		<table name="#ench1MpConsume1"> 13 12 12 12 12 12 11 11 11 11 10 10 10 10 10 9 9 9 9 9 8 8 8 8 7 7 7 7 7 6 </table>
-		<table name="#ench2ActivateRates"> 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 98 99 100 </table>
-		<table name="#enchMagicLvl"> 76 76 76 77 77 77 78 78 78 79 79 79 80 80 80 81 81 81 82 82 82 83 83 83 84 84 84 85 85 85 </table>
+		<table name="#ench1MpConsume2"> 52 51 50 50 49 48 47 46 45 44 43 43 42 41 40 39 38 37 36 36 35 34 33 32 31 30 29 28 28 27 </table>
+		<table name="#ench2ActivateRate"> 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 98 99 100 </table>
+		<table name="#ench2MagicLvl"> 76 76 76 77 77 77 78 78 78 79 79 79 80 80 80 81 81 81 82 82 82 83 83 83 84 84 84 85 85 85 </table>
 		<set name="abnormalLvl" val="8" />
 		<set name="abnormalTime" val="60" />
 		<set name="abnormalType" val="OBLIVION" />
@@ -3430,46 +3431,47 @@
 		<set name="castRange" val="600" />
 		<set name="effectPoint" val="#effectPoint" />
 		<set name="effectRange" val="1100" />
+		<set name="hitCancelTime" val="500" />
 		<set name="hitTime" val="3000" />
 		<set name="icon" val="icon.skill1481" />
 		<set name="isDebuff" val="true" />
 		<set name="isMagic" val="1" />
 		<set name="lvlBonusRate" val="1" />
 		<set name="magicLvl" val="#magicLvl" />
-		<set name="mpConsume2" val="#mpConsume2" />
 		<set name="mpConsume1" val="#mpConsume1" />
+		<set name="mpConsume2" val="#mpConsume2" />
 		<set name="operateType" val="A2" />
 		<set name="reuseDelay" val="2000" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="ENEMY_ONLY" />
 		<set name="trait" val="DERANGEMENT" />
-		<enchant1 name="abnormalTime" val="#ench1AbnormalTimes" />
-		<enchant1 name="magicLvl" val="#enchMagicLvl" />
-		<enchant1 name="mpConsume2" val="#ench1MpConsume2" />
+		<enchant1 name="abnormalTime" val="#ench1AbnormalTime" />
+		<enchant1 name="magicLvl" val="#ench1MagicLvl" />
 		<enchant1 name="mpConsume1" val="#ench1MpConsume1" />
-		<enchant2 name="activateRate" val="#ench2ActivateRates" />
-		<enchant2 name="magicLvl" val="#enchMagicLvl" />
+		<enchant1 name="mpConsume2" val="#ench1MpConsume2" />
+		<enchant2 name="activateRate" val="#ench2ActivateRate" />
+		<enchant2 name="magicLvl" val="#ench2MagicLvl" />
 		<effects>
 			<effect name="TriggerSkillByDamage">
-				<param attackerType="L2Character" minAttackerLevel="1" maxAttackerLevel="99" />
-				<param minDamage="100" />
-				<param chance="30" />
-				<param skillId="5448" skillLevel="1" /> <!-- Oblivion -->
+				<param attackerType="ENEMY_ALL" maxAttackerLevel="99" minAttackerLevel="1" />
+				<param chance="30.0" minDamage="100" mode="DIFF" />
+				<param skillId="5448" skillLevel="1" />
 				<param targetType="SELF" />
 			</effect>
 		</effects>
 	</skill>
 	<skill id="1482" levels="4" name="Weak Constitution" enchantGroup1="1" enchantGroup2="1">
-		<!-- Confirmed CT2.5 -->
+		<!-- High Five Confirmed -->
 		<table name="#effectPoint"> -582 -611 -635 -655 </table>
 		<table name="#magicLvl"> 62 66 70 74 </table>
-		<table name="#mpConsume2"> 46 49 52 54 </table>
 		<table name="#mpConsume1"> 12 13 13 14 </table>
-		<table name="#ench1AbnormalTimes"> 62 64 66 68 70 72 74 76 78 80 82 84 86 88 90 92 94 96 98 100 102 104 106 108 110 112 114 116 118 120 </table>
-		<table name="#ench1MpConsume2"> 53 52 51 50 49 48 48 47 46 45 44 43 42 41 40 39 38 38 37 36 35 34 33 32 31 30 29 29 28 27 </table>
+		<table name="#mpConsume2"> 46 49 52 54 </table>
+		<table name="#ench1AbnormalTime"> 62 64 66 68 70 72 74 76 78 80 82 84 86 88 90 92 94 96 98 100 102 104 106 108 110 112 114 116 118 120 </table>
+		<table name="#ench1MagicLvl"> 76 76 76 77 77 77 78 78 78 79 79 79 80 80 80 81 81 81 82 82 82 83 83 83 84 84 84 85 85 85 </table>
 		<table name="#ench1MpConsume1"> 13 13 12 12 12 12 12 11 11 11 11 10 10 10 10 9 9 9 9 9 8 8 8 8 7 7 7 7 7 6 </table>
-		<table name="#ench2ActivateRates"> 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 98 99 100 </table>
-		<table name="#enchMagicLvl"> 76 76 76 77 77 77 78 78 78 79 79 79 80 80 80 81 81 81 82 82 82 83 83 83 84 84 84 85 85 85 </table>
+		<table name="#ench1MpConsume2"> 53 52 51 50 49 48 48 47 46 45 44 43 42 41 40 39 38 38 37 36 35 34 33 32 31 30 29 29 28 27 </table>
+		<table name="#ench2ActivateRate"> 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 98 99 100 </table>
+		<table name="#ench2MagicLvl"> 76 76 76 77 77 77 78 78 78 79 79 79 80 80 80 81 81 81 82 82 82 83 83 83 84 84 84 85 85 85 </table>
 		<set name="abnormalLvl" val="8" />
 		<set name="abnormalTime" val="60" />
 		<set name="abnormalType" val="WEAK_CONSTITUTION" />
@@ -3480,46 +3482,47 @@
 		<set name="castRange" val="600" />
 		<set name="effectPoint" val="#effectPoint" />
 		<set name="effectRange" val="1100" />
+		<set name="hitCancelTime" val="500" />
 		<set name="hitTime" val="3000" />
 		<set name="icon" val="icon.skill1482" />
 		<set name="isDebuff" val="true" />
 		<set name="isMagic" val="1" />
 		<set name="lvlBonusRate" val="1" />
 		<set name="magicLvl" val="#magicLvl" />
-		<set name="mpConsume2" val="#mpConsume2" />
 		<set name="mpConsume1" val="#mpConsume1" />
+		<set name="mpConsume2" val="#mpConsume2" />
 		<set name="operateType" val="A2" />
 		<set name="reuseDelay" val="2000" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="ENEMY_ONLY" />
 		<set name="trait" val="SHOCK" />
-		<enchant1 name="abnormalTime" val="#ench1AbnormalTimes" />
-		<enchant1 name="magicLvl" val="#enchMagicLvl" />
-		<enchant1 name="mpConsume2" val="#ench1MpConsume2" />
+		<enchant1 name="abnormalTime" val="#ench1AbnormalTime" />
+		<enchant1 name="magicLvl" val="#ench1MagicLvl" />
 		<enchant1 name="mpConsume1" val="#ench1MpConsume1" />
-		<enchant2 name="activateRate" val="#ench2ActivateRates" />
-		<enchant2 name="magicLvl" val="#enchMagicLvl" />
+		<enchant1 name="mpConsume2" val="#ench1MpConsume2" />
+		<enchant2 name="activateRate" val="#ench2ActivateRate" />
+		<enchant2 name="magicLvl" val="#ench2MagicLvl" />
 		<effects>
 			<effect name="TriggerSkillByDamage">
-				<param attackerType="L2Character" minAttackerLevel="1" maxAttackerLevel="99" />
-				<param minDamage="100" />
-				<param chance="30" />
-				<param skillId="5449" skillLevel="1" /> <!-- Weak Constitution -->
+				<param attackerType="ENEMY_ALL" maxAttackerLevel="99" minAttackerLevel="1" />
+				<param chance="30.0" minDamage="100" mode="DIFF" />
+				<param skillId="5449" skillLevel="1" />
 				<param targetType="SELF" />
 			</effect>
 		</effects>
 	</skill>
 	<skill id="1483" levels="7" name="Thin Skin" enchantGroup1="1" enchantGroup2="1">
-		<!-- Confirmed CT2.5 -->
+		<!-- High Five Confirmed -->
 		<table name="#effectPoint"> -438 -495 -549 -582 -611 -635 -655 </table>
 		<table name="#magicLvl"> 46 52 58 62 66 70 74 </table>
-		<table name="#mpConsume2"> 33 38 43 46 49 52 54 </table>
 		<table name="#mpConsume1"> 9 10 11 12 13 13 14 </table>
-		<table name="#ench1AbnormalTimes"> 62 64 66 68 70 72 74 76 78 80 82 84 86 88 90 92 94 96 98 100 102 104 106 108 110 112 114 116 118 120 </table>
-		<table name="#ench1MpConsume2"> 53 52 51 50 49 48 48 47 46 45 44 43 42 41 40 39 38 38 37 36 35 34 33 32 31 30 29 29 28 27 </table>
+		<table name="#mpConsume2"> 33 38 43 46 49 52 54 </table>
+		<table name="#ench1AbnormalTime"> 62 64 66 68 70 72 74 76 78 80 82 84 86 88 90 92 94 96 98 100 102 104 106 108 110 112 114 116 118 120 </table>
+		<table name="#ench1MagicLvl"> 76 76 76 77 77 77 78 78 78 79 79 79 80 80 80 81 81 81 82 82 82 83 83 83 84 84 84 85 85 85 </table>
 		<table name="#ench1MpConsume1"> 13 13 12 12 12 12 12 11 11 11 11 10 10 10 10 9 9 9 9 9 8 8 8 8 7 7 7 7 7 6 </table>
-		<table name="#ench2ActivateRates"> 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 98 99 100 </table>
-		<table name="#enchMagicLvl"> 76 76 76 77 77 77 78 78 78 79 79 79 80 80 80 81 81 81 82 82 82 83 83 83 84 84 84 85 85 85 </table>
+		<table name="#ench1MpConsume2"> 53 52 51 50 49 48 48 47 46 45 44 43 42 41 40 39 38 38 37 36 35 34 33 32 31 30 29 29 28 27 </table>
+		<table name="#ench2ActivateRate"> 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 98 99 100 </table>
+		<table name="#ench2MagicLvl"> 76 76 76 77 77 77 78 78 78 79 79 79 80 80 80 81 81 81 82 82 82 83 83 83 84 84 84 85 85 85 </table>
 		<set name="abnormalLvl" val="8" />
 		<set name="abnormalTime" val="60" />
 		<set name="abnormalType" val="THIN_SKIN" />
@@ -3530,46 +3533,47 @@
 		<set name="castRange" val="600" />
 		<set name="effectPoint" val="#effectPoint" />
 		<set name="effectRange" val="1100" />
+		<set name="hitCancelTime" val="500" />
 		<set name="hitTime" val="3000" />
 		<set name="icon" val="icon.skill1483" />
 		<set name="isDebuff" val="true" />
 		<set name="isMagic" val="1" />
 		<set name="lvlBonusRate" val="1" />
 		<set name="magicLvl" val="#magicLvl" />
-		<set name="mpConsume2" val="#mpConsume2" />
 		<set name="mpConsume1" val="#mpConsume1" />
+		<set name="mpConsume2" val="#mpConsume2" />
 		<set name="operateType" val="A2" />
 		<set name="reuseDelay" val="2000" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="ENEMY_ONLY" />
 		<set name="trait" val="BLEED" />
-		<enchant1 name="abnormalTime" val="#ench1AbnormalTimes" />
-		<enchant1 name="magicLvl" val="#enchMagicLvl" />
-		<enchant1 name="mpConsume2" val="#ench1MpConsume2" />
+		<enchant1 name="abnormalTime" val="#ench1AbnormalTime" />
+		<enchant1 name="magicLvl" val="#ench1MagicLvl" />
 		<enchant1 name="mpConsume1" val="#ench1MpConsume1" />
-		<enchant2 name="activateRate" val="#ench2ActivateRates" />
-		<enchant2 name="magicLvl" val="#enchMagicLvl" />
+		<enchant1 name="mpConsume2" val="#ench1MpConsume2" />
+		<enchant2 name="activateRate" val="#ench2ActivateRate" />
+		<enchant2 name="magicLvl" val="#ench2MagicLvl" />
 		<effects>
 			<effect name="TriggerSkillByDamage">
-				<param attackerType="L2Character" minAttackerLevel="1" maxAttackerLevel="99" />
-				<param minDamage="100" />
-				<param chance="30" />
-				<param skillId="5450" skillLevel="1" /> <!-- Thin Skin -->
+				<param attackerType="ENEMY_ALL" maxAttackerLevel="99" minAttackerLevel="1" />
+				<param chance="30.0" minDamage="100" mode="DIFF" />
+				<param skillId="5450" skillLevel="1" />
 				<param targetType="SELF" />
 			</effect>
 		</effects>
 	</skill>
 	<skill id="1484" levels="4" name="Enervation" enchantGroup1="1" enchantGroup2="1">
-		<!-- Confirmed CT2.5 -->
+		<!-- High Five Confirmed -->
 		<table name="#effectPoint"> -566 -597 -624 -646 </table>
 		<table name="#magicLvl"> 60 64 68 72 </table>
-		<table name="#mpConsume2"> 44 48 51 53 </table>
 		<table name="#mpConsume1"> 11 12 13 14 </table>
-		<table name="#ench1AbnormalTimes"> 62 64 66 68 70 72 74 76 78 80 82 84 86 88 90 92 94 96 98 100 102 104 106 108 110 112 114 116 118 120 </table>
-		<table name="#ench1MpConsume2"> 52 51 50 50 49 48 47 46 45 44 43 43 42 41 40 39 38 37 36 36 35 34 33 32 31 30 29 28 28 27 </table>
+		<table name="#mpConsume2"> 44 48 51 53 </table>
+		<table name="#ench1AbnormalTime"> 62 64 66 68 70 72 74 76 78 80 82 84 86 88 90 92 94 96 98 100 102 104 106 108 110 112 114 116 118 120 </table>
+		<table name="#ench1MagicLvl"> 76 76 76 77 77 77 78 78 78 79 79 79 80 80 80 81 81 81 82 82 82 83 83 83 84 84 84 85 85 85 </table>
 		<table name="#ench1MpConsume1"> 13 12 12 12 12 12 11 11 11 11 10 10 10 10 10 9 9 9 9 9 8 8 8 8 7 7 7 7 7 6 </table>
-		<table name="#ench2ActivateRates"> 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 98 99 100 </table>
-		<table name="#enchMagicLvl"> 76 76 76 77 77 77 78 78 78 79 79 79 80 80 80 81 81 81 82 82 82 83 83 83 84 84 84 85 85 85 </table>
+		<table name="#ench1MpConsume2"> 52 51 50 50 49 48 47 46 45 44 43 43 42 41 40 39 38 37 36 36 35 34 33 32 31 30 29 28 28 27 </table>
+		<table name="#ench2ActivateRate"> 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 98 99 100 </table>
+		<table name="#ench2MagicLvl"> 76 76 76 77 77 77 78 78 78 79 79 79 80 80 80 81 81 81 82 82 82 83 83 83 84 84 84 85 85 85 </table>
 		<set name="abnormalLvl" val="8" />
 		<set name="abnormalTime" val="60" />
 		<set name="abnormalType" val="ENERVATION" />
@@ -3580,47 +3584,48 @@
 		<set name="castRange" val="600" />
 		<set name="effectPoint" val="#effectPoint" />
 		<set name="effectRange" val="1100" />
+		<set name="hitCancelTime" val="500" />
 		<set name="hitTime" val="3000" />
 		<set name="icon" val="icon.skill1484" />
 		<set name="isDebuff" val="true" />
 		<set name="isMagic" val="1" />
 		<set name="lvlBonusRate" val="1" />
 		<set name="magicLvl" val="#magicLvl" />
-		<set name="mpConsume2" val="#mpConsume2" />
 		<set name="mpConsume1" val="#mpConsume1" />
+		<set name="mpConsume2" val="#mpConsume2" />
 		<set name="operateType" val="A2" />
 		<set name="reuseDelay" val="2000" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="ENEMY_ONLY" />
 		<set name="trait" val="DERANGEMENT" />
-		<enchant1 name="abnormalTime" val="#ench1AbnormalTimes" />
-		<enchant1 name="magicLvl" val="#enchMagicLvl" />
-		<enchant1 name="mpConsume2" val="#ench1MpConsume2" />
+		<enchant1 name="abnormalTime" val="#ench1AbnormalTime" />
+		<enchant1 name="magicLvl" val="#ench1MagicLvl" />
 		<enchant1 name="mpConsume1" val="#ench1MpConsume1" />
-		<enchant2 name="activateRate" val="#ench2ActivateRates" />
-		<enchant2 name="magicLvl" val="#enchMagicLvl" />
+		<enchant1 name="mpConsume2" val="#ench1MpConsume2" />
+		<enchant2 name="activateRate" val="#ench2ActivateRate" />
+		<enchant2 name="magicLvl" val="#ench2MagicLvl" />
 		<effects>
 			<effect name="TriggerSkillByDamage">
-				<param attackerType="L2Character" minAttackerLevel="1" maxAttackerLevel="99" />
-				<param minDamage="100" />
-				<param chance="30" />
-				<param skillId="5451" skillLevel="1" /> <!-- Enervation -->
+				<param attackerType="ENEMY_ALL" maxAttackerLevel="99" minAttackerLevel="1" />
+				<param chance="30.0" minDamage="100" mode="DIFF" />
+				<param skillId="5451" skillLevel="1" />
 				<param targetType="SELF" />
 			</effect>
 		</effects>
 	</skill>
 	<skill id="1485" levels="3" name="Spite" enchantGroup1="1" enchantGroup2="1">
-		<!-- Confirmed CT2.5 -->
+		<!-- High Five Confirmed -->
 		<table name="#effectPoint"> -611 -635 -655 </table>
-		<table name="#lvl"> 1 2 3 </table>
 		<table name="#magicLvl"> 66 70 74 </table>
-		<table name="#mpConsume2"> 49 52 54 </table>
 		<table name="#mpConsume1"> 13 13 14 </table>
-		<table name="#ench1AbnormalTimes"> 62 64 66 68 70 72 74 76 78 80 82 84 86 88 90 92 94 96 98 100 102 104 106 108 110 112 114 116 118 120 </table>
-		<table name="#ench1MpConsume2"> 53 52 51 50 49 48 48 47 46 45 44 43 42 41 40 39 38 38 37 36 35 34 33 32 31 30 29 29 28 27 </table>
+		<table name="#mpConsume2"> 49 52 54 </table>
+		<table name="#triggerSkillByDamageLevel"> 1 2 3 </table>
+		<table name="#ench1AbnormalTime"> 62 64 66 68 70 72 74 76 78 80 82 84 86 88 90 92 94 96 98 100 102 104 106 108 110 112 114 116 118 120 </table>
+		<table name="#ench1MagicLvl"> 76 76 76 77 77 77 78 78 78 79 79 79 80 80 80 81 81 81 82 82 82 83 83 83 84 84 84 85 85 85 </table>
 		<table name="#ench1MpConsume1"> 13 13 12 12 12 12 12 11 11 11 11 10 10 10 10 9 9 9 9 9 8 8 8 8 7 7 7 7 7 6 </table>
-		<table name="#ench2ActivateRates"> 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 98 99 100 </table>
-		<table name="#enchMagicLvl"> 76 76 76 77 77 77 78 78 78 79 79 79 80 80 80 81 81 81 82 82 82 83 83 83 84 84 84 85 85 85 </table>
+		<table name="#ench1MpConsume2"> 53 52 51 50 49 48 48 47 46 45 44 43 42 41 40 39 38 38 37 36 35 34 33 32 31 30 29 29 28 27 </table>
+		<table name="#ench2ActivateRate"> 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 98 99 100 </table>
+		<table name="#ench2MagicLvl"> 76 76 76 77 77 77 78 78 78 79 79 79 80 80 80 81 81 81 82 82 82 83 83 83 84 84 84 85 85 85 </table>
 		<set name="abnormalLvl" val="8" />
 		<set name="abnormalTime" val="60" />
 		<set name="abnormalType" val="SPITE" />
@@ -3631,46 +3636,63 @@
 		<set name="castRange" val="600" />
 		<set name="effectPoint" val="#effectPoint" />
 		<set name="effectRange" val="1100" />
+		<set name="hitCancelTime" val="500" />
 		<set name="hitTime" val="3000" />
 		<set name="icon" val="icon.skill1485" />
 		<set name="isDebuff" val="true" />
 		<set name="isMagic" val="1" />
 		<set name="lvlBonusRate" val="1" />
 		<set name="magicLvl" val="#magicLvl" />
-		<set name="mpConsume2" val="#mpConsume2" />
 		<set name="mpConsume1" val="#mpConsume1" />
+		<set name="mpConsume2" val="#mpConsume2" />
 		<set name="operateType" val="A2" />
 		<set name="reuseDelay" val="2000" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="ENEMY_ONLY" />
-		<enchant1 name="abnormalTime" val="#ench1AbnormalTimes" />
-		<enchant1 name="magicLvl" val="#enchMagicLvl" />
-		<enchant1 name="mpConsume2" val="#ench1MpConsume2" />
+		<enchant1 name="abnormalTime" val="#ench1AbnormalTime" />
+		<enchant1 name="magicLvl" val="76" />
 		<enchant1 name="mpConsume1" val="#ench1MpConsume1" />
-		<enchant2 name="activateRate" val="#ench2ActivateRates" />
-		<enchant2 name="magicLvl" val="#enchMagicLvl" />
+		<enchant1 name="mpConsume2" val="#ench1MpConsume2" />
+		<enchant2 name="activateRate" val="#ench2ActivateRate" />
+		<enchant2 name="magicLvl" val="76" />
 		<effects>
 			<effect name="TriggerSkillByDamage">
-				<param attackerType="L2Character" minAttackerLevel="1" maxAttackerLevel="99" />
-				<param minDamage="100" />
-				<param chance="30" />
-				<param skillId="5452" skillLevel="1" /> <!-- Spite -->
+				<param attackerType="ENEMY_ALL" maxAttackerLevel="99" minAttackerLevel="1" />
+				<param chance="30.0" minDamage="100" mode="DIFF" />
+				<param skillId="5452" skillLevel="#triggerSkillByDamageLevel" />
 				<param targetType="SELF" />
 			</effect>
 		</effects>
+		<enchant1Effects>
+			<effect name="TriggerSkillByDamage">
+				<param attackerType="ENEMY_ALL" maxAttackerLevel="99" minAttackerLevel="1" />
+				<param chance="30.0" minDamage="100" mode="DIFF" />
+				<param skillId="5452" skillLevel="3" />
+				<param targetType="SELF" />
+			</effect>
+		</enchant1Effects>
+		<enchant2Effects>
+			<effect name="TriggerSkillByDamage">
+				<param attackerType="ENEMY_ALL" maxAttackerLevel="99" minAttackerLevel="1" />
+				<param chance="30.0" minDamage="100" mode="DIFF" />
+				<param skillId="5452" skillLevel="3" />
+				<param targetType="SELF" />
+			</effect>
+		</enchant2Effects>
 	</skill>
 	<skill id="1486" levels="4" name="Mental Impoverish" enchantGroup1="1" enchantGroup2="1">
-		<!-- Confirmed CT2.5 -->
+		<!-- High Five Confirmed -->
 		<table name="#effectPoint"> -624 -635 -646 -655 </table>
-		<table name="#lvl"> 1 2 3 4 </table>
 		<table name="#magicLvl"> 68 70 72 74 </table>
-		<table name="#mpConsume2"> 51 52 53 54 </table>
 		<table name="#mpConsume1"> 13 13 14 14 </table>
-		<table name="#ench1AbnormalTimes"> 62 64 66 68 70 72 74 76 78 80 82 84 86 88 90 92 94 96 98 100 102 104 106 108 110 112 114 116 118 120 </table>
-		<table name="#ench1MpConsume2"> 52 51 50 50 49 48 47 46 45 44 43 43 42 41 40 39 38 37 36 36 35 34 33 32 31 30 29 28 28 27 </table>
+		<table name="#mpConsume2"> 51 52 53 54 </table>
+		<table name="#triggerSkillByDamageLevel"> 1 2 3 4 </table>
+		<table name="#ench1AbnormalTime"> 62 64 66 68 70 72 74 76 78 80 82 84 86 88 90 92 94 96 98 100 102 104 106 108 110 112 114 116 118 120 </table>
+		<table name="#ench1MagicLvl"> 76 76 76 77 77 77 78 78 78 79 79 79 80 80 80 81 81 81 82 82 82 83 83 83 84 84 84 85 85 85 </table>
 		<table name="#ench1MpConsume1"> 13 12 12 12 12 12 11 11 11 11 10 10 10 10 10 9 9 9 9 9 8 8 8 8 7 7 7 7 7 6 </table>
-		<table name="#ench2ActivateRates"> 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 98 99 100 </table>
-		<table name="#enchMagicLvl"> 76 76 76 77 77 77 78 78 78 79 79 79 80 80 80 81 81 81 82 82 82 83 83 83 84 84 84 85 85 85 </table>
+		<table name="#ench1MpConsume2"> 52 51 50 50 49 48 47 46 45 44 43 43 42 41 40 39 38 37 36 36 35 34 33 32 31 30 29 28 28 27 </table>
+		<table name="#ench2ActivateRate"> 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 98 99 100 </table>
+		<table name="#ench2MagicLvl"> 76 76 76 77 77 77 78 78 78 79 79 79 80 80 80 81 81 81 82 82 82 83 83 83 84 84 84 85 85 85 </table>
 		<set name="abnormalLvl" val="8" />
 		<set name="abnormalTime" val="60" />
 		<set name="abnormalType" val="MENTAL_IMPOVERISH" />
@@ -3681,33 +3703,50 @@
 		<set name="castRange" val="600" />
 		<set name="effectPoint" val="#effectPoint" />
 		<set name="effectRange" val="1100" />
+		<set name="hitCancelTime" val="500" />
 		<set name="hitTime" val="3000" />
 		<set name="icon" val="icon.skill1486" />
 		<set name="isDebuff" val="true" />
 		<set name="isMagic" val="1" />
 		<set name="lvlBonusRate" val="1" />
 		<set name="magicLvl" val="#magicLvl" />
+		<set name="mpConsume1" val="#mpConsume1" />
 		<set name="mpConsume2" val="#mpConsume2" />
 		<set name="operateType" val="A2" />
 		<set name="reuseDelay" val="2000" />
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="ENEMY_ONLY" />
 		<set name="trait" val="DERANGEMENT" />
-		<enchant1 name="abnormalTime" val="#ench1AbnormalTimes" />
-		<enchant1 name="magicLvl" val="#enchMagicLvl" />
-		<enchant1 name="mpConsume2" val="#ench1MpConsume2" />
+		<enchant1 name="abnormalTime" val="#ench1AbnormalTime" />
+		<enchant1 name="magicLvl" val="#ench1MagicLvl" />
 		<enchant1 name="mpConsume1" val="#ench1MpConsume1" />
-		<enchant2 name="activateRate" val="#ench2ActivateRates" />
-		<enchant2 name="magicLvl" val="#enchMagicLvl" />
+		<enchant1 name="mpConsume2" val="#ench1MpConsume2" />
+		<enchant2 name="activateRate" val="#ench2ActivateRate" />
+		<enchant2 name="magicLvl" val="#ench2MagicLvl" />
 		<effects>
 			<effect name="TriggerSkillByDamage">
-				<param attackerType="L2Character" minAttackerLevel="1" maxAttackerLevel="99" />
-				<param minDamage="100" />
-				<param chance="30" />
-				<param skillId="5453" skillLevel="1" /> <!-- Mental Impoverish -->
+				<param attackerType="ENEMY_ALL" maxAttackerLevel="99" minAttackerLevel="1" />
+				<param chance="30.0" minDamage="100" mode="DIFF" />
+				<param skillId="5453" skillLevel="#triggerSkillByDamageLevel" />
 				<param targetType="SELF" />
 			</effect>
 		</effects>
+		<enchant1Effects>
+			<effect name="TriggerSkillByDamage">
+				<param attackerType="ENEMY_ALL" maxAttackerLevel="99" minAttackerLevel="1" />
+				<param chance="30.0" minDamage="100" mode="DIFF" />
+				<param skillId="5453" skillLevel="4" />
+				<param targetType="SELF" />
+			</effect>
+		</enchant1Effects>
+		<enchant2Effects>
+			<effect name="TriggerSkillByDamage">
+				<param attackerType="ENEMY_ALL" maxAttackerLevel="99" minAttackerLevel="1" />
+				<param chance="30.0" minDamage="100" mode="DIFF" />
+				<param skillId="5453" skillLevel="4" />
+				<param targetType="SELF" />
+			</effect>
+		</enchant2Effects>
 	</skill>
 	<skill id="1487" levels="8" name="Restoration" enchantGroup1="1" enchantGroup2="1">
 		<!-- High Five Confirmed -->
@@ -3822,7 +3861,8 @@
 		</effects>
 	</skill>
 	<skill id="1490" levels="1" name="Healer Ability - Heal">
-		<!-- Confirmed CT2.5 -->
+		<!-- High Five Confirmed -->
+		<set name="blockedInOlympiad" val="true" />
 		<set name="excludedFromCheck" val="true" />
 		<set name="icon" val="icon.skill1011" />
 		<set name="magicLvl" val="75" />
@@ -3830,16 +3870,16 @@
 		<set name="targetType" val="SELF" />
 		<effects>
 			<effect name="TriggerSkillByDamage">
-				<param attackerType="L2Character" minAttackerLevel="1" maxAttackerLevel="99" />
-				<param minDamage="1" />
-				<param chance="2" />
-				<param skillId="5577" skillLevel="1" /> <!-- Healer Ability - Heal -->
+				<param attackerType="ENEMY_ALL" maxAttackerLevel="99" minAttackerLevel="1" />
+				<param chance="2.0" minDamage="1" mode="DIFF" />
+				<param skillId="5577" skillLevel="1" />
 				<param targetType="SELF" />
 			</effect>
 		</effects>
 	</skill>
 	<skill id="1491" levels="1" name="Summoner Ability - Spirit">
-		<!-- Confirmed CT2.5 -->
+		<!-- High Five Confirmed -->
+		<set name="blockedInOlympiad" val="true" />
 		<set name="excludedFromCheck" val="true" />
 		<set name="icon" val="icon.skill1349" />
 		<set name="magicLvl" val="75" />
@@ -3847,10 +3887,9 @@
 		<set name="targetType" val="SELF" />
 		<effects>
 			<effect name="TriggerSkillByDamage">
-				<param attackerType="L2Character" minAttackerLevel="1" maxAttackerLevel="99" />
-				<param minDamage="1" />
-				<param chance="2" />
-				<param skillId="5578" skillLevel="1" /> <!-- Summoner Ability - Spirit -->
+				<param attackerType="ENEMY_ALL" maxAttackerLevel="99" minAttackerLevel="1" />
+				<param chance="2.0" minDamage="1" mode="DIFF" />
+				<param skillId="5578" skillLevel="1" />
 				<param targetType="SELF" />
 			</effect>
 		</effects>
@@ -3874,15 +3913,14 @@
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
 		<effects>
-			<effect name="TriggerSkillByDamage">
-				<param attackerType="L2Character" minAttackerLevel="1" maxAttackerLevel="99" />
-				<param minDamage="1" />
-				<param chance="10" />
-				<param skillId="5567" skillLevel="1" /> <!-- Flame Armor -->
-				<param targetType="ONE" />
-			</effect>
 			<effect name="Buff">
 				<add stat="fireRes" val="60" />
+			</effect>
+			<effect name="TriggerSkillByDamage">
+				<param attackerType="ENEMY_ALL" maxAttackerLevel="99" minAttackerLevel="1" />
+				<param chance="10.0" minDamage="1" mode="DIFF" />
+				<param skillId="5567" skillLevel="1" />
+				<param targetType="TARGET" />
 			</effect>
 		</effects>
 	</skill>
@@ -3905,15 +3943,14 @@
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
 		<effects>
-			<effect name="TriggerSkillByDamage">
-				<param attackerType="L2Character" minAttackerLevel="1" maxAttackerLevel="99" />
-				<param minDamage="1" />
-				<param chance="10" />
-				<param skillId="5568" skillLevel="1" /> <!-- Frost Armor -->
-				<param targetType="ONE" />
-			</effect>
 			<effect name="Buff">
 				<add stat="waterRes" val="60" />
+			</effect>
+			<effect name="TriggerSkillByDamage">
+				<param attackerType="ENEMY_ALL" maxAttackerLevel="99" minAttackerLevel="1" />
+				<param chance="10.0" minDamage="1" mode="DIFF" />
+				<param skillId="5568" skillLevel="1" />
+				<param targetType="TARGET" />
 			</effect>
 		</effects>
 	</skill>
@@ -3936,15 +3973,14 @@
 		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
 		<set name="targetType" val="SELF" />
 		<effects>
-			<effect name="TriggerSkillByDamage">
-				<param attackerType="L2Character" minAttackerLevel="1" maxAttackerLevel="99" />
-				<param minDamage="1" />
-				<param chance="10" />
-				<param skillId="5569" skillLevel="1" /> <!-- Hurricane Armor -->
-				<param targetType="ONE" />
-			</effect>
 			<effect name="Buff">
 				<add stat="windRes" val="60" />
+			</effect>
+			<effect name="TriggerSkillByDamage">
+				<param attackerType="ENEMY_ALL" maxAttackerLevel="99" minAttackerLevel="1" />
+				<param chance="10.0" minDamage="1" mode="DIFF" />
+				<param skillId="5569" skillLevel="1" />
+				<param targetType="TARGET" />
 			</effect>
 		</effects>
 	</skill>
@@ -4031,17 +4067,17 @@
 		</effects>
 	</skill>
 	<skill id="1497" levels="1" name="Excessive Loyalty">
-		<!-- Confirmed CT2.5 -->
+		<!-- High Five Confirmed -->
+		<set name="blockedInOlympiad" val="true" />
 		<set name="icon" val="icon.skill1497" />
 		<set name="magicLvl" val="81" />
 		<set name="operateType" val="P" />
 		<set name="targetType" val="SELF" />
 		<effects>
 			<effect name="TriggerSkillByDamage">
-				<param attackerType="L2Character" minAttackerLevel="1" maxAttackerLevel="99" />
-				<param minDamage="100" />
-				<param chance="30" />
-				<param skillId="5570" skillLevel="1" /> <!-- Excessive Royalty -->
+				<param attackerType="ENEMY_ALL" maxAttackerLevel="99" minAttackerLevel="1" />
+				<param chance="30.0" minDamage="100" mode="DIFF" />
+				<param skillId="5570" skillLevel="1" />
 				<param targetType="SUMMON" />
 			</effect>
 		</effects>

@@ -148,301 +148,510 @@
 			<effect name="EnableCloak" />
 		</effects>
 	</skill>
-	<skill id="8406" levels="1" name="Moirai Armor Set - PvP">
-		<!-- Confirmed CT2.5 -->
+	<skill id="8406" levels="1" name="Moirai Heavy Armor Set - PvP">
+		<!-- High Five Confirmed -->
+		<set name="blockedInOlympiad" val="true" />
 		<set name="icon" val="icon.armor_t100_u_i00" />
 		<set name="magicLvl" val="82" />
 		<set name="operateType" val="P" />
 		<set name="targetType" val="SELF" />
 		<effects>
-			<effect name="TriggerSkillByDamage">
-				<param attackerType="L2Playable" minAttackerLevel="1" maxAttackerLevel="100" />
-				<param minDamage="1" />
-				<param chance="2" />
-				<param skillId="5693" skillLevel="1" /> <!-- PvP Armor - Speed Down -->
-				<param targetType="ONE" />
+			<effect name="Buff">
+				<mul stat="pAtkSpd" val="1.04" />
+			</effect>
+			<effect name="Buff">
+				<add stat="fireRes" val="3" />
+			</effect>
+			<effect name="Buff">
+				<add stat="waterRes" val="3" />
+			</effect>
+			<effect name="Buff">
+				<add stat="windRes" val="3" />
+			</effect>
+			<effect name="Buff">
+				<add stat="earthRes" val="3" />
 			</effect>
 			<effect name="DefenceTrait">
 				<param SHOCK="50" />
-				<mul stat="pAtk" val="1.0426" /> <!-- Atk Power +4.26% -->
-				<mul stat="pAtkSpd" val="1.04" /> <!-- Atk. Spd. +4% -->
-				<mul stat="magicSuccRes" val="1.02" /> <!-- Resistance to Damage Magic +2% -->
-				<add stat="fireRes" val="3" /> <!-- resistance to fire attributes +3 -->
-				<add stat="waterRes" val="3" /> <!-- resistance to water attributes +3 -->
-				<add stat="windRes" val="3" /> <!-- resistance to wind attributes +3 -->
-				<add stat="earthRes" val="3" /> <!-- resistance to earth attributes +3 -->
-				<mul stat="pvpMagicalDef" val="1.05" /> <!-- During PvP, damage received decreased -->
-				<mul stat="pvpPhysSkillsDef" val="1.05" /> <!-- During PvP, damage received decreased -->
-				<mul stat="pvpPhysDef" val="1.05" /> <!-- During PvP, damage received decreased -->
+			</effect>
+			<effect name="Buff">
+				<mul stat="pAtk" val="1.0426" />
+			</effect>
+			<effect name="Buff">
+				<mul stat="pvpMagicalDef" val="1.05" />
+			</effect>
+			<effect name="Buff">
+				<mul stat="pvpPhysDef" val="1.05" />
+			</effect>
+			<effect name="Buff">
+				<mul stat="pvpPhysSkillsDef" val="1.05" />
+			</effect>
+			<effect name="Buff">
+				<mul stat="magicSuccRes" val="1.02" />
 			</effect>
 			<effect name="EnableCloak" />
+			<effect name="TriggerSkillByDamage">
+				<param attackerType="PK" maxAttackerLevel="100" minAttackerLevel="1" />
+				<param chance="2.0" minDamage="1" mode="DIFF" />
+				<param skillId="5693" skillLevel="1" />
+				<param targetType="ENEMY" />
+			</effect>
 		</effects>
 	</skill>
-	<skill id="8407" levels="1" name="Moirai Leather Armor Set - PvP">
-		<!-- Confirmed CT2.5 -->
+	<skill id="8407" levels="1" name="Moirai Light Armor Set - PvP">
+		<!-- High Five Confirmed -->
+		<set name="blockedInOlympiad" val="true" />
 		<set name="icon" val="icon.armor_t101_u_i00" />
 		<set name="magicLvl" val="82" />
 		<set name="operateType" val="P" />
 		<set name="targetType" val="SELF" />
 		<effects>
-			<effect name="TriggerSkillByDamage">
-				<param attackerType="L2Playable" minAttackerLevel="1" maxAttackerLevel="100" />
-				<param minDamage="1" />
-				<param chance="2" />
-				<param skillId="5694" skillLevel="1" /> <!-- PvP Armor - Mirage -->
-				<param targetType="ONE" />
+			<effect name="Buff">
+				<mul stat="pAtkSpd" val="1.04" />
+			</effect>
+			<effect name="Buff">
+				<add stat="fireRes" val="3" />
+			</effect>
+			<effect name="Buff">
+				<add stat="waterRes" val="3" />
+			</effect>
+			<effect name="Buff">
+				<add stat="windRes" val="3" />
+			</effect>
+			<effect name="Buff">
+				<add stat="earthRes" val="3" />
 			</effect>
 			<effect name="DefenceTrait">
 				<param HOLD="50" />
-				<mul stat="pAtk" val="1.0426" /> <!-- P. Atk. +4.26% -->
-				<mul stat="pAtkSpd" val="1.04" /> <!-- Atk. Spd. +4% -->
-				<mul stat="runSpd" val="1.03" /> <!-- Moving Spd. +3% -->
-				<add stat="fireRes" val="3" /> <!-- resistance to fire attributes +3 -->
-				<add stat="waterRes" val="3" /> <!-- resistance to water attributes +3 -->
-				<add stat="windRes" val="3" /> <!-- resistance to wind attributes +3 -->
-				<add stat="earthRes" val="3" /> <!-- resistance to earth attributes +3 -->
-				<mul stat="pvpMagicalDef" val="1.05" /> <!-- During PvP, damage received decreased -->
-				<mul stat="pvpPhysSkillsDef" val="1.05" /> <!-- During PvP, damage received decreased -->
-				<mul stat="pvpPhysDef" val="1.05" /> <!-- During PvP, damage received decreased -->
+			</effect>
+			<effect name="Buff">
+				<mul stat="pAtk" val="1.0426" />
+			</effect>
+			<effect name="Buff">
+				<mul stat="pvpMagicalDef" val="1.05" />
+			</effect>
+			<effect name="Buff">
+				<mul stat="pvpPhysDef" val="1.05" />
+			</effect>
+			<effect name="Buff">
+				<mul stat="pvpPhysSkillsDef" val="1.05" />
 			</effect>
 			<effect name="EnableCloak" />
+			<effect name="Buff">
+				<mul stat="runSpd" val="1.03" />
+			</effect>
+			<effect name="TriggerSkillByDamage">
+				<param attackerType="PK" maxAttackerLevel="100" minAttackerLevel="1" />
+				<param chance="2.0" minDamage="1" mode="DIFF" />
+				<param skillId="5694" skillLevel="1" />
+				<param targetType="ENEMY" />
+			</effect>
 		</effects>
 	</skill>
 	<skill id="8408" levels="1" name="Moirai Robe Set - PvP">
-		<!-- Confirmed CT2.5 -->
+		<!-- High Five Confirmed -->
+		<set name="blockedInOlympiad" val="true" />
 		<set name="icon" val="icon.armor_t102_u_i00" />
 		<set name="magicLvl" val="82" />
 		<set name="operateType" val="P" />
 		<set name="targetType" val="SELF" />
 		<effects>
-			<effect name="TriggerSkillByDamage">
-				<param attackerType="L2Playable" minAttackerLevel="1" maxAttackerLevel="100" />
-				<param minDamage="1" />
-				<param chance="2" />
-				<param skillId="5691" skillLevel="1" /> <!-- PvP Armor - Critical Down -->
-				<param targetType="SELF" />
+			<effect name="Buff">
+				<add stat="fireRes" val="5" />
+			</effect>
+			<effect name="Buff">
+				<add stat="waterRes" val="5" />
+			</effect>
+			<effect name="Buff">
+				<add stat="windRes" val="5" />
+			</effect>
+			<effect name="Buff">
+				<add stat="earthRes" val="5" />
 			</effect>
 			<effect name="DefenceTrait">
 				<param PARALYZE="50" />
-				<mul stat="mAtk" val="1.0811" /> <!-- M. Power +8.11% -->
-				<mul stat="mAtkSpd" val="1.15" /> <!-- M. Spd. +15% -->
-				<add stat="fireRes" val="5" /> <!-- resistance to fire attributes +5 -->
-				<add stat="waterRes" val="5" /> <!-- resistance to water attributes +5 -->
-				<add stat="windRes" val="5" /> <!-- resistance to wind attributes +5 -->
-				<add stat="earthRes" val="5" /> <!-- resistance to earth attributes +5 -->
-				<mul stat="pvpMagicalDef" val="1.05" /> <!-- During PvP, damage received decreased -->
-				<mul stat="pvpPhysSkillsDef" val="1.05" /> <!-- During PvP, damage received decreased -->
-				<mul stat="pvpPhysDef" val="1.05" /> <!-- During PvP, damage received decreased -->
+			</effect>
+			<effect name="Buff">
+				<mul stat="mAtkSpd" val="1.15" />
+			</effect>
+			<effect name="Buff">
+				<mul stat="mAtk" val="1.0811" />
+			</effect>
+			<effect name="Buff">
+				<mul stat="pvpMagicalDef" val="1.05" />
+			</effect>
+			<effect name="Buff">
+				<mul stat="pvpPhysDef" val="1.05" />
+			</effect>
+			<effect name="Buff">
+				<mul stat="pvpPhysSkillsDef" val="1.05" />
 			</effect>
 			<effect name="EnableCloak" />
+			<effect name="TriggerSkillByDamage">
+				<param attackerType="PK" maxAttackerLevel="100" minAttackerLevel="1" />
+				<param chance="2.0" minDamage="1" mode="DIFF" />
+				<param skillId="5691" skillLevel="1" />
+				<param targetType="SELF" />
+			</effect>
 		</effects>
 	</skill>
 	<skill id="8409" levels="1" name="Vorpal Heavy Armor Set - PvP">
-		<!-- Confirmed CT2.5 and Updated to H5 -->
+		<!-- High Five Confirmed -->
+		<set name="blockedInOlympiad" val="true" />
 		<set name="icon" val="icon.armor_t94_u_i03" />
 		<set name="magicLvl" val="85" />
 		<set name="operateType" val="P" />
 		<set name="targetType" val="SELF" />
 		<effects>
-			<effect name="TriggerSkillByDamage">
-				<param attackerType="L2Playable" minAttackerLevel="1" maxAttackerLevel="100" />
-				<param minDamage="1" />
-				<param chance="2" />
-				<param skillId="5693" skillLevel="1" /> <!-- PvP Armor - Speed Down -->
-				<param targetType="ONE" />
+			<effect name="Buff">
+				<add stat="fireRes" val="5" />
 			</effect>
-			<effect name="MaxHp">
-				<param power="541" />
+			<effect name="Buff">
+				<add stat="waterRes" val="5" />
+			</effect>
+			<effect name="Buff">
+				<add stat="windRes" val="5" />
+			</effect>
+			<effect name="Buff">
+				<add stat="earthRes" val="5" />
 			</effect>
 			<effect name="DefenceTrait">
 				<param BLEED="50" />
+			</effect>
+			<effect name="DefenceTrait">
 				<param HOLD="50" />
+			</effect>
+			<effect name="DefenceTrait">
 				<param SLEEP="50" />
-				<mul stat="pDef" val="1.0847" /> <!-- Def. Power +8.47% -->
-				<mul stat="pAtk" val="1.0557" /> <!-- Atk. Power +5.57% -->
-				<mul stat="magicSuccRes" val="1.02" /> <!-- Resistance to Damage Magic +2% -->
-				<add stat="fireRes" val="5" /> <!-- Resistance to fire attributes +5 -->
-				<add stat="waterRes" val="5" /> <!-- Resistance to water attributes +5 -->
-				<add stat="windRes" val="5" /> <!-- Resistance to wind attributes +5 -->
-				<add stat="earthRes" val="5" /> <!-- Resistance to earth attributes +5 -->
-				<add stat="accCombat" val="4" /> <!-- Increases Accuracy by 4 -->
-				<add stat="runSpd" val="7" /> <!-- Increases Speed by 7 -->
-				<mul stat="pvpMagicalDef" val="1.05" /> <!-- During PvP, damage received decreased -->
-				<mul stat="pvpPhysSkillsDef" val="1.05" /> <!-- During PvP, damage received decreased -->
-				<mul stat="pvpPhysDef" val="1.05" /> <!-- During PvP, damage received decreased -->
+			</effect>
+			<effect name="Buff">
+				<add stat="accCombat" val="4" />
+			</effect>
+			<effect name="MaxHp">
+				<param power="541" />
+				<param type="DIFF" />
+			</effect>
+			<effect name="Buff">
+				<mul stat="pAtk" val="1.0557" />
+			</effect>
+			<effect name="Buff">
+				<mul stat="pDef" val="1.0847" />
+			</effect>
+			<effect name="Buff">
+				<mul stat="pvpMagicalDef" val="1.05" />
+			</effect>
+			<effect name="Buff">
+				<mul stat="pvpPhysDef" val="1.05" />
+			</effect>
+			<effect name="Buff">
+				<mul stat="pvpPhysSkillsDef" val="1.05" />
+			</effect>
+			<effect name="Buff">
+				<mul stat="magicSuccRes" val="1.02" />
 			</effect>
 			<effect name="EnableCloak" />
+			<effect name="Buff">
+				<add stat="runSpd" val="7" />
+			</effect>
+			<effect name="TriggerSkillByDamage">
+				<param attackerType="PK" maxAttackerLevel="100" minAttackerLevel="1" />
+				<param chance="2.0" minDamage="1" mode="DIFF" />
+				<param skillId="5693" skillLevel="1" />
+				<param targetType="ENEMY" />
+			</effect>
 		</effects>
 	</skill>
 	<skill id="8410" levels="1" name="Vorpal Leather Armor Set - PvP">
-		<!-- Confirmed CT2.5 and Updated to H5 -->
+		<!-- High Five Confirmed -->
+		<set name="blockedInOlympiad" val="true" />
 		<set name="icon" val="icon.armor_t95_u_i03" />
 		<set name="magicLvl" val="85" />
 		<set name="operateType" val="P" />
 		<set name="targetType" val="SELF" />
 		<effects>
-			<effect name="TriggerSkillByDamage">
-				<param attackerType="L2Playable" minAttackerLevel="1" maxAttackerLevel="100" />
-				<param minDamage="1" />
-				<param chance="2" />
-				<param skillId="5694" skillLevel="1" /> <!-- PvP Armor - Mirage -->
-				<param targetType="ONE" />
+			<effect name="Buff">
+				<mul stat="pAtkSpd" val="1.05" />
 			</effect>
-			<effect name="MaxMp">
-				<param power="360" />
+			<effect name="Buff">
+				<add stat="critDmg" val="182" />
+			</effect>
+			<effect name="Buff">
+				<add stat="fireRes" val="5" />
+			</effect>
+			<effect name="Buff">
+				<add stat="waterRes" val="5" />
+			</effect>
+			<effect name="Buff">
+				<add stat="windRes" val="5" />
+			</effect>
+			<effect name="Buff">
+				<add stat="earthRes" val="5" />
 			</effect>
 			<effect name="DefenceTrait">
 				<param SHOCK="50" />
-				<mul stat="pAtk" val="1.0557" /> <!-- Atk. Power + 5.57% -->
-				<mul stat="pDef" val="1.0557" /> <!-- Def. Power + 5.57% -->
-				<mul stat="pAtkSpd" val="1.05" /> <!-- Atk. Spd. +5% -->
-				<mul stat="runSpd" val="1.03" /> <!-- Moving Spd. +3% -->
-				<add stat="fireRes" val="5" /> <!-- Resistance to fire attributes +5 -->
-				<add stat="waterRes" val="5" /> <!-- Resistance to water attributes +5 -->
-				<add stat="windRes" val="5" /> <!-- Resistance to wind attributes +5 -->
-				<add stat="earthRes" val="5" /> <!-- Resistance to earth attributes +5 -->
-				<add stat="critDmgAdd" val="182" /> <!-- Increases Critical Damage by 182 -->
-				<mul stat="pvpMagicalDef" val="1.05" /> <!-- During PvP, damage received decreased -->
-				<mul stat="pvpPhysSkillsDef" val="1.05" /> <!-- During PvP, damage received decreased -->
-				<mul stat="pvpPhysDef" val="1.05" /> <!-- During PvP, damage received decreased -->
+			</effect>
+			<effect name="MaxMp">
+				<param power="360" />
+				<param type="DIFF" />
+			</effect>
+			<effect name="Buff">
+				<mul stat="pAtk" val="1.0557" />
+			</effect>
+			<effect name="Buff">
+				<mul stat="pDef" val="1.0557" />
+			</effect>
+			<effect name="Buff">
+				<mul stat="pvpMagicalDef" val="1.05" />
+			</effect>
+			<effect name="Buff">
+				<mul stat="pvpPhysDef" val="1.05" />
+			</effect>
+			<effect name="Buff">
+				<mul stat="pvpPhysSkillsDef" val="1.05" />
 			</effect>
 			<effect name="EnableCloak" />
+			<effect name="Buff">
+				<mul stat="runSpd" val="1.03" />
+			</effect>
+			<effect name="TriggerSkillByDamage">
+				<param attackerType="PK" maxAttackerLevel="100" minAttackerLevel="1" />
+				<param chance="2.0" minDamage="1" mode="DIFF" />
+				<param skillId="5694" skillLevel="1" />
+				<param targetType="ENEMY" />
+			</effect>
 		</effects>
 	</skill>
 	<skill id="8411" levels="1" name="Vorpal Robe Set - PvP">
-		<!-- Confirmed CT2.5 and Updated to H5 -->
+		<!-- High Five Confirmed -->
+		<set name="blockedInOlympiad" val="true" />
 		<set name="icon" val="icon.armor_t96_u_i03" />
 		<set name="magicLvl" val="85" />
 		<set name="operateType" val="P" />
 		<set name="targetType" val="SELF" />
 		<effects>
-			<effect name="TriggerSkillByDamage">
-				<param attackerType="L2Playable" minAttackerLevel="1" maxAttackerLevel="100" />
-				<param minDamage="1" />
-				<param chance="2" />
-				<param skillId="5691" skillLevel="1" /> <!-- PvP Armor - Critical Down -->
-				<param targetType="SELF" />
+			<effect name="Buff">
+				<add stat="fireRes" val="5" />
 			</effect>
-			<effect name="MaxMp">
-				<param power="92" />
+			<effect name="Buff">
+				<add stat="waterRes" val="5" />
+			</effect>
+			<effect name="Buff">
+				<add stat="windRes" val="5" />
+			</effect>
+			<effect name="Buff">
+				<add stat="earthRes" val="5" />
 			</effect>
 			<effect name="DefenceTrait">
 				<param SHOCK="50" />
-				<mul stat="mAtk" val="1.087" /> <!-- M. Power +8.7% -->
-				<mul stat="mAtkSpd" val="1.15" /> <!-- M. Spd. +15% -->
-				<mul stat="regMp" val="1.05" /> <!-- MP Recovery Bonus +5% -->
-				<add stat="fireRes" val="5" /> <!-- Resistance to fire attributes +5 -->
-				<add stat="waterRes" val="5" /> <!-- Resistance to water attributes +5 -->
-				<add stat="windRes" val="5" /> <!-- Resistance to wind attributes +5 -->
-				<add stat="earthRes" val="5" /> <!-- Resistance to earth attributes +5 -->
-				<add stat="runSpd" val="7" /> <!-- Increases Speed by 7 -->
-				<mul stat="pvpMagicalDef" val="1.05" /> <!-- During PvP, damage received decreased -->
-				<mul stat="pvpPhysSkillsDef" val="1.05" /> <!-- During PvP, damage received decreased -->
-				<mul stat="pvpPhysDef" val="1.05" /> <!-- During PvP, damage received decreased -->
+			</effect>
+			<effect name="Buff">
+				<mul stat="mAtkSpd" val="1.15" />
+			</effect>
+			<effect name="Buff">
+				<mul stat="mAtk" val="1.087" />
+			</effect>
+			<effect name="MaxMp">
+				<param power="92" />
+				<param type="DIFF" />
+			</effect>
+			<effect name="Buff">
+				<mul stat="regMp" val="1.05" />
+			</effect>
+			<effect name="Buff">
+				<mul stat="pvpMagicalDef" val="1.05" />
+			</effect>
+			<effect name="Buff">
+				<mul stat="pvpPhysDef" val="1.05" />
+			</effect>
+			<effect name="Buff">
+				<mul stat="pvpPhysSkillsDef" val="1.05" />
 			</effect>
 			<effect name="EnableCloak" />
+			<effect name="Buff">
+				<add stat="runSpd" val="7" />
+			</effect>
+			<effect name="TriggerSkillByDamage">
+				<param attackerType="PK" maxAttackerLevel="100" minAttackerLevel="1" />
+				<param chance="2.0" minDamage="1" mode="DIFF" />
+				<param skillId="5691" skillLevel="1" />
+				<param targetType="SELF" />
+			</effect>
 		</effects>
 	</skill>
-	<skill id="8412" levels="1" name="Elegia Armor Set - PvP">
-		<!-- Confirmed CT2.5 -->
+	<skill id="8412" levels="1" name="Elegia Heavy Armor Set - PvP">
+		<!-- High Five Confirmed -->
+		<set name="blockedInOlympiad" val="true" />
 		<set name="icon" val="icon.armor_t97_u_i00" />
 		<set name="magicLvl" val="85" />
 		<set name="operateType" val="P" />
 		<set name="targetType" val="SELF" />
 		<effects>
-			<effect name="TriggerSkillByDamage">
-				<param attackerType="L2Playable" minAttackerLevel="1" maxAttackerLevel="100" />
-				<param minDamage="1" />
-				<param chance="2" />
-				<param skillId="5693" skillLevel="1" /> <!-- PvP Armor - Speed Down -->
-				<param targetType="ONE" />
+			<effect name="Buff">
+				<add stat="critRate" val="127.4" />
 			</effect>
-			<effect name="MaxHp">
-				<param power="550" />
+			<effect name="Buff">
+				<add stat="fireRes" val="5" />
+			</effect>
+			<effect name="Buff">
+				<add stat="waterRes" val="5" />
+			</effect>
+			<effect name="Buff">
+				<add stat="windRes" val="5" />
+			</effect>
+			<effect name="Buff">
+				<add stat="earthRes" val="5" />
 			</effect>
 			<effect name="DefenceTrait">
 				<param BLEED="50" />
+			</effect>
+			<effect name="DefenceTrait">
 				<param HOLD="50" />
+			</effect>
+			<effect name="DefenceTrait">
 				<param SLEEP="50" />
-				<mul stat="pAtk" val="1.0659" /> <!-- P. Atk. +6.59% -->
-				<add stat="critRate" val="127.4" /> <!-- Critical rate +127.4 -->
-				<mul stat="magicSuccRes" val="1.02" /> <!-- Resistance to damage magic +2% -->
-				<add stat="fireRes" val="5" /> <!-- Resistance to fire attributes +5 -->
-				<add stat="waterRes" val="5" /> <!-- Resistance to water attributes +5 -->
-				<add stat="windRes" val="5" /> <!-- Resistance to wind attributes +5 -->
-				<add stat="earthRes" val="5" /> <!-- Resistance to earth attributes +5 -->
-				<add stat="absorbDam" val="3" /> <!-- Steal opponent's HP on attack -->
-				<mul stat="pvpMagicalDef" val="1.05" /> <!-- During PvP, damage received decreased -->
-				<mul stat="pvpPhysSkillsDef" val="1.05" /> <!-- During PvP, damage received decreased -->
-				<mul stat="pvpPhysDef" val="1.05" /> <!-- During PvP, damage received decreased -->
+			</effect>
+			<effect name="MaxHp">
+				<param power="550" />
+				<param type="DIFF" />
+			</effect>
+			<effect name="Buff">
+				<mul stat="pAtk" val="1.0659" />
+			</effect>
+			<effect name="Buff">
+				<mul stat="pvpMagicalDef" val="1.05" />
+			</effect>
+			<effect name="Buff">
+				<mul stat="pvpPhysDef" val="1.05" />
+			</effect>
+			<effect name="Buff">
+				<mul stat="pvpPhysSkillsDef" val="1.05" />
+			</effect>
+			<effect name="Buff">
+				<mul stat="magicSuccRes" val="1.02" />
 			</effect>
 			<effect name="EnableCloak" />
+			<effect name="TriggerSkillByDamage">
+				<param attackerType="PK" maxAttackerLevel="100" minAttackerLevel="1" />
+				<param chance="2.0" minDamage="1" mode="DIFF" />
+				<param skillId="5693" skillLevel="1" />
+				<param targetType="ENEMY" />
+			</effect>
+			<effect name="Buff">
+				<add stat="absorbDam" val="3" />
+			</effect>
 		</effects>
 	</skill>
 	<skill id="8413" levels="1" name="Elegia Leather Armor Set - PvP">
-		<!-- Confirmed CT2.5 -->
+		<!-- High Five Confirmed -->
+		<set name="blockedInOlympiad" val="true" />
 		<set name="icon" val="icon.armor_t98_u_i00" />
 		<set name="magicLvl" val="85" />
 		<set name="operateType" val="P" />
 		<set name="targetType" val="SELF" />
 		<effects>
-			<effect name="TriggerSkillByDamage">
-				<param attackerType="L2Playable" minAttackerLevel="1" maxAttackerLevel="100" />
-				<param minDamage="1" />
-				<param chance="2" />
-				<param skillId="5694" skillLevel="1" /> <!-- PvP Armor - Mirage -->
-				<param targetType="ONE" />
+			<effect name="Buff">
+				<mul stat="pAtkSpd" val="1.06" />
+			</effect>
+			<effect name="Buff">
+				<add stat="critRate" val="170.5" />
+			</effect>
+			<effect name="Buff">
+				<add stat="fireRes" val="5" />
+			</effect>
+			<effect name="Buff">
+				<add stat="waterRes" val="5" />
+			</effect>
+			<effect name="Buff">
+				<add stat="windRes" val="5" />
+			</effect>
+			<effect name="Buff">
+				<add stat="earthRes" val="5" />
 			</effect>
 			<effect name="DefenceTrait">
 				<param PARALYZE="50" />
-				<mul stat="pAtk" val="1.0659" /> <!-- Attack Power +6.59% -->
-				<mul stat="pAtkSpd" val="1.06" /> <!-- Atk. Spd. +6% -->
-				<add stat="critRate" val="170.5" /> <!-- Crt. Rate +170.5 -->
-				<mul stat="runSpd" val="1.03" /> <!-- Moving Spd. +3% -->
-				<add stat="fireRes" val="5" /> <!-- Resistance to fire attributes +5 -->
-				<add stat="waterRes" val="5" /> <!-- Resistance to water attributes +5 -->
-				<add stat="windRes" val="5" /> <!-- Resistance to wind attributes +5 -->
-				<add stat="earthRes" val="5" /> <!-- Resistance to earth attributes +5 -->
-				<mul stat="pvpMagicalDef" val="1.05" /> <!-- During PvP, damage received decreased -->
-				<mul stat="pvpPhysSkillsDef" val="1.05" /> <!-- During PvP, damage received decreased -->
-				<mul stat="pvpPhysDef" val="1.05" /> <!-- During PvP, damage received decreased -->
+			</effect>
+			<effect name="Buff">
+				<mul stat="pAtk" val="1.0659" />
+			</effect>
+			<effect name="Buff">
+				<mul stat="pvpMagicalDef" val="1.05" />
+			</effect>
+			<effect name="Buff">
+				<mul stat="pvpPhysDef" val="1.05" />
+			</effect>
+			<effect name="Buff">
+				<mul stat="pvpPhysSkillsDef" val="1.05" />
 			</effect>
 			<effect name="EnableCloak" />
+			<effect name="Buff">
+				<mul stat="runSpd" val="1.03" />
+			</effect>
+			<effect name="TriggerSkillByDamage">
+				<param attackerType="PK" maxAttackerLevel="100" minAttackerLevel="1" />
+				<param chance="2.0" minDamage="1" mode="DIFF" />
+				<param skillId="5694" skillLevel="1" />
+				<param targetType="ENEMY" />
+			</effect>
 		</effects>
 	</skill>
 	<skill id="8414" levels="1" name="Elegia Robe Set - PvP">
-		<!-- Confirmed CT2.5 and Updated to H5 -->
+		<!-- High Five Confirmed -->
+		<set name="blockedInOlympiad" val="true" />
 		<set name="icon" val="icon.armor_t99_u_i00" />
 		<set name="magicLvl" val="85" />
 		<set name="operateType" val="P" />
 		<set name="targetType" val="SELF" />
 		<effects>
-			<effect name="TriggerSkillByDamage">
-				<param attackerType="L2Playable" minAttackerLevel="1" maxAttackerLevel="100" />
-				<param minDamage="1" />
-				<param chance="2" />
-				<param skillId="5691" skillLevel="1" /> <!-- PvP Armor - Critical Down -->
-				<param targetType="SELF" />
+			<effect name="Buff">
+				<add stat="fireRes" val="5" />
 			</effect>
-			<effect name="MaxMp">
-				<param power="92" />
+			<effect name="Buff">
+				<add stat="waterRes" val="5" />
+			</effect>
+			<effect name="Buff">
+				<add stat="windRes" val="5" />
+			</effect>
+			<effect name="Buff">
+				<add stat="earthRes" val="5" />
 			</effect>
 			<effect name="DefenceTrait">
 				<param SHOCK="50" />
-				<mul stat="mAtk" val="1.1" /> <!-- M. Power +10% -->
-				<mul stat="mAtkSpd" val="1.15" /> <!-- M. Spd. +15% -->
-				<mul stat="regMp" val="1.05" /> <!-- MP Recovery Bonus +5% -->
-				<add stat="fireRes" val="5" /> <!-- Resistance to fire attributes +5 -->
-				<add stat="waterRes" val="5" /> <!-- Resistance to water attributes +5 -->
-				<add stat="windRes" val="5" /> <!-- Resistance to wind attributes +5 -->
-				<add stat="earthRes" val="5" /> <!-- Resistance to earth attributes +5 -->
-				<add stat="runSpd" val="7" /> <!-- Increases Speed by 7 -->
-				<mul stat="magicalMpConsumeRate" val="0.97" /> <!-- Decreases MP consumption for magic skills by 3% -->
-				<mul stat="pvpMagicalDef" val="1.05" /> <!-- During PvP, damage received decreased -->
-				<mul stat="pvpPhysSkillsDef" val="1.05" /> <!-- During PvP, damage received decreased -->
-				<mul stat="pvpPhysDef" val="1.05" /> <!-- During PvP, damage received decreased -->
+			</effect>
+			<effect name="Buff">
+				<mul stat="magicalMpConsumeRate" val="0.97" />
+			</effect>
+			<effect name="Buff">
+				<mul stat="mAtkSpd" val="1.15" />
+			</effect>
+			<effect name="Buff">
+				<mul stat="mAtk" val="1.1" />
+			</effect>
+			<effect name="MaxMp">
+				<param power="97" />
+				<param type="DIFF" />
+			</effect>
+			<effect name="Buff">
+				<mul stat="regMp" val="1.05" />
+			</effect>
+			<effect name="Buff">
+				<mul stat="pvpMagicalDef" val="1.05" />
+			</effect>
+			<effect name="Buff">
+				<mul stat="pvpPhysDef" val="1.05" />
+			</effect>
+			<effect name="Buff">
+				<mul stat="pvpPhysSkillsDef" val="1.05" />
 			</effect>
 			<effect name="EnableCloak" />
+			<effect name="Buff">
+				<add stat="runSpd" val="7" />
+			</effect>
+			<effect name="TriggerSkillByDamage">
+				<param attackerType="PK" maxAttackerLevel="100" minAttackerLevel="1" />
+				<param chance="2.0" minDamage="1" mode="DIFF" />
+				<param skillId="5691" skillLevel="1" />
+				<param targetType="SELF" />
+			</effect>
 		</effects>
 	</skill>
 	<skill id="8415" levels="5" name="Ring Ability - Drop Rate Up">

@@ -1126,16 +1126,17 @@
 		</effects>
 	</skill>
 	<skill id="21257" levels="1" name="Mardil">
-		<!-- Confirmed High Five -->
+		<!-- High Five Confirmed -->
+		<set name="blockedInOlympiad" val="true" />
 		<set name="icon" val="BranchSys2.icon.br_wp_wind_of_mardil_i00" />
-		<set name="magicLvl" val="84" />
+		<set name="magicLvl" val="71" />
 		<set name="operateType" val="P" />
+		<set name="targetType" val="SELF" />
 		<effects>
 			<effect name="TriggerSkillByDamage">
-				<param attackerType="L2Playable" minAttackerLevel="1" maxAttackerLevel="99" />
-				<param minDamage="100" />
-				<param chance="30" />
-				<param skillId="23324" skillLevel="1" /> <!-- Jet Black Typhoon -->
+				<param attackerType="ENEMY_ALL" maxAttackerLevel="100" minAttackerLevel="1" />
+				<param chance="4.0" minDamage="1" mode="DIFF" />
+				<param skillId="23324" skillLevel="1" />
 				<param targetType="SELF" />
 			</effect>
 		</effects>

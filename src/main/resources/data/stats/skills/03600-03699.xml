@@ -182,92 +182,121 @@
 		</effects>
 	</skill>
 	<skill id="3608" levels="3" name="Apella Heavy Armor Set">
-		<!-- Confirmed CT2.5 -->
-		<table name="#maxCp"> 1035 1116 1116 </table>
+		<!-- High Five Confirmed -->
+		<table name="#maxCpPower"> 1035 1116 1116 </table>
 		<table name="#mpConsumeRate"> 1 0.95 0.95 </table>
-		<table name="#triggeredLevel"> 1 2 2 </table>
-		<table name="#expLost"> 0.3 0.3 0.6 </table>
+		<table name="#reduceExpLostByPvp"> 0.3 0.3 0.6 </table>
+		<table name="#triggerSkillByDamageLevel"> 1 2 2 </table>
+		<table name="#triggerSkillByDamageTargetMaxAttackerLevel"> 99 100 100 </table>
+		<set name="blockedInOlympiad" val="true" />
 		<set name="icon" val="icon.armor_t1004_ul_i00" />
 		<set name="magicLvl" val="1" />
 		<set name="operateType" val="P" />
 		<set name="targetType" val="SELF" />
 		<effects>
 			<effect name="MaxCp">
-				<param power="#maxCp" />
+				<param power="#maxCpPower" />
+				<param type="DIFF" />
 			</effect>
 			<effect name="Buff">
 				<mul stat="regCp" val="1.4" />
-				<mul stat="reduceExpLostByPvp" val="#expLost" />
-				<mul stat="physicalMpConsumeRate" val="#mpConsumeRate" />
-				<mul stat="magicalMpConsumeRate" val="#mpConsumeRate" />
-				<mul stat="danceMpConsumeRate" val="#mpConsumeRate" />
 			</effect>
 			<effect name="TriggerSkillByDamage">
-				<param attackerType="L2Playable" minAttackerLevel="1" maxAttackerLevel="100" />
-				<param minDamage="50" />
-				<param chance="10" />
-				<param skillId="5605" skillLevel="#triggeredLevel" /> <!-- Power of Apella -->
+				<param attackerType="PK" maxAttackerLevel="#triggerSkillByDamageTargetMaxAttackerLevel" minAttackerLevel="1" />
+				<param chance="10.0" minDamage="50" mode="DIFF" />
+				<param skillId="5605" skillLevel="#triggerSkillByDamageLevel" />
 				<param targetType="SELF" />
+			</effect>
+			<effect name="Buff">
+				<mul stat="reduceExpLostByPvp" val="#reduceExpLostByPvp" />
+			</effect>
+			<effect name="Buff">
+				<mul stat="physicalMpConsumeRate" val="#mpConsumeRate" />
+			</effect>
+			<effect name="Buff">
+				<mul stat="magicalMpConsumeRate" val="#mpConsumeRate" />
+			</effect>
+			<effect name="Buff">
+				<mul stat="danceMpConsumeRate" val="#mpConsumeRate" />
 			</effect>
 		</effects>
 	</skill>
 	<skill id="3609" levels="3" name="Apella Light Armor Set">
-		<!-- Confirmed CT2.5 -->
-		<table name="#maxCp"> 1035 1116 1116 </table>
+		<!-- High Five Confirmed -->
+		<table name="#maxCpPower"> 1035 1116 1116 </table>
 		<table name="#mpConsumeRate"> 1 0.95 0.95 </table>
-		<table name="#triggeredLevel"> 1 2 2 </table>
-		<table name="#expLost"> 0.3 0.3 0.6 </table>
+		<table name="#reduceExpLostByPvp"> 0.3 0.3 0.6 </table>
+		<table name="#triggerSkillByDamageLevel"> 1 2 2 </table>
+		<set name="blockedInOlympiad" val="true" />
 		<set name="icon" val="icon.armor_t1005_ul_i00" />
 		<set name="magicLvl" val="1" />
 		<set name="operateType" val="P" />
 		<set name="targetType" val="SELF" />
 		<effects>
-			<effect name="MaxCp">
-				<param power="#maxCp" />
-			</effect>
 			<effect name="Buff">
 				<mul stat="regCp" val="1.4" />
-				<mul stat="reduceExpLostByPvp" val="#expLost" />
-				<mul stat="physicalMpConsumeRate" val="#mpConsumeRate" />
-				<mul stat="magicalMpConsumeRate" val="#mpConsumeRate" />
-				<mul stat="danceMpConsumeRate" val="#mpConsumeRate" />
+			</effect>
+			<effect name="MaxCp">
+				<param power="#maxCpPower" />
+				<param type="DIFF" />
 			</effect>
 			<effect name="TriggerSkillByDamage">
-				<param attackerType="L2Playable" minAttackerLevel="1" maxAttackerLevel="100" />
-				<param minDamage="50" />
-				<param chance="10" />
-				<param skillId="5607" skillLevel="#triggeredLevel" /> <!-- Power of Apella -->
+				<param attackerType="PK" maxAttackerLevel="100" minAttackerLevel="1" />
+				<param chance="10.0" minDamage="50" mode="DIFF" />
+				<param skillId="5607" skillLevel="#triggerSkillByDamageLevel" />
 				<param targetType="SELF" />
+			</effect>
+			<effect name="Buff">
+				<mul stat="reduceExpLostByPvp" val="#reduceExpLostByPvp" />
+			</effect>
+			<effect name="Buff">
+				<mul stat="physicalMpConsumeRate" val="#mpConsumeRate" />
+			</effect>
+			<effect name="Buff">
+				<mul stat="magicalMpConsumeRate" val="#mpConsumeRate" />
+			</effect>
+			<effect name="Buff">
+				<mul stat="danceMpConsumeRate" val="#mpConsumeRate" />
 			</effect>
 		</effects>
 	</skill>
 	<skill id="3610" levels="3" name="Apella Robe Set">
-		<!-- Confirmed CT2.5 -->
-		<table name="#maxCp"> 1035 1116 1116 </table>
+		<!-- High Five Confirmed -->
+		<table name="#maxCpPower"> 1035 1116 1116 </table>
 		<table name="#mpConsumeRate"> 1 0.95 0.95 </table>
-		<table name="#triggeredLevel"> 1 2 2 </table>
-		<table name="#expLost"> 0.3 0.3 0.6 </table>
+		<table name="#reduceExpLostByPvp"> 0.3 0.3 0.6 </table>
+		<table name="#triggerSkillByDamageLevel"> 1 2 2 </table>
+		<set name="blockedInOlympiad" val="true" />
 		<set name="icon" val="icon.armor_t1006_ul_i00" />
 		<set name="magicLvl" val="1" />
 		<set name="operateType" val="P" />
 		<set name="targetType" val="SELF" />
 		<effects>
-			<effect name="MaxCp">
-				<param power="#maxCp" />
-			</effect>
 			<effect name="Buff">
 				<mul stat="regCp" val="1.4" />
-				<mul stat="reduceExpLostByPvp" val="#expLost" />
-				<mul stat="physicalMpConsumeRate" val="#mpConsumeRate" />
-				<mul stat="magicalMpConsumeRate" val="#mpConsumeRate" />
-				<mul stat="danceMpConsumeRate" val="#mpConsumeRate" />
 			</effect>
+			<effect name="MaxCp">
+				<param power="#maxCpPower" />
+				<param type="DIFF" />
+			</effect>
+			<effect name="Debuff" />
 			<effect name="TriggerSkillByDamage">
-				<param attackerType="L2Playable" minAttackerLevel="1" maxAttackerLevel="100" />
-				<param minDamage="50" />
-				<param chance="10" />
-				<param skillId="5608" skillLevel="#triggeredLevel" /> <!-- Power of Apella -->
+				<param attackerType="PK" maxAttackerLevel="100" minAttackerLevel="1" />
+				<param chance="10.0" minDamage="50" mode="DIFF" />
+				<param skillId="5608" skillLevel="#triggerSkillByDamageLevel" />
 				<param targetType="SELF" />
+			</effect>
+			<effect name="Buff">
+				<mul stat="reduceExpLostByPvp" val="#reduceExpLostByPvp" />
+			</effect>
+			<effect name="Buff">
+				<mul stat="physicalMpConsumeRate" val="#mpConsumeRate" />
+			</effect>
+			<effect name="Buff">
+				<mul stat="magicalMpConsumeRate" val="#mpConsumeRate" />
+			</effect>
+			<effect name="Buff">
+				<mul stat="danceMpConsumeRate" val="#mpConsumeRate" />
 			</effect>
 		</effects>
 	</skill>
@@ -1127,16 +1156,17 @@
 		</effects>
 	</skill>
 	<skill id="3654" levels="1" name="PvP Weapon - Casting">
-		<!-- Confirmed CT2.5 -->
+		<!-- High Five Confirmed -->
+		<set name="blockedInOlympiad" val="true" />
 		<set name="icon" val="icon.skill0228" />
 		<set name="magicLvl" val="80" />
 		<set name="operateType" val="P" />
+		<set name="targetType" val="SELF" />
 		<effects>
 			<effect name="TriggerSkillByDamage">
-				<param attackerType="L2Playable" minAttackerLevel="1" maxAttackerLevel="100" />
-				<param minDamage="50" />
-				<param chance="5" />
-				<param skillId="5685" skillLevel="1" /> <!-- PvP Weapon - Casting -->
+				<param attackerType="PK" maxAttackerLevel="100" minAttackerLevel="1" />
+				<param chance="5.0" minDamage="50" mode="DIFF" />
+				<param skillId="5685" skillLevel="1" />
 				<param targetType="SELF" />
 			</effect>
 		</effects>
@@ -1190,55 +1220,60 @@
 		</effects>
 	</skill>
 	<skill id="3658" levels="1" name="PvP Shield - Reflect Damage">
-		<!-- Confirmed CT2.5 -->
+		<!-- High Five Confirmed -->
+		<set name="blockedInOlympiad" val="true" />
 		<set name="icon" val="icon.skill0086" />
 		<set name="magicLvl" val="80" />
 		<set name="operateType" val="P" />
+		<set name="targetType" val="SELF" />
 		<effects>
 			<effect name="TriggerSkillByDamage">
-				<param attackerType="L2Playable" minAttackerLevel="1" maxAttackerLevel="100" />
-				<param minDamage="40" />
-				<param chance="10" />
-				<param skillId="5689" skillLevel="1" /> <!-- PvP Shield - Reflect Damage -->
+				<param attackerType="PK" maxAttackerLevel="100" minAttackerLevel="1" />
+				<param chance="10.0" minDamage="40" mode="DIFF" />
+				<param skillId="5689" skillLevel="1" />
 				<param targetType="SELF" />
 			</effect>
 		</effects>
 	</skill>
 	<skill id="3659" levels="1" name="PvP Armor - Damage Down">
-		<!-- Confirmed CT2.5 -->
+		<!-- High Five Confirmed -->
+		<set name="blockedInOlympiad" val="true" />
 		<set name="icon" val="icon.skill1040" />
 		<set name="magicLvl" val="80" />
 		<set name="operateType" val="P" />
+		<set name="targetType" val="SELF" />
 		<effects>
 			<effect name="TriggerSkillByDamage">
-				<param attackerType="L2Playable" minAttackerLevel="1" maxAttackerLevel="100" />
-				<param minDamage="50" />
-				<param chance="20" />
-				<param skillId="5690" skillLevel="1" /> <!-- PvP Armor - Damage Down -->
+				<param attackerType="PK" maxAttackerLevel="100" minAttackerLevel="1" />
+				<param chance="20.0" minDamage="50" mode="DIFF" />
+				<param skillId="5690" skillLevel="1" />
 				<param targetType="SELF" />
 			</effect>
 		</effects>
 	</skill>
 	<skill id="3660" levels="1" name="PvP Armor - Critical Down">
-		<!-- Confirmed CT2.5 -->
+		<!-- High Five Confirmed -->
+		<set name="blockedInOlympiad" val="true" />
 		<set name="icon" val="icon.skill1242" />
 		<set name="magicLvl" val="80" />
 		<set name="operateType" val="P" />
+		<set name="targetType" val="SELF" />
 		<effects>
 			<effect name="TriggerSkillByDamage">
-				<param attackerType="L2Playable" minAttackerLevel="1" maxAttackerLevel="100" />
-				<param minDamage="50" />
-				<param chance="20" />
-				<param skillId="5691" skillLevel="1" /> <!-- PvP Armor - Critical Down -->
+				<param attackerType="PK" maxAttackerLevel="100" minAttackerLevel="1" />
+				<param chance="20.0" minDamage="50" mode="DIFF" />
+				<param skillId="5691" skillLevel="1" />
 				<param targetType="SELF" />
 			</effect>
 		</effects>
 	</skill>
 	<skill id="3661" levels="1" name="PvP Armor - Heal">
 		<!-- Confirmed CT2.5 -->
+		<set name="blockedInOlympiad" val="true" />
 		<set name="icon" val="icon.skill1011" />
 		<set name="magicLvl" val="80" />
 		<set name="operateType" val="P" />
+		<set name="targetType" val="SELF" />
 		<effects>
 			<effect name="TriggerSkillBySkill">
 				<param castSkillId="1401" /> <!-- Major Heal -->
@@ -1249,32 +1284,34 @@
 		</effects>
 	</skill>
 	<skill id="3662" levels="1" name="PvP Armor - Speed Down">
-		<!-- Confirmed CT2.5 -->
+		<!-- High Five Confirmed -->
+		<set name="blockedInOlympiad" val="true" />
 		<set name="icon" val="icon.skill1160" />
 		<set name="magicLvl" val="80" />
 		<set name="operateType" val="P" />
+		<set name="targetType" val="SELF" />
 		<effects>
 			<effect name="TriggerSkillByDamage">
-				<param attackerType="L2Playable" minAttackerLevel="1" maxAttackerLevel="100" />
-				<param minDamage="50" />
-				<param chance="10" />
-				<param skillId="5693" skillLevel="1" /> <!-- PvP Armor - Speed Down -->
-				<param targetType="ONE" />
+				<param attackerType="PK" maxAttackerLevel="100" minAttackerLevel="1" />
+				<param chance="10.0" minDamage="50" mode="DIFF" />
+				<param skillId="5693" skillLevel="1" />
+				<param targetType="ENEMY" />
 			</effect>
 		</effects>
 	</skill>
 	<skill id="3663" levels="1" name="PvP Armor - Mirage">
-		<!-- Confirmed CT2.5 -->
+		<!-- High Five Confirmed -->
+		<set name="blockedInOlympiad" val="true" />
 		<set name="icon" val="icon.skill0445" />
 		<set name="magicLvl" val="80" />
 		<set name="operateType" val="P" />
+		<set name="targetType" val="SELF" />
 		<effects>
 			<effect name="TriggerSkillByDamage">
-				<param attackerType="L2Playable" minAttackerLevel="1" maxAttackerLevel="100" />
-				<param minDamage="50" />
-				<param chance="25" />
-				<param skillId="5694" skillLevel="1" /> <!-- PvP Armor - Mirage -->
-				<param targetType="ONE" />
+				<param attackerType="PK" maxAttackerLevel="100" minAttackerLevel="1" />
+				<param chance="25.0" minDamage="50" mode="DIFF" />
+				<param skillId="5694" skillLevel="1" />
+				<param targetType="ENEMY" />
 			</effect>
 		</effects>
 	</skill>
@@ -1326,17 +1363,18 @@
 		</effects>
 		<set name="affectScope" val="SINGLE" />
 	</skill>
-	<skill id="3666" levels="1" name="Yellow Talisman - Increase Force">
-		<!-- Confirmed CT2.5 -->
+	<skill id="3666" levels="1" name="Yellow Talisman of Increase Force">
+		<!-- High Five Confirmed -->
+		<set name="blockedInOlympiad" val="true" />
 		<set name="icon" val="icon.etc_talisman_i02" />
 		<set name="magicLvl" val="1" />
 		<set name="operateType" val="P" />
+		<set name="targetType" val="SELF" />
 		<effects>
 			<effect name="TriggerSkillByDamage">
-				<param attackerType="L2Character" minAttackerLevel="1" maxAttackerLevel="100" />
-				<param minDamage="20" />
-				<param chance="2" />
-				<param skillId="5695" skillLevel="1" /> <!-- Talisman - Increase Force -->
+				<param attackerType="ENEMY_ALL" maxAttackerLevel="100" minAttackerLevel="1" />
+				<param chance="2.0" minDamage="20" mode="DIFF" />
+				<param skillId="5695" skillLevel="1" />
 				<param targetType="SELF" />
 			</effect>
 		</effects>

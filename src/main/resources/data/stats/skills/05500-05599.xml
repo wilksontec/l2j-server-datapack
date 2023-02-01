@@ -1386,7 +1386,7 @@
 		<table name="#critDmg"> 1 1 1.25 </table>
 		<table name="#critRate"> 1 1.3 1.3 </table>
 		<table name="#icon"> icon.skill0761 icon.skill0761_2 icon.skill0761_3 </table>
-		<table name="#triggeredLevel"> 2 3 0 </table>
+		<table name="#triggerSkillByDamageLevel"> 2 3 0 </table>
 		<set name="abnormalLvl" val="#abnormalLvl" />
 		<set name="abnormalTime" val="20" />
 		<set name="abnormalType" val="SEED_OF_KNIGHT" />
@@ -1401,15 +1401,14 @@
 		<set name="rideState" val="NONE" />
 		<set name="targetType" val="TARGET" />
 		<effects>
-			<effect name="TriggerSkillByDamage">
-				<param attackerType="L2Character" minAttackerLevel="1" maxAttackerLevel="100" />
-				<param minDamage="1" />
-				<param chance="#activationChance" />
-				<param skillId="5561" skillLevel="#triggeredLevel" /> <!-- Seed of Revenge -->
-				<param targetType="SELF" />
-			</effect>
 			<effect name="Buff">
 				<add stat="pAtk" val="300" />
+			</effect>
+			<effect name="TriggerSkillByDamage">
+				<param attackerType="ENEMY_ALL" maxAttackerLevel="100" minAttackerLevel="1" />
+				<param chance="#activationChance" minDamage="1" mode="DIFF" />
+				<param skillId="5561" skillLevel="#triggerSkillByDamageLevel" />
+				<param targetType="SELF" />
 			</effect>
 			<effect name="Buff">
 				<mul stat="critRate" val="#critRate" />
@@ -1426,7 +1425,7 @@
 		<table name="#elementRes"> 0 30 30 </table>
 		<table name="#healEffect"> 1 1 1.3 </table>
 		<table name="#icon"> icon.skill0784 icon.skill0784_2 icon.skill0784_3 </table>
-		<table name="#triggeredLevel"> 2 3 0 </table>
+		<table name="#triggerSkillByDamageLevel"> 2 3 0 </table>
 		<set name="abnormalLvl" val="#abnormalLvl" />
 		<set name="abnormalTime" val="20" />
 		<set name="abnormalType" val="SEED_OF_KNIGHT" />
@@ -1441,15 +1440,14 @@
 		<set name="rideState" val="NONE" />
 		<set name="targetType" val="TARGET" />
 		<effects>
-			<effect name="TriggerSkillByDamage">
-				<param attackerType="L2Character" minAttackerLevel="1" maxAttackerLevel="100" />
-				<param minDamage="1" />
-				<param chance="#activationChance" />
-				<param skillId="5562" skillLevel="#triggeredLevel" /> <!-- Spirit of Phoenix -->
-				<param targetType="SELF" />
-			</effect>
 			<effect name="Buff">
 				<add stat="pDef" val="500" />
+			</effect>
+			<effect name="TriggerSkillByDamage">
+				<param attackerType="ENEMY_ALL" maxAttackerLevel="100" minAttackerLevel="1" />
+				<param chance="#activationChance" minDamage="1" mode="DIFF" />
+				<param skillId="5562" skillLevel="#triggerSkillByDamageLevel" />
+				<param targetType="SELF" />
 			</effect>
 			<effect name="Buff">
 				<add stat="fireRes" val="#elementRes" />
@@ -1466,9 +1464,9 @@
 		<!-- High Five Confirmed -->
 		<table name="#abnormalLvl"> 2 3 4 </table>
 		<table name="#activationChance"> 10 10 0 </table>
-		<table name="#icon"> icon.skill0786 icon.skill0786_2 icon.skill0786_3 </table>
 		<table name="#critRate"> 1 1 1.2 </table>
-		<table name="#triggeredLevel"> 2 3 0 </table>
+		<table name="#icon"> icon.skill0786 icon.skill0786_2 icon.skill0786_3 </table>
+		<table name="#triggerSkillByDamageLevel"> 2 3 0 </table>
 		<table name="#waterPower"> 0 20 20 </table>
 		<set name="abnormalLvl" val="#abnormalLvl" />
 		<set name="abnormalTime" val="20" />
@@ -1484,15 +1482,14 @@
 		<set name="rideState" val="NONE" />
 		<set name="targetType" val="TARGET" />
 		<effects>
-			<effect name="TriggerSkillByDamage">
-				<param attackerType="L2Character" minAttackerLevel="1" maxAttackerLevel="100" />
-				<param minDamage="1" />
-				<param chance="#activationChance" />
-				<param skillId="5563" skillLevel="#triggeredLevel" /> <!-- Eva's Will -->
-				<param targetType="SELF" />
-			</effect>
 			<effect name="Buff">
 				<add stat="mDef" val="400" />
+			</effect>
+			<effect name="TriggerSkillByDamage">
+				<param attackerType="ENEMY_ALL" maxAttackerLevel="100" minAttackerLevel="1" />
+				<param chance="#activationChance" minDamage="1" mode="DIFF" />
+				<param skillId="5563" skillLevel="#triggerSkillByDamageLevel" />
+				<param targetType="SELF" />
 			</effect>
 			<effect name="Buff">
 				<add stat="waterPower" val="#waterPower" />
@@ -1508,7 +1505,7 @@
 		<table name="#absorbDam"> 0 0 8 </table>
 		<table name="#activationChance"> 10 10 0 </table>
 		<table name="#icon"> icon.skill0788 icon.skill0788_2 icon.skill0788_3 </table>
-		<table name="#triggeredLevel"> 2 3 0 </table>
+		<table name="#triggerSkillByDamageLevel"> 2 3 0 </table>
 		<table name="#windPower"> 0 20 20 </table>
 		<set name="abnormalLvl" val="#abnormalLvl" />
 		<set name="abnormalTime" val="20" />
@@ -1524,15 +1521,14 @@
 		<set name="rideState" val="NONE" />
 		<set name="targetType" val="TARGET" />
 		<effects>
-			<effect name="TriggerSkillByDamage">
-				<param attackerType="L2Character" minAttackerLevel="1" maxAttackerLevel="100" />
-				<param minDamage="1" />
-				<param chance="#activationChance" />
-				<param skillId="5564" skillLevel="#triggeredLevel" /> <!-- Pain of Shillien -->
-				<param targetType="SELF" />
-			</effect>
 			<effect name="Buff">
 				<mul stat="critDmg" val="1.2" />
+			</effect>
+			<effect name="TriggerSkillByDamage">
+				<param attackerType="ENEMY_ALL" maxAttackerLevel="100" minAttackerLevel="1" />
+				<param chance="#activationChance" minDamage="1" mode="DIFF" />
+				<param skillId="5564" skillLevel="#triggerSkillByDamageLevel" />
+				<param targetType="SELF" />
 			</effect>
 			<effect name="Buff">
 				<add stat="windPower" val="#windPower" />

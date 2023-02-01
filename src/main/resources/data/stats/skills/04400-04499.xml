@@ -1782,11 +1782,10 @@
 		<set name="targetType" val="TARGET" />
 		<effects>
 			<effect name="TriggerSkillByDamage">
-				<param attackerType="L2Playable" minAttackerLevel="1" maxAttackerLevel="100" />
-				<param minDamage="1" />
-				<param chance="50" />
-				<param skillId="5022" skillLevel="#triggeredLevel" /> <!-- Decrease Speed -->
-				<param targetType="TARGET" />
+				<param attackerType="PK" maxAttackerLevel="100" minAttackerLevel="1" />
+				<param chance="50.0" minDamage="1" mode="DIFF" />
+				<param skillId="5022" skillLevel="#triggeredLevel" />
+				<param targetType="ENEMY" />
 			</effect>
 		</effects>
 	</skill>

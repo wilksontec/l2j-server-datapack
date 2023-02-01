@@ -569,10 +569,9 @@
 		<set name="targetType" val="TARGET" />
 		<effects>
 			<effect name="TriggerSkillByDamage">
-				<param attackerType="L2Character" minAttackerLevel="1" maxAttackerLevel="99" />
-				<param minDamage="60" />
-				<param chance="60" />
-				<param skillId="6726" skillLevel="1" /> <!-- Bless the Blood -->
+				<param attackerType="ENEMY_ALL" maxAttackerLevel="99" minAttackerLevel="1" />
+				<param chance="60.0" minDamage="60" mode="DIFF" />
+				<param skillId="6726" skillLevel="1" />
 				<param targetType="SELF" />
 			</effect>
 		</effects>

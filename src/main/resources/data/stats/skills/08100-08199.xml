@@ -1140,184 +1140,261 @@
 			</effect>
 		</effects>
 	</skill>
-	<skill id="8193" levels="1" name="Heavy Armor of Nightmare Set - PvP">
-		<!-- Confirmed CT2.5 -->
+	<skill id="8193" levels="1" name="Nightmare Heavy Armor Set - PvP">
+		<!-- High Five Confirmed -->
+		<set name="blockedInOlympiad" val="true" />
 		<set name="icon" val="icon.armor_t80_ul_i00" />
 		<set name="magicLvl" val="1" />
 		<set name="operateType" val="P" />
 		<set name="targetType" val="SELF" />
 		<effects>
-			<effect name="TriggerSkillByDamage">
-				<param attackerType="L2Playable" minAttackerLevel="1" maxAttackerLevel="100" />
-				<param minDamage="1" />
-				<param chance="2" />
-				<param skillId="5693" skillLevel="1" /> <!-- PvP Armor - Speed Down -->
-				<param targetType="ONE" />
-			</effect>
 			<effect name="DefenceTrait">
 				<param SLEEP="70" />
+			</effect>
+			<effect name="DefenceTrait">
 				<param HOLD="70" />
-				<mul stat="pAtk" val="1.04" /> <!-- P. Atk. +4% -->
-				<mul stat="pvpPhysDef" val="1.05" />
+			</effect>
+			<effect name="Buff">
+				<mul stat="pAtk" val="1.04" />
+			</effect>
+			<effect name="Buff">
 				<mul stat="pvpMagicalDef" val="1.05" />
+			</effect>
+			<effect name="Buff">
+				<mul stat="pvpPhysDef" val="1.05" />
+			</effect>
+			<effect name="Buff">
 				<mul stat="pvpPhysSkillsDef" val="1.05" />
+			</effect>
+			<effect name="TriggerSkillByDamage">
+				<param attackerType="PK" maxAttackerLevel="100" minAttackerLevel="1" />
+				<param chance="2.0" minDamage="1" mode="DIFF" />
+				<param skillId="5693" skillLevel="1" />
+				<param targetType="ENEMY" />
 			</effect>
 		</effects>
 	</skill>
-	<skill id="8194" levels="1" name="Heavy Majestic Plate Armor Set - PvP">
-		<!-- Confirmed CT2.5 -->
+	<skill id="8194" levels="1" name="Majestic Heavy Armor Set - PvP">
+		<!-- High Five Confirmed -->
+		<set name="blockedInOlympiad" val="true" />
 		<set name="icon" val="icon.armor_t83_ul_i00" />
 		<set name="magicLvl" val="1" />
 		<set name="operateType" val="P" />
 		<set name="targetType" val="SELF" />
 		<effects>
-			<effect name="TriggerSkillByDamage">
-				<param attackerType="L2Playable" minAttackerLevel="1" maxAttackerLevel="100" />
-				<param minDamage="1" />
-				<param chance="2" />
-				<param skillId="5693" skillLevel="1" /> <!-- PvP Armor - Speed Down -->
-				<param targetType="ONE" />
-			</effect>
 			<effect name="DefenceTrait">
 				<param SHOCK="50" />
-				<mul stat="pAtk" val="1.04" /> <!-- P. Atk. +4% -->
-				<add stat="accCombat" val="3.1" /> <!-- Accuracy +3 -->
-				<mul stat="pvpPhysDef" val="1.05" />
+			</effect>
+			<effect name="Buff">
+				<add stat="accCombat" val="3.1" />
+			</effect>
+			<effect name="Buff">
+				<mul stat="pAtk" val="1.04" />
+			</effect>
+			<effect name="Buff">
 				<mul stat="pvpMagicalDef" val="1.05" />
+			</effect>
+			<effect name="Buff">
+				<mul stat="pvpPhysDef" val="1.05" />
+			</effect>
+			<effect name="Buff">
 				<mul stat="pvpPhysSkillsDef" val="1.05" />
+			</effect>
+			<effect name="TriggerSkillByDamage">
+				<param attackerType="PK" maxAttackerLevel="100" minAttackerLevel="1" />
+				<param chance="2.0" minDamage="1" mode="DIFF" />
+				<param skillId="5693" skillLevel="1" />
+				<param targetType="ENEMY" />
 			</effect>
 		</effects>
 	</skill>
-	<skill id="8195" levels="1" name="Light Nightmarish Leather Armor Set - PvP">
-		<!-- Confirmed CT2.5 -->
+	<skill id="8195" levels="1" name="Light Armor of Nightmare Set - PvP">
+		<!-- High Five Confirmed -->
+		<set name="blockedInOlympiad" val="true" />
 		<set name="icon" val="icon.armor_t81_ul_i00" />
 		<set name="magicLvl" val="1" />
 		<set name="operateType" val="P" />
 		<set name="targetType" val="SELF" />
 		<effects>
-			<effect name="TriggerSkillByDamage">
-				<param attackerType="L2Playable" minAttackerLevel="1" maxAttackerLevel="100" />
-				<param minDamage="1" />
-				<param chance="2" />
-				<param skillId="5694" skillLevel="1" /> <!-- PvP Armor - Mirage -->
-				<param targetType="ONE" />
-			</effect>
 			<effect name="DefenceTrait">
 				<param SLEEP="70" />
+			</effect>
+			<effect name="DefenceTrait">
 				<param HOLD="70" />
-				<mul stat="mDef" val="1.04" /> <!-- M. Def. +4% -->
-				<add stat="absorbDam" val="3" /> <!-- absorb 3% HP from damage inflicted on enemies -->
-				<mul stat="pvpPhysDef" val="1.05" />
+			</effect>
+			<effect name="Buff">
+				<mul stat="mDef" val="1.04" />
+			</effect>
+			<effect name="Buff">
 				<mul stat="pvpMagicalDef" val="1.05" />
+			</effect>
+			<effect name="Buff">
+				<mul stat="pvpPhysDef" val="1.05" />
+			</effect>
+			<effect name="Buff">
 				<mul stat="pvpPhysSkillsDef" val="1.05" />
+			</effect>
+			<effect name="TriggerSkillByDamage">
+				<param attackerType="PK" maxAttackerLevel="100" minAttackerLevel="1" />
+				<param chance="2.0" minDamage="1" mode="DIFF" />
+				<param skillId="5694" skillLevel="1" />
+				<param targetType="ENEMY" />
+			</effect>
+			<effect name="Buff">
+				<add stat="absorbDam" val="3" />
 			</effect>
 		</effects>
 	</skill>
 	<skill id="8196" levels="1" name="Light Majestic Leather Armor Set - PvP">
-		<!-- Confirmed CT2.5 -->
+		<!-- High Five Confirmed -->
+		<set name="blockedInOlympiad" val="true" />
 		<set name="icon" val="icon.armor_t84_ul_i00" />
 		<set name="magicLvl" val="1" />
 		<set name="operateType" val="P" />
 		<set name="targetType" val="SELF" />
 		<effects>
-			<effect name="TriggerSkillByDamage">
-				<param attackerType="L2Playable" minAttackerLevel="1" maxAttackerLevel="100" />
-				<param minDamage="1" />
-				<param chance="2" />
-				<param skillId="5694" skillLevel="1" /> <!-- PvP Armor - Mirage -->
-				<param targetType="ONE" />
+			<effect name="DefenceTrait">
+				<param SHOCK="50" />
 			</effect>
 			<effect name="MaxMp">
 				<param power="240" />
+				<param type="DIFF" />
 			</effect>
-			<effect name="DefenceTrait">
-				<param SHOCK="50" />
-				<mul stat="pAtk" val="1.08"> <!-- Archery P. Atk. +8% -->
+			<effect name="Buff">
+				<mul stat="pAtk" val="1.08">
 					<using kind="BOW,CROSSBOW" />
 				</mul>
-				<add stat="weightPenalty" val="5759" /> <!-- Point at which a weight penalty is applied +5759 -->
-				<mul stat="pvpPhysDef" val="1.05" />
+			</effect>
+			<effect name="Buff">
 				<mul stat="pvpMagicalDef" val="1.05" />
+			</effect>
+			<effect name="Buff">
+				<mul stat="pvpPhysDef" val="1.05" />
+			</effect>
+			<effect name="Buff">
 				<mul stat="pvpPhysSkillsDef" val="1.05" />
+			</effect>
+			<effect name="TriggerSkillByDamage">
+				<param attackerType="PK" maxAttackerLevel="100" minAttackerLevel="1" />
+				<param chance="2.0" minDamage="1" mode="DIFF" />
+				<param skillId="5694" skillLevel="1" />
+				<param targetType="ENEMY" />
+			</effect>
+			<effect name="Buff">
+				<add stat="weightPenalty" val="5759" />
 			</effect>
 		</effects>
 	</skill>
-	<skill id="8197" levels="1" name="Nightmare Robe Set - PvP">
-		<!-- Confirmed CT2.5 -->
+	<skill id="8197" levels="1" name="Robe of Nightmare Set - PvP">
+		<!-- High Five Confirmed -->
+		<set name="blockedInOlympiad" val="true" />
 		<set name="icon" val="icon.armor_t82_ul_i00" />
 		<set name="magicLvl" val="1" />
 		<set name="operateType" val="P" />
 		<set name="targetType" val="SELF" />
 		<effects>
-			<effect name="TriggerSkillByDamage">
-				<param attackerType="L2Playable" minAttackerLevel="1" maxAttackerLevel="100" />
-				<param minDamage="1" />
-				<param chance="2" />
-				<param skillId="5691" skillLevel="1" /> <!-- PvP Armor - Critical Down -->
-				<param targetType="SELF" />
-			</effect>
 			<effect name="DefenceTrait">
 				<param SLEEP="70" />
+			</effect>
+			<effect name="DefenceTrait">
 				<param HOLD="70" />
-				<mul stat="regMp" val="1.04" /> <!-- MP Regeneration +4% -->
-				<mul stat="mAtk" val="1.08" /> <!-- M. Atk. +8% -->
-				<mul stat="pvpPhysDef" val="1.05" />
+			</effect>
+			<effect name="Buff">
+				<mul stat="mAtk" val="1.08" />
+			</effect>
+			<effect name="Buff">
+				<mul stat="regMp" val="1.04" />
+			</effect>
+			<effect name="Buff">
 				<mul stat="pvpMagicalDef" val="1.05" />
+			</effect>
+			<effect name="Buff">
+				<mul stat="pvpPhysDef" val="1.05" />
+			</effect>
+			<effect name="Buff">
 				<mul stat="pvpPhysSkillsDef" val="1.05" />
+			</effect>
+			<effect name="TriggerSkillByDamage">
+				<param attackerType="PK" maxAttackerLevel="100" minAttackerLevel="1" />
+				<param chance="2.0" minDamage="1" mode="DIFF" />
+				<param skillId="5691" skillLevel="1" />
+				<param targetType="SELF" />
 			</effect>
 		</effects>
 	</skill>
 	<skill id="8198" levels="1" name="Majestic Robe Set - PvP">
-		<!-- Confirmed CT2.5 -->
+		<!-- High Five Confirmed -->
+		<set name="blockedInOlympiad" val="true" />
 		<set name="icon" val="icon.armor_t85_ul_i00" />
 		<set name="magicLvl" val="1" />
 		<set name="operateType" val="P" />
 		<set name="targetType" val="SELF" />
 		<effects>
-			<effect name="TriggerSkillByDamage">
-				<param attackerType="L2Playable" minAttackerLevel="1" maxAttackerLevel="100" />
-				<param minDamage="1" />
-				<param chance="2" />
-				<param skillId="5691" skillLevel="1" /> <!-- PvP Armor - Critical Down -->
-				<param targetType="SELF" />
+			<effect name="DefenceTrait">
+				<param SHOCK="50" />
+			</effect>
+			<effect name="Buff">
+				<mul stat="mAtkSpd" val="1.15" />
 			</effect>
 			<effect name="MaxMp">
 				<param power="240" />
+				<param type="DIFF" />
 			</effect>
-			<effect name="DefenceTrait">
-				<param SHOCK="50" />
-				<mul stat="mAtkSpd" val="1.15" /> <!-- Casting Spd. +15% -->
-				<mul stat="regMp" val="1.08" /> <!-- MP Regeneration +8% -->
-				<mul stat="pvpPhysDef" val="1.05" />
+			<effect name="Buff">
+				<mul stat="regMp" val="1.08" />
+			</effect>
+			<effect name="Buff">
 				<mul stat="pvpMagicalDef" val="1.05" />
+			</effect>
+			<effect name="Buff">
+				<mul stat="pvpPhysDef" val="1.05" />
+			</effect>
+			<effect name="Buff">
 				<mul stat="pvpPhysSkillsDef" val="1.05" />
+			</effect>
+			<effect name="TriggerSkillByDamage">
+				<param attackerType="PK" maxAttackerLevel="100" minAttackerLevel="1" />
+				<param chance="2.0" minDamage="1" mode="DIFF" />
+				<param skillId="5691" skillLevel="1" />
+				<param targetType="SELF" />
 			</effect>
 		</effects>
 	</skill>
-	<skill id="8199" levels="1" name="Heavy Imperial Crusader Breastplate Set - PvP">
-		<!-- Confirmed CT2.5 -->
+	<skill id="8199" levels="1" name="Imperial Crusader Breastplate Heavy Armor Set - PvP">
+		<!-- High Five Confirmed -->
+		<set name="blockedInOlympiad" val="true" />
 		<set name="icon" val="icon.armor_t88_u_i00" />
 		<set name="magicLvl" val="75" />
 		<set name="operateType" val="P" />
 		<set name="targetType" val="SELF" />
 		<effects>
-			<effect name="TriggerSkillByDamage">
-				<param attackerType="L2Playable" minAttackerLevel="1" maxAttackerLevel="100" />
-				<param minDamage="1" />
-				<param chance="2" />
-				<param skillId="5693" skillLevel="1" /> <!-- PvP Armor - Speed Down -->
-				<param targetType="ONE" />
+			<effect name="DefenceTrait">
+				<param SLEEP="70" />
+			</effect>
+			<effect name="DefenceTrait">
+				<param HOLD="70" />
 			</effect>
 			<effect name="MaxHp">
 				<param power="445" />
+				<param type="DIFF" />
 			</effect>
-			<effect name="DefenceTrait">
-				<param SLEEP="70" />
-				<param HOLD="70" />
-				<mul stat="pDef" val="1.08" /> <!-- P Def. +8% -->
-				<mul stat="pvpPhysDef" val="1.05" />
+			<effect name="Buff">
+				<mul stat="pDef" val="1.08" />
+			</effect>
+			<effect name="Buff">
 				<mul stat="pvpMagicalDef" val="1.05" />
+			</effect>
+			<effect name="Buff">
+				<mul stat="pvpPhysDef" val="1.05" />
+			</effect>
+			<effect name="Buff">
 				<mul stat="pvpPhysSkillsDef" val="1.05" />
+			</effect>
+			<effect name="TriggerSkillByDamage">
+				<param attackerType="PK" maxAttackerLevel="100" minAttackerLevel="1" />
+				<param chance="2.0" minDamage="1" mode="DIFF" />
+				<param skillId="5693" skillLevel="1" />
+				<param targetType="ENEMY" />
 			</effect>
 		</effects>
 	</skill>

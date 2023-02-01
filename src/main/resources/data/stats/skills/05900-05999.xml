@@ -42,9 +42,16 @@
 				<param targetType="SELF" />
 				<param allowWeapons="ALL" />
 			</effect>
+			<effect name="TriggerSkillByDamage">
+				<param attackerType="ENEMY_ALL" maxAttackerLevel="100" minAttackerLevel="1" />
+				<param chance="90.0" minDamage="1" mode="DIFF" />
+				<param skillId="5902" skillLevel="1" />
+				<param targetType="SELF" />
+			</effect>
 		</effects>
 	</skill>
 	<skill id="5901" levels="2" name="Mist of Oblivion">
+		<!-- High Five Confirmed -->
 		<table name="#hitTime"> 2000 22936 </table>
 		<table name="#magicalAttackPower"> 121 171 </table>
 		<table name="#mpConsume1"> 15 45 </table>
@@ -74,6 +81,11 @@
 		<set name="targetType" val="SELF" />
 		<set name="trait" val="DERANGEMENT" />
 		<effects>
+			<effect name="MagicalAttack">
+				<param power="#magicalAttackPower" />
+			</effect>
+			<effect name="PhysicalMute" />
+			<effect name="Mute" />
 			<effect name="TriggerSkillByAttack">
 				<param attackerType="L2Character" minAttackerLevel="1" maxAttackerLevel="99" />
 				<param isCritical="false" />
@@ -82,11 +94,12 @@
 				<param targetType="SELF" />
 				<param allowWeapons="ALL" />
 			</effect>
-			<effect name="MagicalAttack">
-				<param power="#magicalAttackPower" />
+			<effect name="TriggerSkillByDamage">
+				<param attackerType="ENEMY_ALL" maxAttackerLevel="100" minAttackerLevel="1" />
+				<param chance="90.0" minDamage="1" mode="DIFF" />
+				<param skillId="5902" skillLevel="1" />
+				<param targetType="SELF" />
 			</effect>
-			<effect name="PhysicalMute" />
-			<effect name="Mute" />
 		</effects>
 	</skill>
 	<skill id="5902" levels="1" name="NPC Trigger Target Cancel">
@@ -316,10 +329,19 @@
 		<set name="targetType" val="TARGET" />
 	</skill>
 	<skill id="5911" levels="1" name="Pestilence Cleanse">
+		<!-- High Five Confirmed -->
 		<set name="blockedInOlympiad" val="true" />
 		<set name="magicLvl" val="83" />
 		<set name="operateType" val="P" />
-		<set name="targetType" val="NONE" />
+		<set name="targetType" val="SELF" />
+		<effects>
+			<effect name="TriggerSkillByDamage">
+				<param attackerType="ENEMY_ALL" maxAttackerLevel="100" minAttackerLevel="1" />
+				<param chance="90.0" minDamage="1" mode="DIFF" />
+				<param skillId="5912" skillLevel="1" />
+				<param targetType="SELF" />
+			</effect>
+		</effects>
 	</skill>
 	<skill id="5912" levels="1" name="Pestilence Cleanse">
 		<!-- High Five Confirmed -->
@@ -2352,18 +2374,17 @@
 		<set name="targetType" val="SELF" />
 		<set name="trait" val="DERANGEMENT" />
 		<effects>
-			<effect name="TriggerSkillByDamage">
-				<param attackerType="L2Attackable" minAttackerLevel="1" maxAttackerLevel="100" />
-				<param minDamage="1" />
-				<param chance="90" />
-				<param skillId="5902" skillLevel="1" />
-				<param targetType="SELF" />
-			</effect>
 			<effect name="MagicalAttack">
 				<param power="171" />
 			</effect>
 			<effect name="PhysicalMute" />
 			<effect name="Mute" />
+			<effect name="TriggerSkillByDamage">
+				<param attackerType="MOB" maxAttackerLevel="100" minAttackerLevel="1" />
+				<param chance="90.0" minDamage="1" mode="DIFF" />
+				<param skillId="5902" skillLevel="1" />
+				<param targetType="SELF" />
+			</effect>
 		</effects>
 	</skill>
 	<skill id="5994" levels="1" name="Effect of Doubt">

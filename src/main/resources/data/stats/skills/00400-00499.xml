@@ -2027,11 +2027,13 @@
 		</effects>
 	</skill>
 	<skill id="445" levels="1" name="Mirage">
-		<!-- Confirmed CT2.5 -->
+		<!-- High Five Confirmed -->
 		<set name="abnormalLvl" val="1" />
 		<set name="abnormalTime" val="60" />
 		<set name="abnormalType" val="MIRAGE" />
+		<set name="affectScope" val="SINGLE" />
 		<set name="effectPoint" val="673" />
+		<set name="hitCancelTime" val="500" />
 		<set name="hitTime" val="2000" />
 		<set name="icon" val="icon.skill0445" />
 		<set name="magicLvl" val="79" />
@@ -2042,14 +2044,12 @@
 		<set name="targetType" val="SELF" />
 		<effects>
 			<effect name="TriggerSkillByDamage">
-				<param attackerType="L2Playable" minAttackerLevel="1" maxAttackerLevel="100" />
-				<param minDamage="1" />
-				<param chance="80" />
-				<param skillId="5144" skillLevel="1" /> <!-- Mirage -->
-				<param targetType="ONE" />
+				<param attackerType="PK" maxAttackerLevel="100" minAttackerLevel="1" />
+				<param chance="80.0" minDamage="1" mode="DIFF" />
+				<param skillId="5144" skillLevel="1" />
+				<param targetType="ENEMY" />
 			</effect>
 		</effects>
-		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="446" levels="1" name="Dodge">
 		<set name="abnormalLvl" val="1" />

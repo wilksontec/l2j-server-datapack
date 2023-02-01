@@ -178,6 +178,7 @@ public final class EffectMasterHandler {
 		InstantDespawn.class,
 		InstantDispelByName.class,
 		InstantDispelBySlotMyself.class,
+		InstantEnchantArmor.class,
 		InstantHpByLevelSelf.class,
 		InstantMagicalAttackOverHit.class,
 		InstantMpByLevelSelf.class,

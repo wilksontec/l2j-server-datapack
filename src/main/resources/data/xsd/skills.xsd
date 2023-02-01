@@ -304,7 +304,7 @@
 				<xs:attribute type="xs:string" name="fullLethal" />
 				<xs:attribute type="xs:string" name="attackerType" />
 				<xs:attribute type="xs:byte" name="minAttackerLevel" />
-				<xs:attribute type="xs:byte" name="maxAttackerLevel" />
+				<xs:attribute type="xs:string" name="maxAttackerLevel" />
 				<xs:attribute type="xs:boolean" name="isCritical" />
 				<xs:attribute type="xs:string" name="minDamage" />
 				<xs:attribute type="xs:short" name="castSkillId" />
@@ -586,6 +586,7 @@
 					<xs:enumeration value="InstantDespawn" />
 					<xs:enumeration value="InstantDispelByName" />
 					<xs:enumeration value="InstantDispelBySlotMyself" />
+					<xs:enumeration value="InstantEnchantArmor" />
 					<xs:enumeration value="InstantHpByLevelSelf" />
 					<xs:enumeration value="InstantMagicalAttackOverHit" />
 					<xs:enumeration value="InstantMpByLevelSelf" />
