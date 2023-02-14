@@ -305,6 +305,7 @@ public class OlympiadManagerLink implements IBypassHandler {
 						} else {
 							reply.setFile(activeChar.getHtmlPrefix(), Olympiad.OLYMPIAD_HTML_PATH + "hero_notreceive.htm");
 						}
+						reply.replace("%objectId%", String.valueOf(target.getObjectId()));
 						activeChar.sendPacket(reply);
 						break;
 					default:
