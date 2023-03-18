@@ -19,6 +19,7 @@
 package com.l2jserver.datapack.ai.individual;
 
 import static com.l2jserver.gameserver.config.Configuration.grandBoss;
+import static com.l2jserver.gameserver.config.Configuration.npc;
 
 import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
@@ -343,9 +344,11 @@ public final class QueenAnt extends AbstractNpcAI {
 	
 	@Override
 	public String onEnterZone(L2Character character, L2ZoneType zone) {
-		final L2PcInstance player = character.getActingPlayer();
-		notifyEvent("RAID_CURSE", _queen, player);
-		startQuestTimer("RAID_CURSE", 3000, _queen, player, true);
+		if (npc().raidCurse()) {
+			final var player = character.getActingPlayer();
+			notifyEvent("RAID_CURSE", _queen, player);
+			startQuestTimer("RAID_CURSE", 3000, _queen, player, true);
+		}
 		return super.onEnterZone(character, zone);
 	}
 	
