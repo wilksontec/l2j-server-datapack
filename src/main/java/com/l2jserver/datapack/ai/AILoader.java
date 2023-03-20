@@ -25,6 +25,7 @@ import com.l2jserver.datapack.ai.fantasy_isle.HandysBlockCheckerEvent;
 import com.l2jserver.datapack.ai.fantasy_isle.MC_Show;
 import com.l2jserver.datapack.ai.group_template.AltarsOfSacrifice;
 import com.l2jserver.datapack.ai.group_template.BeastFarm;
+import com.l2jserver.datapack.ai.group_template.Corpse;
 import com.l2jserver.datapack.ai.group_template.DenOfEvil;
 import com.l2jserver.datapack.ai.group_template.DragonValley;
 import com.l2jserver.datapack.ai.group_template.FairyTrees;
@@ -302,6 +303,7 @@ public class AILoader {
 		// Group Template
 		AltarsOfSacrifice.class,
 		BeastFarm.class,
+		Corpse.class,
 		DenOfEvil.class,
 		DragonValley.class,
 		FairyTrees.class,
