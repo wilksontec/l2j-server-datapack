@@ -20,6 +20,7 @@ package com.l2jserver.datapack.quests.Q00133_ThatsBloodyHot;
 
 import com.l2jserver.datapack.hellbound.HellboundEngine;
 import com.l2jserver.datapack.quests.Q00131_BirdInACage.Q00131_BirdInACage;
+import com.l2jserver.gameserver.instancemanager.GlobalVariablesManager;
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
 import com.l2jserver.gameserver.model.quest.Quest;
@@ -105,7 +106,7 @@ public class Q00133_ThatsBloodyHot extends Quest {
 			}
 			case "32292-06.html": {
 				if (st.isCond(4)) {
-					if (!HellboundEngine.getInstance().isLocked()) {
+					if (GlobalVariablesManager.getInstance().hasVariable("HBLevel")) {
 						st.giveAdena(254247, true);
 						st.addExpAndSp(331457, 32524);
 						st.exitQuest(false, true);

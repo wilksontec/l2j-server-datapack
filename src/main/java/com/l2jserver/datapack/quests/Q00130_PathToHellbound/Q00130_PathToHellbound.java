@@ -18,7 +18,7 @@
  */
 package com.l2jserver.datapack.quests.Q00130_PathToHellbound;
 
-import com.l2jserver.datapack.hellbound.HellboundEngine;
+import com.l2jserver.gameserver.instancemanager.GlobalVariablesManager;
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
 import com.l2jserver.gameserver.model.quest.Quest;
@@ -116,7 +116,7 @@ public class Q00130_PathToHellbound extends Quest {
 			}
 			case State.CREATED: {
 				if (npc.getId() == CASIAN) {
-					if (!HellboundEngine.getInstance().isLocked()) {
+					if (GlobalVariablesManager.getInstance().hasVariable("HBLevel")) {
 						htmltext = (player.getLevel() >= MIN_LEVEL) ? "30612-01.htm" : "30612-02.html";
 					} else {
 						htmltext = "30612-03.html";
