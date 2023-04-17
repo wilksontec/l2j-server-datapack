@@ -30,6 +30,8 @@ import com.l2jserver.gameserver.model.actor.L2Attackable;
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
 import com.l2jserver.gameserver.model.zone.type.L2EffectZone;
+import com.l2jserver.gameserver.network.NpcStringId;
+import com.l2jserver.gameserver.network.clientpackets.Say2;
 
 /**
  * Queen Shyeed AI
@@ -123,6 +125,7 @@ public final class QueenShyeed extends AbstractNpcAI {
 	@Override
 	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
 		if (npc.getId() == SHYEED) {
+			broadcastNpcSay(npc, Say2.NPC_ALL, NpcStringId.SHYEEDS_CRY_IS_STEADILY_DYING_DOWN);
 			startQuestTimer("SHYEED_DEAD", 7000, null, null);
 			PC_BUFF_ZONE.setEnabled(true);
 			MOB_BUFF_ZONE.setEnabled(false);
