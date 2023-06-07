@@ -27,6 +27,7 @@ import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
 import com.l2jserver.gameserver.model.itemcontainer.Inventory;
 import com.l2jserver.gameserver.model.quest.QuestState;
 import com.l2jserver.gameserver.model.quest.State;
+import com.l2jserver.gameserver.network.SystemMessageId;
 
 /**
  * Black Marketeer of Mammon - Exchange Adena for AA.
@@ -38,46 +39,113 @@ public final class BlackMarketeerOfMammon extends AbstractNpcAI {
 	// Misc
 	private static final int MIN_LEVEL = 60;
 	
+	private static final double WEIGHT_LIMIT = 0.80;
+	
 	public BlackMarketeerOfMammon() {
 		super(BlackMarketeerOfMammon.class.getSimpleName(), "ai/npc");
 		addStartNpc(BLACK_MARKETEER);
-		addTalkId(BLACK_MARKETEER);
-	}
-	
-	@Override
-	public String onTalk(L2Npc npc, L2PcInstance talker) {
-		return exchangeAvailable() ? "31092-01.html" : "31092-02.html";
+		addFirstTalkId(BLACK_MARKETEER);
 	}
 	
 	@Override
 	public String onAdvEvent(String event, L2Npc npc, L2PcInstance player) {
 		String htmltext = event;
-		if ("exchange".equals(event)) {
-			if (exchangeAvailable()) {
-				if (player.getLevel() >= MIN_LEVEL) {
-					final QuestState qs = getQuestState(player, true);
-					if (!qs.isNowAvailable()) {
-						htmltext = "31092-03.html";
-					} else {
-						if (player.getAdena() >= 2000000) {
-							qs.setState(State.STARTED);
-							takeItems(player, Inventory.ADENA_ID, 2000000);
-							giveItems(player, Inventory.ANCIENT_ADENA_ID, 500000);
-							htmltext = "31092-04.html";
-							qs.exitQuest(QuestType.DAILY, false);
-						} else {
-							htmltext = "31092-05.html";
-						}
-					}
-				} else {
-					htmltext = "31092-06.html";
-				}
+		
+		if (event.endsWith(".htm")) {
+			return "marketeer_of_mammon" + event;
+		}
+		
+		if (event.startsWith("exchange")) {
+			long ancientAdena;
+			try {
+				ancientAdena = Long.parseLong(event.substring(9).trim());
+			} catch (Exception e) {
+				return "marketeer_of_mammon_q0506_14.htm";
+			}
+			
+			if (player.getAncientAdena() < ancientAdena) {
+				htmltext = "marketeer_of_mammon_q0506_12.htm";
 			} else {
-				htmltext = "31092-02.html";
+				if (ancientAdena <= 0) {
+					htmltext = "marketeer_of_mammon_q0506_14.htm";
+				} else {
+					if (player.getInventory().getSize(false) >= (player.getInventoryLimit() * WEIGHT_LIMIT) || player.getCurrentLoad() >= (player.getMaxLoad() * WEIGHT_LIMIT)) {
+						player.sendPacket(SystemMessageId.INVENTORY_LESS_THAN_80_PERCENT);
+						return null;
+					}
+					takeItems(player, Inventory.ANCIENT_ADENA_ID, ancientAdena);
+					giveItems(player, Inventory.ADENA_ID, ancientAdena);
+					htmltext = "marketeer_of_mammon_q0506_13.htm";
+				}
+			}
+			return htmltext;
+		}
+		
+		int ask = Integer.parseInt(event.split(";")[0]);
+		int reply = Integer.parseInt(event.split(";")[1]);
+		switch (ask) {
+			case 506 -> {
+				switch (reply) {
+					case 3,4,5 -> {
+						htmltext = "marketeer_of_mammon_q0506_04.htm";
+						break;
+					}
+				}
+				break;
+			}
+			case 989 -> {
+				switch (reply) {
+					case 3 -> {
+						if (!exchangeAvailable()) {
+							htmltext = "marketeer_of_mammon002e.htm";
+						} else {
+							htmltext = "marketeer_of_mammon003.htm";
+						}
+						break;
+					}
+				}
+				break;
+			}
+			case 990 -> {
+				switch (reply) {
+					case 3 -> {
+						if (player.getAdena() < 2000000) {
+							htmltext = "marketeer_of_mammon002c.htm";
+						} else {
+							final QuestState qs = getQuestState(player, true);
+							if (!qs.isNowAvailable()) {
+								htmltext = "marketeer_of_mammon002b.htm";
+							} else {
+								if (player.getLevel() < MIN_LEVEL) {
+									htmltext = "marketeer_of_mammon002d.htm";
+								} else {
+									if (player.getInventory().getSize(false) >= (player.getInventoryLimit() * WEIGHT_LIMIT) || player.getCurrentLoad() >= (player.getMaxLoad() * WEIGHT_LIMIT)) {
+										
+										player.sendPacket(SystemMessageId.INVENTORY_LESS_THAN_80_PERCENT);
+										return null;
+									}
+									
+									qs.setState(State.STARTED);
+									takeItems(player, Inventory.ADENA_ID, 2000000);
+									giveItems(player, Inventory.ANCIENT_ADENA_ID, 500000);
+									qs.exitQuest(QuestType.DAILY, false);
+									htmltext = "marketeer_of_mammon004.htm";
+								}
+							}
+						}
+						break;
+					}
+				}
+				break;
 			}
 		}
 		
 		return htmltext;
+	}
+	
+	@Override
+	public String onFirstTalk(L2Npc npc, L2PcInstance player) {
+		return "marketeer_of_mammon001.htm";
 	}
 	
 	private boolean exchangeAvailable() {
