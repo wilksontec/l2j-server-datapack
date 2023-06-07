@@ -135,6 +135,7 @@ import com.l2jserver.datapack.ai.npc.KetraOrcSupport.KetraOrcSupport;
 import com.l2jserver.datapack.ai.npc.Kier.Kier;
 import com.l2jserver.datapack.ai.npc.ManorManager.ManorManager;
 import com.l2jserver.datapack.ai.npc.MercenaryCaptain.MercenaryCaptain;
+import com.l2jserver.datapack.ai.npc.MerchantOfMammon.MerchantOfMammon;
 import com.l2jserver.datapack.ai.npc.Minigame.Minigame;
 import com.l2jserver.datapack.ai.npc.MonumentOfHeroes.MonumentOfHeroes;
 import com.l2jserver.datapack.ai.npc.NevitsHerald.NevitsHerald;
@@ -248,6 +249,7 @@ public class AILoader {
 		Kier.class,
 		ManorManager.class,
 		MercenaryCaptain.class,
+		MerchantOfMammon.class,
 		Minigame.class,
 		MonumentOfHeroes.class,
 		NevitsHerald.class,
