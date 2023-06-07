@@ -108,6 +108,7 @@ import com.l2jserver.datapack.ai.npc.Asamah.Asamah;
 import com.l2jserver.datapack.ai.npc.AvantGarde.AvantGarde;
 import com.l2jserver.datapack.ai.npc.BlackJudge.BlackJudge;
 import com.l2jserver.datapack.ai.npc.BlackMarketeerOfMammon.BlackMarketeerOfMammon;
+import com.l2jserver.datapack.ai.npc.BlacksmithOfMammon.BlacksmithOfMammon;
 import com.l2jserver.datapack.ai.npc.CastleAmbassador.CastleAmbassador;
 import com.l2jserver.datapack.ai.npc.CastleBlacksmith.CastleBlacksmith;
 import com.l2jserver.datapack.ai.npc.CastleChamberlain.CastleChamberlain;
@@ -222,6 +223,7 @@ public class AILoader {
 		AvantGarde.class,
 		BlackJudge.class,
 		BlackMarketeerOfMammon.class,
+		BlacksmithOfMammon.class,
 		CastleAmbassador.class,
 		CastleBlacksmith.class,
 		CastleCourtMagician.class,
