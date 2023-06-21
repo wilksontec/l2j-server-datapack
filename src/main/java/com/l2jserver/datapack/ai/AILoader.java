@@ -147,6 +147,7 @@ import com.l2jserver.datapack.ai.npc.Rafforty.Rafforty;
 import com.l2jserver.datapack.ai.npc.Rignos.Rignos;
 import com.l2jserver.datapack.ai.npc.Selina.Selina;
 import com.l2jserver.datapack.ai.npc.Sirra.Sirra;
+import com.l2jserver.datapack.ai.npc.SSQPriest.SSQPriest;
 import com.l2jserver.datapack.ai.npc.SubclassCertification.SubclassCertification;
 import com.l2jserver.datapack.ai.npc.Summons.MerchantGolem.GolemTrader;
 import com.l2jserver.datapack.ai.npc.Summons.Pets.BabyPets;
@@ -161,7 +162,6 @@ import com.l2jserver.datapack.ai.npc.Teleports.ElrokiTeleporters.ElrokiTeleporte
 import com.l2jserver.datapack.ai.npc.Teleports.GatekeeperSpirit.GatekeeperSpirit;
 import com.l2jserver.datapack.ai.npc.Teleports.GhostChamberlainOfElmoreden.GhostChamberlainOfElmoreden;
 import com.l2jserver.datapack.ai.npc.Teleports.GrandBossTeleporters.GrandBossTeleporters;
-import com.l2jserver.datapack.ai.npc.Teleports.HuntingGroundsTeleport.HuntingGroundsTeleport;
 import com.l2jserver.datapack.ai.npc.Teleports.Klemis.Klemis;
 import com.l2jserver.datapack.ai.npc.Teleports.MithrilMinesTeleporter.MithrilMinesTeleporter;
 import com.l2jserver.datapack.ai.npc.Teleports.NewbieGuide.NewbieGuide;
@@ -262,6 +262,7 @@ public class AILoader {
 		Rafforty.class,
 		Selina.class,
 		Sirra.class,
+		SSQPriest.class,
 		SubclassCertification.class,
 		GolemTrader.class,
 		BabyPets.class,
@@ -276,7 +277,6 @@ public class AILoader {
 		GatekeeperSpirit.class,
 		GhostChamberlainOfElmoreden.class,
 		GrandBossTeleporters.class,
-		HuntingGroundsTeleport.class,
 		Klemis.class,
 		MithrilMinesTeleporter.class,
 		NewbieGuide.class,
