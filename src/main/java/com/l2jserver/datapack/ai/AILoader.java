@@ -169,6 +169,7 @@ import com.l2jserver.datapack.ai.npc.Teleports.NoblesseTeleport.NoblesseTeleport
 import com.l2jserver.datapack.ai.npc.Teleports.OracleTeleport.OracleTeleport;
 import com.l2jserver.datapack.ai.npc.Teleports.PaganTeleporters.PaganTeleporters;
 import com.l2jserver.datapack.ai.npc.Teleports.SeparatedSoul.SeparatedSoul;
+import com.l2jserver.datapack.ai.npc.Teleports.SSQTeleporter.SSQTeleporter;
 import com.l2jserver.datapack.ai.npc.Teleports.StakatoNestTeleporter.StakatoNestTeleporter;
 import com.l2jserver.datapack.ai.npc.Teleports.SteelCitadelTeleport.SteelCitadelTeleport;
 import com.l2jserver.datapack.ai.npc.Teleports.StrongholdsTeleports.StrongholdsTeleports;
@@ -284,6 +285,7 @@ public class AILoader {
 		OracleTeleport.class,
 		PaganTeleporters.class,
 		SeparatedSoul.class,
+		SSQTeleporter.class,
 		StakatoNestTeleporter.class,
 		SteelCitadelTeleport.class,
 		StrongholdsTeleports.class,

@@ -2813,7 +2813,7 @@
 			<height normal="28" />
 		</collision>
 	</npc>
-	<npc id="31095" level="70" type="L2DungeonGatekeeper" name="Gatekeeper Ziggurat">
+	<npc id="31095" level="70" type="L2Npc" name="Gatekeeper Ziggurat">
 		<!-- Confirmed CT2.5 -->
 		<parameters>
 			<param name="Role" value="0" />
@@ -2857,7 +2857,7 @@
 			<height normal="15" />
 		</collision>
 	</npc>
-	<npc id="31096" level="70" type="L2DungeonGatekeeper" name="Gatekeeper Ziggurat">
+	<npc id="31096" level="70" type="L2Npc" name="Gatekeeper Ziggurat">
 		<!-- Confirmed CT2.5 -->
 		<parameters>
 			<param name="Role" value="0" />
@@ -2901,7 +2901,7 @@
 			<height normal="15" />
 		</collision>
 	</npc>
-	<npc id="31097" level="70" type="L2DungeonGatekeeper" name="Gatekeeper Ziggurat">
+	<npc id="31097" level="70" type="L2Npc" name="Gatekeeper Ziggurat">
 		<!-- Confirmed CT2.5 -->
 		<parameters>
 			<param name="Role" value="0" />
@@ -2945,7 +2945,7 @@
 			<height normal="15" />
 		</collision>
 	</npc>
-	<npc id="31098" level="70" type="L2DungeonGatekeeper" name="Gatekeeper Ziggurat">
+	<npc id="31098" level="70" type="L2Npc" name="Gatekeeper Ziggurat">
 		<!-- Confirmed CT2.5 -->
 		<parameters>
 			<param name="Role" value="0" />
@@ -2989,7 +2989,7 @@
 			<height normal="15" />
 		</collision>
 	</npc>
-	<npc id="31099" level="70" type="L2DungeonGatekeeper" name="Gatekeeper Ziggurat">
+	<npc id="31099" level="70" type="L2Npc" name="Gatekeeper Ziggurat">
 		<!-- Confirmed CT2.5 -->
 		<parameters>
 			<param name="Role" value="0" />

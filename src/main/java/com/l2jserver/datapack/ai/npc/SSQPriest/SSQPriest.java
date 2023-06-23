@@ -166,7 +166,7 @@ public final class SSQPriest extends AbstractNpcAI {
 			String[] price = s[2].split(";");
 			String pr = comp ? price[1].trim() : price[0].trim();
 			
-			html.append("<a action=\"bypass -h Quest SSQPriest Goto " + location + " " + pr + "\">" + name + " - " + pr + " Ancient Adena</a><br1>");
+			html.append("<a action=\"bypass -h Quest SSQPriest Goto " + location + " " + pr + "\" msg=\"811;" + name + "\">" + name + " - " + pr + " Ancient Adena</a><br1>");
 		}
 		html.append("</body></html>");
 		
