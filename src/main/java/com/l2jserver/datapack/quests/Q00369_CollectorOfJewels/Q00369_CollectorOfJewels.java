@@ -101,12 +101,13 @@ public final class Q00369_CollectorOfJewels extends Quest {
 	@Override
 	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
 		L2PcInstance luckyPlayer = getRandomPartyMember(killer, npc);
-		final QuestState st = getQuestState(luckyPlayer, false);
-
-		final int itemLimit = (st.isMemoState(1) ? FIRST_STEP_LIMIT : SECOND_STEP_LIMIT);
-		if (giveItemRandomly(st.getPlayer(), npc, DROPLIST.get(npc).drop(), itemLimit, true)
-			&& (getQuestItemsCount(luckyPlayer, FLARE_SHARD, FREEZING_SHARD) >= (itemLimit * 2))) {
-			st.setCond((st.isMemoState(1) ? 2 : 4));
+		if (luckyPlayer != null) {
+			final QuestState st = getQuestState(luckyPlayer, false);
+			final int itemLimit = (st.isMemoState(1) ? FIRST_STEP_LIMIT : SECOND_STEP_LIMIT);
+			if (giveItemRandomly(st.getPlayer(), npc, DROPLIST.get(npc).drop(), itemLimit, true)
+				&& (getQuestItemsCount(luckyPlayer, FLARE_SHARD, FREEZING_SHARD) >= (itemLimit * 2))) {
+				st.setCond((st.isMemoState(1) ? 2 : 4));
+			}
 		}
 		return super.onKill(npc, killer, isSummon);
 	}
