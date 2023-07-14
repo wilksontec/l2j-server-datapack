@@ -137,7 +137,6 @@ import com.l2jserver.datapack.handlers.bypasshandlers.QuestList;
 import com.l2jserver.datapack.handlers.bypasshandlers.ReceivePremium;
 import com.l2jserver.datapack.handlers.bypasshandlers.ReleaseAttribute;
 import com.l2jserver.datapack.handlers.bypasshandlers.RentPet;
-import com.l2jserver.datapack.handlers.bypasshandlers.Rift;
 import com.l2jserver.datapack.handlers.bypasshandlers.SkillList;
 import com.l2jserver.datapack.handlers.bypasshandlers.SupportBlessing;
 import com.l2jserver.datapack.handlers.bypasshandlers.SupportMagic;
@@ -374,7 +373,7 @@ public class MasterHandler {
 		ReceivePremium.class,
 		ReleaseAttribute.class,
 		RentPet.class,
-		Rift.class,
+
 		SkillList.class,
 		SupportBlessing.class,
 		SupportMagic.class,

@@ -144,6 +144,7 @@ import com.l2jserver.datapack.ai.npc.NpcBuffers.NpcBuffers;
 import com.l2jserver.datapack.ai.npc.NpcBuffers.impl.CabaleBuffer;
 import com.l2jserver.datapack.ai.npc.PriestOfBlessing.PriestOfBlessing;
 import com.l2jserver.datapack.ai.npc.Rafforty.Rafforty;
+import com.l2jserver.datapack.ai.npc.RiftWatcher.RiftWatcher;
 import com.l2jserver.datapack.ai.npc.Rignos.Rignos;
 import com.l2jserver.datapack.ai.npc.Selina.Selina;
 import com.l2jserver.datapack.ai.npc.Sirra.Sirra;
@@ -162,6 +163,7 @@ import com.l2jserver.datapack.ai.npc.Teleports.ElrokiTeleporters.ElrokiTeleporte
 import com.l2jserver.datapack.ai.npc.Teleports.GatekeeperSpirit.GatekeeperSpirit;
 import com.l2jserver.datapack.ai.npc.Teleports.GhostChamberlainOfElmoreden.GhostChamberlainOfElmoreden;
 import com.l2jserver.datapack.ai.npc.Teleports.GrandBossTeleporters.GrandBossTeleporters;
+import com.l2jserver.datapack.ai.npc.Teleports.GuardianBorder.GuardianBorder;
 import com.l2jserver.datapack.ai.npc.Teleports.Klemis.Klemis;
 import com.l2jserver.datapack.ai.npc.Teleports.MithrilMinesTeleporter.MithrilMinesTeleporter;
 import com.l2jserver.datapack.ai.npc.Teleports.NewbieGuide.NewbieGuide;
@@ -259,8 +261,9 @@ public class AILoader {
 		NpcBuffers.class,
 		CabaleBuffer.class,
 		PriestOfBlessing.class,
-		Rignos.class,
 		Rafforty.class,
+		RiftWatcher.class,
+		Rignos.class,
 		Selina.class,
 		Sirra.class,
 		SSQPriest.class,
@@ -278,6 +281,7 @@ public class AILoader {
 		GatekeeperSpirit.class,
 		GhostChamberlainOfElmoreden.class,
 		GrandBossTeleporters.class,
+		GuardianBorder.class,
 		Klemis.class,
 		MithrilMinesTeleporter.class,
 		NewbieGuide.class,
