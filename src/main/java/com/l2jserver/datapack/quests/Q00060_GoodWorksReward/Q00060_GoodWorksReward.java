@@ -269,45 +269,65 @@ public final class Q00060_GoodWorksReward extends Quest {
 			}
 			case "REPLY_4": {
 				if (qs.isMemoState(10)) {
+					String html = null;
 					switch (player.getClassId()) {
 						case warrior:
-							return "31092-05.html";
+							html = "31092-05.html";
+							break;
 						case knight:
-							return "31092-06.html";
+							html = "31092-06.html";
+							break;
 						case rogue:
-							return "31092-07.html";
+							html = "31092-07.html";
+							break;
 						case wizard:
-							return "31092-08.html";
+							html = "31092-08.html";
+							break;
 						case cleric:
-							return "31092-09.html";
+							html = "31092-09.html";
+							break;
 						case elvenKnight:
-							return "31092-10.html";
+							html = "31092-10.html";
+							break;
 						case elvenScout:
-							return "31092-11.html";
+							html = "31092-11.html";
+							break;
 						case elvenWizard:
-							return "31092-12.html";
+							html = "31092-12.html";
+							break;
 						case oracle:
-							return "31092-13.html";
+							html = "31092-13.html";
+							break;
 						case palusKnight:
-							return "31092-14.html";
+							html = "31092-14.html";
+							break;
 						case assassin:
-							return "31092-15.html";
+							html = "31092-15.html";
+							break;
 						case darkWizard:
-							return "31092-16.html";
+							html = "31092-16.html";
+							break;
 						case shillienOracle:
-							return "31092-17.html";
+							html = "31092-17.html";
+							break;
 						case orcRaider:
-							return "31092-18.html";
+							html = "31092-18.html";
+							break;
 						case orcMonk:
-							return "31092-19.html";
+							html = "31092-19.html";
+							break;
 						case orcShaman:
-							return "31092-20.html";
+							html = "31092-20.html";
+							break;
 						case scavenger:
-							return "31092-21.html";
+							html = "31092-21.html";
+							break;
 						case artisan:
-							return "31092-22.html";
+							html = "31092-22.html";
+							break;
 					}
 					qs.exitQuest(false, true);
+					return html;
 				}
 				break;
 			}
