@@ -36,7 +36,7 @@ import com.l2jserver.gameserver.model.interfaces.ILocational;
  * @author lion
  */
 public final class AltarsOfSacrifice extends AbstractNpcAI {
-	private final class Altar {
+	private static final class Altar {
 		private final ILocational _middlePoint;
 		private final int[] _bossNpcIds;
 		private L2Npc _spawnedBoss;

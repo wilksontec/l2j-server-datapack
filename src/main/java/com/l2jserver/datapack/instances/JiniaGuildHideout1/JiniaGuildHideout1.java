@@ -31,7 +31,7 @@ import com.l2jserver.gameserver.model.quest.QuestState;
  * @author Adry_85
  */
 public final class JiniaGuildHideout1 extends AbstractInstance {
-	protected class JGH1World extends InstanceWorld {
+	protected static class JGH1World extends InstanceWorld {
 		
 	}
 	

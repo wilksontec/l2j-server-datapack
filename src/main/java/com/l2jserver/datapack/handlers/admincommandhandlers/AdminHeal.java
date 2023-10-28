@@ -80,8 +80,7 @@ public class AdminHeal implements IAdminCommandHandler {
 					int radius = Integer.parseInt(player);
 					Collection<L2Object> objs = activeChar.getKnownList().getKnownObjects().values();
 					for (L2Object object : objs) {
-						if (object instanceof L2Character) {
-							L2Character character = (L2Character) object;
+						if (object instanceof L2Character character) {
 							character.setCurrentHpMp(character.getMaxHp(), character.getMaxMp());
 							if (object instanceof L2PcInstance) {
 								character.setCurrentCp(character.getMaxCp());
@@ -98,8 +97,7 @@ public class AdminHeal implements IAdminCommandHandler {
 		if (obj == null) {
 			obj = activeChar;
 		}
-		if (obj instanceof L2Character) {
-			L2Character target = (L2Character) obj;
+		if (obj instanceof L2Character target) {
 			target.setCurrentHpMp(target.getMaxHp(), target.getMaxMp());
 			if (target instanceof L2PcInstance) {
 				target.setCurrentCp(target.getMaxCp());

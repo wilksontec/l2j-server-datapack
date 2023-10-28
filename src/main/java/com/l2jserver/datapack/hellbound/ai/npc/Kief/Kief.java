@@ -121,22 +121,14 @@ public final class Kief extends AbstractNpcAI {
 	
 	@Override
 	public String onFirstTalk(L2Npc npc, L2PcInstance player) {
-		switch (HellboundEngine.getInstance().getLevel()) {
-			case 1:
-				return "32354-01.htm";
-			case 2:
-			case 3:
-				return "32354-01a.htm";
-			case 4:
-				return "32354-01e.htm";
-			case 5:
-				return "32354-01d.htm";
-			case 6:
-				return "32354-01b.htm";
-			case 7:
-				return "32354-01c.htm";
-			default:
-				return "32354-01f.htm";
-		}
+		return switch (HellboundEngine.getInstance().getLevel()) {
+			case 1 -> "32354-01.htm";
+			case 2, 3 -> "32354-01a.htm";
+			case 4 -> "32354-01e.htm";
+			case 5 -> "32354-01d.htm";
+			case 6 -> "32354-01b.htm";
+			case 7 -> "32354-01c.htm";
+			default -> "32354-01f.htm";
+		};
 	}
 }

@@ -52,7 +52,7 @@ public class TopCommand extends AbstractCommand {
 	private static final String NoClansMsg = "This server does not have any clans yet";
 	private static final String NoPlayersMsg = "This server does not have any players yet";
 	private static final DecimalFormat DECIMAL_FORMATTER = new DecimalFormat("#,###");
-
+	
 	/**
 	 * When the choice is players these are the parameters that the user can specify to get the info for.
 	 */
@@ -62,7 +62,7 @@ public class TopCommand extends AbstractCommand {
 		"adena",
 		"online"
 	};
-
+	
 	/**
 	 * The choice of information that the user wants to see.
 	 */
@@ -70,31 +70,31 @@ public class TopCommand extends AbstractCommand {
 		"players",
 		"clans"
 	};
-
+	
 	private static final String[] COMMANDS = {
 		"top",
 		"tp"
 	};
-
+	
 	@Override
 	public String[] getCommands() {
 		return COMMANDS;
 	}
-
+	
 	@Override
 	public void executeCommand(MessageReceivedEvent event, String[] args) {
 		EmbedBuilder eb = new EmbedBuilder().setColor(Color.ORANGE);
-		if (args.length == 1 || !Arrays.asList(choice).contains(args[1])) {
+		if ((args.length == 1) || !Arrays.asList(choice).contains(args[1])) {
 			eb.setColor(Color.RED).setDescription("Wrong Arguments.");
 			eb.addField(discord().getPrefix() + " " + String.join(", ", getCommands()) + " <choice>", "Choice: \n```css\n" + String.join(", ", choice) + "```", false);
 			event.getTextChannel().sendMessageEmbeds(eb.build()).queue(message -> message.delete().queueAfter(30, TimeUnit.SECONDS));
 			event.getMessage().addReaction("\u274C").queue();
 			return;
 		}
-
+		
 		switch (args[1]) {
 			case "players" -> {
-				if (args.length == 2 || args.length > 3 || !Arrays.asList(params).contains(args[2])) {
+				if ((args.length == 2) || (args.length > 3) || !Arrays.asList(params).contains(args[2])) {
 					eb.setColor(Color.RED).setDescription("Wrong Arguments.");
 					eb.addField("Example:", discord().getPrefix() + " top players \nParams: \n```css\n" + String.join(", ", params) + "```", false);
 					event.getTextChannel().sendMessageEmbeds(eb.build()).queue(message -> message.delete().queueAfter(30, TimeUnit.SECONDS));
@@ -191,7 +191,8 @@ public class TopCommand extends AbstractCommand {
 					if (clan.getAllyId() != 0) {
 						allyStatus = clan.getAllyId() == clanID ? "Alliance Leader" : "Affiliated Clan";
 					}
-					String msg = "***Leader:*** `" + leaderName + "`\n***Clan Level:*** `" + clanLevel + "`\n***Reputation:*** `" + reputation + "`\n***Castle:*** `" + castleName + "`\n***Ally Name:*** `" + allyName + "`\n***Ally Status:*** `" + allyStatus + "` " + "\n***Clan Wars:*** `" + clan.getWarList().size() + "`";
+					String msg = "***Leader:*** `" + leaderName + "`\n***Clan Level:*** `" + clanLevel + "`\n***Reputation:*** `" + reputation + "`\n***Castle:*** `" + castleName + "`\n***Ally Name:*** `" + allyName + "`\n***Ally Status:*** `" + allyStatus + "` " + "\n***Clan Wars:*** `" + clan.getWarList().size()
+						+ "`";
 					if (count < 10) {
 						count++;
 						eb.addField(clanName, msg, true);
@@ -208,10 +209,9 @@ public class TopCommand extends AbstractCommand {
 			}
 		}
 	}
-
+	
 	/**
-	 * We had to do a sql query to get all players online and offline.
-	 * We could use {L2World.getInstance().getPlayers();} but it only returns the online players.
+	 * We had to do a sql query to get all players online and offline. We could use {L2World.getInstance().getPlayers();} but it only returns the online players.
 	 */
 	private List<PlayerHolder> getAllPlayers() {
 		List<PlayerHolder> players = new ArrayList<>();
@@ -235,7 +235,7 @@ public class TopCommand extends AbstractCommand {
 		}
 		return players;
 	}
-
+	
 	/**
 	 * A data holder for the sql query above. We store the info that we need to show on the top list.
 	 */
@@ -243,27 +243,27 @@ public class TopCommand extends AbstractCommand {
 		public String getName() {
 			return name;
 		}
-
+		
 		public int getPvps() {
 			return pvps;
 		}
-
+		
 		public int getPks() {
 			return pks;
 		}
-
+		
 		public int getAdena() {
 			return adena;
 		}
-
+		
 		public int getOnlineTime() {
 			return onlineTime;
 		}
-
+		
 		public int getLevel() {
 			return level;
 		}
-
+		
 		String name;
 		int pvps;
 		int pks;

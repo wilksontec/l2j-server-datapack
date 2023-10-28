@@ -28,7 +28,7 @@ import com.l2jserver.datapack.custom.service.base.util.htmltmpls.HTMLTemplatePla
  * @version 2.6.2.0
  */
 public abstract class Refable implements IRefable<String> {
-	private String id;
+	private final String id;
 	
 	private final transient HTMLTemplatePlaceholder placeholder;
 	

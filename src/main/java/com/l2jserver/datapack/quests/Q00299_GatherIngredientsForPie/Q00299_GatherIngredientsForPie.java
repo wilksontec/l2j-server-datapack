@@ -18,6 +18,8 @@
  */
 package com.l2jserver.datapack.quests.Q00299_GatherIngredientsForPie;
 
+import java.util.List;
+
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
 import com.l2jserver.gameserver.model.holders.ItemChanceHolder;
@@ -26,8 +28,6 @@ import com.l2jserver.gameserver.model.quest.Quest;
 import com.l2jserver.gameserver.model.quest.QuestDroplist;
 import com.l2jserver.gameserver.model.quest.QuestState;
 import com.l2jserver.gameserver.model.quest.State;
-
-import java.util.List;
 
 /**
  * Gather Ingredients for Pie (299)
@@ -44,16 +44,15 @@ public final class Q00299_GatherIngredientsForPie extends Quest {
 	private static final QuestItemChanceHolder HONEY_POUCH = new QuestItemChanceHolder(7138, 100L);
 	// Droplist
 	private static final QuestDroplist DROPLIST = QuestDroplist.builder()
-			.addSingleDrop(20934, HONEY_POUCH, 1, 2, 70.0) // Wasp Worker
-			.addSingleDrop(20935, HONEY_POUCH, 1, 2, 77.0) // Wasp Leader
-			.build();
+		.addSingleDrop(20934, HONEY_POUCH, 1, 2, 70.0) // Wasp Worker
+		.addSingleDrop(20935, HONEY_POUCH, 1, 2, 77.0) // Wasp Leader
+		.build();
 	// Rewards
-	private static final List<ItemChanceHolder> REWARDS = List.of(
-			new ItemChanceHolder(57, 400, 2500), // Adena
-			new ItemChanceHolder(1865, 550, 50), // Varnish
-			new ItemChanceHolder(1870, 700, 50), // Coal
-			new ItemChanceHolder(1869, 850, 50), // Iron Ore
-			new ItemChanceHolder(1871, 1000, 50) // Charcoal
+	private static final List<ItemChanceHolder> REWARDS = List.of(new ItemChanceHolder(57, 400, 2500), // Adena
+		new ItemChanceHolder(1865, 550, 50), // Varnish
+		new ItemChanceHolder(1870, 700, 50), // Coal
+		new ItemChanceHolder(1869, 850, 50), // Iron Ore
+		new ItemChanceHolder(1871, 1000, 50) // Charcoal
 	);
 	// Misc
 	private static final int MIN_LVL = 34;

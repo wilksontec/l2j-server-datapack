@@ -162,14 +162,10 @@ public class Q00142_FallenAngelRequestOfDawn extends Quest {
 			case NATOOLS:
 				switch (st.getState()) {
 					case State.STARTED:
-						switch (st.getCond()) {
-							case 1:
-								htmltext = "30894-01.html";
-								break;
-							default:
-								htmltext = "30894-04.html";
-								break;
-						}
+						htmltext = switch (st.getCond()) {
+							case 1 -> "30894-01.html";
+							default -> "30894-04.html";
+						};
 						break;
 					case State.COMPLETED:
 						htmltext = getAlreadyCompletedMsg(player);
@@ -234,17 +230,11 @@ public class Q00142_FallenAngelRequestOfDawn extends Quest {
 				break;
 			case ROCK:
 				if (st.isStarted()) {
-					switch (st.getCond()) {
-						case 5:
-							htmltext = "32368-02.html";
-							break;
-						case 6:
-							htmltext = "32368-05.html";
-							break;
-						default:
-							htmltext = "32368-01.html";
-							break;
-					}
+					htmltext = switch (st.getCond()) {
+						case 5 -> "32368-02.html";
+						case 6 -> "32368-05.html";
+						default -> "32368-01.html";
+					};
 				}
 				break;
 		}

@@ -114,19 +114,15 @@ public class Q00174_SupplyCheck extends Quest {
 				break;
 			case BENIS:
 				if (st.isStarted()) {
-					switch (st.getCond()) {
-						case 1:
+					htmltext = switch (st.getCond()) {
+						case 1 -> {
 							st.setCond(2, true);
 							st.giveItems(WAREHOUSE_MANIFEST, 1);
-							htmltext = "32170-01.html";
-							break;
-						case 2:
-							htmltext = "32170-02.html";
-							break;
-						default:
-							htmltext = "32170-03.html";
-							break;
-					}
+							yield "32170-01.html";
+						}
+						case 2 -> "32170-02.html";
+						default -> "32170-03.html";
+					};
 				}
 				break;
 			case NIKA:

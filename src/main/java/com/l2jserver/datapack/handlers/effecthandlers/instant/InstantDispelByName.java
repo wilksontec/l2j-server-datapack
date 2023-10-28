@@ -37,7 +37,7 @@ public class InstantDispelByName extends AbstractEffect {
 	
 	public InstantDispelByName(Condition attachCond, Condition applyCond, StatsSet set, StatsSet params) {
 		super(attachCond, applyCond, set, params);
-		this.id = params.getInt("id");
+		id = params.getInt("id");
 	}
 	
 	@Override

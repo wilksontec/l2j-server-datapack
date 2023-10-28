@@ -18,6 +18,8 @@
  */
 package com.l2jserver.datapack.quests.Q00275_DarkWingedSpies;
 
+import static com.l2jserver.gameserver.model.quest.QuestDroplist.singleDropItem;
+
 import com.l2jserver.gameserver.ai.CtrlIntention;
 import com.l2jserver.gameserver.enums.Race;
 import com.l2jserver.gameserver.model.actor.L2Attackable;
@@ -29,8 +31,6 @@ import com.l2jserver.gameserver.model.quest.Quest;
 import com.l2jserver.gameserver.model.quest.QuestState;
 import com.l2jserver.gameserver.model.quest.State;
 import com.l2jserver.gameserver.util.Util;
-
-import static com.l2jserver.gameserver.model.quest.QuestDroplist.singleDropItem;
 
 /**
  * Dark Winged Spies (275)
@@ -74,7 +74,7 @@ public final class Q00275_DarkWingedSpies extends Quest {
 		
 		if ((st != null) && st.isCond(1) && Util.checkIfInRange(1500, npc, killer, true)) {
 			final long count = st.getQuestItemsCount(DARKWING_BAT_FANG.getId());
-
+			
 			switch (npc.getId()) {
 				case DARKWING_BAT -> {
 					if (giveItemRandomly(st.getPlayer(), npc, DARKWING_BAT_FANG, true)) {

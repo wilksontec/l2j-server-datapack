@@ -44,15 +44,15 @@ public class Q00134_TempleMissionary extends Quest {
 	private static final int BADGE_TEMPLE_MISSIONARY = 10339;
 	// Droplist
 	private static final QuestDroplist DROPLIST = QuestDroplist.builder()
-			.addSingleDrop(20157, GIANTS_EXPERIMENTAL_TOOL_FRAGMENT, 78.0) // Marsh Stakato
-			.addSingleDrop(20229, GIANTS_EXPERIMENTAL_TOOL_FRAGMENT, 75.0) // Stinger Wasp
-			.addSingleDrop(20230, GIANTS_EXPERIMENTAL_TOOL_FRAGMENT, 86.0) // Marsh Stakato Worker
-			.addSingleDrop(20231, GIANTS_EXPERIMENTAL_TOOL_FRAGMENT, 83.0) // Toad Lord
-			.addSingleDrop(20232, GIANTS_EXPERIMENTAL_TOOL_FRAGMENT, 81.0) // Marsh Stakato Soldier
-			.addSingleDrop(20233, GIANTS_EXPERIMENTAL_TOOL_FRAGMENT, 95.0) // Marsh Spider
-			.addSingleDrop(20234, GIANTS_EXPERIMENTAL_TOOL_FRAGMENT, 96.0) // Marsh Stakato Drone
-			.build();
-
+		.addSingleDrop(20157, GIANTS_EXPERIMENTAL_TOOL_FRAGMENT, 78.0) // Marsh Stakato
+		.addSingleDrop(20229, GIANTS_EXPERIMENTAL_TOOL_FRAGMENT, 75.0) // Stinger Wasp
+		.addSingleDrop(20230, GIANTS_EXPERIMENTAL_TOOL_FRAGMENT, 86.0) // Marsh Stakato Worker
+		.addSingleDrop(20231, GIANTS_EXPERIMENTAL_TOOL_FRAGMENT, 83.0) // Toad Lord
+		.addSingleDrop(20232, GIANTS_EXPERIMENTAL_TOOL_FRAGMENT, 81.0) // Marsh Stakato Soldier
+		.addSingleDrop(20233, GIANTS_EXPERIMENTAL_TOOL_FRAGMENT, 95.0) // Marsh Spider
+		.addSingleDrop(20234, GIANTS_EXPERIMENTAL_TOOL_FRAGMENT, 96.0) // Marsh Stakato Drone
+		.build();
+	
 	// Misc
 	private static final int MIN_LEVEL = 35;
 	private static final int MAX_REWARD_LEVEL = 41;

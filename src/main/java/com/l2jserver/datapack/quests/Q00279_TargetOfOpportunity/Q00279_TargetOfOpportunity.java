@@ -43,12 +43,12 @@ public final class Q00279_TargetOfOpportunity extends Quest {
 	private static final QuestItemChanceHolder SEAL_COMPONENTS_PART4 = new QuestItemChanceHolder(15520, 31.1, 1L);
 	// Droplist
 	private static final QuestDroplist DROPLIST_SEAL_COMPONENTS = QuestDroplist.builder()
-			.addSingleDrop(22373, SEAL_COMPONENTS_PART1) // Cosmic Scout
-			.addSingleDrop(22374, SEAL_COMPONENTS_PART2) // Cosmic Watcher
-			.addSingleDrop(22375, SEAL_COMPONENTS_PART3) // Cosmic Priest
-			.addSingleDrop(22376, SEAL_COMPONENTS_PART4) // Cosmic Lord
-			.build();
-
+		.addSingleDrop(22373, SEAL_COMPONENTS_PART1) // Cosmic Scout
+		.addSingleDrop(22374, SEAL_COMPONENTS_PART2) // Cosmic Watcher
+		.addSingleDrop(22375, SEAL_COMPONENTS_PART3) // Cosmic Priest
+		.addSingleDrop(22376, SEAL_COMPONENTS_PART4) // Cosmic Lord
+		.build();
+	
 	public Q00279_TargetOfOpportunity() {
 		super(279, Q00279_TargetOfOpportunity.class.getSimpleName(), "Target of Opportunity");
 		addStartNpc(JERIAN);
@@ -68,7 +68,7 @@ public final class Q00279_TargetOfOpportunity extends Quest {
 			st.startQuest();
 			st.set("progress", "1");
 		} else if (event.equalsIgnoreCase("32302-08.html") && (st.getInt("progress") == 1)
-				&& hasQuestItems(st.getPlayer(), SEAL_COMPONENTS_PART1.getId(), SEAL_COMPONENTS_PART2.getId(), SEAL_COMPONENTS_PART3.getId(), SEAL_COMPONENTS_PART4.getId())) {
+			&& hasQuestItems(st.getPlayer(), SEAL_COMPONENTS_PART1.getId(), SEAL_COMPONENTS_PART2.getId(), SEAL_COMPONENTS_PART3.getId(), SEAL_COMPONENTS_PART4.getId())) {
 			st.giveItems(SEAL_BREAKER_5TH_FLOOR, 1);
 			st.giveItems(SEAL_BREAKER_10TH_FLOOR, 1);
 			st.exitQuest(true, true);

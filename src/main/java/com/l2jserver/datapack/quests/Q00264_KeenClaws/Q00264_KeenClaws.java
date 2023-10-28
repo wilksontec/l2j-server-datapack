@@ -18,6 +18,9 @@
  */
 package com.l2jserver.datapack.quests.Q00264_KeenClaws;
 
+import java.util.List;
+import java.util.Map;
+
 import com.l2jserver.gameserver.enums.audio.Sound;
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
@@ -27,9 +30,6 @@ import com.l2jserver.gameserver.model.quest.Quest;
 import com.l2jserver.gameserver.model.quest.QuestDroplist;
 import com.l2jserver.gameserver.model.quest.QuestState;
 import com.l2jserver.gameserver.model.quest.State;
-
-import java.util.List;
-import java.util.Map;
 
 /**
  * Keen Claws (264)
@@ -42,20 +42,14 @@ public final class Q00264_KeenClaws extends Quest {
 	private static final QuestItemChanceHolder WOLF_CLAW = new QuestItemChanceHolder(1367, 50L);
 	// Droplists
 	private static final QuestDroplist DROPLIST = QuestDroplist.builder()
-			.addGroupedDropForSingleItem(20003, WOLF_CLAW, 50.0)
-				.withAmount(2, 50.0).orElse(8)
-			.addSingleDrop(20456, WOLF_CLAW, 125.0)
-			.build();
+		.addGroupedDropForSingleItem(20003, WOLF_CLAW, 50.0)
+		.withAmount(2, 50.0)
+		.orElse(8)
+		.addSingleDrop(20456, WOLF_CLAW, 125.0)
+		.build();
 	// Rewards
-	private static final Map<Integer, List<ItemHolder>> REWARDS = Map.of(
-			1, List.of(new ItemHolder(4633, 1)),
-			2, List.of(new ItemHolder(57, 2000)),
-			5, List.of(new ItemHolder(5140, 1)),
-			8, List.of(new ItemHolder(735, 1), new ItemHolder(57, 50)),
-			11, List.of(new ItemHolder(737, 1)),
-			14, List.of(new ItemHolder(734, 1)),
-			17, List.of(new ItemHolder(35, 1), new ItemHolder(57, 50))
-	);
+	private static final Map<Integer, List<ItemHolder>> REWARDS = Map
+		.of(1, List.of(new ItemHolder(4633, 1)), 2, List.of(new ItemHolder(57, 2000)), 5, List.of(new ItemHolder(5140, 1)), 8, List.of(new ItemHolder(735, 1), new ItemHolder(57, 50)), 11, List.of(new ItemHolder(737, 1)), 14, List.of(new ItemHolder(734, 1)), 17, List.of(new ItemHolder(35, 1), new ItemHolder(57, 50)));
 	// Misc
 	private static final int MIN_LVL = 3;
 	

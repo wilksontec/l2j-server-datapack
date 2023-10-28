@@ -312,7 +312,7 @@ public final class Minigame extends AbstractNpcAI {
 	 * An object that holds the participant, manager, burning order<br>
 	 * and game status for each secret room into Monastery of Silence.
 	 */
-	private class MinigameRoom {
+	private static class MinigameRoom {
 		private final L2Npc[] _burners;
 		private final L2Npc _manager;
 		private L2PcInstance _participant;

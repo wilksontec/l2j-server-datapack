@@ -43,7 +43,7 @@ import com.l2jserver.gameserver.util.Util;
  * @author Adry_85
  */
 public final class DisciplesNecropolisPast extends AbstractInstance {
-	protected class DNPWorld extends InstanceWorld {
+	protected static class DNPWorld extends InstanceWorld {
 		protected final List<L2Npc> anakimGroup = new ArrayList<>();
 		protected final List<L2Npc> lilithGroup = new ArrayList<>();
 		protected int countKill = 0;
@@ -177,8 +177,7 @@ public final class DisciplesNecropolisPast extends AbstractInstance {
 	@Override
 	public String onAdvEvent(String event, L2Npc npc, L2PcInstance player) {
 		final InstanceWorld tmpworld = InstanceManager.getInstance().getPlayerWorld(player);
-		if (tmpworld instanceof DNPWorld) {
-			final DNPWorld world = (DNPWorld) tmpworld;
+		if (tmpworld instanceof DNPWorld world) {
 			switch (event) {
 				case "FINISH": {
 					if (getQuestItemsCount(player, SEAL_OF_BINDING) >= 4) {
@@ -317,8 +316,7 @@ public final class DisciplesNecropolisPast extends AbstractInstance {
 	@Override
 	public String onKill(L2Npc npc, L2PcInstance player, boolean isSummon) {
 		final InstanceWorld tmpworld = InstanceManager.getInstance().getPlayerWorld(player);
-		if (tmpworld instanceof DNPWorld) {
-			final DNPWorld world = (DNPWorld) tmpworld;
+		if (tmpworld instanceof DNPWorld world) {
 			checkDoors(npc, world);
 		}
 		
@@ -377,8 +375,7 @@ public final class DisciplesNecropolisPast extends AbstractInstance {
 			case DISCIPLES_GATEKEEPER: {
 				if (qs.getCond() >= 3) {
 					InstanceWorld tmpworld = InstanceManager.getInstance().getWorld(npc.getInstanceId());
-					if (tmpworld instanceof DNPWorld) {
-						DNPWorld world = (DNPWorld) tmpworld;
+					if (tmpworld instanceof DNPWorld world) {
 						openDoor(DISCIPLES_NECROPOLIS_DOOR, world.getInstanceId());
 						talker.showQuestMovie(12);
 						startQuestTimer("FIGHT", 1000, null, talker);

@@ -69,7 +69,7 @@ public final class BlackMarketeerOfMammon extends AbstractNpcAI {
 				if (ancientAdena <= 0) {
 					htmltext = "marketeer_of_mammon_q0506_14.htm";
 				} else {
-					if (player.getInventory().getSize(false) >= (player.getInventoryLimit() * WEIGHT_LIMIT) || player.getCurrentLoad() >= (player.getMaxLoad() * WEIGHT_LIMIT)) {
+					if ((player.getInventory().getSize(false) >= (player.getInventoryLimit() * WEIGHT_LIMIT)) || (player.getCurrentLoad() >= (player.getMaxLoad() * WEIGHT_LIMIT))) {
 						player.sendPacket(SystemMessageId.INVENTORY_LESS_THAN_80_PERCENT);
 						return null;
 					}
@@ -86,7 +86,7 @@ public final class BlackMarketeerOfMammon extends AbstractNpcAI {
 		switch (ask) {
 			case 506 -> {
 				switch (reply) {
-					case 3,4,5 -> {
+					case 3, 4, 5 -> {
 						htmltext = "marketeer_of_mammon_q0506_04.htm";
 						break;
 					}
@@ -119,7 +119,7 @@ public final class BlackMarketeerOfMammon extends AbstractNpcAI {
 								if (player.getLevel() < MIN_LEVEL) {
 									htmltext = "marketeer_of_mammon002d.htm";
 								} else {
-									if (player.getInventory().getSize(false) >= (player.getInventoryLimit() * WEIGHT_LIMIT) || player.getCurrentLoad() >= (player.getMaxLoad() * WEIGHT_LIMIT)) {
+									if ((player.getInventory().getSize(false) >= (player.getInventoryLimit() * WEIGHT_LIMIT)) || (player.getCurrentLoad() >= (player.getMaxLoad() * WEIGHT_LIMIT))) {
 										
 										player.sendPacket(SystemMessageId.INVENTORY_LESS_THAN_80_PERCENT);
 										return null;

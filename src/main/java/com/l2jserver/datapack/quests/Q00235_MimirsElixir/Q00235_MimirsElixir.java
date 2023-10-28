@@ -18,6 +18,8 @@
  */
 package com.l2jserver.datapack.quests.Q00235_MimirsElixir;
 
+import java.util.Map;
+
 import com.l2jserver.gameserver.enums.Race;
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
@@ -27,8 +29,6 @@ import com.l2jserver.gameserver.model.quest.Quest;
 import com.l2jserver.gameserver.model.quest.QuestDroplist;
 import com.l2jserver.gameserver.model.quest.QuestState;
 import com.l2jserver.gameserver.network.serverpackets.SocialAction;
-
-import java.util.Map;
 
 /**
  * Mimir's Elixir (235)
@@ -49,20 +49,17 @@ public final class Q00235_MimirsElixir extends Quest {
 	private static final QuestItemChanceHolder SAGES_STONE = new QuestItemChanceHolder(6322, 1L);
 	// Droplist
 	private static final QuestDroplist DROPLIST = QuestDroplist.builder()
-			.addSingleDrop(20965, SAGES_STONE) // chimera_piece
-			.addSingleDrop(21090, BLOOD_FIRE) // bloody_guardian
-			.build();
+		.addSingleDrop(20965, SAGES_STONE) // chimera_piece
+		.addSingleDrop(21090, BLOOD_FIRE) // bloody_guardian
+		.build();
 	// Reward
 	private static final int ENCHANT_WEAPON_A = 729;
 	// Misc
 	private static final int MIN_LEVEL = 75;
-	private static final Map<Integer, Integer> ITEM_STATE = Map.of(
-			SAGES_STONE.getId(), 4,
-			BLOOD_FIRE.getId(), 1
-	);
+	private static final Map<Integer, Integer> ITEM_STATE = Map.of(SAGES_STONE.getId(), 4, BLOOD_FIRE.getId(), 1);
 	// Skill
 	private static final SkillHolder QUEST_MIMIRS_ELIXIR = new SkillHolder(4339);
-
+	
 	public Q00235_MimirsElixir() {
 		super(235, Q00235_MimirsElixir.class.getSimpleName(), "Mimir's Elixir");
 		addStartNpc(LADD);

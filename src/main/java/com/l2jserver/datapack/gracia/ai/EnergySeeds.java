@@ -32,6 +32,10 @@ import java.util.logging.Level;
 
 import javax.xml.parsers.DocumentBuilderFactory;
 
+import org.w3c.dom.Document;
+import org.w3c.dom.NamedNodeMap;
+import org.w3c.dom.Node;
+
 import com.l2jserver.datapack.ai.npc.AbstractNpcAI;
 import com.l2jserver.datapack.quests.Q00692_HowtoOpposeEvil.Q00692_HowtoOpposeEvil;
 import com.l2jserver.gameserver.GeoData;
@@ -56,10 +60,6 @@ import com.l2jserver.gameserver.model.skills.Skill;
 import com.l2jserver.gameserver.model.zone.L2ZoneType;
 import com.l2jserver.gameserver.network.SystemMessageId;
 import com.l2jserver.gameserver.network.serverpackets.ActionFailed;
-
-import org.w3c.dom.Document;
-import org.w3c.dom.NamedNodeMap;
-import org.w3c.dom.Node;
 
 /**
  * Energy Seeds AI.
@@ -118,17 +118,11 @@ public class EnergySeeds extends AbstractNpcAI {
 	}
 	
 	protected boolean isSeedActive(GraciaSeeds seed) {
-		switch (seed) {
-			case INFINITY:
-				return false; // TODO: Do checks here, when Seed of Infinity is implemented.
-			case DESTRUCTION:
-				return GraciaSeedsManager.getInstance().getSoDState() == 2;
-			case ANNIHILATION_BISTAKON:
-			case ANNIHILATION_REPTILIKON:
-			case ANNIHILATION_COKRAKON:
-				return true;
-		}
-		return true;
+		return switch (seed) {
+			case INFINITY -> false; // TODO: Do checks here, when Seed of Infinity is implemented.
+			case DESTRUCTION -> GraciaSeedsManager.getInstance().getSoDState() == 2;
+			case ANNIHILATION_BISTAKON, ANNIHILATION_REPTILIKON, ANNIHILATION_COKRAKON -> true;
+		};
 	}
 	
 	private void loadSpawns() {
@@ -180,7 +174,7 @@ public class EnergySeeds extends AbstractNpcAI {
 										attrs = cd.getAttributes();
 										Node zoneIdAtt = attrs.getNamedItem("id");
 										Node countAtt = attrs.getNamedItem("count");
-										if (zoneIdAtt != null && countAtt != null) {
+										if ((zoneIdAtt != null) && (countAtt != null)) {
 											int zoneId = Integer.parseInt(zoneIdAtt.getNodeValue());
 											int count = Integer.parseInt(countAtt.getNodeValue());
 											if (count > 0) {
@@ -426,7 +420,7 @@ public class EnergySeeds extends AbstractNpcAI {
 	}
 	
 	public void stopAI(GraciaSeeds type) {
-		if (type == GraciaSeeds.DESTRUCTION && SOD_TELEPORTER_SPAWNS.size() > 0) {
+		if ((type == GraciaSeeds.DESTRUCTION) && (SOD_TELEPORTER_SPAWNS.size() > 0)) {
 			for (L2Npc teleporter : SOD_TELEPORTER_SPAWNS) {
 				teleporter.deleteMe();
 			}
@@ -591,7 +585,7 @@ public class EnergySeeds extends AbstractNpcAI {
 		}
 		
 		public void cancelRespawnSchedule() {
-			if (_respawnScheduleTask != null && !_respawnScheduleTask.isDone() && !_respawnScheduleTask.isCancelled()) {
+			if ((_respawnScheduleTask != null) && !_respawnScheduleTask.isDone() && !_respawnScheduleTask.isCancelled()) {
 				_respawnScheduleTask.cancel(true);
 			}
 		}

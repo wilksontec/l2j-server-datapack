@@ -77,19 +77,13 @@ public final class Bernarde extends AbstractNpcAI {
 	
 	@Override
 	public String onFirstTalk(L2Npc npc, L2PcInstance player) {
-		switch (HellboundEngine.getInstance().getLevel()) {
-			case 0:
-			case 1:
-				return isTransformed(player) ? "32300-01a.htm" : "32300-01.htm";
-			case 2:
-				return isTransformed(player) ? "32300-02.htm" : "32300-03.htm";
-			case 3:
-				return isTransformed(player) ? "32300-01c.htm" : "32300-03.htm";
-			case 4:
-				return isTransformed(player) ? "32300-01d.htm" : "32300-03.htm";
-			default:
-				return isTransformed(player) ? "32300-01f.htm" : "32300-03.htm";
-		}
+		return switch (HellboundEngine.getInstance().getLevel()) {
+			case 0, 1 -> isTransformed(player) ? "32300-01a.htm" : "32300-01.htm";
+			case 2 -> isTransformed(player) ? "32300-02.htm" : "32300-03.htm";
+			case 3 -> isTransformed(player) ? "32300-01c.htm" : "32300-03.htm";
+			case 4 -> isTransformed(player) ? "32300-01d.htm" : "32300-03.htm";
+			default -> isTransformed(player) ? "32300-01f.htm" : "32300-03.htm";
+		};
 	}
 	
 	private static boolean isTransformed(L2PcInstance player) {

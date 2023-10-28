@@ -120,13 +120,21 @@ public class QuestLink implements IBypassHandler {
 			
 			if ((player.getApprentice() > 0) && (L2World.getInstance().getPlayer(player.getApprentice()) != null)) {
 				if (questId == TO_LEAD_AND_BE_LED) {
-					sb.append("<a action=\"bypass -h Quest Q00118_ToLeadAndBeLed sponsor\"><font color=\"").append(color) //
-						.append("\">[<fstring>").append(questId).append(state).append("</fstring> (Sponsor)]</font></a><br>");
+					sb.append("<a action=\"bypass -h Quest Q00118_ToLeadAndBeLed sponsor\"><font color=\"")
+						.append(color) //
+						.append("\">[<fstring>")
+						.append(questId)
+						.append(state)
+						.append("</fstring> (Sponsor)]</font></a><br>");
 				}
 				
 				if (questId == THE_LEADER_AND_THE_FOLLOWER) {
-					sb.append("<a action=\"bypass -h Quest Q00123_TheLeaderAndTheFollower sponsor\"><font color=\"").append(color) //
-						.append("\">[<fstring>").append(questId).append(state).append("</fstring> (Sponsor)]</font></a><br>");
+					sb.append("<a action=\"bypass -h Quest Q00123_TheLeaderAndTheFollower sponsor\"><font color=\"")
+						.append(color) //
+						.append("\">[<fstring>")
+						.append(questId)
+						.append(state)
+						.append("</fstring> (Sponsor)]</font></a><br>");
 				}
 			}
 		}

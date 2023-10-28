@@ -38,13 +38,37 @@ public final class SSQTeleporter extends AbstractNpcAI {
 	// NPCs
 	private final static int[] NPCS = {
 		// NECRO ENTER
-		31095, 31096, 31097, 31098, 31099, 31100, 31101, 31102,
-		//NECRO EXIT
-		31103, 31104, 31105, 31106, 31107, 31108, 31109, 31110,
-		//CATA ENTER
-		31114, 31115, 31116, 31117, 31118, 31119,
-		//CATA EXIT
-		31120, 31121, 31122, 31123, 31124, 31125
+		31095,
+		31096,
+		31097,
+		31098,
+		31099,
+		31100,
+		31101,
+		31102,
+		// NECRO EXIT
+		31103,
+		31104,
+		31105,
+		31106,
+		31107,
+		31108,
+		31109,
+		31110,
+		// CATA ENTER
+		31114,
+		31115,
+		31116,
+		31117,
+		31118,
+		31119,
+		// CATA EXIT
+		31120,
+		31121,
+		31122,
+		31123,
+		31124,
+		31125
 	};
 	
 	private static final int Q00255_Tutorial = 255;
@@ -54,7 +78,7 @@ public final class SSQTeleporter extends AbstractNpcAI {
 	
 	private static final double WEIGHT_LIMIT = 0.80;
 	private static final int MAX_QUEST_COUNT = 40;
-
+	
 	public SSQTeleporter() {
 		super(SSQTeleporter.class.getSimpleName(), "ai/npc/Teleports");
 		addStartNpc(NPCS);
@@ -72,7 +96,7 @@ public final class SSQTeleporter extends AbstractNpcAI {
 			case 31100, 31108 -> 300000;
 			case 31101, 31109 -> 310000;
 			case 31102, 31110 -> 320000;
-			
+		
 			case 31114, 31120 -> 220000;
 			case 31115, 31121 -> 240000;
 			case 31116, 31122 -> 260000;
@@ -143,7 +167,7 @@ public final class SSQTeleporter extends AbstractNpcAI {
 				}
 			}
 			case 635 -> {
-				if (player.getInventory().getSize(false) >= (player.getInventoryLimit() * WEIGHT_LIMIT) || player.getCurrentLoad() >= (player.getMaxLoad() * WEIGHT_LIMIT)) {
+				if ((player.getInventory().getSize(false) >= (player.getInventoryLimit() * WEIGHT_LIMIT)) || (player.getCurrentLoad() >= (player.getMaxLoad() * WEIGHT_LIMIT))) {
 					player.sendPacket(SystemMessageId.INVENTORY_LESS_THAN_80_PERCENT);
 					return null;
 				}
@@ -210,7 +234,7 @@ public final class SSQTeleporter extends AbstractNpcAI {
 	
 	@Override
 	public String onTalk(L2Npc npc, L2PcInstance player) {
-		if (player.getInventory().getSize(false) >= (player.getInventoryLimit() * WEIGHT_LIMIT) || player.getCurrentLoad() >= (player.getMaxLoad() * WEIGHT_LIMIT)) {
+		if ((player.getInventory().getSize(false) >= (player.getInventoryLimit() * WEIGHT_LIMIT)) || (player.getCurrentLoad() >= (player.getMaxLoad() * WEIGHT_LIMIT))) {
 			player.sendPacket(SystemMessageId.INVENTORY_LESS_THAN_80_PERCENT);
 			return null;
 		}
@@ -220,7 +244,7 @@ public final class SSQTeleporter extends AbstractNpcAI {
 		
 		int i0 = qs255.getMemoStateEx(1);
 		int i1 = i0 % 100;
-		if (i1 >= 95 || i1 < 0) {
+		if ((i1 >= 95) || (i1 < 0)) {
 			i1 = 0;
 		}
 		int i2 = player.getLevel() / 10;

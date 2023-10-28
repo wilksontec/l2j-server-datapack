@@ -127,20 +127,12 @@ public final class SkillTransfer extends AbstractNpcAI {
 	}
 	
 	private static int getTransferClassIndex(L2PcInstance player) {
-		switch (player.getClassId()) {
-			case cardinal: {
-				return 0;
-			}
-			case evaSaint: {
-				return 1;
-			}
-			case shillienSaint: {
-				return 2;
-			}
-			default: {
-				return -1;
-			}
-		}
+		return switch (player.getClassId()) {
+			case cardinal -> 0;
+			case evaSaint -> 1;
+			case shillienSaint -> 2;
+			default -> -1;
+		};
 	}
 	
 	public static void main(String[] args) {

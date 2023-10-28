@@ -191,7 +191,7 @@ public final class Q00103_SpiritOfCraftsman extends Quest {
 		if (qs == null) {
 			return super.onKill(npc, killer, isSummon);
 		}
-
+		
 		switch (npc.getId()) {
 			case MARSH_ZOMBIE -> {
 				if (hasQuestItems(qs.getPlayer(), PRESERVE_OIL) && (getRandom(10) < 5) && Util.checkIfInRange(1500, npc, qs.getPlayer(), true)) {

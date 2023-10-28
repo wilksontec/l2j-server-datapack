@@ -99,7 +99,7 @@ public class FavoriteBoard implements IParseBoardHandler {
 				}
 			}
 		} else if (command.startsWith("_bbsdelfav_")) {
-			final String favId = command.replaceAll("_bbsdelfav_", "");
+			final String favId = command.replace("_bbsdelfav_", "");
 			if (!Util.isDigit(favId)) {
 				LOG.warning(FavoriteBoard.class.getSimpleName() + ": Couldn't delete favorite link, " + favId + " it's not a valid ID!");
 				return false;

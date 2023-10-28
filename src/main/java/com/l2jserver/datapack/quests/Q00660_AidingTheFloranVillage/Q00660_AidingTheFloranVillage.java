@@ -42,14 +42,14 @@ public final class Q00660_AidingTheFloranVillage extends Quest {
 	private static final int DELU_LIZARDMANS_SCALE = 8076;
 	// Droplist
 	private static final QuestDroplist DROPLIST = QuestDroplist.builder()
-			.addSingleDrop(21102, WATCHING_EYES, 50.0) // Watchman of the Plains
-			.addSingleDrop(21106, WATCHING_EYES, 63.0) // Cursed Seer
-			.addSingleDrop(21103, ROUGHLY_HEWN_ROCK_GOLEM_SHARD, 52.0) // Roughly Hewn Rock Golem
-			.addSingleDrop(20781, DELU_LIZARDMANS_SCALE, 65.0) // Delu Lizardman Shaman
-			.addSingleDrop(21104, DELU_LIZARDMANS_SCALE, 65.0) // Delu Lizardman Supplier
-			.addSingleDrop(21105, DELU_LIZARDMANS_SCALE, 75.0) // Delu Lizardman Special Agent
-			.addSingleDrop(21107, DELU_LIZARDMANS_SCALE, 133.0) // Delu Lizardman Commander
-			.build();
+		.addSingleDrop(21102, WATCHING_EYES, 50.0) // Watchman of the Plains
+		.addSingleDrop(21106, WATCHING_EYES, 63.0) // Cursed Seer
+		.addSingleDrop(21103, ROUGHLY_HEWN_ROCK_GOLEM_SHARD, 52.0) // Roughly Hewn Rock Golem
+		.addSingleDrop(20781, DELU_LIZARDMANS_SCALE, 65.0) // Delu Lizardman Shaman
+		.addSingleDrop(21104, DELU_LIZARDMANS_SCALE, 65.0) // Delu Lizardman Supplier
+		.addSingleDrop(21105, DELU_LIZARDMANS_SCALE, 75.0) // Delu Lizardman Special Agent
+		.addSingleDrop(21107, DELU_LIZARDMANS_SCALE, 133.0) // Delu Lizardman Commander
+		.build();
 	// Misc
 	private static final int MIN_LEVEL = 30;
 	private static final int ADENA_REWARD_1 = 13000;
@@ -58,8 +58,7 @@ public final class Q00660_AidingTheFloranVillage extends Quest {
 	private static final int ADENA_REWARD_4 = 2000;
 	private static final int ADENA_REWARD_5 = 45000;
 	private static final int ADENA_REWARD_6 = 5000;
-	private static final int DELU_LIZARDMAN_COMMANDER_DOUBLE_ITEM_CHANCE = 33;
-
+	
 	public Q00660_AidingTheFloranVillage() {
 		super(660, Q00660_AidingTheFloranVillage.class.getSimpleName(), "Aiding the Floran Village");
 		addStartNpc(MARIA, ALEX);

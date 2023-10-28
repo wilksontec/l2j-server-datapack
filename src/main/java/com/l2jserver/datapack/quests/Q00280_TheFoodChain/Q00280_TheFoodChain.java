@@ -39,16 +39,21 @@ public final class Q00280_TheFoodChain extends Quest {
 	private static final QuestItemChanceHolder BLACK_WOLF_TOOTH = new QuestItemChanceHolder(9810, 3L, 0L);
 	// Droplist
 	private static final QuestDroplist DROPLIST = QuestDroplist.builder()
-			.addSingleDrop(22229, GREY_KELTIR_TOOTH)
-			.addSingleDrop(22230, GREY_KELTIR_TOOTH, 150.0)
-			.addSingleDrop(22231, GREY_KELTIR_TOOTH, 2L)
-			.addSingleDrop(22232, BLACK_WOLF_TOOTH)
-			.addGroupedDropForSingleItem(22233, BLACK_WOLF_TOOTH, 100.0)
-				.withAmount(4, 50.0).orElse(1)
-			.build();
+		.addSingleDrop(22229, GREY_KELTIR_TOOTH)
+		.addSingleDrop(22230, GREY_KELTIR_TOOTH, 150.0)
+		.addSingleDrop(22231, GREY_KELTIR_TOOTH, 2L)
+		.addSingleDrop(22232, BLACK_WOLF_TOOTH)
+		.addGroupedDropForSingleItem(22233, BLACK_WOLF_TOOTH, 100.0)
+		.withAmount(4, 50.0)
+		.orElse(1)
+		.build();
 	// Rewards
 	private static final int[] REWARDS = new int[] {
-		28, 35, 41, 48, 116,
+		28,
+		35,
+		41,
+		48,
+		116,
 	};
 	// Misc
 	private static final int MIN_LVL = 3;

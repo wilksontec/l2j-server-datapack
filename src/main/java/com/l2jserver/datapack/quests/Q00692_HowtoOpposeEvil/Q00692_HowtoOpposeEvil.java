@@ -38,25 +38,28 @@ public final class Q00692_HowtoOpposeEvil extends Quest {
 	private static final int DRAGONKIN_CHARM_FRAGMENT = 13865;
 	private static final int SPIRIT_STONE_DUST = 15536;
 	private static final int[] QUEST_ITEMS = {
-			FREED_SOUL_FRAGMENT,
-			13864, // Seal of Tiat
-			DRAGONKIN_CHARM_FRAGMENT,
-			13866, // Restless Soul
-			13867, // Tiat Charm
-			15535, // Concentrated Spirit Energy
-			SPIRIT_STONE_DUST
+		FREED_SOUL_FRAGMENT,
+		13864, // Seal of Tiat
+		DRAGONKIN_CHARM_FRAGMENT,
+		13866, // Restless Soul
+		13867, // Tiat Charm
+		15535, // Concentrated Spirit Energy
+		SPIRIT_STONE_DUST
 	};
 	// Droplist
 	private static final QuestDroplist DROPLIST = QuestDroplist.builder()
-			.bulkAddSingleDrop(FREED_SOUL_FRAGMENT, 50.0) // Seed of Infinity
-				.withNpcs(22509, 22510, 22511, 22512, 22513, 22514, 22515).build()
-			.bulkAddSingleDrop(DRAGONKIN_CHARM_FRAGMENT, 25.0) // Seed of Destruction
-				.withNpcs(22537, 22538, 22539, 22540, 22541, 22542, 22543, 22544, 22546)
-				.withNpcs(22547, 22548, 22549, 22550, 22551, 22552, 22593, 22596, 22597).build()
-			.bulkAddSingleDrop(SPIRIT_STONE_DUST, 12.5) // Seed of Annihilation
-				.withNpcs(22746, 22747, 22748, 22749, 22750, 22751, 22752, 22753, 22754, 22755)
-				.withNpcs(22756, 22757, 22758, 22759, 22760, 22761, 22762, 22763, 22764, 22765).build()
-			.build();
+		.bulkAddSingleDrop(FREED_SOUL_FRAGMENT, 50.0) // Seed of Infinity
+		.withNpcs(22509, 22510, 22511, 22512, 22513, 22514, 22515)
+		.build()
+		.bulkAddSingleDrop(DRAGONKIN_CHARM_FRAGMENT, 25.0) // Seed of Destruction
+		.withNpcs(22537, 22538, 22539, 22540, 22541, 22542, 22543, 22544, 22546)
+		.withNpcs(22547, 22548, 22549, 22550, 22551, 22552, 22593, 22596, 22597)
+		.build()
+		.bulkAddSingleDrop(SPIRIT_STONE_DUST, 12.5) // Seed of Annihilation
+		.withNpcs(22746, 22747, 22748, 22749, 22750, 22751, 22752, 22753, 22754, 22755)
+		.withNpcs(22756, 22757, 22758, 22759, 22760, 22761, 22762, 22763, 22764, 22765)
+		.build()
+		.build();
 	
 	public Q00692_HowtoOpposeEvil() {
 		super(692, Q00692_HowtoOpposeEvil.class.getSimpleName(), "How to Oppose Evil");

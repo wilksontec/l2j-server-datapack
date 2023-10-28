@@ -42,9 +42,9 @@ public final class Q00117_TheOceanOfDistantStars extends Quest {
 	private static final QuestItemChanceHolder BOOK_OF_GREY_STAR = new QuestItemChanceHolder(8495, 1L);
 	// Droplist
 	private static final QuestDroplist DROPLIST = QuestDroplist.builder()
-			.addSingleDrop(22023, BOOK_OF_GREY_STAR, 17.9) // Bandit Warrior
-			.addSingleDrop(22024, BOOK_OF_GREY_STAR, 10.0) // Bandit Inspector
-			.build();
+		.addSingleDrop(22023, BOOK_OF_GREY_STAR, 17.9) // Bandit Warrior
+		.addSingleDrop(22024, BOOK_OF_GREY_STAR, 10.0) // Bandit Inspector
+		.build();
 	// Misc
 	private static final int MIN_LEVEL = 39;
 	

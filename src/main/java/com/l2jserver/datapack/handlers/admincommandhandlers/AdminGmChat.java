@@ -69,11 +69,10 @@ public class AdminGmChat implements IAdminCommandHandler {
 			activeChar.sendPacket(SystemMessageId.SELECT_TARGET);
 			return;
 		}
-		if (!(target instanceof L2PcInstance)) {
+		if (!(target instanceof L2PcInstance player)) {
 			activeChar.sendPacket(SystemMessageId.INCORRECT_TARGET);
 			return;
 		}
-		L2PcInstance player = (L2PcInstance) target;
 		player.addSnooper(activeChar);
 		activeChar.addSnooped(player);
 	}

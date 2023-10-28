@@ -18,14 +18,14 @@
  */
 package com.l2jserver.datapack.quests.Q00039_RedEyedInvaders;
 
+import static com.l2jserver.gameserver.model.quest.QuestDroplist.singleDropItem;
+
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
 import com.l2jserver.gameserver.model.holders.ItemHolder;
 import com.l2jserver.gameserver.model.holders.QuestItemChanceHolder;
 import com.l2jserver.gameserver.model.quest.Quest;
 import com.l2jserver.gameserver.model.quest.QuestState;
-
-import static com.l2jserver.gameserver.model.quest.QuestDroplist.singleDropItem;
 
 /**
  * Red-eyed Invaders (39)

@@ -47,7 +47,7 @@ import com.l2jserver.gameserver.util.Util;
  * @author GKR
  */
 public final class UrbanArea extends AbstractInstance {
-	protected class UrbanAreaWorld extends InstanceWorld {
+	protected static class UrbanAreaWorld extends InstanceWorld {
 		protected L2MonsterInstance spawnedAmaskari;
 		protected ScheduledFuture<?> activeAmaskariCall = null;
 		protected boolean isAmaskariDead = false;
@@ -122,9 +122,7 @@ public final class UrbanArea extends AbstractInstance {
 			}
 		} else if (npc.getId() == TOMBSTONE) {
 			final InstanceWorld tmpworld = InstanceManager.getInstance().getWorld(npc.getInstanceId());
-			if ((tmpworld != null) && (tmpworld instanceof UrbanAreaWorld)) {
-				final UrbanAreaWorld world = (UrbanAreaWorld) tmpworld;
-				
+			if ((tmpworld != null) && (tmpworld instanceof UrbanAreaWorld world)) {
 				final L2Party party = player.getParty();
 				
 				if (party == null) {
@@ -158,9 +156,7 @@ public final class UrbanArea extends AbstractInstance {
 	@Override
 	public String onAdvEvent(String event, L2Npc npc, L2PcInstance player) {
 		final InstanceWorld tmpworld = InstanceManager.getInstance().getWorld(npc.getInstanceId());
-		if ((tmpworld != null) && (tmpworld instanceof UrbanAreaWorld)) {
-			UrbanAreaWorld world = (UrbanAreaWorld) tmpworld;
-			
+		if ((tmpworld != null) && (tmpworld instanceof UrbanAreaWorld world)) {
 			if (npc.getId() == DOWNTOWN_NATIVE) {
 				if (event.equalsIgnoreCase("rebuff") && !world.isAmaskariDead) {
 					STONE.getSkill().applyEffects(npc, npc);
@@ -210,9 +206,7 @@ public final class UrbanArea extends AbstractInstance {
 	@Override
 	public String onAggroRangeEnter(L2Npc npc, L2PcInstance player, boolean isSummon) {
 		final InstanceWorld tmpworld = InstanceManager.getInstance().getWorld(npc.getInstanceId());
-		if ((tmpworld != null) && (tmpworld instanceof UrbanAreaWorld)) {
-			final UrbanAreaWorld world = (UrbanAreaWorld) tmpworld;
-			
+		if ((tmpworld != null) && (tmpworld instanceof UrbanAreaWorld world)) {
 			if (!npc.isBusy()) {
 				broadcastNpcSay(npc, Say2.NPC_ALL, NPCSTRING_ID[0]);
 				npc.setBusy(true);
@@ -231,25 +225,23 @@ public final class UrbanArea extends AbstractInstance {
 	@Override
 	public String onAttack(L2Npc npc, L2PcInstance attacker, int damage, boolean isSummon, Skill skill) {
 		final InstanceWorld tmpworld = InstanceManager.getInstance().getWorld(npc.getInstanceId());
-		if ((tmpworld != null) && (tmpworld instanceof UrbanAreaWorld)) {
-			final UrbanAreaWorld world = (UrbanAreaWorld) tmpworld;
-			
+		if ((tmpworld != null) && (tmpworld instanceof UrbanAreaWorld world)) {
 			if (!world.isAmaskariDead && !(npc.getBusyMessage().equalsIgnoreCase("atk") || npc.isBusy())) {
 				int msgId;
-				int range;
-				switch (npc.getId()) {
-					case TOWN_GUARD:
+				int range = switch (npc.getId()) {
+					case TOWN_GUARD -> {
 						msgId = 0;
-						range = 1000;
-						break;
-					case KEYMASTER:
+						yield 1000;
+					}
+					case KEYMASTER -> {
 						msgId = 1;
-						range = 5000;
-						break;
-					default:
+						yield 5000;
+					}
+					default -> {
 						msgId = -1;
-						range = 0;
-				}
+						yield 0;
+					}
+				};
 				if (msgId >= 0) {
 					broadcastNpcSay(npc, Say2.NPC_ALL, NPCSTRING_ID[msgId], range);
 				}
@@ -270,8 +262,7 @@ public final class UrbanArea extends AbstractInstance {
 	@Override
 	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
 		final InstanceWorld tmpworld = InstanceManager.getInstance().getWorld(npc.getInstanceId());
-		if ((tmpworld != null) && (tmpworld instanceof UrbanAreaWorld)) {
-			UrbanAreaWorld world = (UrbanAreaWorld) tmpworld;
+		if ((tmpworld != null) && (tmpworld instanceof UrbanAreaWorld world)) {
 			world.isAmaskariDead = true;
 		}
 		return super.onKill(npc, killer, isSummon);
@@ -338,9 +329,7 @@ public final class UrbanArea extends AbstractInstance {
 		public void run() {
 			if ((_caller != null) && !_caller.isDead()) {
 				InstanceWorld tmpworld = InstanceManager.getInstance().getWorld(_caller.getInstanceId());
-				if ((tmpworld != null) && (tmpworld instanceof UrbanAreaWorld)) {
-					UrbanAreaWorld world = (UrbanAreaWorld) tmpworld;
-					
+				if ((tmpworld != null) && (tmpworld instanceof UrbanAreaWorld world)) {
 					if ((world.spawnedAmaskari != null) && !world.spawnedAmaskari.isDead()) {
 						world.spawnedAmaskari.teleToLocation(_caller.getLocation());
 						world.spawnedAmaskari.broadcastPacket(new NpcSay(world.spawnedAmaskari.getObjectId(), Say2.NPC_ALL, world.spawnedAmaskari.getId(), NpcStringId.ILL_MAKE_YOU_FEEL_SUFFERING_LIKE_A_FLAME_THAT_IS_NEVER_EXTINGUISHED));

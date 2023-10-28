@@ -18,13 +18,13 @@
  */
 package com.l2jserver.datapack.quests.Q00634_InSearchOfFragmentsOfDimension;
 
+import static com.l2jserver.gameserver.model.quest.QuestDroplist.singleDropItem;
+
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
 import com.l2jserver.gameserver.model.holders.QuestItemChanceHolder;
 import com.l2jserver.gameserver.model.quest.Quest;
 import com.l2jserver.gameserver.model.quest.QuestState;
-
-import static com.l2jserver.gameserver.model.quest.QuestDroplist.singleDropItem;
 
 /**
  * In Search of Fragments of Dimension (634)
@@ -33,7 +33,20 @@ import static com.l2jserver.gameserver.model.quest.QuestDroplist.singleDropItem;
 public final class Q00634_InSearchOfFragmentsOfDimension extends Quest {
 	// NPCs
 	private static final int[] DIMENSIONAL_GATE_KEEPER = {
-		31494, 31495, 31496, 31497, 31498, 31499, 31500, 31501, 31502, 31503, 31504, 31505, 31506, 31507
+		31494,
+		31495,
+		31496,
+		31497,
+		31498,
+		31499,
+		31500,
+		31501,
+		31502,
+		31503,
+		31504,
+		31505,
+		31506,
+		31507
 	};
 	// Item
 	private static final QuestItemChanceHolder DIMENSIONAL_FRAGMENT = new QuestItemChanceHolder(7079, 10.0);

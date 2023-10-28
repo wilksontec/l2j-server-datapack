@@ -46,62 +46,62 @@ public final class Q00638_SeekersOfTheHolyGrail extends Quest {
 	private static final int SCROLL_ENCHANT_A_S = 960;
 	// Droplist
 	private static final QuestDroplist DROPLIST = QuestDroplist.builder()
-			.addSingleDrop(22136, TOTEM, 55.0) // Gatekeeper Zombie
-			.addSingleDrop(22137, TOTEM, 6.0) // Penance Guard
-			.addSingleDrop(22138, TOTEM, 6.0) // Chapel Guard
-			.addSingleDrop(22139, TOTEM, 54.0) // Old Aristocrat's Soldier
-			.addSingleDrop(22140, TOTEM, 54.0) // Zombie Worker
-			.addSingleDrop(22141, TOTEM, 55.0) // Forgotten Victim
-			.addSingleDrop(22142, TOTEM, 54.0) // Triol's Layperson
-			.addSingleDrop(22143, TOTEM, 62.0) // Triol's Believer
-			.addSingleDrop(22144, TOTEM, 54.0) // Resurrected Temple Knight
-			.addSingleDrop(22145, TOTEM, 53.0) // Ritual Sacrifice
-			.addSingleDrop(22146, TOTEM, 54.0) // Triol's Priest
-			.addSingleDrop(22147, TOTEM, 55.0) // Ritual Offering
-			.addSingleDrop(22148, TOTEM, 45.0) // Triol's Believer
-			.addSingleDrop(22149, TOTEM, 54.0) // Ritual Offering
-			.addSingleDrop(22150, TOTEM, 46.0) // Triol's Believer
-			.addSingleDrop(22151, TOTEM, 62.0) // Triol's Priest
-			.addSingleDrop(22152, TOTEM, 55.0) // Temple Guard
-			.addSingleDrop(22153, TOTEM, 54.0) // Temple Guard Captain
-			.addSingleDrop(22154, TOTEM, 53.0) // Ritual Sacrifice
-			.addSingleDrop(22155, TOTEM, 75.0) // Triol's High Priest
-			.addSingleDrop(22156, TOTEM, 67.0) // Triol's Priest
-			.addSingleDrop(22157, TOTEM, 66.0) // Triol's Priest
-			.addSingleDrop(22158, TOTEM, 67.0) // Triol's Believer
-			.addSingleDrop(22159, TOTEM, 75.0) // Triol's High Priest
-			.addSingleDrop(22160, TOTEM, 67.0) // Triol's Priest
-			.addSingleDrop(22161, TOTEM, 78.0) // Ritual Sacrifice
-			.addSingleDrop(22162, TOTEM, 67.0) // Triol's Believer
-			.addSingleDrop(22163, TOTEM, 87.0) // Triol's High Priest
-			.addSingleDrop(22164, TOTEM, 67.0) // Triol's Believer
-			.addSingleDrop(22165, TOTEM, 66.0) // Triol's Priest
-			.addSingleDrop(22166, TOTEM, 66.0) // Triol's Believer
-			.addSingleDrop(22167, TOTEM, 75.0) // Triol's High Priest
-			.addSingleDrop(22168, TOTEM, 66.0) // Triol's Priest
-			.addSingleDrop(22169, TOTEM, 78.0) // Ritual Sacrifice
-			.addSingleDrop(22170, TOTEM, 67.0) // Triol's Believer
-			.addSingleDrop(22171, TOTEM, 87.0) // Triol's High Priest
-			.addSingleDrop(22172, TOTEM, 78.0) // Ritual Sacrifice
-			.addSingleDrop(22173, TOTEM, 66.0) // Triol's Priest
-			.addSingleDrop(22174, TOTEM, 67.0) // Triol's Priest
-			.addSingleDrop(22175, TOTEM, 3.0) // Andreas' Captain of the Royal Guard
-			.addSingleDrop(22176, TOTEM, 3.0) // Andreas' Royal Guards
-			.addSingleDrop(22188, TOTEM, 3.0) // Andreas' Captain of the Royal Guard
-			.addSingleDrop(22189, TOTEM, 3.0) // Andreas' Royal Guards
-			.addSingleDrop(22190, TOTEM, 3.0) // Ritual Sacrifice
-			.addSingleDrop(22191, TOTEM, 3.0) // Andreas' Captain of the Royal Guard
-			.addSingleDrop(22192, TOTEM, 3.0) // Andreas' Royal Guards
-			.addSingleDrop(22193, TOTEM, 3.0) // Andreas' Royal Guards
-			.addSingleDrop(22194, TOTEM, 3.0) // Penance Guard
-			.addSingleDrop(22195, TOTEM, 3.0) // Ritual Sacrifice
-			.build();
+		.addSingleDrop(22136, TOTEM, 55.0) // Gatekeeper Zombie
+		.addSingleDrop(22137, TOTEM, 6.0) // Penance Guard
+		.addSingleDrop(22138, TOTEM, 6.0) // Chapel Guard
+		.addSingleDrop(22139, TOTEM, 54.0) // Old Aristocrat's Soldier
+		.addSingleDrop(22140, TOTEM, 54.0) // Zombie Worker
+		.addSingleDrop(22141, TOTEM, 55.0) // Forgotten Victim
+		.addSingleDrop(22142, TOTEM, 54.0) // Triol's Layperson
+		.addSingleDrop(22143, TOTEM, 62.0) // Triol's Believer
+		.addSingleDrop(22144, TOTEM, 54.0) // Resurrected Temple Knight
+		.addSingleDrop(22145, TOTEM, 53.0) // Ritual Sacrifice
+		.addSingleDrop(22146, TOTEM, 54.0) // Triol's Priest
+		.addSingleDrop(22147, TOTEM, 55.0) // Ritual Offering
+		.addSingleDrop(22148, TOTEM, 45.0) // Triol's Believer
+		.addSingleDrop(22149, TOTEM, 54.0) // Ritual Offering
+		.addSingleDrop(22150, TOTEM, 46.0) // Triol's Believer
+		.addSingleDrop(22151, TOTEM, 62.0) // Triol's Priest
+		.addSingleDrop(22152, TOTEM, 55.0) // Temple Guard
+		.addSingleDrop(22153, TOTEM, 54.0) // Temple Guard Captain
+		.addSingleDrop(22154, TOTEM, 53.0) // Ritual Sacrifice
+		.addSingleDrop(22155, TOTEM, 75.0) // Triol's High Priest
+		.addSingleDrop(22156, TOTEM, 67.0) // Triol's Priest
+		.addSingleDrop(22157, TOTEM, 66.0) // Triol's Priest
+		.addSingleDrop(22158, TOTEM, 67.0) // Triol's Believer
+		.addSingleDrop(22159, TOTEM, 75.0) // Triol's High Priest
+		.addSingleDrop(22160, TOTEM, 67.0) // Triol's Priest
+		.addSingleDrop(22161, TOTEM, 78.0) // Ritual Sacrifice
+		.addSingleDrop(22162, TOTEM, 67.0) // Triol's Believer
+		.addSingleDrop(22163, TOTEM, 87.0) // Triol's High Priest
+		.addSingleDrop(22164, TOTEM, 67.0) // Triol's Believer
+		.addSingleDrop(22165, TOTEM, 66.0) // Triol's Priest
+		.addSingleDrop(22166, TOTEM, 66.0) // Triol's Believer
+		.addSingleDrop(22167, TOTEM, 75.0) // Triol's High Priest
+		.addSingleDrop(22168, TOTEM, 66.0) // Triol's Priest
+		.addSingleDrop(22169, TOTEM, 78.0) // Ritual Sacrifice
+		.addSingleDrop(22170, TOTEM, 67.0) // Triol's Believer
+		.addSingleDrop(22171, TOTEM, 87.0) // Triol's High Priest
+		.addSingleDrop(22172, TOTEM, 78.0) // Ritual Sacrifice
+		.addSingleDrop(22173, TOTEM, 66.0) // Triol's Priest
+		.addSingleDrop(22174, TOTEM, 67.0) // Triol's Priest
+		.addSingleDrop(22175, TOTEM, 3.0) // Andreas' Captain of the Royal Guard
+		.addSingleDrop(22176, TOTEM, 3.0) // Andreas' Royal Guards
+		.addSingleDrop(22188, TOTEM, 3.0) // Andreas' Captain of the Royal Guard
+		.addSingleDrop(22189, TOTEM, 3.0) // Andreas' Royal Guards
+		.addSingleDrop(22190, TOTEM, 3.0) // Ritual Sacrifice
+		.addSingleDrop(22191, TOTEM, 3.0) // Andreas' Captain of the Royal Guard
+		.addSingleDrop(22192, TOTEM, 3.0) // Andreas' Royal Guards
+		.addSingleDrop(22193, TOTEM, 3.0) // Andreas' Royal Guards
+		.addSingleDrop(22194, TOTEM, 3.0) // Penance Guard
+		.addSingleDrop(22195, TOTEM, 3.0) // Ritual Sacrifice
+		.build();
 	private static final QuestDroplist DROPLIST_KEYS = QuestDroplist.builder()
-			.addSingleDrop(22143, CHAPEL_KEY, 1) // Triol's Believer
-			.addSingleDrop(22146, KEY_OF_DARKNESS, 1, 10.0) // Triol's Priest
-			.addSingleDrop(22149, ANTEROOM_KEY, 6) // Ritual Offering
-			.addSingleDrop(22151, KEY_OF_DARKNESS, 1, 10.0) // Triol's Priest
-			.build();
+		.addSingleDrop(22143, CHAPEL_KEY, 1) // Triol's Believer
+		.addSingleDrop(22146, KEY_OF_DARKNESS, 1, 10.0) // Triol's Priest
+		.addSingleDrop(22149, ANTEROOM_KEY, 6) // Ritual Offering
+		.addSingleDrop(22151, KEY_OF_DARKNESS, 1, 10.0) // Triol's Priest
+		.build();
 	
 	public Q00638_SeekersOfTheHolyGrail() {
 		super(638, Q00638_SeekersOfTheHolyGrail.class.getSimpleName(), "Seekers Of The Holy Grail");

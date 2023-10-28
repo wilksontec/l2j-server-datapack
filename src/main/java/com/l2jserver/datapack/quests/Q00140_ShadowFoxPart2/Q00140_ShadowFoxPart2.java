@@ -40,11 +40,11 @@ public class Q00140_ShadowFoxPart2 extends Quest {
 	private static final int CRYPTOGRAM_OF_THE_GODDESS_SWORD = 10349;
 	// Droplist
 	private static final QuestDroplist DROPLIST = QuestDroplist.builder()
-			.addSingleDrop(20789, DARK_CRYSTAL, 45.0) // Crokian
-			.addSingleDrop(20790, DARK_CRYSTAL, 58.0) // Dailaon
-			.addSingleDrop(20791, DARK_CRYSTAL, 100.0) // Crokian Warrior
-			.addSingleDrop(20792, DARK_CRYSTAL, 92.0) // Farhite
-			.build();
+		.addSingleDrop(20789, DARK_CRYSTAL, 45.0) // Crokian
+		.addSingleDrop(20790, DARK_CRYSTAL, 58.0) // Dailaon
+		.addSingleDrop(20791, DARK_CRYSTAL, 100.0) // Crokian Warrior
+		.addSingleDrop(20792, DARK_CRYSTAL, 92.0) // Farhite
+		.build();
 	// Misc
 	private static final int MIN_LEVEL = 37;
 	private static final int MAX_REWARD_LEVEL = 42;

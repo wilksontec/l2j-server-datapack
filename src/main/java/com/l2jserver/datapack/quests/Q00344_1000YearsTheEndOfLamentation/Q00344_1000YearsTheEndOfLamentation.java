@@ -44,17 +44,17 @@ public final class Q00344_1000YearsTheEndOfLamentation extends Quest {
 	private static final ItemHolder CRUCIFIX = new ItemHolder(4273, 1);
 	// Droplist
 	private static final QuestDroplist DROPLIST = QuestDroplist.builder()
-			.addSingleDrop(20236, ARTICLES, 58.0) // Cave Servant
-			.addSingleDrop(20238, ARTICLES, 75.0) // Cave Servant Warrior
-			.addSingleDrop(20237, ARTICLES, 78.0) // Cave Servant Archer
-			.addSingleDrop(20239, ARTICLES, 79.0) // Cave Servant Captain
-			.addSingleDrop(20240, ARTICLES, 85.0) // Royal Cave Servant
-			.addSingleDrop(20272, ARTICLES, 58.0) // Cave Servant
-			.addSingleDrop(20273, ARTICLES, 78.0) // Cave Servant Archer
-			.addSingleDrop(20274, ARTICLES, 75.0) // Cave Servant Warrior
-			.addSingleDrop(20275, ARTICLES, 79.0) // Cave Servant Captain
-			.addSingleDrop(20276, ARTICLES, 85.0) // Royal Cave Servant
-			.build();
+		.addSingleDrop(20236, ARTICLES, 58.0) // Cave Servant
+		.addSingleDrop(20238, ARTICLES, 75.0) // Cave Servant Warrior
+		.addSingleDrop(20237, ARTICLES, 78.0) // Cave Servant Archer
+		.addSingleDrop(20239, ARTICLES, 79.0) // Cave Servant Captain
+		.addSingleDrop(20240, ARTICLES, 85.0) // Royal Cave Servant
+		.addSingleDrop(20272, ARTICLES, 58.0) // Cave Servant
+		.addSingleDrop(20273, ARTICLES, 78.0) // Cave Servant Archer
+		.addSingleDrop(20274, ARTICLES, 75.0) // Cave Servant Warrior
+		.addSingleDrop(20275, ARTICLES, 79.0) // Cave Servant Captain
+		.addSingleDrop(20276, ARTICLES, 85.0) // Royal Cave Servant
+		.build();
 	// Rewards
 	private static final ItemHolder ORIHARUKON_ORE = new ItemHolder(1874, 25);
 	private static final ItemHolder VARNISH_OF_PURITY = new ItemHolder(1887, 10);

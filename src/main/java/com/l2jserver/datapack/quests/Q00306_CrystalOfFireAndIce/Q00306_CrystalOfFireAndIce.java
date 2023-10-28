@@ -40,16 +40,16 @@ public final class Q00306_CrystalOfFireAndIce extends Quest {
 	private static final int ICE_SHARD = 1021;
 	// Droplist
 	private static final QuestDroplist DROPLIST = QuestDroplist.builder()
-			.addSingleDrop(20109, FLAME_SHARD, 92.5) // Salamander
-			.addSingleDrop(20110, ICE_SHARD, 90.0) // Undine
-			.addSingleDrop(20112, FLAME_SHARD, 90.0) // Salamander Elder
-			.addSingleDrop(20113, ICE_SHARD, 92.5) // Undine Elder
-			.addSingleDrop(20114, FLAME_SHARD, 92.5) // Salamander Noble
-			.addSingleDrop(UNDINE_NOBLE, ICE_SHARD, 95.0) // Undine Noble
-			.build();
+		.addSingleDrop(20109, FLAME_SHARD, 92.5) // Salamander
+		.addSingleDrop(20110, ICE_SHARD, 90.0) // Undine
+		.addSingleDrop(20112, FLAME_SHARD, 90.0) // Salamander Elder
+		.addSingleDrop(20113, ICE_SHARD, 92.5) // Undine Elder
+		.addSingleDrop(20114, FLAME_SHARD, 92.5) // Salamander Noble
+		.addSingleDrop(UNDINE_NOBLE, ICE_SHARD, 95.0) // Undine Noble
+		.build();
 	// Misc
 	private static final int MIN_LEVEL = 17;
-
+	
 	public Q00306_CrystalOfFireAndIce() {
 		super(306, Q00306_CrystalOfFireAndIce.class.getSimpleName(), "Crystals of Fire and Ice");
 		addStartNpc(KATERINA);
@@ -96,7 +96,7 @@ public final class Q00306_CrystalOfFireAndIce extends Quest {
 			}
 		} else {
 			qs = getRandomPartyMemberState(killer, -1, 3, npc);
-			if (qs != null && Util.checkIfInRange(1500, npc, qs.getPlayer(), false)) {
+			if ((qs != null) && Util.checkIfInRange(1500, npc, qs.getPlayer(), false)) {
 				giveItemRandomly(qs.getPlayer(), npc, DROPLIST.get(npc), true);
 			}
 		}

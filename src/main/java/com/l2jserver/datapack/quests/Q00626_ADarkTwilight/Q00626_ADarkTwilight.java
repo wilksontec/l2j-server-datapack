@@ -38,24 +38,23 @@ public class Q00626_ADarkTwilight extends Quest {
 	private static final QuestItemChanceHolder BLOOD_OF_SAINT = new QuestItemChanceHolder(7169, 300L);
 	// Droplist
 	private static final QuestDroplist DROPLIST = QuestDroplist.builder()
-			.addSingleDrop(21520, BLOOD_OF_SAINT, 64.1) // Eye of Splendor
-			.addSingleDrop(21523, BLOOD_OF_SAINT, 64.8) // Flash of Splendor
-			.addSingleDrop(21524, BLOOD_OF_SAINT, 69.2) // Blade of Splendor
-			.addSingleDrop(21525, BLOOD_OF_SAINT, 71.0) // Blade of Splendor
-			.addSingleDrop(21526, BLOOD_OF_SAINT, 77.2) // Wisdom of Splendor
-			.addSingleDrop(21529, BLOOD_OF_SAINT, 63.9) // Soul of Splendor
-			.addSingleDrop(21530, BLOOD_OF_SAINT, 68.3) // Victory of Splendor
-			.addSingleDrop(21531, BLOOD_OF_SAINT, 76.7) // Punishment of Splendor
-			.addSingleDrop(21532, BLOOD_OF_SAINT, 79.5) // Shout of Splendor
-			.addSingleDrop(21535, BLOOD_OF_SAINT, 80.2) // Signet of Splendor
-			.addSingleDrop(21536, BLOOD_OF_SAINT, 77.4) // Crown of Splendor
-			.addSingleDrop(21539, BLOOD_OF_SAINT, 84.8) // Wailing of Splendor
-			.addSingleDrop(21540, BLOOD_OF_SAINT, 88.0) // Wailing of Splendor
-			.addSingleDrop(21658, BLOOD_OF_SAINT, 79.0) // Punishment of Splendor
-			.build();
+		.addSingleDrop(21520, BLOOD_OF_SAINT, 64.1) // Eye of Splendor
+		.addSingleDrop(21523, BLOOD_OF_SAINT, 64.8) // Flash of Splendor
+		.addSingleDrop(21524, BLOOD_OF_SAINT, 69.2) // Blade of Splendor
+		.addSingleDrop(21525, BLOOD_OF_SAINT, 71.0) // Blade of Splendor
+		.addSingleDrop(21526, BLOOD_OF_SAINT, 77.2) // Wisdom of Splendor
+		.addSingleDrop(21529, BLOOD_OF_SAINT, 63.9) // Soul of Splendor
+		.addSingleDrop(21530, BLOOD_OF_SAINT, 68.3) // Victory of Splendor
+		.addSingleDrop(21531, BLOOD_OF_SAINT, 76.7) // Punishment of Splendor
+		.addSingleDrop(21532, BLOOD_OF_SAINT, 79.5) // Shout of Splendor
+		.addSingleDrop(21535, BLOOD_OF_SAINT, 80.2) // Signet of Splendor
+		.addSingleDrop(21536, BLOOD_OF_SAINT, 77.4) // Crown of Splendor
+		.addSingleDrop(21539, BLOOD_OF_SAINT, 84.8) // Wailing of Splendor
+		.addSingleDrop(21540, BLOOD_OF_SAINT, 88.0) // Wailing of Splendor
+		.addSingleDrop(21658, BLOOD_OF_SAINT, 79.0) // Punishment of Splendor
+		.build();
 	// Misc
 	private static final int MIN_LEVEL_REQUIRED = 60;
-	private static final int ITEMS_COUNT_REQUIRED = 300;
 	// Rewards
 	private static final int ADENA_COUNT = 100000;
 	private static final int XP_COUNT = 162773;
@@ -108,7 +107,7 @@ public class Q00626_ADarkTwilight extends Quest {
 	@Override
 	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
 		QuestState st = getRandomPartyMemberState(killer, 1, 1, npc);
-		if (st != null && giveItemRandomly(st.getPlayer(), npc, DROPLIST.get(npc), true)) {
+		if ((st != null) && giveItemRandomly(st.getPlayer(), npc, DROPLIST.get(npc), true)) {
 			st.setCond(2);
 		}
 		return super.onKill(npc, killer, isSummon);

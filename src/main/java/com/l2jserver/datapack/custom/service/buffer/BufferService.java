@@ -117,7 +117,7 @@ public final class BufferService extends CustomServiceScript {
 				placeholders.put("active_unique", ulistPlaceholder);
 			}
 		}
-
+		
 		String activeCategoryId = ACTIVE_PLAYER_CATEGORIES.get(player.getObjectId());
 		if (activeCategoryId != null) {
 			HTMLTemplatePlaceholder catPlaceholder = BufferServiceRepository.getInstance().getBuffCategoryPlaceholder(activeCategoryId);
@@ -330,7 +330,7 @@ public final class BufferService extends CustomServiceScript {
 		// prevent heal spamming, process cooldown on heal target
 		Long lastPlayableHealTime = LAST_PLAYABLES_HEAL_TIME.get(target.getObjectId());
 		if (lastPlayableHealTime != null) {
-			Long elapsedTime = System.currentTimeMillis() - lastPlayableHealTime;
+			long elapsedTime = System.currentTimeMillis() - lastPlayableHealTime;
 			Long healCooldown = Configuration.bufferService().getHealCooldown().longValue();
 			if (elapsedTime < healCooldown) {
 				long remainingTime = healCooldown - elapsedTime;
@@ -592,7 +592,7 @@ public final class BufferService extends CustomServiceScript {
 		} else if (Configuration.bufferService().getForbidInPvp() && (player.getPvpFlag() == 1)) {
 			abortSysMsg = SystemMessage.getSystemMessage(SystemMessageId.S1_CANNOT_BE_USED);
 			abortSysMsg.addString("Buffer");
-		} else if (Configuration.bufferService().getForbidForChaoticPlayers() && player.getKarma() > 0) {
+		} else if (Configuration.bufferService().getForbidForChaoticPlayers() && (player.getKarma() > 0)) {
 			abortSysMsg = SystemMessage.getSystemMessage(SystemMessageId.S1_CANNOT_BE_USED);
 			abortSysMsg.addString("Buffer");
 		} else {

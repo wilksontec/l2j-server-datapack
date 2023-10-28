@@ -35,7 +35,6 @@ public final class Q00317_CatchTheWind extends Quest {
 	private static final QuestItemChanceHolder WIND_SHARD = new QuestItemChanceHolder(1078, 50.0);
 	// Misc
 	private static final int MIN_LEVEL = 18;
-	private static final double DROP_CHANCE = 0.5;
 	// Monsters
 	private static final int[] MONSTERS = {
 		20036, // Lirein

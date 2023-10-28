@@ -262,7 +262,7 @@ public final class Q00065_CertifiedSoulBreaker extends Quest {
 				case GUARDIAN_ANGEL -> {
 					final L2PcInstance c0 = npc.getVariables().getObject("player0", L2PcInstance.class);
 					final L2Npc npc0 = npc.getVariables().getObject("npc0", L2Npc.class);
-					if (killer == c0 && qs.isMemoState(12)) {
+					if ((killer == c0) && qs.isMemoState(12)) {
 						L2Npc katenar = addSpawn(KATENAR, killer.getX() + 20, killer.getY() + 20, killer.getZ(), 0, false, 0);
 						katenar.getVariables().set("player0", killer);
 						katenar.getVariables().set("npc0", npc);

@@ -41,14 +41,32 @@ import com.l2jserver.gameserver.util.Util;
 public final class SSQPriest extends AbstractNpcAI {
 	
 	// NPCs
-	private static final int[] DAWN_NPCS =
-	{
-		31078, 31079, 31080, 31081, 31082, 31083, 31084, 31168, 31692, 31694, 31997
+	private static final int[] DAWN_NPCS = {
+		31078,
+		31079,
+		31080,
+		31081,
+		31082,
+		31083,
+		31084,
+		31168,
+		31692,
+		31694,
+		31997
 	};
 	
-	private final static int[] DUSK_NPCS =
-	{
-		31085, 31086, 31087, 31088, 31089, 31090, 31091, 31169, 31693, 31695, 31998
+	private final static int[] DUSK_NPCS = {
+		31085,
+		31086,
+		31087,
+		31088,
+		31089,
+		31090,
+		31091,
+		31169,
+		31693,
+		31695,
+		31998
 	};
 	
 	private static final String QUEST_ID = "q0506";
@@ -56,79 +74,239 @@ public final class SSQPriest extends AbstractNpcAI {
 	private static final double WEIGHT_LIMIT = 0.80;
 	
 	private static final int THE_LORD_OF_MANORS_AGREEMENT = 5708;
-	private static final int THE_LORD_OF_MANORS_AGREEMENT_NEW  = 6388;
+	private static final int THE_LORD_OF_MANORS_AGREEMENT_NEW = 6388;
 	
 	private static final String[][] GLUDIN_POSITION = {
-		{"Necropolis of Sacrifice", "-41184 206752 -3357", "3300; 5500"}
+		{
+			"Necropolis of Sacrifice",
+			"-41184 206752 -3357",
+			"3300; 5500"
+		}
 	};
 	
 	private static final String[][] GLUDIO_POSITION = {
-		{"The Patriot's Necropolis", "-25472 77728 -3446", "5500; 9200" },
-		{"Necropolis of Devotion", "-56064 78720 -3011", "8700; 14000" },
-		{"Necropolis of Sacrifice", "-41184 206752 -3357", "4200; 7000" },
-		{"Catacomb of Dark Omens", "-22480 13872 -3174", "18000; 30000" }
+		{
+			"The Patriot's Necropolis",
+			"-25472 77728 -3446",
+			"5500; 9200"
+		},
+		{
+			"Necropolis of Devotion",
+			"-56064 78720 -3011",
+			"8700; 14000"
+		},
+		{
+			"Necropolis of Sacrifice",
+			"-41184 206752 -3357",
+			"4200; 7000"
+		},
+		{
+			"Catacomb of Dark Omens",
+			"-22480 13872 -3174",
+			"18000; 30000"
+		}
 	};
 	
 	private static final String[][] DION_POSITION = {
-		{"The Pilgrim's Necropolis", "45600 126944 -3686", "2300; 3900" },
-		{"The Catacomb of the Heretic", "39232 143568 -3651", "1500; 2600" },
-		{"Catacomb of the Branded", "43200 170688 -3251", "3500; 5900" },
-		{"Necropolis of Worship", "107514 174329 -3704", "6800; 11000" }
+		{
+			"The Pilgrim's Necropolis",
+			"45600 126944 -3686",
+			"2300; 3900"
+		},
+		{
+			"The Catacomb of the Heretic",
+			"39232 143568 -3651",
+			"1500; 2600"
+		},
+		{
+			"Catacomb of the Branded",
+			"43200 170688 -3251",
+			"3500; 5900"
+		},
+		{
+			"Necropolis of Worship",
+			"107514 174329 -3704",
+			"6800; 11000"
+		}
 	};
 	
 	private static final String[][] GIRAN_POSITION = {
-		{"Necropolis of Martyrdom", "114496 132416 -3101", "5100; 8600" }
+		{
+			"Necropolis of Martyrdom",
+			"114496 132416 -3101",
+			"5100; 8600"
+		}
 	};
 	
 	private static final String[][] HEINE_POSITION = {
-		{"Necropolis of Worship", "107514 174329 -3704", "3300; 5500" },
-		{"The Pilgrim's Necropolis", "45600 126944 -3686", "8200; 13000" },
-		{"The Catacomb of the Heretic", "39232 143568 -3651", "7600; 12000" },
-		{"Catacomb of the Branded", "43200 170688 -3251", "8100; 13000" },
-		{"The Saint's Necropolis", "79296 209584 -3709", "5700; 9600" }
+		{
+			"Necropolis of Worship",
+			"107514 174329 -3704",
+			"3300; 5500"
+		},
+		{
+			"The Pilgrim's Necropolis",
+			"45600 126944 -3686",
+			"8200; 13000"
+		},
+		{
+			"The Catacomb of the Heretic",
+			"39232 143568 -3651",
+			"7600; 12000"
+		},
+		{
+			"Catacomb of the Branded",
+			"43200 170688 -3251",
+			"8100; 13000"
+		},
+		{
+			"The Saint's Necropolis",
+			"79296 209584 -3709",
+			"5700; 9600"
+		}
 	};
 	
 	private static final String[][] OREN_POSITION = {
-		{"Catacomb of the Apostate", "74672 78032 -3398", "3000; 5000" }
+		{
+			"Catacomb of the Apostate",
+			"74672 78032 -3398",
+			"3000; 5000"
+		}
 	};
 	
 	private static final String[][] ADEN_POSITION = {
-		{"The Disciple's Necropolis", "168560 -17968 -3174", "8400; 14000" },
-		{"Catacomb of the Witch", "136672 79328 -3702", "7500; 12000" },
-		{"Catacomb of the Forbidden Path", "110912 84912 -4816", "11000; 18000" }
+		{
+			"The Disciple's Necropolis",
+			"168560 -17968 -3174",
+			"8400; 14000"
+		},
+		{
+			"Catacomb of the Witch",
+			"136672 79328 -3702",
+			"7500; 12000"
+		},
+		{
+			"Catacomb of the Forbidden Path",
+			"110912 84912 -4816",
+			"11000; 18000"
+		}
 	};
 	
 	private static final String[][] HUNTERS_POSITION = {
-		{"Catacomb of the Witch", "136672 79328 -3702", "3000; 5000" },
-		{"Catacomb of the Forbidden Path", "110912 84912 -4816", "1700; 2800" }
+		{
+			"Catacomb of the Witch",
+			"136672 79328 -3702",
+			"3000; 5000"
+		},
+		{
+			"Catacomb of the Forbidden Path",
+			"110912 84912 -4816",
+			"1700; 2800"
+		}
 	};
 	
 	private static final String[][] GODDARD_POSITION = {
-		{"The Disciple's Necropolis", "168560 -17968 -3174", "7100; 11000" },
-		{"Catacomb of the Forbidden Path", "110912 84912 -4816", "24000; 40000" },
-		{"Catacomb of Dark Omens", "-22480 13872 -3174", "31000; 51000" },
-		{"The Saint's Necropolis", "79296 209584 -3709", "46000; 76000" }
+		{
+			"The Disciple's Necropolis",
+			"168560 -17968 -3174",
+			"7100; 11000"
+		},
+		{
+			"Catacomb of the Forbidden Path",
+			"110912 84912 -4816",
+			"24000; 40000"
+		},
+		{
+			"Catacomb of Dark Omens",
+			"-22480 13872 -3174",
+			"31000; 51000"
+		},
+		{
+			"The Saint's Necropolis",
+			"79296 209584 -3709",
+			"46000; 76000"
+		}
 	};
 	
 	private static final String[][] RUNE_POSITION = {
-		{"Necropolis of Martyrdom", "114496 132416 -3101", "28000; 46000" },
-		{"Catacomb of the Witch", "136672 79328 -3702", "22000; 37000" },
-		{"The Patriot's Necropolis", "-25472 77728 -3446", "17000; 29000" },
-		{"Necropolis of Devotion", "-56064 78720 -3011", "23000; 39000" },
-		{"The Disciple's Necropolis", "168560 -17968 -3174", "21000; 35000" },
-		{"Catacomb of the Forbidden Path", "110912 84912 -4816", "25000; 41000" },
-		{"Catacomb of Dark Omens", "-22480 13872 -3174", "15000; 25000" },
-		{"The Saint's Necropolis", "79296 209584 -3709", "43000; 73000" }
+		{
+			"Necropolis of Martyrdom",
+			"114496 132416 -3101",
+			"28000; 46000"
+		},
+		{
+			"Catacomb of the Witch",
+			"136672 79328 -3702",
+			"22000; 37000"
+		},
+		{
+			"The Patriot's Necropolis",
+			"-25472 77728 -3446",
+			"17000; 29000"
+		},
+		{
+			"Necropolis of Devotion",
+			"-56064 78720 -3011",
+			"23000; 39000"
+		},
+		{
+			"The Disciple's Necropolis",
+			"168560 -17968 -3174",
+			"21000; 35000"
+		},
+		{
+			"Catacomb of the Forbidden Path",
+			"110912 84912 -4816",
+			"25000; 41000"
+		},
+		{
+			"Catacomb of Dark Omens",
+			"-22480 13872 -3174",
+			"15000; 25000"
+		},
+		{
+			"The Saint's Necropolis",
+			"79296 209584 -3709",
+			"43000; 73000"
+		}
 	};
 	
 	private static final String[][] SCHUTT_POSITION = {
-		{"Necropolis of Sacrifice", "-41184 206752 -3357", "17000; 29000" },
-		{"The Pilgrim's Necropolis", "45600 126944 -3686", "19000; 32000" },
-		{"The Catacomb of the Heretic", "39232 143568 -3651", "20000; 34000" },
-		{"Catacomb of the Branded", "43200 170688 -3251", "30000; 50000" },
-		{"Necropolis of Worship", "107514 174329 -3704", "22000; 38000" },
-		{"Catacomb of the Apostate", "74672 78032 -3398", "26000; 44000" },
-		{"The Patriot's Necropolis", "-25472 77728 -3446", "29000; 49000" }
+		{
+			"Necropolis of Sacrifice",
+			"-41184 206752 -3357",
+			"17000; 29000"
+		},
+		{
+			"The Pilgrim's Necropolis",
+			"45600 126944 -3686",
+			"19000; 32000"
+		},
+		{
+			"The Catacomb of the Heretic",
+			"39232 143568 -3651",
+			"20000; 34000"
+		},
+		{
+			"Catacomb of the Branded",
+			"43200 170688 -3251",
+			"30000; 50000"
+		},
+		{
+			"Necropolis of Worship",
+			"107514 174329 -3704",
+			"22000; 38000"
+		},
+		{
+			"Catacomb of the Apostate",
+			"74672 78032 -3398",
+			"26000; 44000"
+		},
+		{
+			"The Patriot's Necropolis",
+			"-25472 77728 -3446",
+			"29000; 49000"
+		}
 	};
 	
 	public SSQPriest() {
@@ -193,15 +371,15 @@ public final class SSQPriest extends AbstractNpcAI {
 					return "ssq_npc_priest088.htm";
 				}
 				
-				if (player.getTransformationId() == 111 || player.getTransformationId() == 112 || player.getTransformationId() == 124) {
+				if ((player.getTransformationId() == 111) || (player.getTransformationId() == 112) || (player.getTransformationId() == 124)) {
 					return "q194_noteleport.htm";
 				}
 				
 				return teleportList(player, npc, true);
 			}
 			
-			if (ss.isSealValidationPeriod() && ssqPart == ssqWinner) {
-				if (player.getTransformationId() == 111 || player.getTransformationId() == 112 || player.getTransformationId() == 124) {
+			if (ss.isSealValidationPeriod() && (ssqPart == ssqWinner)) {
+				if ((player.getTransformationId() == 111) || (player.getTransformationId() == 112) || (player.getTransformationId() == 124)) {
 					return "q194_noteleport.htm";
 				}
 				
@@ -312,23 +490,23 @@ public final class SSQPriest extends AbstractNpcAI {
 					}
 					case 4, 5, 9, 14, 15, 20, 21, 22, 30, 31, 33, 35, 42, 43, 48, 53, 54, 55, 56, 64, 67, 69 -> { // back
 						if (Util.contains(DAWN_NPCS, npc.getId())) {
-							if (ss.isCompetitionPeriod() && (ssqPart == SevenSigns.CABAL_DAWN || ssqPart == SevenSigns.CABAL_NULL)) {
+							if (ss.isCompetitionPeriod() && ((ssqPart == SevenSigns.CABAL_DAWN) || (ssqPart == SevenSigns.CABAL_NULL))) {
 								return "ssq_npc_priest001.htm";
 							}
 							
-							if (ss.isSealValidationPeriod() && ssqWinner == SevenSigns.CABAL_DAWN && ss.getSealOwner(SevenSigns.SEAL_GNOSIS) == SevenSigns.CABAL_DAWN && ssqPart == SevenSigns.CABAL_DAWN) {
+							if (ss.isSealValidationPeriod() && (ssqWinner == SevenSigns.CABAL_DAWN) && (ss.getSealOwner(SevenSigns.SEAL_GNOSIS) == SevenSigns.CABAL_DAWN) && (ssqPart == SevenSigns.CABAL_DAWN)) {
 								return "ssq_npc_priest026.htm";
 							}
 							
-							if (ss.isSealValidationPeriod() && ssqWinner == SevenSigns.CABAL_DAWN && ss.getSealOwner(SevenSigns.SEAL_GNOSIS) != SevenSigns.CABAL_DAWN && ssqPart == SevenSigns.CABAL_DAWN) {
+							if (ss.isSealValidationPeriod() && (ssqWinner == SevenSigns.CABAL_DAWN) && (ss.getSealOwner(SevenSigns.SEAL_GNOSIS) != SevenSigns.CABAL_DAWN) && (ssqPart == SevenSigns.CABAL_DAWN)) {
 								return "ssq_npc_priest029.htm";
 							}
 							
-							if (ss.isSealValidationPeriod() && ssqWinner == SevenSigns.CABAL_DUSK && (ssqPart == SevenSigns.CABAL_DAWN || ssqPart == SevenSigns.CABAL_NULL)) {
+							if (ss.isSealValidationPeriod() && (ssqWinner == SevenSigns.CABAL_DUSK) && ((ssqPart == SevenSigns.CABAL_DAWN) || (ssqPart == SevenSigns.CABAL_NULL))) {
 								return "ssq_npc_priest032.htm";
 							}
 							
-							if (ss.isSealValidationPeriod() && ssqWinner == SevenSigns.CABAL_NULL && (ssqPart == SevenSigns.CABAL_DAWN || ssqPart == SevenSigns.CABAL_NULL)) {
+							if (ss.isSealValidationPeriod() && (ssqWinner == SevenSigns.CABAL_NULL) && ((ssqPart == SevenSigns.CABAL_DAWN) || (ssqPart == SevenSigns.CABAL_NULL))) {
 								return "ssq_npc_priest033.htm";
 							}
 							
@@ -344,27 +522,27 @@ public final class SSQPriest extends AbstractNpcAI {
 								return "ssq_npc_priest085.htm";
 							}
 							
-							if (ss.isSealValidationPeriod() && ssqPart != SevenSigns.CABAL_DAWN) {
+							if (ss.isSealValidationPeriod() && (ssqPart != SevenSigns.CABAL_DAWN)) {
 								return "ssq_npc_priest083.htm";
 							}
 						} else {
-							if (ss.isCompetitionPeriod() && (ssqPart == SevenSigns.CABAL_DUSK || ssqPart == SevenSigns.CABAL_NULL)) {
+							if (ss.isCompetitionPeriod() && ((ssqPart == SevenSigns.CABAL_DUSK) || (ssqPart == SevenSigns.CABAL_NULL))) {
 								return "ssq_npc_priest035.htm";
 							}
 							
-							if (ss.isSealValidationPeriod() && ssqWinner == SevenSigns.CABAL_DUSK && ss.getSealOwner(SevenSigns.SEAL_GNOSIS) == SevenSigns.CABAL_DUSK && ssqPart == SevenSigns.CABAL_DUSK) {
+							if (ss.isSealValidationPeriod() && (ssqWinner == SevenSigns.CABAL_DUSK) && (ss.getSealOwner(SevenSigns.SEAL_GNOSIS) == SevenSigns.CABAL_DUSK) && (ssqPart == SevenSigns.CABAL_DUSK)) {
 								return "ssq_npc_priest059.htm";
 							}
 							
-							if (ss.isSealValidationPeriod() && ssqWinner == SevenSigns.CABAL_DUSK && ss.getSealOwner(SevenSigns.SEAL_GNOSIS) != SevenSigns.CABAL_DUSK && ssqPart == SevenSigns.CABAL_DUSK) {
+							if (ss.isSealValidationPeriod() && (ssqWinner == SevenSigns.CABAL_DUSK) && (ss.getSealOwner(SevenSigns.SEAL_GNOSIS) != SevenSigns.CABAL_DUSK) && (ssqPart == SevenSigns.CABAL_DUSK)) {
 								return "ssq_npc_priest062.htm";
 							}
 							
-							if (ss.isSealValidationPeriod() && ssqWinner == SevenSigns.CABAL_DAWN && (ssqPart == SevenSigns.CABAL_DUSK || ssqPart == SevenSigns.CABAL_NULL)) {
+							if (ss.isSealValidationPeriod() && (ssqWinner == SevenSigns.CABAL_DAWN) && ((ssqPart == SevenSigns.CABAL_DUSK) || (ssqPart == SevenSigns.CABAL_NULL))) {
 								return "ssq_npc_priest065.htm";
 							}
 							
-							if (ss.isSealValidationPeriod() && ssqWinner == SevenSigns.CABAL_NULL && (ssqPart == SevenSigns.CABAL_DUSK || ssqPart == SevenSigns.CABAL_NULL)) {
+							if (ss.isSealValidationPeriod() && (ssqWinner == SevenSigns.CABAL_NULL) && ((ssqPart == SevenSigns.CABAL_DUSK) || (ssqPart == SevenSigns.CABAL_NULL))) {
 								return "ssq_npc_priest066.htm";
 							}
 							
@@ -380,7 +558,7 @@ public final class SSQPriest extends AbstractNpcAI {
 								return "ssq_npc_priest086.htm";
 							}
 							
-							if (ss.isSealValidationPeriod() && ssqPart != SevenSigns.CABAL_DUSK) {
+							if (ss.isSealValidationPeriod() && (ssqPart != SevenSigns.CABAL_DUSK)) {
 								return "ssq_npc_priest084.htm";
 							}
 						}
@@ -468,7 +646,7 @@ public final class SSQPriest extends AbstractNpcAI {
 						final int seal = SevenSigns.SEAL_AVARICE;
 						
 						if (Util.contains(DAWN_NPCS, npc.getId())) {
-							if (player.getInventory().getSize(false) >= (player.getInventoryLimit() * WEIGHT_LIMIT) || player.getCurrentLoad() >= (player.getMaxLoad() * WEIGHT_LIMIT)) {
+							if ((player.getInventory().getSize(false) >= (player.getInventoryLimit() * WEIGHT_LIMIT)) || (player.getCurrentLoad() >= (player.getMaxLoad() * WEIGHT_LIMIT))) {
 								player.sendPacket(SystemMessageId.INVENTORY_LESS_THAN_80_PERCENT);
 								return null;
 							}
@@ -482,7 +660,7 @@ public final class SSQPriest extends AbstractNpcAI {
 								int i0 = ss.getDepositedSSQItemCount(player, SevenSigns.SEAL_STONE_BLUE_ID);
 								int i1 = ss.getDepositedSSQItemCount(player, SevenSigns.SEAL_STONE_GREEN_ID);
 								int i2 = ss.getDepositedSSQItemCount(player, SevenSigns.SEAL_STONE_RED_ID);
-								if (i0 > 0 || i1 > 0 || i2 > 0) {
+								if ((i0 > 0) || (i1 > 0) || (i2 > 0)) {
 									int i3 = ((i0 * 3) + (i1 * 5)) + (i2 * 10);
 									if ((getQuestItemsCount(player, Inventory.ANCIENT_ADENA_ID) + i3) < Integer.MAX_VALUE) {
 										ss.deleteDepositedSSQItemAndGiveRewards(player, SevenSigns.SEAL_STONE_BLUE_ID, i0);
@@ -591,7 +769,7 @@ public final class SSQPriest extends AbstractNpcAI {
 							
 							return "ssq_npc_priest_" + QUEST_ID + "_13.htm";
 						}
-						if (player.getInventory().getSize(false) >= (player.getInventoryLimit() * WEIGHT_LIMIT) || player.getCurrentLoad() >= (player.getMaxLoad() * WEIGHT_LIMIT)) {
+						if ((player.getInventory().getSize(false) >= (player.getInventoryLimit() * WEIGHT_LIMIT)) || (player.getCurrentLoad() >= (player.getMaxLoad() * WEIGHT_LIMIT))) {
 							player.sendPacket(SystemMessageId.INVENTORY_LESS_THAN_80_PERCENT);
 							return null;
 						}
@@ -605,7 +783,7 @@ public final class SSQPriest extends AbstractNpcAI {
 							int i0 = ss.getDepositedSSQItemCount(player, SevenSigns.SEAL_STONE_BLUE_ID);
 							int i1 = ss.getDepositedSSQItemCount(player, SevenSigns.SEAL_STONE_GREEN_ID);
 							int i2 = ss.getDepositedSSQItemCount(player, SevenSigns.SEAL_STONE_RED_ID);
-							if (i0 > 0 || i1 > 0 || i2 > 0) {
+							if ((i0 > 0) || (i1 > 0) || (i2 > 0)) {
 								int i3 = ((i0 * 3) + (i1 * 5)) + (i2 * 10);
 								if ((getQuestItemsCount(player, Inventory.ANCIENT_ADENA_ID) + i3) < Integer.MAX_VALUE) {
 									ss.deleteDepositedSSQItemAndGiveRewards(player, SevenSigns.SEAL_STONE_BLUE_ID, i0);
@@ -719,7 +897,7 @@ public final class SSQPriest extends AbstractNpcAI {
 						final int seal = SevenSigns.SEAL_GNOSIS;
 						
 						if (Util.contains(DAWN_NPCS, npc.getId())) {
-							if (player.getInventory().getSize(false) >= (player.getInventoryLimit() * WEIGHT_LIMIT) || player.getCurrentLoad() >= (player.getMaxLoad() * WEIGHT_LIMIT)) {
+							if ((player.getInventory().getSize(false) >= (player.getInventoryLimit() * WEIGHT_LIMIT)) || (player.getCurrentLoad() >= (player.getMaxLoad() * WEIGHT_LIMIT))) {
 								player.sendPacket(SystemMessageId.INVENTORY_LESS_THAN_80_PERCENT);
 								return null;
 							}
@@ -733,7 +911,7 @@ public final class SSQPriest extends AbstractNpcAI {
 								int i0 = ss.getDepositedSSQItemCount(player, SevenSigns.SEAL_STONE_BLUE_ID);
 								int i1 = ss.getDepositedSSQItemCount(player, SevenSigns.SEAL_STONE_GREEN_ID);
 								int i2 = ss.getDepositedSSQItemCount(player, SevenSigns.SEAL_STONE_RED_ID);
-								if (i0 > 0 || i1 > 0 || i2 > 0) {
+								if ((i0 > 0) || (i1 > 0) || (i2 > 0)) {
 									int i3 = ((i0 * 3) + (i1 * 5)) + (i2 * 10);
 									if ((getQuestItemsCount(player, Inventory.ANCIENT_ADENA_ID) + i3) < Integer.MAX_VALUE) {
 										ss.deleteDepositedSSQItemAndGiveRewards(player, SevenSigns.SEAL_STONE_BLUE_ID, i0);
@@ -843,7 +1021,7 @@ public final class SSQPriest extends AbstractNpcAI {
 							return "ssq_npc_priest_" + QUEST_ID + "_13.htm";
 						}
 						
-						if (player.getInventory().getSize(false) >= (player.getInventoryLimit() * WEIGHT_LIMIT) || player.getCurrentLoad() >= (player.getMaxLoad() * WEIGHT_LIMIT)) {
+						if ((player.getInventory().getSize(false) >= (player.getInventoryLimit() * WEIGHT_LIMIT)) || (player.getCurrentLoad() >= (player.getMaxLoad() * WEIGHT_LIMIT))) {
 							player.sendPacket(SystemMessageId.INVENTORY_LESS_THAN_80_PERCENT);
 							return null;
 						}
@@ -857,7 +1035,7 @@ public final class SSQPriest extends AbstractNpcAI {
 							int i0 = ss.getDepositedSSQItemCount(player, SevenSigns.SEAL_STONE_BLUE_ID);
 							int i1 = ss.getDepositedSSQItemCount(player, SevenSigns.SEAL_STONE_GREEN_ID);
 							int i2 = ss.getDepositedSSQItemCount(player, SevenSigns.SEAL_STONE_RED_ID);
-							if (i0 > 0 || i1 > 0 || i2 > 0) {
+							if ((i0 > 0) || (i1 > 0) || (i2 > 0)) {
 								int i3 = ((i0 * 3) + (i1 * 5)) + (i2 * 10);
 								if ((getQuestItemsCount(player, Inventory.ANCIENT_ADENA_ID) + i3) < Integer.MAX_VALUE) {
 									ss.deleteDepositedSSQItemAndGiveRewards(player, SevenSigns.SEAL_STONE_BLUE_ID, i0);
@@ -971,7 +1149,7 @@ public final class SSQPriest extends AbstractNpcAI {
 						final int seal = SevenSigns.SEAL_STRIFE;
 						
 						if (Util.contains(DAWN_NPCS, npc.getId())) {
-							if (player.getInventory().getSize(false) >= (player.getInventoryLimit() * WEIGHT_LIMIT) || player.getCurrentLoad() >= (player.getMaxLoad() * WEIGHT_LIMIT)) {
+							if ((player.getInventory().getSize(false) >= (player.getInventoryLimit() * WEIGHT_LIMIT)) || (player.getCurrentLoad() >= (player.getMaxLoad() * WEIGHT_LIMIT))) {
 								player.sendPacket(SystemMessageId.INVENTORY_LESS_THAN_80_PERCENT);
 								return null;
 							}
@@ -985,7 +1163,7 @@ public final class SSQPriest extends AbstractNpcAI {
 								int i0 = ss.getDepositedSSQItemCount(player, SevenSigns.SEAL_STONE_BLUE_ID);
 								int i1 = ss.getDepositedSSQItemCount(player, SevenSigns.SEAL_STONE_GREEN_ID);
 								int i2 = ss.getDepositedSSQItemCount(player, SevenSigns.SEAL_STONE_RED_ID);
-								if (i0 > 0 || i1 > 0 || i2 > 0) {
+								if ((i0 > 0) || (i1 > 0) || (i2 > 0)) {
 									int i3 = ((i0 * 3) + (i1 * 5)) + (i2 * 10);
 									if ((getQuestItemsCount(player, Inventory.ANCIENT_ADENA_ID) + i3) < Integer.MAX_VALUE) {
 										ss.deleteDepositedSSQItemAndGiveRewards(player, SevenSigns.SEAL_STONE_BLUE_ID, i0);
@@ -1095,7 +1273,7 @@ public final class SSQPriest extends AbstractNpcAI {
 							return "ssq_npc_priest_" + QUEST_ID + "_13.htm";
 						}
 						
-						if (player.getInventory().getSize(false) >= (player.getInventoryLimit() * WEIGHT_LIMIT) || player.getCurrentLoad() >= (player.getMaxLoad() * WEIGHT_LIMIT)) {
+						if ((player.getInventory().getSize(false) >= (player.getInventoryLimit() * WEIGHT_LIMIT)) || (player.getCurrentLoad() >= (player.getMaxLoad() * WEIGHT_LIMIT))) {
 							player.sendPacket(SystemMessageId.INVENTORY_LESS_THAN_80_PERCENT);
 							return null;
 						}
@@ -1109,7 +1287,7 @@ public final class SSQPriest extends AbstractNpcAI {
 							int i0 = ss.getDepositedSSQItemCount(player, SevenSigns.SEAL_STONE_BLUE_ID);
 							int i1 = ss.getDepositedSSQItemCount(player, SevenSigns.SEAL_STONE_GREEN_ID);
 							int i2 = ss.getDepositedSSQItemCount(player, SevenSigns.SEAL_STONE_RED_ID);
-							if (i0 > 0 || i1 > 0 || i2 > 0) {
+							if ((i0 > 0) || (i1 > 0) || (i2 > 0)) {
 								int i3 = ((i0 * 3) + (i1 * 5)) + (i2 * 10);
 								if ((getQuestItemsCount(player, Inventory.ANCIENT_ADENA_ID) + i3) < Integer.MAX_VALUE) {
 									ss.deleteDepositedSSQItemAndGiveRewards(player, SevenSigns.SEAL_STONE_BLUE_ID, i0);
@@ -1298,8 +1476,8 @@ public final class SSQPriest extends AbstractNpcAI {
 						return html;
 					}
 					case 32, 36 -> { // dawn receive reward
-						if (ssqPart == SevenSigns.CABAL_DAWN && ssqWinner == SevenSigns.CABAL_DAWN) {
-							if (player.getInventory().getSize(false) >= (player.getInventoryLimit() * WEIGHT_LIMIT) || player.getCurrentLoad() >= (player.getMaxLoad() * WEIGHT_LIMIT)) {
+						if ((ssqPart == SevenSigns.CABAL_DAWN) && (ssqWinner == SevenSigns.CABAL_DAWN)) {
+							if ((player.getInventory().getSize(false) >= (player.getInventoryLimit() * WEIGHT_LIMIT)) || (player.getCurrentLoad() >= (player.getMaxLoad() * WEIGHT_LIMIT))) {
 								player.sendPacket(SystemMessageId.INVENTORY_LESS_THAN_80_PERCENT);
 								return null;
 							}
@@ -1312,7 +1490,7 @@ public final class SSQPriest extends AbstractNpcAI {
 							int i0 = ss.getDepositedSSQItemCount(player, SevenSigns.SEAL_STONE_BLUE_ID);
 							int i1 = ss.getDepositedSSQItemCount(player, SevenSigns.SEAL_STONE_GREEN_ID);
 							int i2 = ss.getDepositedSSQItemCount(player, SevenSigns.SEAL_STONE_RED_ID);
-							if (i0 > 0 || i1 > 0 || i2 > 0) {
+							if ((i0 > 0) || (i1 > 0) || (i2 > 0)) {
 								int i3 = ((i0 * 3) + (i1 * 5)) + (i2 * 10);
 								if ((getQuestItemsCount(player, Inventory.ANCIENT_ADENA_ID) + i3) < Integer.MAX_VALUE) {
 									ss.deleteDepositedSSQItemAndGiveRewards(player, SevenSigns.SEAL_STONE_BLUE_ID, i0);
@@ -1339,8 +1517,8 @@ public final class SSQPriest extends AbstractNpcAI {
 						}
 					}
 					case 66, 70 -> { // dusk receive reward
-						if (ssqPart == SevenSigns.CABAL_DUSK && ssqWinner == SevenSigns.CABAL_DUSK) {
-							if (player.getInventory().getSize(false) >= (player.getInventoryLimit() * WEIGHT_LIMIT) || player.getCurrentLoad() >= (player.getMaxLoad() * WEIGHT_LIMIT)) {
+						if ((ssqPart == SevenSigns.CABAL_DUSK) && (ssqWinner == SevenSigns.CABAL_DUSK)) {
+							if ((player.getInventory().getSize(false) >= (player.getInventoryLimit() * WEIGHT_LIMIT)) || (player.getCurrentLoad() >= (player.getMaxLoad() * WEIGHT_LIMIT))) {
 								player.sendPacket(SystemMessageId.INVENTORY_LESS_THAN_80_PERCENT);
 								return null;
 							}
@@ -1353,7 +1531,7 @@ public final class SSQPriest extends AbstractNpcAI {
 							int i0 = ss.getDepositedSSQItemCount(player, SevenSigns.SEAL_STONE_BLUE_ID);
 							int i1 = ss.getDepositedSSQItemCount(player, SevenSigns.SEAL_STONE_GREEN_ID);
 							int i2 = ss.getDepositedSSQItemCount(player, SevenSigns.SEAL_STONE_RED_ID);
-							if (i0 > 0 || i1 > 0 || i2 > 0) {
+							if ((i0 > 0) || (i1 > 0) || (i2 > 0)) {
 								int i3 = ((i0 * 3) + (i1 * 5)) + (i2 * 10);
 								if ((getQuestItemsCount(player, Inventory.ANCIENT_ADENA_ID) + i3) < Integer.MAX_VALUE) {
 									ss.deleteDepositedSSQItemAndGiveRewards(player, SevenSigns.SEAL_STONE_BLUE_ID, i0);
@@ -1397,7 +1575,7 @@ public final class SSQPriest extends AbstractNpcAI {
 						long i0 = getQuestItemsCount(player, SevenSigns.SEAL_STONE_BLUE_ID);
 						long i1 = getQuestItemsCount(player, SevenSigns.SEAL_STONE_GREEN_ID);
 						long i2 = getQuestItemsCount(player, SevenSigns.SEAL_STONE_RED_ID);
-						if (i0 > 0 || i1 > 0 || i2 > 0 && (ssqPart == SevenSigns.CABAL_DAWN)) {
+						if ((i0 > 0) || (i1 > 0) || ((i2 > 0) && (ssqPart == SevenSigns.CABAL_DAWN))) {
 							final long contribution = ss.depositSSQItem(player, i0, i1, i2);
 							if (contribution != -1) {
 								if (i0 > 0) {
@@ -1436,7 +1614,7 @@ public final class SSQPriest extends AbstractNpcAI {
 						long i0 = getQuestItemsCount(player, SevenSigns.SEAL_STONE_BLUE_ID);
 						long i1 = getQuestItemsCount(player, SevenSigns.SEAL_STONE_GREEN_ID);
 						long i2 = getQuestItemsCount(player, SevenSigns.SEAL_STONE_RED_ID);
-						if (i0 > 0 || i1 > 0 || i2 > 0 && (ssqPart == SevenSigns.CABAL_DUSK)) {
+						if ((i0 > 0) || (i1 > 0) || ((i2 > 0) && (ssqPart == SevenSigns.CABAL_DUSK))) {
 							final long contribution = ss.depositSSQItem(player, i0, i1, i2);
 							if (contribution != -1) {
 								if (i0 > 0) {
@@ -1487,7 +1665,7 @@ public final class SSQPriest extends AbstractNpcAI {
 						return html;
 					}
 					case 85 -> { // dawn all seal stones exchange
-						if (player.getInventory().getSize(false) >= (player.getInventoryLimit() * WEIGHT_LIMIT) || player.getCurrentLoad() >= (player.getMaxLoad() * WEIGHT_LIMIT)) {
+						if ((player.getInventory().getSize(false) >= (player.getInventoryLimit() * WEIGHT_LIMIT)) || (player.getCurrentLoad() >= (player.getMaxLoad() * WEIGHT_LIMIT))) {
 							player.sendPacket(SystemMessageId.INVENTORY_LESS_THAN_80_PERCENT);
 							return null;
 						}
@@ -1495,7 +1673,7 @@ public final class SSQPriest extends AbstractNpcAI {
 						long i0 = getQuestItemsCount(player, SevenSigns.SEAL_STONE_BLUE_ID);
 						long i1 = getQuestItemsCount(player, SevenSigns.SEAL_STONE_GREEN_ID);
 						long i2 = getQuestItemsCount(player, SevenSigns.SEAL_STONE_RED_ID);
-						if ((i0 > 0 || i1 > 0 || i2 > 0) && ssqPart == SevenSigns.CABAL_DAWN) {
+						if (((i0 > 0) || (i1 > 0) || (i2 > 0)) && (ssqPart == SevenSigns.CABAL_DAWN)) {
 							long i3 = ((i0 * 3) + (i1 * 5)) + (i2 * 10);
 							if ((getQuestItemsCount(player, Inventory.ANCIENT_ADENA_ID) + i3) < Integer.MAX_VALUE) {
 								if (i0 > 0) {
@@ -1547,7 +1725,7 @@ public final class SSQPriest extends AbstractNpcAI {
 						return html;
 					}
 					case 90 -> { // dusk all seal stones exchange request
-						if (player.getInventory().getSize(false) >= (player.getInventoryLimit() * WEIGHT_LIMIT) || player.getCurrentLoad() >= (player.getMaxLoad() * WEIGHT_LIMIT)) {
+						if ((player.getInventory().getSize(false) >= (player.getInventoryLimit() * WEIGHT_LIMIT)) || (player.getCurrentLoad() >= (player.getMaxLoad() * WEIGHT_LIMIT))) {
 							player.sendPacket(SystemMessageId.INVENTORY_LESS_THAN_80_PERCENT);
 							return null;
 						}
@@ -1555,7 +1733,7 @@ public final class SSQPriest extends AbstractNpcAI {
 						long i0 = getQuestItemsCount(player, SevenSigns.SEAL_STONE_BLUE_ID);
 						long i1 = getQuestItemsCount(player, SevenSigns.SEAL_STONE_GREEN_ID);
 						long i2 = getQuestItemsCount(player, SevenSigns.SEAL_STONE_RED_ID);
-						if ((i0 > 0 || i1 > 0 || i2 > 0) && ssqPart == SevenSigns.CABAL_DUSK) {
+						if (((i0 > 0) || (i1 > 0) || (i2 > 0)) && (ssqPart == SevenSigns.CABAL_DUSK)) {
 							long i3 = ((i0 * 3) + (i1 * 5)) + (i2 * 10);
 							if ((getQuestItemsCount(player, Inventory.ANCIENT_ADENA_ID) + i3) < Integer.MAX_VALUE) {
 								if (i0 > 0) {
@@ -1595,7 +1773,7 @@ public final class SSQPriest extends AbstractNpcAI {
 							return "ssq_npc_priest_" + QUEST_ID + "_05.htm";
 						}
 						
-						if (player.isInCategory(CategoryType.THIRD_CLASS_GROUP) && getQuestItemsCount(player, THE_LORD_OF_MANORS_AGREEMENT, ss.getCurrentCycle()) > 0) {
+						if (player.isInCategory(CategoryType.THIRD_CLASS_GROUP) && (getQuestItemsCount(player, THE_LORD_OF_MANORS_AGREEMENT, ss.getCurrentCycle()) > 0)) {
 							return "ssq_npc_priest_" + QUEST_ID + "_07.htm";
 						}
 						
@@ -1603,7 +1781,7 @@ public final class SSQPriest extends AbstractNpcAI {
 							return "ssq_npc_priest_" + QUEST_ID + "_05.htm";
 						}
 						
-						if (player.isInCategory(CategoryType.FOURTH_CLASS_GROUP) && getQuestItemsCount(player, THE_LORD_OF_MANORS_AGREEMENT, ss.getCurrentCycle()) > 0) {
+						if (player.isInCategory(CategoryType.FOURTH_CLASS_GROUP) && (getQuestItemsCount(player, THE_LORD_OF_MANORS_AGREEMENT, ss.getCurrentCycle()) > 0)) {
 							return "ssq_npc_priest_" + QUEST_ID + "_07.htm";
 						}
 						
@@ -1637,7 +1815,8 @@ public final class SSQPriest extends AbstractNpcAI {
 				
 				try {
 					reply = Integer.parseInt(event.split("; ")[1]);
-				} catch (Exception NumberFormatException) {}
+				} catch (Exception NumberFormatException) {
+				}
 				
 				if (!ss.isCompetitionPeriod()) {
 					player.sendPacket(SystemMessageId.SEAL_STONES_ONLY_WHILE_QUEST);
@@ -1718,7 +1897,8 @@ public final class SSQPriest extends AbstractNpcAI {
 				
 				try {
 					reply = Integer.parseInt(event.split("; ")[1]);
-				} catch (Exception NumberFormatException) {}
+				} catch (Exception NumberFormatException) {
+				}
 				
 				if (!ss.isCompetitionPeriod()) {
 					player.sendPacket(SystemMessageId.SEAL_STONES_ONLY_WHILE_QUEST);
@@ -1799,7 +1979,8 @@ public final class SSQPriest extends AbstractNpcAI {
 				
 				try {
 					reply = Integer.parseInt(event.split("; ")[1]);
-				} catch (Exception NumberFormatException) {}
+				} catch (Exception NumberFormatException) {
+				}
 				
 				if (!ss.isCompetitionPeriod()) {
 					player.sendPacket(SystemMessageId.SEAL_STONES_ONLY_WHILE_QUEST);
@@ -1880,7 +2061,8 @@ public final class SSQPriest extends AbstractNpcAI {
 				
 				try {
 					reply = Integer.parseInt(event.split("; ")[1]);
-				} catch (Exception NumberFormatException) {}
+				} catch (Exception NumberFormatException) {
+				}
 				
 				if (!ss.isCompetitionPeriod()) {
 					player.sendPacket(SystemMessageId.SEAL_STONES_ONLY_WHILE_QUEST);
@@ -1961,7 +2143,8 @@ public final class SSQPriest extends AbstractNpcAI {
 				
 				try {
 					reply = Integer.parseInt(event.split("; ")[1]);
-				} catch (Exception NumberFormatException) {}
+				} catch (Exception NumberFormatException) {
+				}
 				
 				if (!ss.isCompetitionPeriod()) {
 					player.sendPacket(SystemMessageId.SEAL_STONES_ONLY_WHILE_QUEST);
@@ -2042,7 +2225,8 @@ public final class SSQPriest extends AbstractNpcAI {
 				
 				try {
 					reply = Integer.parseInt(event.split("; ")[1]);
-				} catch (Exception NumberFormatException) {}
+				} catch (Exception NumberFormatException) {
+				}
 				
 				if (!ss.isCompetitionPeriod()) {
 					player.sendPacket(SystemMessageId.SEAL_STONES_ONLY_WHILE_QUEST);
@@ -2122,14 +2306,15 @@ public final class SSQPriest extends AbstractNpcAI {
 				
 				try {
 					reply = Integer.parseInt(event.split("; ")[1]);
-				} catch (Exception NumberFormatException) {}
+				} catch (Exception NumberFormatException) {
+				}
 				
 				if (!ss.isSealValidationPeriod()) {
 					player.sendPacket(SystemMessageId.SETTLE_ACCOUNT_ONLY_IN_SEAL_VALIDATION);
 					return null;
 				}
 				
-				if (player.getInventory().getSize(false) >= (player.getInventoryLimit() * WEIGHT_LIMIT) || player.getCurrentLoad() >= (player.getMaxLoad() * WEIGHT_LIMIT)) {
+				if ((player.getInventory().getSize(false) >= (player.getInventoryLimit() * WEIGHT_LIMIT)) || (player.getCurrentLoad() >= (player.getMaxLoad() * WEIGHT_LIMIT))) {
 					player.sendPacket(SystemMessageId.INVENTORY_LESS_THAN_80_PERCENT);
 					return null;
 				}
@@ -2167,14 +2352,15 @@ public final class SSQPriest extends AbstractNpcAI {
 				
 				try {
 					reply = Integer.parseInt(event.split("; ")[1]);
-				} catch (Exception NumberFormatException) {}
+				} catch (Exception NumberFormatException) {
+				}
 				
 				if (!ss.isSealValidationPeriod()) {
 					player.sendPacket(SystemMessageId.SETTLE_ACCOUNT_ONLY_IN_SEAL_VALIDATION);
 					return null;
 				}
 				
-				if (player.getInventory().getSize(false) >= (player.getInventoryLimit() * WEIGHT_LIMIT) || player.getCurrentLoad() >= (player.getMaxLoad() * WEIGHT_LIMIT)) {
+				if ((player.getInventory().getSize(false) >= (player.getInventoryLimit() * WEIGHT_LIMIT)) || (player.getCurrentLoad() >= (player.getMaxLoad() * WEIGHT_LIMIT))) {
 					player.sendPacket(SystemMessageId.INVENTORY_LESS_THAN_80_PERCENT);
 					return null;
 				}
@@ -2212,14 +2398,15 @@ public final class SSQPriest extends AbstractNpcAI {
 				
 				try {
 					reply = Integer.parseInt(event.split("; ")[1]);
-				} catch (Exception NumberFormatException) {}
+				} catch (Exception NumberFormatException) {
+				}
 				
 				if (!ss.isSealValidationPeriod()) {
 					player.sendPacket(SystemMessageId.SETTLE_ACCOUNT_ONLY_IN_SEAL_VALIDATION);
 					return null;
 				}
 				
-				if (player.getInventory().getSize(false) >= (player.getInventoryLimit() * WEIGHT_LIMIT) || player.getCurrentLoad() >= (player.getMaxLoad() * WEIGHT_LIMIT)) {
+				if ((player.getInventory().getSize(false) >= (player.getInventoryLimit() * WEIGHT_LIMIT)) || (player.getCurrentLoad() >= (player.getMaxLoad() * WEIGHT_LIMIT))) {
 					player.sendPacket(SystemMessageId.INVENTORY_LESS_THAN_80_PERCENT);
 					return null;
 				}
@@ -2257,14 +2444,15 @@ public final class SSQPriest extends AbstractNpcAI {
 				
 				try {
 					reply = Integer.parseInt(event.split("; ")[1]);
-				} catch (Exception NumberFormatException) {}
+				} catch (Exception NumberFormatException) {
+				}
 				
 				if (!ss.isSealValidationPeriod()) {
 					player.sendPacket(SystemMessageId.SETTLE_ACCOUNT_ONLY_IN_SEAL_VALIDATION);
 					return null;
 				}
 				
-				if (player.getInventory().getSize(false) >= (player.getInventoryLimit() * WEIGHT_LIMIT) || player.getCurrentLoad() >= (player.getMaxLoad() * WEIGHT_LIMIT)) {
+				if ((player.getInventory().getSize(false) >= (player.getInventoryLimit() * WEIGHT_LIMIT)) || (player.getCurrentLoad() >= (player.getMaxLoad() * WEIGHT_LIMIT))) {
 					player.sendPacket(SystemMessageId.INVENTORY_LESS_THAN_80_PERCENT);
 					return null;
 				}
@@ -2302,14 +2490,15 @@ public final class SSQPriest extends AbstractNpcAI {
 				
 				try {
 					reply = Integer.parseInt(event.split("; ")[1]);
-				} catch (Exception NumberFormatException) {}
+				} catch (Exception NumberFormatException) {
+				}
 				
 				if (!ss.isSealValidationPeriod()) {
 					player.sendPacket(SystemMessageId.SETTLE_ACCOUNT_ONLY_IN_SEAL_VALIDATION);
 					return null;
 				}
 				
-				if (player.getInventory().getSize(false) >= (player.getInventoryLimit() * WEIGHT_LIMIT) || player.getCurrentLoad() >= (player.getMaxLoad() * WEIGHT_LIMIT)) {
+				if ((player.getInventory().getSize(false) >= (player.getInventoryLimit() * WEIGHT_LIMIT)) || (player.getCurrentLoad() >= (player.getMaxLoad() * WEIGHT_LIMIT))) {
 					player.sendPacket(SystemMessageId.INVENTORY_LESS_THAN_80_PERCENT);
 					return null;
 				}
@@ -2347,14 +2536,15 @@ public final class SSQPriest extends AbstractNpcAI {
 				
 				try {
 					reply = Integer.parseInt(event.split("; ")[1]);
-				} catch (Exception NumberFormatException) {}
+				} catch (Exception NumberFormatException) {
+				}
 				
 				if (!ss.isSealValidationPeriod()) {
 					player.sendPacket(SystemMessageId.SETTLE_ACCOUNT_ONLY_IN_SEAL_VALIDATION);
 					return null;
 				}
 				
-				if (player.getInventory().getSize(false) >= (player.getInventoryLimit() * WEIGHT_LIMIT) || player.getCurrentLoad() >= (player.getMaxLoad() * WEIGHT_LIMIT)) {
+				if ((player.getInventory().getSize(false) >= (player.getInventoryLimit() * WEIGHT_LIMIT)) || (player.getCurrentLoad() >= (player.getMaxLoad() * WEIGHT_LIMIT))) {
 					player.sendPacket(SystemMessageId.INVENTORY_LESS_THAN_80_PERCENT);
 					return null;
 				}
@@ -2396,7 +2586,7 @@ public final class SSQPriest extends AbstractNpcAI {
 				switch (reply) {
 					case 1 -> {
 						if (Util.contains(DAWN_NPCS, npc.getId())) {
-							return "ssq_npc_priest_q507_01.htm"; 
+							return "ssq_npc_priest_q507_01.htm";
 						}
 						
 						return "ssq_npc_priest_q507_02.htm";
@@ -2418,23 +2608,23 @@ public final class SSQPriest extends AbstractNpcAI {
 		final int ssqWinner = ss.getCabalHighestScore();
 		
 		if (Util.contains(DAWN_NPCS, npc.getId())) {
-			if (ss.isCompetitionPeriod() && (ssqPart == SevenSigns.CABAL_DAWN || ssqPart == SevenSigns.CABAL_NULL)) {
+			if (ss.isCompetitionPeriod() && ((ssqPart == SevenSigns.CABAL_DAWN) || (ssqPart == SevenSigns.CABAL_NULL))) {
 				return "ssq_npc_priest001.htm";
 			}
 			
-			if (ss.isSealValidationPeriod() && ssqWinner == SevenSigns.CABAL_DAWN && ss.getSealOwner(SevenSigns.SEAL_GNOSIS) == SevenSigns.CABAL_DAWN && ssqPart == SevenSigns.CABAL_DAWN) {
+			if (ss.isSealValidationPeriod() && (ssqWinner == SevenSigns.CABAL_DAWN) && (ss.getSealOwner(SevenSigns.SEAL_GNOSIS) == SevenSigns.CABAL_DAWN) && (ssqPart == SevenSigns.CABAL_DAWN)) {
 				return "ssq_npc_priest026.htm";
 			}
 			
-			if (ss.isSealValidationPeriod() && ssqWinner == SevenSigns.CABAL_DAWN && ss.getSealOwner(SevenSigns.SEAL_GNOSIS) != SevenSigns.CABAL_DAWN && ssqPart == SevenSigns.CABAL_DAWN) {
+			if (ss.isSealValidationPeriod() && (ssqWinner == SevenSigns.CABAL_DAWN) && (ss.getSealOwner(SevenSigns.SEAL_GNOSIS) != SevenSigns.CABAL_DAWN) && (ssqPart == SevenSigns.CABAL_DAWN)) {
 				return "ssq_npc_priest029.htm";
 			}
 			
-			if (ss.isSealValidationPeriod() && ssqWinner == SevenSigns.CABAL_DUSK && (ssqPart == SevenSigns.CABAL_DAWN || ssqPart == SevenSigns.CABAL_NULL)) {
+			if (ss.isSealValidationPeriod() && (ssqWinner == SevenSigns.CABAL_DUSK) && ((ssqPart == SevenSigns.CABAL_DAWN) || (ssqPart == SevenSigns.CABAL_NULL))) {
 				return "ssq_npc_priest032.htm";
 			}
 			
-			if (ss.isSealValidationPeriod() && ssqWinner == SevenSigns.CABAL_NULL && (ssqPart == SevenSigns.CABAL_DAWN || ssqPart == SevenSigns.CABAL_NULL)) {
+			if (ss.isSealValidationPeriod() && (ssqWinner == SevenSigns.CABAL_NULL) && ((ssqPart == SevenSigns.CABAL_DAWN) || (ssqPart == SevenSigns.CABAL_NULL))) {
 				return "ssq_npc_priest033.htm";
 			}
 			
@@ -2450,27 +2640,27 @@ public final class SSQPriest extends AbstractNpcAI {
 				return "ssq_npc_priest085.htm";
 			}
 			
-			if (ss.isSealValidationPeriod() && ssqPart != SevenSigns.CABAL_DAWN) {
+			if (ss.isSealValidationPeriod() && (ssqPart != SevenSigns.CABAL_DAWN)) {
 				return "ssq_npc_priest083.htm";
 			}
 		} else {
-			if (ss.isCompetitionPeriod() && (ssqPart == SevenSigns.CABAL_DUSK || ssqPart == SevenSigns.CABAL_NULL)) {
+			if (ss.isCompetitionPeriod() && ((ssqPart == SevenSigns.CABAL_DUSK) || (ssqPart == SevenSigns.CABAL_NULL))) {
 				return "ssq_npc_priest035.htm";
 			}
 			
-			if (ss.isSealValidationPeriod() && ssqWinner == SevenSigns.CABAL_DUSK && ss.getSealOwner(SevenSigns.SEAL_GNOSIS) == SevenSigns.CABAL_DUSK && ssqPart == SevenSigns.CABAL_DUSK) {
+			if (ss.isSealValidationPeriod() && (ssqWinner == SevenSigns.CABAL_DUSK) && (ss.getSealOwner(SevenSigns.SEAL_GNOSIS) == SevenSigns.CABAL_DUSK) && (ssqPart == SevenSigns.CABAL_DUSK)) {
 				return "ssq_npc_priest059.htm";
 			}
 			
-			if (ss.isSealValidationPeriod() && ssqWinner == SevenSigns.CABAL_DUSK && ss.getSealOwner(SevenSigns.SEAL_GNOSIS) != SevenSigns.CABAL_DUSK && ssqPart == SevenSigns.CABAL_DUSK) {
+			if (ss.isSealValidationPeriod() && (ssqWinner == SevenSigns.CABAL_DUSK) && (ss.getSealOwner(SevenSigns.SEAL_GNOSIS) != SevenSigns.CABAL_DUSK) && (ssqPart == SevenSigns.CABAL_DUSK)) {
 				return "ssq_npc_priest062.htm";
 			}
 			
-			if (ss.isSealValidationPeriod() && ssqWinner == SevenSigns.CABAL_DAWN && (ssqPart == SevenSigns.CABAL_DUSK || ssqPart == SevenSigns.CABAL_NULL)) {
+			if (ss.isSealValidationPeriod() && (ssqWinner == SevenSigns.CABAL_DAWN) && ((ssqPart == SevenSigns.CABAL_DUSK) || (ssqPart == SevenSigns.CABAL_NULL))) {
 				return "ssq_npc_priest065.htm";
 			}
 			
-			if (ss.isSealValidationPeriod() && ssqWinner == SevenSigns.CABAL_NULL && (ssqPart == SevenSigns.CABAL_DUSK || ssqPart == SevenSigns.CABAL_NULL)) {
+			if (ss.isSealValidationPeriod() && (ssqWinner == SevenSigns.CABAL_NULL) && ((ssqPart == SevenSigns.CABAL_DUSK) || (ssqPart == SevenSigns.CABAL_NULL))) {
 				return "ssq_npc_priest066.htm";
 			}
 			
@@ -2486,7 +2676,7 @@ public final class SSQPriest extends AbstractNpcAI {
 				return "ssq_npc_priest086.htm";
 			}
 			
-			if (ss.isSealValidationPeriod() && ssqPart != SevenSigns.CABAL_DUSK) {
+			if (ss.isSealValidationPeriod() && (ssqPart != SevenSigns.CABAL_DUSK)) {
 				return "ssq_npc_priest084.htm";
 			}
 		}

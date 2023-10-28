@@ -169,8 +169,7 @@ public class AdminAnnouncements implements IAdminCommandHandler {
 							String announcementRepeat = "0";
 							String announcementAuthor = announce.getAuthor();
 							String announcementContent = announce.getContent();
-							if (announce instanceof AutoAnnouncement) {
-								final AutoAnnouncement autoAnnounce = (AutoAnnouncement) announce;
+							if (announce instanceof AutoAnnouncement autoAnnounce) {
 								announcementInital = "" + (autoAnnounce.getInitial() / 1000);
 								announcementDelay = "" + (autoAnnounce.getDelay() / 1000);
 								announcementRepeat = "" + autoAnnounce.getRepeat();
@@ -272,8 +271,7 @@ public class AdminAnnouncements implements IAdminCommandHandler {
 						announce.setType(type);
 						announce.setContent(content);
 						announce.setAuthor(activeChar.getName());
-						if (announce instanceof AutoAnnouncement) {
-							AutoAnnouncement autoAnnounce = (AutoAnnouncement) announce;
+						if (announce instanceof AutoAnnouncement autoAnnounce) {
 							autoAnnounce.setInitial(initDelay * 1000);
 							autoAnnounce.setDelay(delay * 1000);
 							autoAnnounce.setRepeat(repeat);
@@ -303,8 +301,7 @@ public class AdminAnnouncements implements IAdminCommandHandler {
 					case "restart": {
 						if (!st.hasMoreTokens()) {
 							for (IAnnouncement announce : AnnouncementsTable.getInstance().getAllAnnouncements()) {
-								if (announce instanceof AutoAnnouncement) {
-									final AutoAnnouncement autoAnnounce = (AutoAnnouncement) announce;
+								if (announce instanceof AutoAnnouncement autoAnnounce) {
 									autoAnnounce.restartMe();
 								}
 							}
@@ -319,8 +316,7 @@ public class AdminAnnouncements implements IAdminCommandHandler {
 						int id = Integer.parseInt(token);
 						final IAnnouncement announce = AnnouncementsTable.getInstance().getAnnounce(id);
 						if (announce != null) {
-							if (announce instanceof AutoAnnouncement) {
-								final AutoAnnouncement autoAnnounce = (AutoAnnouncement) announce;
+							if (announce instanceof AutoAnnouncement autoAnnounce) {
 								autoAnnounce.restartMe();
 								activeChar.sendMessage("Auto announcement has been successfully restarted");
 							} else {
@@ -352,8 +348,7 @@ public class AdminAnnouncements implements IAdminCommandHandler {
 							String announcementRepeat = "0";
 							String announcementAuthor = announce.getAuthor();
 							String announcementContent = announce.getContent();
-							if (announce instanceof AutoAnnouncement) {
-								final AutoAnnouncement autoAnnounce = (AutoAnnouncement) announce;
+							if (announce instanceof AutoAnnouncement autoAnnounce) {
 								announcementInital = "" + (autoAnnounce.getInitial() / 1000);
 								announcementDelay = "" + (autoAnnounce.getDelay() / 1000);
 								announcementRepeat = "" + autoAnnounce.getRepeat();
@@ -376,37 +371,36 @@ public class AdminAnnouncements implements IAdminCommandHandler {
 						if (st.hasMoreTokens()) {
 							final String token = st.nextToken();
 							if (Util.isDigit(token)) {
-								page = Integer.valueOf(token);
+								page = Integer.parseInt(token);
 							}
 						}
 						
 						String content = HtmCache.getInstance().getHtm(activeChar.getHtmlPrefix(), "data/html/admin/announces-list.htm");
-						final PageResult result = HtmlUtil.createPage(AnnouncementsTable.getInstance().getAllAnnouncements(), page, 8, currentPage -> {
-							return "<td align=center><button action=\"bypass admin_announces list " + currentPage + "\" value=\"" + (currentPage + 1) + "\" width=35 height=20 back=\"L2UI_CT1.Button_DF_Down\" fore=\"L2UI_CT1.Button_DF\"></td>";
-						}, announcement -> {
-							final StringBuilder sb = new StringBuilder();
-							sb.append("<tr>");
-							sb.append("<td width=5></td>");
-							sb.append("<td width=80>" + announcement.getId() + "</td>");
-							sb.append("<td width=100>" + announcement.getType() + "</td>");
-							sb.append("<td width=100>" + announcement.getAuthor() + "</td>");
-							if ((announcement.getType() == AnnouncementType.AUTO_NORMAL) || (announcement.getType() == AnnouncementType.AUTO_CRITICAL)) {
-								sb.append("<td width=60><button action=\"bypass -h admin_announces restart " + announcement.getId() + "\" value=\"Restart\" width=\"60\" height=\"21\" back=\"L2UI_CT1.Button_DF_Down\" fore=\"L2UI_CT1.Button_DF\"></td>");
-							} else {
-								sb.append("<td width=60><button action=\"\" value=\"\" width=\"60\" height=\"21\" back=\"L2UI_CT1.Button_DF_Down\" fore=\"L2UI_CT1.Button_DF\"></td>");
-							}
-							if (announcement.getType() == AnnouncementType.EVENT) {
-								sb.append("<td width=60><button action=\"bypass -h admin_announces show " + announcement.getId() + "\" value=\"Show\" width=\"60\" height=\"21\" back=\"L2UI_CT1.Button_DF_Down\" fore=\"L2UI_CT1.Button_DF\"></td>");
-								sb.append("<td width=60></td>");
-							} else {
-								sb.append("<td width=60><button action=\"bypass -h admin_announces show " + announcement.getId() + "\" value=\"Show\" width=\"60\" height=\"21\" back=\"L2UI_CT1.Button_DF_Down\" fore=\"L2UI_CT1.Button_DF\"></td>");
-								sb.append("<td width=60><button action=\"bypass -h admin_announces edit " + announcement.getId() + "\" value=\"Edit\" width=\"60\" height=\"21\" back=\"L2UI_CT1.Button_DF_Down\" fore=\"L2UI_CT1.Button_DF\"></td>");
-							}
-							sb.append("<td width=60><button action=\"bypass -h admin_announces remove " + announcement.getId() + "\" value=\"Remove\" width=\"60\" height=\"21\" back=\"L2UI_CT1.Button_DF_Down\" fore=\"L2UI_CT1.Button_DF\"></td>");
-							sb.append("<td width=5></td>");
-							sb.append("</tr>");
-							return sb.toString();
-						});
+						final PageResult result = HtmlUtil.createPage(AnnouncementsTable.getInstance()
+							.getAllAnnouncements(), page, 8, currentPage -> ("<td align=center><button action=\"bypass admin_announces list " + currentPage + "\" value=\"" + (currentPage + 1) + "\" width=35 height=20 back=\"L2UI_CT1.Button_DF_Down\" fore=\"L2UI_CT1.Button_DF\"></td>"), announcement -> {
+								final StringBuilder sb = new StringBuilder();
+								sb.append("<tr>");
+								sb.append("<td width=5></td>");
+								sb.append("<td width=80>" + announcement.getId() + "</td>");
+								sb.append("<td width=100>" + announcement.getType() + "</td>");
+								sb.append("<td width=100>" + announcement.getAuthor() + "</td>");
+								if ((announcement.getType() == AnnouncementType.AUTO_NORMAL) || (announcement.getType() == AnnouncementType.AUTO_CRITICAL)) {
+									sb.append("<td width=60><button action=\"bypass -h admin_announces restart " + announcement.getId() + "\" value=\"Restart\" width=\"60\" height=\"21\" back=\"L2UI_CT1.Button_DF_Down\" fore=\"L2UI_CT1.Button_DF\"></td>");
+								} else {
+									sb.append("<td width=60><button action=\"\" value=\"\" width=\"60\" height=\"21\" back=\"L2UI_CT1.Button_DF_Down\" fore=\"L2UI_CT1.Button_DF\"></td>");
+								}
+								if (announcement.getType() == AnnouncementType.EVENT) {
+									sb.append("<td width=60><button action=\"bypass -h admin_announces show " + announcement.getId() + "\" value=\"Show\" width=\"60\" height=\"21\" back=\"L2UI_CT1.Button_DF_Down\" fore=\"L2UI_CT1.Button_DF\"></td>");
+									sb.append("<td width=60></td>");
+								} else {
+									sb.append("<td width=60><button action=\"bypass -h admin_announces show " + announcement.getId() + "\" value=\"Show\" width=\"60\" height=\"21\" back=\"L2UI_CT1.Button_DF_Down\" fore=\"L2UI_CT1.Button_DF\"></td>");
+									sb.append("<td width=60><button action=\"bypass -h admin_announces edit " + announcement.getId() + "\" value=\"Edit\" width=\"60\" height=\"21\" back=\"L2UI_CT1.Button_DF_Down\" fore=\"L2UI_CT1.Button_DF\"></td>");
+								}
+								sb.append("<td width=60><button action=\"bypass -h admin_announces remove " + announcement.getId() + "\" value=\"Remove\" width=\"60\" height=\"21\" back=\"L2UI_CT1.Button_DF_Down\" fore=\"L2UI_CT1.Button_DF\"></td>");
+								sb.append("<td width=5></td>");
+								sb.append("</tr>");
+								return sb.toString();
+							});
 						content = content.replaceAll("%pages%", result.getPagerTemplate().toString());
 						content = content.replaceAll("%announcements%", result.getBodyTemplate().toString());
 						Util.sendCBHtml(activeChar, content);

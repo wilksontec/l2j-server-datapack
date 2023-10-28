@@ -41,17 +41,11 @@ public class Q00605_AllianceWithKetraOrcs extends Quest {
 		public DropInfo(int chance, int minCond) {
 			_chance = chance;
 			_minCond = minCond;
-			switch (_minCond) {
-				case 1:
-					_itemId = VARKA_BADGE_SOLDIER;
-					break;
-				case 2:
-					_itemId = VARKA_BADGE_OFFICER;
-					break;
-				default:
-					_itemId = VARKA_BADGE_CAPTAIN;
-					break;
-			}
+			_itemId = switch (_minCond) {
+				case 1 -> VARKA_BADGE_SOLDIER;
+				case 2 -> VARKA_BADGE_OFFICER;
+				default -> VARKA_BADGE_CAPTAIN;
+			};
 		}
 		
 		public int getMinCond() {

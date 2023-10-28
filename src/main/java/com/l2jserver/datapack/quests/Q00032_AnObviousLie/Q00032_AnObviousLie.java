@@ -18,14 +18,14 @@
  */
 package com.l2jserver.datapack.quests.Q00032_AnObviousLie;
 
+import java.util.Map;
+
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
 import com.l2jserver.gameserver.model.holders.ItemHolder;
 import com.l2jserver.gameserver.model.holders.QuestItemChanceHolder;
 import com.l2jserver.gameserver.model.quest.Quest;
 import com.l2jserver.gameserver.model.quest.QuestState;
-
-import java.util.Map;
 
 /**
  * An Obvious Lie (32).
@@ -47,10 +47,9 @@ public final class Q00032_AnObviousLie extends Quest {
 	// Misc
 	private static final int MIN_LVL = 45;
 	// Reward
-	private static final Map<String, Integer> EARS = Map.of(
-			"cat", 6843, // Cat Ears
-			"raccoon", 7680, // Raccoon ears
-			"rabbit", 7683); // Rabbit ears
+	private static final Map<String, Integer> EARS = Map.of("cat", 6843, // Cat Ears
+		"raccoon", 7680, // Raccoon ears
+		"rabbit", 7683); // Rabbit ears
 	
 	public Q00032_AnObviousLie() {
 		super(32, Q00032_AnObviousLie.class.getSimpleName(), "An Obvious Lie");
@@ -67,7 +66,7 @@ public final class Q00032_AnObviousLie extends Quest {
 		if (qs == null) {
 			return htmltext;
 		}
-
+		
 		switch (event) {
 			case "30120-02.html": {
 				if (qs.isCreated()) {

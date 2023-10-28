@@ -59,7 +59,7 @@ public class Q10272_LightFragment extends Quest {
 		22552, // Mutation Drake
 		22596 // White Dragon Leader
 	};
-
+	
 	public Q10272_LightFragment() {
 		super(10272, Q10272_LightFragment.class.getSimpleName(), "Light Fragment");
 		addStartNpc(ORBYU);

@@ -18,6 +18,9 @@
  */
 package com.l2jserver.datapack.quests.Q00620_FourGoblets;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import com.l2jserver.gameserver.instancemanager.FourSepulchersManager;
 import com.l2jserver.gameserver.model.Location;
 import com.l2jserver.gameserver.model.actor.L2Npc;
@@ -27,9 +30,6 @@ import com.l2jserver.gameserver.model.quest.Quest;
 import com.l2jserver.gameserver.model.quest.QuestDroplist;
 import com.l2jserver.gameserver.model.quest.QuestState;
 import com.l2jserver.gameserver.util.Util;
-
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * Four Goblets (620)
@@ -58,36 +58,58 @@ public class Q00620_FourGoblets extends Quest {
 	private static final int ANTIQUE_BROOCH = 7262;
 	// Droplist
 	private static final QuestDroplist DROPLIST = QuestDroplist.builder()
-			.bulkAddSingleDrop(SEALED_BOX, 90.0).withNpcs(18141, 18142, 18143, 18144).build()
-			.addSingleDrop(18145, SEALED_BOX, 76.0)
-			.addSingleDrop(18146, SEALED_BOX, 78.0)
-			.addSingleDrop(18147, SEALED_BOX, 73.0)
-			.addSingleDrop(18148, SEALED_BOX, 85.0)
-			.addSingleDrop(18149, SEALED_BOX, 75.0)
-			.addSingleDrop(18230, SEALED_BOX, 58.0)
-			.bulkAddSingleDrop(SEALED_BOX, 151.0).withNpcs(18120, 18123, 18126, 18129, 18221).build()
-			.bulkAddSingleDrop(SEALED_BOX, 144.0).withNpcs(18121, 18124, 18127, 18130, 18224).build()
-			.bulkAddSingleDrop(SEALED_BOX, 110.0).withNpcs(18122, 18125, 18128, 18131, 18168, 18175, 18178, 18181, 18184).build()
-			.bulkAddSingleDrop(SEALED_BOX, 142.0).withNpcs(18133, 18135, 18136, 18187, 18189, 18190).build()
-			.addSingleDrop(18132, SEALED_BOX, 154.0)
-			.bulkAddSingleDrop(SEALED_BOX, 107.0).withNpcs(18134, 18167, 18170, 18188, 18223).build()
-			.bulkAddSingleDrop(SEALED_BOX, 106.0).withNpcs(18137, 18169, 18172, 18191, 18226).build()
-			.bulkAddSingleDrop(SEALED_BOX, 141.0).withNpcs(18138, 18140, 18192, 18194, 18229).build()
-			.addSingleDrop(18139, SEALED_BOX, 139.0)
-			.addSingleDrop(18166, SEALED_BOX, 108.0)
-			.addSingleDrop(18171, SEALED_BOX, 111.0)
-			.bulkAddSingleDrop(SEALED_BOX, 117.0).withNpcs(18173, 18176, 18179, 18182).build()
-			.bulkAddSingleDrop(SEALED_BOX, 145.0).withNpcs(18174, 18177, 18180, 18183).build()
-			.addSingleDrop(18185, SEALED_BOX, 146.0)
-			.addSingleDrop(18186, SEALED_BOX, 147.0)
-			.addSingleDrop(18193, SEALED_BOX, 139.0)
-			.addSingleDrop(18195, SEALED_BOX, 108.0)
-			.addSingleDrop(18220, SEALED_BOX, 147.0)
-			.addSingleDrop(18222, SEALED_BOX, 143.0)
-			.addSingleDrop(18225, SEALED_BOX, 143.0)
-			.addSingleDrop(18227, SEALED_BOX, 182.0)
-			.bulkAddSingleDrop(SEALED_BOX, 450.0).withNpcs(18212, 18213, 18214, 18215, 18216, 18217, 18218, 18219).build()
-			.build();
+		.bulkAddSingleDrop(SEALED_BOX, 90.0)
+		.withNpcs(18141, 18142, 18143, 18144)
+		.build()
+		.addSingleDrop(18145, SEALED_BOX, 76.0)
+		.addSingleDrop(18146, SEALED_BOX, 78.0)
+		.addSingleDrop(18147, SEALED_BOX, 73.0)
+		.addSingleDrop(18148, SEALED_BOX, 85.0)
+		.addSingleDrop(18149, SEALED_BOX, 75.0)
+		.addSingleDrop(18230, SEALED_BOX, 58.0)
+		.bulkAddSingleDrop(SEALED_BOX, 151.0)
+		.withNpcs(18120, 18123, 18126, 18129, 18221)
+		.build()
+		.bulkAddSingleDrop(SEALED_BOX, 144.0)
+		.withNpcs(18121, 18124, 18127, 18130, 18224)
+		.build()
+		.bulkAddSingleDrop(SEALED_BOX, 110.0)
+		.withNpcs(18122, 18125, 18128, 18131, 18168, 18175, 18178, 18181, 18184)
+		.build()
+		.bulkAddSingleDrop(SEALED_BOX, 142.0)
+		.withNpcs(18133, 18135, 18136, 18187, 18189, 18190)
+		.build()
+		.addSingleDrop(18132, SEALED_BOX, 154.0)
+		.bulkAddSingleDrop(SEALED_BOX, 107.0)
+		.withNpcs(18134, 18167, 18170, 18188, 18223)
+		.build()
+		.bulkAddSingleDrop(SEALED_BOX, 106.0)
+		.withNpcs(18137, 18169, 18172, 18191, 18226)
+		.build()
+		.bulkAddSingleDrop(SEALED_BOX, 141.0)
+		.withNpcs(18138, 18140, 18192, 18194, 18229)
+		.build()
+		.addSingleDrop(18139, SEALED_BOX, 139.0)
+		.addSingleDrop(18166, SEALED_BOX, 108.0)
+		.addSingleDrop(18171, SEALED_BOX, 111.0)
+		.bulkAddSingleDrop(SEALED_BOX, 117.0)
+		.withNpcs(18173, 18176, 18179, 18182)
+		.build()
+		.bulkAddSingleDrop(SEALED_BOX, 145.0)
+		.withNpcs(18174, 18177, 18180, 18183)
+		.build()
+		.addSingleDrop(18185, SEALED_BOX, 146.0)
+		.addSingleDrop(18186, SEALED_BOX, 147.0)
+		.addSingleDrop(18193, SEALED_BOX, 139.0)
+		.addSingleDrop(18195, SEALED_BOX, 108.0)
+		.addSingleDrop(18220, SEALED_BOX, 147.0)
+		.addSingleDrop(18222, SEALED_BOX, 143.0)
+		.addSingleDrop(18225, SEALED_BOX, 143.0)
+		.addSingleDrop(18227, SEALED_BOX, 182.0)
+		.bulkAddSingleDrop(SEALED_BOX, 450.0)
+		.withNpcs(18212, 18213, 18214, 18215, 18216, 18217, 18218, 18219)
+		.build()
+		.build();
 	// Misc
 	private static final int MIN_LEVEL = 74;
 	// Locations
@@ -304,7 +326,7 @@ public class Q00620_FourGoblets extends Quest {
 			case "7580": {
 				final int memoStateEx = st.getMemoStateEx(1);
 				if (((memoStateEx == 2) || (memoStateEx == 3)) && (getQuestItemsCount(player, BROKEN_RELIC_PART) >= 1000)) {
-					giveItems(player, Integer.valueOf(event), 1);
+					giveItems(player, Integer.parseInt(event), 1);
 					takeItems(player, BROKEN_RELIC_PART, 1000);
 					htmltext = "31454-05.html";
 				}
@@ -317,7 +339,7 @@ public class Q00620_FourGoblets extends Quest {
 					{
 						
 						boolean i2 = getReward(player);
-						htmltext = ((i2 == true) ? event : "31454-08.html");
+						htmltext = (i2 ? event : "31454-08.html");
 					} else {
 						takeItems(player, SEALED_BOX, 1);
 						htmltext = "31454-09.html";
@@ -335,7 +357,7 @@ public class Q00620_FourGoblets extends Quest {
 					if (getRandom(100) < 50) {
 						
 						boolean i2 = getReward(player);
-						htmltext = ((i2 == true) ? event : "31919-03.html");
+						htmltext = (i2 ? event : "31919-03.html");
 					} else {
 						takeItems(player, SEALED_BOX, 1);
 						htmltext = "31919-04.html";
@@ -357,8 +379,7 @@ public class Q00620_FourGoblets extends Quest {
 	@Override
 	public String onKill(L2Npc npc, L2PcInstance player, boolean isSummon) {
 		switch (npc.getId()) {
-			case HALISHA_ALECTIA, HALISHA_TISHAS, HALISHA_MEKARA, HALISHA_MORIGUL ->
-					executeForEachPlayer(player, npc, isSummon, true, false);
+			case HALISHA_ALECTIA, HALISHA_TISHAS, HALISHA_MEKARA, HALISHA_MORIGUL -> executeForEachPlayer(player, npc, isSummon, true, false);
 			default -> {
 				final QuestState st = getRandomPartyMemberState(player, -1, 3, npc);
 				if (st != null) {

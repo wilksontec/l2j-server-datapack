@@ -57,12 +57,12 @@ public final class NpcTeleporter extends AbstractTeleporter implements IRefable<
 	}
 	
 	@Override
-	public final String getName() {
+	public String getName() {
 		return getNpc().getName();
 	}
 	
 	@Override
-	public final Integer getId() {
+	public Integer getId() {
 		return npcId;
 	}
 }

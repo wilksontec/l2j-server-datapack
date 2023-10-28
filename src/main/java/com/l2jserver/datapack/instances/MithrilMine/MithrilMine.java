@@ -38,7 +38,7 @@ import com.l2jserver.gameserver.network.clientpackets.Say2;
  * @author Adry_85
  */
 public final class MithrilMine extends AbstractInstance {
-	protected class MMWorld extends InstanceWorld {
+	protected static class MMWorld extends InstanceWorld {
 		protected int _count = 0;
 	}
 	

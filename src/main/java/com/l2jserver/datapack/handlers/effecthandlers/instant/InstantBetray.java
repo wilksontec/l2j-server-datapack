@@ -46,8 +46,8 @@ public final class InstantBetray extends AbstractEffect {
 	
 	public InstantBetray(Condition attachCond, Condition applyCond, StatsSet set, StatsSet params) {
 		super(attachCond, applyCond, set, params);
-		this.chance = params.getInt("chance", 0);
-		this.time = params.getInt("time", 0);
+		chance = params.getInt("chance", 0);
+		time = params.getInt("time", 0);
 	}
 	
 	@Override

@@ -36,10 +36,10 @@ public final class Q00359_ForASleeplessDeadman extends Quest {
 	private static final QuestItemChanceHolder REMAINS_OF_ADEN_RESIDENTS = new QuestItemChanceHolder(5869, 60L);
 	// Droplist
 	private static final QuestDroplist DROPLIST = QuestDroplist.builder()
-			.addSingleDrop(21006, REMAINS_OF_ADEN_RESIDENTS, 36.5) // doom_servant
-			.addSingleDrop(21007, REMAINS_OF_ADEN_RESIDENTS, 39.2) // doom_guard
-			.addSingleDrop(21008, REMAINS_OF_ADEN_RESIDENTS, 50.3) // doom_archer
-			.build();
+		.addSingleDrop(21006, REMAINS_OF_ADEN_RESIDENTS, 36.5) // doom_servant
+		.addSingleDrop(21007, REMAINS_OF_ADEN_RESIDENTS, 39.2) // doom_guard
+		.addSingleDrop(21008, REMAINS_OF_ADEN_RESIDENTS, 50.3) // doom_archer
+		.build();
 	// Misc
 	private static final int MIN_LEVEL = 60;
 	// Rewards
@@ -53,7 +53,7 @@ public final class Q00359_ForASleeplessDeadman extends Quest {
 		6345, // Sealed Phoenix Ring Gemstone
 		6346, // Sealed Majestic Ring Gemstone
 	};
-
+	
 	public Q00359_ForASleeplessDeadman() {
 		super(359, Q00359_ForASleeplessDeadman.class.getSimpleName(), "For a Sleepless Deadman");
 		addStartNpc(ORVEN);

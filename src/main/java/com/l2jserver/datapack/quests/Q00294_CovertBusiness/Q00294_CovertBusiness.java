@@ -38,16 +38,16 @@ public final class Q00294_CovertBusiness extends Quest {
 	private static final QuestItemChanceHolder BAT_FANG = new QuestItemChanceHolder(1491, 100L);
 	// Droplist
 	private static final QuestDroplist DROPLIST = QuestDroplist.builder()
-			.addGroupedDropForSingleItem(20370, BAT_FANG, 100.0)
-				.withAmount(4, 10.0)
-				.withAmount(3, 20.0)
-				.withAmount(2, 30.0)
-				.orElse(1)
-			.addGroupedDropForSingleItem(20480, BAT_FANG, 100.0)
-				.withAmount(3, 20.0)
-				.withAmount(2, 30.0)
-				.orElse(1)
-			.build();
+		.addGroupedDropForSingleItem(20370, BAT_FANG, 100.0)
+		.withAmount(4, 10.0)
+		.withAmount(3, 20.0)
+		.withAmount(2, 30.0)
+		.orElse(1)
+		.addGroupedDropForSingleItem(20480, BAT_FANG, 100.0)
+		.withAmount(3, 20.0)
+		.withAmount(2, 30.0)
+		.orElse(1)
+		.build();
 	// Reward
 	private static final int RING_OF_RACCOON = 1508;
 	// Misc

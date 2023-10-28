@@ -164,31 +164,31 @@ public final class TeleporterService extends CustomServiceScript {
 		_showAdvancedHtml(player, teleporter, npc, html, new HashMap<>());
 		return true;
 	}
-
+	
 	private boolean _showMainHtml(L2PcInstance player, AbstractTeleporter teleporter, L2Npc npc) {
-		_showAdvancedHtml(player, teleporter, npc, "main.html", new HashMap<String, HTMLTemplatePlaceholder>());
+		_showAdvancedHtml(player, teleporter, npc, "main.html", new HashMap<>());
 		return true;
 	}
 	
 	private boolean _showSoloCategoryList(L2PcInstance player, AbstractTeleporter teleporter, L2Npc npc) {
-		_showAdvancedHtml(player, teleporter, npc, "solo_category_list.html", new HashMap<String, HTMLTemplatePlaceholder>());
+		_showAdvancedHtml(player, teleporter, npc, "solo_category_list.html", new HashMap<>());
 		return true;
 	}
 	
 	private boolean _showPartyCategoryList(L2PcInstance player, AbstractTeleporter teleporter, L2Npc npc) {
-		_showAdvancedHtml(player, teleporter, npc, "p_category_list.html", new HashMap<String, HTMLTemplatePlaceholder>());
+		_showAdvancedHtml(player, teleporter, npc, "p_category_list.html", new HashMap<>());
 		return true;
 	}
 	
 	private boolean _showCommandChannelCategoryList(L2PcInstance player, AbstractTeleporter teleporter, L2Npc npc) {
-		_showAdvancedHtml(player, teleporter, npc, "cc_category_list.html", new HashMap<String, HTMLTemplatePlaceholder>());
+		_showAdvancedHtml(player, teleporter, npc, "cc_category_list.html", new HashMap<>());
 		return true;
 	}
 	
 	private boolean _showSoloListHtml(L2PcInstance player, AbstractTeleporter teleporter, L2Npc npc, String soloListIdent) {
 		Map<String, HTMLTemplatePlaceholder> placeholders = new HashMap<>();
 		
-		if (soloListIdent != null && !soloListIdent.isEmpty()) {
+		if ((soloListIdent != null) && !soloListIdent.isEmpty()) {
 			SoloTeleportCategory category = teleporter.getSoloTeleportCategories().get(soloListIdent);
 			placeholders.put("category", category.getPlaceholder());
 		}
@@ -200,7 +200,7 @@ public final class TeleporterService extends CustomServiceScript {
 	private boolean _showPartyListHtml(L2PcInstance player, AbstractTeleporter teleporter, L2Npc npc, String partyListIdent) {
 		Map<String, HTMLTemplatePlaceholder> placeholders = new HashMap<>();
 		
-		if (partyListIdent != null && !partyListIdent.isEmpty()) {
+		if ((partyListIdent != null) && !partyListIdent.isEmpty()) {
 			GroupTeleportCategory category = teleporter.getPartyTeleportCategories().get(partyListIdent);
 			placeholders.put("category", category.getPlaceholder());
 		}
@@ -212,7 +212,7 @@ public final class TeleporterService extends CustomServiceScript {
 	private boolean _showCommandChannelListHtml(L2PcInstance player, AbstractTeleporter teleporter, L2Npc npc, String commandChannelListIdent) {
 		Map<String, HTMLTemplatePlaceholder> placeholders = new HashMap<>();
 		
-		if (commandChannelListIdent != null && !commandChannelListIdent.isEmpty()) {
+		if ((commandChannelListIdent != null) && !commandChannelListIdent.isEmpty()) {
 			GroupTeleportCategory category = teleporter.getCommandChannelTeleportCategories().get(commandChannelListIdent);
 			placeholders.put("category", category.getPlaceholder());
 		}
@@ -223,7 +223,7 @@ public final class TeleporterService extends CustomServiceScript {
 	
 	private boolean _showSoloTeleportHtml(L2PcInstance player, AbstractTeleporter teleporter, L2Npc npc, String teleIdent, String catIdent) {
 		SoloTeleport teleport = null;
-		if (catIdent != null && !catIdent.isEmpty()) {
+		if ((catIdent != null) && !catIdent.isEmpty()) {
 			SoloTeleportCategory category = teleporter.getSoloTeleportCategories().get(catIdent);
 			if (category == null) {
 				debug(player, "Invalid category ident: " + catIdent);
@@ -246,7 +246,7 @@ public final class TeleporterService extends CustomServiceScript {
 	
 	private boolean _showPartyTeleportHtml(L2PcInstance player, AbstractTeleporter teleporter, L2Npc npc, String teleIdent, String catIdent) {
 		GroupTeleport teleport = null;
-		if (catIdent != null && !catIdent.isEmpty()) {
+		if ((catIdent != null) && !catIdent.isEmpty()) {
 			GroupTeleportCategory category = teleporter.getPartyTeleportCategories().get(catIdent);
 			if (category == null) {
 				debug(player, "Invalid category ident: " + catIdent);
@@ -269,7 +269,7 @@ public final class TeleporterService extends CustomServiceScript {
 	
 	private boolean _showCommandChannelTeleportHtml(L2PcInstance player, AbstractTeleporter teleporter, L2Npc npc, String teleIdent, String catIdent) {
 		GroupTeleport teleport = null;
-		if (catIdent != null && !catIdent.isEmpty()) {
+		if ((catIdent != null) && !catIdent.isEmpty()) {
 			GroupTeleportCategory category = teleporter.getCommandChannelTeleportCategories().get(catIdent);
 			if (category == null) {
 				debug(player, "Invalid category ident: " + catIdent);
@@ -368,7 +368,7 @@ public final class TeleporterService extends CustomServiceScript {
 	
 	private void _teleportSolo(L2PcInstance player, AbstractTeleporter teleporter, String teleId, String catId) {
 		SoloTeleport teleport = null;
-		if (catId != null && !catId.isEmpty()) {
+		if ((catId != null) && !catId.isEmpty()) {
 			SoloTeleportCategory category = teleporter.getSoloTeleportCategories().get(catId);
 			if (category == null) {
 				debug(player, "Invalid category ident: " + catId);
@@ -390,7 +390,7 @@ public final class TeleporterService extends CustomServiceScript {
 	
 	private void _teleportParty(L2PcInstance player, AbstractTeleporter teleporter, String teleId, String catId) {
 		GroupTeleport teleport = null;
-		if (catId != null && !catId.isEmpty()) {
+		if ((catId != null) && !catId.isEmpty()) {
 			GroupTeleportCategory category = teleporter.getPartyTeleportCategories().get(catId);
 			if (category == null) {
 				debug(player, "Invalid category ident: " + catId);
@@ -418,7 +418,7 @@ public final class TeleporterService extends CustomServiceScript {
 	
 	private void _teleportCommandChannel(L2PcInstance player, AbstractTeleporter teleporter, String teleId, String catId) {
 		GroupTeleport teleport = null;
-		if (catId != null && !catId.isEmpty()) {
+		if ((catId != null) && !catId.isEmpty()) {
 			GroupTeleportCategory category = teleporter.getCommandChannelTeleportCategories().get(catId);
 			if (category == null) {
 				debug(player, "Invalid category ident: " + catId);
@@ -533,7 +533,7 @@ public final class TeleporterService extends CustomServiceScript {
 		} else if (Configuration.teleporterService().getForbidInPvp() && (player.getPvpFlag() == 1)) {
 			abortSysMsg = SystemMessage.getSystemMessage(SystemMessageId.S1_CANNOT_BE_USED);
 			abortSysMsg.addString("Teleporter");
-		} else if (Configuration.teleporterService().getForbidForChaoticPlayers() && player.getKarma() > 0) {
+		} else if (Configuration.teleporterService().getForbidForChaoticPlayers() && (player.getKarma() > 0)) {
 			abortSysMsg = SystemMessage.getSystemMessage(SystemMessageId.S1_CANNOT_BE_USED);
 			abortSysMsg.addString("Teleporter");
 		} else {

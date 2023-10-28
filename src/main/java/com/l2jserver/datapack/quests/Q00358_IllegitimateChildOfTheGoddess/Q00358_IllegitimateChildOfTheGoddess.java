@@ -36,9 +36,9 @@ public final class Q00358_IllegitimateChildOfTheGoddess extends Quest {
 	private static final QuestItemChanceHolder SNAKE_SCALE = new QuestItemChanceHolder(5868, 108L);
 	// Droplist
 	private static final QuestDroplist DROPLIST = QuestDroplist.builder()
-			.addSingleDrop(20672, SNAKE_SCALE, 71.0) // trives
-			.addSingleDrop(20673, SNAKE_SCALE, 74.0) // falibati
-			.build();
+		.addSingleDrop(20672, SNAKE_SCALE, 71.0) // trives
+		.addSingleDrop(20673, SNAKE_SCALE, 74.0) // falibati
+		.build();
 	// Misc
 	private static final int MIN_LEVEL = 63;
 	// Rewards
@@ -52,7 +52,7 @@ public final class Q00358_IllegitimateChildOfTheGoddess extends Quest {
 		6337, // Recipe: Sealed Majestic Earring(70%)
 		6339, // Recipe: Sealed Majestic Ring(70%)
 	};
-
+	
 	public Q00358_IllegitimateChildOfTheGoddess() {
 		super(358, Q00358_IllegitimateChildOfTheGoddess.class.getSimpleName(), "Illegitimate Child of the Goddess");
 		addStartNpc(OLTRAN);

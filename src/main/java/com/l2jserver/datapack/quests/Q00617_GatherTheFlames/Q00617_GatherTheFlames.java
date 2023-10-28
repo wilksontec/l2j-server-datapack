@@ -120,7 +120,7 @@ public class Q00617_GatherTheFlames extends Quest {
 				if ((st.getQuestItemsCount(TORCH) < 1200) || !st.isStarted()) {
 					return getNoQuestMsg(player);
 				}
-				st.giveItems(Integer.valueOf(event), 1);
+				st.giveItems(Integer.parseInt(event), 1);
 				st.takeItems(TORCH, 1200);
 				htmltext = "32049-04.html";
 				break;
@@ -129,7 +129,7 @@ public class Q00617_GatherTheFlames extends Quest {
 				if ((st.getQuestItemsCount(TORCH) < 1200) || !st.isStarted()) {
 					return getNoQuestMsg(player);
 				}
-				st.giveItems(Integer.valueOf(event), 1);
+				st.giveItems(Integer.parseInt(event), 1);
 				st.takeItems(TORCH, 1200);
 				htmltext = "32049-03.html";
 				break;

@@ -77,22 +77,22 @@ public final class Q00222_TestOfTheDuelist extends Quest {
 	private static final QuestItemChanceHolder LAKINS_MACE = new QuestItemChanceHolder(2783, 3L);
 	// Droplist
 	private static final QuestDroplist DROPLIST = QuestDroplist.builder()
-			.addSingleDrop(PUNCHER, PUNCHERS_SHARD)
-			.addSingleDrop(NOBLE_ANT_LEADER, NOBLE_ANTS_FEELER)
-			.addSingleDrop(DEAD_SEEKER, DEAD_SEEKER_FANG)
-			.addSingleDrop(EXCURO, EXCUROS_SKIN)
-			.addSingleDrop(KRATOR, KRATORS_SHARD)
-			.addSingleDrop(MARSH_STAKATO_DRONE, DRONES_CHITIN)
-			.addSingleDrop(BREKA_ORC_OVERLORD, OVERLORD_NECKLACE)
-			.addSingleDrop(FETTERED_SOUL, FETTERED_SOULS_CHAIN)
-			.addSingleDrop(GRANDIS, GRANDIS_SKIN)
-			.addSingleDrop(ENCHANTED_MONSTEREYE, ENCHANTED_EYE_MEAT)
-			.addSingleDrop(LETO_LIZARDMAN_OVERLORD, CHIEFS_AMULET)
-			.addSingleDrop(TIMAK_ORC_OVERLORD, TIMAK_ORCS_BELT)
-			.addSingleDrop(TAMLIN_ORC, TAMLIN_ORCS_RING)
-			.addSingleDrop(TAMLIN_ORC_ARCHER, TAMRIN_ORCS_ARROW)
-			.addSingleDrop(LAKIN, LAKINS_MACE)
-			.build();
+		.addSingleDrop(PUNCHER, PUNCHERS_SHARD)
+		.addSingleDrop(NOBLE_ANT_LEADER, NOBLE_ANTS_FEELER)
+		.addSingleDrop(DEAD_SEEKER, DEAD_SEEKER_FANG)
+		.addSingleDrop(EXCURO, EXCUROS_SKIN)
+		.addSingleDrop(KRATOR, KRATORS_SHARD)
+		.addSingleDrop(MARSH_STAKATO_DRONE, DRONES_CHITIN)
+		.addSingleDrop(BREKA_ORC_OVERLORD, OVERLORD_NECKLACE)
+		.addSingleDrop(FETTERED_SOUL, FETTERED_SOULS_CHAIN)
+		.addSingleDrop(GRANDIS, GRANDIS_SKIN)
+		.addSingleDrop(ENCHANTED_MONSTEREYE, ENCHANTED_EYE_MEAT)
+		.addSingleDrop(LETO_LIZARDMAN_OVERLORD, CHIEFS_AMULET)
+		.addSingleDrop(TIMAK_ORC_OVERLORD, TIMAK_ORCS_BELT)
+		.addSingleDrop(TAMLIN_ORC, TAMLIN_ORCS_RING)
+		.addSingleDrop(TAMLIN_ORC_ARCHER, TAMRIN_ORCS_ARROW)
+		.addSingleDrop(LAKIN, LAKINS_MACE)
+		.build();
 	// Reward
 	private static final int MARK_OF_DUELIST = 2762;
 	private static final int DIMENSIONAL_DIAMOND = 7562;
@@ -104,7 +104,8 @@ public final class Q00222_TestOfTheDuelist extends Quest {
 		addStartNpc(DUELIST_KAIEN);
 		addTalkId(DUELIST_KAIEN);
 		addKillId(PUNCHER, NOBLE_ANT_LEADER, DEAD_SEEKER, EXCURO, KRATOR, MARSH_STAKATO_DRONE, BREKA_ORC_OVERLORD, FETTERED_SOUL, GRANDIS, ENCHANTED_MONSTEREYE, LETO_LIZARDMAN_OVERLORD, TIMAK_ORC_OVERLORD, TAMLIN_ORC, TAMLIN_ORC_ARCHER, LAKIN);
-		registerQuestItems(ORDER_GLUDIO, ORDER_DION, ORDER_GIRAN, ORDER_OREN, ORDER_ADEN, PUNCHERS_SHARD.getId(), NOBLE_ANTS_FEELER.getId(), DRONES_CHITIN.getId(), DEAD_SEEKER_FANG.getId(), OVERLORD_NECKLACE.getId(), FETTERED_SOULS_CHAIN.getId(), CHIEFS_AMULET.getId(), ENCHANTED_EYE_MEAT.getId(), TAMLIN_ORCS_RING.getId(), TAMRIN_ORCS_ARROW.getId(), FINAL_ORDER, EXCUROS_SKIN.getId(), KRATORS_SHARD.getId(), GRANDIS_SKIN.getId(), TIMAK_ORCS_BELT.getId(), LAKINS_MACE.getId());
+		registerQuestItems(ORDER_GLUDIO, ORDER_DION, ORDER_GIRAN, ORDER_OREN, ORDER_ADEN, PUNCHERS_SHARD.getId(), NOBLE_ANTS_FEELER.getId(), DRONES_CHITIN.getId(), DEAD_SEEKER_FANG.getId(), OVERLORD_NECKLACE.getId(), FETTERED_SOULS_CHAIN.getId(), CHIEFS_AMULET.getId(), ENCHANTED_EYE_MEAT.getId(), TAMLIN_ORCS_RING
+			.getId(), TAMRIN_ORCS_ARROW.getId(), FINAL_ORDER, EXCUROS_SKIN.getId(), KRATORS_SHARD.getId(), GRANDIS_SKIN.getId(), TIMAK_ORCS_BELT.getId(), LAKINS_MACE.getId());
 	}
 	
 	@Override
@@ -194,23 +195,17 @@ public final class Q00222_TestOfTheDuelist extends Quest {
 		final QuestState qs = getQuestState(killer, false);
 		if ((qs != null) && qs.isStarted() && Util.checkIfInRange(1500, npc, killer, true)) {
 			switch (npc.getId()) {
-				case PUNCHER, NOBLE_ANT_LEADER ->
-						handleDropsAndQuestStateUpdate(qs, npc, 1, ORDER_GLUDIO, hasAllDrops(qs.getPlayer()), 9, 3);
-				case DEAD_SEEKER, MARSH_STAKATO_DRONE ->
-						handleDropsAndQuestStateUpdate(qs, npc, 1, ORDER_DION, hasAllDrops(qs.getPlayer()), 9, 3);
-				case BREKA_ORC_OVERLORD, FETTERED_SOUL ->
-						handleDropsAndQuestStateUpdate(qs, npc, 1, ORDER_GIRAN, hasAllDrops(qs.getPlayer()), 9, 3);
-				case ENCHANTED_MONSTEREYE, LETO_LIZARDMAN_OVERLORD ->
-						handleDropsAndQuestStateUpdate(qs, npc, 1, ORDER_OREN, hasAllDrops(qs.getPlayer()), 9, 3);
-				case TAMLIN_ORC, TAMLIN_ORC_ARCHER ->
-						handleDropsAndQuestStateUpdate(qs, npc, 1, ORDER_ADEN, hasAllDrops(qs.getPlayer()), 9, 3);
-				case EXCURO, KRATOR, GRANDIS, TIMAK_ORC_OVERLORD, LAKIN ->
-						handleDropsAndQuestStateUpdate(qs, npc, 2, FINAL_ORDER, hasAllFinalOrderDrops(qs.getPlayer()), 5, 5);
+				case PUNCHER, NOBLE_ANT_LEADER -> handleDropsAndQuestStateUpdate(qs, npc, 1, ORDER_GLUDIO, hasAllDrops(qs.getPlayer()), 9, 3);
+				case DEAD_SEEKER, MARSH_STAKATO_DRONE -> handleDropsAndQuestStateUpdate(qs, npc, 1, ORDER_DION, hasAllDrops(qs.getPlayer()), 9, 3);
+				case BREKA_ORC_OVERLORD, FETTERED_SOUL -> handleDropsAndQuestStateUpdate(qs, npc, 1, ORDER_GIRAN, hasAllDrops(qs.getPlayer()), 9, 3);
+				case ENCHANTED_MONSTEREYE, LETO_LIZARDMAN_OVERLORD -> handleDropsAndQuestStateUpdate(qs, npc, 1, ORDER_OREN, hasAllDrops(qs.getPlayer()), 9, 3);
+				case TAMLIN_ORC, TAMLIN_ORC_ARCHER -> handleDropsAndQuestStateUpdate(qs, npc, 1, ORDER_ADEN, hasAllDrops(qs.getPlayer()), 9, 3);
+				case EXCURO, KRATOR, GRANDIS, TIMAK_ORC_OVERLORD, LAKIN -> handleDropsAndQuestStateUpdate(qs, npc, 2, FINAL_ORDER, hasAllFinalOrderDrops(qs.getPlayer()), 5, 5);
 			}
 		}
 		return super.onKill(npc, killer, isSummon);
 	}
-
+	
 	private void handleDropsAndQuestStateUpdate(QuestState qs, L2Npc npc, int requiredMemoState, int requiredItemId, boolean hasAllDrops, int memoStateForUpdate, int condToSet) {
 		if (qs.isMemoState(requiredMemoState) && hasQuestItems(qs.getPlayer(), requiredItemId)) {
 			final int memoState = qs.getMemoStateEx(1);
@@ -223,15 +218,15 @@ public final class Q00222_TestOfTheDuelist extends Quest {
 			}
 		}
 	}
-
+	
 	private boolean hasAllDrops(L2PcInstance player) {
 		return hasItemsAtLimit(player, PUNCHERS_SHARD, NOBLE_ANTS_FEELER, DRONES_CHITIN, DEAD_SEEKER_FANG, OVERLORD_NECKLACE, FETTERED_SOULS_CHAIN, CHIEFS_AMULET, ENCHANTED_EYE_MEAT, TAMLIN_ORCS_RING, TAMRIN_ORCS_ARROW);
 	}
-
+	
 	private boolean hasAllFinalOrderDrops(L2PcInstance player) {
 		return hasItemsAtLimit(player, EXCUROS_SKIN, KRATORS_SHARD, LAKINS_MACE, GRANDIS_SKIN, TIMAK_ORCS_BELT);
 	}
-
+	
 	@Override
 	public String onTalk(L2Npc npc, L2PcInstance player) {
 		final QuestState qs = getQuestState(player, true);

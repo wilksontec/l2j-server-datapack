@@ -38,13 +38,13 @@ public final class Q00354_ConquestOfAlligatorIsland extends Quest {
 	private static final QuestItemChanceHolder MYSTERIOUS_MAP_PIECE = new QuestItemChanceHolder(5864, 10.0);
 	// Droplist
 	private static final QuestDroplist DROPLIST = QuestDroplist.builder()
-			.addSingleDrop(20804, ALLIGATOR_TOOTH, 84.0) // crokian_lad
-			.addSingleDrop(20805, ALLIGATOR_TOOTH, 91.0) // dailaon_lad
-			.addSingleDrop(20806, ALLIGATOR_TOOTH, 88.0) // crokian_lad_warrior
-			.addSingleDrop(20807, ALLIGATOR_TOOTH, 92.0) // farhite_lad
-			.addSingleDrop(22208, ALLIGATOR_TOOTH, 114.0) // nos_lad
-			.addSingleDrop(20991, ALLIGATOR_TOOTH, 169.0) // tribe_of_swamp
-			.build();
+		.addSingleDrop(20804, ALLIGATOR_TOOTH, 84.0) // crokian_lad
+		.addSingleDrop(20805, ALLIGATOR_TOOTH, 91.0) // dailaon_lad
+		.addSingleDrop(20806, ALLIGATOR_TOOTH, 88.0) // crokian_lad_warrior
+		.addSingleDrop(20807, ALLIGATOR_TOOTH, 92.0) // farhite_lad
+		.addSingleDrop(22208, ALLIGATOR_TOOTH, 114.0) // nos_lad
+		.addSingleDrop(20991, ALLIGATOR_TOOTH, 169.0) // tribe_of_swamp
+		.build();
 	// Misc
 	private static final int MIN_LEVEL = 38;
 	

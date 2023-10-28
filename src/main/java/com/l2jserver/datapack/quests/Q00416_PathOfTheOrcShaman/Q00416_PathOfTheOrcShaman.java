@@ -18,6 +18,8 @@
  */
 package com.l2jserver.datapack.quests.Q00416_PathOfTheOrcShaman;
 
+import java.util.Map;
+
 import com.l2jserver.gameserver.enums.audio.Sound;
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
@@ -30,8 +32,6 @@ import com.l2jserver.gameserver.network.NpcStringId;
 import com.l2jserver.gameserver.network.clientpackets.Say2;
 import com.l2jserver.gameserver.network.serverpackets.NpcSay;
 import com.l2jserver.gameserver.network.serverpackets.SocialAction;
-
-import java.util.Map;
 
 /**
  * Path of the Orc Shaman (416)
@@ -73,23 +73,18 @@ public final class Q00416_PathOfTheOrcShaman extends Quest {
 	private static final QuestItemChanceHolder GRIZZLY_BLOOD = new QuestItemChanceHolder(1625, 3L);
 	// Droplist
 	private static final QuestDroplist DROPLIST = QuestDroplist.builder()
-			.addSingleDrop(SCARLET_SALAMANDER, FIRST_FIERY_EGG)
-			.addSingleDrop(KASHA_BLADE_SPIDER, KASHA_BLADE_SPIDER_HUSK)
-			.addSingleDrop(KASHA_BEAR, KASHA_BEAR_PELT)
-			.addSingleDrop(GRIZZLY_BEAR, GRIZZLY_BLOOD)
-			.build();
+		.addSingleDrop(SCARLET_SALAMANDER, FIRST_FIERY_EGG)
+		.addSingleDrop(KASHA_BLADE_SPIDER, KASHA_BLADE_SPIDER_HUSK)
+		.addSingleDrop(KASHA_BEAR, KASHA_BEAR_PELT)
+		.addSingleDrop(GRIZZLY_BEAR, GRIZZLY_BLOOD)
+		.build();
 	// Misc
 	private static final int MIN_LEVEL = 18;
 	// Mobs
-	private static final Map<Integer, Integer> MOBS_CONDITIONS = Map.of(
-			SCARLET_SALAMANDER, 1,
-			KASHA_BLADE_SPIDER, 1,
-			KASHA_BEAR, 1,
-			GRIZZLY_BEAR, 6,
-			20038, 9, // poison_spider
-			20043, 9, // bind_poison_spider
-			DURKA_SPIRIT, 9);
-
+	private static final Map<Integer, Integer> MOBS_CONDITIONS = Map.of(SCARLET_SALAMANDER, 1, KASHA_BLADE_SPIDER, 1, KASHA_BEAR, 1, GRIZZLY_BEAR, 6, 20038, 9, // poison_spider
+		20043, 9, // bind_poison_spider
+		DURKA_SPIRIT, 9);
+	
 	public Q00416_PathOfTheOrcShaman() {
 		super(416, Q00416_PathOfTheOrcShaman.class.getSimpleName(), "Path of the Orc Shaman");
 		addStartNpc(TATARU_ZU_HESTUI);

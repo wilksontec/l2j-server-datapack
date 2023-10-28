@@ -35,7 +35,7 @@ import com.l2jserver.gameserver.model.quest.QuestState;
  * @author Adry_85
  */
 public final class ElcadiasTent extends AbstractInstance {
-	protected class ETWorld extends InstanceWorld {
+	protected static class ETWorld extends InstanceWorld {
 		
 	}
 	

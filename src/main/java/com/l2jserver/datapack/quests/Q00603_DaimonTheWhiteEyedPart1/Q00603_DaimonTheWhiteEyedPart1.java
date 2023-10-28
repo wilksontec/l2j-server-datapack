@@ -43,10 +43,10 @@ public final class Q00603_DaimonTheWhiteEyedPart1 extends Quest {
 	private static final QuestItemChanceHolder SPIRIT_OF_DARKNESS = new QuestItemChanceHolder(7190, 200L);
 	// Droplist
 	private static final QuestDroplist DROPLIST = QuestDroplist.builder()
-			.addSingleDrop(21297, SPIRIT_OF_DARKNESS, 50.0) // Canyon Bandersnatch Slave
-			.addSingleDrop(21299, SPIRIT_OF_DARKNESS, 51.9) // Buffalo Slave
-			.addSingleDrop(21304, SPIRIT_OF_DARKNESS, 67.3) // Grendel Slave
-			.build();
+		.addSingleDrop(21297, SPIRIT_OF_DARKNESS, 50.0) // Canyon Bandersnatch Slave
+		.addSingleDrop(21299, SPIRIT_OF_DARKNESS, 51.9) // Buffalo Slave
+		.addSingleDrop(21304, SPIRIT_OF_DARKNESS, 67.3) // Grendel Slave
+		.build();
 	// Reward
 	private static final int UNFINISHED_CRYSTAL = 7192;
 	// Misc

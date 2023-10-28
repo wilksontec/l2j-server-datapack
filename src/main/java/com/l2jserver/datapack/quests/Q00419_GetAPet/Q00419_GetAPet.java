@@ -18,6 +18,9 @@
  */
 package com.l2jserver.datapack.quests.Q00419_GetAPet;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import com.l2jserver.gameserver.enums.Race;
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
@@ -26,9 +29,6 @@ import com.l2jserver.gameserver.model.quest.Quest;
 import com.l2jserver.gameserver.model.quest.QuestDroplist;
 import com.l2jserver.gameserver.model.quest.QuestState;
 import com.l2jserver.gameserver.util.Util;
-
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * Get A Pet (419)
@@ -72,22 +72,37 @@ public final class Q00419_GetAPet extends Quest {
 	private static final QuestItemChanceHolder BLOODY_RED_CLAW = new QuestItemChanceHolder(10165, 50L);
 	// Droplist
 	private static final QuestDroplist DROPLIST = QuestDroplist.builder()
-			.addSingleDrop(LESSER_DARK_HORROR, BLOODY_NAIL, 60.0).withRequiredItems(ANIMAL_SLAYERS_3RD_LIST)
-			.addSingleDrop(PROWLER, BLOODY_NAIL, 100.0).withRequiredItems(ANIMAL_SLAYERS_3RD_LIST)
-			.addSingleDrop(GIANT_SPIDER, BLOODY_FANG, 60.0).withRequiredItems(ANIMAL_SLAYERS_1ST_LIST)
-			.addSingleDrop(DARK_HORROR, BLOODY_NAIL, 75.0).withRequiredItems(ANIMAL_SLAYERS_3RD_LIST)
-			.addSingleDrop(TALON_SPIDER, BLOODY_FANG, 75.0).withRequiredItems(ANIMAL_SLAYERS_1ST_LIST)
-			.addSingleDrop(BLADE_SPIDER, BLOODY_FANG, 100.0).withRequiredItems(ANIMAL_SLAYERS_1ST_LIST)
-			.addSingleDrop(HOOK_SPIDER, BLOODY_CLAW, 75.0).withRequiredItems(ANIMAL_SLAYERS_2ND_LIST)
-			.addSingleDrop(HUNTER_TARANTULA, BLOODY_TARANTULA_NAIL, 75.0).withRequiredItems(ANIMAL_SLAYERS_5TH_LIST)
-			.addSingleDrop(CRIMSON_SPIDER, BLOODY_CLAW, 60.0).withRequiredItems(ANIMAL_SLAYERS_2ND_LIST)
-			.addSingleDrop(PINCER_SPIDER, BLOODY_CLAW, 100.0).withRequiredItems(ANIMAL_SLAYERS_2ND_LIST)
-			.addSingleDrop(KASHA_SPIDER, BLOODY_KASHA_FANG, 60.0).withRequiredItems(ANIMAL_SLAYERS_4TH_LIST)
-			.addSingleDrop(KASHA_FANG_SPIDER, BLOODY_KASHA_FANG, 75.0).withRequiredItems(ANIMAL_SLAYERS_4TH_LIST)
-			.addSingleDrop(KASHA_BLADE_SPIDER, BLOODY_KASHA_FANG, 100.0).withRequiredItems(ANIMAL_SLAYERS_4TH_LIST)
-			.addSingleDrop(PLUNDER_TARANTULA, BLOODY_TARANTULA_NAIL, 100.0).withRequiredItems(ANIMAL_SLAYERS_5TH_LIST)
-			.addSingleDrop(CRIMSON_SPIDER2, BLOODY_RED_CLAW, 75.0).withRequiredItems(ANIMAL_SLAYERS_LIST)
-			.build();
+		.addSingleDrop(LESSER_DARK_HORROR, BLOODY_NAIL, 60.0)
+		.withRequiredItems(ANIMAL_SLAYERS_3RD_LIST)
+		.addSingleDrop(PROWLER, BLOODY_NAIL, 100.0)
+		.withRequiredItems(ANIMAL_SLAYERS_3RD_LIST)
+		.addSingleDrop(GIANT_SPIDER, BLOODY_FANG, 60.0)
+		.withRequiredItems(ANIMAL_SLAYERS_1ST_LIST)
+		.addSingleDrop(DARK_HORROR, BLOODY_NAIL, 75.0)
+		.withRequiredItems(ANIMAL_SLAYERS_3RD_LIST)
+		.addSingleDrop(TALON_SPIDER, BLOODY_FANG, 75.0)
+		.withRequiredItems(ANIMAL_SLAYERS_1ST_LIST)
+		.addSingleDrop(BLADE_SPIDER, BLOODY_FANG, 100.0)
+		.withRequiredItems(ANIMAL_SLAYERS_1ST_LIST)
+		.addSingleDrop(HOOK_SPIDER, BLOODY_CLAW, 75.0)
+		.withRequiredItems(ANIMAL_SLAYERS_2ND_LIST)
+		.addSingleDrop(HUNTER_TARANTULA, BLOODY_TARANTULA_NAIL, 75.0)
+		.withRequiredItems(ANIMAL_SLAYERS_5TH_LIST)
+		.addSingleDrop(CRIMSON_SPIDER, BLOODY_CLAW, 60.0)
+		.withRequiredItems(ANIMAL_SLAYERS_2ND_LIST)
+		.addSingleDrop(PINCER_SPIDER, BLOODY_CLAW, 100.0)
+		.withRequiredItems(ANIMAL_SLAYERS_2ND_LIST)
+		.addSingleDrop(KASHA_SPIDER, BLOODY_KASHA_FANG, 60.0)
+		.withRequiredItems(ANIMAL_SLAYERS_4TH_LIST)
+		.addSingleDrop(KASHA_FANG_SPIDER, BLOODY_KASHA_FANG, 75.0)
+		.withRequiredItems(ANIMAL_SLAYERS_4TH_LIST)
+		.addSingleDrop(KASHA_BLADE_SPIDER, BLOODY_KASHA_FANG, 100.0)
+		.withRequiredItems(ANIMAL_SLAYERS_4TH_LIST)
+		.addSingleDrop(PLUNDER_TARANTULA, BLOODY_TARANTULA_NAIL, 100.0)
+		.withRequiredItems(ANIMAL_SLAYERS_5TH_LIST)
+		.addSingleDrop(CRIMSON_SPIDER2, BLOODY_RED_CLAW, 75.0)
+		.withRequiredItems(ANIMAL_SLAYERS_LIST)
+		.build();
 	// Reward
 	private static final int WOLF_COLLAR = 2375;
 	// Misc
@@ -172,7 +187,8 @@ public final class Q00419_GetAPet extends Quest {
 		addStartNpc(PET_MENAGER_MARTIN);
 		addTalkId(PET_MENAGER_MARTIN, GUARD_METTY, ACCESSORY_MERCHANT_ELICE, GATEKEEPER_BELLA);
 		addKillId(LESSER_DARK_HORROR, PROWLER, GIANT_SPIDER, DARK_HORROR, TALON_SPIDER, BLADE_SPIDER, HOOK_SPIDER, HUNTER_TARANTULA, CRIMSON_SPIDER, PINCER_SPIDER, KASHA_SPIDER, KASHA_FANG_SPIDER, KASHA_BLADE_SPIDER, PLUNDER_TARANTULA, CRIMSON_SPIDER2);
-		registerQuestItems(ANIMAL_LOVERS_LIST, ANIMAL_SLAYERS_1ST_LIST, ANIMAL_SLAYERS_2ND_LIST, ANIMAL_SLAYERS_3RD_LIST, ANIMAL_SLAYERS_4TH_LIST, ANIMAL_SLAYERS_5TH_LIST, BLOODY_FANG.getId(), BLOODY_CLAW.getId(), BLOODY_NAIL.getId(), BLOODY_KASHA_FANG.getId(), BLOODY_TARANTULA_NAIL.getId(), ANIMAL_SLAYERS_LIST, BLOODY_RED_CLAW.getId());
+		registerQuestItems(ANIMAL_LOVERS_LIST, ANIMAL_SLAYERS_1ST_LIST, ANIMAL_SLAYERS_2ND_LIST, ANIMAL_SLAYERS_3RD_LIST, ANIMAL_SLAYERS_4TH_LIST, ANIMAL_SLAYERS_5TH_LIST, BLOODY_FANG.getId(), BLOODY_CLAW.getId(), BLOODY_NAIL.getId(), BLOODY_KASHA_FANG.getId(), BLOODY_TARANTULA_NAIL
+			.getId(), ANIMAL_SLAYERS_LIST, BLOODY_RED_CLAW.getId());
 	}
 	
 	@Override

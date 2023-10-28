@@ -41,17 +41,11 @@ public class Q00611_AllianceWithVarkaSilenos extends Quest {
 		public DropInfo(int chance, int minCond) {
 			_chance = chance;
 			_minCond = minCond;
-			switch (_minCond) {
-				case 1:
-					_itemId = KETRA_BADGE_SOLDIER;
-					break;
-				case 2:
-					_itemId = KETRA_BADGE_OFFICER;
-					break;
-				default:
-					_itemId = KETRA_BADGE_CAPTAIN;
-					break;
-			}
+			_itemId = switch (_minCond) {
+				case 1 -> KETRA_BADGE_SOLDIER;
+				case 2 -> KETRA_BADGE_OFFICER;
+				default -> KETRA_BADGE_CAPTAIN;
+			};
 		}
 		
 		public int getMinCond() {

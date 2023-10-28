@@ -47,12 +47,22 @@ public class Q00135_TempleExecutor extends Quest {
 	private static final QuestItemChanceHolder OLD_TREASURE_MAP = new QuestItemChanceHolder(10330, 10L);
 	// Droplist
 	private static final QuestDroplist DROPLIST = QuestDroplist.builder()
-			.addSingleDrop(20781, STOLEN_CARGO, 43.9).addSingleDrop(20781, HATE_CRYSTAL, 43.9).addSingleDrop(20781, OLD_TREASURE_MAP, 43.9) // Delu Lizardman Shaman
-			.addSingleDrop(21104, STOLEN_CARGO, 43.9).addSingleDrop(21104, HATE_CRYSTAL, 43.9).addSingleDrop(21104, OLD_TREASURE_MAP, 43.9) // Delu Lizardman Supplier
-			.addSingleDrop(21105, STOLEN_CARGO, 50.4).addSingleDrop(21105, HATE_CRYSTAL, 50.4).addSingleDrop(21105, OLD_TREASURE_MAP, 50.4) // Delu Lizardman Special Agent
-			.addSingleDrop(21106, STOLEN_CARGO, 42.3).addSingleDrop(21106, HATE_CRYSTAL, 42.3).addSingleDrop(21106, OLD_TREASURE_MAP, 42.3) // Cursed Seer
-			.addSingleDrop(21107, STOLEN_CARGO, 90.2).addSingleDrop(21107, HATE_CRYSTAL, 90.2).addSingleDrop(21107, OLD_TREASURE_MAP, 90.2) // Delu Lizardman Commander
-			.build();
+		.addSingleDrop(20781, STOLEN_CARGO, 43.9)
+		.addSingleDrop(20781, HATE_CRYSTAL, 43.9)
+		.addSingleDrop(20781, OLD_TREASURE_MAP, 43.9) // Delu Lizardman Shaman
+		.addSingleDrop(21104, STOLEN_CARGO, 43.9)
+		.addSingleDrop(21104, HATE_CRYSTAL, 43.9)
+		.addSingleDrop(21104, OLD_TREASURE_MAP, 43.9) // Delu Lizardman Supplier
+		.addSingleDrop(21105, STOLEN_CARGO, 50.4)
+		.addSingleDrop(21105, HATE_CRYSTAL, 50.4)
+		.addSingleDrop(21105, OLD_TREASURE_MAP, 50.4) // Delu Lizardman Special Agent
+		.addSingleDrop(21106, STOLEN_CARGO, 42.3)
+		.addSingleDrop(21106, HATE_CRYSTAL, 42.3)
+		.addSingleDrop(21106, OLD_TREASURE_MAP, 42.3) // Cursed Seer
+		.addSingleDrop(21107, STOLEN_CARGO, 90.2)
+		.addSingleDrop(21107, HATE_CRYSTAL, 90.2)
+		.addSingleDrop(21107, OLD_TREASURE_MAP, 90.2) // Delu Lizardman Commander
+		.build();
 	// Misc
 	private static final int MIN_LEVEL = 35;
 	private static final int MAX_REWARD_LEVEL = 41;
@@ -121,7 +131,7 @@ public class Q00135_TempleExecutor extends Quest {
 		} else {
 			giveItemRandomly(st.getPlayer(), npc, DROPLIST.get(npc, OLD_TREASURE_MAP), false);
 		}
-			
+		
 		if (hasItemsAtLimit(st.getPlayer(), STOLEN_CARGO, HATE_CRYSTAL, OLD_TREASURE_MAP)) {
 			st.setCond(4, true);
 		} else {

@@ -88,7 +88,7 @@ public class MC_Show extends AbstractNpcAI {
 		NpcStringId.WE_LOVE_YOU
 	};
 	
-	private class ShoutInfo {
+	private static class ShoutInfo {
 		private final NpcStringId _npcStringId;
 		private final String _nextEvent;
 		private final int _time;
@@ -112,7 +112,7 @@ public class MC_Show extends AbstractNpcAI {
 		}
 	}
 	
-	private class WalkInfo {
+	private static class WalkInfo {
 		private final Location _charPos;
 		private final String _nextEvent;
 		private final int _time;

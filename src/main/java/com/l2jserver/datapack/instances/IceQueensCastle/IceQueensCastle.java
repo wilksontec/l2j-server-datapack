@@ -40,7 +40,7 @@ import com.l2jserver.gameserver.network.clientpackets.Say2;
  * @author Adry_85
  */
 public final class IceQueensCastle extends AbstractInstance {
-	protected class IQCWorld extends InstanceWorld {
+	protected static class IQCWorld extends InstanceWorld {
 		L2PcInstance player = null;
 	}
 	
@@ -150,9 +150,7 @@ public final class IceQueensCastle extends AbstractInstance {
 	public String onSpellFinished(L2Npc npc, L2PcInstance player, Skill skill) {
 		final InstanceWorld tmpworld = InstanceManager.getInstance().getWorld(npc.getInstanceId());
 		
-		if ((tmpworld != null) && (tmpworld instanceof IQCWorld)) {
-			final IQCWorld world = (IQCWorld) tmpworld;
-			
+		if ((tmpworld != null) && (tmpworld instanceof IQCWorld world)) {
 			if ((skill == ETHERNAL_BLIZZARD.getSkill()) && (world.player != null)) {
 				startQuestTimer("TIMER_SCENE_21", 1000, npc, world.player);
 			}

@@ -31,7 +31,7 @@ import com.l2jserver.gameserver.network.SystemMessageId;
  * @author Gladicek
  */
 public final class SecretArea extends Quest {
-	protected class SAWorld extends InstanceWorld {
+	protected static class SAWorld extends InstanceWorld {
 		
 	}
 	

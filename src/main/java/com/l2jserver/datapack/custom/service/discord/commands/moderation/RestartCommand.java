@@ -18,14 +18,15 @@
  */
 package com.l2jserver.datapack.custom.service.discord.commands.moderation;
 
-import com.l2jserver.datapack.custom.service.discord.AbstractCommand;
-import com.l2jserver.gameserver.Shutdown;
-import net.dv8tion.jda.api.EmbedBuilder;
-import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
+import static com.l2jserver.gameserver.config.Configuration.discord;
 
 import java.awt.Color;
 
-import static com.l2jserver.gameserver.config.Configuration.discord;
+import com.l2jserver.datapack.custom.service.discord.AbstractCommand;
+import com.l2jserver.gameserver.Shutdown;
+
+import net.dv8tion.jda.api.EmbedBuilder;
+import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 
 /**
  * Restart Command.
@@ -33,12 +34,12 @@ import static com.l2jserver.gameserver.config.Configuration.discord;
  * @version 2.6.2.0
  */
 public class RestartCommand extends AbstractCommand {
-
+	
 	private static final String[] COMMANDS = {
 		"restart",
 		"rr"
 	};
-
+	
 	@Override
 	public String[] getCommands() {
 		return COMMANDS;
@@ -47,18 +48,18 @@ public class RestartCommand extends AbstractCommand {
 	@Override
 	public void executeCommand(MessageReceivedEvent event, String[] args) {
 		EmbedBuilder eb = new EmbedBuilder().setColor(Color.RED);
-
+		
 		if (!canExecute(event)) {
 			return;
 		}
-
+		
 		if (args.length != 2) {
 			eb.setDescription("Wrong Arguments. Please just provide a number in seconds.");
 			event.getTextChannel().sendMessageEmbeds(eb.build()).queue();
 			event.getMessage().addReaction("\u274C").queue();
 			return;
 		}
-
+		
 		int seconds;
 		try {
 			seconds = Integer.parseInt(args[1]);
@@ -68,10 +69,10 @@ public class RestartCommand extends AbstractCommand {
 			event.getMessage().addReaction("\u274C").queue();
 			return;
 		}
-
+		
 		String gmName = event.getAuthor().getAsMention();
 		String commandName = args[0].substring(discord().getPrefix().length()).toUpperCase();
-		Shutdown.getInstance().startTelnetShutdown(event.getAuthor().getName(), seconds, true); //Using telnet method.
+		Shutdown.getInstance().startTelnetShutdown(event.getAuthor().getName(), seconds, true); // Using telnet method.
 		eb.setColor(Color.GREEN);
 		eb.setDescription("GM: {" + gmName + "} issued command. **" + commandName + "** in " + seconds + " " + "seconds!");
 		event.getChannel().sendMessageEmbeds(eb.build()).queue();

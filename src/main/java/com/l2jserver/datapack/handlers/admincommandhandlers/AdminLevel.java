@@ -54,11 +54,10 @@ public class AdminLevel implements IAdminCommandHandler {
 			}
 		} else if (actualCommand.equalsIgnoreCase("admin_set_level")) {
 			try {
-				if (!(targetChar instanceof L2PcInstance)) {
+				if (!(targetChar instanceof L2PcInstance targetPlayer)) {
 					activeChar.sendPacket(SystemMessageId.TARGET_IS_INCORRECT);
 					return false;
 				}
-				L2PcInstance targetPlayer = (L2PcInstance) targetChar;
 				int oldLevel = targetPlayer.getLevel();
 				int newLevel = Integer.parseInt(val);
 				

@@ -18,6 +18,8 @@
  */
 package com.l2jserver.datapack.ai.npc.Summons.Pets;
 
+import java.util.Optional;
+
 import com.l2jserver.datapack.ai.npc.AbstractNpcAI;
 import com.l2jserver.gameserver.model.StatsSet;
 import com.l2jserver.gameserver.model.actor.L2Npc;
@@ -34,8 +36,6 @@ import com.l2jserver.gameserver.model.skills.AbnormalType;
 import com.l2jserver.gameserver.network.SystemMessageId;
 import com.l2jserver.gameserver.network.serverpackets.SystemMessage;
 import com.l2jserver.gameserver.util.Util;
-
-import java.util.Optional;
 
 /**
  * Improved Baby Pets AI.
@@ -119,7 +119,7 @@ public final class ImprovedBabyPets extends AbstractNpcAI {
 		final StatsSet parameters = summon.getTemplate().getParameters();
 		
 		final SkillHolder skill = Optional.ofNullable(parameters.getObject("step" + stepNumber + "_merged_buff0" + buffNumber, SkillHolder.class))
-						.orElseGet(() -> parameters.getObject("step" + stepNumber + "_buff0" + buffNumber, SkillHolder.class));
+			.orElseGet(() -> parameters.getObject("step" + stepNumber + "_buff0" + buffNumber, SkillHolder.class));
 		
 		if (skill != null) {
 			final int targetType = parameters.getInt("step" + stepNumber + "_buff_target0" + buffNumber, 0);

@@ -72,7 +72,7 @@ public final class KamaelChange1 extends AbstractNpcAI {
 			}
 			case "125":
 			case "126": {
-				htmltext = ClassChangeRequested(player, Integer.valueOf(event));
+				htmltext = ClassChangeRequested(player, Integer.parseInt(event));
 				break;
 			}
 		}

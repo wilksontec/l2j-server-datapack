@@ -88,7 +88,7 @@ public final class OrcChange2 extends AbstractNpcAI {
 			case "48":
 			case "51":
 			case "52": {
-				htmltext = ClassChangeRequested(player, Integer.valueOf(event));
+				htmltext = ClassChangeRequested(player, Integer.parseInt(event));
 				break;
 			}
 		}

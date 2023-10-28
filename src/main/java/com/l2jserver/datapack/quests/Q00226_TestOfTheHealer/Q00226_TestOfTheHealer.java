@@ -475,7 +475,7 @@ public final class Q00226_TestOfTheHealer extends Quest {
 						if ((getQuestItemsCount(player, SECRET_LETTER1) + getQuestItemsCount(player, SECRET_LETTER2) + getQuestItemsCount(player, SECRET_LETTER3) + getQuestItemsCount(player, SECRET_LETTER4)) < 4) {
 							htmltext = "30665-03.html";
 						}
-					} else if (memoState >= 9) {
+					} else {
 						htmltext = "30665-04.html";
 					}
 					break;

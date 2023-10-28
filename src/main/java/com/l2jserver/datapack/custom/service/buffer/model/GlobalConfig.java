@@ -46,15 +46,15 @@ public final class GlobalConfig {
 		return getBuffs().get(id);
 	}
 	
-	public final Map<String, BuffSkill> getBuffs() {
+	public Map<String, BuffSkill> getBuffs() {
 		return buffs;
 	}
 	
-	public final BuffCategory getCategory(String id) {
+	public BuffCategory getCategory(String id) {
 		return getCategories().get(id);
 	}
 	
-	public final Map<String, BuffCategory> getCategories() {
+	public Map<String, BuffCategory> getCategories() {
 		return buffCategories;
 	}
 }

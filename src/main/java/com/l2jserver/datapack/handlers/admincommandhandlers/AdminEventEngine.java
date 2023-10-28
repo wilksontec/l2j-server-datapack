@@ -159,15 +159,15 @@ public class AdminEventEngine implements IAdminCommandHandler {
 			} else if (actualCommand.startsWith("admin_event_announce")) {
 				L2Event._npcId = Integer.parseInt(st.nextToken());
 				L2Event._teamsNumber = Integer.parseInt(st.nextToken());
-				String temp = " ";
+				StringBuilder temp = new StringBuilder(" ");
 				String temp2 = "";
 				while (st.hasMoreElements()) {
-					temp += st.nextToken() + " ";
+					temp.append(st.nextToken()).append(" ");
 				}
 				
-				st = new StringTokenizer(temp, "-");
+				st = new StringTokenizer(temp.toString(), "-");
 				
-				Integer i = 1;
+				int i = 1;
 				
 				while (st.hasMoreElements()) {
 					temp2 = st.nextToken();
@@ -369,7 +369,8 @@ public class AdminEventEngine implements IAdminCommandHandler {
 		final StringBuilder result = new StringBuilder(files.length * 500);
 		result.append("<table>");
 		for (String fileName : files) {
-			StringUtil.append(result, "<tr><td align=center>", fileName, " </td></tr><tr><td><table cellspacing=0><tr><td><button value=\"Select Event\" action=\"bypass -h admin_event_set ", fileName, "\" width=90 height=20 back=\"L2UI_ct1.button_df\" fore=\"L2UI_ct1.button_df\"></td><td><button value=\"View Event\" action=\"bypass -h admin_event_see ", fileName, "\" width=90 height=20 back=\"L2UI_ct1.button_df\" fore=\"L2UI_ct1.button_df\"></td><td><button value=\"Delete Event\" action=\"bypass -h admin_event_del ", fileName, "\" width=90 height=20 back=\"L2UI_ct1.button_df\" fore=\"L2UI_ct1.button_df\"></td></tr></table></td></tr>", "<tr><td>&nbsp;</td></tr><tr><td>&nbsp;</td></tr>");
+			StringUtil
+				.append(result, "<tr><td align=center>", fileName, " </td></tr><tr><td><table cellspacing=0><tr><td><button value=\"Select Event\" action=\"bypass -h admin_event_set ", fileName, "\" width=90 height=20 back=\"L2UI_ct1.button_df\" fore=\"L2UI_ct1.button_df\"></td><td><button value=\"View Event\" action=\"bypass -h admin_event_see ", fileName, "\" width=90 height=20 back=\"L2UI_ct1.button_df\" fore=\"L2UI_ct1.button_df\"></td><td><button value=\"Delete Event\" action=\"bypass -h admin_event_del ", fileName, "\" width=90 height=20 back=\"L2UI_ct1.button_df\" fore=\"L2UI_ct1.button_df\"></td></tr></table></td></tr>", "<tr><td>&nbsp;</td></tr><tr><td>&nbsp;</td></tr>");
 		}
 		
 		result.append("</table>");

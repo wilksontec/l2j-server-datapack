@@ -18,13 +18,14 @@
  */
 package com.l2jserver.datapack.custom.service.discord.commands.moderation;
 
+import java.awt.Color;
+
 import com.l2jserver.datapack.custom.service.discord.AbstractCommand;
 import com.l2jserver.gameserver.network.serverpackets.ExShowScreenMessage;
 import com.l2jserver.gameserver.util.Broadcast;
+
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
-
-import java.awt.Color;
 
 /**
  * Announce Command.
@@ -32,33 +33,33 @@ import java.awt.Color;
  * @version 2.6.2.0
  */
 public class AnnounceCommand extends AbstractCommand {
-
+	
 	private static final String[] COMMANDS = {
 		"announce",
 		"ann"
 	};
-
+	
 	@Override
 	public String[] getCommands() {
 		return COMMANDS;
 	}
-
+	
 	@Override
 	public void executeCommand(MessageReceivedEvent event, String[] args) {
 		EmbedBuilder eb = new EmbedBuilder().setColor(Color.RED);
-		String announcement = event.getMessage().getContentRaw().replace(args[0] +" "+ args[1], "");
-
+		String announcement = event.getMessage().getContentRaw().replace(args[0] + " " + args[1], "");
+		
 		if (!canExecute(event)) {
 			return;
 		}
-
+		
 		if (args.length <= 2) {
 			eb.setDescription("Wrong Arguments. Please type the message to be sent.");
 			event.getTextChannel().sendMessageEmbeds(eb.build()).queue();
 			event.getMessage().addReaction("\u274C").queue();
 			return;
 		}
-
+		
 		if (args[1].equals("normal")) {
 			Broadcast.toAllOnlinePlayers(announcement);
 		}

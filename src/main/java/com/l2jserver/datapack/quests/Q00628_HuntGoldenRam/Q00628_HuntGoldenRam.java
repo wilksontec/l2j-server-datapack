@@ -43,19 +43,19 @@ public final class Q00628_HuntGoldenRam extends Quest {
 	private static final QuestItemChanceHolder NEEDLE_STAKATO_CHITIN = new QuestItemChanceHolder(7249, REQUIRED_ITEM_COUNT);
 	// Droplists
 	private static final QuestDroplist SPLINTER_DROPLIST = QuestDroplist.builder()
-			.addSingleDrop(21508, SPLINTER_STAKATO_CHITIN, 50.0) // splinter_stakato
-			.addSingleDrop(21509, SPLINTER_STAKATO_CHITIN, 43.0) // splinter_stakato_worker
-			.addSingleDrop(21510, SPLINTER_STAKATO_CHITIN, 52.1) // splinter_stakato_soldier
-			.addSingleDrop(21511, SPLINTER_STAKATO_CHITIN, 57.5) // splinter_stakato_drone
-			.addSingleDrop(21512, SPLINTER_STAKATO_CHITIN, 74.6) // splinter_stakato_drone_a
-			.build();
+		.addSingleDrop(21508, SPLINTER_STAKATO_CHITIN, 50.0) // splinter_stakato
+		.addSingleDrop(21509, SPLINTER_STAKATO_CHITIN, 43.0) // splinter_stakato_worker
+		.addSingleDrop(21510, SPLINTER_STAKATO_CHITIN, 52.1) // splinter_stakato_soldier
+		.addSingleDrop(21511, SPLINTER_STAKATO_CHITIN, 57.5) // splinter_stakato_drone
+		.addSingleDrop(21512, SPLINTER_STAKATO_CHITIN, 74.6) // splinter_stakato_drone_a
+		.build();
 	private static final QuestDroplist NEEDLE_DROPLIST = QuestDroplist.builder()
-			.addSingleDrop(21513, NEEDLE_STAKATO_CHITIN, 50.0) // needle_stakato
-			.addSingleDrop(21514, NEEDLE_STAKATO_CHITIN, 43.0) // needle_stakato_worker
-			.addSingleDrop(21515, NEEDLE_STAKATO_CHITIN, 52.0) // needle_stakato_soldier
-			.addSingleDrop(21516, NEEDLE_STAKATO_CHITIN, 53.1) // needle_stakato_drone
-			.addSingleDrop(21517, NEEDLE_STAKATO_CHITIN, 74.4) // needle_stakato_drone_a
-			.build();
+		.addSingleDrop(21513, NEEDLE_STAKATO_CHITIN, 50.0) // needle_stakato
+		.addSingleDrop(21514, NEEDLE_STAKATO_CHITIN, 43.0) // needle_stakato_worker
+		.addSingleDrop(21515, NEEDLE_STAKATO_CHITIN, 52.0) // needle_stakato_soldier
+		.addSingleDrop(21516, NEEDLE_STAKATO_CHITIN, 53.1) // needle_stakato_drone
+		.addSingleDrop(21517, NEEDLE_STAKATO_CHITIN, 74.4) // needle_stakato_drone_a
+		.build();
 	
 	public Q00628_HuntGoldenRam() {
 		super(628, Q00628_HuntGoldenRam.class.getSimpleName(), "Hunt of the Golden Ram Mercenary Force");
@@ -120,7 +120,7 @@ public final class Q00628_HuntGoldenRam extends Quest {
 	@Override
 	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
 		final QuestState qs = getRandomPartyMemberState(killer, -1, 1, npc);
-		if (qs != null && !qs.isCond(3)) {
+		if ((qs != null) && !qs.isCond(3)) {
 			if (qs.getCond() >= 1) {
 				giveItemRandomly(qs.getPlayer(), npc, SPLINTER_DROPLIST.get(npc), true);
 				if (qs.isCond(2)) {

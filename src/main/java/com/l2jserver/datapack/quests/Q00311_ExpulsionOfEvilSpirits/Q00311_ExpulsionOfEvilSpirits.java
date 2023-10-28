@@ -43,18 +43,18 @@ public final class Q00311_ExpulsionOfEvilSpirits extends Quest {
 	private static final int RAGNA_ORCS_AMULET_COUNT = 10;
 	// Droplist
 	private static final QuestDroplist DROPLIST = QuestDroplist.builder()
-			.addSingleDrop(22691, RAGNA_ORCS_AMULET, 69.4) // Ragna Orc
-			.addSingleDrop(22692, RAGNA_ORCS_AMULET, 71.6) // Ragna Orc Warrior
-			.addSingleDrop(22693, RAGNA_ORCS_AMULET, 73.6) // Ragna Orc Hero
-			.addSingleDrop(22694, RAGNA_ORCS_AMULET, 71.2) // Ragna Orc Commander
-			.addSingleDrop(22695, RAGNA_ORCS_AMULET, 69.8) // Ragna Orc Healer
-			.addSingleDrop(22696, RAGNA_ORCS_AMULET, 69.2) // Ragna Orc Shaman
-			.addSingleDrop(22697, RAGNA_ORCS_AMULET, 64.0) // Ragna Orc Seer
-			.addSingleDrop(22698, RAGNA_ORCS_AMULET, 71.6) // Ragna Orc Archer
-			.addSingleDrop(22699, RAGNA_ORCS_AMULET, 75.2) // Ragna Orc Sniper
-			.addSingleDrop(22701, RAGNA_ORCS_AMULET, 71.6) // Varangka's Dre Vanul
-			.addSingleDrop(22702, RAGNA_ORCS_AMULET, 66.2) // Varangka's Destroyer
-			.build();
+		.addSingleDrop(22691, RAGNA_ORCS_AMULET, 69.4) // Ragna Orc
+		.addSingleDrop(22692, RAGNA_ORCS_AMULET, 71.6) // Ragna Orc Warrior
+		.addSingleDrop(22693, RAGNA_ORCS_AMULET, 73.6) // Ragna Orc Hero
+		.addSingleDrop(22694, RAGNA_ORCS_AMULET, 71.2) // Ragna Orc Commander
+		.addSingleDrop(22695, RAGNA_ORCS_AMULET, 69.8) // Ragna Orc Healer
+		.addSingleDrop(22696, RAGNA_ORCS_AMULET, 69.2) // Ragna Orc Shaman
+		.addSingleDrop(22697, RAGNA_ORCS_AMULET, 64.0) // Ragna Orc Seer
+		.addSingleDrop(22698, RAGNA_ORCS_AMULET, 71.6) // Ragna Orc Archer
+		.addSingleDrop(22699, RAGNA_ORCS_AMULET, 75.2) // Ragna Orc Sniper
+		.addSingleDrop(22701, RAGNA_ORCS_AMULET, 71.6) // Varangka's Dre Vanul
+		.addSingleDrop(22702, RAGNA_ORCS_AMULET, 66.2) // Varangka's Destroyer
+		.build();
 	
 	public Q00311_ExpulsionOfEvilSpirits() {
 		super(311, Q00311_ExpulsionOfEvilSpirits.class.getSimpleName(), "Expulsion of Evil Spirits");

@@ -1156,7 +1156,7 @@ public final class Kamaloka extends AbstractInstance {
 		31340
 	};
 	
-	protected class KamaWorld extends InstanceWorld {
+	protected static class KamaWorld extends InstanceWorld {
 		public int index; // 0-18 index of the kama type in arrays
 		public int shaman = 0; // objectId of the shaman
 		public List<L2Spawn> firstRoom; // list of the spawns in the first room (excluding shaman)
@@ -1526,8 +1526,7 @@ public final class Kamaloka extends AbstractInstance {
 	@Override
 	public String onKill(L2Npc npc, L2PcInstance player, boolean isSummon) {
 		final InstanceWorld tmpWorld = InstanceManager.getInstance().getWorld(npc.getInstanceId());
-		if (tmpWorld instanceof KamaWorld) {
-			final KamaWorld world = (KamaWorld) tmpWorld;
+		if (tmpWorld instanceof KamaWorld world) {
 			final int objectId = npc.getObjectId();
 			
 			// first room was spawned ?

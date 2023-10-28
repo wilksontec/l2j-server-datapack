@@ -71,15 +71,10 @@ public final class Buron extends AbstractNpcAI {
 	@Override
 	public String onFirstTalk(L2Npc npc, L2PcInstance player) {
 		getQuestState(player, true);
-		switch (HellboundEngine.getInstance().getLevel()) {
-			case 1:
-				return "32345-01.htm";
-			case 2:
-			case 3:
-			case 4:
-				return "32345-02.htm";
-			default:
-				return "32345-01a.htm";
-		}
+		return switch (HellboundEngine.getInstance().getLevel()) {
+			case 1 -> "32345-01.htm";
+			case 2, 3, 4 -> "32345-02.htm";
+			default -> "32345-01a.htm";
+		};
 	}
 }

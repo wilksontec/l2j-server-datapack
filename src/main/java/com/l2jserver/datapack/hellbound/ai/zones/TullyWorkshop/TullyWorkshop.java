@@ -801,7 +801,7 @@ public final class TullyWorkshop extends AbstractNpcAI {
 				}
 			}
 		} else if (npcId == AGENT) {
-			if (event.equalsIgnoreCase("tele_to_7th_floor") && (allowAgentSpawn == false)) {
+			if (event.equalsIgnoreCase("tele_to_7th_floor") && !allowAgentSpawn) {
 				htmltext = null;
 				L2Party party = player.getParty();
 				if (party == null) {
@@ -833,7 +833,7 @@ public final class TullyWorkshop extends AbstractNpcAI {
 						}
 					}
 				}
-			} else if (event.equalsIgnoreCase("buff") && (allowAgentSpawn_7th == false)) {
+			} else if (event.equalsIgnoreCase("buff") && !allowAgentSpawn_7th) {
 				htmltext = null;
 				final L2Party party = player.getParty();
 				if (party == null) {
@@ -856,7 +856,7 @@ public final class TullyWorkshop extends AbstractNpcAI {
 					}
 					startQuestTimer("despawn_agent_7", 60000, npc, null);
 				}
-			} else if (event.equalsIgnoreCase("refuse") && (allowAgentSpawn_7th == false)) {
+			} else if (event.equalsIgnoreCase("refuse") && !allowAgentSpawn_7th) {
 				allowAgentSpawn_7th = true;
 				npc.deleteMe();
 				spawnedAgent = null;
@@ -1282,35 +1282,41 @@ public final class TullyWorkshop extends AbstractNpcAI {
 	private void handleDoorsOnDeath() {
 		DoorData.getInstance().getDoor(20250005).openMe();
 		DoorData.getInstance().getDoor(20250004).openMe();
-		ThreadPoolManager.getInstance().scheduleGeneral(new DoorTask(new int[] {
-			20250006,
-			20250007
-		}, STATE_OPEN), 2000);
-		ThreadPoolManager.getInstance().scheduleGeneral(new DoorTask(new int[] {
-			20250778
-		}, STATE_CLOSE), 3000);
-		ThreadPoolManager.getInstance().scheduleGeneral(new DoorTask(new int[] {
-			20250777
-		}, STATE_CLOSE), 6000);
-		ThreadPoolManager.getInstance().scheduleGeneral(new DoorTask(new int[] {
-			20250009,
-			20250008
-		}, STATE_OPEN), 11000);
+		ThreadPoolManager.getInstance()
+			.scheduleGeneral(new DoorTask(new int[] {
+				20250006,
+				20250007
+			}, STATE_OPEN), 2000);
+		ThreadPoolManager.getInstance()
+			.scheduleGeneral(new DoorTask(new int[] {
+				20250778
+			}, STATE_CLOSE), 3000);
+		ThreadPoolManager.getInstance()
+			.scheduleGeneral(new DoorTask(new int[] {
+				20250777
+			}, STATE_CLOSE), 6000);
+		ThreadPoolManager.getInstance()
+			.scheduleGeneral(new DoorTask(new int[] {
+				20250009,
+				20250008
+			}, STATE_OPEN), 11000);
 	}
 	
 	private void handleDoorsOnRespawn() {
 		DoorData.getInstance().getDoor(20250009).closeMe();
 		DoorData.getInstance().getDoor(20250008).closeMe();
-		ThreadPoolManager.getInstance().scheduleGeneral(new DoorTask(new int[] {
-			20250777,
-			20250778
-		}, STATE_OPEN), 1000);
-		ThreadPoolManager.getInstance().scheduleGeneral(new DoorTask(new int[] {
-			20250005,
-			20250004,
-			20250006,
-			20250007
-		}, STATE_CLOSE), 4000);
+		ThreadPoolManager.getInstance()
+			.scheduleGeneral(new DoorTask(new int[] {
+				20250777,
+				20250778
+			}, STATE_OPEN), 1000);
+		ThreadPoolManager.getInstance()
+			.scheduleGeneral(new DoorTask(new int[] {
+				20250005,
+				20250004,
+				20250006,
+				20250007
+			}, STATE_CLOSE), 4000);
 	}
 	
 	private static class DoorTask implements Runnable {

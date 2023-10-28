@@ -36,12 +36,12 @@ public final class Q00286_FabulousFeathers extends Quest {
 	private static final QuestItemChanceHolder COMMANDERS_FEATHER = new QuestItemChanceHolder(9746, 80L);
 	// Droplists
 	private static final QuestDroplist DROPLIST = QuestDroplist.builder()
-			.addSingleDrop(22251, COMMANDERS_FEATHER, 74.8) // Shady Muertos Captain
-			.addSingleDrop(22253, COMMANDERS_FEATHER, 77.2) // Shady Muertos Warrior
-			.addSingleDrop(22254, COMMANDERS_FEATHER, 77.2) // Shady Muertos Archer
-			.addSingleDrop(22255, COMMANDERS_FEATHER, 79.6) // Shady Muertos Commander
-			.addSingleDrop(22256, COMMANDERS_FEATHER, 95.2) // Shady Muertos Wizard
-			.build();
+		.addSingleDrop(22251, COMMANDERS_FEATHER, 74.8) // Shady Muertos Captain
+		.addSingleDrop(22253, COMMANDERS_FEATHER, 77.2) // Shady Muertos Warrior
+		.addSingleDrop(22254, COMMANDERS_FEATHER, 77.2) // Shady Muertos Archer
+		.addSingleDrop(22255, COMMANDERS_FEATHER, 79.6) // Shady Muertos Commander
+		.addSingleDrop(22256, COMMANDERS_FEATHER, 95.2) // Shady Muertos Wizard
+		.build();
 	// Misc
 	private static final int MIN_LVL = 17;
 	
@@ -84,7 +84,7 @@ public final class Q00286_FabulousFeathers extends Quest {
 	@Override
 	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
 		final QuestState qs = getRandomPartyMemberState(killer, 1, 3, npc);
-		if (qs != null && giveItemRandomly(qs.getPlayer(), npc, DROPLIST.get(npc), true)) {
+		if ((qs != null) && giveItemRandomly(qs.getPlayer(), npc, DROPLIST.get(npc), true)) {
 			qs.setCond(2);
 		}
 		return super.onKill(npc, killer, isSummon);

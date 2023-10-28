@@ -141,14 +141,10 @@ public class Q00143_FallenAngelRequestOfDusk extends Quest {
 			case NATOOLS:
 				switch (st.getState()) {
 					case State.STARTED:
-						switch (st.getCond()) {
-							case 1:
-								htmltext = "30894-01.html";
-								break;
-							default:
-								htmltext = "30894-04.html";
-								break;
-						}
+						htmltext = switch (st.getCond()) {
+							case 1 -> "30894-01.html";
+							default -> "30894-04.html";
+						};
 						break;
 					case State.COMPLETED:
 						htmltext = getAlreadyCompletedMsg(player);
@@ -162,7 +158,7 @@ public class Q00143_FallenAngelRequestOfDusk extends Quest {
 							htmltext = "30297-01.html";
 							break;
 						case 2:
-							htmltext = (st.isSet("talk")) ? "30297-04.html" : "30297-02.html";
+							htmltext = st.isSet("talk") ? "30297-04.html" : "30297-02.html";
 							break;
 						case 3:
 						case 4:
@@ -181,18 +177,11 @@ public class Q00143_FallenAngelRequestOfDusk extends Quest {
 				break;
 			case CASIAN:
 				if (st.isStarted()) {
-					switch (st.getCond()) {
-						case 1:
-						case 2:
-							htmltext = "30612-01.html";
-							break;
-						case 3:
-							htmltext = (st.isSet("talk")) ? "30612-04.html" : "30612-02.html";
-							break;
-						default:
-							htmltext = "30612-10.html";
-							break;
-					}
+					htmltext = switch (st.getCond()) {
+						case 1, 2 -> "30612-01.html";
+						case 3 -> st.isSet("talk") ? "30612-04.html" : "30612-02.html";
+						default -> "30612-10.html";
+					};
 				}
 				break;
 			case ROCK:

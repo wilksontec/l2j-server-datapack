@@ -38,7 +38,7 @@ public final class InstantDespawn extends AbstractEffect {
 	
 	public InstantDespawn(Condition attachCond, Condition applyCond, StatsSet set, StatsSet params) {
 		super(attachCond, applyCond, set, params);
-		this.chance = params.getInt("chance", 0);
+		chance = params.getInt("chance", 0);
 	}
 	
 	@Override

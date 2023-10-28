@@ -183,8 +183,7 @@ public class AdminEditChar implements IAdminCommandHandler {
 				String val = command.substring(12);
 				int pk = Integer.parseInt(val);
 				L2Object target = activeChar.getTarget();
-				if (target instanceof L2PcInstance) {
-					L2PcInstance player = (L2PcInstance) target;
+				if (target instanceof L2PcInstance player) {
 					player.setPkKills(pk);
 					player.broadcastUserInfo();
 					player.sendPacket(new UserInfo(player));
@@ -205,8 +204,7 @@ public class AdminEditChar implements IAdminCommandHandler {
 				String val = command.substring(13);
 				int pvp = Integer.parseInt(val);
 				L2Object target = activeChar.getTarget();
-				if (target instanceof L2PcInstance) {
-					L2PcInstance player = (L2PcInstance) target;
+				if (target instanceof L2PcInstance player) {
 					player.setPvpKills(pvp);
 					player.broadcastUserInfo();
 					player.sendPacket(new UserInfo(player));
@@ -227,8 +225,7 @@ public class AdminEditChar implements IAdminCommandHandler {
 				String val = command.substring(14);
 				int fame = Integer.parseInt(val);
 				L2Object target = activeChar.getTarget();
-				if (target instanceof L2PcInstance) {
-					L2PcInstance player = (L2PcInstance) target;
+				if (target instanceof L2PcInstance player) {
 					player.setFame(fame);
 					player.broadcastUserInfo();
 					player.sendPacket(new UserInfo(player));
@@ -249,8 +246,7 @@ public class AdminEditChar implements IAdminCommandHandler {
 				String val = command.substring(10);
 				int recVal = Integer.parseInt(val);
 				L2Object target = activeChar.getTarget();
-				if (target instanceof L2PcInstance) {
-					L2PcInstance player = (L2PcInstance) target;
+				if (target instanceof L2PcInstance player) {
 					player.getRecSystem().setHave(recVal);
 					player.broadcastUserInfo();
 					player.sendPacket(new UserInfo(player));
@@ -404,8 +400,7 @@ public class AdminEditChar implements IAdminCommandHandler {
 			}
 		} else if (command.startsWith("admin_fullfood")) {
 			L2Object target = activeChar.getTarget();
-			if (target instanceof L2PetInstance) {
-				L2PetInstance targetPet = (L2PetInstance) target;
+			if (target instanceof L2PetInstance targetPet) {
 				targetPet.setCurrentFed(targetPet.getMaxFed());
 				targetPet.broadcastStatusUpdate();
 			} else {
@@ -527,8 +522,7 @@ public class AdminEditChar implements IAdminCommandHandler {
 			}
 		} else if (command.startsWith("admin_summon_setlvl")) {
 			L2Object target = activeChar.getTarget();
-			if (target instanceof L2PetInstance) {
-				L2PetInstance pet = (L2PetInstance) target;
+			if (target instanceof L2PetInstance pet) {
 				try {
 					String val = command.substring(20);
 					int level = Integer.parseInt(val);
@@ -660,9 +654,7 @@ public class AdminEditChar implements IAdminCommandHandler {
 		final NpcHtmlMessage html = new NpcHtmlMessage();
 		html.setFile(activeChar.getHtmlPrefix(), "data/html/admin/charlist.htm");
 		
-		final PageResult result = HtmlUtil.createPage(players, page, 20, i -> {
-			return "<td align=center><a action=\"bypass -h admin_show_characters " + i + "\">Page " + (i + 1) + "</a></td>";
-		}, player -> {
+		final PageResult result = HtmlUtil.createPage(players, page, 20, i -> ("<td align=center><a action=\"bypass -h admin_show_characters " + i + "\">Page " + (i + 1) + "</a></td>"), player -> {
 			StringBuilder sb = new StringBuilder();
 			sb.append("<tr>");
 			sb.append("<td width=80><a action=\"bypass -h admin_character_info " + player.getName() + "\">" + player.getName() + "</a></td>");
@@ -805,8 +797,7 @@ public class AdminEditChar implements IAdminCommandHandler {
 			target = activeChar.getTarget();
 		}
 		
-		if (target instanceof L2PcInstance) {
-			L2PcInstance player = (L2PcInstance) target;
+		if (target instanceof L2PcInstance player) {
 			gatherCharacterInfo(activeChar, player, "charedit.htm");
 		}
 	}
@@ -945,7 +936,7 @@ public class AdminEditChar implements IAdminCommandHandler {
 			
 			ip = client.getConnection().getInetAddress().getHostAddress();
 			if (ipMap.get(ip) == null) {
-				ipMap.put(ip, new ArrayList<L2PcInstance>());
+				ipMap.put(ip, new ArrayList<>());
 			}
 			ipMap.get(ip).add(player);
 			
@@ -988,7 +979,7 @@ public class AdminEditChar implements IAdminCommandHandler {
 			
 			IpPack pack = new IpPack(client.getConnection().getInetAddress().getHostAddress(), client.getTrace());
 			if (ipMap.get(pack) == null) {
-				ipMap.put(pack, new ArrayList<L2PcInstance>());
+				ipMap.put(pack, new ArrayList<>());
 			}
 			ipMap.get(pack).add(player);
 			

@@ -37,16 +37,19 @@ public final class Q00352_HelpRoodRaiseANewPet extends Quest {
 	private static final int LIENRIK_EGG2 = 5861;
 	// Droplist
 	private static final QuestDroplist DROPLIST = QuestDroplist.builder()
-			.addGroupedDrop(20786, 48.0) // lienrik
-				.withDropItem(LIENRIK_EGG1, 95.83)
-				.withDropItem(LIENRIK_EGG2, 4.17).build()
-			.addGroupedDrop(21644, 48.0) // lienrik_a
-				.withDropItem(LIENRIK_EGG1, 95.83)
-				.withDropItem(LIENRIK_EGG2, 4.17).build()
-			.addGroupedDrop(21645, 71.0) // lienrik_lad_a
-				.withDropItem(LIENRIK_EGG1, 97.18)
-				.withDropItem(LIENRIK_EGG2, 2.82).build()
-			.build();
+		.addGroupedDrop(20786, 48.0) // lienrik
+		.withDropItem(LIENRIK_EGG1, 95.83)
+		.withDropItem(LIENRIK_EGG2, 4.17)
+		.build()
+		.addGroupedDrop(21644, 48.0) // lienrik_a
+		.withDropItem(LIENRIK_EGG1, 95.83)
+		.withDropItem(LIENRIK_EGG2, 4.17)
+		.build()
+		.addGroupedDrop(21645, 71.0) // lienrik_lad_a
+		.withDropItem(LIENRIK_EGG1, 97.18)
+		.withDropItem(LIENRIK_EGG2, 2.82)
+		.build()
+		.build();
 	// Misc
 	private static final int MIN_LEVEL = 39;
 	
@@ -96,9 +99,9 @@ public final class Q00352_HelpRoodRaiseANewPet extends Quest {
 		if ((qs == null) || !Util.checkIfInRange(1500, npc, killer, true)) {
 			return null;
 		}
-
+		
 		giveItemRandomly(qs.getPlayer(), npc, DROPLIST.get(npc), true);
-
+		
 		return super.onKill(npc, killer, isSummon);
 	}
 	

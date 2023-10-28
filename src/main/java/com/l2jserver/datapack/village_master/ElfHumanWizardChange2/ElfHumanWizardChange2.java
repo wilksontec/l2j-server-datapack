@@ -92,7 +92,7 @@ public final class ElfHumanWizardChange2 extends AbstractNpcAI {
 			case "14":
 			case "27":
 			case "28": {
-				htmltext = ClassChangeRequested(player, Integer.valueOf(event));
+				htmltext = ClassChangeRequested(player, Integer.parseInt(event));
 				break;
 			}
 		}

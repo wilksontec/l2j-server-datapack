@@ -39,15 +39,15 @@ public class Q00631_DeliciousTopChoiceMeat extends Quest {
 	private static final QuestItemChanceHolder PRIME_MEAT = new QuestItemChanceHolder(15534, 120L);
 	// Droplist
 	private static final QuestDroplist DROPLIST = QuestDroplist.builder()
-			.addSingleDrop(18878, PRIME_MEAT, 17.2) // Full Grown Kookaburra
-			.addSingleDrop(18879, PRIME_MEAT, 33.4) // Full Grown Kookaburra
-			.addSingleDrop(18885, PRIME_MEAT, 17.2) // Full Grown Cougar
-			.addSingleDrop(18886, PRIME_MEAT, 33.4) // Full Grown Cougar
-			.addSingleDrop(18892, PRIME_MEAT, 18.2) // Full Grown Buffalo
-			.addSingleDrop(18893, PRIME_MEAT, 34.9) // Full Grown Buffalo
-			.addSingleDrop(18899, PRIME_MEAT, 18.2) // Full Grown Grendel
-			.addSingleDrop(18900, PRIME_MEAT, 34.9) // Full Grown Grendel
-			.build();
+		.addSingleDrop(18878, PRIME_MEAT, 17.2) // Full Grown Kookaburra
+		.addSingleDrop(18879, PRIME_MEAT, 33.4) // Full Grown Kookaburra
+		.addSingleDrop(18885, PRIME_MEAT, 17.2) // Full Grown Cougar
+		.addSingleDrop(18886, PRIME_MEAT, 33.4) // Full Grown Cougar
+		.addSingleDrop(18892, PRIME_MEAT, 18.2) // Full Grown Buffalo
+		.addSingleDrop(18893, PRIME_MEAT, 34.9) // Full Grown Buffalo
+		.addSingleDrop(18899, PRIME_MEAT, 18.2) // Full Grown Grendel
+		.addSingleDrop(18900, PRIME_MEAT, 34.9) // Full Grown Grendel
+		.build();
 	// Rewards
 	private static final int[] RECIPE = {
 		10373, // Recipe - Icarus Sawsword (60%)

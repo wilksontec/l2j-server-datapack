@@ -41,22 +41,22 @@ public class UniqueBufflist extends LinkedList<BuffSkill> {
 	public UniqueBufflist(int ulistId, String ulistName) {
 		this.ulistId = ulistId;
 		this.ulistName = ulistName;
-		this.numBuffs = 0;
-		this.numSongsDances = 0;
-		this.placeholder = new HTMLTemplatePlaceholder("unique", null).addChild("buffs", null).addChild("name", ulistName).addChild("num_buffs", "0").addChild("num_songs_dances", "0");
+		numBuffs = 0;
+		numSongsDances = 0;
+		placeholder = new HTMLTemplatePlaceholder("unique", null).addChild("buffs", null).addChild("name", ulistName).addChild("num_buffs", "0").addChild("num_songs_dances", "0");
 	}
 	
 	@Override
 	public boolean add(BuffSkill e) {
 		if (super.add(e)) {
 			if (e.getType() == BuffType.BUFF) {
-				++this.numBuffs;
-				this.placeholder.getChild("num_buffs").setValue(String.valueOf(Integer.parseInt(this.placeholder.getChild("num_buffs").getValue()) + 1));
+				++numBuffs;
+				placeholder.getChild("num_buffs").setValue(String.valueOf(Integer.parseInt(placeholder.getChild("num_buffs").getValue()) + 1));
 			} else {
-				++this.numSongsDances;
-				this.placeholder.getChild("num_songs_dances").setValue(String.valueOf(Integer.parseInt(this.placeholder.getChild("num_songs_dances").getValue()) + 1));
+				++numSongsDances;
+				placeholder.getChild("num_songs_dances").setValue(String.valueOf(Integer.parseInt(placeholder.getChild("num_songs_dances").getValue()) + 1));
 			}
-			this.placeholder.getChild("buffs").addAliasChild(e.getId(), e.getPlaceholder());
+			placeholder.getChild("buffs").addAliasChild(e.getId(), e.getPlaceholder());
 			return true;
 		}
 		
@@ -75,9 +75,9 @@ public class UniqueBufflist extends LinkedList<BuffSkill> {
 					break;
 			}
 			
-			this.placeholder = new HTMLTemplatePlaceholder("unique", null).addChild("buffs", null).addChild("name", this.ulistName).addChild("num_buffs", String.valueOf(numBuffs)).addChild("num_songs_dances", String.valueOf(numSongsDances));
+			placeholder = new HTMLTemplatePlaceholder("unique", null).addChild("buffs", null).addChild("name", ulistName).addChild("num_buffs", String.valueOf(numBuffs)).addChild("num_songs_dances", String.valueOf(numSongsDances));
 			for (BuffSkill buff : this) {
-				this.placeholder.getChild("buffs").addAliasChild(buff.getId(), buff.getPlaceholder());
+				placeholder.getChild("buffs").addAliasChild(buff.getId(), buff.getPlaceholder());
 			}
 			return true;
 		}

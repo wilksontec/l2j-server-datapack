@@ -38,14 +38,17 @@ public class Q00642_APowerfulPrimevalCreature extends Quest {
 	private static final int DINOSAUR_EGG = 8775;
 	// Droplist
 	private static final QuestDroplist DROPLIST = QuestDroplist.builder()
-			.bulkAddSingleDrop(DINOSAUR_TISSUE, 30.9)
-				.withNpcs(22196, 22197, 22198, 22199, 22218, 22223).build() // Velociraptor, Pterosaur
-			.bulkAddSingleDrop(DINOSAUR_TISSUE, 98.8).withNpcs(22215, 22216, 22217).build() // Tyrannosaurus
-			.addSingleDrop(ANCIENT_EGG, DINOSAUR_EGG) // Ancient Egg
-			.build();
+		.bulkAddSingleDrop(DINOSAUR_TISSUE, 30.9)
+		.withNpcs(22196, 22197, 22198, 22199, 22218, 22223)
+		.build() // Velociraptor, Pterosaur
+		.bulkAddSingleDrop(DINOSAUR_TISSUE, 98.8)
+		.withNpcs(22215, 22216, 22217)
+		.build() // Tyrannosaurus
+		.addSingleDrop(ANCIENT_EGG, DINOSAUR_EGG) // Ancient Egg
+		.build();
 	// Misc
 	private static final int MIN_LEVEL = 75;
-
+	
 	public Q00642_APowerfulPrimevalCreature() {
 		super(642, Q00642_APowerfulPrimevalCreature.class.getSimpleName(), "A Powerful Primeval Creature");
 		addStartNpc(DINN);
@@ -102,7 +105,7 @@ public class Q00642_APowerfulPrimevalCreature extends Quest {
 		if (qs != null) {
 			giveItemRandomly(qs.getPlayer(), npc, DROPLIST.get(npc), true);
 		}
-
+		
 		return super.onKill(npc, killer, isSummon);
 	}
 	

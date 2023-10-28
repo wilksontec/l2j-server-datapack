@@ -102,16 +102,11 @@ public final class CastleMercenaryManager extends AbstractNpcAI {
 			if (npc.getCastle().getSiege().isInProgress()) {
 				htmltext = "mercmanager-siege.html";
 			} else {
-				switch (SevenSigns.getInstance().getSealOwner(SevenSigns.SEAL_STRIFE)) {
-					case SevenSigns.CABAL_DUSK:
-						htmltext = "mercmanager-dusk.html";
-						break;
-					case SevenSigns.CABAL_DAWN:
-						htmltext = "mercmanager-dawn.html";
-						break;
-					default:
-						htmltext = "mercmanager.html";
-				}
+				htmltext = switch (SevenSigns.getInstance().getSealOwner(SevenSigns.SEAL_STRIFE)) {
+					case SevenSigns.CABAL_DUSK -> "mercmanager-dusk.html";
+					case SevenSigns.CABAL_DAWN -> "mercmanager-dawn.html";
+					default -> "mercmanager.html";
+				};
 			}
 		} else {
 			htmltext = "mercmanager-no.html";

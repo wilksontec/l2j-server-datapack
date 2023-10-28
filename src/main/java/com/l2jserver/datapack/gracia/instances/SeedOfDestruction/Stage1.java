@@ -76,7 +76,7 @@ import com.l2jserver.gameserver.util.Util;
  * @author Gigiikun
  */
 public final class Stage1 extends AbstractInstance {
-	protected class SOD1World extends InstanceWorld {
+	protected static class SOD1World extends InstanceWorld {
 		protected List<L2PcInstance> playersInside = new ArrayList<>();
 		protected Map<L2Npc, Boolean> npcList = new HashMap<>();
 		protected int deviceSpawnedMobCount = 0;
@@ -254,7 +254,7 @@ public final class Stage1 extends AbstractInstance {
 								}
 								int flag = Integer.parseInt(attrs.getNamedItem("flag").getNodeValue());
 								if (!_spawnList.containsKey(flag)) {
-									_spawnList.put(flag, new ArrayList<SODSpawn>());
+									_spawnList.put(flag, new ArrayList<>());
 								}
 								
 								for (Node cd = d.getFirstChild(); cd != null; cd = cd.getNextSibling()) {
@@ -614,10 +614,9 @@ public final class Stage1 extends AbstractInstance {
 	
 	@Override
 	public String onAggroRangeEnter(L2Npc npc, L2PcInstance player, boolean isSummon) {
-		if ((isSummon == false) && (player != null)) {
+		if (!isSummon && (player != null)) {
 			InstanceWorld tmpworld = InstanceManager.getInstance().getWorld(player.getInstanceId());
-			if (tmpworld instanceof SOD1World) {
-				SOD1World world = (SOD1World) tmpworld;
+			if (tmpworld instanceof SOD1World world) {
 				if (world.getStatus() == 7) {
 					if (spawnState(world)) {
 						for (int objId : world.getAllowed()) {
@@ -637,8 +636,7 @@ public final class Stage1 extends AbstractInstance {
 	@Override
 	public String onAttack(L2Npc npc, L2PcInstance attacker, int damage, boolean isSummon, Skill skill) {
 		InstanceWorld tmpworld = InstanceManager.getInstance().getWorld(npc.getInstanceId());
-		if (tmpworld instanceof SOD1World) {
-			SOD1World world = (SOD1World) tmpworld;
+		if (tmpworld instanceof SOD1World world) {
 			if ((world.getStatus() == 2) && (npc.getId() == OBELISK)) {
 				world.setStatus(4);
 				spawnFlaggedNPCs(world, 3);
@@ -659,8 +657,7 @@ public final class Stage1 extends AbstractInstance {
 	@Override
 	public String onAdvEvent(String event, L2Npc npc, L2PcInstance player) {
 		InstanceWorld tmpworld = InstanceManager.getInstance().getWorld(npc.getInstanceId());
-		if (tmpworld instanceof SOD1World) {
-			SOD1World world = (SOD1World) tmpworld;
+		if (tmpworld instanceof SOD1World world) {
 			if (event.equalsIgnoreCase("Spawn")) {
 				L2PcInstance target = L2World.getInstance().getPlayer(world.getAllowed().get(getRandom(world.getAllowed().size())));
 				if ((world.deviceSpawnedMobCount < MAX_DEVICESPAWNEDMOBCOUNT) && (target != null) && (target.getInstanceId() == npc.getInstanceId()) && !target.isDead()) {
@@ -711,8 +708,7 @@ public final class Stage1 extends AbstractInstance {
 			return "";
 		}
 		InstanceWorld tmpworld = InstanceManager.getInstance().getWorld(npc.getInstanceId());
-		if (tmpworld instanceof SOD1World) {
-			SOD1World world = (SOD1World) tmpworld;
+		if (tmpworld instanceof SOD1World world) {
 			if (world.getStatus() == 1) {
 				if (checkKillProgress(npc, world)) {
 					spawnState(world);
@@ -774,8 +770,7 @@ public final class Stage1 extends AbstractInstance {
 	@Override
 	public String onTrapAction(L2TrapInstance trap, L2Character trigger, TrapAction action) {
 		InstanceWorld tmpworld = InstanceManager.getInstance().getWorld(trap.getInstanceId());
-		if (tmpworld instanceof SOD1World) {
-			SOD1World world = (SOD1World) tmpworld;
+		if (tmpworld instanceof SOD1World world) {
 			switch (action) {
 				case TRAP_TRIGGERED:
 					if (trap.getId() == 18771) {

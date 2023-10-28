@@ -18,6 +18,10 @@
  */
 package com.l2jserver.datapack.quests.Q00335_TheSongOfTheHunter;
 
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
+
 import com.l2jserver.gameserver.enums.audio.Sound;
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
@@ -27,10 +31,6 @@ import com.l2jserver.gameserver.model.quest.QuestState;
 import com.l2jserver.gameserver.network.NpcStringId;
 import com.l2jserver.gameserver.network.clientpackets.Say2;
 import com.l2jserver.gameserver.network.serverpackets.CreatureSay;
-
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * The Song of the Hunter (335)
@@ -465,8 +465,12 @@ public class Q00335_TheSongOfTheHunter extends Quest {
 					}
 					
 					if (hasQuestItems(player, TEST_INSTRUCTIONS_2)) {
-						final long count = Arrays.asList(getQuestItemsCount(player, TIMAK_ORC_TOTEM) >= 20, getQuestItemsCount(player, TRISALIM_SILK) >= 20, getQuestItemsCount(player, AMBROSIUS_FRUIT) >= 30, getQuestItemsCount(player, BALEFIRE_CRYSTAL) >= 20, getQuestItemsCount(player, IMPERIAL_ARROWHEAD) >= 20, ((getQuestItemsCount(player, ATHUS_HEAD)
-							+ getQuestItemsCount(player, LANKAS_HEAD) + getQuestItemsCount(player, TRISKAS_HEAD) + getQuestItemsCount(player, MOTURAS_HEAD) + getQuestItemsCount(player, KALATHS_HEAD)) >= 5)).stream().filter(b -> b).count();
+						final long count = Arrays
+							.asList(getQuestItemsCount(player, TIMAK_ORC_TOTEM) >= 20, getQuestItemsCount(player, TRISALIM_SILK) >= 20, getQuestItemsCount(player, AMBROSIUS_FRUIT) >= 30, getQuestItemsCount(player, BALEFIRE_CRYSTAL) >= 20, getQuestItemsCount(player, IMPERIAL_ARROWHEAD) >= 20, ((getQuestItemsCount(player, ATHUS_HEAD)
+								+ getQuestItemsCount(player, LANKAS_HEAD) + getQuestItemsCount(player, TRISKAS_HEAD) + getQuestItemsCount(player, MOTURAS_HEAD) + getQuestItemsCount(player, KALATHS_HEAD)) >= 5))
+							.stream()
+							.filter(b -> b)
+							.count();
 						if (count < 3) {
 							htmltext = "30744-11.html";
 						} else {

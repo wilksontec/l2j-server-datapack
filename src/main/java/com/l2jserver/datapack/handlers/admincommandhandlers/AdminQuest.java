@@ -101,7 +101,7 @@ public class AdminQuest implements IAdminCommandHandler {
 				if (!file.exists()) {
 					Quest quest = QuestManager.getInstance().getQuest(parts[1]);
 					if (quest != null) {
-						file = new File(server().getScriptRoot(), "com/l2jserver/datapack/" + quest.getClass().getName().replaceAll("\\.", "/") + ".java");
+						file = new File(server().getScriptRoot(), "com/l2jserver/datapack/" + quest.getClass().getName().replace('.', '/') + ".java");
 					}
 				}
 				
@@ -234,7 +234,7 @@ public class AdminQuest implements IAdminCommandHandler {
 			sb.append("<tr><td colspan=\"4\"><table width=270 border=0 bgcolor=131210><tr><td width=270><font color=\"LEVEL\">ID:</font> <font color=00FF00>" + quest.getId() + "</font></td></tr></table></td></tr>");
 			sb.append("<tr><td colspan=\"4\"><table width=270 border=0 bgcolor=131210><tr><td width=270><font color=\"LEVEL\">Name:</font> <font color=00FF00>" + quest.getName() + "</font></td></tr></table></td></tr>");
 			sb.append("<tr><td colspan=\"4\"><table width=270 border=0 bgcolor=131210><tr><td width=270><font color=\"LEVEL\">Descr:</font> <font color=00FF00>" + quest.getDescr() + "</font></td></tr></table></td></tr>");
-			sb.append("<tr><td colspan=\"4\"><table width=270 border=0 bgcolor=131210><tr><td width=270><font color=\"LEVEL\">Path:</font> <font color=00FF00>" + quest.getClass().getName().substring(0, quest.getClass().getName().lastIndexOf('.')).replaceAll("\\.", "/")
+			sb.append("<tr><td colspan=\"4\"><table width=270 border=0 bgcolor=131210><tr><td width=270><font color=\"LEVEL\">Path:</font> <font color=00FF00>" + quest.getClass().getName().substring(0, quest.getClass().getName().lastIndexOf('.')).replace('.', '/')
 				+ "</font></td></tr></table></td></tr>");
 			sb.append("<tr><td colspan=\"4\"><table width=270 border=0 bgcolor=131210><tr><td width=270><font color=\"LEVEL\">Events:</font> <font color=00FF00>" + events + "</font></td></tr></table></td></tr>");
 			if (!npcs.isEmpty()) {

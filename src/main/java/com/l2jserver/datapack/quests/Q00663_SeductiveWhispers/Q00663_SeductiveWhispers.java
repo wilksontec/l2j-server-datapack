@@ -262,7 +262,7 @@ public class Q00663_SeductiveWhispers extends Quest {
 							qs.setMemoStateEx(1, card2pic);
 							htmltext = getHtml(player, "30846-12.html", card1pic, card2pic, winCount, -1);
 						}
-					} else if (rdn1 != i2) {
+					} else {
 						if ((rdn2 == 5) || (i1 == 5)) {
 							if (((qs.getMemoState() % 100) / 10) >= 7) {
 								giveAdena(player, 2384000, true);
@@ -302,7 +302,7 @@ public class Q00663_SeductiveWhispers extends Quest {
 							qs.setMemoStateEx(1, card2pic);
 							htmltext = getHtml(player, "30846-18.html", card1pic, card2pic, -1, -1);
 						}
-					} else if (rnd1 != i2) {
+					} else {
 						if ((rnd2 == 5) || (i1 == 5)) {
 							qs.setMemoState(1);
 							htmltext = getHtml(player, "30846-19.html", card1pic, card2pic, -1, -1);
@@ -468,7 +468,7 @@ public class Q00663_SeductiveWhispers extends Quest {
 							qs.setMemoStateEx(1, card2pic);
 							htmltext = getHtml(player, "30846-24.html", card1pic, card2pic, -1, -1);
 						}
-					} else if (rnd1 != i2) {
+					} else {
 						if ((rnd2 == 5) || (card1 == 5)) {
 							qs.setMemoState(1);
 							qs.setMemoStateEx(1, 0);
@@ -502,7 +502,7 @@ public class Q00663_SeductiveWhispers extends Quest {
 							qs.setMemoStateEx(1, card2pic);
 							htmltext = getHtml(player, "30846-28.html", card1pic, card2pic, 0, -1);
 						}
-					} else if (rnd1 != i2) {
+					} else {
 						if ((rnd2 == 5) || (i1 == 5)) {
 							qs.setMemoState(1);
 							qs.setMemoStateEx(1, 0);

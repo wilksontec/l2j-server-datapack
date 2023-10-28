@@ -48,17 +48,65 @@ public final class Q00325_GrimCollector extends Quest {
 	private static final int COMPLETE_SKELETON = 1358;
 	// Droplist
 	private static final QuestDroplist DROPLIST = QuestDroplist.builder()
-			.addGroupedDrop(20026, 75.0).withDropItem(ZOMBIE_HEAD, 40.0).withDropItem(ZOMBIE_HEART, 26.67).withDropItem(ZOMBIE_LIVER, 33.33).build()
-			.addGroupedDrop(20029, 75.0).withDropItem(ZOMBIE_HEAD, 40.0).withDropItem(ZOMBIE_HEART, 29.33).withDropItem(ZOMBIE_LIVER, 30.67).build()
-			.addGroupedDrop(20035, 79.0).withDropItem(SKULL, 6.33).withDropItem(RIB_BONE, 12.65).withDropItem(SPINE, 17.72).withDropItem(THIGH_BONE, 63.30).build()
-			.addGroupedDrop(20042, 86.0).withDropItem(SKULL, 6.97).withDropItem(RIB_BONE, 15.12).withDropItem(ARM_BONE, 58.15).withDropItem(THIGH_BONE, 19.76).build()
-			.addGroupedDrop(20045, 97.0).withDropItem(SKULL, 9.28).withDropItem(SPINE, 51.55).withDropItem(ARM_BONE, 18.55).withDropItem(THIGH_BONE, 20.62).build()
-			.addGroupedDrop(20051, 100.0).withDropItem(SKULL, 9.0).withDropItem(RIB_BONE, 50.0).withDropItem(SPINE, 20.0).withDropItem(ARM_BONE, 21.0).build()
-			.addGroupedDrop(20457, 80.0).withDropItem(ZOMBIE_HEAD, 50.0).withDropItem(ZOMBIE_HEART, 25.0).withDropItem(ZOMBIE_LIVER, 25.0).build()
-			.addGroupedDrop(20458, 100.0).withDropItem(ZOMBIE_HEAD, 40.0).withDropItem(ZOMBIE_HEART, 30.0).withDropItem(ZOMBIE_LIVER, 30.0).build()
-			.addGroupedDrop(20514, 64.0).withDropItem(SKULL, 9.37).withDropItem(RIB_BONE, 23.43).withDropItem(SPINE, 14.07).withDropItem(ARM_BONE, 1.57).withDropItem(THIGH_BONE, 51.56).build()
-			.addGroupedDrop(20515, 69.0).withDropItem(SKULL, 7.24).withDropItem(RIB_BONE, 21.74).withDropItem(SPINE, 15.94).withDropItem(ARM_BONE, 2.90).withDropItem(THIGH_BONE, 52.18).build()
-			.build();
+		.addGroupedDrop(20026, 75.0)
+		.withDropItem(ZOMBIE_HEAD, 40.0)
+		.withDropItem(ZOMBIE_HEART, 26.67)
+		.withDropItem(ZOMBIE_LIVER, 33.33)
+		.build()
+		.addGroupedDrop(20029, 75.0)
+		.withDropItem(ZOMBIE_HEAD, 40.0)
+		.withDropItem(ZOMBIE_HEART, 29.33)
+		.withDropItem(ZOMBIE_LIVER, 30.67)
+		.build()
+		.addGroupedDrop(20035, 79.0)
+		.withDropItem(SKULL, 6.33)
+		.withDropItem(RIB_BONE, 12.65)
+		.withDropItem(SPINE, 17.72)
+		.withDropItem(THIGH_BONE, 63.30)
+		.build()
+		.addGroupedDrop(20042, 86.0)
+		.withDropItem(SKULL, 6.97)
+		.withDropItem(RIB_BONE, 15.12)
+		.withDropItem(ARM_BONE, 58.15)
+		.withDropItem(THIGH_BONE, 19.76)
+		.build()
+		.addGroupedDrop(20045, 97.0)
+		.withDropItem(SKULL, 9.28)
+		.withDropItem(SPINE, 51.55)
+		.withDropItem(ARM_BONE, 18.55)
+		.withDropItem(THIGH_BONE, 20.62)
+		.build()
+		.addGroupedDrop(20051, 100.0)
+		.withDropItem(SKULL, 9.0)
+		.withDropItem(RIB_BONE, 50.0)
+		.withDropItem(SPINE, 20.0)
+		.withDropItem(ARM_BONE, 21.0)
+		.build()
+		.addGroupedDrop(20457, 80.0)
+		.withDropItem(ZOMBIE_HEAD, 50.0)
+		.withDropItem(ZOMBIE_HEART, 25.0)
+		.withDropItem(ZOMBIE_LIVER, 25.0)
+		.build()
+		.addGroupedDrop(20458, 100.0)
+		.withDropItem(ZOMBIE_HEAD, 40.0)
+		.withDropItem(ZOMBIE_HEART, 30.0)
+		.withDropItem(ZOMBIE_LIVER, 30.0)
+		.build()
+		.addGroupedDrop(20514, 64.0)
+		.withDropItem(SKULL, 9.37)
+		.withDropItem(RIB_BONE, 23.43)
+		.withDropItem(SPINE, 14.07)
+		.withDropItem(ARM_BONE, 1.57)
+		.withDropItem(THIGH_BONE, 51.56)
+		.build()
+		.addGroupedDrop(20515, 69.0)
+		.withDropItem(SKULL, 7.24)
+		.withDropItem(RIB_BONE, 21.74)
+		.withDropItem(SPINE, 15.94)
+		.withDropItem(ARM_BONE, 2.90)
+		.withDropItem(THIGH_BONE, 52.18)
+		.build()
+		.build();
 	// Misc
 	private static final int MIN_LEVEL = 15;
 	
@@ -167,9 +215,9 @@ public final class Q00325_GrimCollector extends Quest {
 		if (!Util.checkIfInRange(1500, killer, npc, true) || !qs.hasQuestItems(ANATOMY_DIAGRAM)) {
 			return super.onKill(npc, killer, isSummon);
 		}
-
+		
 		giveItemRandomly(qs.getPlayer(), npc, DROPLIST.get(npc), true);
-
+		
 		return super.onKill(npc, killer, isSummon);
 	}
 	

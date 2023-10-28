@@ -18,6 +18,12 @@
  */
 package com.l2jserver.datapack.instances.ChambersOfDelusion;
 
+import static com.l2jserver.gameserver.config.Configuration.rates;
+
+import java.util.Calendar;
+import java.util.concurrent.ScheduledFuture;
+import java.util.logging.Level;
+
 import com.l2jserver.datapack.instances.AbstractInstance;
 import com.l2jserver.gameserver.ThreadPoolManager;
 import com.l2jserver.gameserver.ai.CtrlIntention;
@@ -40,12 +46,6 @@ import com.l2jserver.gameserver.network.serverpackets.Earthquake;
 import com.l2jserver.gameserver.network.serverpackets.NpcSay;
 import com.l2jserver.gameserver.network.serverpackets.SystemMessage;
 import com.l2jserver.gameserver.util.Util;
-
-import java.util.Calendar;
-import java.util.concurrent.ScheduledFuture;
-import java.util.logging.Level;
-
-import static com.l2jserver.gameserver.config.Configuration.rates;
 
 /**
  * Chambers of Delusion superclass.
@@ -386,9 +386,7 @@ public abstract class Chamber extends AbstractInstance {
 		String htmltext = "";
 		final InstanceWorld tmpworld = InstanceManager.getInstance().getWorld(npc.getInstanceId());
 		
-		if ((player != null) && (tmpworld != null) && (tmpworld instanceof CDWorld) && (npc.getId() >= ROOM_GATEKEEPER_FIRST) && (npc.getId() <= ROOM_GATEKEEPER_LAST)) {
-			final CDWorld world = (CDWorld) tmpworld;
-			
+		if ((player != null) && (tmpworld != null) && (tmpworld instanceof CDWorld world) && (npc.getId() >= ROOM_GATEKEEPER_FIRST) && (npc.getId() <= ROOM_GATEKEEPER_LAST)) {
 			// Change room from dialog
 			if (event.equals("next_room")) {
 				if (player.getParty() == null) {
@@ -439,18 +437,18 @@ public abstract class Chamber extends AbstractInstance {
 	public String onAttack(final L2Npc npc, final L2PcInstance attacker, final int damage, final boolean isPet, final Skill skill) {
 		if (!npc.isBusy() && (npc.getCurrentHp() < (npc.getMaxHp() / 10))) {
 			npc.setBusy(true);
-			if (getRandom(100) < 25 * rates().getQuestDropChanceMultiplier()) // 25% chance to reward
+			if (getRandom(100) < (25 * rates().getQuestDropChanceMultiplier())) // 25% chance to reward
 			{
-				if (getRandom(100) < 33 * rates().getQuestDropChanceMultiplier()) {
+				if (getRandom(100) < (33 * rates().getQuestDropChanceMultiplier())) {
 					npc.dropItem(attacker, ENRIA, (int) (3 * rates().getQuestDropAmountMultiplier()));
 				}
-				if (getRandom(100) < 50 * rates().getQuestDropChanceMultiplier()) {
+				if (getRandom(100) < (50 * rates().getQuestDropChanceMultiplier())) {
 					npc.dropItem(attacker, THONS, (int) (4 * rates().getQuestDropAmountMultiplier()));
 				}
-				if (getRandom(100) < 50 * rates().getQuestDropChanceMultiplier()) {
+				if (getRandom(100) < (50 * rates().getQuestDropChanceMultiplier())) {
 					npc.dropItem(attacker, ASOFE, (int) (4 * rates().getQuestDropAmountMultiplier()));
 				}
-				if (getRandom(100) < 16 * rates().getQuestDropChanceMultiplier()) {
+				if (getRandom(100) < (16 * rates().getQuestDropChanceMultiplier())) {
 					npc.dropItem(attacker, LEONARD, (int) (2 * rates().getQuestDropAmountMultiplier()));
 				}
 				
@@ -483,8 +481,7 @@ public abstract class Chamber extends AbstractInstance {
 	@Override
 	public String onKill(L2Npc npc, L2PcInstance player, boolean isPet) {
 		final InstanceWorld tmpworld = InstanceManager.getInstance().getPlayerWorld(player);
-		if ((tmpworld != null) && (tmpworld instanceof CDWorld)) {
-			final CDWorld world = (CDWorld) tmpworld;
+		if ((tmpworld != null) && (tmpworld instanceof CDWorld world)) {
 			final Instance inst = InstanceManager.getInstance().getInstance(world.getInstanceId());
 			
 			if (isBigChamber()) {

@@ -143,40 +143,20 @@ public final class KetraOrcSupport extends AbstractNpcAI {
 				htmltext = (AllianceLevel > 0) ? (AllianceLevel == 1) ? "31374-01.html" : "31374-02.html" : "31374-no.html";
 				break;
 			case JUMARA:
-				switch (AllianceLevel) {
-					case 1:
-					case 2:
-						htmltext = "31375-01.html";
-						break;
-					case 3:
-					case 4:
-						htmltext = "31375-02.html";
-						break;
-					case 5:
-						htmltext = "31375-03.html";
-						break;
-					default:
-						htmltext = "31375-no.html";
-						break;
-				}
+				htmltext = switch (AllianceLevel) {
+					case 1, 2 -> "31375-01.html";
+					case 3, 4 -> "31375-02.html";
+					case 5 -> "31375-03.html";
+					default -> "31375-no.html";
+				};
 				break;
 			case KURFA:
-				switch (AllianceLevel) {
-					case 1:
-					case 2:
-					case 3:
-						htmltext = "31376-01.html";
-						break;
-					case 4:
-						htmltext = "31376-02.html";
-						break;
-					case 5:
-						htmltext = "31376-03.html";
-						break;
-					default:
-						htmltext = "31376-no.html";
-						break;
-				}
+				htmltext = switch (AllianceLevel) {
+					case 1, 2, 3 -> "31376-01.html";
+					case 4 -> "31376-02.html";
+					case 5 -> "31376-03.html";
+					default -> "31376-no.html";
+				};
 				break;
 		}
 		return htmltext;

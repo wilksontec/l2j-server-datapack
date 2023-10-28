@@ -41,7 +41,7 @@ import com.l2jserver.gameserver.util.Util;
  * @since 2.6.0.0
  */
 public final class CastleDungeon extends AbstractInstance {
-	protected class CDWorld extends InstanceWorld {
+	protected static class CDWorld extends InstanceWorld {
 		
 	}
 	
@@ -133,8 +133,7 @@ public final class CastleDungeon extends AbstractInstance {
 	@Override
 	public String onKill(L2Npc npc, L2PcInstance player, boolean isSummon) {
 		InstanceWorld tmpworld = InstanceManager.getInstance().getWorld(npc.getInstanceId());
-		if (tmpworld instanceof CDWorld) {
-			CDWorld world = (CDWorld) tmpworld;
+		if (tmpworld instanceof CDWorld world) {
 			if (Util.contains(RAIDS3, npc.getId())) {
 				finishInstance(world);
 			} else {

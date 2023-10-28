@@ -18,6 +18,9 @@
  */
 package com.l2jserver.datapack.quests.Q00501_ProofOfClanAlliance;
 
+import java.util.Arrays;
+import java.util.List;
+
 import com.l2jserver.gameserver.model.L2Clan;
 import com.l2jserver.gameserver.model.Location;
 import com.l2jserver.gameserver.model.actor.L2Character;
@@ -34,9 +37,6 @@ import com.l2jserver.gameserver.model.skills.AbnormalType;
 import com.l2jserver.gameserver.network.NpcStringId;
 import com.l2jserver.gameserver.network.clientpackets.Say2;
 import com.l2jserver.gameserver.network.serverpackets.NpcSay;
-
-import java.util.Arrays;
-import java.util.List;
 
 /**
  * Proof of Clan Alliance (501)
@@ -70,10 +70,10 @@ public final class Q00501_ProofOfClanAlliance extends Quest {
 	private static final QuestItemChanceHolder HERB_OF_OEL_MAHUM = new QuestItemChanceHolder(3834, 10.0);
 	// Droplist
 	private static final QuestDroplist DROPLIST = QuestDroplist.builder()
-			.addSingleDrop(OEL_MAHUM_WITCH_DOCTOR, HERB_OF_OEL_MAHUM)
-			.addSingleDrop(HARIT_LIZARDMAN_SHAMAN, HERB_OF_HARIT)
-			.addSingleDrop(VANOR_SILENOS_SHAMAN, HERB_OF_VANOR)
-			.build();
+		.addSingleDrop(OEL_MAHUM_WITCH_DOCTOR, HERB_OF_OEL_MAHUM)
+		.addSingleDrop(HARIT_LIZARDMAN_SHAMAN, HERB_OF_HARIT)
+		.addSingleDrop(VANOR_SILENOS_SHAMAN, HERB_OF_VANOR)
+		.build();
 	// Skills
 	private static final SkillHolder POISON_OF_DEATH = new SkillHolder(4082);
 	private static final SkillHolder DIE_YOU_FOOL = new SkillHolder(4083);

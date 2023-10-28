@@ -133,7 +133,7 @@ public final class Race extends Event {
 		Broadcast.toAllOnlinePlayers("Visit Event Manager in Dion village and signup, you have " + TIME_REGISTER + " min before Race Start...");
 		
 		// Schedule Event end
-		_eventTask = ThreadPoolManager.getInstance().scheduleGeneral(() -> StartRace(), TIME_REGISTER * 60 * 1000);
+		_eventTask = ThreadPoolManager.getInstance().scheduleGeneral(this::StartRace, TIME_REGISTER * 60 * 1000);
 		
 		return true;
 		
@@ -169,7 +169,7 @@ public final class Race extends Event {
 			}
 		}
 		// Schedule timeup for Race
-		_eventTask = ThreadPoolManager.getInstance().scheduleGeneral(() -> timeUp(), TIME_RACE * 60 * 1000);
+		_eventTask = ThreadPoolManager.getInstance().scheduleGeneral(this::timeUp, TIME_RACE * 60 * 1000);
 	}
 	
 	@Override
@@ -214,7 +214,7 @@ public final class Race extends Event {
 			if (_isRaceStarted) {
 				activeChar.sendMessage("Race already started, you cannot change transform skill now");
 			} else {
-				int _number = Integer.valueOf(bypass.substring(5));
+				int _number = Integer.parseInt(bypass.substring(5));
 				Skill _sk = SkillData.getInstance().getSkill(_number, 1);
 				if (_sk != null) {
 					_skill = _number;

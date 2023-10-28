@@ -36,7 +36,7 @@ import com.l2jserver.gameserver.util.Util;
  * @author GKR
  */
 public final class DemonPrinceFloor extends AbstractInstance {
-	protected class DPFWorld extends InstanceWorld {
+	protected static class DPFWorld extends InstanceWorld {
 		
 	}
 	

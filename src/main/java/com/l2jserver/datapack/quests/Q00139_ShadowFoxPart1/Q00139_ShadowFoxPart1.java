@@ -18,14 +18,14 @@
  */
 package com.l2jserver.datapack.quests.Q00139_ShadowFoxPart1;
 
+import static com.l2jserver.gameserver.model.quest.QuestDroplist.singleDropItem;
+
 import com.l2jserver.datapack.quests.Q00138_TempleChampionPart2.Q00138_TempleChampionPart2;
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
 import com.l2jserver.gameserver.model.quest.Quest;
 import com.l2jserver.gameserver.model.quest.QuestState;
 import com.l2jserver.gameserver.model.quest.State;
-
-import static com.l2jserver.gameserver.model.quest.QuestDroplist.singleDropItem;
 
 /**
  * Shadow Fox - 1 (139)
@@ -47,7 +47,7 @@ public class Q00139_ShadowFoxPart1 extends Quest {
 	// Misc
 	private static final int MIN_LEVEL = 37;
 	private static final int MAX_REWARD_LEVEL = 42;
-
+	
 	public Q00139_ShadowFoxPart1() {
 		super(139, Q00139_ShadowFoxPart1.class.getSimpleName(), "Shadow Fox - 1");
 		addStartNpc(MIA);
@@ -115,7 +115,7 @@ public class Q00139_ShadowFoxPart1 extends Quest {
 	@Override
 	public String onKill(L2Npc npc, L2PcInstance player, boolean isSummon) {
 		QuestState st = getRandomPartyMemberState(player, 2, 1, npc);
-		if (st != null && !st.isSet("talk")) {
+		if ((st != null) && !st.isSet("talk")) {
 			int itemId = (getRandom(11) == 0) ? CHEST : FRAGMENT;
 			giveItemRandomly(st.getPlayer(), npc, singleDropItem(itemId, 68.0), 0, true);
 		}

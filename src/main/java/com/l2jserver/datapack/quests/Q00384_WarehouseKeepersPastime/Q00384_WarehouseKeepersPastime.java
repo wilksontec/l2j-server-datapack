@@ -18,15 +18,15 @@
  */
 package com.l2jserver.datapack.quests.Q00384_WarehouseKeepersPastime;
 
+import java.util.Arrays;
+import java.util.Collections;
+
 import com.l2jserver.gameserver.enums.audio.Sound;
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
 import com.l2jserver.gameserver.model.quest.Quest;
 import com.l2jserver.gameserver.model.quest.QuestDroplist;
 import com.l2jserver.gameserver.model.quest.QuestState;
-
-import java.util.Arrays;
-import java.util.Collections;
 
 /**
  * Warehouse Keeper's Pastime (384)
@@ -68,33 +68,33 @@ public final class Q00384_WarehouseKeepersPastime extends Quest {
 	private static final int Q_IRONGATE_MEDAL = 5964;
 	// Droplist
 	private static final QuestDroplist DROPLIST = QuestDroplist.builder()
-			.addSingleDrop(HUNTER_GARGOYLE, Q_IRONGATE_MEDAL, 32.8)
-			.addSingleDrop(DUST_WIND, Q_IRONGATE_MEDAL, 35.0)
-			.addSingleDrop(THUNDER_WYRM, Q_IRONGATE_MEDAL, 31.2)
-			.addSingleDrop(DUST_WIND_HOLD, Q_IRONGATE_MEDAL, 35.0)
-			.addSingleDrop(THUNDER_WYRM_HOLD, Q_IRONGATE_MEDAL, 31.2)
-			.addSingleDrop(HUNTER_GARGOYLE_HOLD, Q_IRONGATE_MEDAL, 32.8)
-			.addSingleDrop(GIANT_MONSTEREYE, Q_IRONGATE_MEDAL, 17.6)
-			.addSingleDrop(ROT_GOLEM, Q_IRONGATE_MEDAL, 22.6)
-			.addSingleDrop(WEIRD_DRAKE, Q_IRONGATE_MEDAL, 21.8)
-			.addSingleDrop(CARINKAIN, Q_IRONGATE_MEDAL, 21.6)
-			.addSingleDrop(GRAVE_GUARD, Q_IRONGATE_MEDAL, 31.2)
-			.addSingleDrop(TULBEN, Q_IRONGATE_MEDAL, 52.2)
-			.addSingleDrop(DRAGON_BEARER_CHIEF, Q_IRONGATE_MEDAL, 38.0)
-			.addSingleDrop(DRAGON_BEARER_WARRIOR, Q_IRONGATE_MEDAL, 39.0)
-			.addSingleDrop(DRAGON_BEARER_ARCHER, Q_IRONGATE_MEDAL, 37.2)
-			.addSingleDrop(CONGERER_LORD, Q_IRONGATE_MEDAL, 80.2)
-			.addSingleDrop(CONGERER, Q_IRONGATE_MEDAL, 84.4)
-			.addSingleDrop(NIGHTMARE_GUIDE, Q_IRONGATE_MEDAL, 11.8)
-			.addSingleDrop(NIGHTMARE_KEEPER, Q_IRONGATE_MEDAL, 17.0)
-			.addSingleDrop(NIGHTMARE_LORD, Q_IRONGATE_MEDAL, 14.4)
-			.addSingleDrop(CADEINE, Q_IRONGATE_MEDAL, 16.2)
-			.addSingleDrop(SANHIDRO, Q_IRONGATE_MEDAL,  25.0)
-			.addSingleDrop(CONNABI, Q_IRONGATE_MEDAL, 27.2)
-			.addSingleDrop(BARTAL, Q_IRONGATE_MEDAL, 27.0)
-			.addSingleDrop(LUMINUN, Q_IRONGATE_MEDAL, 32.0)
-			.addSingleDrop(INNERSEN, Q_IRONGATE_MEDAL, 34.6)
-			.build();
+		.addSingleDrop(HUNTER_GARGOYLE, Q_IRONGATE_MEDAL, 32.8)
+		.addSingleDrop(DUST_WIND, Q_IRONGATE_MEDAL, 35.0)
+		.addSingleDrop(THUNDER_WYRM, Q_IRONGATE_MEDAL, 31.2)
+		.addSingleDrop(DUST_WIND_HOLD, Q_IRONGATE_MEDAL, 35.0)
+		.addSingleDrop(THUNDER_WYRM_HOLD, Q_IRONGATE_MEDAL, 31.2)
+		.addSingleDrop(HUNTER_GARGOYLE_HOLD, Q_IRONGATE_MEDAL, 32.8)
+		.addSingleDrop(GIANT_MONSTEREYE, Q_IRONGATE_MEDAL, 17.6)
+		.addSingleDrop(ROT_GOLEM, Q_IRONGATE_MEDAL, 22.6)
+		.addSingleDrop(WEIRD_DRAKE, Q_IRONGATE_MEDAL, 21.8)
+		.addSingleDrop(CARINKAIN, Q_IRONGATE_MEDAL, 21.6)
+		.addSingleDrop(GRAVE_GUARD, Q_IRONGATE_MEDAL, 31.2)
+		.addSingleDrop(TULBEN, Q_IRONGATE_MEDAL, 52.2)
+		.addSingleDrop(DRAGON_BEARER_CHIEF, Q_IRONGATE_MEDAL, 38.0)
+		.addSingleDrop(DRAGON_BEARER_WARRIOR, Q_IRONGATE_MEDAL, 39.0)
+		.addSingleDrop(DRAGON_BEARER_ARCHER, Q_IRONGATE_MEDAL, 37.2)
+		.addSingleDrop(CONGERER_LORD, Q_IRONGATE_MEDAL, 80.2)
+		.addSingleDrop(CONGERER, Q_IRONGATE_MEDAL, 84.4)
+		.addSingleDrop(NIGHTMARE_GUIDE, Q_IRONGATE_MEDAL, 11.8)
+		.addSingleDrop(NIGHTMARE_KEEPER, Q_IRONGATE_MEDAL, 17.0)
+		.addSingleDrop(NIGHTMARE_LORD, Q_IRONGATE_MEDAL, 14.4)
+		.addSingleDrop(CADEINE, Q_IRONGATE_MEDAL, 16.2)
+		.addSingleDrop(SANHIDRO, Q_IRONGATE_MEDAL, 25.0)
+		.addSingleDrop(CONNABI, Q_IRONGATE_MEDAL, 27.2)
+		.addSingleDrop(BARTAL, Q_IRONGATE_MEDAL, 27.0)
+		.addSingleDrop(LUMINUN, Q_IRONGATE_MEDAL, 32.0)
+		.addSingleDrop(INNERSEN, Q_IRONGATE_MEDAL, 34.6)
+		.build();
 	// Reward
 	private static final int MOONSTONE_EARING = 852;
 	private static final int DRAKE_LEATHER_BOOTS = 2437;
@@ -439,16 +439,14 @@ public final class Q00384_WarehouseKeepersPastime extends Quest {
 			}
 		}
 	}
-
-	private void createBingoBoard(QuestState qs) {
-		//@formatter:off
-		Integer[] arr = {1,2,3,4,5,6,7,8,9};
-		//@formatter:on
-		Collections.shuffle(Arrays.asList(arr));
-		qs.set("numbers", Arrays.asList(arr).toString().replaceAll("[^\\d ]", ""));
+	
+	private static void createBingoBoard(QuestState qs) {
+		final var numbers = Arrays.asList("1", "2", "3", "4", "5", "6", "7", "8", "9");
+		Collections.shuffle(numbers);
+		qs.set("numbers", String.join(" ", numbers));
 		qs.set("selected", "? ? ? ? ? ? ? ? ?");
 	}
-
+	
 	private int getMatchedBingoLineCount(QuestState qs) {
 		String[] q = qs.get("selected").split(" ");
 		int found = 0;
@@ -481,7 +479,7 @@ public final class Q00384_WarehouseKeepersPastime extends Quest {
 		}
 		return found;
 	}
-
+	
 	private void selectBingoNumber(QuestState qs, int num) {
 		String[] numbers = qs.get("numbers").split(" ");
 		int pos = 0;
@@ -504,15 +502,15 @@ public final class Q00384_WarehouseKeepersPastime extends Quest {
 		}
 		qs.set("selected", result.toString());
 	}
-
+	
 	private boolean isSelectedBingoNumber(QuestState qs, int num) {
 		return qs.get("selected").contains(num + "");
 	}
-
+	
 	private int getNumberFromBingoBoard(QuestState qs, int num) {
 		return Integer.parseInt(qs.get("numbers").split(" ")[num]);
 	}
-
+	
 	private int getBingoSelectCount(QuestState qs) {
 		String current = qs.get("selected");
 		return current.replaceAll("\\D", "").length();

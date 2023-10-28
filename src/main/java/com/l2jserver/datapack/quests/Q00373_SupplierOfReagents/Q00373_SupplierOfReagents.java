@@ -18,6 +18,8 @@
  */
 package com.l2jserver.datapack.quests.Q00373_SupplierOfReagents;
 
+import java.util.HashMap;
+
 import com.l2jserver.datapack.quests.Q00235_MimirsElixir.Q00235_MimirsElixir;
 import com.l2jserver.gameserver.enums.audio.Sound;
 import com.l2jserver.gameserver.model.actor.L2Npc;
@@ -27,8 +29,6 @@ import com.l2jserver.gameserver.model.holders.QuestItemChanceHolder;
 import com.l2jserver.gameserver.model.quest.Quest;
 import com.l2jserver.gameserver.model.quest.QuestDroplist;
 import com.l2jserver.gameserver.model.quest.QuestState;
-
-import java.util.HashMap;
 
 /**
  * Supplier of Reagents (373)
@@ -80,24 +80,29 @@ public final class Q00373_SupplierOfReagents extends Quest {
 	private static final int WESLEYS_MIXING_STONE = 5904;
 	// Droplist
 	private static final QuestDroplist DROPLIST = QuestDroplist.builder()
-			.addGroupedDrop(HALLATE_GUARDIAN, 87.6)
-				.withDropItem(DEMONS_BLOOD, 87.44)
-				.withDropItem(MOONSTONE_SHARD, 12.56).build()
-			.addGroupedDrop(HALLATE_MAID, 65)
-				.withDropItem(REAGENT_POUNCH1, 69.23)
-				.withDropItem(VOLCANIC_ASH, 30.77).build()
-			.addSingleDrop(HAMES_ORC_SHAMAN, REAGENT_POUNCH3, 61.6)
-			.addGroupedDrop(LAVA_WYRM, 98.9)
-				.withDropItem(WYRM_BLOOD, 67.34)
-				.withDropItem(LAVA_STONE, 32.66).build()
-			.addGroupedDrop(CRENDION, 100.0)
-				.withDropItem(ROTTEN_BONE, 61.8)
-				.withDropItem(QUICKSILVER, 38.2).build()
-			.addSingleDrop(PLATINUM_GUARDIAN_SHAMAN, REAGENT_BOX, 44.4)
-			.addGroupedDrop(PLATINUM_TRIBE_SHAMAN, 100.0)
-				.withDropItem(REAGENT_POUNCH2, 65.8)
-				.withDropItem(QUICKSILVER, 2, 34.2).build()
-			.build();
+		.addGroupedDrop(HALLATE_GUARDIAN, 87.6)
+		.withDropItem(DEMONS_BLOOD, 87.44)
+		.withDropItem(MOONSTONE_SHARD, 12.56)
+		.build()
+		.addGroupedDrop(HALLATE_MAID, 65)
+		.withDropItem(REAGENT_POUNCH1, 69.23)
+		.withDropItem(VOLCANIC_ASH, 30.77)
+		.build()
+		.addSingleDrop(HAMES_ORC_SHAMAN, REAGENT_POUNCH3, 61.6)
+		.addGroupedDrop(LAVA_WYRM, 98.9)
+		.withDropItem(WYRM_BLOOD, 67.34)
+		.withDropItem(LAVA_STONE, 32.66)
+		.build()
+		.addGroupedDrop(CRENDION, 100.0)
+		.withDropItem(ROTTEN_BONE, 61.8)
+		.withDropItem(QUICKSILVER, 38.2)
+		.build()
+		.addSingleDrop(PLATINUM_GUARDIAN_SHAMAN, REAGENT_BOX, 44.4)
+		.addGroupedDrop(PLATINUM_TRIBE_SHAMAN, 100.0)
+		.withDropItem(REAGENT_POUNCH2, 65.8)
+		.withDropItem(QUICKSILVER, 2, 34.2)
+		.build()
+		.build();
 	// Misc
 	private static final int MIN_LVL = 57;
 	private static final HashMap<String, Integer> HTML_TO_MEMO_STATE = new HashMap<>(20);

@@ -51,10 +51,10 @@ public final class Q00340_SubjugationOfLizardmen extends Quest {
 	private static final QuestItemChanceHolder TRADE_CARGO = new QuestItemChanceHolder(4255, 30L);
 	// Droplist
 	private static final QuestDroplist DROPLIST = QuestDroplist.builder()
-			.addSingleDrop(FELIM_LIZARDMAN, TRADE_CARGO, 63.0)
-			.addSingleDrop(FELIM_LIZARDMAN_SCOUT, TRADE_CARGO, 63.0)
-			.addSingleDrop(FELIM_LIZARDMAN_WARRIOR, TRADE_CARGO, 68.0)
-			.build();
+		.addSingleDrop(FELIM_LIZARDMAN, TRADE_CARGO, 63.0)
+		.addSingleDrop(FELIM_LIZARDMAN_SCOUT, TRADE_CARGO, 63.0)
+		.addSingleDrop(FELIM_LIZARDMAN_WARRIOR, TRADE_CARGO, 68.0)
+		.build();
 	// Raid Boss
 	private static final int SERPENT_DEMON_BIFRONS = 25146;
 	// Misc

@@ -41,17 +41,17 @@ public class Q00377_ExplorationOfTheGiantsCavePart2 extends Quest {
 	private static final int BOOK5 = 14846;
 	// Droplist
 	private static final QuestDroplist DROPLIST = QuestDroplist.builder()
-			.addSingleDrop(22660, TITAN_ANCIENT_BOOK, 236.6) // lesser_giant_re
-			.addSingleDrop(22661, TITAN_ANCIENT_BOOK, 242.4) // lesser_giant_soldier_re
-			.addSingleDrop(22662, TITAN_ANCIENT_BOOK, 230.4) // lesser_giant_shooter_re
-			.addSingleDrop(22663, TITAN_ANCIENT_BOOK, 230.4) // lesser_giant_scout_re
-			.addSingleDrop(22664, TITAN_ANCIENT_BOOK, 235.4) // lesser_giant_mage_re
-			.addSingleDrop(22665, TITAN_ANCIENT_BOOK, 232.4) // lesser_giant_elder_re
-			.addSingleDrop(22666, TITAN_ANCIENT_BOOK, 27.6) // barif_re
-			.addSingleDrop(22667, TITAN_ANCIENT_BOOK, 28.4) // barif_pet_re
-			.addSingleDrop(22668, TITAN_ANCIENT_BOOK, 24.0) // gamlin_re
-			.addSingleDrop(22669, TITAN_ANCIENT_BOOK, 24.0) // leogul_re
-			.build();
+		.addSingleDrop(22660, TITAN_ANCIENT_BOOK, 236.6) // lesser_giant_re
+		.addSingleDrop(22661, TITAN_ANCIENT_BOOK, 242.4) // lesser_giant_soldier_re
+		.addSingleDrop(22662, TITAN_ANCIENT_BOOK, 230.4) // lesser_giant_shooter_re
+		.addSingleDrop(22663, TITAN_ANCIENT_BOOK, 230.4) // lesser_giant_scout_re
+		.addSingleDrop(22664, TITAN_ANCIENT_BOOK, 235.4) // lesser_giant_mage_re
+		.addSingleDrop(22665, TITAN_ANCIENT_BOOK, 232.4) // lesser_giant_elder_re
+		.addSingleDrop(22666, TITAN_ANCIENT_BOOK, 27.6) // barif_re
+		.addSingleDrop(22667, TITAN_ANCIENT_BOOK, 28.4) // barif_pet_re
+		.addSingleDrop(22668, TITAN_ANCIENT_BOOK, 24.0) // gamlin_re
+		.addSingleDrop(22669, TITAN_ANCIENT_BOOK, 24.0) // leogul_re
+		.build();
 	
 	public Q00377_ExplorationOfTheGiantsCavePart2() {
 		super(377, Q00377_ExplorationOfTheGiantsCavePart2.class.getSimpleName(), "Exploration of the Giants' Cave - Part 2");

@@ -44,9 +44,9 @@ public final class Q00379_FantasyWine extends Quest {
 	private static final QuestItemChanceHolder STONE_OF_CHILL = new QuestItemChanceHolder(5894, 100L);
 	// Droplist
 	private static final QuestDroplist DROPLIST = QuestDroplist.builder()
-			.addSingleDrop(ENKU_ORC_CHAMPION, LEAF_OF_EUCALYPTUS)
-			.addSingleDrop(ENKU_ORC_SHAMAN, STONE_OF_CHILL)
-			.build();
+		.addSingleDrop(ENKU_ORC_CHAMPION, LEAF_OF_EUCALYPTUS)
+		.addSingleDrop(ENKU_ORC_SHAMAN, STONE_OF_CHILL)
+		.build();
 	// Misc
 	private static final int MIN_LEVEL = 20;
 	
@@ -111,11 +111,11 @@ public final class Q00379_FantasyWine extends Quest {
 		if ((qs == null) || !Util.checkIfInRange(1500, npc, qs.getPlayer(), true)) {
 			return null;
 		}
-
+		
 		if (giveItemRandomly(qs.getPlayer(), npc, DROPLIST.get(npc), true) && hasItemsAtLimit(killer, LEAF_OF_EUCALYPTUS, STONE_OF_CHILL)) {
 			qs.setCond(2);
 		}
-
+		
 		return super.onKill(npc, killer, isSummon);
 	}
 	

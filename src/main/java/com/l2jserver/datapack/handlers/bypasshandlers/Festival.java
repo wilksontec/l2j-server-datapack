@@ -47,11 +47,10 @@ public class Festival implements IBypassHandler {
 	
 	@Override
 	public boolean useBypass(String command, L2PcInstance activeChar, L2Character target) {
-		if (!(target instanceof L2FestivalGuideInstance)) {
+		if (!(target instanceof L2FestivalGuideInstance npc)) {
 			return false;
 		}
 		
-		final L2FestivalGuideInstance npc = (L2FestivalGuideInstance) target;
 		try {
 			final int val;
 			if (command.toLowerCase().startsWith(COMMANDS[1])) {
@@ -293,7 +292,7 @@ public class Festival implements IBypassHandler {
 	}
 	
 	private final String calculateDate(String milliFromEpoch) {
-		long numMillis = Long.valueOf(milliFromEpoch);
+		long numMillis = Long.parseLong(milliFromEpoch);
 		Calendar calCalc = Calendar.getInstance();
 		calCalc.setTimeInMillis(numMillis);
 		return calCalc.get(Calendar.YEAR) + "/" + calCalc.get(Calendar.MONTH) + "/" + calCalc.get(Calendar.DAY_OF_MONTH);

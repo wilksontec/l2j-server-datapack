@@ -40,14 +40,14 @@ public class Q00141_ShadowFoxPart3 extends Quest {
 	private static final QuestItemChanceHolder PREDECESSORS_REPORT = new QuestItemChanceHolder(10350, 30L);
 	// Droplist
 	private static final QuestDroplist DROPLIST = QuestDroplist.builder()
-			.addSingleDrop(20135, PREDECESSORS_REPORT, 53.0) // Alligator
-			.addSingleDrop(20791, PREDECESSORS_REPORT, 100.0) // Crokian Warrior
-			.addSingleDrop(20792, PREDECESSORS_REPORT, 92.0) // Farhite
-			.build();
+		.addSingleDrop(20135, PREDECESSORS_REPORT, 53.0) // Alligator
+		.addSingleDrop(20791, PREDECESSORS_REPORT, 100.0) // Crokian Warrior
+		.addSingleDrop(20792, PREDECESSORS_REPORT, 92.0) // Farhite
+		.build();
 	// Misc
 	private static final int MIN_LEVEL = 37;
 	private static final int MAX_REWARD_LEVEL = 42;
-
+	
 	public Q00141_ShadowFoxPart3() {
 		super(141, Q00141_ShadowFoxPart3.class.getSimpleName(), "Shadow Fox - 3");
 		addStartNpc(NATOOLS);
@@ -111,7 +111,7 @@ public class Q00141_ShadowFoxPart3 extends Quest {
 	@Override
 	public String onKill(L2Npc npc, L2PcInstance player, boolean isSummon) {
 		QuestState st = getRandomPartyMemberState(player, 2, 1, npc);
-		if (st != null && giveItemRandomly(st.getPlayer(), npc, DROPLIST.get(npc), true)) {
+		if ((st != null) && giveItemRandomly(st.getPlayer(), npc, DROPLIST.get(npc), true)) {
 			st.setCond(3);
 		}
 		return super.onKill(npc, player, isSummon);

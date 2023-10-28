@@ -41,11 +41,11 @@ public final class Q10292_SevenSignsGirlOfDoubt extends Quest {
 	// Item
 	private static final QuestItemChanceHolder ELCADIAS_MARK = new QuestItemChanceHolder(17226, 70.0, 10L);
 	private static final QuestDroplist DROPLIST = QuestDroplist.builder()
-			.bulkAddSingleDrop(ELCADIAS_MARK)
-				.withNpcs(22801, 22802, 22803) // Cruel Pincer Golem
-				.withNpcs(22804, 22805, 22806) // Horrifying Jackhammer Golem
-				.build()
-			.build();
+		.bulkAddSingleDrop(ELCADIAS_MARK)
+		.withNpcs(22801, 22802, 22803) // Cruel Pincer Golem
+		.withNpcs(22804, 22805, 22806) // Horrifying Jackhammer Golem
+		.build()
+		.build();
 	// Misc
 	private static final int MIN_LEVEL = 81;
 	// Variables
@@ -53,7 +53,7 @@ public final class Q10292_SevenSignsGirlOfDoubt extends Quest {
 	// Monster
 	private static final int CREATURE_OF_THE_DUSK1 = 27422;
 	private static final int CREATURE_OF_THE_DUSK2 = 27424;
-
+	
 	public Q10292_SevenSignsGirlOfDoubt() {
 		super(10292, Q10292_SevenSignsGirlOfDoubt.class.getSimpleName(), "Seven Signs, Girl of Doubt");
 		addStartNpc(WOOD);
@@ -169,7 +169,7 @@ public final class Q10292_SevenSignsGirlOfDoubt extends Quest {
 		final QuestState st = getRandomPartyMemberState(player, -1, 3, npc);
 		if (st != null) {
 			QuestDropInfo markDropInfo = DROPLIST.get(npc);
-			if (markDropInfo != null && giveItemRandomly(st.getPlayer(), npc, markDropInfo, true) && st.isMemoState(3)) {
+			if ((markDropInfo != null) && giveItemRandomly(st.getPlayer(), npc, markDropInfo, true) && st.isMemoState(3)) {
 				st.setCond(4);
 			} else {
 				int killCount = st.getInt("killCount");

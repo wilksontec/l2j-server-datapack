@@ -88,7 +88,7 @@ public final class EchoCrystals extends AbstractNpcAI {
 	@Override
 	public String onAdvEvent(String event, L2Npc npc, L2PcInstance player) {
 		String htmltext = null;
-		final int score = Integer.valueOf(event);
+		final int score = Integer.parseInt(event);
 		if (SCORES.containsKey(score)) {
 			if (!hasQuestItems(player, score)) {
 				htmltext = npc.getId() + "-" + SCORES.get(score).getNoScoreMsg() + ".htm";

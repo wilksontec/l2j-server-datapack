@@ -80,12 +80,10 @@ public class AdminPetition implements IAdminCommandHandler {
 		} else if (command.startsWith("admin_force_peti")) {
 			try {
 				L2Object targetChar = activeChar.getTarget();
-				if ((targetChar == null) || !(targetChar instanceof L2PcInstance)) {
+				if ((targetChar == null) || !(targetChar instanceof L2PcInstance targetPlayer)) {
 					activeChar.sendPacket(SystemMessageId.TARGET_IS_INCORRECT);
 					return false;
 				}
-				L2PcInstance targetPlayer = (L2PcInstance) targetChar;
-				
 				String val = command.substring(15);
 				
 				petitionId = PetitionManager.getInstance().submitPetition(targetPlayer, val, 9);

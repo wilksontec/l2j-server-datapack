@@ -37,7 +37,12 @@ import com.l2jserver.gameserver.util.Util;
 public final class RiftWatcher extends AbstractNpcAI {
 	
 	private final static int[] NPCS = {
-		31488, 31489, 31490, 31491, 31492, 31493
+		31488,
+		31489,
+		31490,
+		31491,
+		31492,
+		31493
 	};
 	
 	private static final int Q00255_Tutorial = 255;
@@ -93,7 +98,7 @@ public final class RiftWatcher extends AbstractNpcAI {
 		int ask = Integer.parseInt(event.split(";")[0]);
 		switch (ask) {
 			case 635 -> {
-				if (player.getInventory().getSize(false) >= (player.getInventoryLimit() * WEIGHT_LIMIT) || player.getCurrentLoad() >= (player.getMaxLoad() * WEIGHT_LIMIT)) {
+				if ((player.getInventory().getSize(false) >= (player.getInventoryLimit() * WEIGHT_LIMIT)) || (player.getCurrentLoad() >= (player.getMaxLoad() * WEIGHT_LIMIT))) {
 					player.sendPacket(SystemMessageId.INVENTORY_LESS_THAN_80_PERCENT);
 					return null;
 				}
@@ -121,7 +126,7 @@ public final class RiftWatcher extends AbstractNpcAI {
 						int i6 = getGameTicks();
 						
 						for (L2PcInstance c1 : party0.getMembers()) {
-							if (c1.getAllActiveQuests().size() > (MAX_QUEST_COUNT - 1) && !haveMemo(c1, Q00635_IntoTheDimensionalRift)) {
+							if ((c1.getAllActiveQuests().size() > (MAX_QUEST_COUNT - 1)) && !haveMemo(c1, Q00635_IntoTheDimensionalRift)) {
 								i1 = 2;
 								
 								String html = getHtm(player.getHtmlPrefix(), "rift_watcher_1_q0635_03a.htm");
@@ -134,7 +139,7 @@ public final class RiftWatcher extends AbstractNpcAI {
 								QuestState qs635 = q635.getQuestState(c1, true);
 								
 								int i5 = qs635.getMemoStateEx(1);
-								if (qs635.getState() != 2 || (i6 - i5) > 3600) {
+								if ((qs635.getState() != 2) || ((i6 - i5) > 3600)) {
 									i1 = 1;
 									
 									String html = getHtm(player.getHtmlPrefix(), "rift_watcher_1_q0635_03.htm");
@@ -196,7 +201,7 @@ public final class RiftWatcher extends AbstractNpcAI {
 							i6 = 2;
 						}
 						
-						if (i1 >= 95 && i1 < 195) {
+						if ((i1 >= 95) && (i1 < 195)) {
 							switch (i6) {
 								case 1 -> {
 									player.teleToLocation(-80542, 150315, -3040);
@@ -206,7 +211,7 @@ public final class RiftWatcher extends AbstractNpcAI {
 								}
 							}
 						} else {
-							if (i1 >= 195 && i1 < 295) {
+							if ((i1 >= 195) && (i1 < 295)) {
 								switch (i6) {
 									case 1 -> {
 										player.teleToLocation(-13996, 121413, -2984);
@@ -216,7 +221,7 @@ public final class RiftWatcher extends AbstractNpcAI {
 									}
 								}
 							} else {
-								if (i1 >= 295 && i1 < 395) {
+								if ((i1 >= 295) && (i1 < 395)) {
 									switch (i6) {
 										case 1 -> {
 											player.teleToLocation(16320, 142915, -2696);
@@ -226,7 +231,7 @@ public final class RiftWatcher extends AbstractNpcAI {
 										}
 									}
 								} else {
-									if (i1 >= 395 && i1 < 495) {
+									if ((i1 >= 395) && (i1 < 495)) {
 										switch (i6) {
 											case 1 -> {
 												player.teleToLocation(83312, 149236, -3400);
@@ -236,7 +241,7 @@ public final class RiftWatcher extends AbstractNpcAI {
 											}
 										}
 									} else {
-										if (i1 >= 495 && i1 < 595) {
+										if ((i1 >= 495) && (i1 < 595)) {
 											switch (i6) {
 												case 1 -> {
 													player.teleToLocation(111359, 220959, -3544);
@@ -246,7 +251,7 @@ public final class RiftWatcher extends AbstractNpcAI {
 												}
 											}
 										} else {
-											if (i1 >= 595 && i1 < 695) {
+											if ((i1 >= 595) && (i1 < 695)) {
 												switch (i6) {
 													case 1 -> {
 														player.teleToLocation(83057, 53983, -1488);
@@ -256,7 +261,7 @@ public final class RiftWatcher extends AbstractNpcAI {
 													}
 												}
 											} else {
-												if (i1 >= 695 && i1 < 795) {
+												if ((i1 >= 695) && (i1 < 795)) {
 													switch (i6) {
 														case 1 -> {
 															player.teleToLocation(146955, 26690, -2200);
@@ -266,7 +271,7 @@ public final class RiftWatcher extends AbstractNpcAI {
 														}
 													}
 												} else {
-													if (i1 >= 795 && i1 < 895) {
+													if ((i1 >= 795) && (i1 < 895)) {
 														switch (i6) {
 															case 1 -> {
 																player.teleToLocation(115206, 74775, -2600);
@@ -276,7 +281,7 @@ public final class RiftWatcher extends AbstractNpcAI {
 															}
 														}
 													} else {
-														if (i1 >= 995 && i1 < 1095) {
+														if ((i1 >= 995) && (i1 < 1095)) {
 															switch (i6) {
 																case 1 -> {
 																	player.teleToLocation(148326, -55533, -2776);
@@ -286,7 +291,7 @@ public final class RiftWatcher extends AbstractNpcAI {
 																}
 															}
 														} else {
-															if (i1 >= 1095 && i0 < 1195) {
+															if ((i1 >= 1095) && (i0 < 1195)) {
 																switch (i6) {
 																	case 1 -> {
 																		player.teleToLocation(45605, -50360, -792);
@@ -296,7 +301,7 @@ public final class RiftWatcher extends AbstractNpcAI {
 																	}
 																}
 															} else {
-																if (i1 >= 1195 && i0 < 1295) {
+																if ((i1 >= 1195) && (i0 < 1295)) {
 																	switch (i6) {
 																		case 1 -> {
 																			player.teleToLocation(86730, -143148, -1336);

@@ -43,7 +43,7 @@ import com.l2jserver.gameserver.util.Util;
  * @version 2010-10-15 Based on official server Naia
  */
 public final class NornilsGarden extends AbstractInstance {
-	protected class NornilsWorld extends InstanceWorld {
+	protected static class NornilsWorld extends InstanceWorld {
 		protected L2Npc first_npc = null;
 		protected boolean spawned_1 = false;
 		protected boolean spawned_2 = false;
@@ -213,8 +213,7 @@ public final class NornilsGarden extends AbstractInstance {
 	
 	private void exitInstance(L2PcInstance player) {
 		InstanceWorld inst = InstanceManager.getInstance().getWorld(player.getInstanceId());
-		if (inst instanceof NornilsWorld) {
-			NornilsWorld world = ((NornilsWorld) inst);
+		if (inst instanceof NornilsWorld world) {
 			world.removeAllowed(player.getObjectId());
 			teleportPlayer(player, EXIT_PPL, 0);
 		}
@@ -286,8 +285,7 @@ public final class NornilsGarden extends AbstractInstance {
 	
 	private void spawn1(L2Npc npc) {
 		InstanceWorld inst = InstanceManager.getInstance().getWorld(npc.getInstanceId());
-		if (inst instanceof NornilsWorld) {
-			NornilsWorld world = ((NornilsWorld) inst);
+		if (inst instanceof NornilsWorld world) {
 			if (npc.equals(world.first_npc) && !world.spawned_1) {
 				world.spawned_1 = true;
 				
@@ -300,8 +298,7 @@ public final class NornilsGarden extends AbstractInstance {
 	
 	private void spawn2(L2Npc npc) {
 		InstanceWorld inst = InstanceManager.getInstance().getWorld(npc.getInstanceId());
-		if (inst instanceof NornilsWorld) {
-			NornilsWorld world = ((NornilsWorld) inst);
+		if (inst instanceof NornilsWorld world) {
 			if (!world.spawned_2) {
 				world.spawned_2 = true;
 				
@@ -314,8 +311,7 @@ public final class NornilsGarden extends AbstractInstance {
 	
 	private void spawn3(L2Character cha) {
 		InstanceWorld inst = InstanceManager.getInstance().getWorld(cha.getInstanceId());
-		if (inst instanceof NornilsWorld) {
-			NornilsWorld world = ((NornilsWorld) inst);
+		if (inst instanceof NornilsWorld world) {
 			if (!world.spawned_3) {
 				world.spawned_3 = true;
 				
@@ -328,8 +324,7 @@ public final class NornilsGarden extends AbstractInstance {
 	
 	private void spawn4(L2Character cha) {
 		InstanceWorld inst = InstanceManager.getInstance().getWorld(cha.getInstanceId());
-		if (inst instanceof NornilsWorld) {
-			NornilsWorld world = ((NornilsWorld) inst);
+		if (inst instanceof NornilsWorld world) {
 			if (!world.spawned_4) {
 				world.spawned_4 = true;
 				

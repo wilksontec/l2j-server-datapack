@@ -205,66 +205,59 @@ public class AdminAdmin implements IAdminCommandHandler {
 	}
 	
 	private void showMainPage(L2PcInstance activeChar, String command) {
-		int mode = 0;
-		String filename = null;
-		try {
-			mode = Integer.parseInt(command.substring(11));
-		} catch (Exception e) {
-		}
-		switch (mode) {
-			case 1:
-				filename = "main";
-				break;
-			case 2:
-				filename = "game";
-				break;
-			case 3:
-				filename = "effects";
-				break;
-			case 4:
-				filename = "server";
-				break;
-			case 5:
-				filename = "mods";
-				break;
-			case 6:
-				filename = "char";
-				break;
-			case 7:
-				filename = "gm";
-				break;
-			default:
-				filename = "main";
-				break;
-		}
+		final var filename = switch (command.substring(11)) {
+			case "1" -> "main";
+			case "2" -> "game";
+			case "3" -> "effects";
+			case "4" -> "server";
+			case "5" -> "mods";
+			case "6" -> "char";
+			case "7" -> "gm";
+			default -> "main";
+		};
 		AdminHtml.showAdminHtml(activeChar, filename + "_menu.htm");
 	}
 	
 	public void showConfigPage(L2PcInstance activeChar) {
-		final NpcHtmlMessage adminReply = new NpcHtmlMessage();
-		StringBuilder replyMSG = new StringBuilder("<html><title>L2J :: Config</title><body>");
-		replyMSG.append("<center><table width=270><tr><td width=60><button value=\"Main\" action=\"bypass -h admin_admin\" width=60 height=25 back=\"L2UI_ct1.button_df\" fore=\"L2UI_ct1.button_df\"></td><td width=150>Config Server Panel</td><td width=60><button value=\"Back\" action=\"bypass -h admin_admin4\" width=60 height=25 back=\"L2UI_ct1.button_df\" fore=\"L2UI_ct1.button_df\"></td></tr></table></center><br>");
-		replyMSG.append("<center><table width=260><tr><td width=140></td><td width=40></td><td width=40></td></tr>");
-		replyMSG.append("<tr><td><font color=\"00AA00\">Drop:</font></td><td></td><td></td></tr>");
-		replyMSG.append("<tr><td><font color=\"LEVEL\">Rate EXP</font> = " + rates().getRateXp()
-			+ "</td><td><edit var=\"param1\" width=40 height=15></td><td><button value=\"Set\" action=\"bypass -h admin_setconfig RateXp $param1\" width=40 height=25 back=\"L2UI_ct1.button_df\" fore=\"L2UI_ct1.button_df\"></td></tr>");
-		replyMSG.append("<tr><td><font color=\"LEVEL\">Rate SP</font> = " + rates().getRateSp()
-			+ "</td><td><edit var=\"param2\" width=40 height=15></td><td><button value=\"Set\" action=\"bypass -h admin_setconfig RateSp $param2\" width=40 height=25 back=\"L2UI_ct1.button_df\" fore=\"L2UI_ct1.button_df\"></td></tr>");
-		replyMSG.append("<tr><td><font color=\"LEVEL\">Rate Drop Spoil</font> = " + rates().getCorpseDropChanceMultiplier()
-			+ "</td><td><edit var=\"param4\" width=40 height=15></td><td><button value=\"Set\" action=\"bypass -h admin_setconfig RateDropSpoil $param4\" width=40 height=25 back=\"L2UI_ct1.button_df\" fore=\"L2UI_ct1.button_df\"></td></tr>");
-		replyMSG.append("<tr><td width=140></td><td width=40></td><td width=40></td></tr>");
-		replyMSG.append("<tr><td><font color=\"00AA00\">Enchant:</font></td><td></td><td></td></tr>");
-		replyMSG.append("<tr><td><font color=\"LEVEL\">Enchant Element Stone</font> = " + character().getEnchantChanceElementStone()
-			+ "</td><td><edit var=\"param8\" width=40 height=15></td><td><button value=\"Set\" action=\"bypass -h admin_setconfig EnchantChanceElementStone $param8\" width=40 height=25 back=\"L2UI_ct1.button_df\" fore=\"L2UI_ct1.button_df\"></td></tr>");
-		replyMSG.append("<tr><td><font color=\"LEVEL\">Enchant Element Crystal</font> = " + character().getEnchantChanceElementCrystal()
-			+ "</td><td><edit var=\"param9\" width=40 height=15></td><td><button value=\"Set\" action=\"bypass -h admin_setconfig EnchantChanceElementCrystal $param9\" width=40 height=25 back=\"L2UI_ct1.button_df\" fore=\"L2UI_ct1.button_df\"></td></tr>");
-		replyMSG.append("<tr><td><font color=\"LEVEL\">Enchant Element Jewel</font> = " + character().getEnchantChanceElementJewel()
-			+ "</td><td><edit var=\"param10\" width=40 height=15></td><td><button value=\"Set\" action=\"bypass -h admin_setconfig EnchantChanceElementJewel $param10\" width=40 height=25 back=\"L2UI_ct1.button_df\" fore=\"L2UI_ct1.button_df\"></td></tr>");
-		replyMSG.append("<tr><td><font color=\"LEVEL\">Enchant Element Energy</font> = " + character().getEnchantChanceElementEnergy()
-			+ "</td><td><edit var=\"param11\" width=40 height=15></td><td><button value=\"Set\" action=\"bypass -h admin_setconfig EnchantChanceElementEnergy $param11\" width=40 height=25 back=\"L2UI_ct1.button_df\" fore=\"L2UI_ct1.button_df\"></td></tr>");
-		
-		replyMSG.append("</table></body></html>");
-		adminReply.setHtml(replyMSG.toString());
-		activeChar.sendPacket(adminReply);
+		final var html = new StringBuilder("<html><title>L2J :: Config</title><body>")
+			.append("<center><table width=270><tr>")
+			.append("<td width=60><button value=\"Main\" action=\"bypass -h admin_admin\" width=60 height=25 back=\"L2UI_ct1.button_df\" fore=\"L2UI_ct1.button_df\"></td>")
+			.append("<td width=150>Config Server Panel</td><td width=60><button value=\"Back\" action=\"bypass -h admin_admin4\" width=60 height=25 back=\"L2UI_ct1.button_df\" fore=\"L2UI_ct1.button_df\"></td>")
+			.append("</tr></table></center><br>")
+			.append("<center><table width=260><tr><td width=140></td><td width=40></td><td width=40></td></tr>")
+			.append("<tr><td><font color=\"00AA00\">Drop:</font></td><td></td><td></td></tr>")
+			.append("<tr><td><font color=\"LEVEL\">Rate EXP</font> = ")
+			.append(rates().getRateXp())
+			.append("</td>")
+			.append("<td><edit var=\"param1\" width=40 height=15></td><td><button value=\"Set\" action=\"bypass -h admin_setconfig RateXp $param1\" width=40 height=25 back=\"L2UI_ct1.button_df\" fore=\"L2UI_ct1.button_df\"></td></tr>")
+			.append("<tr><td><font color=\"LEVEL\">Rate SP</font> = ")
+			.append(rates().getRateSp())
+			.append("</td><td><edit var=\"param2\" width=40 height=15></td>")
+			.append("<td><button value=\"Set\" action=\"bypass -h admin_setconfig RateSp $param2\" width=40 height=25 back=\"L2UI_ct1.button_df\" fore=\"L2UI_ct1.button_df\"></td></tr>")
+			.append("<tr><td><font color=\"LEVEL\">Rate Drop Spoil</font> = ")
+			.append(rates().getCorpseDropChanceMultiplier())
+			.append("</td><td><edit var=\"param4\" width=40 height=15></td>")
+			.append("<td><button value=\"Set\" action=\"bypass -h admin_setconfig RateDropSpoil $param4\" width=40 height=25 back=\"L2UI_ct1.button_df\" fore=\"L2UI_ct1.button_df\"></td></tr>")
+			.append("<tr><td width=140></td><td width=40></td><td width=40></td></tr>")
+			.append("<tr><td><font color=\"00AA00\">Enchant:</font></td><td></td><td></td></tr>")
+			.append("<tr><td><font color=\"LEVEL\">Enchant Element Stone</font> = ")
+			.append(character().getEnchantChanceElementStone())
+			.append("</td><td><edit var=\"param8\" width=40 height=15></td>")
+			.append("<td><button value=\"Set\" action=\"bypass -h admin_setconfig EnchantChanceElementStone $param8\" width=40 height=25 back=\"L2UI_ct1.button_df\" fore=\"L2UI_ct1.button_df\"></td></tr>")
+			.append("<tr><td><font color=\"LEVEL\">Enchant Element Crystal</font> = ")
+			.append(character().getEnchantChanceElementCrystal())
+			.append("</td><td><edit var=\"param9\" width=40 height=15></td>")
+			.append("<td><button value=\"Set\" action=\"bypass -h admin_setconfig EnchantChanceElementCrystal $param9\" width=40 height=25 back=\"L2UI_ct1.button_df\" fore=\"L2UI_ct1.button_df\"></td></tr>")
+			.append("<tr><td><font color=\"LEVEL\">Enchant Element Jewel</font> = ")
+			.append(character().getEnchantChanceElementJewel())
+			.append("</td><td><edit var=\"param10\" width=40 height=15></td>")
+			.append("<td><button value=\"Set\" action=\"bypass -h admin_setconfig EnchantChanceElementJewel $param10\" width=40 height=25 back=\"L2UI_ct1.button_df\" fore=\"L2UI_ct1.button_df\"></td></tr>")
+			.append("<tr><td><font color=\"LEVEL\">Enchant Element Energy</font> = ")
+			.append(character().getEnchantChanceElementEnergy())
+			.append("</td><td><edit var=\"param11\" width=40 height=15></td>")
+			.append("<td><button value=\"Set\" action=\"bypass -h admin_setconfig EnchantChanceElementEnergy $param11\" width=40 height=25 back=\"L2UI_ct1.button_df\" fore=\"L2UI_ct1.button_df\"></td></tr>")
+			.append("</table></body></html>")
+			.toString();
+		activeChar.sendPacket(new NpcHtmlMessage(html));
 	}
 }

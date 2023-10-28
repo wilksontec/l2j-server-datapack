@@ -34,7 +34,7 @@ import com.l2jserver.gameserver.network.clientpackets.Say2;
  * @author Gnacik, St3eT
  */
 public final class PailakaSongOfIceAndFire extends AbstractInstance {
-	protected class PSoIWorld extends InstanceWorld {
+	protected static class PSoIWorld extends InstanceWorld {
 		
 	}
 	

@@ -45,12 +45,12 @@ public final class Q00292_BrigandsSweep extends Quest {
 	private static final QuestItemChanceHolder SUSPICIOUS_MEMO = new QuestItemChanceHolder(1486, 3L);
 	// Droplist
 	private static final QuestDroplist DROPLIST = QuestDroplist.builder()
-			.addSingleDrop(20322, GOBLIN_NECKLACE) // Goblin Brigand
-			.addSingleDrop(20323, GOBLIN_PENDANT) // Goblin Brigand Leader
-			.addSingleDrop(20324, GOBLIN_NECKLACE) // Goblin Brigand Lieutenant
-			.addSingleDrop(20327, GOBLIN_NECKLACE) // Goblin Snooper
-			.addSingleDrop(20528, GOBLIN_LORD_PENDANT) // Goblin Lord
-			.build();
+		.addSingleDrop(20322, GOBLIN_NECKLACE) // Goblin Brigand
+		.addSingleDrop(20323, GOBLIN_PENDANT) // Goblin Brigand Leader
+		.addSingleDrop(20324, GOBLIN_NECKLACE) // Goblin Brigand Lieutenant
+		.addSingleDrop(20327, GOBLIN_NECKLACE) // Goblin Snooper
+		.addSingleDrop(20528, GOBLIN_LORD_PENDANT) // Goblin Lord
+		.build();
 	// Misc
 	private static final int MIN_LVL = 5;
 	

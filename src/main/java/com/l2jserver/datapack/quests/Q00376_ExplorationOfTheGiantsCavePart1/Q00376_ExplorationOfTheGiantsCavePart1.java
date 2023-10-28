@@ -41,16 +41,16 @@ public class Q00376_ExplorationOfTheGiantsCavePart1 extends Quest {
 	private static final int BOOK5 = 14840;
 	// Droplist
 	private static final QuestDroplist DROPLIST = QuestDroplist.builder()
-			.addSingleDrop(22670, ANCIENT_PARCHMENT, 31.4) // const_lord
-			.addSingleDrop(22671, ANCIENT_PARCHMENT, 30.2) // const_gaurdian
-			.addSingleDrop(22672, ANCIENT_PARCHMENT, 30.0) // const_seer
-			.addSingleDrop(22673, ANCIENT_PARCHMENT, 25.8) // hirokai
-			.addSingleDrop(22674, ANCIENT_PARCHMENT, 24.8) // imagro
-			.addSingleDrop(22675, ANCIENT_PARCHMENT, 26.4) // palite
-			.addSingleDrop(22676, ANCIENT_PARCHMENT, 25.8) // hamrit
-			.addSingleDrop(22677, ANCIENT_PARCHMENT, 26.6) // kranout
-			.build();
-
+		.addSingleDrop(22670, ANCIENT_PARCHMENT, 31.4) // const_lord
+		.addSingleDrop(22671, ANCIENT_PARCHMENT, 30.2) // const_gaurdian
+		.addSingleDrop(22672, ANCIENT_PARCHMENT, 30.0) // const_seer
+		.addSingleDrop(22673, ANCIENT_PARCHMENT, 25.8) // hirokai
+		.addSingleDrop(22674, ANCIENT_PARCHMENT, 24.8) // imagro
+		.addSingleDrop(22675, ANCIENT_PARCHMENT, 26.4) // palite
+		.addSingleDrop(22676, ANCIENT_PARCHMENT, 25.8) // hamrit
+		.addSingleDrop(22677, ANCIENT_PARCHMENT, 26.6) // kranout
+		.build();
+	
 	public Q00376_ExplorationOfTheGiantsCavePart1() {
 		super(376, Q00376_ExplorationOfTheGiantsCavePart1.class.getSimpleName(), "Exploration of the Giants' Cave - Part 1");
 		addStartNpc(SOBLING);

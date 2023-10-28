@@ -42,23 +42,22 @@ public final class Q00371_ShrieksOfGhosts extends Quest {
 	private static final int ANCIENT_PORCELAIN_LOWEST_QUALITY = 6006;
 	// Droplist
 	private static final QuestDroplist DROPLIST = QuestDroplist.builder()
-			.addGroupedDrop(20818, 40.0) // hallates_warrior
-				.withDropItem(ANCIENT_ASH_URN, 87.5)
-				.withDropItem(ANCIENT_PORCELAIN, 12.5)
-				.build()
-			.addGroupedDrop(20820, 67.3) // hallates_knight
-				.withDropItem(ANCIENT_ASH_URN, 86.63)
-				.withDropItem(ANCIENT_PORCELAIN, 13.37)
-				.build()
-			.addGroupedDrop(20824, 53.8) // hallates_commander
-				.withDropItem(ANCIENT_ASH_URN, 85.13)
-				.withDropItem(ANCIENT_PORCELAIN, 14.87)
-				.build()
-			.build();
+		.addGroupedDrop(20818, 40.0) // hallates_warrior
+		.withDropItem(ANCIENT_ASH_URN, 87.5)
+		.withDropItem(ANCIENT_PORCELAIN, 12.5)
+		.build()
+		.addGroupedDrop(20820, 67.3) // hallates_knight
+		.withDropItem(ANCIENT_ASH_URN, 86.63)
+		.withDropItem(ANCIENT_PORCELAIN, 13.37)
+		.build()
+		.addGroupedDrop(20824, 53.8) // hallates_commander
+		.withDropItem(ANCIENT_ASH_URN, 85.13)
+		.withDropItem(ANCIENT_PORCELAIN, 14.87)
+		.build()
+		.build();
 	// Misc
 	private static final int MIN_LEVEL = 59;
-
-
+	
 	public Q00371_ShrieksOfGhosts() {
 		super(371, Q00371_ShrieksOfGhosts.class.getSimpleName(), "Shrieks of Ghosts");
 		addStartNpc(REVA);
@@ -147,9 +146,9 @@ public final class Q00371_ShrieksOfGhosts extends Quest {
 		if ((qs == null) || !Util.checkIfInRange(1500, npc, qs.getPlayer(), true)) {
 			return null;
 		}
-
+		
 		giveItemRandomly(qs.getPlayer(), npc, DROPLIST.get(npc), true);
-
+		
 		return super.onKill(npc, killer, isSummon);
 	}
 	

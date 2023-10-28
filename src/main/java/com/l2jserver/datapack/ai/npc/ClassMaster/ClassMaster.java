@@ -403,16 +403,12 @@ public final class ClassMaster extends AbstractNpcAI {
 	 * @return minimum player level required for next class transfer
 	 */
 	private static int getMinLevel(int level) {
-		switch (level) {
-			case 0:
-				return 20;
-			case 1:
-				return 40;
-			case 2:
-				return 76;
-			default:
-				return Integer.MAX_VALUE;
-		}
+		return switch (level) {
+			case 0 -> 20;
+			case 1 -> 40;
+			case 2 -> 76;
+			default -> Integer.MAX_VALUE;
+		};
 	}
 	
 	/**

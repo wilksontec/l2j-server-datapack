@@ -38,10 +38,10 @@ public final class Q00661_MakingTheHarvestGroundsSafe extends Quest {
 	private static final int YOUNG_ARANEID_CLAW = 8285;
 	// Droplist
 	private static final QuestDroplist DROPLIST = QuestDroplist.builder()
-			.addSingleDrop(21095, BIG_HORNET_STING, 50.8) // Giant Poison Bee
-			.addSingleDrop(21096, CLOUD_GEM, 50.0) // Cloudy Beast
-			.addSingleDrop(21097, YOUNG_ARANEID_CLAW, 51.6) // Young Araneid
-			.build();
+		.addSingleDrop(21095, BIG_HORNET_STING, 50.8) // Giant Poison Bee
+		.addSingleDrop(21096, CLOUD_GEM, 50.0) // Cloudy Beast
+		.addSingleDrop(21097, YOUNG_ARANEID_CLAW, 51.6) // Young Araneid
+		.build();
 	// Misc
 	private static final int MIN_LVL = 21;
 	

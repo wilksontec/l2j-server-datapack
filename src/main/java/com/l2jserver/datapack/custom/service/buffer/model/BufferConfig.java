@@ -106,11 +106,11 @@ public final class BufferConfig {
 		return global;
 	}
 	
-	public final VoicedBuffer getVoiced() {
+	public VoicedBuffer getVoiced() {
 		return voiced;
 	}
 	
-	public final Map<Integer, NpcBuffer> getNpcs() {
+	public Map<Integer, NpcBuffer> getNpcs() {
 		return npcs;
 	}
 }

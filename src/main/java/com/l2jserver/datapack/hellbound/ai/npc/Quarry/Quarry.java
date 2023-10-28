@@ -18,6 +18,8 @@
  */
 package com.l2jserver.datapack.hellbound.ai.npc.Quarry;
 
+import static com.l2jserver.gameserver.config.Configuration.rates;
+
 import com.l2jserver.datapack.ai.npc.AbstractNpcAI;
 import com.l2jserver.datapack.hellbound.HellboundEngine;
 import com.l2jserver.gameserver.ai.CtrlIntention;
@@ -31,8 +33,6 @@ import com.l2jserver.gameserver.model.holders.ItemChanceHolder;
 import com.l2jserver.gameserver.model.zone.L2ZoneType;
 import com.l2jserver.gameserver.network.NpcStringId;
 import com.l2jserver.gameserver.network.clientpackets.Say2;
-
-import static com.l2jserver.gameserver.config.Configuration.rates;
 
 /**
  * Quarry AI.
@@ -101,7 +101,7 @@ public final class Quarry extends AbstractNpcAI {
 				if ((npc != null) && !npc.isDead()) {
 					if (npc.getTarget().isPlayer()) {
 						for (ItemChanceHolder item : DROP_LIST) {
-							if (getRandom(10000) < item.getChance() * rates().getQuestDropChanceMultiplier()) {
+							if (getRandom(10000) < (item.getChance() * rates().getQuestDropChanceMultiplier())) {
 								npc.dropItem((L2PcInstance) npc.getTarget(), item.getId(), (int) (item.getCount() * rates().getQuestDropAmountMultiplier()));
 								break;
 							}

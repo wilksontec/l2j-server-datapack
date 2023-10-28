@@ -18,23 +18,6 @@
  */
 package com.l2jserver.datapack.quests.Q00372_LegacyOfInsolence;
 
-import com.l2jserver.gameserver.model.actor.L2Npc;
-import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
-import com.l2jserver.gameserver.model.events.ListenerRegisterType;
-import com.l2jserver.gameserver.model.itemcontainer.PcInventory;
-import com.l2jserver.gameserver.model.items.instance.L2ItemInstance;
-import com.l2jserver.gameserver.model.quest.Quest;
-import com.l2jserver.gameserver.model.quest.QuestState;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.ArgumentCaptor;
-import org.mockito.Mock;
-import org.mockito.Spy;
-import org.mockito.junit.jupiter.MockitoExtension;
-
-import java.util.List;
-
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyBoolean;
@@ -46,9 +29,26 @@ import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
+import java.util.List;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.ArgumentCaptor;
+import org.mockito.Mock;
+import org.mockito.Spy;
+import org.mockito.junit.jupiter.MockitoExtension;
+
+import com.l2jserver.gameserver.model.actor.L2Npc;
+import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
+import com.l2jserver.gameserver.model.events.ListenerRegisterType;
+import com.l2jserver.gameserver.model.itemcontainer.PcInventory;
+import com.l2jserver.gameserver.model.items.instance.L2ItemInstance;
+import com.l2jserver.gameserver.model.quest.Quest;
+import com.l2jserver.gameserver.model.quest.QuestState;
+
 /**
- * TODO: Check NPC rewards (need to be able to stub AbstractScript#getRandom())
- * TODO: Check Mob drops (need to be able to stub AbstractScript#giveItemRandomly())
+ * TODO: Check NPC rewards (need to be able to stub AbstractScript#getRandom()) TODO: Check Mob drops (need to be able to stub AbstractScript#giveItemRandomly())
  * @author Noé Caratini aka Kita
  */
 @ExtendWith(MockitoExtension.class)
@@ -86,7 +86,7 @@ public class Q00372LegacyOfInsolenceTest {
 	private QuestState qs;
 	
 	@Spy
-	private Quest quest = new Q00372_LegacyOfInsolence();
+	private final Quest quest = new Q00372_LegacyOfInsolence();
 	
 	@BeforeEach
 	void setUp() {
@@ -97,19 +97,7 @@ public class Q00372LegacyOfInsolenceTest {
 	@Test
 	public void shouldInitQuestCorrectly() {
 		assertThat(quest.getId()).isEqualTo(372);
-		assertThat(quest.getRegisteredIds(ListenerRegisterType.NPC)).containsExactlyInAnyOrder(
-				TRADER_HOLLY,
-				WAREHOUSE_KEEPER_WALDERAL,
-				MAGISTER_DESMOND,
-				ANTIQUE_DEALER_PATRIN,
-				CLAUDIA_ATHEBALDT,
-				CORRUPT_SAGE,
-				ERIN_EDIUNCE,
-				HALLATES_INSPECTOR,
-				PLATINUM_TRIBE_OVERLORD,
-				MESSENGER_ANGEL,
-				PLATINUM_GUARDIAN_PREFECT
-		);
+		assertThat(quest.getRegisteredIds(ListenerRegisterType.NPC)).containsExactlyInAnyOrder(TRADER_HOLLY, WAREHOUSE_KEEPER_WALDERAL, MAGISTER_DESMOND, ANTIQUE_DEALER_PATRIN, CLAUDIA_ATHEBALDT, CORRUPT_SAGE, ERIN_EDIUNCE, HALLATES_INSPECTOR, PLATINUM_TRIBE_OVERLORD, MESSENGER_ANGEL, PLATINUM_GUARDIAN_PREFECT);
 	}
 	
 	@Test
@@ -271,11 +259,11 @@ public class Q00372LegacyOfInsolenceTest {
 	@Test
 	public void onAdvEventOtherSupportedEvents() {
 		List.of("30844-03.htm", "30844-05.html", "30844-05a.html", "30844-08.html", "30844-10.html", "30844-11.html")
-				.forEach(event -> {
-					String result = quest.onAdvEvent(event, npc, player);
-					
-					assertThat(result).isEqualTo(event);
-				});
+			.forEach(event -> {
+				String result = quest.onAdvEvent(event, npc, player);
+				
+				assertThat(result).isEqualTo(event);
+			});
 	}
 	
 	@Test
@@ -535,12 +523,7 @@ public class Q00372LegacyOfInsolenceTest {
 	
 	private List<Integer> verifyItemsRemoved(L2PcInstance player, List<Integer> itemIds) {
 		ArgumentCaptor<Integer> intCaptor = ArgumentCaptor.forClass(Integer.class);
-		verify(player, times(itemIds.size())).destroyItemByItemId(
-				eq("Quest"),
-				intCaptor.capture(),
-				eq(1L),
-				any(),
-				anyBoolean());
+		verify(player, times(itemIds.size())).destroyItemByItemId(eq("Quest"), intCaptor.capture(), eq(1L), any(), anyBoolean());
 		return intCaptor.getAllValues();
 	}
 }

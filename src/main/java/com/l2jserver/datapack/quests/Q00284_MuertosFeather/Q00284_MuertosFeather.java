@@ -35,13 +35,13 @@ public final class Q00284_MuertosFeather extends Quest {
 	private static final int MUERTOS_FEATHER = 9748;
 	// Droplists
 	private static final QuestDroplist DROPLIST = QuestDroplist.builder()
-			.addSingleDrop(22239, MUERTOS_FEATHER, 50.0)
-			.addSingleDrop(22240, MUERTOS_FEATHER, 53.3)
-			.addSingleDrop(22242, MUERTOS_FEATHER, 56.6)
-			.addSingleDrop(22243, MUERTOS_FEATHER, 60.0)
-			.addSingleDrop(22245, MUERTOS_FEATHER, 63.3)
-			.addSingleDrop(22246, MUERTOS_FEATHER, 63.3)
-			.build();
+		.addSingleDrop(22239, MUERTOS_FEATHER, 50.0)
+		.addSingleDrop(22240, MUERTOS_FEATHER, 53.3)
+		.addSingleDrop(22242, MUERTOS_FEATHER, 56.6)
+		.addSingleDrop(22243, MUERTOS_FEATHER, 60.0)
+		.addSingleDrop(22245, MUERTOS_FEATHER, 63.3)
+		.addSingleDrop(22246, MUERTOS_FEATHER, 63.3)
+		.build();
 	// Misc
 	private static final int MIN_LVL = 11;
 	

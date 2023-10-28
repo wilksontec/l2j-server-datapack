@@ -18,13 +18,14 @@
  */
 package com.l2jserver.datapack.custom.service.discord.commands;
 
+import java.awt.Color;
+
 import com.l2jserver.datapack.custom.service.discord.AbstractCommand;
 import com.l2jserver.gameserver.data.xml.impl.AdminData;
 import com.l2jserver.gameserver.model.L2World;
+
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
-
-import java.awt.Color;
 
 /**
  * Online Command.
@@ -32,17 +33,17 @@ import java.awt.Color;
  * @version 2.6.2.0
  */
 public class OnlineCommand extends AbstractCommand {
-
+	
 	private static final String[] COMMANDS = {
 		"online",
 		"on"
 	};
-
+	
 	@Override
 	public String[] getCommands() {
 		return COMMANDS;
 	}
-
+	
 	@Override
 	public void executeCommand(MessageReceivedEvent event, String[] args) {
 		EmbedBuilder eb = new EmbedBuilder();

@@ -40,7 +40,7 @@ public final class GeneralDilios extends AbstractNpcAI {
 	private static final int GUARD_ID = 32619;
 	
 	private L2Npc _general = null;
-	private final Set<L2Spawn> _guards = Collections.newSetFromMap(new ConcurrentHashMap<L2Spawn, Boolean>());
+	private final Set<L2Spawn> _guards = Collections.newSetFromMap(new ConcurrentHashMap<>());
 	
 	public GeneralDilios() {
 		super(GeneralDilios.class.getSimpleName(), "gracia/AI/NPC");
@@ -51,14 +51,11 @@ public final class GeneralDilios extends AbstractNpcAI {
 	@Override
 	public String onAdvEvent(String event, L2Npc npc, L2PcInstance player) {
 		if (event.equalsIgnoreCase("SOD_STATE")) {
-			switch (GraciaSeedsManager.getInstance().getSoDState()) {
-				case 1:
-					return "32549-2.html";
-				case 2:
-					return "32549-3.html";
-				default:
-					return "32549-4.html";
-			}
+			return switch (GraciaSeedsManager.getInstance().getSoDState()) {
+				case 1 -> "32549-2.html";
+				case 2 -> "32549-3.html";
+				default -> "32549-4.html";
+			};
 		}
 		if (event.equalsIgnoreCase("SOI_STATE")) {
 			// TODO: SoI stages not implemented yet
@@ -95,14 +92,11 @@ public final class GeneralDilios extends AbstractNpcAI {
 			// NpcStringId.MESSENGER_INFORM_THE_BROTHERS_IN_KUCEREUS_CLAN_OUTPOST_EKIMUS_IS_ABOUT_TO_BE_REVIVED_BY_THE_RESURRECTED_UNDEAD_IN_SEED_OF_INFINITY_SEND_ALL_REINFORCEMENTS_TO_THE_HEART_AND_THE_HALL_OF_SUFFERING
 			return NpcStringId.MESSENGER_INFORM_THE_BROTHERS_IN_KUCEREUS_CLAN_OUTPOST_BRAVE_ADVENTURERS_WHO_HAVE_CHALLENGED_THE_SEED_OF_INFINITY_ARE_CURRENTLY_INFILTRATING_THE_HALL_OF_EROSION_THROUGH_THE_DEFENSIVELY_WEAK_HALL_OF_SUFFERING;
 		}
-		switch (GraciaSeedsManager.getInstance().getSoDState()) {
-			case 1:
-				return NpcStringId.MESSENGER_INFORM_THE_PATRONS_OF_THE_KEUCEREUS_ALLIANCE_BASE_WERE_GATHERING_BRAVE_ADVENTURERS_TO_ATTACK_TIATS_MOUNTED_TROOP_THATS_ROOTED_IN_THE_SEED_OF_DESTRUCTION;
-			case 2:
-				return NpcStringId.MESSENGER_INFORM_THE_PATRONS_OF_THE_KEUCEREUS_ALLIANCE_BASE_THE_SEED_OF_DESTRUCTION_IS_CURRENTLY_SECURED_UNDER_THE_FLAG_OF_THE_KEUCEREUS_ALLIANCE;
-			default:
-				return NpcStringId.MESSENGER_INFORM_THE_PATRONS_OF_THE_KEUCEREUS_ALLIANCE_BASE_TIATS_MOUNTED_TROOP_IS_CURRENTLY_TRYING_TO_RETAKE_SEED_OF_DESTRUCTION_COMMIT_ALL_THE_AVAILABLE_REINFORCEMENTS_INTO_SEED_OF_DESTRUCTION;
-		}
+		return switch (GraciaSeedsManager.getInstance().getSoDState()) {
+			case 1 -> NpcStringId.MESSENGER_INFORM_THE_PATRONS_OF_THE_KEUCEREUS_ALLIANCE_BASE_WERE_GATHERING_BRAVE_ADVENTURERS_TO_ATTACK_TIATS_MOUNTED_TROOP_THATS_ROOTED_IN_THE_SEED_OF_DESTRUCTION;
+			case 2 -> NpcStringId.MESSENGER_INFORM_THE_PATRONS_OF_THE_KEUCEREUS_ALLIANCE_BASE_THE_SEED_OF_DESTRUCTION_IS_CURRENTLY_SECURED_UNDER_THE_FLAG_OF_THE_KEUCEREUS_ALLIANCE;
+			default -> NpcStringId.MESSENGER_INFORM_THE_PATRONS_OF_THE_KEUCEREUS_ALLIANCE_BASE_TIATS_MOUNTED_TROOP_IS_CURRENTLY_TRYING_TO_RETAKE_SEED_OF_DESTRUCTION_COMMIT_ALL_THE_AVAILABLE_REINFORCEMENTS_INTO_SEED_OF_DESTRUCTION;
+		};
 		
 	}
 	

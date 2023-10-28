@@ -187,17 +187,11 @@ public class Q00138_TempleChampionPart2 extends Quest {
 			case SLA:
 				switch (st.getCond()) {
 					case 6:
-						switch (st.getInt("talk")) {
-							case 1:
-								htmltext = "30666-02.html";
-								break;
-							case 2:
-								htmltext = "30666-03.html";
-								break;
-							default:
-								htmltext = "30666-01.html";
-								break;
-						}
+						htmltext = switch (st.getInt("talk")) {
+							case 1 -> "30666-02.html";
+							case 2 -> "30666-03.html";
+							default -> "30666-01.html";
+						};
 						break;
 					case 7:
 						htmltext = "30666-09.html";

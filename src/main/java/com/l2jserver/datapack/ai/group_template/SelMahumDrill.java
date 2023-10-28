@@ -88,7 +88,7 @@ public final class SelMahumDrill extends AbstractNpcAI {
 		private final int _repeatCount;
 		private final int _repeatInterval;
 		
-		private Actions(int socialActionId, int altSocialActionId, int repeatCount, int repeatInterval) {
+		Actions(int socialActionId, int altSocialActionId, int repeatCount, int repeatInterval) {
 			_socialActionId = socialActionId;
 			_altSocialActionId = altSocialActionId;
 			_repeatCount = repeatCount;

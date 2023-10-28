@@ -18,6 +18,9 @@
  */
 package com.l2jserver.datapack.quests.Q00336_CoinsOfMagic;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.l2jserver.gameserver.enums.audio.Sound;
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
@@ -26,9 +29,6 @@ import com.l2jserver.gameserver.model.quest.Quest;
 import com.l2jserver.gameserver.model.quest.QuestDroplist;
 import com.l2jserver.gameserver.model.quest.QuestState;
 import com.l2jserver.gameserver.util.Util;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Coin Of Magic (336)
@@ -134,45 +134,51 @@ public final class Q00336_CoinsOfMagic extends Quest {
 	private static final QuestItemChanceHolder Q_KALDIS_GOLD_DRAGON = new QuestItemChanceHolder(3812, 63.0, 1L);
 	// Droplist
 	private static final QuestDroplist DROPLIST = QuestDroplist.builder()
-			// Gold Wyvern
-			.addSingleDrop(SHACKLE, Q_GOLD_WYVERN, 7.0)
-			.addSingleDrop(SHACKLE_HOLD, Q_GOLD_WYVERN, 7.0)
-			.addSingleDrop(HEADLESS_KNIGHT, Q_GOLD_WYVERN, 8.0)
-			.addSingleDrop(TIMAK_ORC, Q_GOLD_WYVERN, 8.0)
-			.addSingleDrop(HEADLESS_KNIGHT_HOLD, Q_GOLD_WYVERN, 8.5)
-			.bulkAddSingleDrop(Q_GOLD_WYVERN, 10.0)
-				.withNpcs(ROYAL_CAVE_SERVANT, MALRUK_SUCCUBUS_TUREN, ROYAL_CAVE_SERVANT_HOLD, KUKABURO_B, ANTELOPE, ANTELOPE_A, ANTELOPE_B, H_MALRUK_SUCCUBUS_TUREN).build()
-			.bulkAddSingleDrop(Q_GOLD_WYVERN, 11.0)
-				.withNpcs(BUFFALO, BUFFALO_A, BUFFALO_B, KUKABURO, KUKABURO_A).build()
-			.addSingleDrop(DOOM_SERVANT, Q_GOLD_WYVERN, 14.0)
-			.addSingleDrop(DOOM_KNIGHT, Q_GOLD_WYVERN, 21.0)
-			// Silver Unicorn
-			.addSingleDrop(VANOR_SILENOS_SHAMAN, Q_SILVER_UNICORN, 7.0)
-			.bulkAddSingleDrop(Q_SILVER_UNICORN, 8.0)
-				.withNpcs(BLOODY_GHOST, TARLK_BUGBEAR_BOSS, OEL_MAHUM).build()
-			.addSingleDrop(OEL_MAHUM_WARRIOR, Q_SILVER_UNICORN, 9.0)
-			.addSingleDrop(HUNGRY_CORPSE, Q_SILVER_UNICORN, 10.0)
-			.addSingleDrop(BYFOOT, Q_SILVER_UNICORN, 11.0)
-			.addSingleDrop(BYFOOT_SIGEL, Q_SILVER_UNICORN, 12.0)
-			.bulkAddSingleDrop(Q_SILVER_UNICORN, 15.0)
-				.withNpcs(DARK_GUARD, BRILLIANT_CLAW, BRILLIANT_CLAW_1).build()
-			.addSingleDrop(OEL_MAHUM_WITCH_DOCTOR, Q_SILVER_UNICORN, 20.0)
-			.addSingleDrop(BRILLIANT_ANGUISH, Q_SILVER_UNICORN, 21.0)
-			.addSingleDrop(BRILLIANT_ANGUISH_1, Q_SILVER_UNICORN, 21.0)
-			// Blood Medusa
-			.addSingleDrop(LAKIN, Q_BLOOD_MEDUSA, 6.0)
-			.addSingleDrop(HATAR_HANISHEE, Q_BLOOD_MEDUSA, 7.0)
-			.addSingleDrop(PUNISHMENT_OF_UNDEAD, Q_BLOOD_MEDUSA, 8.0)
-			.bulkAddSingleDrop(Q_BLOOD_MEDUSA, 9.0)
-				.withNpcs(FLOAT_OF_GRAVE, BANDERSNATCH_A, BANDERSNATCH_B).build()
-			.addSingleDrop(BANDERSNATCH, Q_BLOOD_MEDUSA, 10.0)
-			.addSingleDrop(NIHIL_INVADER, Q_BLOOD_MEDUSA, 11.0)
-			.addSingleDrop(TIMAK_ORC_SHAMAN, Q_BLOOD_MEDUSA, 13.0)
-			.addSingleDrop(TIMAK_ORC_ARCHER, Q_BLOOD_MEDUSA, 14.0)
-			.addSingleDrop(TIMAK_ORC_SOLDIER, Q_BLOOD_MEDUSA, 14.0)
-			.bulkAddSingleDrop(Q_BLOOD_MEDUSA, 16.0)
-				.withNpcs(DOOM_ARCHER, BRILLIANT_WISDOM, BRILLIANT_VENGEANCE, BRILLIANT_VENGEANCE_1).build()
-			.build();
+		// Gold Wyvern
+		.addSingleDrop(SHACKLE, Q_GOLD_WYVERN, 7.0)
+		.addSingleDrop(SHACKLE_HOLD, Q_GOLD_WYVERN, 7.0)
+		.addSingleDrop(HEADLESS_KNIGHT, Q_GOLD_WYVERN, 8.0)
+		.addSingleDrop(TIMAK_ORC, Q_GOLD_WYVERN, 8.0)
+		.addSingleDrop(HEADLESS_KNIGHT_HOLD, Q_GOLD_WYVERN, 8.5)
+		.bulkAddSingleDrop(Q_GOLD_WYVERN, 10.0)
+		.withNpcs(ROYAL_CAVE_SERVANT, MALRUK_SUCCUBUS_TUREN, ROYAL_CAVE_SERVANT_HOLD, KUKABURO_B, ANTELOPE, ANTELOPE_A, ANTELOPE_B, H_MALRUK_SUCCUBUS_TUREN)
+		.build()
+		.bulkAddSingleDrop(Q_GOLD_WYVERN, 11.0)
+		.withNpcs(BUFFALO, BUFFALO_A, BUFFALO_B, KUKABURO, KUKABURO_A)
+		.build()
+		.addSingleDrop(DOOM_SERVANT, Q_GOLD_WYVERN, 14.0)
+		.addSingleDrop(DOOM_KNIGHT, Q_GOLD_WYVERN, 21.0)
+		// Silver Unicorn
+		.addSingleDrop(VANOR_SILENOS_SHAMAN, Q_SILVER_UNICORN, 7.0)
+		.bulkAddSingleDrop(Q_SILVER_UNICORN, 8.0)
+		.withNpcs(BLOODY_GHOST, TARLK_BUGBEAR_BOSS, OEL_MAHUM)
+		.build()
+		.addSingleDrop(OEL_MAHUM_WARRIOR, Q_SILVER_UNICORN, 9.0)
+		.addSingleDrop(HUNGRY_CORPSE, Q_SILVER_UNICORN, 10.0)
+		.addSingleDrop(BYFOOT, Q_SILVER_UNICORN, 11.0)
+		.addSingleDrop(BYFOOT_SIGEL, Q_SILVER_UNICORN, 12.0)
+		.bulkAddSingleDrop(Q_SILVER_UNICORN, 15.0)
+		.withNpcs(DARK_GUARD, BRILLIANT_CLAW, BRILLIANT_CLAW_1)
+		.build()
+		.addSingleDrop(OEL_MAHUM_WITCH_DOCTOR, Q_SILVER_UNICORN, 20.0)
+		.addSingleDrop(BRILLIANT_ANGUISH, Q_SILVER_UNICORN, 21.0)
+		.addSingleDrop(BRILLIANT_ANGUISH_1, Q_SILVER_UNICORN, 21.0)
+		// Blood Medusa
+		.addSingleDrop(LAKIN, Q_BLOOD_MEDUSA, 6.0)
+		.addSingleDrop(HATAR_HANISHEE, Q_BLOOD_MEDUSA, 7.0)
+		.addSingleDrop(PUNISHMENT_OF_UNDEAD, Q_BLOOD_MEDUSA, 8.0)
+		.bulkAddSingleDrop(Q_BLOOD_MEDUSA, 9.0)
+		.withNpcs(FLOAT_OF_GRAVE, BANDERSNATCH_A, BANDERSNATCH_B)
+		.build()
+		.addSingleDrop(BANDERSNATCH, Q_BLOOD_MEDUSA, 10.0)
+		.addSingleDrop(NIHIL_INVADER, Q_BLOOD_MEDUSA, 11.0)
+		.addSingleDrop(TIMAK_ORC_SHAMAN, Q_BLOOD_MEDUSA, 13.0)
+		.addSingleDrop(TIMAK_ORC_ARCHER, Q_BLOOD_MEDUSA, 14.0)
+		.addSingleDrop(TIMAK_ORC_SOLDIER, Q_BLOOD_MEDUSA, 14.0)
+		.bulkAddSingleDrop(Q_BLOOD_MEDUSA, 16.0)
+		.withNpcs(DOOM_ARCHER, BRILLIANT_WISDOM, BRILLIANT_VENGEANCE, BRILLIANT_VENGEANCE_1)
+		.build()
+		.build();
 	// Rewards
 	private static final int DEMON_STAFF = 206;
 	private static final int DARK_SCREAMER = 233;
@@ -939,14 +945,14 @@ public final class Q00336_CoinsOfMagic extends Quest {
 		switch (npc.getId()) {
 			case HARIT_LIZARDMAN_SHAMAN, HARIT_LIZARDM_MATRIARCH -> {
 				QuestState qs = getRandomPlayerFromPartyCoin(killer, npc, 2);
-				if (qs != null && giveItemRandomly(qs.getPlayer(), npc, Q_KALDIS_GOLD_DRAGON, true)) {
+				if ((qs != null) && giveItemRandomly(qs.getPlayer(), npc, Q_KALDIS_GOLD_DRAGON, true)) {
 					qs.setCond(3);
 					qs.showQuestionMark(336);
 				}
 				return super.onKill(npc, killer, isSummon);
 			}
 		}
-
+		
 		final QuestState qs = getRandomPlayerFromParty(killer, npc, 3);
 		if (qs != null) {
 			giveItemRandomly(qs.getPlayer(), npc, DROPLIST.get(npc), true);

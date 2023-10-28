@@ -32,7 +32,7 @@ import com.l2jserver.gameserver.network.clientpackets.Say2;
  * @author Adry_85
  */
 public final class LibraryOfSages extends AbstractInstance {
-	protected class LoSWorld extends InstanceWorld {
+	protected static class LoSWorld extends InstanceWorld {
 		protected L2Npc elcadia = null;
 	}
 	
@@ -70,8 +70,7 @@ public final class LibraryOfSages extends AbstractInstance {
 	@Override
 	public String onAdvEvent(String event, L2Npc npc, L2PcInstance player) {
 		final InstanceWorld tmpworld = InstanceManager.getInstance().getPlayerWorld(player);
-		if (tmpworld instanceof LoSWorld) {
-			final LoSWorld world = (LoSWorld) tmpworld;
+		if (tmpworld instanceof LoSWorld world) {
 			switch (event) {
 				case "TELEPORT2": {
 					teleportPlayer(player, LIBRARY_LOC, world.getInstanceId());

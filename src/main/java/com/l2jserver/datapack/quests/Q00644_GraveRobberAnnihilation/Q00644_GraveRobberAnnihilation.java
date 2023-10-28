@@ -18,6 +18,9 @@
  */
 package com.l2jserver.datapack.quests.Q00644_GraveRobberAnnihilation;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
 import com.l2jserver.gameserver.model.holders.ItemHolder;
@@ -26,9 +29,6 @@ import com.l2jserver.gameserver.model.quest.Quest;
 import com.l2jserver.gameserver.model.quest.QuestDroplist;
 import com.l2jserver.gameserver.model.quest.QuestState;
 import com.l2jserver.gameserver.model.quest.State;
-
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * Grave Robber Annihilation (644)
@@ -41,15 +41,14 @@ public final class Q00644_GraveRobberAnnihilation extends Quest {
 	private static final QuestItemChanceHolder ORC_GOODS = new QuestItemChanceHolder(8088, 120L);
 	// Droplist
 	private static final QuestDroplist DROPLIST = QuestDroplist.builder()
-			.addSingleDrop(22003, ORC_GOODS, 71.4) // Grave Robber Scout
-			.addSingleDrop(22004, ORC_GOODS, 84.1) // Grave Robber Lookout
-			.addSingleDrop(22005, ORC_GOODS, 77.8) // Grave Robber Ranger
-			.addSingleDrop(22006, ORC_GOODS, 74.6) // Grave Robber Guard
-			.addSingleDrop(22008, ORC_GOODS, 81.0) // Grave Robber Fighter
-			.build();
+		.addSingleDrop(22003, ORC_GOODS, 71.4) // Grave Robber Scout
+		.addSingleDrop(22004, ORC_GOODS, 84.1) // Grave Robber Lookout
+		.addSingleDrop(22005, ORC_GOODS, 77.8) // Grave Robber Ranger
+		.addSingleDrop(22006, ORC_GOODS, 74.6) // Grave Robber Guard
+		.addSingleDrop(22008, ORC_GOODS, 81.0) // Grave Robber Fighter
+		.build();
 	// Misc
 	private static final int MIN_LVL = 20;
-	private static final int ORC_GOODS_REQUIRED_COUNT = 120;
 	// Rewards
 	private static final Map<String, ItemHolder> REWARDS = new HashMap<>();
 	static {

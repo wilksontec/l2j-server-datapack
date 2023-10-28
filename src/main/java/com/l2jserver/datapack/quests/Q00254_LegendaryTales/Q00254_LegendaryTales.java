@@ -46,7 +46,7 @@ public class Q00254_LegendaryTales extends Quest {
 		private final int _bossId;
 		private final int _mask;
 		
-		private Bosses(int bossId) {
+		Bosses(int bossId) {
 			_bossId = bossId;
 			_mask = 1 << ordinal();
 		}

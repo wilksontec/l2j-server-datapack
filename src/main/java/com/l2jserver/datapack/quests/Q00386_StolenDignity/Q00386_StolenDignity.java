@@ -18,15 +18,15 @@
  */
 package com.l2jserver.datapack.quests.Q00386_StolenDignity;
 
+import java.util.Arrays;
+import java.util.Collections;
+
 import com.l2jserver.gameserver.enums.audio.Sound;
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
 import com.l2jserver.gameserver.model.quest.Quest;
 import com.l2jserver.gameserver.model.quest.QuestDroplist;
 import com.l2jserver.gameserver.model.quest.QuestState;
-
-import java.util.Arrays;
-import java.util.Collections;
 
 /**
  * Stolen Dignity (386)
@@ -66,33 +66,33 @@ public final class Q00386_StolenDignity extends Quest {
 	private static final int Q_STOLEN_INF_ORE = 6363;
 	// Droplist
 	private static final QuestDroplist DROPLIST = QuestDroplist.builder()
-			.addSingleDrop(CRIMSON_DRAKE, Q_STOLEN_INF_ORE, 20.200001)
-			.addSingleDrop(KADIOS, Q_STOLEN_INF_ORE, 21.1)
-			.addSingleDrop(HUNGRY_CORPSE, Q_STOLEN_INF_ORE, 18.4)
-			.addSingleDrop(PAST_KNIGHT, Q_STOLEN_INF_ORE, 21.6)
-			.addSingleDrop(BLADE_DEATH, Q_STOLEN_INF_ORE, 17.0)
-			.addSingleDrop(DARK_GUARD, Q_STOLEN_INF_ORE, 27.3)
-			.addSingleDrop(BLOODY_GHOST, Q_STOLEN_INF_ORE, 14.9)
-			.addSingleDrop(BLOODY_LORD, Q_STOLEN_INF_ORE, 19.9)
-			.addSingleDrop(PAST_CREATURE, Q_STOLEN_INF_ORE, 25.7)
-			.addSingleDrop(GIANT_SHADOW, Q_STOLEN_INF_ORE, 20.5)
-			.addSingleDrop(ANCIENTS_SOLDIER, Q_STOLEN_INF_ORE, 20.8)
-			.addSingleDrop(ANCIENTS_WARRIOR, Q_STOLEN_INF_ORE, 29.9)
-			.addSingleDrop(SPITE_SOUL_LEADER, Q_STOLEN_INF_ORE, 44.0)
-			.addSingleDrop(SPITE_SOUL_WIZARD, Q_STOLEN_INF_ORE, 39.0)
-			.addSingleDrop(WRECKED_ARCHER, Q_STOLEN_INF_ORE, 21.4)
-			.addSingleDrop(FLOAT_OF_GRAVE, Q_STOLEN_INF_ORE, 17.3)
-			.addSingleDrop(GRAVE_PREDATOR, Q_STOLEN_INF_ORE, 21.1)
-			.addSingleDrop(FALLEN_ORC_SHAMAN, Q_STOLEN_INF_ORE, 47.8)
-			.addSingleDrop(SHARP_TALON_TIGER, Q_STOLEN_INF_ORE, 23.4)
-			.addSingleDrop(GLOW_WISP, Q_STOLEN_INF_ORE, 24.5)
-			.addSingleDrop(MARSH_PREDATOR, Q_STOLEN_INF_ORE, 26.0)
-			.addSingleDrop(HAMES_ORC_SNIPER, Q_STOLEN_INF_ORE, 37.0)
-			.addSingleDrop(CURSED_GUARDIAN, Q_STOLEN_INF_ORE, 35.2)
-			.addSingleDrop(HAMES_ORC_CHIEFTAIN, Q_STOLEN_INF_ORE, 48.7)
-			.addSingleDrop(FALLEN_ORC_SHAMAN_TRANS, Q_STOLEN_INF_ORE, 48.7)
-			.addSingleDrop(SHARP_TALON_TIGER_TRANS, Q_STOLEN_INF_ORE, 48.7)
-			.build();
+		.addSingleDrop(CRIMSON_DRAKE, Q_STOLEN_INF_ORE, 20.200001)
+		.addSingleDrop(KADIOS, Q_STOLEN_INF_ORE, 21.1)
+		.addSingleDrop(HUNGRY_CORPSE, Q_STOLEN_INF_ORE, 18.4)
+		.addSingleDrop(PAST_KNIGHT, Q_STOLEN_INF_ORE, 21.6)
+		.addSingleDrop(BLADE_DEATH, Q_STOLEN_INF_ORE, 17.0)
+		.addSingleDrop(DARK_GUARD, Q_STOLEN_INF_ORE, 27.3)
+		.addSingleDrop(BLOODY_GHOST, Q_STOLEN_INF_ORE, 14.9)
+		.addSingleDrop(BLOODY_LORD, Q_STOLEN_INF_ORE, 19.9)
+		.addSingleDrop(PAST_CREATURE, Q_STOLEN_INF_ORE, 25.7)
+		.addSingleDrop(GIANT_SHADOW, Q_STOLEN_INF_ORE, 20.5)
+		.addSingleDrop(ANCIENTS_SOLDIER, Q_STOLEN_INF_ORE, 20.8)
+		.addSingleDrop(ANCIENTS_WARRIOR, Q_STOLEN_INF_ORE, 29.9)
+		.addSingleDrop(SPITE_SOUL_LEADER, Q_STOLEN_INF_ORE, 44.0)
+		.addSingleDrop(SPITE_SOUL_WIZARD, Q_STOLEN_INF_ORE, 39.0)
+		.addSingleDrop(WRECKED_ARCHER, Q_STOLEN_INF_ORE, 21.4)
+		.addSingleDrop(FLOAT_OF_GRAVE, Q_STOLEN_INF_ORE, 17.3)
+		.addSingleDrop(GRAVE_PREDATOR, Q_STOLEN_INF_ORE, 21.1)
+		.addSingleDrop(FALLEN_ORC_SHAMAN, Q_STOLEN_INF_ORE, 47.8)
+		.addSingleDrop(SHARP_TALON_TIGER, Q_STOLEN_INF_ORE, 23.4)
+		.addSingleDrop(GLOW_WISP, Q_STOLEN_INF_ORE, 24.5)
+		.addSingleDrop(MARSH_PREDATOR, Q_STOLEN_INF_ORE, 26.0)
+		.addSingleDrop(HAMES_ORC_SNIPER, Q_STOLEN_INF_ORE, 37.0)
+		.addSingleDrop(CURSED_GUARDIAN, Q_STOLEN_INF_ORE, 35.2)
+		.addSingleDrop(HAMES_ORC_CHIEFTAIN, Q_STOLEN_INF_ORE, 48.7)
+		.addSingleDrop(FALLEN_ORC_SHAMAN_TRANS, Q_STOLEN_INF_ORE, 48.7)
+		.addSingleDrop(SHARP_TALON_TIGER_TRANS, Q_STOLEN_INF_ORE, 48.7)
+		.build();
 	// Rewards
 	private static final int[] REWARDS = {
 		5529, // Dragon Slayer Edge
@@ -129,7 +129,7 @@ public final class Q00386_StolenDignity extends Quest {
 		8721, // Hand of Cabrio Head
 		8722 // Crystal of Deamon Piece
 	};
-
+	
 	public Q00386_StolenDignity() {
 		super(386, Q00386_StolenDignity.class.getSimpleName(), "Stolen Dignity");
 		addStartNpc(WAREHOUSE_KEEPER_ROMP);
@@ -305,7 +305,7 @@ public final class Q00386_StolenDignity extends Quest {
 		int index = getRandom(33);
 		giveItems(player, REWARDS[index], count);
 	}
-
+	
 	private void createBingoBoard(QuestState qs) {
 		//@formatter:off
 		Integer[] arr = {1,2,3,4,5,6,7,8,9};
@@ -314,7 +314,7 @@ public final class Q00386_StolenDignity extends Quest {
 		qs.set("numbers", Arrays.asList(arr).toString().replaceAll("[^\\d ]", ""));
 		qs.set("selected", "? ? ? ? ? ? ? ? ?");
 	}
-
+	
 	private int getMatchedBingoLineCount(QuestState qs) {
 		String[] q = qs.get("selected").split(" ");
 		int found = 0;
@@ -347,7 +347,7 @@ public final class Q00386_StolenDignity extends Quest {
 		}
 		return found;
 	}
-
+	
 	private void selectBingoNumber(QuestState qs, int num) {
 		String[] numbers = qs.get("numbers").split(" ");
 		int pos = 0;

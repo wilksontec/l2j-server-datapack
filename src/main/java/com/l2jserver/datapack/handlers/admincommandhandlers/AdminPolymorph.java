@@ -18,12 +18,17 @@
  */
 package com.l2jserver.datapack.handlers.admincommandhandlers;
 
+import static com.l2jserver.gameserver.network.SystemMessageId.CANNOT_TRANSFORM_WHILE_SITTING;
+import static com.l2jserver.gameserver.network.SystemMessageId.INCORRECT_TARGET;
+import static com.l2jserver.gameserver.network.SystemMessageId.YOU_ALREADY_POLYMORPHED_AND_CANNOT_POLYMORPH_AGAIN;
+import static com.l2jserver.gameserver.network.SystemMessageId.YOU_CANNOT_POLYMORPH_INTO_THE_DESIRED_FORM_IN_WATER;
+import static com.l2jserver.gameserver.network.SystemMessageId.YOU_CANNOT_POLYMORPH_WHILE_RIDING_A_PET;
+
 import com.l2jserver.gameserver.data.xml.impl.TransformData;
 import com.l2jserver.gameserver.handler.IAdminCommandHandler;
 import com.l2jserver.gameserver.model.L2Object;
 import com.l2jserver.gameserver.model.actor.L2Character;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
-import com.l2jserver.gameserver.network.SystemMessageId;
 import com.l2jserver.gameserver.network.serverpackets.MagicSkillUse;
 import com.l2jserver.gameserver.network.serverpackets.SetupGauge;
 import com.l2jserver.gameserver.util.Util;
@@ -48,21 +53,19 @@ public class AdminPolymorph implements IAdminCommandHandler {
 			return true;
 		} else if (command.startsWith("admin_untransform")) {
 			L2Object obj = activeChar.getTarget();
-			if (obj instanceof L2Character) {
-				((L2Character) obj).stopTransformation(true);
+			if (obj instanceof L2Character creature) {
+				creature.stopTransformation(true);
 			} else {
-				activeChar.sendPacket(SystemMessageId.INCORRECT_TARGET);
+				activeChar.sendPacket(INCORRECT_TARGET);
 			}
 		} else if (command.startsWith("admin_transform")) {
-			final L2Object obj = activeChar.getTarget();
-			if ((obj == null) || !obj.isPlayer()) {
-				activeChar.sendPacket(SystemMessageId.INCORRECT_TARGET);
+			if (!(activeChar.getTarget() instanceof L2PcInstance player)) {
+				activeChar.sendPacket(INCORRECT_TARGET);
 				return false;
 			}
 			
-			final L2PcInstance player = obj.getActingPlayer();
 			if (activeChar.isSitting()) {
-				activeChar.sendPacket(SystemMessageId.CANNOT_TRANSFORM_WHILE_SITTING);
+				activeChar.sendPacket(CANNOT_TRANSFORM_WHILE_SITTING);
 				return false;
 			}
 			
@@ -71,17 +74,17 @@ public class AdminPolymorph implements IAdminCommandHandler {
 					player.untransform();
 					return true;
 				}
-				activeChar.sendPacket(SystemMessageId.YOU_ALREADY_POLYMORPHED_AND_CANNOT_POLYMORPH_AGAIN);
+				activeChar.sendPacket(YOU_ALREADY_POLYMORPHED_AND_CANNOT_POLYMORPH_AGAIN);
 				return false;
 			}
 			
 			if (player.isInWater()) {
-				activeChar.sendPacket(SystemMessageId.YOU_CANNOT_POLYMORPH_INTO_THE_DESIRED_FORM_IN_WATER);
+				activeChar.sendPacket(YOU_CANNOT_POLYMORPH_INTO_THE_DESIRED_FORM_IN_WATER);
 				return false;
 			}
 			
 			if (player.isFlyingMounted() || player.isMounted()) {
-				activeChar.sendPacket(SystemMessageId.YOU_CANNOT_POLYMORPH_WHILE_RIDING_A_PET);
+				activeChar.sendPacket(YOU_CANNOT_POLYMORPH_WHILE_RIDING_A_PET);
 				return false;
 			}
 			
@@ -132,8 +135,7 @@ public class AdminPolymorph implements IAdminCommandHandler {
 		if (obj != null) {
 			obj.getPoly().setPolyInfo(type, id);
 			// animation
-			if (obj instanceof L2Character) {
-				L2Character Char = (L2Character) obj;
+			if (obj instanceof L2Character Char) {
 				MagicSkillUse msk = new MagicSkillUse(Char, 1008, 1, 4000, 0);
 				Char.broadcastPacket(msk);
 				SetupGauge sg = new SetupGauge(0, 4000);
@@ -144,7 +146,7 @@ public class AdminPolymorph implements IAdminCommandHandler {
 			obj.spawnMe(obj.getX(), obj.getY(), obj.getZ());
 			activeChar.sendMessage("Polymorph succeed");
 		} else {
-			activeChar.sendPacket(SystemMessageId.INCORRECT_TARGET);
+			activeChar.sendPacket(INCORRECT_TARGET);
 		}
 	}
 	
@@ -160,7 +162,7 @@ public class AdminPolymorph implements IAdminCommandHandler {
 			target.spawnMe(target.getX(), target.getY(), target.getZ());
 			activeChar.sendMessage("Unpolymorph succeed");
 		} else {
-			activeChar.sendPacket(SystemMessageId.INCORRECT_TARGET);
+			activeChar.sendPacket(INCORRECT_TARGET);
 		}
 	}
 }

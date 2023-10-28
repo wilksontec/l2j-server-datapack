@@ -36,18 +36,18 @@ public final class Q00369_CollectorOfJewels extends Quest {
 	private static final int FREEZING_SHARD = 5883;
 	// Mobs
 	private static final QuestDroplist DROPLIST = QuestDroplist.builder()
-			.addSingleDrop(20609, FLARE_SHARD, 75.0) // salamander_lakin
-			.addSingleDrop(20612, FLARE_SHARD, 91.0) // salamander_rowin
-			.addSingleDrop(20749, FLARE_SHARD, 2L) // death_fire
-			.addSingleDrop(20616, FREEZING_SHARD, 81.0) // undine_lakin
-			.addSingleDrop(20619, FREEZING_SHARD, 87.0) // undine_rowin
-			.addSingleDrop(20747, FREEZING_SHARD, 2L) // roxide
-			.build();
+		.addSingleDrop(20609, FLARE_SHARD, 75.0) // salamander_lakin
+		.addSingleDrop(20612, FLARE_SHARD, 91.0) // salamander_rowin
+		.addSingleDrop(20749, FLARE_SHARD, 2L) // death_fire
+		.addSingleDrop(20616, FREEZING_SHARD, 81.0) // undine_lakin
+		.addSingleDrop(20619, FREEZING_SHARD, 87.0) // undine_rowin
+		.addSingleDrop(20747, FREEZING_SHARD, 2L) // roxide
+		.build();
 	// Misc
 	private static final int MIN_LEVEL = 25;
 	private static final int FIRST_STEP_LIMIT = 50;
 	private static final int SECOND_STEP_LIMIT = 200;
-
+	
 	public Q00369_CollectorOfJewels() {
 		super(369, Q00369_CollectorOfJewels.class.getSimpleName(), "Collector of Jewels");
 		addStartNpc(NELL);
@@ -121,7 +121,7 @@ public final class Q00369_CollectorOfJewels extends Quest {
 		} else if (st.isStarted()) {
 			switch (st.getMemoState()) {
 				case 1: {
-					if (getQuestItemsCount(player, FLARE_SHARD, FREEZING_SHARD) >= FIRST_STEP_LIMIT * 2) {
+					if (getQuestItemsCount(player, FLARE_SHARD, FREEZING_SHARD) >= (FIRST_STEP_LIMIT * 2)) {
 						giveAdena(player, 31810, true);
 						takeItems(player, -1, FLARE_SHARD, FREEZING_SHARD);
 						st.setMemoState(2);
@@ -136,7 +136,7 @@ public final class Q00369_CollectorOfJewels extends Quest {
 					break;
 				}
 				case 3: {
-					if (getQuestItemsCount(player, FLARE_SHARD, FREEZING_SHARD) >= SECOND_STEP_LIMIT * 2) {
+					if (getQuestItemsCount(player, FLARE_SHARD, FREEZING_SHARD) >= (SECOND_STEP_LIMIT * 2)) {
 						giveAdena(player, 84415, true);
 						takeItems(player, -1, FLARE_SHARD, FREEZING_SHARD);
 						st.exitQuest(true, true);

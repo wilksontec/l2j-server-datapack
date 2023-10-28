@@ -35,15 +35,15 @@ public final class Q00269_InventionAmbition extends Quest {
 	private static final int ENERGY_ORE = 10866;
 	// Droplist
 	private static final QuestDroplist DROPLIST = QuestDroplist.builder()
-			.addSingleDrop(21124, ENERGY_ORE, 46.0) // Red Eye Barbed Bat
-			.addSingleDrop(21125, ENERGY_ORE, 48.0) // Northern Trimden
-			.addSingleDrop(21126, ENERGY_ORE, 50.0) // Kerope Werewolf
-			.addSingleDrop(21127, ENERGY_ORE, 64.0) // Northern Goblin
-			.addSingleDrop(21128, ENERGY_ORE, 66.0) // Spine Golem
-			.addSingleDrop(21129, ENERGY_ORE, 68.0) // Kerope Werewolf Chief
-			.addSingleDrop(21130, ENERGY_ORE, 76.0) // Northern Goblin Leader
-			.addSingleDrop(21131, ENERGY_ORE, 78.0) // Enchanted Spine Golem
-			.build();
+		.addSingleDrop(21124, ENERGY_ORE, 46.0) // Red Eye Barbed Bat
+		.addSingleDrop(21125, ENERGY_ORE, 48.0) // Northern Trimden
+		.addSingleDrop(21126, ENERGY_ORE, 50.0) // Kerope Werewolf
+		.addSingleDrop(21127, ENERGY_ORE, 64.0) // Northern Goblin
+		.addSingleDrop(21128, ENERGY_ORE, 66.0) // Spine Golem
+		.addSingleDrop(21129, ENERGY_ORE, 68.0) // Kerope Werewolf Chief
+		.addSingleDrop(21130, ENERGY_ORE, 76.0) // Northern Goblin Leader
+		.addSingleDrop(21131, ENERGY_ORE, 78.0) // Enchanted Spine Golem
+		.build();
 	// Misc
 	private static final int MIN_LVL = 18;
 	

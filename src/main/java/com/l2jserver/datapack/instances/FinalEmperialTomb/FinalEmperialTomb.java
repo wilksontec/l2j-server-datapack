@@ -83,7 +83,7 @@ import com.l2jserver.gameserver.util.Util;
  * @author Gigiikun
  */
 public final class FinalEmperialTomb extends AbstractInstance {
-	protected class FETWorld extends InstanceWorld {
+	protected static class FETWorld extends InstanceWorld {
 		protected Lock lock = new ReentrantLock();
 		protected List<L2Npc> npcList = new CopyOnWriteArrayList<>();
 		protected int darkChoirPlayerCount = 0;
@@ -274,7 +274,7 @@ public final class FinalEmperialTomb extends AbstractInstance {
 								}
 								
 								int flag = Integer.parseInt(attrs.getNamedItem("flag").getNodeValue());
-								_spawnList.putIfAbsent(flag, new ArrayList<FETSpawn>());
+								_spawnList.putIfAbsent(flag, new ArrayList<>());
 								
 								for (Node cd = d.getFirstChild(); cd != null; cd = cd.getNextSibling()) {
 									if ("loc".equalsIgnoreCase(cd.getNodeName())) {
@@ -633,7 +633,7 @@ public final class FinalEmperialTomb extends AbstractInstance {
 		}
 	}
 	
-	private class SoulBreakingArrow implements Runnable {
+	private static class SoulBreakingArrow implements Runnable {
 		private final L2Npc _npc;
 		
 		protected SoulBreakingArrow(L2Npc npc) {
@@ -1139,8 +1139,7 @@ public final class FinalEmperialTomb extends AbstractInstance {
 	@Override
 	public String onAttack(L2Npc npc, L2PcInstance attacker, int damage, boolean isSummon, Skill skill) {
 		final InstanceWorld tmpworld = InstanceManager.getInstance().getWorld(npc.getInstanceId());
-		if (tmpworld instanceof FETWorld) {
-			final FETWorld world = (FETWorld) tmpworld;
+		if (tmpworld instanceof FETWorld world) {
 			if ((npc.getId() == SCARLET1) && (world.getStatus() == 3) && (npc.getCurrentHp() < (npc.getMaxHp() * 0.80))) {
 				controlStatus(world);
 			} else if ((npc.getId() == SCARLET1) && (world.getStatus() == 4) && (npc.getCurrentHp() < (npc.getMaxHp() * 0.20))) {
@@ -1171,8 +1170,7 @@ public final class FinalEmperialTomb extends AbstractInstance {
 	@Override
 	public String onKill(L2Npc npc, L2PcInstance player, boolean isSummon) {
 		InstanceWorld tmpworld = InstanceManager.getInstance().getWorld(npc.getInstanceId());
-		if (tmpworld instanceof FETWorld) {
-			FETWorld world = (FETWorld) tmpworld;
+		if (tmpworld instanceof FETWorld world) {
 			if (npc.getId() == HALL_ALARM) {
 				ThreadPoolManager.getInstance().scheduleGeneral(new StatusTask(world, 0), 2000);
 				if (debug) {

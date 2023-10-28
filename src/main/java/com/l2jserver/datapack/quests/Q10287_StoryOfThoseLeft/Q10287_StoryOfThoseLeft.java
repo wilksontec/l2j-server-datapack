@@ -114,7 +114,7 @@ public final class Q10287_StoryOfThoseLeft extends Quest {
 			case "10553":
 			case "14219": {
 				if (st.isMemoState(2)) {
-					st.rewardItems(Integer.valueOf(event), 1);
+					st.rewardItems(Integer.parseInt(event), 1);
 					htmltext = "32020-09.html";
 					st.exitQuest(false, true);
 				}

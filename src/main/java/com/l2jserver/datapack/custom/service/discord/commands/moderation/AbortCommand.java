@@ -18,14 +18,15 @@
  */
 package com.l2jserver.datapack.custom.service.discord.commands.moderation;
 
-import com.l2jserver.datapack.custom.service.discord.AbstractCommand;
-import com.l2jserver.gameserver.Shutdown;
-import net.dv8tion.jda.api.EmbedBuilder;
-import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
+import static com.l2jserver.gameserver.config.Configuration.discord;
 
 import java.awt.Color;
 
-import static com.l2jserver.gameserver.config.Configuration.discord;
+import com.l2jserver.datapack.custom.service.discord.AbstractCommand;
+import com.l2jserver.gameserver.Shutdown;
+
+import net.dv8tion.jda.api.EmbedBuilder;
+import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 
 /**
  * Abort Command.
@@ -33,37 +34,37 @@ import static com.l2jserver.gameserver.config.Configuration.discord;
  * @version 2.6.2.0
  */
 public class AbortCommand extends AbstractCommand {
-
-    private static final String[] COMMANDS = {
-        "abort",
-        "abt"
-    };
-
-    @Override
-    public String[] getCommands() {
-        return COMMANDS;
-    }
-    
-    @Override
-    public void executeCommand(MessageReceivedEvent event, String[] args) {
-        EmbedBuilder eb = new EmbedBuilder().setColor(Color.RED);
-
-        if (!canExecute(event)) {
-            return;
-        }
-
-        if (args.length != 1) {
-            eb.setDescription("Please use the command without any Arguments");
-            event.getTextChannel().sendMessageEmbeds(eb.build()).queue();
-            event.getMessage().addReaction("\u274C").queue();
-            return;
-        }
-        
-        String gmName = event.getAuthor().getAsMention();
-        String commandName = args[0].substring(discord().getPrefix().length()).toUpperCase();
-        Shutdown.getInstance().telnetAbort(event.getAuthor().getName()); //Using telnet method.
-        eb.setDescription("GM: {" + gmName + "} issued command. **" + commandName + "** --- Shutdown/Restart Aborted.");
-        event.getChannel().sendMessageEmbeds(eb.build()).queue();
-        event.getMessage().addReaction("\u2705").queue();
-    }
+	
+	private static final String[] COMMANDS = {
+		"abort",
+		"abt"
+	};
+	
+	@Override
+	public String[] getCommands() {
+		return COMMANDS;
+	}
+	
+	@Override
+	public void executeCommand(MessageReceivedEvent event, String[] args) {
+		EmbedBuilder eb = new EmbedBuilder().setColor(Color.RED);
+		
+		if (!canExecute(event)) {
+			return;
+		}
+		
+		if (args.length != 1) {
+			eb.setDescription("Please use the command without any Arguments");
+			event.getTextChannel().sendMessageEmbeds(eb.build()).queue();
+			event.getMessage().addReaction("\u274C").queue();
+			return;
+		}
+		
+		String gmName = event.getAuthor().getAsMention();
+		String commandName = args[0].substring(discord().getPrefix().length()).toUpperCase();
+		Shutdown.getInstance().telnetAbort(event.getAuthor().getName()); // Using telnet method.
+		eb.setDescription("GM: {" + gmName + "} issued command. **" + commandName + "** --- Shutdown/Restart Aborted.");
+		event.getChannel().sendMessageEmbeds(eb.build()).queue();
+		event.getMessage().addReaction("\u2705").queue();
+	}
 }

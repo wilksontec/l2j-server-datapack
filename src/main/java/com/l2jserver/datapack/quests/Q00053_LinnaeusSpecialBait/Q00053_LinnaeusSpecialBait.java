@@ -37,7 +37,7 @@ public class Q00053_LinnaeusSpecialBait extends Quest {
 	// Items
 	private static final int FLAMING_FISHING_LURE = 7613;
 	private static final QuestItemChanceHolder CRIMSON_DRAKE_HEART = new QuestItemChanceHolder(7624, 33.0, 100L);
-
+	
 	public Q00053_LinnaeusSpecialBait() {
 		super(53, Q00053_LinnaeusSpecialBait.class.getSimpleName(), "Linnaeus Special Bait");
 		addStartNpc(LINNAEUS);
@@ -74,7 +74,7 @@ public class Q00053_LinnaeusSpecialBait extends Quest {
 	@Override
 	public String onKill(L2Npc npc, L2PcInstance player, boolean isSummon) {
 		QuestState st = getRandomPartyMemberState(player, 1, 1, npc);
-		if (st != null && giveItemRandomly(st.getPlayer(), npc, CRIMSON_DRAKE_HEART, true)) {
+		if ((st != null) && giveItemRandomly(st.getPlayer(), npc, CRIMSON_DRAKE_HEART, true)) {
 			st.setCond(2);
 		}
 		return super.onKill(npc, player, isSummon);

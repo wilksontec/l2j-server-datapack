@@ -32,7 +32,7 @@ import com.l2jserver.gameserver.model.quest.QuestState;
  * @since 2.6.0.0
  */
 public final class SecretAreaInTheKeucereusFortress1 extends AbstractInstance {
-	protected class SAKF1World extends InstanceWorld {
+	protected static class SAKF1World extends InstanceWorld {
 		
 	}
 	

@@ -18,6 +18,8 @@
  */
 package com.l2jserver.datapack.quests.Q00175_TheWayOfTheWarrior;
 
+import java.util.List;
+
 import com.l2jserver.gameserver.enums.Race;
 import com.l2jserver.gameserver.enums.audio.Voice;
 import com.l2jserver.gameserver.model.actor.L2Npc;
@@ -31,8 +33,6 @@ import com.l2jserver.gameserver.model.variables.PlayerVariables;
 import com.l2jserver.gameserver.network.NpcStringId;
 import com.l2jserver.gameserver.network.serverpackets.ExShowScreenMessage;
 import com.l2jserver.gameserver.network.serverpackets.SocialAction;
-
-import java.util.List;
 
 /**
  * The Way of the Warrior (175)
@@ -54,7 +54,7 @@ public final class Q00175_TheWayOfTheWarrior extends Quest {
 	// Rewards
 	private static final int WARRIORS_SWORD = 9720;
 	private static final ItemHolder SOULSHOTS_NO_GRADE_FOR_ROOKIES = new ItemHolder(5789, 7000);
-	private static final List<ItemHolder> REWARDS = List.of(
+	private static final List<ItemHolder> REWARDS = List.of( //
 		new ItemHolder(1060, 100), // Lesser Healing Potion
 		new ItemHolder(4412, 10), // Echo Crystal - Theme of Battle
 		new ItemHolder(4413, 10), // Echo Crystal - Theme of Love

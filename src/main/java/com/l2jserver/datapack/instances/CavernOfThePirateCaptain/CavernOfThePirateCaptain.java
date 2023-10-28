@@ -39,7 +39,7 @@ import com.l2jserver.gameserver.network.serverpackets.SystemMessage;
  * @author St3eT
  */
 public final class CavernOfThePirateCaptain extends AbstractInstance {
-	protected class CavernOfThePirateCaptainWorld extends InstanceWorld {
+	protected static class CavernOfThePirateCaptainWorld extends InstanceWorld {
 		protected List<L2PcInstance> playersInside = new ArrayList<>();
 		protected L2Attackable _zaken;
 		protected long storeTime = 0;
@@ -257,9 +257,7 @@ public final class CavernOfThePirateCaptain extends AbstractInstance {
 		} else {
 			final InstanceWorld tmpworld = InstanceManager.getInstance().getWorld(npc.getInstanceId());
 			
-			if ((tmpworld != null) && (tmpworld instanceof CavernOfThePirateCaptainWorld)) {
-				final CavernOfThePirateCaptainWorld world = (CavernOfThePirateCaptainWorld) tmpworld;
-				
+			if ((tmpworld != null) && (tmpworld instanceof CavernOfThePirateCaptainWorld world)) {
 				switch (event) {
 					case "BURN_BLUE": {
 						if (npc.getRightHandItem() == 0) {
@@ -316,9 +314,7 @@ public final class CavernOfThePirateCaptain extends AbstractInstance {
 	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
 		final InstanceWorld tmpworld = InstanceManager.getInstance().getWorld(npc.getInstanceId());
 		
-		if ((tmpworld != null) && (tmpworld instanceof CavernOfThePirateCaptainWorld)) {
-			final CavernOfThePirateCaptainWorld world = (CavernOfThePirateCaptainWorld) tmpworld;
-			
+		if ((tmpworld != null) && (tmpworld instanceof CavernOfThePirateCaptainWorld world)) {
 			if (npc.getId() == ZAKEN_83) {
 				for (L2PcInstance playersInside : world.playersInside) {
 					if ((playersInside != null) && ((playersInside.getInstanceId() == world.getInstanceId()) && playersInside.isInsideRadius(npc, 1500, true, true))) {
@@ -351,8 +347,7 @@ public final class CavernOfThePirateCaptain extends AbstractInstance {
 	public String onFirstTalk(L2Npc npc, L2PcInstance player) {
 		final InstanceWorld tmpworld = InstanceManager.getInstance().getWorld(npc.getInstanceId());
 		
-		if ((tmpworld != null) && (tmpworld instanceof CavernOfThePirateCaptainWorld)) {
-			final CavernOfThePirateCaptainWorld world = (CavernOfThePirateCaptainWorld) tmpworld;
+		if ((tmpworld != null) && (tmpworld instanceof CavernOfThePirateCaptainWorld world)) {
 			final boolean isBlue = npc.getVariables().getInt("isBlue", 0) == 1;
 			
 			if (npc.isScriptValue(0)) {

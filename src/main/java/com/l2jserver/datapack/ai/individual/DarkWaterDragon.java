@@ -18,6 +18,12 @@
  */
 package com.l2jserver.datapack.ai.individual;
 
+import static com.l2jserver.gameserver.config.Configuration.rates;
+
+import java.util.Map;
+import java.util.Set;
+import java.util.concurrent.ConcurrentHashMap;
+
 import com.l2jserver.commons.util.Rnd;
 import com.l2jserver.datapack.ai.npc.AbstractNpcAI;
 import com.l2jserver.gameserver.ai.CtrlIntention;
@@ -25,12 +31,6 @@ import com.l2jserver.gameserver.model.actor.L2Attackable;
 import com.l2jserver.gameserver.model.actor.L2Character;
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
-
-import java.util.Map;
-import java.util.Set;
-import java.util.concurrent.ConcurrentHashMap;
-
-import static com.l2jserver.gameserver.config.Configuration.rates;
 
 /**
  * Dark Water Dragon's AI.
@@ -191,7 +191,7 @@ public final class DarkWaterDragon extends AbstractNpcAI {
 		if (Rnd.get(10000) <= finalRate) {
 			int finalAmount = rates().getDeathDropAmountMultiplier().intValue();
 			if (finalRate > 10000) {
-				finalAmount *= finalRate / 10000 + (Rnd.get(10000) <= finalRate % 10000 ? 1 : 0);
+				finalAmount *= (finalRate / 10000) + (Rnd.get(10000) <= (finalRate % 10000) ? 1 : 0);
 			}
 			npc.dropItem(killer, itemId, finalAmount);
 		}

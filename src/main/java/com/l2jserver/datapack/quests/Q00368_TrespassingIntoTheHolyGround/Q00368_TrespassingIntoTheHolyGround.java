@@ -35,14 +35,14 @@ public final class Q00368_TrespassingIntoTheHolyGround extends Quest {
 	private static final int BLADE_STAKATO_FANG = 5881;
 	// Droplist
 	private static final QuestDroplist DROPLIST = QuestDroplist.builder()
-			.addSingleDrop(20794, BLADE_STAKATO_FANG, 60.0) // blade_stakato
-			.addSingleDrop(20795, BLADE_STAKATO_FANG, 57.0) // blade_stakato_worker
-			.addSingleDrop(20796, BLADE_STAKATO_FANG, 61.0) // blade_stakato_soldier
-			.addSingleDrop(20797, BLADE_STAKATO_FANG, 93.0) // blade_stakato_drone
-			.build();
+		.addSingleDrop(20794, BLADE_STAKATO_FANG, 60.0) // blade_stakato
+		.addSingleDrop(20795, BLADE_STAKATO_FANG, 57.0) // blade_stakato_worker
+		.addSingleDrop(20796, BLADE_STAKATO_FANG, 61.0) // blade_stakato_soldier
+		.addSingleDrop(20797, BLADE_STAKATO_FANG, 93.0) // blade_stakato_drone
+		.build();
 	// Misc
 	private static final int MIN_LEVEL = 36;
-
+	
 	public Q00368_TrespassingIntoTheHolyGround() {
 		super(368, Q00368_TrespassingIntoTheHolyGround.class.getSimpleName(), "Trespassing into the Holy Ground");
 		addStartNpc(RESTINA);

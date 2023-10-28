@@ -42,13 +42,13 @@ public class Q00308_ReedFieldMaintenance extends Quest {
 	private static final int AWAKENED_MUCROKIAN_HIDE = 14872;
 	// Droplist
 	private static final QuestDroplist DROPLIST = QuestDroplist.builder()
-			.addSingleDrop(22650, MUCROKIAN_HIDE, 21.8) // Mucrokian Fanatic
-			.addSingleDrop(22651, MUCROKIAN_HIDE, 25.8) // Mucrokian Ascetic
-			.addSingleDrop(22652, MUCROKIAN_HIDE, 24.8) // Mucrokian Savior
-			.addSingleDrop(22653, MUCROKIAN_HIDE, 29.0) // Mucrokian Preacher
-			.addSingleDrop(22654, MUCROKIAN_HIDE, 22.0) // Contaminated Mucrokian
-			.addSingleDrop(22655, AWAKENED_MUCROKIAN_HIDE, 12.4) // Awakened Mucrokian
-			.build();
+		.addSingleDrop(22650, MUCROKIAN_HIDE, 21.8) // Mucrokian Fanatic
+		.addSingleDrop(22651, MUCROKIAN_HIDE, 25.8) // Mucrokian Ascetic
+		.addSingleDrop(22652, MUCROKIAN_HIDE, 24.8) // Mucrokian Savior
+		.addSingleDrop(22653, MUCROKIAN_HIDE, 29.0) // Mucrokian Preacher
+		.addSingleDrop(22654, MUCROKIAN_HIDE, 22.0) // Contaminated Mucrokian
+		.addSingleDrop(22655, AWAKENED_MUCROKIAN_HIDE, 12.4) // Awakened Mucrokian
+		.build();
 	// Rewards
 	private static final int REC_DYNASTY_EARRINGS_70 = 9985;
 	private static final int REC_DYNASTY_NECKLACE_70 = 9986;
@@ -56,11 +56,27 @@ public class Q00308_ReedFieldMaintenance extends Quest {
 	private static final int REC_DYNASTY_SIGIL_60 = 10115;
 	
 	private static final int[] MOIRAI_RECIPES = {
-		15777, 15780, 15783, 15786, 15789, 15790, 15814, 15813, 15812
+		15777,
+		15780,
+		15783,
+		15786,
+		15789,
+		15790,
+		15814,
+		15813,
+		15812
 	};
 	
 	private static final int[] MOIRAI_PIECES = {
-		15647, 15650, 15653, 15656, 15659, 15692, 15772, 15773, 15774
+		15647,
+		15650,
+		15653,
+		15656,
+		15659,
+		15692,
+		15772,
+		15773,
+		15774
 	};
 	
 	// Misc

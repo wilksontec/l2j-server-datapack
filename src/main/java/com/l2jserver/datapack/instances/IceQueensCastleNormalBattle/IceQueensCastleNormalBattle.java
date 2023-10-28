@@ -68,7 +68,7 @@ import com.l2jserver.gameserver.util.Util;
  * @author St3eT
  */
 public final class IceQueensCastleNormalBattle extends AbstractInstance {
-	protected class IQCNBWorld extends InstanceWorld {
+	protected static class IQCNBWorld extends InstanceWorld {
 		protected Set<L2PcInstance> playersInside = ConcurrentHashMap.newKeySet();
 		protected List<L2Npc> knightStatues = new ArrayList<>();
 		protected List<L2Attackable> spawnedMobs = new CopyOnWriteArrayList<>();
@@ -190,8 +190,7 @@ public final class IceQueensCastleNormalBattle extends AbstractInstance {
 		} else {
 			final InstanceWorld tmpworld = InstanceManager.getInstance().getWorld(npc.getInstanceId());
 			
-			if ((tmpworld != null) && (tmpworld instanceof IQCNBWorld)) {
-				final IQCNBWorld world = (IQCNBWorld) tmpworld;
+			if ((tmpworld != null) && (tmpworld instanceof IQCNBWorld world)) {
 				switch (event) {
 					case "openDoor": {
 						if (npc.isScriptValue(0)) {
@@ -639,9 +638,7 @@ public final class IceQueensCastleNormalBattle extends AbstractInstance {
 	public String onFirstTalk(L2Npc npc, L2PcInstance player) {
 		final InstanceWorld tmpworld = InstanceManager.getInstance().getWorld(npc.getInstanceId());
 		
-		if (tmpworld instanceof IQCNBWorld) {
-			final IQCNBWorld world = (IQCNBWorld) tmpworld;
-			
+		if (tmpworld instanceof IQCNBWorld world) {
 			if (npc.getId() == SUPP_JINIA) {
 				player.sendPacket(ActionFailed.STATIC_PACKET);
 				return null;
@@ -663,8 +660,7 @@ public final class IceQueensCastleNormalBattle extends AbstractInstance {
 	public String onAttack(L2Npc npc, L2PcInstance attacker, int damage, boolean isSummon, Skill skill) {
 		final InstanceWorld tmpworld = InstanceManager.getInstance().getWorld(npc.getInstanceId());
 		
-		if (tmpworld instanceof IQCNBWorld) {
-			final IQCNBWorld world = (IQCNBWorld) tmpworld;
+		if (tmpworld instanceof IQCNBWorld world) {
 			switch (npc.getId()) {
 				case FREYA_THRONE: {
 					if ((world.controller.getVariables().getInt("FREYA_MOVE") == 0) && world.isStatus(1)) {
@@ -881,9 +877,7 @@ public final class IceQueensCastleNormalBattle extends AbstractInstance {
 	public String onSpellFinished(L2Npc npc, L2PcInstance player, Skill skill) {
 		final InstanceWorld tmpworld = InstanceManager.getInstance().getWorld(npc.getInstanceId());
 		
-		if (tmpworld instanceof IQCNBWorld) {
-			final IQCNBWorld world = (IQCNBWorld) tmpworld;
-			
+		if (tmpworld instanceof IQCNBWorld world) {
 			switch (npc.getId()) {
 				case GLACIER: {
 					if (skill == COLD_MANAS_FRAGMENT.getSkill()) {
@@ -918,8 +912,7 @@ public final class IceQueensCastleNormalBattle extends AbstractInstance {
 	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
 		final InstanceWorld tmpworld = InstanceManager.getInstance().getWorld(npc.getInstanceId());
 		
-		if (tmpworld instanceof IQCNBWorld) {
-			final IQCNBWorld world = (IQCNBWorld) tmpworld;
+		if (tmpworld instanceof IQCNBWorld world) {
 			switch (npc.getId()) {
 				case GLAKIAS:
 				case GLAKIAS_ULTIMATE: {
@@ -1016,8 +1009,7 @@ public final class IceQueensCastleNormalBattle extends AbstractInstance {
 	@RegisterEvent(ON_PLAYER_LOGOUT)
 	public void onPlayerLogout(OnPlayerLogout event) {
 		final var instanceWorld = InstanceManager.getInstance().getWorld(event.getActiveChar().getInstanceId());
-		if (instanceWorld instanceof IQCNBWorld) {
-			final var world = (IQCNBWorld) instanceWorld;
+		if (instanceWorld instanceof IQCNBWorld world) {
 			world.playersInside.remove(event.getActiveChar());
 		}
 	}

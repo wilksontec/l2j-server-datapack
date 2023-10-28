@@ -42,12 +42,12 @@ public final class Q00298_LizardmensConspiracy extends Quest {
 	private static final QuestItemChanceHolder SHINING_RED_GEM = new QuestItemChanceHolder(7184, 54.0, GEMS_LIMIT);
 	// Droplist
 	private static final QuestDroplist DROPLIST = QuestDroplist.builder()
-			.addSingleDrop(20922, SHINING_GEM, 70.0)
-			.addSingleDrop(20924, SHINING_GEM, 75.0)
-			.addSingleDrop(20926, SHINING_RED_GEM)
-			.addSingleDrop(20927, SHINING_RED_GEM)
-			.build();
-
+		.addSingleDrop(20922, SHINING_GEM, 70.0)
+		.addSingleDrop(20924, SHINING_GEM, 75.0)
+		.addSingleDrop(20926, SHINING_RED_GEM)
+		.addSingleDrop(20927, SHINING_RED_GEM)
+		.build();
+	
 	public Q00298_LizardmensConspiracy() {
 		super(298, Q00298_LizardmensConspiracy.class.getSimpleName(), "Lizardmen's Conspiracy");
 		addStartNpc(GUARD_PRAGA);
@@ -102,7 +102,7 @@ public final class Q00298_LizardmensConspiracy extends Quest {
 		final QuestState qs = getRandomPartyMemberState(killer, 2, 3, npc);
 		if (qs != null) {
 			if (giveItemRandomly(qs.getPlayer(), npc, DROPLIST.get(npc), true)
-					&& hasItemsAtLimit(qs.getPlayer(), SHINING_GEM, SHINING_RED_GEM)) {
+				&& hasItemsAtLimit(qs.getPlayer(), SHINING_GEM, SHINING_RED_GEM)) {
 				qs.setCond(3);
 			}
 		}

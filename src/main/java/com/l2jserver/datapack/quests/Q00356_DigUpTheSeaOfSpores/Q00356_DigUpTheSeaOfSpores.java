@@ -41,9 +41,9 @@ public final class Q00356_DigUpTheSeaOfSpores extends Quest {
 	private static final QuestItemChanceHolder HERBIVOROUS_SPORE = new QuestItemChanceHolder(5866, 50L);
 	// Droplist
 	private static final QuestDroplist DROPLIST = QuestDroplist.builder()
-			.addSingleDrop(ROTTING_TREE, HERBIVOROUS_SPORE, 73.0)
-			.addSingleDrop(SPORE_ZOMBIE, CARNIVORE_SPORE, 94.0)
-			.build();
+		.addSingleDrop(ROTTING_TREE, HERBIVOROUS_SPORE, 73.0)
+		.addSingleDrop(SPORE_ZOMBIE, CARNIVORE_SPORE, 94.0)
+		.build();
 	// Misc
 	private static final int MIN_LEVEL = 43;
 	
@@ -123,7 +123,7 @@ public final class Q00356_DigUpTheSeaOfSpores extends Quest {
 		if ((qs == null) || !Util.checkIfInRange(1500, npc, killer, true)) {
 			return null;
 		}
-
+		
 		if (giveItemRandomly(qs.getPlayer(), npc, DROPLIST.get(npc), true)) {
 			if (hasItemsAtLimit(killer, CARNIVORE_SPORE, HERBIVOROUS_SPORE)) {
 				qs.setCond(3);

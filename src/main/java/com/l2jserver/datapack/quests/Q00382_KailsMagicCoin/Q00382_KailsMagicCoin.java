@@ -44,14 +44,15 @@ public final class Q00382_KailsMagicCoin extends Quest {
 	private static final int KAILS_BLOOD_DRAGON = 5963;
 	// Droplist
 	private static final QuestDroplist DROPLIST = QuestDroplist.builder()
-			.addGroupedDrop(FALLEN_ORC_CAPTAIN, 6.9)
-				.withDropItem(KAILS_SILVER_BASILISK, 33.333)
-				.withDropItem(KAILS_GOLD_GOLEM, 33.333)
-				.withDropItem(KAILS_BLOOD_DRAGON, 33.334).build()
-			.addSingleDrop(FALLEN_ORC, KAILS_SILVER_BASILISK, 7.3)
-			.addSingleDrop(FALLEN_ORC_ARCHER, KAILS_GOLD_GOLEM, 7.5)
-			.addSingleDrop(FALLEN_ORC_SHAMAN, KAILS_BLOOD_DRAGON, 7.3)
-			.build();
+		.addGroupedDrop(FALLEN_ORC_CAPTAIN, 6.9)
+		.withDropItem(KAILS_SILVER_BASILISK, 33.333)
+		.withDropItem(KAILS_GOLD_GOLEM, 33.333)
+		.withDropItem(KAILS_BLOOD_DRAGON, 33.334)
+		.build()
+		.addSingleDrop(FALLEN_ORC, KAILS_SILVER_BASILISK, 7.3)
+		.addSingleDrop(FALLEN_ORC_ARCHER, KAILS_GOLD_GOLEM, 7.5)
+		.addSingleDrop(FALLEN_ORC_SHAMAN, KAILS_BLOOD_DRAGON, 7.3)
+		.build();
 	// Misc
 	private static final int MIN_LVL = 55;
 	

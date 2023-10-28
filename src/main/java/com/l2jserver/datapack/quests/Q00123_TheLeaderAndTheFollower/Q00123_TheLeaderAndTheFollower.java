@@ -18,6 +18,8 @@
  */
 package com.l2jserver.datapack.quests.Q00123_TheLeaderAndTheFollower;
 
+import java.util.List;
+
 import com.l2jserver.datapack.quests.Q00118_ToLeadAndBeLed.Q00118_ToLeadAndBeLed;
 import com.l2jserver.gameserver.model.L2World;
 import com.l2jserver.gameserver.model.actor.L2Npc;
@@ -28,8 +30,6 @@ import com.l2jserver.gameserver.model.quest.Quest;
 import com.l2jserver.gameserver.model.quest.QuestState;
 import com.l2jserver.gameserver.model.quest.State;
 import com.l2jserver.gameserver.util.Util;
-
-import java.util.List;
 
 /**
  * The Leader And The Follower (123)
@@ -47,21 +47,15 @@ public final class Q00123_TheLeaderAndTheFollower extends Quest {
 	private static final QuestItemChanceHolder PICOT_ARANEIDS_LEG = new QuestItemChanceHolder(8550, 7.0, 8L);
 	// Rewards
 	private static final ItemHolder CLAN_OATH_HELM = new ItemHolder(7850, 1);
-	private static final List<ItemHolder> REWARDS_HEAVY = List.of(
-			CLAN_OATH_HELM,
-			new ItemHolder(7851, 1), // Clan Oath Armor
-			new ItemHolder(7852, 1), // Clan Oath Gauntlets
-			new ItemHolder(7853, 1)); // Clan Oath Sabatons
-	private static final List<ItemHolder> REWARDS_LIGHT = List.of(
-			CLAN_OATH_HELM,
-			new ItemHolder(7854, 1), // Clan Oath Brigandine
-			new ItemHolder(7855, 1), // Clan Oath Leather Gloves
-			new ItemHolder(7856, 1)); // Clan Oath Boots
-	private static final List<ItemHolder> REWARDS_ROBE = List.of(
-			CLAN_OATH_HELM,
-			new ItemHolder(7857, 1), // Clan Oath Aketon
-			new ItemHolder(7858, 1), // Clan Oath Padded Gloves
-			new ItemHolder(7859, 1)); // Clan Oath Sandals
+	private static final List<ItemHolder> REWARDS_HEAVY = List.of(CLAN_OATH_HELM, new ItemHolder(7851, 1), // Clan Oath Armor
+		new ItemHolder(7852, 1), // Clan Oath Gauntlets
+		new ItemHolder(7853, 1)); // Clan Oath Sabatons
+	private static final List<ItemHolder> REWARDS_LIGHT = List.of(CLAN_OATH_HELM, new ItemHolder(7854, 1), // Clan Oath Brigandine
+		new ItemHolder(7855, 1), // Clan Oath Leather Gloves
+		new ItemHolder(7856, 1)); // Clan Oath Boots
+	private static final List<ItemHolder> REWARDS_ROBE = List.of(CLAN_OATH_HELM, new ItemHolder(7857, 1), // Clan Oath Aketon
+		new ItemHolder(7858, 1), // Clan Oath Padded Gloves
+		new ItemHolder(7859, 1)); // Clan Oath Sandals
 	// Misc
 	private static final int MIN_LEVEL = 19;
 	private static final int CRYSTAL_COUNT_1 = 922;
@@ -202,7 +196,7 @@ public final class Q00123_TheLeaderAndTheFollower extends Quest {
 					}
 				}
 				case PICOT_ARANEID -> {
-					if (qs.isMemoState(4) && killer.getSponsor() > 0) {
+					if (qs.isMemoState(4) && (killer.getSponsor() > 0)) {
 						final L2PcInstance sponsor = L2World.getInstance().getPlayer(killer.getSponsor());
 						if (Util.checkIfInRange(1500, npc, sponsor, true)) {
 							if (giveItemRandomly(qs.getPlayer(), npc, PICOT_ARANEIDS_LEG, true)) {

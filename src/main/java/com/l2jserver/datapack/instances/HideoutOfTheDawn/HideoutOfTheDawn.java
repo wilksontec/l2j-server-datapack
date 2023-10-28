@@ -29,7 +29,7 @@ import com.l2jserver.gameserver.model.instancezone.InstanceWorld;
  * @author Adry_85
  */
 public final class HideoutOfTheDawn extends AbstractInstance {
-	protected class HotDWorld extends InstanceWorld {
+	protected static class HotDWorld extends InstanceWorld {
 		
 	}
 	

@@ -36,35 +36,35 @@ public final class Q00632_NecromancersRequest extends Quest {
 	private static final int ZOMBIES_BRAIN = 7543;
 	// Droplist
 	private static final QuestDroplist DROPLIST = QuestDroplist.builder()
-			.addSingleDrop(21547, ZOMBIES_BRAIN, 56.5) // Corrupted Knight
-			.addSingleDrop(21548, ZOMBIES_BRAIN, 48.4) // Resurrected Knight
-			.addSingleDrop(21549, ZOMBIES_BRAIN, 58.5) // Corrupted Guard
-			.addSingleDrop(21550, ZOMBIES_BRAIN, 59.7) // Corrupted Guard
-			.addSingleDrop(21551, ZOMBIES_BRAIN, 67.3) // Resurrected Guard
-			.addSingleDrop(21552, ZOMBIES_BRAIN, 63.7) // Resurrected Guard
-			.addSingleDrop(21555, ZOMBIES_BRAIN, 57.5) // Slaughter Executioner
-			.addSingleDrop(21556, ZOMBIES_BRAIN, 56.0) // Slaughter Executioner
-			.addSingleDrop(21562, ZOMBIES_BRAIN, 63.1) // Guillotine's Ghost
-			.addSingleDrop(21571, ZOMBIES_BRAIN, 75.8) // Ghost of Rebellion Soldier
-			.addSingleDrop(21576, ZOMBIES_BRAIN, 64.7) // Ghost of Guillotine
-			.addSingleDrop(21577, ZOMBIES_BRAIN, 62.5) // Ghost of Guillotine
-			.addSingleDrop(21579, ZOMBIES_BRAIN, 76.6) // Ghost of Rebellion Leader
-			.addSingleDrop(21568, VAMPIRES_HEART, 45.2) // Devil Bat
-			.addSingleDrop(21569, VAMPIRES_HEART, 48.4) // Devil Bat
-			.addSingleDrop(21573, VAMPIRES_HEART, 49.9) // Atrox
-			.addSingleDrop(21582, VAMPIRES_HEART, 52.2) // Vampire Soldier
-			.addSingleDrop(21585, VAMPIRES_HEART, 41.3) // Vampire Magician
-			.addSingleDrop(21586, VAMPIRES_HEART, 49.6) // Vampire Adept
-			.addSingleDrop(21587, VAMPIRES_HEART, 51.9) // Vampire Warrior
-			.addSingleDrop(21588, VAMPIRES_HEART, 42.8) // Vampire Wizard
-			.addSingleDrop(21589, VAMPIRES_HEART, 43.9) // Vampire Wizard
-			.addSingleDrop(21590, VAMPIRES_HEART, 42.8) // Vampire Magister
-			.addSingleDrop(21591, VAMPIRES_HEART, 50.2) // Vampire Magister
-			.addSingleDrop(21592, VAMPIRES_HEART, 37.0) // Vampire Magister
-			.addSingleDrop(21593, VAMPIRES_HEART, 59.2) // Vampire Warlord
-			.addSingleDrop(21594, VAMPIRES_HEART, 55.4) // Vampire Warlord
-			.addSingleDrop(21595, VAMPIRES_HEART, 39.2) // Vampire Warlord
-			.build();
+		.addSingleDrop(21547, ZOMBIES_BRAIN, 56.5) // Corrupted Knight
+		.addSingleDrop(21548, ZOMBIES_BRAIN, 48.4) // Resurrected Knight
+		.addSingleDrop(21549, ZOMBIES_BRAIN, 58.5) // Corrupted Guard
+		.addSingleDrop(21550, ZOMBIES_BRAIN, 59.7) // Corrupted Guard
+		.addSingleDrop(21551, ZOMBIES_BRAIN, 67.3) // Resurrected Guard
+		.addSingleDrop(21552, ZOMBIES_BRAIN, 63.7) // Resurrected Guard
+		.addSingleDrop(21555, ZOMBIES_BRAIN, 57.5) // Slaughter Executioner
+		.addSingleDrop(21556, ZOMBIES_BRAIN, 56.0) // Slaughter Executioner
+		.addSingleDrop(21562, ZOMBIES_BRAIN, 63.1) // Guillotine's Ghost
+		.addSingleDrop(21571, ZOMBIES_BRAIN, 75.8) // Ghost of Rebellion Soldier
+		.addSingleDrop(21576, ZOMBIES_BRAIN, 64.7) // Ghost of Guillotine
+		.addSingleDrop(21577, ZOMBIES_BRAIN, 62.5) // Ghost of Guillotine
+		.addSingleDrop(21579, ZOMBIES_BRAIN, 76.6) // Ghost of Rebellion Leader
+		.addSingleDrop(21568, VAMPIRES_HEART, 45.2) // Devil Bat
+		.addSingleDrop(21569, VAMPIRES_HEART, 48.4) // Devil Bat
+		.addSingleDrop(21573, VAMPIRES_HEART, 49.9) // Atrox
+		.addSingleDrop(21582, VAMPIRES_HEART, 52.2) // Vampire Soldier
+		.addSingleDrop(21585, VAMPIRES_HEART, 41.3) // Vampire Magician
+		.addSingleDrop(21586, VAMPIRES_HEART, 49.6) // Vampire Adept
+		.addSingleDrop(21587, VAMPIRES_HEART, 51.9) // Vampire Warrior
+		.addSingleDrop(21588, VAMPIRES_HEART, 42.8) // Vampire Wizard
+		.addSingleDrop(21589, VAMPIRES_HEART, 43.9) // Vampire Wizard
+		.addSingleDrop(21590, VAMPIRES_HEART, 42.8) // Vampire Magister
+		.addSingleDrop(21591, VAMPIRES_HEART, 50.2) // Vampire Magister
+		.addSingleDrop(21592, VAMPIRES_HEART, 37.0) // Vampire Magister
+		.addSingleDrop(21593, VAMPIRES_HEART, 59.2) // Vampire Warlord
+		.addSingleDrop(21594, VAMPIRES_HEART, 55.4) // Vampire Warlord
+		.addSingleDrop(21595, VAMPIRES_HEART, 39.2) // Vampire Warlord
+		.build();
 	// Misc
 	private static final int MIN_LEVEL = 63;
 	private static final int REQUIRED_ITEM_COUNT = 200;
@@ -125,7 +125,7 @@ public final class Q00632_NecromancersRequest extends Quest {
 		final QuestState qs = getRandomPartyMemberState(player, -1, 3, npc);
 		if (qs != null) {
 			giveItemRandomly(qs.getPlayer(), npc, DROPLIST.get(npc), true);
-				
+			
 			if (getQuestItemsCount(player, VAMPIRES_HEART) >= REQUIRED_ITEM_COUNT) {
 				qs.setCond(2);
 				qs.setMemoState(12);

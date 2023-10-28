@@ -35,13 +35,13 @@ public final class Q00366_SilverHairedShaman extends Quest {
 	private static final int SAIRONS_SILVER_HAIR = 5874;
 	// Droplist
 	private static final QuestDroplist DROPLIST = QuestDroplist.builder()
-			.addSingleDrop(20986, SAIRONS_SILVER_HAIR, 80.0) // saitnn
-			.addSingleDrop(20987, SAIRONS_SILVER_HAIR, 73.0) // saitnn_doll
-			.addSingleDrop(20988, SAIRONS_SILVER_HAIR, 80.0) // saitnn_puppet
-			.build();
+		.addSingleDrop(20986, SAIRONS_SILVER_HAIR, 80.0) // saitnn
+		.addSingleDrop(20987, SAIRONS_SILVER_HAIR, 73.0) // saitnn_doll
+		.addSingleDrop(20988, SAIRONS_SILVER_HAIR, 80.0) // saitnn_puppet
+		.build();
 	// Misc
 	private static final int MIN_LEVEL = 48;
-
+	
 	public Q00366_SilverHairedShaman() {
 		super(366, Q00366_SilverHairedShaman.class.getSimpleName(), "Silver Haired Shaman");
 		addStartNpc(DIETER);

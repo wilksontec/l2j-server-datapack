@@ -57,18 +57,11 @@ public final class Jude extends AbstractNpcAI {
 	
 	@Override
 	public String onFirstTalk(L2Npc npc, L2PcInstance player) {
-		switch (HellboundEngine.getInstance().getLevel()) {
-			case 0:
-			case 1:
-			case 2:
-				return "32356-01.htm";
-			case 3:
-			case 4:
-				return "32356-01c.htm";
-			case 5:
-				return "32356-01a.htm";
-			default:
-				return "32356-01b.htm";
-		}
+		return switch (HellboundEngine.getInstance().getLevel()) {
+			case 0, 1, 2 -> "32356-01.htm";
+			case 3, 4 -> "32356-01c.htm";
+			case 5 -> "32356-01a.htm";
+			default -> "32356-01b.htm";
+		};
 	}
 }

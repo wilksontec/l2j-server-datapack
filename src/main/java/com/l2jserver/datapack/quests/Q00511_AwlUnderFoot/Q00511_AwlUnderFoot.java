@@ -45,7 +45,7 @@ import com.l2jserver.gameserver.util.Util;
  * @author Gigiikun
  */
 public final class Q00511_AwlUnderFoot extends Quest {
-	protected class FAUWorld extends InstanceWorld {
+	protected static class FAUWorld extends InstanceWorld {
 		
 	}
 	
@@ -70,7 +70,7 @@ public final class Q00511_AwlUnderFoot extends Quest {
 		}
 	}
 	
-	private class spawnRaid implements Runnable {
+	private static class spawnRaid implements Runnable {
 		private final FAUWorld _world;
 		
 		public spawnRaid(FAUWorld world) {
@@ -309,8 +309,7 @@ public final class Q00511_AwlUnderFoot extends Quest {
 	@Override
 	public String onKill(L2Npc npc, L2PcInstance player, boolean isSummon) {
 		InstanceWorld tmpworld = InstanceManager.getInstance().getWorld(npc.getInstanceId());
-		if (tmpworld instanceof FAUWorld) {
-			FAUWorld world = (FAUWorld) tmpworld;
+		if (tmpworld instanceof FAUWorld world) {
 			if (Util.contains(RAIDS3, npc.getId())) {
 				if (player.getParty() != null) {
 					for (L2PcInstance pl : player.getParty().getMembers()) {

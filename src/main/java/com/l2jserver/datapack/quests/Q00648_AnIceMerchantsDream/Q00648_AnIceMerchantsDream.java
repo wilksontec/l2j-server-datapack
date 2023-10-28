@@ -41,29 +41,44 @@ public final class Q00648_AnIceMerchantsDream extends Quest {
 	private static final int BLACK_ICE_CRYSTAL = 8078;
 	// Droplists
 	private static final QuestDroplist DROPLIST = QuestDroplist.builder()
-			.addSingleDrop(22080, SILVER_ICE_CRYSTAL, 28.5).addSingleDrop(22080, SILVER_HEMOCYTE, 4.8) // Massive Maze Bandersnatch
-			.addSingleDrop(22081, SILVER_ICE_CRYSTAL, 44.3) // Lost Watcher
-			.addSingleDrop(22082, SILVER_ICE_CRYSTAL, 51.0) // Elder Lost Watcher
-			.addSingleDrop(22083, SILVER_ICE_CRYSTAL, 47.7).addSingleDrop(22083, SILVER_HEMOCYTE, 4.9) // Baby Panthera
-			.addSingleDrop(22084, SILVER_ICE_CRYSTAL, 47.7).addSingleDrop(22084, SILVER_HEMOCYTE, 4.9) // Panthera
-			.addSingleDrop(22085, SILVER_ICE_CRYSTAL, 42.0).addSingleDrop(22085, SILVER_HEMOCYTE, 4.3) // Lost Gargoyle
-			.addSingleDrop(22086, SILVER_ICE_CRYSTAL, 49.0).addSingleDrop(22086, SILVER_HEMOCYTE, 5.0) // Lost Gargoyle Youngling
-			.addSingleDrop(22087, SILVER_ICE_CRYSTAL, 78.7).addSingleDrop(22087, SILVER_HEMOCYTE, 8.1) // Pronghorn Spirit
-			.addSingleDrop(22088, SILVER_ICE_CRYSTAL, 48.0).addSingleDrop(22088, SILVER_HEMOCYTE, 4.9) // Pronghorn
-			.addSingleDrop(22089, SILVER_ICE_CRYSTAL, 55.0).addSingleDrop(22089, SILVER_HEMOCYTE, 5.6) // Ice Tarantula
-			.addSingleDrop(22090, SILVER_ICE_CRYSTAL, 57.0).addSingleDrop(22090, SILVER_HEMOCYTE, 5.8) // Frost Tarantula
-			.addSingleDrop(22091, SILVER_ICE_CRYSTAL, 62.3) // Lost Iron Golem
-			.addSingleDrop(22092, SILVER_ICE_CRYSTAL, 62.3) // Frost Iron Golem
-			.addSingleDrop(22093, SILVER_ICE_CRYSTAL, 91.0).addSingleDrop(22093, SILVER_HEMOCYTE, 9.3) // Lost Buffalo
-			.addSingleDrop(22094, SILVER_ICE_CRYSTAL, 55.3).addSingleDrop(22094, SILVER_HEMOCYTE, 5.7) // Frost Buffalo
-			.addSingleDrop(22095, SILVER_ICE_CRYSTAL, 59.3).addSingleDrop(22095, SILVER_HEMOCYTE, 6.1) // Ursus Cub
-			.addSingleDrop(22096, SILVER_ICE_CRYSTAL, 59.3).addSingleDrop(22096, SILVER_HEMOCYTE, 6.1) // Ursus
-			.addSingleDrop(22097, SILVER_ICE_CRYSTAL, 69.3).addSingleDrop(22097, SILVER_HEMOCYTE, 7.1) // Lost Yeti
-			.addSingleDrop(22098, SILVER_ICE_CRYSTAL, 71.7).addSingleDrop(22098, SILVER_HEMOCYTE, 7.4) // Frost Yeti
-			.build();
+		.addSingleDrop(22080, SILVER_ICE_CRYSTAL, 28.5)
+		.addSingleDrop(22080, SILVER_HEMOCYTE, 4.8) // Massive Maze Bandersnatch
+		.addSingleDrop(22081, SILVER_ICE_CRYSTAL, 44.3) // Lost Watcher
+		.addSingleDrop(22082, SILVER_ICE_CRYSTAL, 51.0) // Elder Lost Watcher
+		.addSingleDrop(22083, SILVER_ICE_CRYSTAL, 47.7)
+		.addSingleDrop(22083, SILVER_HEMOCYTE, 4.9) // Baby Panthera
+		.addSingleDrop(22084, SILVER_ICE_CRYSTAL, 47.7)
+		.addSingleDrop(22084, SILVER_HEMOCYTE, 4.9) // Panthera
+		.addSingleDrop(22085, SILVER_ICE_CRYSTAL, 42.0)
+		.addSingleDrop(22085, SILVER_HEMOCYTE, 4.3) // Lost Gargoyle
+		.addSingleDrop(22086, SILVER_ICE_CRYSTAL, 49.0)
+		.addSingleDrop(22086, SILVER_HEMOCYTE, 5.0) // Lost Gargoyle Youngling
+		.addSingleDrop(22087, SILVER_ICE_CRYSTAL, 78.7)
+		.addSingleDrop(22087, SILVER_HEMOCYTE, 8.1) // Pronghorn Spirit
+		.addSingleDrop(22088, SILVER_ICE_CRYSTAL, 48.0)
+		.addSingleDrop(22088, SILVER_HEMOCYTE, 4.9) // Pronghorn
+		.addSingleDrop(22089, SILVER_ICE_CRYSTAL, 55.0)
+		.addSingleDrop(22089, SILVER_HEMOCYTE, 5.6) // Ice Tarantula
+		.addSingleDrop(22090, SILVER_ICE_CRYSTAL, 57.0)
+		.addSingleDrop(22090, SILVER_HEMOCYTE, 5.8) // Frost Tarantula
+		.addSingleDrop(22091, SILVER_ICE_CRYSTAL, 62.3) // Lost Iron Golem
+		.addSingleDrop(22092, SILVER_ICE_CRYSTAL, 62.3) // Frost Iron Golem
+		.addSingleDrop(22093, SILVER_ICE_CRYSTAL, 91.0)
+		.addSingleDrop(22093, SILVER_HEMOCYTE, 9.3) // Lost Buffalo
+		.addSingleDrop(22094, SILVER_ICE_CRYSTAL, 55.3)
+		.addSingleDrop(22094, SILVER_HEMOCYTE, 5.7) // Frost Buffalo
+		.addSingleDrop(22095, SILVER_ICE_CRYSTAL, 59.3)
+		.addSingleDrop(22095, SILVER_HEMOCYTE, 6.1) // Ursus Cub
+		.addSingleDrop(22096, SILVER_ICE_CRYSTAL, 59.3)
+		.addSingleDrop(22096, SILVER_HEMOCYTE, 6.1) // Ursus
+		.addSingleDrop(22097, SILVER_ICE_CRYSTAL, 69.3)
+		.addSingleDrop(22097, SILVER_HEMOCYTE, 7.1) // Lost Yeti
+		.addSingleDrop(22098, SILVER_ICE_CRYSTAL, 71.7)
+		.addSingleDrop(22098, SILVER_HEMOCYTE, 7.4) // Frost Yeti
+		.build();
 	// Misc
 	private static final int MIN_LVL = 53;
-
+	
 	public Q00648_AnIceMerchantsDream() {
 		super(648, Q00648_AnIceMerchantsDream.class.getSimpleName(), "An Ice Merchants Dream");
 		addStartNpc(RAFFORTY);
@@ -202,10 +217,10 @@ public final class Q00648_AnIceMerchantsDream extends Quest {
 			if (st.getCond() >= 1) {
 				giveItemRandomly(st.getPlayer(), npc, DROPLIST.get(npc), true);
 			}
-
+			
 			QuestDropInfo hemocyteDropInfo = DROPLIST.get(npc.getId(), SILVER_HEMOCYTE);
-			if (hemocyteDropInfo != null && (st.getCond() >= 2)
-					&& st.getPlayer().hasQuestCompleted(Q00115_TheOtherSideOfTruth.class.getSimpleName())) {
+			if ((hemocyteDropInfo != null) && (st.getCond() >= 2)
+				&& st.getPlayer().hasQuestCompleted(Q00115_TheOtherSideOfTruth.class.getSimpleName())) {
 				giveItemRandomly(st.getPlayer(), npc, hemocyteDropInfo, true);
 			}
 		}
@@ -241,7 +256,7 @@ public final class Q00648_AnIceMerchantsDream extends Quest {
 				if (st.isStarted()) {
 					if (hasQuestItems(player, SILVER_ICE_CRYSTAL)) {
 						final int val = st.getInt("ex") % 10;
-						if (!st.isSet("ex") || val == 0) {
+						if (!st.isSet("ex") || (val == 0)) {
 							htmltext = "32023-03.html";
 							st.set("ex", 0);
 						} else {

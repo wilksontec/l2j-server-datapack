@@ -18,6 +18,8 @@
  */
 package com.l2jserver.datapack.quests.Q00216_TrialOfTheGuildsman;
 
+import static com.l2jserver.gameserver.model.quest.QuestDroplist.singleDropItem;
+
 import com.l2jserver.gameserver.enums.audio.Sound;
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
@@ -29,8 +31,6 @@ import com.l2jserver.gameserver.model.quest.QuestDroplist;
 import com.l2jserver.gameserver.model.quest.QuestState;
 import com.l2jserver.gameserver.network.serverpackets.SocialAction;
 import com.l2jserver.gameserver.util.Util;
-
-import static com.l2jserver.gameserver.model.quest.QuestDroplist.singleDropItem;
 
 /**
  * Trial Of The Guildsman (216)
@@ -86,12 +86,12 @@ public final class Q00216_TrialOfTheGuildsman extends Quest {
 	private static final QuestItemChanceHolder AMBER_BEAD = new QuestItemChanceHolder(3136, 70L);
 	// Droplist
 	private static final QuestDroplist DROPLIST = QuestDroplist.builder()
-			.addSingleDrop(GRANITE_GOLEM, GRANITE_WHETSTONE)
-			.addSingleDrop(SILENOS, BRAIDED_YARN)
-			.addSingleDrop(STRAIN, GRAY_BONE_POWDER)
-			.addSingleDrop(GHOUL, GRAY_BONE_POWDER)
-			.addSingleDrop(DEAD_SEEKER, RED_PIGMENT)
-			.build();
+		.addSingleDrop(GRANITE_GOLEM, GRANITE_WHETSTONE)
+		.addSingleDrop(SILENOS, BRAIDED_YARN)
+		.addSingleDrop(STRAIN, GRAY_BONE_POWDER)
+		.addSingleDrop(GHOUL, GRAY_BONE_POWDER)
+		.addSingleDrop(DEAD_SEEKER, RED_PIGMENT)
+		.build();
 	// Reward
 	private static final int MARK_OF_GUILDSMAN = 3119;
 	private static final int DIMENSIONAL_DIAMOND = 7562;
@@ -103,7 +103,8 @@ public final class Q00216_TrialOfTheGuildsman extends Quest {
 		addStartNpc(WAREHOUSE_KEEPER_VALKON);
 		addTalkId(WAREHOUSE_KEEPER_VALKON, WAREHOUSE_KEEPER_NORMAN, BLACKSMITH_ALTRAN, BLACKSMITH_PINTER, BLACKSMITH_DUNING);
 		addKillId(ANT, ANT_CAPTAIN, ANT_OVERSEER, GRANITE_GOLEM, MANDRAGORA_SPROUT1, MANDRAGORA_SAPLONG, MANDRAGORA_BLOSSOM, SILENOS, STRAIN, GHOUL, DEAD_SEEKER, MANDRAGORA_SPROUT2, BREKA_ORC, BREKA_ORC_ARCHER, BREKA_ORC_SHAMAN, BREKA_ORC_OVERLORD, BREKA_ORC_WARRIOR);
-		registerQuestItems(RECIPE_JOURNEYMAN_RING, RECIPE_AMBER_BEAD, VALKONS_RECOMMENDATION, MANDRAGORA_BERRY, ALLTRANS_INSTRUCTIONS, ALLTRANS_1ST_RECOMMENDATION, ALLTRANS_2ND_RECOMMENDATION, NORMANS_INSTRUCTIONS, NORMANS_RECEIPT, DUNINGS_INSTRUCTIONS, DUNINGS_KEY, NORMANS_LIST, GRAY_BONE_POWDER.getId(), GRANITE_WHETSTONE.getId(), RED_PIGMENT.getId(), BRAIDED_YARN.getId(), JOURNEYMAN_GEM, PINTERS_INSTRUCTIONS, AMBER_BEAD.getId(), AMBER_LUMP, JOURNEYMAN_DECO_BEADS, JOURNEYMAN_RING);
+		registerQuestItems(RECIPE_JOURNEYMAN_RING, RECIPE_AMBER_BEAD, VALKONS_RECOMMENDATION, MANDRAGORA_BERRY, ALLTRANS_INSTRUCTIONS, ALLTRANS_1ST_RECOMMENDATION, ALLTRANS_2ND_RECOMMENDATION, NORMANS_INSTRUCTIONS, NORMANS_RECEIPT, DUNINGS_INSTRUCTIONS, DUNINGS_KEY, NORMANS_LIST, GRAY_BONE_POWDER
+			.getId(), GRANITE_WHETSTONE.getId(), RED_PIGMENT.getId(), BRAIDED_YARN.getId(), JOURNEYMAN_GEM, PINTERS_INSTRUCTIONS, AMBER_BEAD.getId(), AMBER_LUMP, JOURNEYMAN_DECO_BEADS, JOURNEYMAN_RING);
 	}
 	
 	@Override
@@ -247,16 +248,16 @@ public final class Q00216_TrialOfTheGuildsman extends Quest {
 					if ((qs.getPlayer().getClassId() == ClassId.scavenger) && npc.isSweepActive()) {
 						count += 5;
 					}
-
+					
 					if (getRandomBoolean() && (qs.getPlayer().getClassId() == ClassId.artisan)) {
 						giveItems(qs.getPlayer(), AMBER_LUMP, 1);
 						playSound(qs.getPlayer(), Sound.ITEMSOUND_QUEST_MIDDLE);
 					}
-
+					
 					if ((getQuestItemsCount(qs.getPlayer(), AMBER_BEAD.getId()) + count) < AMBER_BEAD.getLimit()) {
 						count += 5;
 					}
-
+					
 					if (count > 0) {
 						giveItemRandomly(qs.getPlayer(), npc, singleDropItem(AMBER_BEAD, count), AMBER_BEAD.getLimit(), true);
 					}

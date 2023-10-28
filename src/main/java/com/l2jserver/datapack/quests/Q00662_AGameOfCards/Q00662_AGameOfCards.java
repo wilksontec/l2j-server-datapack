@@ -37,45 +37,49 @@ public final class Q00662_AGameOfCards extends Quest {
 	private static final int ZIGGOS_GEMSTONE = 8868;
 	// Droplist
 	private static final QuestDroplist DROPLIST = QuestDroplist.builder()
-			.addSingleDrop(20672, RED_GEM, 35.7) // Trives
-			.addSingleDrop(20673, RED_GEM, 35.7) // Falibati
-			.addSingleDrop(20674, RED_GEM, 58.3) // Doom Knight
-			.addSingleDrop(20677, RED_GEM, 43.5) // Tulben
-			.addSingleDrop(20955, RED_GEM, 35.8) // Ghostly Warrior
-			.addSingleDrop(20958, RED_GEM, 28.3) // Death Agent
-			.addSingleDrop(20959, RED_GEM, 45.5) // Dark Guard
-			.addSingleDrop(20961, RED_GEM, 36.5) // Bloody Knight
-			.addSingleDrop(20962, RED_GEM, 34.8) // Bloody Priest
-			.addSingleDrop(20965, RED_GEM, 45.7) // Chimera Piece
-			.addSingleDrop(20966, RED_GEM, 49.3) // Changed Creation
-			.addSingleDrop(20968, RED_GEM, 41.8) // Nonexistent Man
-			.addSingleDrop(20972, RED_GEM, 35.0) // Shaman of Ancient Times
-			.addSingleDrop(20973, RED_GEM, 45.3) // Forgotten Ancient People
-			.addSingleDrop(21002, RED_GEM, 31.5) // Doom Scout
-			.addSingleDrop(21004, RED_GEM, 32.0) // Dismal Pole
-			.addSingleDrop(21006, RED_GEM, 33.5) // Doom Servant
-			.addSingleDrop(21008, RED_GEM, 46.2) // Doom Archer
-			.addSingleDrop(21010, RED_GEM, 39.7) // Doom Warrior
-			.addSingleDrop(21109, RED_GEM, 50.7) // Hames Orc Scout
-			.addSingleDrop(21112, RED_GEM, 55.2) // Hames Orc Footman
-			.addSingleDrop(21114, RED_GEM, 58.7) // Cursed Guardian
-			.addSingleDrop(21116, RED_GEM, 81.2) // Hames Orc Overlord
-			.bulkAddSingleDrop(RED_GEM, 48.3).withNpcs(21278, 21279, 21280).build() // Antelope
-			.bulkAddSingleDrop(RED_GEM, 51.5).withNpcs(21286, 21287, 21288).build() // Buffalo
-			.addSingleDrop(21508, RED_GEM, 49.3) // Splinter Stakato
-			.addSingleDrop(21510, RED_GEM, 52.7) // Splinter Stakato Soldier
-			.addSingleDrop(21513, RED_GEM, 56.2) // Needle Stakato
-			.addSingleDrop(21515, RED_GEM, 59.8) // Needle Stakato Soldier
-			.addSingleDrop(21520, RED_GEM, 45.8) // Eye of Splendor
-			.addSingleDrop(21526, RED_GEM, 55.2) // Wisdom of Splendor
-			.addSingleDrop(21530, RED_GEM, 48.8) // Victory of Splendor
-			.addSingleDrop(21535, RED_GEM, 57.3) // Signet of Splendor
-			.addSingleDrop(18001, RED_GEM, 23.2) // Blood Queen
-			.build();
+		.addSingleDrop(20672, RED_GEM, 35.7) // Trives
+		.addSingleDrop(20673, RED_GEM, 35.7) // Falibati
+		.addSingleDrop(20674, RED_GEM, 58.3) // Doom Knight
+		.addSingleDrop(20677, RED_GEM, 43.5) // Tulben
+		.addSingleDrop(20955, RED_GEM, 35.8) // Ghostly Warrior
+		.addSingleDrop(20958, RED_GEM, 28.3) // Death Agent
+		.addSingleDrop(20959, RED_GEM, 45.5) // Dark Guard
+		.addSingleDrop(20961, RED_GEM, 36.5) // Bloody Knight
+		.addSingleDrop(20962, RED_GEM, 34.8) // Bloody Priest
+		.addSingleDrop(20965, RED_GEM, 45.7) // Chimera Piece
+		.addSingleDrop(20966, RED_GEM, 49.3) // Changed Creation
+		.addSingleDrop(20968, RED_GEM, 41.8) // Nonexistent Man
+		.addSingleDrop(20972, RED_GEM, 35.0) // Shaman of Ancient Times
+		.addSingleDrop(20973, RED_GEM, 45.3) // Forgotten Ancient People
+		.addSingleDrop(21002, RED_GEM, 31.5) // Doom Scout
+		.addSingleDrop(21004, RED_GEM, 32.0) // Dismal Pole
+		.addSingleDrop(21006, RED_GEM, 33.5) // Doom Servant
+		.addSingleDrop(21008, RED_GEM, 46.2) // Doom Archer
+		.addSingleDrop(21010, RED_GEM, 39.7) // Doom Warrior
+		.addSingleDrop(21109, RED_GEM, 50.7) // Hames Orc Scout
+		.addSingleDrop(21112, RED_GEM, 55.2) // Hames Orc Footman
+		.addSingleDrop(21114, RED_GEM, 58.7) // Cursed Guardian
+		.addSingleDrop(21116, RED_GEM, 81.2) // Hames Orc Overlord
+		.bulkAddSingleDrop(RED_GEM, 48.3)
+		.withNpcs(21278, 21279, 21280)
+		.build() // Antelope
+		.bulkAddSingleDrop(RED_GEM, 51.5)
+		.withNpcs(21286, 21287, 21288)
+		.build() // Buffalo
+		.addSingleDrop(21508, RED_GEM, 49.3) // Splinter Stakato
+		.addSingleDrop(21510, RED_GEM, 52.7) // Splinter Stakato Soldier
+		.addSingleDrop(21513, RED_GEM, 56.2) // Needle Stakato
+		.addSingleDrop(21515, RED_GEM, 59.8) // Needle Stakato Soldier
+		.addSingleDrop(21520, RED_GEM, 45.8) // Eye of Splendor
+		.addSingleDrop(21526, RED_GEM, 55.2) // Wisdom of Splendor
+		.addSingleDrop(21530, RED_GEM, 48.8) // Victory of Splendor
+		.addSingleDrop(21535, RED_GEM, 57.3) // Signet of Splendor
+		.addSingleDrop(18001, RED_GEM, 23.2) // Blood Queen
+		.build();
 	// Misc
 	private static final int MIN_LEVEL = 61;
 	private static final int REQUIRED_CHIP_COUNT = 50;
-
+	
 	public Q00662_AGameOfCards() {
 		super(662, Q00662_AGameOfCards.class.getSimpleName(), "A Game of Cards");
 		addStartNpc(KLUMP);
@@ -407,38 +411,38 @@ public final class Q00662_AGameOfCards extends Quest {
 				
 				if (htmltext != null) {
 					if ((i9 % 2) < 1) {
-						htmltext = htmltext.replaceAll("FontColor1", "FFFF00");
-						htmltext = htmltext.replaceAll("Cell1", "?");
+						htmltext = htmltext.replace("FontColor1", "FFFF00");
+						htmltext = htmltext.replace("Cell1", "?");
 					} else {
-						htmltext = htmltext.replaceAll("FontColor1", "FF6F6F");
+						htmltext = htmltext.replace("FontColor1", "FF6F6F");
 						htmltext = setHtml(htmltext, i1, "Cell1");
 					}
 					if ((i9 % 4) < 2) {
-						htmltext = htmltext.replaceAll("FontColor2", "FFFF00");
-						htmltext = htmltext.replaceAll("Cell2", "?");
+						htmltext = htmltext.replace("FontColor2", "FFFF00");
+						htmltext = htmltext.replace("Cell2", "?");
 					} else {
-						htmltext = htmltext.replaceAll("FontColor2", "FF6F6F");
+						htmltext = htmltext.replace("FontColor2", "FF6F6F");
 						htmltext = setHtml(htmltext, i2, "Cell2");
 					}
 					if ((i9 % 8) < 4) {
-						htmltext = htmltext.replaceAll("FontColor3", "FFFF00");
-						htmltext = htmltext.replaceAll("Cell3", "?");
+						htmltext = htmltext.replace("FontColor3", "FFFF00");
+						htmltext = htmltext.replace("Cell3", "?");
 					} else {
-						htmltext = htmltext.replaceAll("FontColor3", "FF6F6F");
+						htmltext = htmltext.replace("FontColor3", "FF6F6F");
 						htmltext = setHtml(htmltext, i3, "Cell3");
 					}
 					if ((i9 % 16) < 8) {
-						htmltext = htmltext.replaceAll("FontColor4", "FFFF00");
-						htmltext = htmltext.replaceAll("Cell4", "?");
+						htmltext = htmltext.replace("FontColor4", "FFFF00");
+						htmltext = htmltext.replace("Cell4", "?");
 					} else {
-						htmltext = htmltext.replaceAll("FontColor4", "FF6F6F");
+						htmltext = htmltext.replace("FontColor4", "FF6F6F");
 						htmltext = setHtml(htmltext, i4, "Cell4");
 					}
 					if ((i9 % 32) < 16) {
-						htmltext = htmltext.replaceAll("FontColor5", "FFFF00");
-						htmltext = htmltext.replaceAll("Cell5", "?");
+						htmltext = htmltext.replace("FontColor5", "FFFF00");
+						htmltext = htmltext.replace("Cell5", "?");
 					} else {
-						htmltext = htmltext.replaceAll("FontColor5", "FF6F6F");
+						htmltext = htmltext.replace("FontColor5", "FF6F6F");
 						htmltext = setHtml(htmltext, i5, "Cell5");
 					}
 				}
@@ -476,40 +480,40 @@ public final class Q00662_AGameOfCards extends Quest {
 					htmltext = getHtm(player.getHtmlPrefix(), "30845-11a.html");
 					
 					if ((i9 % 2) < 1) {
-						htmltext = htmltext.replaceAll("FontColor1", "FFFF00");
-						htmltext = htmltext.replaceAll("Cell1", "?");
+						htmltext = htmltext.replace("FontColor1", "FFFF00");
+						htmltext = htmltext.replace("Cell1", "?");
 					} else {
-						htmltext = htmltext.replaceAll("FontColor1", "FF6F6F");
+						htmltext = htmltext.replace("FontColor1", "FF6F6F");
 						htmltext = setHtml(htmltext, i1, "Cell1");
 					}
 					
 					if ((i9 % 4) < 2) {
-						htmltext = htmltext.replaceAll("FontColor2", "FFFF00");
-						htmltext = htmltext.replaceAll("Cell2", "?");
+						htmltext = htmltext.replace("FontColor2", "FFFF00");
+						htmltext = htmltext.replace("Cell2", "?");
 					} else {
-						htmltext = htmltext.replaceAll("FontColor2", "FF6F6F");
+						htmltext = htmltext.replace("FontColor2", "FF6F6F");
 						htmltext = setHtml(htmltext, i2, "Cell2");
 					}
 					
 					if ((i9 % 8) < 4) {
-						htmltext = htmltext.replaceAll("FontColor3", "FFFF00");
-						htmltext = htmltext.replaceAll("Cell3", "?");
+						htmltext = htmltext.replace("FontColor3", "FFFF00");
+						htmltext = htmltext.replace("Cell3", "?");
 					} else {
-						htmltext = htmltext.replaceAll("FontColor3", "FF6F6F");
+						htmltext = htmltext.replace("FontColor3", "FF6F6F");
 						htmltext = setHtml(htmltext, i3, "Cell3");
 					}
 					if ((i9 % 16) < 8) {
-						htmltext = htmltext.replaceAll("FontColor4", "FFFF00");
-						htmltext = htmltext.replaceAll("Cell4", "?");
+						htmltext = htmltext.replace("FontColor4", "FFFF00");
+						htmltext = htmltext.replace("Cell4", "?");
 					} else {
-						htmltext = htmltext.replaceAll("FontColor4", "FF6F6F");
+						htmltext = htmltext.replace("FontColor4", "FF6F6F");
 						htmltext = setHtml(htmltext, i4, "Cell4");
 					}
 					if ((i9 % 32) < 16) {
-						htmltext = htmltext.replaceAll("FontColor5", "FFFF00");
-						htmltext = htmltext.replaceAll("Cell5", "?");
+						htmltext = htmltext.replace("FontColor5", "FFFF00");
+						htmltext = htmltext.replace("Cell5", "?");
 					} else {
-						htmltext = htmltext.replaceAll("FontColor5", "FF6F6F");
+						htmltext = htmltext.replace("FontColor5", "FF6F6F");
 						htmltext = setHtml(htmltext, i5, "Cell5");
 					}
 				}

@@ -18,6 +18,13 @@
  */
 package com.l2jserver.datapack.quests.Q00420_LittleWing;
 
+import static com.l2jserver.gameserver.model.quest.QuestDroplist.singleDropItem;
+
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import com.l2jserver.gameserver.enums.audio.Sound;
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
@@ -28,13 +35,6 @@ import com.l2jserver.gameserver.model.quest.State;
 import com.l2jserver.gameserver.network.NpcStringId;
 import com.l2jserver.gameserver.network.clientpackets.Say2;
 import com.l2jserver.gameserver.network.serverpackets.NpcSay;
-
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-import static com.l2jserver.gameserver.model.quest.QuestDroplist.singleDropItem;
 
 /**
  * Little Wing (420)
@@ -200,7 +200,7 @@ public final class Q00420_LittleWing extends Quest {
 			case "30608-03.html": {
 				if (qs.isCond(2)) {
 					if ((qs.getInt("fairy_stone") == 1) && (getQuestItemsCount(player, COAL) >= 10) && (getQuestItemsCount(player, CHARCOAL) >= 10) && (getQuestItemsCount(player, GEMSTONE_D) >= 1)
-							&& (getQuestItemsCount(player, SILVER_NUGGET) >= 3) && (getQuestItemsCount(player, TOAD_SKIN.getId()) >= TOAD_SKIN_FAIRY_STONE_LIMIT)) {
+						&& (getQuestItemsCount(player, SILVER_NUGGET) >= 3) && (getQuestItemsCount(player, TOAD_SKIN.getId()) >= TOAD_SKIN_FAIRY_STONE_LIMIT)) {
 						takeItems(player, FAIRY_STONE_LIST, -1);
 						takeItems(player, COAL, 10);
 						takeItems(player, CHARCOAL, 10);
@@ -217,7 +217,7 @@ public final class Q00420_LittleWing extends Quest {
 			case "30608-05.html": {
 				if (qs.isCond(2)) {
 					if ((qs.getInt("fairy_stone") == 2) && (getQuestItemsCount(player, COAL) >= 10) && (getQuestItemsCount(player, CHARCOAL) >= 10) && (getQuestItemsCount(player, GEMSTONE_C) >= 1) && (getQuestItemsCount(player, STONE_OF_PURITY) >= 1)
-							&& (getQuestItemsCount(player, SILVER_NUGGET) >= 5) && (getQuestItemsCount(player, TOAD_SKIN.getId()) >= TOAD_SKIN_DELUXE_FAIRY_STONE_LIMIT)) {
+						&& (getQuestItemsCount(player, SILVER_NUGGET) >= 5) && (getQuestItemsCount(player, TOAD_SKIN.getId()) >= TOAD_SKIN_DELUXE_FAIRY_STONE_LIMIT)) {
 						takeItems(player, DELUXE_STONE_LIST, -1);
 						takeItems(player, COAL, 10);
 						takeItems(player, CHARCOAL, 10);

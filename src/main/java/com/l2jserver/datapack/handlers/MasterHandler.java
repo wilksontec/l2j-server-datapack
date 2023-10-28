@@ -373,7 +373,7 @@ public class MasterHandler {
 		ReceivePremium.class,
 		ReleaseAttribute.class,
 		RentPet.class,
-
+		
 		SkillList.class,
 		SupportBlessing.class,
 		SupportMagic.class,

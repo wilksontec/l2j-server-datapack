@@ -40,12 +40,12 @@ public final class Q00370_AnElderSowsSeeds extends Quest {
 	private static final int CHAPTER_OF_EARTH = 5920;
 	// Droplist
 	private static final QuestDroplist DROPLIST = QuestDroplist.builder()
-			.addSingleDrop(20082, SPELLBOOK_PAGE, 9.0) // ant_recruit
-			.addSingleDrop(20086, SPELLBOOK_PAGE, 9.0) // ant_guard
-			.addSingleDrop(20090, SPELLBOOK_PAGE, 22.0) // noble_ant_leader
-			.addSingleDrop(20084, SPELLBOOK_PAGE, 10.1) // ant_patrol
-			.addSingleDrop(20089, SPELLBOOK_PAGE, 10.0) // noble_ant
-			.build();
+		.addSingleDrop(20082, SPELLBOOK_PAGE, 9.0) // ant_recruit
+		.addSingleDrop(20086, SPELLBOOK_PAGE, 9.0) // ant_guard
+		.addSingleDrop(20090, SPELLBOOK_PAGE, 22.0) // noble_ant_leader
+		.addSingleDrop(20084, SPELLBOOK_PAGE, 10.1) // ant_patrol
+		.addSingleDrop(20089, SPELLBOOK_PAGE, 10.0) // noble_ant
+		.build();
 	// Misc
 	private static final int MIN_LEVEL = 28;
 	

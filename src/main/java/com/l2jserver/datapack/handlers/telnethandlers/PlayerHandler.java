@@ -107,55 +107,24 @@ public class PlayerHandler implements ITelnetHandler {
 				itemType = Integer.parseInt(st.nextToken());
 				enchant = Integer.parseInt(st.nextToken());
 				
-				switch (itemType) {
-					case 1:
-						itemType = Inventory.PAPERDOLL_HEAD;
-						break;
-					case 2:
-						itemType = Inventory.PAPERDOLL_CHEST;
-						break;
-					case 3:
-						itemType = Inventory.PAPERDOLL_GLOVES;
-						break;
-					case 4:
-						itemType = Inventory.PAPERDOLL_FEET;
-						break;
-					case 5:
-						itemType = Inventory.PAPERDOLL_LEGS;
-						break;
-					case 6:
-						itemType = Inventory.PAPERDOLL_RHAND;
-						break;
-					case 7:
-						itemType = Inventory.PAPERDOLL_LHAND;
-						break;
-					case 8:
-						itemType = Inventory.PAPERDOLL_LEAR;
-						break;
-					case 9:
-						itemType = Inventory.PAPERDOLL_REAR;
-						break;
-					case 10:
-						itemType = Inventory.PAPERDOLL_LFINGER;
-						break;
-					case 11:
-						itemType = Inventory.PAPERDOLL_RFINGER;
-						break;
-					case 12:
-						itemType = Inventory.PAPERDOLL_NECK;
-						break;
-					case 13:
-						itemType = Inventory.PAPERDOLL_UNDER;
-						break;
-					case 14:
-						itemType = Inventory.PAPERDOLL_CLOAK;
-						break;
-					case 15:
-						itemType = Inventory.PAPERDOLL_BELT;
-						break;
-					default:
-						itemType = 0;
-				}
+				itemType = switch (itemType) {
+					case 1 -> Inventory.PAPERDOLL_HEAD;
+					case 2 -> Inventory.PAPERDOLL_CHEST;
+					case 3 -> Inventory.PAPERDOLL_GLOVES;
+					case 4 -> Inventory.PAPERDOLL_FEET;
+					case 5 -> Inventory.PAPERDOLL_LEGS;
+					case 6 -> Inventory.PAPERDOLL_RHAND;
+					case 7 -> Inventory.PAPERDOLL_LHAND;
+					case 8 -> Inventory.PAPERDOLL_LEAR;
+					case 9 -> Inventory.PAPERDOLL_REAR;
+					case 10 -> Inventory.PAPERDOLL_LFINGER;
+					case 11 -> Inventory.PAPERDOLL_RFINGER;
+					case 12 -> Inventory.PAPERDOLL_NECK;
+					case 13 -> Inventory.PAPERDOLL_UNDER;
+					case 14 -> Inventory.PAPERDOLL_CLOAK;
+					case 15 -> Inventory.PAPERDOLL_BELT;
+					default -> 0;
+				};
 				
 				if (enchant > 65535) {
 					enchant = 65535;

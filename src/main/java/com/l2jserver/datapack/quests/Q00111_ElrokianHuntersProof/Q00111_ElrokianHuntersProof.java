@@ -51,29 +51,29 @@ public final class Q00111_ElrokianHuntersProof extends Quest {
 	private static final QuestItemChanceHolder PACHYCEPHALOSAURUS_SKIN = new QuestItemChanceHolder(8772, DINO_DROPS_LIMIT);
 	// Droplists
 	private static final QuestDroplist DROPLIST_DIARY = QuestDroplist.builder()
-			.addSingleDrop(22196, DIARY_FRAGMENT, 51.0) // velociraptor_leader
-			.addSingleDrop(22197, DIARY_FRAGMENT, 51.0) // velociraptor
-			.addSingleDrop(22198, DIARY_FRAGMENT, 51.0) // velociraptor_s
-			.addSingleDrop(22218, DIARY_FRAGMENT, 25.0) // velociraptor_n
-			.addSingleDrop(22223, DIARY_FRAGMENT, 26.0) // velociraptor_leader2
-			.build();
+		.addSingleDrop(22196, DIARY_FRAGMENT, 51.0) // velociraptor_leader
+		.addSingleDrop(22197, DIARY_FRAGMENT, 51.0) // velociraptor
+		.addSingleDrop(22198, DIARY_FRAGMENT, 51.0) // velociraptor_s
+		.addSingleDrop(22218, DIARY_FRAGMENT, 25.0) // velociraptor_n
+		.addSingleDrop(22223, DIARY_FRAGMENT, 26.0) // velociraptor_leader2
+		.build();
 	private static final QuestDroplist DROPLIST_DINO = QuestDroplist.builder()
-			.addSingleDrop(22200, ORNITHOMINUS_CLAW, 66.0) // ornithomimus_leader
-			.addSingleDrop(22201, ORNITHOMINUS_CLAW, 33.0) // ornithomimus
-			.addSingleDrop(22202, ORNITHOMINUS_CLAW, 66.0) // ornithomimus_s
-			.addSingleDrop(22219, ORNITHOMINUS_CLAW, 33.0) // ornithomimus_n
-			.addSingleDrop(22224, ORNITHOMINUS_CLAW, 33.0) // ornithomimus_leader2
-			.addSingleDrop(22203, DEINONYCHUS_BONE, 65.0) // deinonychus_leader
-			.addSingleDrop(22204, DEINONYCHUS_BONE, 32.0) // deinonychus
-			.addSingleDrop(22205, DEINONYCHUS_BONE, 66.0) // deinonychus_s
-			.addSingleDrop(22220, DEINONYCHUS_BONE, 32.0) // deinonychus_n
-			.addSingleDrop(22225, DEINONYCHUS_BONE, 32.0) // deinonychus_leader2
-			.addSingleDrop(22208, PACHYCEPHALOSAURUS_SKIN, 50.0) // pachycephalosaurus_ldr
-			.addSingleDrop(22209, PACHYCEPHALOSAURUS_SKIN, 50.0) // pachycephalosaurus
-			.addSingleDrop(22210, PACHYCEPHALOSAURUS_SKIN, 50.0) // pachycephalosaurus_s
-			.addSingleDrop(22221, PACHYCEPHALOSAURUS_SKIN, 49.0) // pachycephalosaurus_n
-			.addSingleDrop(22226, PACHYCEPHALOSAURUS_SKIN, 50.0) // pachycephalosaurus_ldr2
-			.build();
+		.addSingleDrop(22200, ORNITHOMINUS_CLAW, 66.0) // ornithomimus_leader
+		.addSingleDrop(22201, ORNITHOMINUS_CLAW, 33.0) // ornithomimus
+		.addSingleDrop(22202, ORNITHOMINUS_CLAW, 66.0) // ornithomimus_s
+		.addSingleDrop(22219, ORNITHOMINUS_CLAW, 33.0) // ornithomimus_n
+		.addSingleDrop(22224, ORNITHOMINUS_CLAW, 33.0) // ornithomimus_leader2
+		.addSingleDrop(22203, DEINONYCHUS_BONE, 65.0) // deinonychus_leader
+		.addSingleDrop(22204, DEINONYCHUS_BONE, 32.0) // deinonychus
+		.addSingleDrop(22205, DEINONYCHUS_BONE, 66.0) // deinonychus_s
+		.addSingleDrop(22220, DEINONYCHUS_BONE, 32.0) // deinonychus_n
+		.addSingleDrop(22225, DEINONYCHUS_BONE, 32.0) // deinonychus_leader2
+		.addSingleDrop(22208, PACHYCEPHALOSAURUS_SKIN, 50.0) // pachycephalosaurus_ldr
+		.addSingleDrop(22209, PACHYCEPHALOSAURUS_SKIN, 50.0) // pachycephalosaurus
+		.addSingleDrop(22210, PACHYCEPHALOSAURUS_SKIN, 50.0) // pachycephalosaurus_s
+		.addSingleDrop(22221, PACHYCEPHALOSAURUS_SKIN, 49.0) // pachycephalosaurus_n
+		.addSingleDrop(22226, PACHYCEPHALOSAURUS_SKIN, 50.0) // pachycephalosaurus_ldr2
+		.build();
 	
 	public Q00111_ElrokianHuntersProof() {
 		super(111, Q00111_ElrokianHuntersProof.class.getSimpleName(), "Elrokian Hunter's Proof");
@@ -198,11 +198,11 @@ public final class Q00111_ElrokianHuntersProof extends Quest {
 		final QuestState qs = getRandomPartyMemberState(killer, -1, 3, npc);
 		if (qs != null) {
 			if (qs.isMemoState(4) && qs.isCond(4)
-					&& giveItemRandomly(qs.getPlayer(), npc, DROPLIST_DIARY.get(npc), true)) {
+				&& giveItemRandomly(qs.getPlayer(), npc, DROPLIST_DIARY.get(npc), true)) {
 				qs.setCond(5);
 			} else if (qs.isMemoState(11) && qs.isCond(10)) {
 				if (giveItemRandomly(qs.getPlayer(), npc, DROPLIST_DINO.get(npc), true)
-						&& hasItemsAtLimit(qs.getPlayer(), ORNITHOMINUS_CLAW, DEINONYCHUS_BONE, PACHYCEPHALOSAURUS_SKIN)) {
+					&& hasItemsAtLimit(qs.getPlayer(), ORNITHOMINUS_CLAW, DEINONYCHUS_BONE, PACHYCEPHALOSAURUS_SKIN)) {
 					qs.setCond(11);
 				}
 			}

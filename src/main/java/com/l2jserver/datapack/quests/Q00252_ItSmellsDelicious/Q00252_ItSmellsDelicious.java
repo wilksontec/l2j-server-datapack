@@ -94,7 +94,7 @@ public class Q00252_ItSmellsDelicious extends Quest {
 			}
 		} else {
 			qs = getRandomPartyMemberState(killer, 1, 3, npc);
-			if (qs != null && giveItemRandomly(qs.getPlayer(), npc, DIARY, true) && hasItemsAtLimit(qs.getPlayer(), COOKBOOK_PAGE)) {
+			if ((qs != null) && giveItemRandomly(qs.getPlayer(), npc, DIARY, true) && hasItemsAtLimit(qs.getPlayer(), COOKBOOK_PAGE)) {
 				qs.setCond(2);
 			}
 		}

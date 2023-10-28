@@ -43,23 +43,23 @@ public final class Q00355_FamilyHonor extends Quest {
 	private static final int ANCIENT_STATUE_FORGERY = 4354;
 	// Droplist
 	private static final QuestDroplist DROPLIST = QuestDroplist.builder()
-			.addGroupedDrop(20767, 68.4) // timak_orc_troop_leader
-				.withDropItem(GALFREDO_ROMERS_BUST, 81.87)
-				.withDropItem(SCULPTOR_BERONA, 18.13)
-				.build()
-			.addGroupedDrop(20768, 65.0) // timak_orc_troop_shaman
-				.withDropItem(GALFREDO_ROMERS_BUST, 81.54)
-				.withDropItem(SCULPTOR_BERONA, 18.46)
-				.build()
-			.addGroupedDrop(20769, 51.6) // timak_orc_troop_warrior
-				.withDropItem(GALFREDO_ROMERS_BUST, 81.4)
-				.withDropItem(SCULPTOR_BERONA, 18.6)
-				.build()
-			.addGroupedDrop(20770, 56.0) // timak_orc_troop_archer
-				.withDropItem(GALFREDO_ROMERS_BUST, 78.57)
-				.withDropItem(SCULPTOR_BERONA, 21.43)
-				.build()
-			.build();
+		.addGroupedDrop(20767, 68.4) // timak_orc_troop_leader
+		.withDropItem(GALFREDO_ROMERS_BUST, 81.87)
+		.withDropItem(SCULPTOR_BERONA, 18.13)
+		.build()
+		.addGroupedDrop(20768, 65.0) // timak_orc_troop_shaman
+		.withDropItem(GALFREDO_ROMERS_BUST, 81.54)
+		.withDropItem(SCULPTOR_BERONA, 18.46)
+		.build()
+		.addGroupedDrop(20769, 51.6) // timak_orc_troop_warrior
+		.withDropItem(GALFREDO_ROMERS_BUST, 81.4)
+		.withDropItem(SCULPTOR_BERONA, 18.6)
+		.build()
+		.addGroupedDrop(20770, 56.0) // timak_orc_troop_archer
+		.withDropItem(GALFREDO_ROMERS_BUST, 78.57)
+		.withDropItem(SCULPTOR_BERONA, 21.43)
+		.build()
+		.build();
 	// Misc
 	private static final int MIN_LEVEL = 36;
 	
@@ -157,9 +157,9 @@ public final class Q00355_FamilyHonor extends Quest {
 		if ((qs == null) || !Util.checkIfInRange(1500, npc, qs.getPlayer(), true)) {
 			return null;
 		}
-
+		
 		giveItemRandomly(qs.getPlayer(), npc, DROPLIST.get(npc), true);
-
+		
 		return super.onKill(npc, killer, isSummon);
 	}
 	

@@ -31,10 +31,9 @@ import com.l2jserver.gameserver.network.serverpackets.NpcHtmlMessage;
 public class Bypass implements IItemHandler {
 	@Override
 	public boolean useItem(L2Playable playable, L2ItemInstance item, boolean forceUse) {
-		if (!(playable instanceof L2PcInstance)) {
+		if (!(playable instanceof L2PcInstance activeChar)) {
 			return false;
 		}
-		L2PcInstance activeChar = (L2PcInstance) playable;
 		final int itemId = item.getId();
 		
 		String filename = "data/html/item/" + itemId + ".htm";

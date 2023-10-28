@@ -57,10 +57,15 @@ public final class Q00412_PathOfTheDarkWizard extends Quest {
 	private static final QuestItemChanceHolder HEART_OF_LUNACY = new QuestItemChanceHolder(1260, 50.0, 3L);
 	// Droplist
 	private static final QuestDroplist DROPLIST = QuestDroplist.builder()
-			.addSingleDrop(MARSH_ZOMBIE, FAMILYS_REMAINS).withRequiredItems(LUCKY_KEY)
-			.bulkAddSingleDrop(KNEE_BONE).withNpcs(MISERY_SKELETON, SKELETON_HUNTER, SKELETON_HUNTER_ARCHER).withRequiredItems(CANDLE).build()
-			.addSingleDrop(SKELETON_SCOUT, HEART_OF_LUNACY).withRequiredItems(HUB_SCENT)
-			.build();
+		.addSingleDrop(MARSH_ZOMBIE, FAMILYS_REMAINS)
+		.withRequiredItems(LUCKY_KEY)
+		.bulkAddSingleDrop(KNEE_BONE)
+		.withNpcs(MISERY_SKELETON, SKELETON_HUNTER, SKELETON_HUNTER_ARCHER)
+		.withRequiredItems(CANDLE)
+		.build()
+		.addSingleDrop(SKELETON_SCOUT, HEART_OF_LUNACY)
+		.withRequiredItems(HUB_SCENT)
+		.build();
 	// Reward
 	private static final int JEWEL_OF_DARKNESS = 1261;
 	// Misc

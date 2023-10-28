@@ -92,8 +92,7 @@ public final class SanctumOftheLordsOfDawn extends AbstractInstance {
 		switch (event) {
 			case "spawn": {
 				final InstanceWorld tmpworld = InstanceManager.getInstance().getPlayerWorld(player);
-				if (tmpworld instanceof SotLoDWorld) {
-					final SotLoDWorld world = (SotLoDWorld) tmpworld;
+				if (tmpworld instanceof SotLoDWorld world) {
 					spawnGroup("high_priest_of_dawn", world.getInstanceId());
 					player.sendPacket(SystemMessageId.BY_USING_THE_SKILL_OF_EINHASAD_S_HOLY_SWORD_DEFEAT_THE_EVIL_LILIMS);
 				}
@@ -185,8 +184,7 @@ public final class SanctumOftheLordsOfDawn extends AbstractInstance {
 			}
 			case PASSWORD_ENTRY_DEVICE: {
 				final InstanceWorld tmworld = InstanceManager.getInstance().getWorld(npc.getInstanceId());
-				if (tmworld instanceof SotLoDWorld) {
-					final SotLoDWorld world = (SotLoDWorld) tmworld;
+				if (tmworld instanceof SotLoDWorld world) {
 					openDoor(DOOR_THREE, world.getInstanceId());
 					return "32577-01.html";
 				}

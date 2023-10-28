@@ -145,38 +145,24 @@ public final class WyvernManager extends AbstractNpcAI {
 	}
 	
 	private boolean isInSiege(L2Npc npc) {
-		switch (MANAGERS.get(npc.getId())) {
-			case CASTLE: {
-				return npc.getCastle().getZone().isActive();
-			}
-			case CLAN_HALL: {
+		return switch (MANAGERS.get(npc.getId())) {
+			case CASTLE -> npc.getCastle().getZone().isActive();
+			case CLAN_HALL -> {
 				SiegableHall hall = npc.getConquerableHall();
-				return (hall != null) ? hall.isInSiege() : npc.getCastle().getSiege().isInProgress();
+				yield (hall != null) ? hall.isInSiege() : npc.getCastle().getSiege().isInProgress();
 			}
-			case FORT: {
-				return npc.getFort().getZone().isActive();
-			}
-			default: {
-				return false;
-			}
-		}
+			case FORT -> npc.getFort().getZone().isActive();
+			default -> false;
+		};
 	}
 	
 	private String getResidenceName(L2Npc npc) {
-		switch (MANAGERS.get(npc.getId())) {
-			case CASTLE: {
-				return npc.getCastle().getName();
-			}
-			case CLAN_HALL: {
-				return npc.getConquerableHall().getName();
-			}
-			case FORT: {
-				return npc.getFort().getName();
-			}
-			default: {
-				return null;
-			}
-		}
+		return switch (MANAGERS.get(npc.getId())) {
+			case CASTLE -> npc.getCastle().getName();
+			case CLAN_HALL -> npc.getConquerableHall().getName();
+			case FORT -> npc.getFort().getName();
+			default -> null;
+		};
 	}
 	
 	private String replaceAll(L2Npc npc, String htmlPrefix) {

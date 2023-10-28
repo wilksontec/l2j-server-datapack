@@ -139,12 +139,12 @@ public final class Q00212_TrialOfDuty extends Quest {
 		if ((qs == null) || !Util.checkIfInRange(1500, killer, npc, true)) {
 			return super.onKill(npc, killer, isSummon);
 		}
-
+		
 		switch (npc.getId()) {
 			case SKELETON_MARAUDER, SKELETON_RAIDER -> {
 				if (qs.isMemoState(2)) {
 					final int flag = qs.getInt("flag");
-
+					
 					if (getRandom(100) < (flag * 10)) {
 						addSpawn(SPIRIT_OF_SIR_HEROD, npc);
 						qs.set("flag", 0);
@@ -156,7 +156,7 @@ public final class Q00212_TrialOfDuty extends Quest {
 			case SPIRIT_OF_SIR_HEROD -> {
 				if (qs.isMemoState(2)) {
 					final L2Weapon weapon = killer.getActiveWeaponItem();
-
+					
 					if ((weapon != null) && (weapon.getId() == OLD_KNIGHTS_SWORD)) {
 						giveItems(killer, KNIGHTS_TEAR, 1);
 						qs.setMemoState(3);
@@ -174,7 +174,7 @@ public final class Q00212_TrialOfDuty extends Quest {
 			case HANGMAN_TREE -> {
 				if (qs.isMemoState(6)) {
 					final int flag = qs.getInt("flag");
-
+					
 					if (getRandom(100) < ((flag - 3) * 33)) {
 						addSpawn(SPIRIT_OF_SIR_TALIANUS, npc);
 						qs.set("flag", 0);

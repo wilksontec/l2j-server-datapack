@@ -136,7 +136,7 @@ public final class Core extends AbstractNpcAI {
 			mob.setIsRaidMinion(true);
 			_minions.add(mob);
 		} else if (event.equalsIgnoreCase("despawn_minions")) {
-			_minions.forEach(m -> m.decayMe());
+			_minions.forEach(L2Attackable::decayMe);
 			_minions.clear();
 		}
 		return super.onAdvEvent(event, npc, player);

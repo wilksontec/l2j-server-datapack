@@ -36,17 +36,17 @@ public final class Q00629_CleanUpTheSwampOfScreams extends Quest {
 	private static final int GOLDEN_RAM_COIN = 7251;
 	// Droplist
 	private static final QuestDroplist DROPLIST = QuestDroplist.builder()
-			.addSingleDrop(21508, TALON_OF_STAKATO, 59.9) // splinter_stakato
-			.addSingleDrop(21509, TALON_OF_STAKATO, 52.4) // splinter_stakato_worker
-			.addSingleDrop(21510, TALON_OF_STAKATO, 64.0) // splinter_stakato_soldier
-			.addSingleDrop(21511, TALON_OF_STAKATO, 83.0) // splinter_stakato_drone
-			.addSingleDrop(21512, TALON_OF_STAKATO, 97.0) // splinter_stakato_drone_a
-			.addSingleDrop(21513, TALON_OF_STAKATO, 68.2) // needle_stakato
-			.addSingleDrop(21514, TALON_OF_STAKATO, 59.5) // needle_stakato_worker
-			.addSingleDrop(21515, TALON_OF_STAKATO, 72.7) // needle_stakato_soldier
-			.addSingleDrop(21516, TALON_OF_STAKATO, 87.9) // needle_stakato_drone
-			.addSingleDrop(21517, TALON_OF_STAKATO, 99.9) // needle_stakato_drone_a
-			.build();
+		.addSingleDrop(21508, TALON_OF_STAKATO, 59.9) // splinter_stakato
+		.addSingleDrop(21509, TALON_OF_STAKATO, 52.4) // splinter_stakato_worker
+		.addSingleDrop(21510, TALON_OF_STAKATO, 64.0) // splinter_stakato_soldier
+		.addSingleDrop(21511, TALON_OF_STAKATO, 83.0) // splinter_stakato_drone
+		.addSingleDrop(21512, TALON_OF_STAKATO, 97.0) // splinter_stakato_drone_a
+		.addSingleDrop(21513, TALON_OF_STAKATO, 68.2) // needle_stakato
+		.addSingleDrop(21514, TALON_OF_STAKATO, 59.5) // needle_stakato_worker
+		.addSingleDrop(21515, TALON_OF_STAKATO, 72.7) // needle_stakato_soldier
+		.addSingleDrop(21516, TALON_OF_STAKATO, 87.9) // needle_stakato_drone
+		.addSingleDrop(21517, TALON_OF_STAKATO, 99.9) // needle_stakato_drone_a
+		.build();
 	// Misc
 	private static final int REQUIRED_TALON_COUNT = 100;
 	private static final int MIN_LVL = 66;

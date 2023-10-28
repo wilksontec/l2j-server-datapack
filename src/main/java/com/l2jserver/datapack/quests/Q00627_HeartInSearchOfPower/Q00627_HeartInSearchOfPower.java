@@ -40,24 +40,23 @@ public class Q00627_HeartInSearchOfPower extends Quest {
 	private static final QuestItemChanceHolder BEAD_OF_OBEDIENCE = new QuestItemChanceHolder(7171, 300L);
 	// Droplist
 	private static final QuestDroplist DROPLIST = QuestDroplist.builder()
-			.addSingleDrop(21520, BEAD_OF_OBEDIENCE, 66.1) // Eye of Splendor
-			.addSingleDrop(21523, BEAD_OF_OBEDIENCE, 66.8) // Flash of Splendor
-			.addSingleDrop(21524, BEAD_OF_OBEDIENCE, 71.4) // Blade of Splendor
-			.addSingleDrop(21525, BEAD_OF_OBEDIENCE, 71.4) // Blade of Splendor
-			.addSingleDrop(21526, BEAD_OF_OBEDIENCE, 79.6) // Wisdom of Splendor
-			.addSingleDrop(21529, BEAD_OF_OBEDIENCE, 65.9) // Soul of Splendor
-			.addSingleDrop(21530, BEAD_OF_OBEDIENCE, 70.4) // Victory of Splendor
-			.addSingleDrop(21531, BEAD_OF_OBEDIENCE, 79.1) // Punishment of Splendor
-			.addSingleDrop(21532, BEAD_OF_OBEDIENCE, 82.0) // Shout of Splendor
-			.addSingleDrop(21535, BEAD_OF_OBEDIENCE, 82.7) // Signet of Splendor
-			.addSingleDrop(21536, BEAD_OF_OBEDIENCE, 79.8) // Crown of Splendor
-			.addSingleDrop(21539, BEAD_OF_OBEDIENCE, 87.5) // Wailing of Splendor
-			.addSingleDrop(21540, BEAD_OF_OBEDIENCE, 87.5) // Wailing of Splendor
-			.addSingleDrop(21658, BEAD_OF_OBEDIENCE, 79.1) // Punishment of Splendor
-			.build();
+		.addSingleDrop(21520, BEAD_OF_OBEDIENCE, 66.1) // Eye of Splendor
+		.addSingleDrop(21523, BEAD_OF_OBEDIENCE, 66.8) // Flash of Splendor
+		.addSingleDrop(21524, BEAD_OF_OBEDIENCE, 71.4) // Blade of Splendor
+		.addSingleDrop(21525, BEAD_OF_OBEDIENCE, 71.4) // Blade of Splendor
+		.addSingleDrop(21526, BEAD_OF_OBEDIENCE, 79.6) // Wisdom of Splendor
+		.addSingleDrop(21529, BEAD_OF_OBEDIENCE, 65.9) // Soul of Splendor
+		.addSingleDrop(21530, BEAD_OF_OBEDIENCE, 70.4) // Victory of Splendor
+		.addSingleDrop(21531, BEAD_OF_OBEDIENCE, 79.1) // Punishment of Splendor
+		.addSingleDrop(21532, BEAD_OF_OBEDIENCE, 82.0) // Shout of Splendor
+		.addSingleDrop(21535, BEAD_OF_OBEDIENCE, 82.7) // Signet of Splendor
+		.addSingleDrop(21536, BEAD_OF_OBEDIENCE, 79.8) // Crown of Splendor
+		.addSingleDrop(21539, BEAD_OF_OBEDIENCE, 87.5) // Wailing of Splendor
+		.addSingleDrop(21540, BEAD_OF_OBEDIENCE, 87.5) // Wailing of Splendor
+		.addSingleDrop(21658, BEAD_OF_OBEDIENCE, 79.1) // Punishment of Splendor
+		.build();
 	// Misc
 	private static final int MIN_LEVEL_REQUIRED = 60;
-	private static final int BEAD_OF_OBEDIENCE_COUNT_REQUIRED = 300;
 	// Rewards ID's
 	private static final int ASOFE = 4043;
 	private static final int THONS = 4044;
@@ -144,7 +143,7 @@ public class Q00627_HeartInSearchOfPower extends Quest {
 	@Override
 	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
 		QuestState st = getRandomPartyMemberState(killer, 1, 1, npc);
-		if (st != null && giveItemRandomly(st.getPlayer(), npc, DROPLIST.get(npc), true)) {
+		if ((st != null) && giveItemRandomly(st.getPlayer(), npc, DROPLIST.get(npc), true)) {
 			st.setCond(2);
 		}
 		return super.onKill(npc, killer, isSummon);

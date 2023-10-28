@@ -18,13 +18,13 @@
  */
 package com.l2jserver.datapack.quests.Q00372_LegacyOfInsolence;
 
+import java.util.Map;
+
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
 import com.l2jserver.gameserver.model.quest.Quest;
 import com.l2jserver.gameserver.model.quest.QuestDroplist;
 import com.l2jserver.gameserver.model.quest.QuestState;
-
-import java.util.Map;
 
 /**
  * Legacy Of Insolence (372)
@@ -52,64 +52,117 @@ public final class Q00372_LegacyOfInsolence extends Quest {
 	private static final int ANCIENT_BLUE_PAPYRUS = 5967;
 	private static final int ANCIENT_BLACK_PAPYRUS = 5968;
 	private static final int ANCIENT_WHITE_PAPYRUS = 5969;
-	private static final int[] REVELATION_OF_THE_SEALS = {5972, 5973, 5974, 5975, 5976, 5977, 5978};
-	private static final int[] ANCIENT_EPIC = {5979, 5980, 5981, 5982, 5983};
-	private static final int[] IMPERIAL_GENEALOGY = {5984, 5985, 5986, 5987, 5988};
-	private static final int[] BLUEPRINTS = {5989, 5990, 5991, 5992, 5993, 5994, 5995, 5996, 5997, 5998, 5999, 6000, 6001};
+	private static final int[] REVELATION_OF_THE_SEALS = {
+		5972,
+		5973,
+		5974,
+		5975,
+		5976,
+		5977,
+		5978
+	};
+	private static final int[] ANCIENT_EPIC = {
+		5979,
+		5980,
+		5981,
+		5982,
+		5983
+	};
+	private static final int[] IMPERIAL_GENEALOGY = {
+		5984,
+		5985,
+		5986,
+		5987,
+		5988
+	};
+	private static final int[] BLUEPRINTS = {
+		5989,
+		5990,
+		5991,
+		5992,
+		5993,
+		5994,
+		5995,
+		5996,
+		5997,
+		5998,
+		5999,
+		6000,
+		6001
+	};
 	// Droplist
 	private static final QuestDroplist DROPLIST = QuestDroplist.builder()
-			.addSingleDrop(CORRUPT_SAGE, ANCIENT_RED_PAPYRUS, 30.2)
-			.addSingleDrop(ERIN_EDIUNCE, ANCIENT_RED_PAPYRUS, 41.0)
-			.addSingleDrop(HALLATES_INSPECTOR, ANCIENT_RED_PAPYRUS, 44.7)
-			.addSingleDrop(PLATINUM_TRIBE_OVERLORD, ANCIENT_BLUE_PAPYRUS, 45.1)
-			.addSingleDrop(MESSENGER_ANGEL, ANCIENT_WHITE_PAPYRUS, 29.0)
-			.addSingleDrop(PLATINUM_GUARDIAN_PREFECT, ANCIENT_BLACK_PAPYRUS, 28.0)
-			.build();
-	private static final Map<Integer, Integer> QS_KILLER_CHANCE = Map.of(
-			CORRUPT_SAGE, 1,
-			ERIN_EDIUNCE, 1,
-			HALLATES_INSPECTOR, 3,
-			PLATINUM_TRIBE_OVERLORD, 3,
-			MESSENGER_ANGEL, 1,
-			PLATINUM_GUARDIAN_PREFECT, 1
-	);
+		.addSingleDrop(CORRUPT_SAGE, ANCIENT_RED_PAPYRUS, 30.2)
+		.addSingleDrop(ERIN_EDIUNCE, ANCIENT_RED_PAPYRUS, 41.0)
+		.addSingleDrop(HALLATES_INSPECTOR, ANCIENT_RED_PAPYRUS, 44.7)
+		.addSingleDrop(PLATINUM_TRIBE_OVERLORD, ANCIENT_BLUE_PAPYRUS, 45.1)
+		.addSingleDrop(MESSENGER_ANGEL, ANCIENT_WHITE_PAPYRUS, 29.0)
+		.addSingleDrop(PLATINUM_GUARDIAN_PREFECT, ANCIENT_BLACK_PAPYRUS, 28.0)
+		.build();
+	private static final Map<Integer, Integer> QS_KILLER_CHANCE = Map.of(CORRUPT_SAGE, 1, ERIN_EDIUNCE, 1, HALLATES_INSPECTOR, 3, PLATINUM_TRIBE_OVERLORD, 3, MESSENGER_ANGEL, 1, PLATINUM_GUARDIAN_PREFECT, 1);
 	// Rewards
-	private static final RewardsGroup REWARDS_DARK_CRYSTAL = new RewardsGroup(
-			5496, // Sealed Dark Crystal Boots Lining
-			5508, // Sealed Dark Crystal Gloves Design
-			5525, // Sealed Dark Crystal Helmet Design
-			5368, // Recipe: Sealed Dark Crystal Boots(60%)
-			5392, // Recipe: Sealed Dark Crystal Gloves(60%)
-			5426 // Recipe: Sealed Dark Crystal Helmet(60%)
+	private static final RewardsGroup REWARDS_DARK_CRYSTAL = new RewardsGroup(5496, // Sealed Dark Crystal Boots Lining
+		5508, // Sealed Dark Crystal Gloves Design
+		5525, // Sealed Dark Crystal Helmet Design
+		5368, // Recipe: Sealed Dark Crystal Boots(60%)
+		5392, // Recipe: Sealed Dark Crystal Gloves(60%)
+		5426 // Recipe: Sealed Dark Crystal Helmet(60%)
 	);
-	private static final RewardsGroup REWARDS_TALLUM = new RewardsGroup(
-			5497, // Sealed Tallum Boots Lining
-			5509, // Sealed Tallum Gloves Design
-			5526, // Sealed Tallum Helm Design
-			5370, // Recipe: Sealed Tallum Boots(60%)
-			5394, // Recipe: Sealed Tallum Gloves(60%)
-			5428 // Recipe: Sealed Tallum Helmet(60%)
+	private static final RewardsGroup REWARDS_TALLUM = new RewardsGroup(5497, // Sealed Tallum Boots Lining
+		5509, // Sealed Tallum Gloves Design
+		5526, // Sealed Tallum Helm Design
+		5370, // Recipe: Sealed Tallum Boots(60%)
+		5394, // Recipe: Sealed Tallum Gloves(60%)
+		5428 // Recipe: Sealed Tallum Helmet(60%)
 	);
-	private static final RewardsGroup REWARDS_NIGHTMARE = new RewardsGroup(
-			5502, // Sealed Boots of Nightmare Lining
-			5514, // Sealed Gauntlets of Nightmare Design
-			5527, // Sealed Helm of Nightmare Design
-			5380, // Recipe: Sealed Boots of Nightmare(60%)
-			5404, // Recipe: Sealed Gauntlets of Nightmare(60%)
-			5430 // Recipe: Sealed Helm of Nightmare(60%)
+	private static final RewardsGroup REWARDS_NIGHTMARE = new RewardsGroup(5502, // Sealed Boots of Nightmare Lining
+		5514, // Sealed Gauntlets of Nightmare Design
+		5527, // Sealed Helm of Nightmare Design
+		5380, // Recipe: Sealed Boots of Nightmare(60%)
+		5404, // Recipe: Sealed Gauntlets of Nightmare(60%)
+		5430 // Recipe: Sealed Helm of Nightmare(60%)
 	);
-	private static final RewardsGroup REWARDS_MAJESTIC = new RewardsGroup(
-			5503, // Sealed Majestic Boots Lining
-			5515, // Sealed Majestic Gauntlets Design
-			5528, // Sealed Majestic Circlet Design
-			5382, // Recipe: Sealed Majestic Boots(60%)
-			5406, // Recipe: Sealed Majestic Gauntlets(60%)
-			5432 // Recipe: Sealed Majestic Circlet (60%)
+	private static final RewardsGroup REWARDS_MAJESTIC = new RewardsGroup(5503, // Sealed Majestic Boots Lining
+		5515, // Sealed Majestic Gauntlets Design
+		5528, // Sealed Majestic Circlet Design
+		5382, // Recipe: Sealed Majestic Boots(60%)
+		5406, // Recipe: Sealed Majestic Gauntlets(60%)
+		5432 // Recipe: Sealed Majestic Circlet (60%)
 	);
-	private static final int[] WALDERAL_CHANCES_LOW_A = {10, 20, 30, 40, 51, 62, 79, 100};
-	private static final int[] WALDERAL_CHANCES_HIGH_A = {17, 34, 49, 58, 70, 82, 92, 100};
-	private static final int[] OTHER_CHANCES_LOW_A = {30, 60, 80, 90, 100};
-	private static final int[] OTHER_CHANCES_HIGH_A = {31, 62, 75, 83, 100};
+	private static final int[] WALDERAL_CHANCES_LOW_A = {
+		10,
+		20,
+		30,
+		40,
+		51,
+		62,
+		79,
+		100
+	};
+	private static final int[] WALDERAL_CHANCES_HIGH_A = {
+		17,
+		34,
+		49,
+		58,
+		70,
+		82,
+		92,
+		100
+	};
+	private static final int[] OTHER_CHANCES_LOW_A = {
+		30,
+		60,
+		80,
+		90,
+		100
+	};
+	private static final int[] OTHER_CHANCES_HIGH_A = {
+		31,
+		62,
+		75,
+		83,
+		100
+	};
 	
 	public Q00372_LegacyOfInsolence() {
 		super(372, Q00372_LegacyOfInsolence.class.getSimpleName(), "Legacy Of Insolence");
@@ -291,8 +344,6 @@ public final class Q00372_LegacyOfInsolence extends Quest {
 		}
 	}
 	
-	private record RewardsGroup(
-			int partBoots, int partGloves, int partHelmet,
-			int recipeBoots, int recipeGloves, int recipeHelmet
-	) {}
+	private record RewardsGroup(int partBoots, int partGloves, int partHelmet, int recipeBoots, int recipeGloves, int recipeHelmet) {
+	}
 }

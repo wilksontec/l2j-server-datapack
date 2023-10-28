@@ -44,7 +44,7 @@ public class Q00137_TempleChampionPart1 extends Quest {
 	private static final int EXECUTOR = 10334;
 	private static final int MISSIONARY = 10339;
 	private static final QuestItemChanceHolder FRAGMENT = new QuestItemChanceHolder(10340, 30L);
-
+	
 	public Q00137_TempleChampionPart1() {
 		super(137, Q00137_TempleChampionPart1.class.getSimpleName(), "Temple Champion - 1");
 		addStartNpc(SYLVAIN);
@@ -108,17 +108,11 @@ public class Q00137_TempleChampionPart1 extends Quest {
 		}
 		switch (st.getCond()) {
 			case 1:
-				switch (st.getInt("talk")) {
-					case 1:
-						htmltext = "30070-05.html";
-						break;
-					case 2:
-						htmltext = "30070-06.html";
-						break;
-					default:
-						htmltext = "30070-03.html";
-						break;
-				}
+				htmltext = switch (st.getInt("talk")) {
+					case 1 -> "30070-05.html";
+					case 2 -> "30070-06.html";
+					default -> "30070-03.html";
+				};
 				break;
 			case 2:
 				htmltext = "30070-08.html";

@@ -192,7 +192,7 @@ public final class Q00708_PathToBecomingALordGludio extends Quest {
 							takeItems(player, VARNISH, -100);
 							takeItems(player, IRON_ORE, -100);
 							takeItems(player, COKES, -50);
-							qs.setMemoState(9 + i0 * 10);
+							qs.setMemoState(9 + (i0 * 10));
 							htmltext = event;
 						} else {
 							htmltext = "30298-10.html";
@@ -314,7 +314,7 @@ public final class Q00708_PathToBecomingALordGludio extends Quest {
 				switch (npc.getId()) {
 					case SAYRES: {
 						if ((qs.hasMemoState() && (qs.getMemoState() == 1) && npc.isMyLord(player))) {
-							if (System.currentTimeMillis() - qs.getMemoStateEx(1) < MIN_TIME) {
+							if ((System.currentTimeMillis() - qs.getMemoStateEx(1)) < MIN_TIME) {
 								htmltext = "35100-05.html";
 							} else {
 								qs.setMemoState(2);
@@ -366,16 +366,16 @@ public final class Q00708_PathToBecomingALordGludio extends Quest {
 							htmltext = "35100-17.html";
 						} else if (qs.hasMemoState() && ((qs.getMemoState() / 10) == 1) && ((qs.getMemoState() % 10) != 9)) {
 							htmltext = "35100-18.html";
-						} else if (qs.hasMemoState() && ((qs.getMemoState() / 10) == 2) || ((qs.getMemoState() / 10) == 3) && ((qs.getMemoState() % 10) == 9)) {
+						} else if ((qs.hasMemoState() && ((qs.getMemoState() / 10) == 2)) || (((qs.getMemoState() / 10) == 3) && ((qs.getMemoState() % 10) == 9))) {
 							htmltext = "35100-19.html";
-						} else if (qs.hasMemoState() && ((qs.getMemoState() / 10) == 2) || ((qs.getMemoState() / 10) == 3) && ((qs.getMemoState() % 10) == 9)) {
+						} else if ((qs.hasMemoState() && ((qs.getMemoState() / 10) == 2)) || (((qs.getMemoState() / 10) == 3) && ((qs.getMemoState() % 10) == 9))) {
 							htmltext = "35100-20.html";
 						} else if (qs.hasMemoState() && ((qs.getMemoState() / 10) == 4) && ((qs.getMemoState() % 10) != 9)) {
 							htmltext = "35100-21.html";
 						} else if (qs.hasMemoState() && ((qs.getMemoState() / 10) == 4) && ((qs.getMemoState() % 10) == 9) && npc.isMyLord(player)) {
 							if (TerritoryWarManager.getInstance().isTWInProgress() || npc.getCastle().getSiege().isInProgress()) {
 								htmltext = "35100-22a.html";
-							} else if ((FortManager.getInstance().getFortById(SHANTY).getFortState() == 0) || FortManager.getInstance().getFortById(SOUTHERN).getFortState() == 0) {
+							} else if ((FortManager.getInstance().getFortById(SHANTY).getFortState() == 0) || (FortManager.getInstance().getFortById(SOUTHERN).getFortState() == 0)) {
 								htmltext = "35100-22b.html";
 							} else {
 								htmltext = "35100-22.html";

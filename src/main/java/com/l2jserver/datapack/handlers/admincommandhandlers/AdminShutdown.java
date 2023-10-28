@@ -48,7 +48,7 @@ public class AdminShutdown implements IAdminCommandHandler {
 			try {
 				final String val = command.substring(22);
 				if (Util.isDigit(val)) {
-					serverShutdown(activeChar, Integer.valueOf(val), false);
+					serverShutdown(activeChar, Integer.parseInt(val), false);
 				} else {
 					activeChar.sendMessage("Usage: //server_shutdown <seconds>");
 					sendHtmlForm(activeChar);

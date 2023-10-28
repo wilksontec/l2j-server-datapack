@@ -18,6 +18,8 @@
  */
 package com.l2jserver.datapack.quests.Q00276_TotemOfTheHestui;
 
+import java.util.List;
+
 import com.l2jserver.datapack.quests.Q00261_CollectorsDream.Q00261_CollectorsDream;
 import com.l2jserver.gameserver.enums.Race;
 import com.l2jserver.gameserver.model.actor.L2Npc;
@@ -28,8 +30,6 @@ import com.l2jserver.gameserver.model.quest.Quest;
 import com.l2jserver.gameserver.model.quest.QuestState;
 import com.l2jserver.gameserver.model.quest.State;
 import com.l2jserver.gameserver.util.Util;
-
-import java.util.List;
 
 /**
  * Totem of the Hestui (276)
@@ -50,12 +50,7 @@ public final class Q00276_TotemOfTheHestui extends Quest {
 		1500,
 	};
 	// Misc
-	private static final List<ItemHolder> SPAWN_CHANCES = List.of(
-		new ItemHolder(79, 100),
-		new ItemHolder(69, 20),
-		new ItemHolder(59, 15),
-		new ItemHolder(49, 10),
-		new ItemHolder(39, 2));
+	private static final List<ItemHolder> SPAWN_CHANCES = List.of(new ItemHolder(79, 100), new ItemHolder(69, 20), new ItemHolder(59, 15), new ItemHolder(49, 10), new ItemHolder(39, 2));
 	private static final int MIN_LVL = 15;
 	
 	public Q00276_TotemOfTheHestui() {

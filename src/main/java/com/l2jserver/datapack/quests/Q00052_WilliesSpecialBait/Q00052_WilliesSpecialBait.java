@@ -37,7 +37,7 @@ public class Q00052_WilliesSpecialBait extends Quest {
 	// Items
 	private static final int EARTH_FISHING_LURE = 7612;
 	private static final QuestItemChanceHolder TARLK_EYE = new QuestItemChanceHolder(7623, 33.0, 100L);
-
+	
 	public Q00052_WilliesSpecialBait() {
 		super(52, Q00052_WilliesSpecialBait.class.getSimpleName(), "Willie's Special Bait");
 		addStartNpc(WILLIE);
@@ -72,7 +72,7 @@ public class Q00052_WilliesSpecialBait extends Quest {
 	@Override
 	public String onKill(L2Npc npc, L2PcInstance player, boolean isSummon) {
 		QuestState st = getRandomPartyMemberState(player, 1, 1, npc);
-		if (st != null && giveItemRandomly(st.getPlayer(), npc, TARLK_EYE, true)) {
+		if ((st != null) && giveItemRandomly(st.getPlayer(), npc, TARLK_EYE, true)) {
 			st.setCond(2);
 		}
 		return super.onKill(npc, player, isSummon);

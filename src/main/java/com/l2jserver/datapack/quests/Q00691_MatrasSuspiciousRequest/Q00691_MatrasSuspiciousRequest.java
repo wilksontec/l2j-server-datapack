@@ -37,17 +37,17 @@ public final class Q00691_MatrasSuspiciousRequest extends Quest {
 	private static final int DYNASTY_SOUL_II = 10413;
 	// Droplist
 	private static final QuestDroplist DROPLIST = QuestDroplist.builder()
-			.addSingleDrop(22363, RED_GEM, 89.0)
-			.addSingleDrop(22364, RED_GEM, 26.1)
-			.addSingleDrop(22365, RED_GEM, 56.0)
-			.addSingleDrop(22366, RED_GEM, 56.0)
-			.addSingleDrop(22367, RED_GEM, 19.0)
-			.addSingleDrop(22368, RED_GEM, 12.9)
-			.addSingleDrop(22369, RED_GEM, 21.0)
-			.addSingleDrop(22370, RED_GEM, 78.7)
-			.addSingleDrop(22371, RED_GEM, 25.7)
-			.addSingleDrop(22372, RED_GEM, 65.6)
-			.build();
+		.addSingleDrop(22363, RED_GEM, 89.0)
+		.addSingleDrop(22364, RED_GEM, 26.1)
+		.addSingleDrop(22365, RED_GEM, 56.0)
+		.addSingleDrop(22366, RED_GEM, 56.0)
+		.addSingleDrop(22367, RED_GEM, 19.0)
+		.addSingleDrop(22368, RED_GEM, 12.9)
+		.addSingleDrop(22369, RED_GEM, 21.0)
+		.addSingleDrop(22370, RED_GEM, 78.7)
+		.addSingleDrop(22371, RED_GEM, 25.7)
+		.addSingleDrop(22372, RED_GEM, 65.6)
+		.build();
 	// Misc
 	private static final int MIN_LEVEL = 76;
 	

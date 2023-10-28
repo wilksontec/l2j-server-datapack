@@ -44,7 +44,7 @@ import com.l2jserver.gameserver.network.serverpackets.SystemMessage;
  * Dark Cloud Mansion instance zone.
  */
 public final class DarkCloudMansion extends AbstractInstance {
-	protected class DMCWorld extends InstanceWorld {
+	protected static class DMCWorld extends InstanceWorld {
 		protected Map<String, DMCRoom> rooms = new ConcurrentHashMap<>();
 	}
 	
@@ -623,7 +623,7 @@ public final class DarkCloudMansion extends AbstractInstance {
 			if (npcobj.npc == npc) {
 				npcobj.isDead = true;
 			}
-			if (npcobj.isDead == false) {
+			if (!npcobj.isDead) {
 				cont = false;
 			}
 		}

@@ -18,14 +18,15 @@
  */
 package com.l2jserver.datapack.custom.service.discord.commands.moderation;
 
-import com.l2jserver.datapack.custom.service.discord.AbstractCommand;
-import com.l2jserver.gameserver.Shutdown;
-import net.dv8tion.jda.api.EmbedBuilder;
-import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
+import static com.l2jserver.gameserver.config.Configuration.discord;
 
 import java.awt.Color;
 
-import static com.l2jserver.gameserver.config.Configuration.discord;
+import com.l2jserver.datapack.custom.service.discord.AbstractCommand;
+import com.l2jserver.gameserver.Shutdown;
+
+import net.dv8tion.jda.api.EmbedBuilder;
+import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 
 /**
  * Shutdown Command.
@@ -33,21 +34,21 @@ import static com.l2jserver.gameserver.config.Configuration.discord;
  * @version 2.6.2.0
  */
 public class ShutdownCommand extends AbstractCommand {
-
+	
 	private static final String[] COMMANDS = {
 		"shutdown",
 		"sdn"
 	};
-
+	
 	@Override
 	public String[] getCommands() {
 		return COMMANDS;
 	}
-
+	
 	@Override
 	public void executeCommand(MessageReceivedEvent event, String[] args) {
 		EmbedBuilder eb = new EmbedBuilder();
-
+		
 		if (!canExecute(event)) {
 			return;
 		}
@@ -73,7 +74,7 @@ public class ShutdownCommand extends AbstractCommand {
 		
 		String gmName = event.getAuthor().getAsMention();
 		String commandName = args[0].substring(discord().getPrefix().length()).toUpperCase();
-		Shutdown.getInstance().startTelnetShutdown(event.getAuthor().getName(), seconds, false); //Using telnet method.
+		Shutdown.getInstance().startTelnetShutdown(event.getAuthor().getName(), seconds, false); // Using telnet method.
 		eb.setColor(Color.GREEN);
 		eb.setDescription("GM: {" + gmName + "} issued command. **" + commandName + "** in " + seconds + " " + "seconds!");
 		event.getChannel().sendMessageEmbeds(eb.build()).queue();

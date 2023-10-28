@@ -47,17 +47,17 @@ public class Q00125_TheNameOfEvil1 extends Quest {
 	private static final QuestItemChanceHolder DEINONYCHUS_BONE = new QuestItemChanceHolder(8780, 2L);
 	// Droplist
 	private static final QuestDroplist DROPLIST = QuestDroplist.builder()
-			.addSingleDrop(22200, ORNITHOMIMUS_CLAW, 66.1)
-			.addSingleDrop(22201, ORNITHOMIMUS_CLAW, 33.0)
-			.addSingleDrop(22202, ORNITHOMIMUS_CLAW, 66.1)
-			.addSingleDrop(22219, ORNITHOMIMUS_CLAW, 32.7)
-			.addSingleDrop(22224, ORNITHOMIMUS_CLAW, 32.7)
-			.addSingleDrop(22203, DEINONYCHUS_BONE, 65.1)
-			.addSingleDrop(22204, DEINONYCHUS_BONE, 32.6)
-			.addSingleDrop(22205, DEINONYCHUS_BONE, 65.1)
-			.addSingleDrop(22220, DEINONYCHUS_BONE, 31.9)
-			.addSingleDrop(22225, DEINONYCHUS_BONE, 31.9)
-			.build();
+		.addSingleDrop(22200, ORNITHOMIMUS_CLAW, 66.1)
+		.addSingleDrop(22201, ORNITHOMIMUS_CLAW, 33.0)
+		.addSingleDrop(22202, ORNITHOMIMUS_CLAW, 66.1)
+		.addSingleDrop(22219, ORNITHOMIMUS_CLAW, 32.7)
+		.addSingleDrop(22224, ORNITHOMIMUS_CLAW, 32.7)
+		.addSingleDrop(22203, DEINONYCHUS_BONE, 65.1)
+		.addSingleDrop(22204, DEINONYCHUS_BONE, 32.6)
+		.addSingleDrop(22205, DEINONYCHUS_BONE, 65.1)
+		.addSingleDrop(22220, DEINONYCHUS_BONE, 31.9)
+		.addSingleDrop(22225, DEINONYCHUS_BONE, 31.9)
+		.build();
 	// Skills
 	private static final int REPRESENTATION_ENTER_THE_SAILREN_NEST_QUEST_ID = 5089;
 	
@@ -222,7 +222,7 @@ public class Q00125_TheNameOfEvil1 extends Quest {
 	@Override
 	public String onKill(L2Npc npc, L2PcInstance player, boolean isSummon) {
 		QuestState st = getRandomPartyMemberState(player, 3, 1, npc);
-		if (st != null && giveItemRandomly(st.getPlayer(), npc, DROPLIST.get(npc), false)) {
+		if ((st != null) && giveItemRandomly(st.getPlayer(), npc, DROPLIST.get(npc), false)) {
 			if (hasItemsAtLimit(st.getPlayer(), ORNITHOMIMUS_CLAW, DEINONYCHUS_BONE)) {
 				st.setCond(4, true);
 			} else {

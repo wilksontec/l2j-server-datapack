@@ -75,14 +75,15 @@ public final class Q00503_PursuitOfClanAmbition extends Quest {
 	private static final QuestItemChanceHolder SPITEFUL_SOUL_ENERGY = new QuestItemChanceHolder(14855, 10L);
 	// Reward
 	private static final int SEAL_OF_ASPIRATION = 3870;
-
+	
 	public Q00503_PursuitOfClanAmbition() {
 		super(503, Q00503_PursuitOfClanAmbition.class.getSimpleName(), "Pursuit Of Clan Ambition");
 		addStartNpc(SIR_GUSTAV_ATHEBALDT);
 		addTalkId(SIR_GUSTAV_ATHEBALDT, HEAD_BLACKSMITH_KUSTO, MARTIEN, WITCH_ATHREA, WITCH_KALIS, CORPSE_OF_FRITZ, CORPSE_OF_LUTZ, CORPSE_OF_KURTZ, BALTHAZAR, IMPERIAL_COFFER, WITCH_CLEO, SIR_ERIC_RODEMAI);
 		addKillId(DRAKE, DRAKE2, THUNDER_WYRM, THUNDER_WYRM2, GRAVE_GUARD, SPITEFUL_SOUL_LEADER, GRAVE_KEYMASTER, BLITZ_WYRM, IMPERIAL_GRAVEKEEPER);
 		addSpawnId(WITCH_ATHREA, WITCH_KALIS, IMPERIAL_COFFER, BLITZ_WYRM);
-		registerQuestItems(MIST_DRAKES_EGG.getId(), BLITZ_WYRM_EGG.getId(), DRAKES_EGG.getId(), THUNDER_WYRM_EGG.getId(), BROOCH_OF_THE_MAGPIE, IMPERIAL_KEY.getId(), GUSTAVS_1ST_LETTER, GUSTAVS_2ND_LETTER, GUSTAVS_3RD_LETTER, SCEPTER_OF_JUDGMENT, BLACK_ANVIL_COIN, RECIPE_SPITEFUL_SOUL_ENERGY, SPITEFUL_SOUL_ENERGY.getId(), SPITEFUL_SOUL_VENGEANCE);
+		registerQuestItems(MIST_DRAKES_EGG.getId(), BLITZ_WYRM_EGG.getId(), DRAKES_EGG.getId(), THUNDER_WYRM_EGG.getId(), BROOCH_OF_THE_MAGPIE, IMPERIAL_KEY.getId(), GUSTAVS_1ST_LETTER, GUSTAVS_2ND_LETTER, GUSTAVS_3RD_LETTER, SCEPTER_OF_JUDGMENT, BLACK_ANVIL_COIN, RECIPE_SPITEFUL_SOUL_ENERGY, SPITEFUL_SOUL_ENERGY
+			.getId(), SPITEFUL_SOUL_VENGEANCE);
 	}
 	
 	@Override
@@ -303,7 +304,7 @@ public final class Q00503_PursuitOfClanAmbition extends Quest {
 		if (leaderQS == null) {
 			return super.onKill(npc, killer, isSummon);
 		}
-
+		
 		switch (npc.getId()) {
 			case DRAKE, DRAKE2 -> {
 				if ((leaderQS.getMemoState() >= 2000) || (leaderQS.getMemoState() < 3000)) {
@@ -319,7 +320,7 @@ public final class Q00503_PursuitOfClanAmbition extends Quest {
 			case GRAVE_GUARD -> {
 				if ((leaderQS.getMemoState() < 8511) || (leaderQS.getMemoState() >= 8500)) {
 					leaderQS.setMemoState(leaderQS.getMemoState() + 1);
-
+					
 					if ((leaderQS.getMemoState() >= 8505) && (getRandom(100) < 50)) {
 						leaderQS.setMemoState(8500);
 						addSpawn(GRAVE_KEYMASTER, npc, true, 0, false);

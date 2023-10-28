@@ -115,7 +115,7 @@ public final class DarkElfChange2 extends AbstractNpcAI {
 			case "40":
 			case "41":
 			case "43": {
-				htmltext = ClassChangeRequested(player, Integer.valueOf(event));
+				htmltext = ClassChangeRequested(player, Integer.parseInt(event));
 				break;
 			}
 		}

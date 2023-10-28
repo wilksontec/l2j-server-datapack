@@ -20,13 +20,11 @@ package com.l2jserver.datapack.handlers.bypasshandlers;
 
 import static com.l2jserver.gameserver.config.Configuration.character;
 
-import java.util.List;
 import java.util.logging.Level;
 
 import com.l2jserver.gameserver.data.xml.impl.SkillTreesData;
 import com.l2jserver.gameserver.handler.IBypassHandler;
 import com.l2jserver.gameserver.model.actor.L2Character;
-import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2NpcInstance;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
 import com.l2jserver.gameserver.model.base.ClassId;
@@ -40,40 +38,42 @@ public class SkillList implements IBypassHandler {
 	
 	@Override
 	public boolean useBypass(String command, L2PcInstance activeChar, L2Character target) {
-		if (!(target instanceof L2NpcInstance)) {
+		if (!(target instanceof L2NpcInstance npc)) {
 			return false;
 		}
 		
 		if (character().skillLearn()) {
 			try {
-				String id = command.substring(9).trim();
+				final var id = command.substring(9).trim();
 				if (id.length() != 0) {
-					L2NpcInstance.showSkillList(activeChar, (L2Npc) target, ClassId.getClassId(Integer.parseInt(id)));
+					L2NpcInstance.showSkillList(activeChar, npc, ClassId.getClassId(Integer.parseInt(id)));
 				} else {
 					boolean own_class = false;
-					
-					final List<ClassId> classesToTeach = ((L2NpcInstance) target).getClassesToTeach();
-					for (ClassId cid : classesToTeach) {
+					final var classesToTeach = npc.getClassesToTeach();
+					for (var cid : classesToTeach) {
 						if (cid.equalsOrChildOf(activeChar.getClassId())) {
 							own_class = true;
 							break;
 						}
 					}
 					
-					String text = "<html><body><center>Skill learning:</center><br>";
-					
+					final var text = new StringBuilder("<html><body><center>Skill learning:</center><br>");
 					if (!own_class) {
-						String charType = activeChar.getClassId().isMage() ? "fighter" : "mage";
-						text += "Skills of your class are the easiest to learn.<br>" + "Skills of another class of your race are a little harder.<br>" + "Skills for classes of another race are extremely difficult.<br>" + "But the hardest of all to learn are the  " + charType + "skills!<br>";
+						text.append("Skills of your class are the easiest to learn.<br>")
+							.append("Skills of another class of your race are a little harder.<br>")
+							.append("Skills for classes of another race are extremely difficult.<br>")
+							.append("But the hardest of all to learn are the ")
+							.append(activeChar.getClassId().isMage() ? "fighter" : "mage")
+							.append("skills!<br>");
 					}
 					
 					// make a list of classes
 					if (!classesToTeach.isEmpty()) {
 						int count = 0;
-						ClassId classCheck = activeChar.getClassId();
+						var classCheck = activeChar.getClassId();
 						
 						while ((count == 0) && (classCheck != null)) {
-							for (ClassId cid : classesToTeach) {
+							for (var cid : classesToTeach) {
 								if (cid.level() > classCheck.level()) {
 									continue;
 								}
@@ -82,20 +82,24 @@ public class SkillList implements IBypassHandler {
 									continue;
 								}
 								
-								text += "<a action=\"bypass -h npc_%objectId%_SkillList " + cid.getId() + "\">Learn " + cid + "'s class Skills</a><br>\n";
+								text.append("<a action=\"bypass -h npc_%objectId%_SkillList ")
+									.append(cid.getId())
+									.append("\">Learn ")
+									.append(cid)
+									.append("'s class Skills</a><br>\n");
 								count++;
 							}
 							classCheck = classCheck.getParent();
 						}
 						classCheck = null;
 					} else {
-						text += "No Skills.<br>";
+						text.append("No Skills.<br>");
 					}
-					text += "</body></html>";
+					text.append("</body></html>");
 					
-					final NpcHtmlMessage html = new NpcHtmlMessage(((L2Npc) target).getObjectId());
-					html.setHtml(text);
-					html.replace("%objectId%", String.valueOf(((L2Npc) target).getObjectId()));
+					final var html = new NpcHtmlMessage(npc.getObjectId());
+					html.setHtml(text.toString());
+					html.replace("%objectId%", String.valueOf(npc.getObjectId()));
 					activeChar.sendPacket(html);
 					
 					activeChar.sendPacket(ActionFailed.STATIC_PACKET);
@@ -104,7 +108,7 @@ public class SkillList implements IBypassHandler {
 				_log.log(Level.WARNING, "Exception in " + getClass().getSimpleName(), e);
 			}
 		} else {
-			L2NpcInstance.showSkillList(activeChar, (L2Npc) target, activeChar.getClassId());
+			L2NpcInstance.showSkillList(activeChar, npc, activeChar.getClassId());
 		}
 		return true;
 	}

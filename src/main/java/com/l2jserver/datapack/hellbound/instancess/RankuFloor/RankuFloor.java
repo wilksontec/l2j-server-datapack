@@ -36,7 +36,7 @@ import com.l2jserver.gameserver.util.Util;
  * @author GKR
  */
 public final class RankuFloor extends AbstractInstance {
-	protected class RFWorld extends InstanceWorld {
+	protected static class RFWorld extends InstanceWorld {
 		
 	}
 	

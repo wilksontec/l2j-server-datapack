@@ -31,7 +31,7 @@ public class AdminAgathion implements IAdminCommandHandler {
 		if (command.startsWith("admin_agathion")) {
 			try {
 				String val = command.substring(14);
-				activeChar.setAgathionId(Integer.valueOf(val.trim()));
+				activeChar.setAgathionId(Integer.parseInt(val.trim()));
 				activeChar.broadcastUserInfo();
 				activeChar.sendMessage("Set agathion visually to " + val);
 			} catch (Exception e) {
@@ -39,7 +39,7 @@ public class AdminAgathion implements IAdminCommandHandler {
 				return false;
 			}
 		}
-
+		
 		return true;
 	}
 	

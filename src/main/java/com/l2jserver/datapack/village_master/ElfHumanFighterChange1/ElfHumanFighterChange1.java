@@ -139,7 +139,7 @@ public final class ElfHumanFighterChange1 extends AbstractNpcAI {
 			case "7":
 			case "19":
 			case "22": {
-				htmltext = ClassChangeRequested(player, npc, Integer.valueOf(event));
+				htmltext = ClassChangeRequested(player, npc, Integer.parseInt(event));
 				break;
 			}
 		}

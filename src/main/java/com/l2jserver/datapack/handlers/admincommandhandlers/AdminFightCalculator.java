@@ -292,7 +292,8 @@ public class AdminFightCalculator implements IAdminCommandHandler {
 		if (params.length() == 0) {
 			replyMSG.append("<button value=\"Retry\" action=\"bypass -h admin_fight_calculator_show\"  width=100 height=15 back=\"L2UI_ct1.button_df\" fore=\"L2UI_ct1.button_df\">");
 		} else {
-			StringUtil.append(replyMSG, "<button value=\"Retry\" action=\"bypass -h admin_fight_calculator_show ", String.valueOf(((L2NpcTemplate) npc1.getTemplate()).getId()), " ", String.valueOf(((L2NpcTemplate) npc2.getTemplate()).getId()), "\"  width=100 height=15 back=\"L2UI_ct1.button_df\" fore=\"L2UI_ct1.button_df\">");
+			StringUtil.append(replyMSG, "<button value=\"Retry\" action=\"bypass -h admin_fight_calculator_show ", String.valueOf(((L2NpcTemplate) npc1.getTemplate()).getId()), " ", String
+				.valueOf(((L2NpcTemplate) npc2.getTemplate()).getId()), "\"  width=100 height=15 back=\"L2UI_ct1.button_df\" fore=\"L2UI_ct1.button_df\">");
 		}
 		
 		replyMSG.append("</center>" + "</body></html>");

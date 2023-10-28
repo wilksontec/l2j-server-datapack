@@ -239,30 +239,18 @@ public class Q00136_MoreThanMeetsTheEye extends Quest {
 				break;
 			case CLAYTON:
 				if (st.isStarted()) {
-					switch (st.getCond()) {
-						case 1:
-						case 2:
-						case 3:
-						case 4:
-						case 5:
-							htmltext = "30464-01.html";
-							break;
-						case 6:
-							htmltext = "30464-02.html";
-							break;
-						case 7:
-							htmltext = "30464-04.html";
-							break;
-						case 8:
+					htmltext = switch (st.getCond()) {
+						case 1, 2, 3, 4, 5 -> "30464-01.html";
+						case 6 -> "30464-02.html";
+						case 7 -> "30464-04.html";
+						case 8 -> {
 							st.giveItems(BOOK_OF_SEAL, 1);
 							st.takeItems(GLASS_JAGUAR_CRYSTAL, -1);
 							st.setCond(9, true);
-							htmltext = "30464-05.html";
-							break;
-						default:
-							htmltext = "30464-06.html";
-							break;
-					}
+							yield "30464-05.html";
+						}
+						default -> "30464-06.html";
+					};
 				}
 				break;
 		}

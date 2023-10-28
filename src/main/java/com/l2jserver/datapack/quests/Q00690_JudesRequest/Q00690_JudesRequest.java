@@ -39,9 +39,9 @@ public class Q00690_JudesRequest extends Quest {
 	private static final int EVIL_WEAPON = 10327;
 	// Droplist
 	private static final QuestDroplist DROPLIST = QuestDroplist.builder()
-			.addSingleDrop(LESSER_EVIL, EVIL_WEAPON, 17.3)
-			.addSingleDrop(GREATER_EVIL, EVIL_WEAPON, 24.6)
-			.build();
+		.addSingleDrop(LESSER_EVIL, EVIL_WEAPON, 17.3)
+		.addSingleDrop(GREATER_EVIL, EVIL_WEAPON, 24.6)
+		.build();
 	// Rewards
 	private static final int[][] REWARDS = {
 		{

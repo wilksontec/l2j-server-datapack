@@ -38,16 +38,18 @@ public class Q00643_RiseAndFallOfTheElrokiTribe extends Quest {
 	private static final int BONES_OF_A_PLAINS_DINOSAUR = 8776;
 	// Droplist
 	private static final QuestDroplist DROPLIST = QuestDroplist.builder()
-			.bulkAddSingleDrop(BONES_OF_A_PLAINS_DINOSAUR, 111.6)
-				.withNpcs(22200, 22201, 22202, 22219, 22224) // Ornithomimus
-				.withNpcs(22204, 22205, 22220, 22225) // Deinonychus
-				.withNpcs(22208, 22209, 22210, 22221, 22226) // Pachycephalosaurus
-				.withNpcs(22211, 22212, 22213, 22222, 22227).build() // Wild Strider
-			.bulkAddSingleDrop(BONES_OF_A_PLAINS_DINOSAUR, 36.0)
-				.withNpcs(22742, 22744) // Ornithomimus
-				.withNpcs(22743, 22745).build() // Deinonychus
-			.addSingleDrop(22203, BONES_OF_A_PLAINS_DINOSAUR, 55.8) // Deinonychus
-			.build();
+		.bulkAddSingleDrop(BONES_OF_A_PLAINS_DINOSAUR, 111.6)
+		.withNpcs(22200, 22201, 22202, 22219, 22224) // Ornithomimus
+		.withNpcs(22204, 22205, 22220, 22225) // Deinonychus
+		.withNpcs(22208, 22209, 22210, 22221, 22226) // Pachycephalosaurus
+		.withNpcs(22211, 22212, 22213, 22222, 22227)
+		.build() // Wild Strider
+		.bulkAddSingleDrop(BONES_OF_A_PLAINS_DINOSAUR, 36.0)
+		.withNpcs(22742, 22744) // Ornithomimus
+		.withNpcs(22743, 22745)
+		.build() // Deinonychus
+		.addSingleDrop(22203, BONES_OF_A_PLAINS_DINOSAUR, 55.8) // Deinonychus
+		.build();
 	// Misc
 	private static final int MIN_LEVEL = 75;
 	private boolean isFirstTalk = true;

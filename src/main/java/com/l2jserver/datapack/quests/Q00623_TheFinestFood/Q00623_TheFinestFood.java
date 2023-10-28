@@ -43,17 +43,17 @@ public final class Q00623_TheFinestFood extends Quest {
 	private static final QuestItemChanceHolder HORN_OF_ANTELOPE = new QuestItemChanceHolder(7201, 100L);
 	// Droplist
 	private static final QuestDroplist DROPLIST = QuestDroplist.builder()
-			.addSingleDrop(THERMAL_BUFFALO, BUFFALO_MEAT)
-			.addSingleDrop(THERMAL_FLAVA, LEAF_OF_FLAVA)
-			.addSingleDrop(THERMAL_ANTELOPE, HORN_OF_ANTELOPE)
-			.build();
+		.addSingleDrop(THERMAL_BUFFALO, BUFFALO_MEAT)
+		.addSingleDrop(THERMAL_FLAVA, LEAF_OF_FLAVA)
+		.addSingleDrop(THERMAL_ANTELOPE, HORN_OF_ANTELOPE)
+		.build();
 	// Rewards
 	private static final ItemHolder RING_OF_AURAKYRA = new ItemHolder(6849, 1);
 	private static final ItemHolder SEALED_SANDDRAGONS_EARING = new ItemHolder(6847, 1);
 	private static final ItemHolder DRAGON_NECKLACE = new ItemHolder(6851, 1);
 	// Misc
 	private static final int MIN_LVL = 71;
-
+	
 	public Q00623_TheFinestFood() {
 		super(623, Q00623_TheFinestFood.class.getSimpleName(), "The Finest Food");
 		addStartNpc(JEREMY);

@@ -45,10 +45,10 @@ public final class Q00316_DestroyPlagueCarriers extends Quest {
 	private static final int VAROOL_FOULCLAW = 27020;
 	// Droplist
 	private static final QuestDroplist DROPLIST = QuestDroplist.builder()
-			.addSingleDrop(20040, WERERAT_FANG, 50.0) // Sukar Wererat
-			.addSingleDrop(20047, WERERAT_FANG, 50.0) // Sukar Wererat Leader
-			.addSingleDrop(VAROOL_FOULCLAW, VAROOL_FOULCLAW_FANG, 70.0) // Varool Foulclaw
-			.build();
+		.addSingleDrop(20040, WERERAT_FANG, 50.0) // Sukar Wererat
+		.addSingleDrop(20047, WERERAT_FANG, 50.0) // Sukar Wererat Leader
+		.addSingleDrop(VAROOL_FOULCLAW, VAROOL_FOULCLAW_FANG, 70.0) // Varool Foulclaw
+		.build();
 	
 	public Q00316_DestroyPlagueCarriers() {
 		super(316, Q00316_DestroyPlagueCarriers.class.getSimpleName(), "Destroy Plague Carriers");

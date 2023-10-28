@@ -445,10 +445,9 @@ public class AdminEffects implements IAdminCommandHandler {
 				if (obj == null) {
 					obj = activeChar;
 				}
-				if (!(obj instanceof L2Character)) {
+				if (!(obj instanceof L2Character target)) {
 					activeChar.sendPacket(SystemMessageId.INCORRECT_TARGET);
 				} else {
-					L2Character target = (L2Character) obj;
 					target.broadcastPacket(new MagicSkillUse(target, activeChar, skill, level, hittime, 0));
 					activeChar.sendMessage(obj.getName() + " performs MSU " + skill + "/" + level + " by your request.");
 				}
@@ -458,11 +457,10 @@ public class AdminEffects implements IAdminCommandHandler {
 			}
 		} else if (command.startsWith("admin_set_displayeffect")) {
 			L2Object target = activeChar.getTarget();
-			if (!(target instanceof L2Npc)) {
+			if (!(target instanceof L2Npc npc)) {
 				activeChar.sendPacket(SystemMessageId.INCORRECT_TARGET);
 				return false;
 			}
-			L2Npc npc = (L2Npc) target;
 			try {
 				String type = st.nextToken();
 				int diplayeffect = Integer.parseInt(type);
@@ -484,8 +482,7 @@ public class AdminEffects implements IAdminCommandHandler {
 	 * @return {@code true} if target's abnormal state was affected, {@code false} otherwise.
 	 */
 	private boolean performAbnormalVisualEffect(AbnormalVisualEffect ave, L2Object target) {
-		if (target instanceof L2Character) {
-			final L2Character character = (L2Character) target;
+		if (target instanceof L2Character character) {
 			if (character.hasAbnormalVisualEffect(ave)) {
 				character.stopAbnormalVisualEffect(true, ave);
 			} else {

@@ -18,14 +18,15 @@
  */
 package com.l2jserver.datapack.ai.group_template;
 
-import com.l2jserver.datapack.ai.npc.AbstractNpcAI;
-import com.l2jserver.gameserver.model.actor.L2Npc;
+import static org.mockito.Mockito.verify;
+
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import static org.mockito.Mockito.verify;
+import com.l2jserver.datapack.ai.npc.AbstractNpcAI;
+import com.l2jserver.gameserver.model.actor.L2Npc;
 
 /**
  * @author Noé Caratini aka Kita

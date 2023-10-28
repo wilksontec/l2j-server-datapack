@@ -68,11 +68,11 @@ public final class Q00108_JumbleTumbleDiamondFuss extends Quest {
 	private static final QuestItemChanceHolder STAR_DIAMOND = new QuestItemChanceHolder(1571, 20.0, 1L);
 	// Droplist
 	private static final QuestDroplist DROPLIST = QuestDroplist.builder()
-			.addSingleDrop(GOBLIN_BRIGAND_LEADER, AQUAMARINE, 80.0)
-			.addSingleDrop(GOBLIN_BRIGAND_LEADER, CHRYSOBERYL, 80.0)
-			.addSingleDrop(GOBLIN_BRIGAND_LIEUTENANT, AQUAMARINE, 60.0)
-			.addSingleDrop(GOBLIN_BRIGAND_LIEUTENANT, CHRYSOBERYL, 60.0)
-			.build();
+		.addSingleDrop(GOBLIN_BRIGAND_LEADER, AQUAMARINE, 80.0)
+		.addSingleDrop(GOBLIN_BRIGAND_LEADER, CHRYSOBERYL, 80.0)
+		.addSingleDrop(GOBLIN_BRIGAND_LIEUTENANT, AQUAMARINE, 60.0)
+		.addSingleDrop(GOBLIN_BRIGAND_LIEUTENANT, CHRYSOBERYL, 60.0)
+		.build();
 	// Rewards
 	private static final ItemHolder[] REWARDS = {
 		new ItemHolder(1060, 100), // Lesser Healing Potion
@@ -419,7 +419,7 @@ public final class Q00108_JumbleTumbleDiamondFuss extends Quest {
 								st.setCond(6, true);
 								break;
 							}
-
+							
 							playSound = true;
 						}
 						if (giveItemRandomly(st.getPlayer(), npc, DROPLIST.get(npc, CHRYSOBERYL), false)) {
@@ -427,10 +427,10 @@ public final class Q00108_JumbleTumbleDiamondFuss extends Quest {
 								st.setCond(6, true);
 								break;
 							}
-
+							
 							playSound = true;
 						}
-
+						
 						if (playSound) {
 							st.playSound(Sound.ITEMSOUND_QUEST_ITEMGET);
 						}

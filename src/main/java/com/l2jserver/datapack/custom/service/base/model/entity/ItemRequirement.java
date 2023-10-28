@@ -28,8 +28,8 @@ import com.l2jserver.gameserver.model.items.L2Item;
  * @version 2.6.2.0
  */
 public class ItemRequirement {
-	private int id;
-	private long amount;
+	private final int id;
+	private final long amount;
 	
 	private final transient HTMLTemplatePlaceholder placeholder;
 	

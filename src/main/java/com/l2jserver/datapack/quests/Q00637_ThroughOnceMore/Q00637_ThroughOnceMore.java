@@ -44,7 +44,7 @@ public final class Q00637_ThroughOnceMore extends Quest {
 	private static final int FADED_MARK = 8065;
 	private static final int MARK = 8067;
 	private static final QuestItemChanceHolder NECRO_HEART = new QuestItemChanceHolder(8066, 90.0, 10L);
-
+	
 	public Q00637_ThroughOnceMore() {
 		super(637, Q00637_ThroughOnceMore.class.getSimpleName(), "Through the Gate Once More");
 		addStartNpc(FLAURON);

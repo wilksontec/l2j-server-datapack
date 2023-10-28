@@ -640,7 +640,7 @@ public final class RainbowSpringsChateau extends ClanHallSiegeEngine {
 		if (_usedTextPassages.containsKey(message)) {
 			shoutRandomText(npc);
 		} else {
-			_usedTextPassages.put(message, new ArrayList<L2Clan>());
+			_usedTextPassages.put(message, new ArrayList<>());
 			int shout = Say2.NPC_SHOUT;
 			int objId = npc.getObjectId();
 			NpcSay say = new NpcSay(objId, shout, npc.getId(), message);

@@ -291,34 +291,20 @@ public final class CastleChamberlain extends AbstractNpcAI {
 	}
 	
 	private String getSealOwner(final int seal) {
-		String npcString;
-		switch (SevenSigns.getInstance().getSealOwner(seal)) {
-			case SevenSigns.CABAL_DAWN:
-				npcString = "1000511";
-				break;
-			case SevenSigns.CABAL_DUSK:
-				npcString = "1000510";
-				break;
-			default:
-				npcString = "1000512";
-				break;
-		}
+		String npcString = switch (SevenSigns.getInstance().getSealOwner(seal)) {
+			case SevenSigns.CABAL_DAWN -> "1000511";
+			case SevenSigns.CABAL_DUSK -> "1000510";
+			default -> "1000512";
+		};
 		return npcString;
 	}
 	
 	private int getTaxLimit() {
-		final int taxLimit;
-		switch (SevenSigns.getInstance().getSealOwner(SevenSigns.SEAL_STRIFE)) {
-			case SevenSigns.CABAL_DAWN:
-				taxLimit = 25;
-				break;
-			case SevenSigns.CABAL_DUSK:
-				taxLimit = 5;
-				break;
-			default:
-				taxLimit = 15;
-				break;
-		}
+		final int taxLimit = switch (SevenSigns.getInstance().getSealOwner(SevenSigns.SEAL_STRIFE)) {
+			case SevenSigns.CABAL_DAWN -> 25;
+			case SevenSigns.CABAL_DUSK -> 5;
+			default -> 15;
+		};
 		return taxLimit;
 	}
 	
@@ -388,18 +374,11 @@ public final class CastleChamberlain extends AbstractNpcAI {
 						final Fort fortress = FortManager.getInstance().getFortById(id);
 						final int fortId = fortress.getResidenceId();
 						final String fortType = (fortId < 112) ? "1300133" : "1300134";
-						final String fortStatus;
-						switch (fortress.getFortState()) {
-							case 1:
-								fortStatus = "1300122";
-								break;
-							case 2:
-								fortStatus = "1300124";
-								break;
-							default:
-								fortStatus = "1300123";
-								break;
-						}
+						final String fortStatus = switch (fortress.getFortState()) {
+							case 1 -> "1300122";
+							case 2 -> "1300124";
+							default -> "1300123";
+						};
 						sb.append("<fstring>1300" + fortId + "</fstring>");
 						sb.append(" (<fstring>" + fortType + "</fstring>)");
 						sb.append(" : <font color=\"00FFFF\"><fstring>" + fortStatus + "</fstring></font><br>");

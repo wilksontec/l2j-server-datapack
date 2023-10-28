@@ -40,15 +40,15 @@ public final class Q00329_CuriosityOfADwarf extends Quest {
 	private static final int MIN_LEVEL = 33;
 	// Droplist
 	private static final QuestDroplist DROPLIST = QuestDroplist.builder()
-			.addGroupedDrop(20083, 54.0) // Granitic Golem
-				.withDropItem(GOLEM_HEARTSTONE, 5.56)
-				.withDropItem(BROKEN_HEARTSTONE, 94.44)
-				.build()
-			.addGroupedDrop(20085, 58.0) // Puncher
-				.withDropItem(GOLEM_HEARTSTONE, 5.17)
-				.withDropItem(BROKEN_HEARTSTONE, 94.83)
-				.build()
-			.build();
+		.addGroupedDrop(20083, 54.0) // Granitic Golem
+		.withDropItem(GOLEM_HEARTSTONE, 5.56)
+		.withDropItem(BROKEN_HEARTSTONE, 94.44)
+		.build()
+		.addGroupedDrop(20085, 58.0) // Puncher
+		.withDropItem(GOLEM_HEARTSTONE, 5.17)
+		.withDropItem(BROKEN_HEARTSTONE, 94.83)
+		.build()
+		.build();
 	
 	public Q00329_CuriosityOfADwarf() {
 		super(329, Q00329_CuriosityOfADwarf.class.getSimpleName(), "Curiosity Of A Dwarf");

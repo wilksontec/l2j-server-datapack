@@ -27,8 +27,8 @@ import com.l2jserver.datapack.custom.service.base.util.htmltmpls.HTMLTemplatePla
  * @version 2.6.2.0
  */
 public abstract class CustomServiceServer {
-	private DialogType dialogType;
-	private String htmlFolder;
+	private final DialogType dialogType;
+	private final String htmlFolder;
 	
 	private final transient HTMLTemplatePlaceholder placeholder;
 	private final transient String bypassPrefix;

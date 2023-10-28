@@ -38,13 +38,12 @@ public final class Q00654_JourneyToASettlement extends Quest {
 	private static final QuestItemChanceHolder ANTELOPE_SKIN = new QuestItemChanceHolder(8072, 1L);
 	// Droplist
 	private static final QuestDroplist DROPLIST = QuestDroplist.builder()
-			.addSingleDrop(21294, ANTELOPE_SKIN, 84.0) // Canyon Antelope
-			.addSingleDrop(21295, ANTELOPE_SKIN, 89.3) // Canyon Antelope Slave
-			.build();
+		.addSingleDrop(21294, ANTELOPE_SKIN, 84.0) // Canyon Antelope
+		.addSingleDrop(21295, ANTELOPE_SKIN, 89.3) // Canyon Antelope Slave
+		.build();
 	// Misc
 	private static final int MIN_LEVEL = 74;
-
-
+	
 	public Q00654_JourneyToASettlement() {
 		super(654, Q00654_JourneyToASettlement.class.getSimpleName(), "Journey to a Settlement");
 		addStartNpc(NAMELESS_SPIRIT);

@@ -225,28 +225,15 @@ public class AdminTeleport implements IAdminCommandHandler {
 	 * @param player the player to teleport.
 	 */
 	private void teleportHome(L2PcInstance player) {
-		String regionName;
-		switch (player.getRace()) {
-			case ELF:
-				regionName = "elf_town";
-				break;
-			case DARK_ELF:
-				regionName = "darkelf_town";
-				break;
-			case ORC:
-				regionName = "orc_town";
-				break;
-			case DWARF:
-				regionName = "dwarf_town";
-				break;
-			case KAMAEL:
-				regionName = "kamael_town";
-				break;
-			case HUMAN:
-			default:
-				regionName = "talking_island_town";
-		}
-		
+		String regionName = switch (player.getRace()) {
+			case ELF -> "elf_town";
+			case DARK_ELF -> "darkelf_town";
+			case ORC -> "orc_town";
+			case DWARF -> "dwarf_town";
+			case KAMAEL -> "kamael_town";
+			case HUMAN -> "talking_island_town";
+			default -> "talking_island_town";
+		};
 		player.teleToLocation(MapRegionManager.getInstance().getMapRegionByName(regionName).getSpawnLoc(), true);
 		player.setInstanceId(0);
 		player.setIsIn7sDungeon(false);
@@ -402,8 +389,7 @@ public class AdminTeleport implements IAdminCommandHandler {
 	
 	private void recallNPC(L2PcInstance activeChar) {
 		L2Object obj = activeChar.getTarget();
-		if ((obj instanceof L2Npc) && !((L2Npc) obj).isMinion() && !(obj instanceof L2RaidBossInstance) && !(obj instanceof L2GrandBossInstance)) {
-			L2Npc target = (L2Npc) obj;
+		if ((obj instanceof L2Npc target) && !((L2Npc) obj).isMinion() && !(obj instanceof L2RaidBossInstance) && !(obj instanceof L2GrandBossInstance)) {
 			L2Spawn spawn = target.getSpawn();
 			if (spawn == null) {
 				activeChar.sendMessage("Incorrect monster spawn.");
@@ -445,8 +431,7 @@ public class AdminTeleport implements IAdminCommandHandler {
 				activeChar.sendMessage("Target is not in game.");
 			}
 			
-		} else if (obj instanceof L2RaidBossInstance) {
-			L2RaidBossInstance target = (L2RaidBossInstance) obj;
+		} else if (obj instanceof L2RaidBossInstance target) {
 			L2Spawn spawn = target.getSpawn();
 			double curHP = target.getCurrentHp();
 			double curMP = target.getCurrentMp();

@@ -30,48 +30,48 @@ import com.l2jserver.gameserver.network.SystemMessageId;
  * @author Lomka
  */
 public class Allenos extends AbstractNpcAI {
-    private static final int ALLENOS = 32526;
-    private static final Location TELEPORT_LOCATION = new Location(-245800, 220488, -12112);
-    
-    public Allenos() {
-        super(Allenos.class.getSimpleName(), "gracia/AI/NPC");
-        addStartNpc(ALLENOS);
-        addFirstTalkId(ALLENOS);
-        addTalkId(ALLENOS);
-    }
-    
-    @Override
-    public String onFirstTalk(L2Npc npc, L2PcInstance player) {
-        String htmltext = null;
-        final int seedState = GraciaSeedsManager.getInstance().getSoDState();
-        if (seedState == 1) {
-            return "32526.html";
-        } else if (seedState == 2) {
-            htmltext = "32526-02.html";
-        } else if (seedState >= 3) {
-            htmltext = "32526-04.html";
-        }
-        return htmltext;
-    }
-    
-    @Override
-    public String onAdvEvent(String event, L2Npc npc, L2PcInstance player) {
-        switch (event) {
-            case "ENTER_SOD": {
-                if (player.isFlyingMounted()) {
-                    player.sendPacket(SystemMessageId.YOU_CANNOT_ENTER_SEED_IN_FLYING_TRANSFORM);
-                    break;
-                }
-                teleportPlayer(player, TELEPORT_LOCATION, 0, false);
-                break;
-            }
-            case "01": {
-                return "32526-01.html";
-            }
-            case "03": {
-                return "32526-03.html";
-            }
-        }
-        return super.onAdvEvent(event, npc, player);
-    }
+	private static final int ALLENOS = 32526;
+	private static final Location TELEPORT_LOCATION = new Location(-245800, 220488, -12112);
+	
+	public Allenos() {
+		super(Allenos.class.getSimpleName(), "gracia/AI/NPC");
+		addStartNpc(ALLENOS);
+		addFirstTalkId(ALLENOS);
+		addTalkId(ALLENOS);
+	}
+	
+	@Override
+	public String onFirstTalk(L2Npc npc, L2PcInstance player) {
+		String htmltext = null;
+		final int seedState = GraciaSeedsManager.getInstance().getSoDState();
+		if (seedState == 1) {
+			return "32526.html";
+		} else if (seedState == 2) {
+			htmltext = "32526-02.html";
+		} else if (seedState >= 3) {
+			htmltext = "32526-04.html";
+		}
+		return htmltext;
+	}
+	
+	@Override
+	public String onAdvEvent(String event, L2Npc npc, L2PcInstance player) {
+		switch (event) {
+			case "ENTER_SOD": {
+				if (player.isFlyingMounted()) {
+					player.sendPacket(SystemMessageId.YOU_CANNOT_ENTER_SEED_IN_FLYING_TRANSFORM);
+					break;
+				}
+				teleportPlayer(player, TELEPORT_LOCATION, 0, false);
+				break;
+			}
+			case "01": {
+				return "32526-01.html";
+			}
+			case "03": {
+				return "32526-03.html";
+			}
+		}
+		return super.onAdvEvent(event, npc, player);
+	}
 }

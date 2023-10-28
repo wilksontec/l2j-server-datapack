@@ -40,16 +40,20 @@ public class Q00290_ThreatRemoval extends Quest {
 	private static final int SEL_MAHUM_ID_TAG = 15714;
 	// Droplist
 	private static final QuestDroplist DROPLIST = QuestDroplist.builder()
-			.bulkAddSingleDrop(SEL_MAHUM_ID_TAG, 93.2).withNpcs(22775, 22777, 22778).build() // Sel Mahum Drill Sergeant
-			.bulkAddSingleDrop(SEL_MAHUM_ID_TAG, 36.3).withNpcs(22780, 22782, 22784).build() // Sel Mahum Recruit
-			.addSingleDrop(22776, SEL_MAHUM_ID_TAG, 39.7) // Sel Mahum Training Officer
-			.addSingleDrop(22781, SEL_MAHUM_ID_TAG, 48.3) // Sel Mahum Soldier
-			.addSingleDrop(22783, SEL_MAHUM_ID_TAG, 35.2) // Sel Mahum Soldier
-			.addSingleDrop(22785, SEL_MAHUM_ID_TAG, 16.9) // Sel Mahum Soldier
-			.build();
+		.bulkAddSingleDrop(SEL_MAHUM_ID_TAG, 93.2)
+		.withNpcs(22775, 22777, 22778)
+		.build() // Sel Mahum Drill Sergeant
+		.bulkAddSingleDrop(SEL_MAHUM_ID_TAG, 36.3)
+		.withNpcs(22780, 22782, 22784)
+		.build() // Sel Mahum Recruit
+		.addSingleDrop(22776, SEL_MAHUM_ID_TAG, 39.7) // Sel Mahum Training Officer
+		.addSingleDrop(22781, SEL_MAHUM_ID_TAG, 48.3) // Sel Mahum Soldier
+		.addSingleDrop(22783, SEL_MAHUM_ID_TAG, 35.2) // Sel Mahum Soldier
+		.addSingleDrop(22785, SEL_MAHUM_ID_TAG, 16.9) // Sel Mahum Soldier
+		.build();
 	// Misc
 	private static final int MIN_LEVEL = 82;
-
+	
 	public Q00290_ThreatRemoval() {
 		super(290, Q00290_ThreatRemoval.class.getSimpleName(), "Threat Removal");
 		addStartNpc(PINAPS);

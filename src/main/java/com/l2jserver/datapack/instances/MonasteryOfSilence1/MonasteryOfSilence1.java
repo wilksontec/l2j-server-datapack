@@ -193,8 +193,7 @@ public final class MonasteryOfSilence1 extends AbstractInstance {
 	@Override
 	public String onAdvEvent(String event, L2Npc npc, L2PcInstance player) {
 		final InstanceWorld tmpworld = InstanceManager.getInstance().getWorld(npc.getInstanceId());
-		if (tmpworld instanceof MoSWorld) {
-			final MoSWorld world = (MoSWorld) tmpworld;
+		if (tmpworld instanceof MoSWorld world) {
 			switch (event) {
 				case "TELE2": {
 					teleportPlayer(player, CENTRAL_ROOM_LOC, world.getInstanceId());
@@ -405,8 +404,7 @@ public final class MonasteryOfSilence1 extends AbstractInstance {
 	@Override
 	public String onKill(L2Npc npc, L2PcInstance player, boolean isSummon) {
 		InstanceWorld tmpworld = InstanceManager.getInstance().getWorld(npc.getInstanceId());
-		if (tmpworld instanceof MoSWorld) {
-			MoSWorld world = (MoSWorld) tmpworld;
+		if (tmpworld instanceof MoSWorld world) {
 			switch (npc.getId()) {
 				case GUARDIAN_OF_THE_TOMB_1:
 				case GUARDIAN_OF_THE_TOMB_2:

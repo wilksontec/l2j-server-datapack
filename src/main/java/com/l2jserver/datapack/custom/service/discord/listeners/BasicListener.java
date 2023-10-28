@@ -18,9 +18,10 @@
  */
 package com.l2jserver.datapack.custom.service.discord.listeners;
 
-import com.l2jserver.datapack.custom.service.discord.DiscordBot;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import com.l2jserver.datapack.custom.service.discord.DiscordBot;
 
 import net.dv8tion.jda.api.events.DisconnectEvent;
 import net.dv8tion.jda.api.events.ReadyEvent;

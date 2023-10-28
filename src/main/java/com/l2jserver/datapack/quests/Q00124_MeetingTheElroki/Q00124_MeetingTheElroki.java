@@ -118,17 +118,11 @@ public class Q00124_MeetingTheElroki extends Quest {
 				break;
 			case MUSHIKA:
 				if (st.isStarted()) {
-					switch (st.getInt("cond")) {
-						case 1:
-							htmltext = "32114-01.html";
-							break;
-						case 2:
-							htmltext = "32114-02.html";
-							break;
-						default:
-							htmltext = "32114-03.html";
-							break;
-					}
+					htmltext = switch (st.getInt("cond")) {
+						case 1 -> "32114-01.html";
+						case 2 -> "32114-02.html";
+						default -> "32114-03.html";
+					};
 					break;
 				}
 				break;

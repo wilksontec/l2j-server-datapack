@@ -40,7 +40,7 @@ import com.l2jserver.gameserver.model.zone.L2ZoneType;
  * @author St3eT
  */
 public final class PailakaDevilsLegacy extends AbstractInstance {
-	protected class DIWorld extends InstanceWorld {
+	protected static class DIWorld extends InstanceWorld {
 		protected L2Attackable _lematanNpc = null;
 		protected List<L2Attackable> _followerslist = new CopyOnWriteArrayList<>();
 	}
@@ -107,9 +107,7 @@ public final class PailakaDevilsLegacy extends AbstractInstance {
 			} else {
 				htmltext = "32498-02.htm";
 			}
-		} else if ((tmpworld != null) && (tmpworld instanceof DIWorld)) {
-			final DIWorld world = (DIWorld) tmpworld;
-			
+		} else if ((tmpworld != null) && (tmpworld instanceof DIWorld world)) {
 			switch (event) {
 				case "FOLLOWER_CAST": {
 					if ((world._lematanNpc != null) && !world._lematanNpc.isDead()) {
@@ -223,9 +221,7 @@ public final class PailakaDevilsLegacy extends AbstractInstance {
 	public String onKill(L2Npc npc, L2PcInstance player, boolean isSummon) {
 		final InstanceWorld tmpworld = InstanceManager.getInstance().getWorld(npc.getInstanceId());
 		
-		if ((tmpworld != null) && (tmpworld instanceof DIWorld)) {
-			final DIWorld world = (DIWorld) tmpworld;
-			
+		if ((tmpworld != null) && (tmpworld instanceof DIWorld world)) {
 			if (world._followerslist != null) {
 				for (L2Npc _follower : world._followerslist) {
 					_follower.deleteMe();

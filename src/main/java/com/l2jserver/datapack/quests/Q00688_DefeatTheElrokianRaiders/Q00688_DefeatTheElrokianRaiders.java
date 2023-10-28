@@ -37,7 +37,7 @@ public class Q00688_DefeatTheElrokianRaiders extends Quest {
 	private static final QuestItemChanceHolder DINOSAUR_FANG_NECKLACE = new QuestItemChanceHolder(8785, 44.8);
 	// Misc
 	private static final int MIN_LEVEL = 75;
-
+	
 	public Q00688_DefeatTheElrokianRaiders() {
 		super(688, Q00688_DefeatTheElrokianRaiders.class.getSimpleName(), "Defeat the Elrokian Raiders!");
 		addStartNpc(DINN);

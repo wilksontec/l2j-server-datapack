@@ -50,14 +50,14 @@ public final class QueenShyeed extends AbstractNpcAI {
 	private static final L2EffectZone MOB_BUFF_ZONE = ZoneManager.getInstance().getZoneById(200103, L2EffectZone.class);
 	private static final L2EffectZone MOB_BUFF_DISPLAY_ZONE = ZoneManager.getInstance().getZoneById(200104, L2EffectZone.class);
 	private static final L2EffectZone PC_BUFF_ZONE = ZoneManager.getInstance().getZoneById(200105, L2EffectZone.class);
-
+	
 	private final List<L2Attackable> _minions = new CopyOnWriteArrayList<>();
 	
 	private L2Attackable _mob = null;
 	
 	public QueenShyeed() {
 		super(QueenShyeed.class.getSimpleName(), "ai/individual");
-		registerMobs(SHYEED,SPIKED_STAKATO,SPIKED_STAKATO_WORKER,SPIKED_STAKATO_SORCERER,SPIKED_STAKATO_SOLDIER,SPIKED_STAKATO_DRONE);
+		registerMobs(SHYEED, SPIKED_STAKATO, SPIKED_STAKATO_WORKER, SPIKED_STAKATO_SORCERER, SPIKED_STAKATO_SOLDIER, SPIKED_STAKATO_DRONE);
 		checkShyeed();
 	}
 	
@@ -73,7 +73,7 @@ public final class QueenShyeed extends AbstractNpcAI {
 				PC_BUFF_ZONE.setEnabled(true);
 				MOB_BUFF_ZONE.setEnabled(false);
 				MOB_BUFF_DISPLAY_ZONE.setEnabled(false);
-				//Spawns
+				// Spawns
 				_mob = (L2Attackable) addSpawn(SPIKED_STAKATO, 79783, -54677, -6120, 0, false, 0);
 				_minions.add(_mob);
 				_mob = (L2Attackable) addSpawn(SPIKED_STAKATO, 80370, -56113, -6136, 0, false, 0);
@@ -107,7 +107,7 @@ public final class QueenShyeed extends AbstractNpcAI {
 				MOB_BUFF_ZONE.setEnabled(true);
 				MOB_BUFF_DISPLAY_ZONE.setEnabled(true);
 				if (_minions != null) {
-					_minions.forEach(m -> m.decayMe());
+					_minions.forEach(L2Attackable::decayMe);
 					_minions.clear();
 				}
 			}

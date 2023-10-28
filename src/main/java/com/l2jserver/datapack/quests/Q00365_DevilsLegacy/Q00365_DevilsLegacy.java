@@ -38,11 +38,11 @@ public final class Q00365_DevilsLegacy extends Quest {
 	private static final int PIRATES_TREASURE_CHEST = 5873;
 	// Droplist
 	private static final QuestDroplist DROPLIST = QuestDroplist.builder()
-			.addSingleDrop(20836, PIRATES_TREASURE_CHEST, 47.0) // pirates_zombie
-			.addSingleDrop(20845, PIRATES_TREASURE_CHEST, 40.0) // pirates_zombie_captain
-			.addSingleDrop(21629, PIRATES_TREASURE_CHEST, 40.0) // pirates_zombie_captain_1
-			.addSingleDrop(21630, PIRATES_TREASURE_CHEST, 40.0) // pirates_zombie_captain_2
-			.build();
+		.addSingleDrop(20836, PIRATES_TREASURE_CHEST, 47.0) // pirates_zombie
+		.addSingleDrop(20845, PIRATES_TREASURE_CHEST, 40.0) // pirates_zombie_captain
+		.addSingleDrop(21629, PIRATES_TREASURE_CHEST, 40.0) // pirates_zombie_captain_1
+		.addSingleDrop(21630, PIRATES_TREASURE_CHEST, 40.0) // pirates_zombie_captain_2
+		.build();
 	// Rewards
 	private static final int ENCHANT_WEAPON_C = 951;
 	private static final int ENCHANT_ARMOR_C = 952;
@@ -59,7 +59,7 @@ public final class Q00365_DevilsLegacy extends Quest {
 	private static final int MIN_LEVEL = 39;
 	// Skill
 	private static final SkillHolder POISON = new SkillHolder(4035, 2);
-
+	
 	public Q00365_DevilsLegacy() {
 		super(365, Q00365_DevilsLegacy.class.getSimpleName(), "Devil's Legacy");
 		addStartNpc(RANDOLF);

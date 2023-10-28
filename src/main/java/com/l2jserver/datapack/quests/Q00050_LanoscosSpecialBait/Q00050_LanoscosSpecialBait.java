@@ -37,7 +37,7 @@ public class Q00050_LanoscosSpecialBait extends Quest {
 	// Items
 	private static final int WIND_FISHING_LURE = 7610;
 	private static final QuestItemChanceHolder ESSENCE_OF_WIND = new QuestItemChanceHolder(7621, 33.0, 100L);
-
+	
 	public Q00050_LanoscosSpecialBait() {
 		super(50, Q00050_LanoscosSpecialBait.class.getSimpleName(), "Lanosco's Special Bait");
 		addStartNpc(LANOSCO);
@@ -73,7 +73,7 @@ public class Q00050_LanoscosSpecialBait extends Quest {
 	@Override
 	public String onKill(L2Npc npc, L2PcInstance player, boolean isSummon) {
 		QuestState st = getRandomPartyMemberState(player, 1, 1, npc);
-		if (st != null && giveItemRandomly(st.getPlayer(), npc, ESSENCE_OF_WIND, true)) {
+		if ((st != null) && giveItemRandomly(st.getPlayer(), npc, ESSENCE_OF_WIND, true)) {
 			st.setCond(2);
 		}
 		return super.onKill(npc, player, isSummon);

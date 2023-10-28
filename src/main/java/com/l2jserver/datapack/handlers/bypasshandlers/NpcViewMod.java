@@ -246,8 +246,7 @@ public class NpcViewMod implements IBypassHandler {
 			final IDropItem dropItem = dropList.get(i);
 			if (dropItem instanceof GeneralDropItem) {
 				addGeneralDropItem(activeChar, npc, amountFormat, chanceFormat, sb, (GeneralDropItem) dropItem);
-			} else if (dropItem instanceof GroupedGeneralDropItem) {
-				final GroupedGeneralDropItem generalGroupedDropItem = (GroupedGeneralDropItem) dropItem;
+			} else if (dropItem instanceof GroupedGeneralDropItem generalGroupedDropItem) {
 				if (generalGroupedDropItem.getItems().size() == 1) {
 					final GeneralDropItem generalDropItem = generalGroupedDropItem.getItems().get(0);
 					addGeneralDropItem(activeChar, npc, amountFormat, chanceFormat, sb, new GeneralDropItem(generalDropItem.getItemId(), generalDropItem.getMin(), generalDropItem.getMax(), (generalDropItem.getChance() * generalGroupedDropItem.getChance())

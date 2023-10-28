@@ -35,15 +35,15 @@ public final class Q00659_IdRatherBeCollectingFairyBreath extends Quest {
 	private static final int FAIRY_BREATH = 8286;
 	// Droplist
 	private static final QuestDroplist DROPLIST = QuestDroplist.builder()
-			.addSingleDrop(20078, FAIRY_BREATH, 98.0) // whispering_wind
-			.addSingleDrop(21023, FAIRY_BREATH, 82.0) // sobing_wind
-			.addSingleDrop(21024, FAIRY_BREATH, 86.0) // babbleing_wind
-			.addSingleDrop(21025, FAIRY_BREATH, 90.0) // giggleing_wind
-			.addSingleDrop(21026, FAIRY_BREATH, 96.0) // singing_wind
-			.build();
+		.addSingleDrop(20078, FAIRY_BREATH, 98.0) // whispering_wind
+		.addSingleDrop(21023, FAIRY_BREATH, 82.0) // sobing_wind
+		.addSingleDrop(21024, FAIRY_BREATH, 86.0) // babbleing_wind
+		.addSingleDrop(21025, FAIRY_BREATH, 90.0) // giggleing_wind
+		.addSingleDrop(21026, FAIRY_BREATH, 96.0) // singing_wind
+		.build();
 	// Misc
 	private static final int MIN_LEVEL = 26;
-
+	
 	public Q00659_IdRatherBeCollectingFairyBreath() {
 		super(659, Q00659_IdRatherBeCollectingFairyBreath.class.getSimpleName(), "I'd Rather Be Collecting Fairy Breath");
 		addStartNpc(GALATEA);

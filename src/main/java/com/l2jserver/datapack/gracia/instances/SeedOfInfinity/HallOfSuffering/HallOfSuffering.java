@@ -52,7 +52,7 @@ import com.l2jserver.gameserver.util.Util;
  * @author Gigiikun, ZakaX, Didldak
  */
 public final class HallOfSuffering extends AbstractInstance {
-	protected class HSWorld extends InstanceWorld {
+	protected static class HSWorld extends InstanceWorld {
 		protected Map<L2Npc, Boolean> npcList = new HashMap<>();
 		protected L2Npc klodekus = null;
 		protected L2Npc klanikus = null;
@@ -323,7 +323,7 @@ public final class HallOfSuffering extends AbstractInstance {
 	}
 	
 	private void calcRewardItemId(HSWorld world) {
-		Long finishDiff = System.currentTimeMillis() - world.startTime;
+		long finishDiff = System.currentTimeMillis() - world.startTime;
 		if (finishDiff < 1200000) {
 			world.rewardHtm = "32530-00.htm";
 			world.rewardItemId = 13777;
@@ -378,8 +378,7 @@ public final class HallOfSuffering extends AbstractInstance {
 	@Override
 	public String onAdvEvent(String event, L2Npc npc, L2PcInstance player) {
 		InstanceWorld tmpworld = InstanceManager.getInstance().getWorld(npc.getInstanceId());
-		if (tmpworld instanceof HSWorld) {
-			HSWorld world = (HSWorld) tmpworld;
+		if (tmpworld instanceof HSWorld world) {
 			if (event.equalsIgnoreCase("spawnBossGuards")) {
 				if (!world.klanikus.isInCombat() && !world.klodekus.isInCombat()) {
 					world.isBossesAttacked = false;
@@ -425,8 +424,7 @@ public final class HallOfSuffering extends AbstractInstance {
 	@Override
 	public String onAttack(L2Npc npc, L2PcInstance attacker, int damage, boolean isSummon, Skill skill) {
 		final InstanceWorld tmpworld = InstanceManager.getInstance().getWorld(npc.getInstanceId());
-		if (tmpworld instanceof HSWorld) {
-			final HSWorld world = (HSWorld) tmpworld;
+		if (tmpworld instanceof HSWorld world) {
 			if (!world.isBossesAttacked) {
 				world.isBossesAttacked = true;
 				startQuestTimer("spawnBossGuards", BOSS_MINION_SPAWN_TIME, npc, null);
@@ -452,9 +450,7 @@ public final class HallOfSuffering extends AbstractInstance {
 	@Override
 	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
 		InstanceWorld tmpworld = InstanceManager.getInstance().getWorld(npc.getInstanceId());
-		if (tmpworld instanceof HSWorld) {
-			final HSWorld world = (HSWorld) tmpworld;
-			
+		if (tmpworld instanceof HSWorld world) {
 			if (npc.getId() == TUMOR_ALIVE) {
 				addSpawn(TUMOR_DEAD, npc, false, 0, false, npc.getInstanceId());
 			}

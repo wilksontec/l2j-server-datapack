@@ -18,6 +18,9 @@
  */
 package com.l2jserver.datapack.quests.Q00266_PleasOfPixies;
 
+import java.util.List;
+import java.util.Map;
+
 import com.l2jserver.gameserver.enums.Race;
 import com.l2jserver.gameserver.enums.audio.Sound;
 import com.l2jserver.gameserver.model.actor.L2Npc;
@@ -28,9 +31,6 @@ import com.l2jserver.gameserver.model.quest.Quest;
 import com.l2jserver.gameserver.model.quest.QuestDroplist;
 import com.l2jserver.gameserver.model.quest.QuestState;
 import com.l2jserver.gameserver.model.quest.State;
-
-import java.util.List;
-import java.util.Map;
 
 /**
  * Pleas of Pixies (266)
@@ -43,14 +43,13 @@ public final class Q00266_PleasOfPixies extends Quest {
 	private static final QuestItemChanceHolder PREDATORS_FANG = new QuestItemChanceHolder(1334, 100L);
 	// Droplists
 	private static final QuestDroplist DROPLIST = QuestDroplist.builder()
-			.addSingleDrop(20537, PREDATORS_FANG, 2) // Elder Red Keltir
-			.addSingleDrop(20525, PREDATORS_FANG, 250.0) // Gray Wolf
-			.addSingleDrop(20534, PREDATORS_FANG, 60.0) // Red Keltir
-			.addSingleDrop(20530, PREDATORS_FANG, 80.0) // Young Red Keltir
-			.build();
+		.addSingleDrop(20537, PREDATORS_FANG, 2) // Elder Red Keltir
+		.addSingleDrop(20525, PREDATORS_FANG, 250.0) // Gray Wolf
+		.addSingleDrop(20534, PREDATORS_FANG, 60.0) // Red Keltir
+		.addSingleDrop(20530, PREDATORS_FANG, 80.0) // Young Red Keltir
+		.build();
 	// Rewards
-	private static final Map<Integer, List<ItemHolder>> REWARDS = Map.of(
-		0, List.of(new ItemHolder(1337, 1), new ItemHolder(3032, 1)), // Emerald, Recipe: Spiritshot D
+	private static final Map<Integer, List<ItemHolder>> REWARDS = Map.of(0, List.of(new ItemHolder(1337, 1), new ItemHolder(3032, 1)), // Emerald, Recipe: Spiritshot D
 		1, List.of(new ItemHolder(2176, 1), new ItemHolder(1338, 1)), // Recipe: Leather Boots, Blue Onyx
 		2, List.of(new ItemHolder(1339, 1), new ItemHolder(1061, 1)), // Onyx, Greater Healing Potion
 		3, List.of(new ItemHolder(1336, 1), new ItemHolder(1060, 1))); // Glass Shard, Lesser Healing Potion
