@@ -19,20 +19,19 @@
 package com.l2jserver.datapack.handlers.effecthandlers.instant;
 
 import static com.l2jserver.gameserver.config.Configuration.rates;
+import static com.l2jserver.gameserver.network.SystemMessageId.NOTHING_INSIDE_THAT;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.LinkedList;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.l2jserver.commons.util.Rnd;
-import com.l2jserver.gameserver.model.L2ExtractableProductItem;
-import com.l2jserver.gameserver.model.L2ExtractableSkill;
 import com.l2jserver.gameserver.model.StatsSet;
-import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
 import com.l2jserver.gameserver.model.conditions.Condition;
 import com.l2jserver.gameserver.model.effects.AbstractEffect;
 import com.l2jserver.gameserver.model.holders.ItemHolder;
 import com.l2jserver.gameserver.model.skills.BuffInfo;
-import com.l2jserver.gameserver.network.SystemMessageId;
 
 /**
  * Restoration Random effect implementation.<br>
@@ -41,6 +40,9 @@ import com.l2jserver.gameserver.network.SystemMessageId;
  * @author Zoey76
  */
 public final class RestorationRandom extends AbstractEffect {
+	
+	private static final Logger LOG = LoggerFactory.getLogger(RestorationRandom.class);
+	
 	public RestorationRandom(Condition attachCond, Condition applyCond, StatsSet set, StatsSet params) {
 		super(attachCond, applyCond, set, params);
 	}
@@ -56,20 +58,19 @@ public final class RestorationRandom extends AbstractEffect {
 			return;
 		}
 		
-		final L2ExtractableSkill exSkill = info.getSkill().getExtractableSkill();
+		final var exSkill = info.getSkill().getExtractableSkill();
 		if (exSkill == null) {
 			return;
 		}
 		
 		if (exSkill.getProductItems().isEmpty()) {
-			_log.warning("Extractable Skill with no data, probably wrong/empty table in Skill Id: " + info.getSkill().getId());
+			LOG.warn("Extractable Skill with no data, probably wrong/empty table in Skill Id {}!", info.getSkill().getId());
 			return;
 		}
 		
 		final double rndNum = 100 * Rnd.nextDouble();
-		double chance = 0;
 		double chanceFrom = 0;
-		final List<ItemHolder> creationList = new ArrayList<>();
+		final var creationList = new LinkedList<ItemHolder>();
 		
 		// Explanation for future changes:
 		// You get one chance for the current skill, then you can fall into
@@ -80,8 +81,8 @@ public final class RestorationRandom extends AbstractEffect {
 		// If you get chance equal 45% you fall into the second zone 30-80.
 		// Meaning you get the second production list.
 		// Calculate extraction
-		for (L2ExtractableProductItem expi : exSkill.getProductItems()) {
-			chance = expi.getChance();
+		for (var expi : exSkill.getProductItems()) {
+			final var chance = expi.getChance();
 			if ((rndNum >= chanceFrom) && (rndNum <= (chance + chanceFrom))) {
 				creationList.addAll(expi.getItems());
 				break;
@@ -89,13 +90,13 @@ public final class RestorationRandom extends AbstractEffect {
 			chanceFrom += chance;
 		}
 		
-		final L2PcInstance player = info.getEffected().getActingPlayer();
+		final var player = info.getEffected().getActingPlayer();
 		if (creationList.isEmpty()) {
-			player.sendPacket(SystemMessageId.NOTHING_INSIDE_THAT);
+			player.sendPacket(NOTHING_INSIDE_THAT);
 			return;
 		}
 		
-		for (ItemHolder item : creationList) {
+		for (var item : creationList) {
 			if ((item.getId() <= 0) || (item.getCount() <= 0)) {
 				continue;
 			}

@@ -934,18 +934,20 @@
 		</effects>
 	</skill>
 	<skill id="651" levels="1" name="Warrior Ability - Haste">
-		<!-- Confirmed CT2.5 -->
+		<!-- High Five Confirmed -->
 		<!-- NOTE: Description says "Excludes damage caused by a skill or ranged attack" but is client typo -->
+		<set name="blockedInOlympiad" val="true" />
 		<set name="excludedFromCheck" val="true" />
 		<set name="icon" val="icon.skill1086" />
 		<set name="magicLvl" val="75" />
 		<set name="operateType" val="P" />
+		<set name="targetType" val="SELF" />
 		<effects>
 			<effect name="TriggerSkillByAttack">
-				<param attackerType="L2Character" minAttackerLevel="1" maxAttackerLevel="100" />
+				<param attackerType="ENEMY_ALL" minAttackerLevel="1" maxAttackerLevel="100" />
 				<param isCritical="false" />
-				<param minDamage="1" chance="2" />
-				<param skillId="5572" skillLevel="1" /> <!-- Warrior Ability - Haste -->
+				<param chance="2" minDamage="1" mode="DIFF" />
+				<param skillId="5572" skillLevel="1" />
 				<param targetType="SELF" />
 				<param allowWeapons="ALL" />
 			</effect>
@@ -962,41 +964,46 @@
 		<effects>
 			<effect name="TriggerSkillByDamage">
 				<param attackerType="ENEMY_ALL" maxAttackerLevel="99" minAttackerLevel="1" />
-				<param chance="2.0" minDamage="1" mode="DIFF" />
+				<param chance="2" minDamage="1" mode="DIFF" />
 				<param skillId="5573" skillLevel="1" />
 				<param targetType="SELF" />
 			</effect>
 		</effects>
 	</skill>
 	<skill id="653" levels="1" name="Rogue Ability - Critical Chance">
-		<!-- Confirmed CT2.5 -->
+		<!-- High Five Confirmed -->
+		<set name="blockedInOlympiad" val="true" />
 		<set name="excludedFromCheck" val="true" />
 		<set name="icon" val="icon.skill1077" />
 		<set name="magicLvl" val="75" />
 		<set name="operateType" val="P" />
+		<set name="targetType" val="SELF" />
 		<effects>
 			<effect name="TriggerSkillByAttack">
-				<param attackerType="L2Character" minAttackerLevel="1" maxAttackerLevel="100" />
+				<param attackerType="ENEMY_ALL" minAttackerLevel="1" maxAttackerLevel="100" />
 				<param isCritical="false" />
-				<param minDamage="1" chance="2" />
-				<param skillId="5574" skillLevel="1" /> <!-- Log Ability - Critical Chance -->
+				<param chance="2" minDamage="1" mode="DIFF" />
+				<param skillId="5574" skillLevel="1" />
 				<param targetType="SELF" />
 				<param allowWeapons="ALL" />
 			</effect>
 		</effects>
 	</skill>
 	<skill id="654" levels="1" name="Wizard Ability - Mana Steal">
-		<!-- Confirmed CT2.5 -->
+		<!-- High Five Confirmed -->
+		<set name="blockedInOlympiad" val="true" />
+		<set name="excludedFromCheck" val="true" />
 		<set name="excludedFromCheck" val="true" />
 		<set name="icon" val="icon.skill1398" />
 		<set name="magicLvl" val="75" />
 		<set name="operateType" val="P" />
+		<set name="targetType" val="SELF" />
 		<effects>
 			<effect name="TriggerSkillByAttack">
-				<param attackerType="L2Character" minAttackerLevel="1" maxAttackerLevel="100" />
+				<param attackerType="ENEMY_ALL" minAttackerLevel="1" maxAttackerLevel="100" />
 				<param isCritical="false" />
-				<param minDamage="1" chance="2" />
-				<param skillId="5575" skillLevel="1" /> <!-- Wizard Ability - Mana Steal -->
+				<param chance="2" minDamage="1" mode="DIFF" />
+				<param skillId="5575" skillLevel="1" />
 				<param targetType="SELF" />
 				<param allowWeapons="ALL" />
 			</effect>
@@ -1004,8 +1011,8 @@
 	</skill>
 	<skill id="655" levels="1" name="Enchanter Ability - Barrier">
 		<!-- High Five Confirmed -->
-		<set name="excludedFromCheck" val="true" />
 		<set name="blockedInOlympiad" val="true" />
+		<set name="excludedFromCheck" val="true" />
 		<set name="icon" val="icon.skill1418" />
 		<set name="magicLvl" val="75" />
 		<set name="operateType" val="P" />
@@ -1013,7 +1020,7 @@
 		<effects>
 			<effect name="TriggerSkillByDamage">
 				<param attackerType="ENEMY_ALL" maxAttackerLevel="99" minAttackerLevel="1" />
-				<param chance="2.0" minDamage="1" mode="DIFF" />
+				<param chance="2" minDamage="1" mode="DIFF" />
 				<param skillId="5576" skillLevel="1" />
 				<param targetType="SELF" />
 			</effect>

@@ -1575,6 +1575,7 @@
 		<set name="abnormalLvl" val="#abnormalLvl" />
 		<set name="abnormalTime" val="3600" />
 		<set name="abnormalType" val="SEED_OF_CRITICAL" />
+		<set name="affectScope" val="SINGLE" />
 		<set name="effectPoint" val="100" />
 		<set name="icon" val="icon.skill5760" />
 		<set name="isMagic" val="4" />
@@ -1584,19 +1585,20 @@
 		<set name="targetType" val="SELF" />
 		<effects>
 			<effect name="Buff">
-				<mul stat="critRate" val="#critRate" />
 				<mul stat="pAtkSpd" val="#pAtkSpd" />
 			</effect>
+			<effect name="Buff">
+				<mul stat="critRate" val="#critRate" />
+			</effect>
 			<effect name="TriggerSkillByAttack">
-				<param attackerType="L2Character" minAttackerLevel="1" maxAttackerLevel="100" />
+				<param attackerType="ENEMY_ALL" maxAttackerLevel="99" minAttackerLevel="1" />
 				<param isCritical="true" />
-				<param minDamage="1" chance="99" />
+				<param chance="99" minDamage="1" mode="DIFF" />
 				<param skillId="5760" skillLevel="#skillLevel" />
 				<param targetType="SELF" />
 				<param allowWeapons="ALL" />
 			</effect>
 		</effects>
-		<set name="affectScope" val="SINGLE" />
 	</skill>
 	<skill id="5761" levels="2" name="Power Strike">
 		<!-- High Five Confirmed -->

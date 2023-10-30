@@ -18,10 +18,11 @@
  */
 package com.l2jserver.datapack.handlers.effecthandlers.instant;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.l2jserver.commons.util.Rnd;
 import com.l2jserver.gameserver.model.StatsSet;
-import com.l2jserver.gameserver.model.actor.instance.L2CubicInstance;
-import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
 import com.l2jserver.gameserver.model.conditions.Condition;
 import com.l2jserver.gameserver.model.effects.AbstractEffect;
 import com.l2jserver.gameserver.model.skills.BuffInfo;
@@ -31,6 +32,9 @@ import com.l2jserver.gameserver.model.skills.BuffInfo;
  * @author Zoey76
  */
 public final class SummonCubic extends AbstractEffect {
+	
+	private static final Logger LOG = LoggerFactory.getLogger(SummonCubic.class);
+	
 	/** Cubic ID. */
 	private final int _cubicId;
 	/** Cubic power. */
@@ -68,11 +72,11 @@ public final class SummonCubic extends AbstractEffect {
 		}
 		
 		if (_cubicId < 0) {
-			_log.warning(SummonCubic.class.getSimpleName() + ": Invalid Cubic ID:" + _cubicId + " in skill ID: " + info.getSkill().getId());
+			LOG.warn("Invalid Cubic Id: {} in Skill : {}!", _cubicId, info.getSkill());
 			return;
 		}
 		
-		final L2PcInstance player = info.getEffected().getActingPlayer();
+		final var player = info.getEffected().getActingPlayer();
 		if (player.inObserverMode() || player.isMounted()) {
 			return;
 		}
@@ -88,7 +92,7 @@ public final class SummonCubic extends AbstractEffect {
 		}
 		
 		// If cubic is already present, it's replaced.
-		final L2CubicInstance cubic = player.getCubicById(_cubicId);
+		final var cubic = player.getCubicById(_cubicId);
 		if (cubic != null) {
 			cubic.stopAction();
 			cubic.cancelDisappear();
@@ -101,7 +105,7 @@ public final class SummonCubic extends AbstractEffect {
 			// Extra cubics are removed, one by one, randomly.
 			for (int i = 0; i <= (currentCubicCount - allowedCubicCount); i++) {
 				final int removedCubicId = (int) player.getCubics().keySet().toArray()[Rnd.get(currentCubicCount)];
-				final L2CubicInstance removedCubic = player.getCubicById(removedCubicId);
+				final var removedCubic = player.getCubicById(removedCubicId);
 				removedCubic.stopAction();
 				removedCubic.cancelDisappear();
 				player.getCubics().remove(removedCubic.getId());

@@ -408,34 +408,39 @@
 		</effects>
 	</skill>
 	<skill id="3426" levels="1" name="Maximum Ability">
-		<!-- Confirmed CT2.5 -->
-		<!-- Rapier +4 Skill -->
+		<!-- High Five Confirmed -->
+		<set name="blockedInOlympiad" val="true" />
 		<set name="magicLvl" val="1" />
 		<set name="operateType" val="P" />
+		<set name="targetType" val="SELF" />
 		<effects>
 			<effect name="TriggerSkillByAttack">
-				<param attackerType="L2Character" minAttackerLevel="1" maxAttackerLevel="100" />
+				<param attackerType="ENEMY_ALL" maxAttackerLevel="100" minAttackerLevel="1" />
 				<param isCritical="true" />
-				<param minDamage="1" chance="5" />
-				<param skillId="5547" skillLevel="1" /> <!-- Maximum Ability -->
-				<param targetType="SELF" />
+				<param chance="5" minDamage="1" mode="DIFF" />
+				<param skillId="5547" skillLevel="1" />
+				<param targetType="MY_PARTY" />
 				<param allowWeapons="ALL" />
 			</effect>
 		</effects>
 	</skill>
 	<skill id="3427" levels="1" name="Special Ability: Infinity Rapier">
-		<!-- Confirmed CT2.5 and Updated to H5 -->
+		<!-- High Five Confirmed -->
+		<set name="blockedInOlympiad" val="true" />
 		<set name="icon" val="icon.weapon_infinity_rapier_i00" />
 		<set name="magicLvl" val="80" />
 		<set name="operateType" val="P" />
 		<set name="targetType" val="SELF" />
 		<effects>
-			<effect name="MaxHp">
-				<param power="25" />
-				<param type="PER" />
+			<effect name="Buff">
+				<add stat="reflectDam" val="9" />
 			</effect>
 			<effect name="MaxCp">
 				<param power="50" />
+				<param type="PER" />
+			</effect>
+			<effect name="MaxHp">
+				<param power="25" />
 				<param type="PER" />
 			</effect>
 			<effect name="MaxMp">
@@ -443,17 +448,20 @@
 				<param type="PER" />
 			</effect>
 			<effect name="Buff">
-				<mul stat="pvpPhysDmg" val="1.07" />
-				<mul stat="pvpMagicalDmg" val="1.07" />
-				<mul stat="pvpPhysSkillsDmg" val="1.07" />
-				<add stat="reflectDam" val="9" />
+				<mul stat="pvpMagicalDmg" val="1.2" />
+			</effect>
+			<effect name="Buff">
+				<mul stat="pvpPhysDmg" val="1.2" />
+			</effect>
+			<effect name="Buff">
+				<mul stat="pvpPhysSkillsDmg" val="1.2" />
 			</effect>
 			<effect name="TriggerSkillByAttack">
-				<param attackerType="L2Character" minAttackerLevel="1" maxAttackerLevel="100" />
+				<param attackerType="ENEMY_ALL" maxAttackerLevel="100" minAttackerLevel="1" />
 				<param isCritical="true" />
-				<param minDamage="1" chance="5" />
-				<param skillId="5547" skillLevel="1" /> <!-- Maximum Ability -->
-				<param targetType="SELF" />
+				<param chance="5" minDamage="1" mode="DIFF" />
+				<param skillId="5547" skillLevel="1" />
+				<param targetType="MY_PARTY" />
 				<param allowWeapons="ALL" />
 			</effect>
 		</effects>

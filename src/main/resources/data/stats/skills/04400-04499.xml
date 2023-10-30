@@ -1783,7 +1783,7 @@
 		<effects>
 			<effect name="TriggerSkillByDamage">
 				<param attackerType="PK" maxAttackerLevel="100" minAttackerLevel="1" />
-				<param chance="50.0" minDamage="1" mode="DIFF" />
+				<param chance="50" minDamage="1" mode="DIFF" />
 				<param skillId="5022" skillLevel="#triggeredLevel" />
 				<param targetType="ENEMY" />
 			</effect>

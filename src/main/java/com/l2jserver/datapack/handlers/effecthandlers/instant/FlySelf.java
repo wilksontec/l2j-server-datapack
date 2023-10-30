@@ -18,6 +18,9 @@
  */
 package com.l2jserver.datapack.handlers.effecthandlers.instant;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.l2jserver.gameserver.GeoData;
 import com.l2jserver.gameserver.model.Location;
 import com.l2jserver.gameserver.model.StatsSet;
@@ -33,6 +36,9 @@ import com.l2jserver.gameserver.network.serverpackets.ValidateLocation;
  * Fly Self effect implementation.
  */
 public final class FlySelf extends AbstractEffect {
+	
+	private static final Logger LOG = LoggerFactory.getLogger(FlySelf.class);
+	
 	private final int _flyRadius;
 	
 	public FlySelf(Condition attachCond, Condition applyCond, StatsSet set, StatsSet params) {
@@ -66,7 +72,7 @@ public final class FlySelf extends AbstractEffect {
 		double dz = target.getZ() - curZ;
 		double distance = Math.hypot(dx, dy);
 		if (distance > 2000) {
-			_log.info("EffectEnemyCharge was going to use invalid coordinates for characters, getEffector: " + curX + "," + curY + " and getEffected: " + target.getX() + "," + target.getY());
+			LOG.warn("Invalid coordinates for characters, getEffector: {}, {} and getEffected: {}, {}!", curX, curY, target.getX(), target.getY());
 			return;
 		}
 		

@@ -18,24 +18,27 @@
  */
 package com.l2jserver.datapack.handlers.effecthandlers.pump;
 
+import static com.l2jserver.gameserver.enums.TriggerAttackType.NONE;
+import static com.l2jserver.gameserver.enums.TriggerTargetType.SELF;
+import static com.l2jserver.gameserver.model.events.EventType.ON_CREATURE_DAMAGE_DEALT;
+
 import com.l2jserver.commons.util.Rnd;
-import com.l2jserver.gameserver.enums.InstanceType;
+import com.l2jserver.gameserver.enums.TriggerAttackType;
+import com.l2jserver.gameserver.enums.TriggerTargetType;
 import com.l2jserver.gameserver.model.StatsSet;
-import com.l2jserver.gameserver.model.actor.L2Character;
 import com.l2jserver.gameserver.model.conditions.Condition;
 import com.l2jserver.gameserver.model.effects.AbstractEffect;
-import com.l2jserver.gameserver.model.events.EventType;
 import com.l2jserver.gameserver.model.events.impl.character.OnCreatureDamageDealt;
 import com.l2jserver.gameserver.model.events.listeners.ConsumerEventListener;
 import com.l2jserver.gameserver.model.holders.SkillHolder;
 import com.l2jserver.gameserver.model.items.type.WeaponType;
 import com.l2jserver.gameserver.model.skills.BuffInfo;
-import com.l2jserver.gameserver.model.skills.targets.TargetType;
 import com.l2jserver.gameserver.util.Util;
 
 /**
  * Trigger Skill By Attack effect implementation.
  * @author Zealar
+ * @author Zoey76
  */
 public final class TriggerSkillByAttack extends AbstractEffect {
 	private final int _minAttackerLevel;
@@ -43,8 +46,8 @@ public final class TriggerSkillByAttack extends AbstractEffect {
 	private final int _minDamage;
 	private final int _chance;
 	private final SkillHolder _skill;
-	private final TargetType _targetType;
-	private final InstanceType _attackerType;
+	private final TriggerTargetType _targetType;
+	private final TriggerAttackType _attackerType;
 	private int _allowWeapons;
 	private final boolean _isCritical;
 	
@@ -56,8 +59,8 @@ public final class TriggerSkillByAttack extends AbstractEffect {
 		_minDamage = params.getInt("minDamage", 1);
 		_chance = params.getInt("chance", 100);
 		_skill = new SkillHolder(params.getInt("skillId"), params.getInt("skillLevel", 1));
-		_targetType = params.getEnum("targetType", TargetType.class, TargetType.SELF);
-		_attackerType = params.getEnum("attackerType", InstanceType.class, InstanceType.L2Character);
+		_targetType = params.getEnum("targetType", TriggerTargetType.class, SELF);
+		_attackerType = params.getEnum("attackerType", TriggerAttackType.class, NONE);
 		_isCritical = params.getBoolean("isCritical", false);
 		
 		if (params.getString("allowWeapons").equalsIgnoreCase("ALL")) {
@@ -74,7 +77,7 @@ public final class TriggerSkillByAttack extends AbstractEffect {
 			return;
 		}
 		
-		if (((_targetType == TargetType.SELF) && (_skill.getSkill().getCastRange() > 0)) && (Util.calculateDistance(event.getAttacker(), event.getTarget(), true, false) > _skill.getSkill().getCastRange())) {
+		if (((_targetType == SELF) && (_skill.getSkill().getCastRange() > 0)) && (Util.calculateDistance(event.getAttacker(), event.getTarget(), true, false) > _skill.getSkill().getCastRange())) {
 			return;
 		}
 		
@@ -90,7 +93,7 @@ public final class TriggerSkillByAttack extends AbstractEffect {
 			return;
 		}
 		
-		if ((event.getDamage() < _minDamage) || (Rnd.get(100) > _chance) || !event.getAttacker().getInstanceType().isType(_attackerType)) {
+		if ((event.getDamage() < _minDamage) || (Rnd.get(100) > _chance) || !_attackerType.check(event.getAttacker(), event.getTarget())) {
 			return;
 		}
 		
@@ -101,13 +104,8 @@ public final class TriggerSkillByAttack extends AbstractEffect {
 		}
 		
 		final var triggerSkill = _skill.getSkill();
-		final var targets = _targetType.getTargets(triggerSkill, event.getAttacker(), event.getTarget());
-		for (var object : targets) {
-			if ((object == null) || !object.isCharacter()) {
-				continue;
-			}
-			
-			final var target = (L2Character) object;
+		final var targets = _targetType.getTargets(event.getAttacker(), event.getTarget());
+		for (var target : targets) {
 			if (!target.isInvul()) {
 				event.getAttacker().makeTriggerCast(triggerSkill, target);
 			}
@@ -116,11 +114,11 @@ public final class TriggerSkillByAttack extends AbstractEffect {
 	
 	@Override
 	public void onExit(BuffInfo info) {
-		info.getEffected().removeListenerIf(EventType.ON_CREATURE_DAMAGE_DEALT, listener -> listener.getOwner() == this);
+		info.getEffected().removeListenerIf(ON_CREATURE_DAMAGE_DEALT, listener -> listener.getOwner() == this);
 	}
 	
 	@Override
 	public void onStart(BuffInfo info) {
-		info.getEffected().addListener(new ConsumerEventListener(info.getEffected(), EventType.ON_CREATURE_DAMAGE_DEALT, (OnCreatureDamageDealt event) -> onAttackEvent(event), this));
+		info.getEffected().addListener(new ConsumerEventListener(info.getEffected(), ON_CREATURE_DAMAGE_DEALT, (OnCreatureDamageDealt event) -> onAttackEvent(event), this));
 	}
 }

@@ -18,11 +18,12 @@
  */
 package com.l2jserver.datapack.handlers.effecthandlers.instant;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.l2jserver.gameserver.data.xml.impl.NpcData;
 import com.l2jserver.gameserver.model.StatsSet;
-import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
 import com.l2jserver.gameserver.model.actor.instance.L2TrapInstance;
-import com.l2jserver.gameserver.model.actor.templates.L2NpcTemplate;
 import com.l2jserver.gameserver.model.conditions.Condition;
 import com.l2jserver.gameserver.model.effects.AbstractEffect;
 import com.l2jserver.gameserver.model.skills.BuffInfo;
@@ -32,6 +33,9 @@ import com.l2jserver.gameserver.model.skills.BuffInfo;
  * @author Zoey76
  */
 public final class SummonTrap extends AbstractEffect {
+	
+	private static final Logger LOG = LoggerFactory.getLogger(SummonTrap.class);
+	
 	private final int _despawnTime;
 	private final int _npcId;
 	
@@ -54,11 +58,11 @@ public final class SummonTrap extends AbstractEffect {
 		}
 		
 		if (_npcId <= 0) {
-			_log.warning(SummonTrap.class.getSimpleName() + ": Invalid NPC ID:" + _npcId + " in skill ID: " + info.getSkill().getId());
+			LOG.warn("Invalid NPC Id: {} in skill: {}!", _npcId, info.getSkill());
 			return;
 		}
 		
-		final L2PcInstance player = info.getEffected().getActingPlayer();
+		final var player = info.getEffected().getActingPlayer();
 		if (player.inObserverMode() || player.isMounted()) {
 			return;
 		}
@@ -68,13 +72,13 @@ public final class SummonTrap extends AbstractEffect {
 			player.getTrap().unSummon();
 		}
 		
-		final L2NpcTemplate npcTemplate = NpcData.getInstance().getTemplate(_npcId);
+		final var npcTemplate = NpcData.getInstance().getTemplate(_npcId);
 		if (npcTemplate == null) {
-			_log.warning(SummonTrap.class.getSimpleName() + ": Spawn of the non-existing Trap ID: " + _npcId + " in skill ID:" + info.getSkill().getId());
+			LOG.warn("Spawn of the non-existing Trap Id: {} in skill: {}!", _npcId, info.getSkill());
 			return;
 		}
 		
-		final L2TrapInstance trap = new L2TrapInstance(npcTemplate, player, _despawnTime);
+		final var trap = new L2TrapInstance(npcTemplate, player, _despawnTime);
 		trap.setCurrentHp(trap.getMaxHp());
 		trap.setCurrentMp(trap.getMaxMp());
 		trap.setIsInvul(true);

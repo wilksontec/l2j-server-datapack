@@ -18,11 +18,15 @@
  */
 package com.l2jserver.datapack.handlers.effecthandlers.instant;
 
+import static com.l2jserver.gameserver.network.SystemMessageId.NOTHING_INSIDE_THAT;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.l2jserver.gameserver.model.StatsSet;
 import com.l2jserver.gameserver.model.conditions.Condition;
 import com.l2jserver.gameserver.model.effects.AbstractEffect;
 import com.l2jserver.gameserver.model.skills.BuffInfo;
-import com.l2jserver.gameserver.network.SystemMessageId;
 import com.l2jserver.gameserver.network.serverpackets.PetItemList;
 
 /**
@@ -30,6 +34,9 @@ import com.l2jserver.gameserver.network.serverpackets.PetItemList;
  * @author Zoey76
  */
 public final class Restoration extends AbstractEffect {
+	
+	private static final Logger LOG = LoggerFactory.getLogger(Restoration.class);
+	
 	private final int _itemId;
 	private final int _itemCount;
 	
@@ -52,8 +59,8 @@ public final class Restoration extends AbstractEffect {
 		}
 		
 		if ((_itemId <= 0) || (_itemCount <= 0)) {
-			info.getEffected().sendPacket(SystemMessageId.NOTHING_INSIDE_THAT);
-			_log.warning(Restoration.class.getSimpleName() + " effect with wrong item Id/count: " + _itemId + "/" + _itemCount + "!");
+			LOG.warn("Wrong item Id/count: {}/{}!", _itemId, _itemCount);
+			info.getEffected().sendPacket(NOTHING_INSIDE_THAT);
 			return;
 		}
 		

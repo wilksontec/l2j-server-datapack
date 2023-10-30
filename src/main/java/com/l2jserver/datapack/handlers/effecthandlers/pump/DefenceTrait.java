@@ -20,7 +20,9 @@ package com.l2jserver.datapack.handlers.effecthandlers.pump;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Map.Entry;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.l2jserver.gameserver.model.StatsSet;
 import com.l2jserver.gameserver.model.actor.stat.CharStat;
@@ -34,37 +36,40 @@ import com.l2jserver.gameserver.model.stats.TraitType;
  * @author NosBit
  */
 public final class DefenceTrait extends AbstractEffect {
+	
+	private static final Logger LOG = LoggerFactory.getLogger(DefenceTrait.class);
+	
 	private final Map<TraitType, Float> _defenceTraits = new HashMap<>();
 	
 	public DefenceTrait(Condition attachCond, Condition applyCond, StatsSet set, StatsSet params) {
 		super(attachCond, applyCond, set, params);
 		
 		if (params.isEmpty()) {
-			_log.warning(getClass().getSimpleName() + ": must have parameters.");
+			LOG.warn("This effect must have parameters!");
 			return;
 		}
 		
-		for (Entry<String, Object> param : params.getSet().entrySet()) {
+		for (var param : params.getSet().entrySet()) {
 			try {
-				final TraitType traitType = TraitType.valueOf(param.getKey());
+				final var traitType = TraitType.valueOf(param.getKey());
 				final float value = Float.parseFloat((String) param.getValue());
 				if (value == 0) {
 					continue;
 				}
 				_defenceTraits.put(traitType, (value + 100) / 100);
 			} catch (NumberFormatException e) {
-				_log.warning(getClass().getSimpleName() + ": value of " + param.getKey() + " must be float value " + param.getValue() + " found.");
+				LOG.warn("The value of {} must be float value, {} found!", param.getKey(), param.getValue());
 			} catch (Exception e) {
-				_log.warning(getClass().getSimpleName() + ": value of L2TraitType enum required but found: " + param.getValue());
+				LOG.warn("The value of TraitType enum required but found {}!", param.getValue());
 			}
 		}
 	}
 	
 	@Override
 	public void onExit(BuffInfo info) {
-		final CharStat charStat = info.getEffected().getStat();
+		final var charStat = info.getEffected().getStat();
 		synchronized (charStat.getDefenceTraits()) {
-			for (Entry<TraitType, Float> trait : _defenceTraits.entrySet()) {
+			for (var trait : _defenceTraits.entrySet()) {
 				if (trait.getValue() < 2.0f) {
 					charStat.getDefenceTraits()[trait.getKey().getId()] /= trait.getValue();
 					charStat.getDefenceTraitsCount()[trait.getKey().getId()]--;
@@ -79,7 +84,7 @@ public final class DefenceTrait extends AbstractEffect {
 	public void onStart(BuffInfo info) {
 		final CharStat charStat = info.getEffected().getStat();
 		synchronized (charStat.getDefenceTraits()) {
-			for (Entry<TraitType, Float> trait : _defenceTraits.entrySet()) {
+			for (var trait : _defenceTraits.entrySet()) {
 				if (trait.getValue() < 2.0f) {
 					charStat.getDefenceTraits()[trait.getKey().getId()] *= trait.getValue();
 					charStat.getDefenceTraitsCount()[trait.getKey().getId()]++;

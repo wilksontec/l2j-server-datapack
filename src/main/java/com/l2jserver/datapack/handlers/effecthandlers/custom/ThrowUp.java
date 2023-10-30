@@ -18,10 +18,11 @@
  */
 package com.l2jserver.datapack.handlers.effecthandlers.custom;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.l2jserver.gameserver.GeoData;
-import com.l2jserver.gameserver.model.Location;
 import com.l2jserver.gameserver.model.StatsSet;
-import com.l2jserver.gameserver.model.actor.L2Character;
 import com.l2jserver.gameserver.model.conditions.Condition;
 import com.l2jserver.gameserver.model.effects.AbstractEffect;
 import com.l2jserver.gameserver.model.effects.EffectFlag;
@@ -34,6 +35,9 @@ import com.l2jserver.gameserver.network.serverpackets.ValidateLocation;
  * Throw Up effect implementation.
  */
 public final class ThrowUp extends AbstractEffect {
+	
+	private static final Logger LOG = LoggerFactory.getLogger(ThrowUp.class);
+	
 	private final int _flyRadius;
 	
 	public ThrowUp(Condition attachCond, Condition applyCond, StatsSet set, StatsSet params) {
@@ -54,8 +58,8 @@ public final class ThrowUp extends AbstractEffect {
 	
 	@Override
 	public void onStart(BuffInfo info) {
-		L2Character target = info.getEffected();
-		L2Character activeChar = info.getEffector();
+		final var target = info.getEffected();
+		final var activeChar = info.getEffector();
 		
 		// Get current position of the L2Character
 		final int curX = target.getX();
@@ -68,7 +72,7 @@ public final class ThrowUp extends AbstractEffect {
 		double dz = activeChar.getZ() - curZ;
 		double distance = Math.hypot(dx, dy);
 		if (distance > 2000) {
-			_log.info("EffectThrow was going to use invalid coordinates for characters, getEffected: " + curX + "," + curY + " and getEffector: " + activeChar.getX() + "," + activeChar.getY());
+			LOG.warn("Invalid coordinates for characters, getEffector: {}, {} and getEffected: {}, {}!", curX, curY, activeChar.getX(), activeChar.getY());
 			return;
 		}
 		int offset = Math.min((int) distance + _flyRadius, 1400);
@@ -94,7 +98,7 @@ public final class ThrowUp extends AbstractEffect {
 		int y = activeChar.getY() - (int) (offset * sin);
 		int z = target.getZ();
 		
-		final Location destination = GeoData.getInstance().moveCheck(curX, curY, curZ, x, y, z, target.getInstanceId());
+		final var destination = GeoData.getInstance().moveCheck(curX, curY, curZ, x, y, z, target.getInstanceId());
 		
 		target.broadcastPacket(new FlyToLocation(target, destination, FlyType.THROW_UP));
 		

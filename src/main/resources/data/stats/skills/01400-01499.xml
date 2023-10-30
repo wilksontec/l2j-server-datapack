@@ -3454,7 +3454,7 @@
 		<effects>
 			<effect name="TriggerSkillByDamage">
 				<param attackerType="ENEMY_ALL" maxAttackerLevel="99" minAttackerLevel="1" />
-				<param chance="30.0" minDamage="100" mode="DIFF" />
+				<param chance="30" minDamage="100" mode="DIFF" />
 				<param skillId="5448" skillLevel="1" />
 				<param targetType="SELF" />
 			</effect>
@@ -3505,7 +3505,7 @@
 		<effects>
 			<effect name="TriggerSkillByDamage">
 				<param attackerType="ENEMY_ALL" maxAttackerLevel="99" minAttackerLevel="1" />
-				<param chance="30.0" minDamage="100" mode="DIFF" />
+				<param chance="30" minDamage="100" mode="DIFF" />
 				<param skillId="5449" skillLevel="1" />
 				<param targetType="SELF" />
 			</effect>
@@ -3556,7 +3556,7 @@
 		<effects>
 			<effect name="TriggerSkillByDamage">
 				<param attackerType="ENEMY_ALL" maxAttackerLevel="99" minAttackerLevel="1" />
-				<param chance="30.0" minDamage="100" mode="DIFF" />
+				<param chance="30" minDamage="100" mode="DIFF" />
 				<param skillId="5450" skillLevel="1" />
 				<param targetType="SELF" />
 			</effect>
@@ -3607,7 +3607,7 @@
 		<effects>
 			<effect name="TriggerSkillByDamage">
 				<param attackerType="ENEMY_ALL" maxAttackerLevel="99" minAttackerLevel="1" />
-				<param chance="30.0" minDamage="100" mode="DIFF" />
+				<param chance="30" minDamage="100" mode="DIFF" />
 				<param skillId="5451" skillLevel="1" />
 				<param targetType="SELF" />
 			</effect>
@@ -3658,7 +3658,7 @@
 		<effects>
 			<effect name="TriggerSkillByDamage">
 				<param attackerType="ENEMY_ALL" maxAttackerLevel="99" minAttackerLevel="1" />
-				<param chance="30.0" minDamage="100" mode="DIFF" />
+				<param chance="30" minDamage="100" mode="DIFF" />
 				<param skillId="5452" skillLevel="#triggerSkillByDamageLevel" />
 				<param targetType="SELF" />
 			</effect>
@@ -3666,7 +3666,7 @@
 		<enchant1Effects>
 			<effect name="TriggerSkillByDamage">
 				<param attackerType="ENEMY_ALL" maxAttackerLevel="99" minAttackerLevel="1" />
-				<param chance="30.0" minDamage="100" mode="DIFF" />
+				<param chance="30" minDamage="100" mode="DIFF" />
 				<param skillId="5452" skillLevel="3" />
 				<param targetType="SELF" />
 			</effect>
@@ -3674,7 +3674,7 @@
 		<enchant2Effects>
 			<effect name="TriggerSkillByDamage">
 				<param attackerType="ENEMY_ALL" maxAttackerLevel="99" minAttackerLevel="1" />
-				<param chance="30.0" minDamage="100" mode="DIFF" />
+				<param chance="30" minDamage="100" mode="DIFF" />
 				<param skillId="5452" skillLevel="3" />
 				<param targetType="SELF" />
 			</effect>
@@ -3726,7 +3726,7 @@
 		<effects>
 			<effect name="TriggerSkillByDamage">
 				<param attackerType="ENEMY_ALL" maxAttackerLevel="99" minAttackerLevel="1" />
-				<param chance="30.0" minDamage="100" mode="DIFF" />
+				<param chance="30" minDamage="100" mode="DIFF" />
 				<param skillId="5453" skillLevel="#triggerSkillByDamageLevel" />
 				<param targetType="SELF" />
 			</effect>
@@ -3734,7 +3734,7 @@
 		<enchant1Effects>
 			<effect name="TriggerSkillByDamage">
 				<param attackerType="ENEMY_ALL" maxAttackerLevel="99" minAttackerLevel="1" />
-				<param chance="30.0" minDamage="100" mode="DIFF" />
+				<param chance="30" minDamage="100" mode="DIFF" />
 				<param skillId="5453" skillLevel="4" />
 				<param targetType="SELF" />
 			</effect>
@@ -3742,7 +3742,7 @@
 		<enchant2Effects>
 			<effect name="TriggerSkillByDamage">
 				<param attackerType="ENEMY_ALL" maxAttackerLevel="99" minAttackerLevel="1" />
-				<param chance="30.0" minDamage="100" mode="DIFF" />
+				<param chance="30" minDamage="100" mode="DIFF" />
 				<param skillId="5453" skillLevel="4" />
 				<param targetType="SELF" />
 			</effect>
@@ -3871,7 +3871,7 @@
 		<effects>
 			<effect name="TriggerSkillByDamage">
 				<param attackerType="ENEMY_ALL" maxAttackerLevel="99" minAttackerLevel="1" />
-				<param chance="2.0" minDamage="1" mode="DIFF" />
+				<param chance="2" minDamage="1" mode="DIFF" />
 				<param skillId="5577" skillLevel="1" />
 				<param targetType="SELF" />
 			</effect>
@@ -3888,7 +3888,7 @@
 		<effects>
 			<effect name="TriggerSkillByDamage">
 				<param attackerType="ENEMY_ALL" maxAttackerLevel="99" minAttackerLevel="1" />
-				<param chance="2.0" minDamage="1" mode="DIFF" />
+				<param chance="2" minDamage="1" mode="DIFF" />
 				<param skillId="5578" skillLevel="1" />
 				<param targetType="SELF" />
 			</effect>
@@ -3918,7 +3918,7 @@
 			</effect>
 			<effect name="TriggerSkillByDamage">
 				<param attackerType="ENEMY_ALL" maxAttackerLevel="99" minAttackerLevel="1" />
-				<param chance="10.0" minDamage="1" mode="DIFF" />
+				<param chance="10" minDamage="1" mode="DIFF" />
 				<param skillId="5567" skillLevel="1" />
 				<param targetType="TARGET" />
 			</effect>
@@ -3948,7 +3948,7 @@
 			</effect>
 			<effect name="TriggerSkillByDamage">
 				<param attackerType="ENEMY_ALL" maxAttackerLevel="99" minAttackerLevel="1" />
-				<param chance="10.0" minDamage="1" mode="DIFF" />
+				<param chance="10" minDamage="1" mode="DIFF" />
 				<param skillId="5568" skillLevel="1" />
 				<param targetType="TARGET" />
 			</effect>
@@ -3978,7 +3978,7 @@
 			</effect>
 			<effect name="TriggerSkillByDamage">
 				<param attackerType="ENEMY_ALL" maxAttackerLevel="99" minAttackerLevel="1" />
-				<param chance="10.0" minDamage="1" mode="DIFF" />
+				<param chance="10" minDamage="1" mode="DIFF" />
 				<param skillId="5569" skillLevel="1" />
 				<param targetType="TARGET" />
 			</effect>
@@ -4076,25 +4076,33 @@
 		<effects>
 			<effect name="TriggerSkillByDamage">
 				<param attackerType="ENEMY_ALL" maxAttackerLevel="99" minAttackerLevel="1" />
-				<param chance="30.0" minDamage="100" mode="DIFF" />
+				<param chance="30" minDamage="100" mode="DIFF" />
 				<param skillId="5570" skillLevel="1" />
 				<param targetType="SUMMON" />
 			</effect>
 		</effects>
 	</skill>
 	<skill id="1498" levels="1" name="Mutual Response">
-		<!-- Confirmed CT2.5 -->
+		<!-- High Five Confirmed -->
+		<set name="blockedInOlympiad" val="true" />
 		<set name="icon" val="icon.skill1498" />
 		<set name="magicLvl" val="81" />
 		<set name="operateType" val="P" />
+		<set name="targetType" val="SELF" />
 		<effects>
 			<effect name="TriggerSkillByAttack">
-				<param attackerType="L2Character" minAttackerLevel="1" maxAttackerLevel="100" />
-				<param isCritical="false" />
-				<param minDamage="1" chance="5" />
-				<param skillId="5571" skillLevel="1" /> <!-- Mutual Response -->
+				<param attackerType="ENEMY_ALL" maxAttackerLevel="100" minAttackerLevel="1" />
+				<param isCritical="true" />
+				<param chance="5" minDamage="1" mode="DIFF" />
+				<param skillId="5571" skillLevel="1" />
 				<param targetType="SUMMON" />
 				<param allowWeapons="ALL" />
+			</effect>
+			<effect name="TriggerSkillBySkill">
+				<param castSkillId="1558" />
+				<param chance="30" />
+				<param skillId="5571" skillLevel="1" />
+				<param targetType="SUMMON" />
 			</effect>
 		</effects>
 	</skill>

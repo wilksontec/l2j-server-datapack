@@ -464,15 +464,17 @@
 		</effects>
 	</skill>
 	<skill id="818" levels="1" name="Evasion Counter">
-		<!-- Confirmed CT2.5 -->
+		<!-- High Five Confirmed -->
+		<set name="blockedInOlympiad" val="true" />
 		<set name="icon" val="icon.skill0818" />
 		<set name="magicLvl" val="74" />
 		<set name="operateType" val="P" />
+		<set name="targetType" val="SELF" />
 		<effects>
 			<effect name="TriggerSkillByAvoid">
 				<param chance="10" />
-				<param skillId="5673" skillLevel="1" /> <!-- Evasion Counter -->
-				<param targetType="ONE" />
+				<param skillId="5673" skillLevel="1" />
+				<param targetType="TARGET" />
 			</effect>
 		</effects>
 	</skill>

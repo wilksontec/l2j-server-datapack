@@ -43,7 +43,7 @@ public final class TriggerSkillByDamage extends AbstractEffect {
 	private final int _minAttackerLevel;
 	private final int _maxAttackerLevel;
 	private final int _minDamage;
-	private final double _chance;
+	private final int _chance;
 	private final SkillHolder _skill;
 	private final TriggerTargetType _targetType;
 	private final TriggerAttackType _attackerType;
@@ -54,7 +54,7 @@ public final class TriggerSkillByDamage extends AbstractEffect {
 		_minAttackerLevel = params.getInt("minAttackerLevel", 1);
 		_maxAttackerLevel = params.getInt("maxAttackerLevel", 100);
 		_minDamage = params.getInt("minDamage", 1);
-		_chance = params.getDouble("chance", 100);
+		_chance = params.getInt("chance", 100);
 		_skill = new SkillHolder(params.getInt("skillId"), params.getInt("skillLevel", 1));
 		_targetType = params.getEnum("targetType", TriggerTargetType.class, SELF);
 		_attackerType = params.getEnum("attackerType", TriggerAttackType.class, NONE);

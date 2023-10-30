@@ -1322,7 +1322,7 @@
 		<effects>
 			<effect name="TriggerSkillByDamage">
 				<param attackerType="ENEMY_ALL" maxAttackerLevel="99" minAttackerLevel="1" />
-				<param chance="30.0" minDamage="100" mode="DIFF" />
+				<param chance="30" minDamage="100" mode="DIFF" />
 				<param skillId="5425" skillLevel="1" />
 				<param targetType="SELF" />
 			</effect>
@@ -1498,7 +1498,7 @@
 		<effects>
 			<effect name="TriggerSkillByDamage">
 				<param attackerType="ENEMY_ALL" maxAttackerLevel="99" minAttackerLevel="1" />
-				<param chance="5.0" minDamage="100" mode="DIFF" />
+				<param chance="5" minDamage="100" mode="DIFF" />
 				<param skillId="5426" skillLevel="1" />
 				<param targetType="SELF" />
 			</effect>
@@ -1514,7 +1514,7 @@
 		<effects>
 			<effect name="TriggerSkillByDamage">
 				<param attackerType="ENEMY_ALL" maxAttackerLevel="99" minAttackerLevel="1" />
-				<param chance="5.0" minDamage="100" mode="DIFF" />
+				<param chance="5" minDamage="100" mode="DIFF" />
 				<param skillId="5427" skillLevel="1" />
 				<param targetType="MY_PARTY" />
 			</effect>
@@ -1530,7 +1530,7 @@
 		<effects>
 			<effect name="TriggerSkillByDamage">
 				<param attackerType="ENEMY_ALL" maxAttackerLevel="99" minAttackerLevel="1" />
-				<param chance="5.0" minDamage="100" mode="DIFF" />
+				<param chance="5" minDamage="100" mode="DIFF" />
 				<param skillId="5428" skillLevel="1" />
 				<param targetType="MY_PARTY" />
 			</effect>
@@ -1546,7 +1546,7 @@
 		<effects>
 			<effect name="TriggerSkillByDamage">
 				<param attackerType="ENEMY_ALL" maxAttackerLevel="99" minAttackerLevel="1" />
-				<param chance="5.0" minDamage="100" mode="DIFF" />
+				<param chance="5" minDamage="100" mode="DIFF" />
 				<param skillId="5429" skillLevel="1" />
 				<param targetType="SELF" />
 			</effect>

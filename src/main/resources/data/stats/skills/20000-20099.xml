@@ -139,11 +139,13 @@
 		</effects>
 	</skill>
 	<skill id="20006" levels="1" name="Soul Roar">
-		<!-- Confirmed High Five -->
+		<!-- High Five Confirmed -->
 		<set name="abnormalLvl" val="1" />
 		<set name="abnormalTime" val="600" />
-		<set name="abnormalType" val="MULTI_DEBUFF_G" />
-		<set name="effectPoint" val="611" />
+		<set name="abnormalType" val="MAX_HP_UP_K" />
+		<set name="affectScope" val="SINGLE" />
+		<set name="effectPoint" val="635" />
+		<set name="hitCancelTime" val="500" />
 		<set name="hitTime" val="1500" />
 		<set name="icon" val="BranchSys2.icon.skill20006" />
 		<set name="magicLvl" val="62" />
@@ -153,17 +155,16 @@
 		<set name="rideState" val="NONE" />
 		<set name="targetType" val="SELF" />
 		<effects>
-			<effect name="MaxHp">
-				<param power="15" />
-				<param type="PER" />
-				<param heal="true" />
-			</effect>
 			<effect name="MaxCp">
 				<param power="15" />
 				<param type="PER" />
 				<param heal="true" />
 			</effect>
+			<effect name="MaxHp">
+				<param power="15" />
+				<param type="PER" />
+				<param heal="true" />
+			</effect>
 		</effects>
-		<set name="affectScope" val="SINGLE" />
 	</skill>
 </list>

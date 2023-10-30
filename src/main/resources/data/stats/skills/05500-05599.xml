@@ -1167,18 +1167,20 @@
 		</effects>
 	</skill>
 	<skill id="5550" levels="12" name="NPC Trigger Stun">
+		<!-- High Five Confirmed -->
 		<table name="#magicLvl"> 10 20 30 40 50 60 70 75 80 85 90 95 </table>
-		<table name="#triggeredLvl"> 1 2 3 4 5 6 7 8 9 10 11 12 </table>
+		<table name="#triggerSkillByAttackLevel"> 1 2 3 4 5 6 7 8 9 10 11 12 </table>
+		<set name="blockedInOlympiad" val="true" />
 		<set name="magicLvl" val="#magicLvl" />
 		<set name="operateType" val="P" />
-		<set name="rideState" val="NONE" />
+		<set name="targetType" val="SELF" />
 		<effects>
 			<effect name="TriggerSkillByAttack">
-				<param attackerType="L2Character" minAttackerLevel="1" maxAttackerLevel="100" />
+				<param attackerType="ENEMY_ALL" maxAttackerLevel="100" minAttackerLevel="1" />
 				<param isCritical="false" />
-				<param minDamage="1" chance="15" />
-				<param skillId="5551" skillLevel="#triggeredLvl" /> <!-- Stun -->
-				<param targetType="ONE" />
+				<param chance="15" minDamage="1" mode="DIFF" />
+				<param skillId="5551" skillLevel="#triggerSkillByAttackLevel" />
+				<param targetType="TARGET" />
 				<param allowWeapons="ALL" />
 			</effect>
 		</effects>

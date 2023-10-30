@@ -1040,87 +1040,115 @@
 		<set name="targetType" val="NONE" />
 	</skill>
 	<skill id="21251" levels="1" name="Shiny Party Hat - Greater Body">
-		<!-- Increases Max HP by 35% for 20 minutes. -->
-		<set name="operateType" val="P" />
-		<set name="targetType" val="NONE" />
+		<!-- High Five Confirmed -->
+		<set name="abnormalLvl" val="6" />
+		<set name="abnormalTime" val="1200" />
+		<set name="abnormalType" val="MAX_HP_UP" />
 		<set name="affectScope" val="SINGLE" />
+		<set name="blockedInOlympiad" val="true" />
+		<set name="effectPoint" val="1" />
+		<set name="hitTime" val="1000" />
+		<set name="icon" val="BranchSys.icon.br_party_hat_gold_i00" />
+		<set name="isMagic" val="2" />
+		<set name="magicLvl" val="1" />
+		<set name="operateType" val="A2" />
+		<set name="reuseDelay" val="1200000" />
+		<set name="reuseDelayLock" val="true" />
+		<set name="rideState" val="NONE;STRIDER;WYVERN;WOLF" />
+		<set name="targetType" val="SELF" />
+		<effects>
+			<effect name="MaxHp">
+				<param power="35" />
+				<param type="PER" />
+			</effect>
+		</effects>
 	</skill>
 	<skill id="21252" levels="1" name="Hellblade">
-		<!-- Confirmed High Five -->
+		<!-- High Five Confirmed -->
+		<set name="blockedInOlympiad" val="true" />
 		<set name="icon" val="BranchSys2.icon.br_wp_Caladbulg_i00" />
 		<set name="magicLvl" val="84" />
 		<set name="operateType" val="P" />
+		<set name="targetType" val="SELF" />
 		<effects>
 			<effect name="TriggerSkillByAttack">
-				<param attackerType="L2Character" minAttackerLevel="1" maxAttackerLevel="100" />
+				<param attackerType="ENEMY_ALL" maxAttackerLevel="100" minAttackerLevel="1" />
 				<param isCritical="false" />
-				<param minDamage="1" chance="15" />
-				<param skillId="23319" skillLevel="1" /> <!-- Blood Seeker -->
-				<param targetType="ONE" />
+				<param chance="2" minDamage="1" mode="DIFF" />
+				<param skillId="23319" skillLevel="1" />
+				<param targetType="TARGET" />
 				<param allowWeapons="ALL" />
 			</effect>
 		</effects>
 	</skill>
 	<skill id="21253" levels="1" name="Butcher Blades">
-		<!-- Confirmed High Five -->
+		<!-- High Five Confirmed -->
+		<set name="blockedInOlympiad" val="true" />
 		<set name="icon" val="BranchSys2.icon.br_wp_habus_knife_i00" />
-		<set name="magicLvl" val="84" />
+		<set name="magicLvl" val="83" />
 		<set name="operateType" val="P" />
+		<set name="targetType" val="SELF" />
 		<effects>
 			<effect name="TriggerSkillByAttack">
-				<param attackerType="L2Character" minAttackerLevel="1" maxAttackerLevel="100" />
+				<param attackerType="ENEMY_ALL" maxAttackerLevel="100" minAttackerLevel="1" />
 				<param isCritical="false" />
-				<param minDamage="1" chance="15" />
-				<param skillId="23320" skillLevel="1" /> <!-- Greedy Throat -->
-				<param targetType="ONE" />
+				<param chance="2" minDamage="1" mode="DIFF" />
+				<param skillId="23320" skillLevel="1" />
+				<param targetType="TARGET" />
 				<param allowWeapons="ALL" />
 			</effect>
 		</effects>
 	</skill>
 	<skill id="21254" levels="1" name="Claw of Destruction">
-		<!-- Confirmed High Five -->
+		<!-- High Five Confirmed -->
+		<set name="blockedInOlympiad" val="true" />
 		<set name="icon" val="BranchSys2.icon.br_wp_tiatenon_i00" />
-		<set name="magicLvl" val="84" />
+		<set name="magicLvl" val="82" />
 		<set name="operateType" val="P" />
+		<set name="targetType" val="SELF" />
 		<effects>
 			<effect name="TriggerSkillByAttack">
-				<param attackerType="L2Playable" minAttackerLevel="1" maxAttackerLevel="100" />
+				<param attackerType="PK" maxAttackerLevel="100" minAttackerLevel="1" />
 				<param isCritical="false" />
-				<param minDamage="1" chance="15" />
-				<param skillId="23321" skillLevel="1" /> <!-- Draconic Evolver -->
-				<param targetType="ONE" />
+				<param chance="2" minDamage="1" mode="DIFF" />
+				<param skillId="23321" skillLevel="1" />
+				<param targetType="TARGET" />
 				<param allowWeapons="ALL" />
 			</effect>
 		</effects>
 	</skill>
 	<skill id="21255" levels="1" name="Blades of Delusion">
-		<!-- Confirmed High Five -->
+		<!-- High Five Confirmed -->
+		<set name="blockedInOlympiad" val="true" />
 		<set name="icon" val="BranchSys2.icon.br_wp_astarot_i00" />
-		<set name="magicLvl" val="84" />
+		<set name="magicLvl" val="82" />
 		<set name="operateType" val="P" />
+		<set name="targetType" val="SELF" />
 		<effects>
 			<effect name="TriggerSkillByAttack">
-				<param attackerType="L2Character" minAttackerLevel="1" maxAttackerLevel="100" />
+				<param attackerType="ENEMY_ALL" maxAttackerLevel="100" minAttackerLevel="1" />
 				<param isCritical="false" />
-				<param minDamage="1" chance="15" />
-				<param skillId="23322" skillLevel="1" /> <!-- Demonic Desire -->
-				<param targetType="ONE" />
+				<param chance="2" minDamage="1" mode="DIFF" />
+				<param skillId="23322" skillLevel="10" />
+				<param targetType="TARGET" />
 				<param allowWeapons="ALL" />
 			</effect>
 		</effects>
 	</skill>
 	<skill id="21256" levels="1" name="Blood Brother">
-		<!-- Confirmed High Five -->
+		<!-- High Five Confirmed -->
+		<set name="blockedInOlympiad" val="true" />
 		<set name="icon" val="BranchSys2.icon.br_wp_tirbing_i00" />
-		<set name="magicLvl" val="84" />
+		<set name="magicLvl" val="82" />
 		<set name="operateType" val="P" />
+		<set name="targetType" val="SELF" />
 		<effects>
 			<effect name="TriggerSkillByAttack">
-				<param attackerType="L2Character" minAttackerLevel="1" maxAttackerLevel="100" />
+				<param attackerType="ENEMY_ALL" maxAttackerLevel="100" minAttackerLevel="1" />
 				<param isCritical="false" />
-				<param minDamage="1" chance="15" />
-				<param skillId="23323" skillLevel="1" /> <!-- Fury of Darkness -->
-				<param targetType="ONE" />
+				<param chance="2" minDamage="1" mode="DIFF" />
+				<param skillId="23323" skillLevel="10" />
+				<param targetType="TARGET" />
 				<param allowWeapons="ALL" />
 			</effect>
 		</effects>
@@ -1135,7 +1163,7 @@
 		<effects>
 			<effect name="TriggerSkillByDamage">
 				<param attackerType="ENEMY_ALL" maxAttackerLevel="100" minAttackerLevel="1" />
-				<param chance="4.0" minDamage="1" mode="DIFF" />
+				<param chance="4" minDamage="1" mode="DIFF" />
 				<param skillId="23324" skillLevel="1" />
 				<param targetType="SELF" />
 			</effect>

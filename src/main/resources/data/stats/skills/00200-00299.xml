@@ -23,10 +23,10 @@
 				</add>
 			</effect>
 			<effect name="TriggerSkillByAttack">
-				<param attackerType="L2Character" minAttackerLevel="1" maxAttackerLevel="100" />
+				<param attackerType="ENEMY_ALL" minAttackerLevel="1" maxAttackerLevel="100" />
 				<param isCritical="true" />
-				<param minDamage="1" chance="50" />
-				<param skillId="#triggeredId" skillLevel="1" /> <!-- Blunt Mastery -->
+				<param chance="50" minDamage="1" mode="DIFF" />
+				<param skillId="#triggeredId" skillLevel="1" />
 				<param targetType="SELF" />
 				<param allowWeapons="SWORD,BLUNT" />
 			</effect>
@@ -41,10 +41,10 @@
 				</add>
 			</effect>
 			<effect name="TriggerSkillByAttack">
-				<param attackerType="L2Character" minAttackerLevel="1" maxAttackerLevel="100" />
+				<param attackerType="ENEMY_ALL" minAttackerLevel="1" maxAttackerLevel="100" />
 				<param isCritical="true" />
-				<param minDamage="1" chance="50" />
-				<param skillId="5604" skillLevel="1" /> <!-- Blunt Mastery -->
+				<param chance="50" minDamage="1" mode="DIFF" />
+				<param skillId="5604" skillLevel="1" />
 				<param targetType="SELF" />
 				<param allowWeapons="SWORD,BLUNT" />
 			</effect>
@@ -59,10 +59,10 @@
 				</add>
 			</effect>
 			<effect name="TriggerSkillByAttack">
-				<param attackerType="L2Character" minAttackerLevel="1" maxAttackerLevel="100" />
+				<param attackerType="ENEMY_ALL" minAttackerLevel="1" maxAttackerLevel="100" />
 				<param isCritical="true" />
-				<param minDamage="1" chance="50" />
-				<param skillId="5604" skillLevel="1" /> <!-- Blunt Mastery -->
+				<param chance="50" minDamage="1" mode="DIFF" />
+				<param skillId="5604" skillLevel="1" />
 				<param targetType="SELF" />
 				<param allowWeapons="SWORD,BLUNT" />
 			</effect>
@@ -77,10 +77,10 @@
 				</add>
 			</effect>
 			<effect name="TriggerSkillByAttack">
-				<param attackerType="L2Character" minAttackerLevel="1" maxAttackerLevel="100" />
+				<param attackerType="ENEMY_ALL" minAttackerLevel="1" maxAttackerLevel="100" />
 				<param isCritical="true" />
-				<param minDamage="1" chance="50" />
-				<param skillId="5604" skillLevel="1" /> <!-- Blunt Mastery -->
+				<param chance="50" minDamage="1" mode="DIFF" />
+				<param skillId="5604" skillLevel="1" />
 				<param targetType="SELF" />
 				<param allowWeapons="SWORD,BLUNT" />
 			</effect>
@@ -143,9 +143,9 @@
 				</add>
 			</effect>
 			<effect name="TriggerSkillByAttack">
-				<param attackerType="L2Character" minAttackerLevel="1" maxAttackerLevel="100" />
+				<param attackerType="ENEMY_ALL" minAttackerLevel="1" maxAttackerLevel="100" />
 				<param isCritical="true" />
-				<param minDamage="1" chance="33" />
+				<param chance="33" minDamage="1" mode="DIFF" />
 				<param skillId="#triggeredId" skillLevel="1" /> <!-- Dagger Mastery -->
 				<param targetType="SELF" />
 				<param allowWeapons="DAGGER,DUALDAGGER" />
@@ -158,9 +158,9 @@
 				</add>
 			</effect>
 			<effect name="TriggerSkillByAttack">
-				<param attackerType="L2Character" minAttackerLevel="1" maxAttackerLevel="100" />
+				<param attackerType="ENEMY_ALL" minAttackerLevel="1" maxAttackerLevel="100" />
 				<param isCritical="true" />
-				<param minDamage="1" chance="33" />
+				<param chance="33" minDamage="1" mode="DIFF" />
 				<param skillId="5603" skillLevel="1" /> <!-- Dagger Mastery -->
 				<param targetType="SELF" />
 				<param allowWeapons="DAGGER,DUALDAGGER" />
@@ -176,9 +176,9 @@
 				</mul>
 			</effect>
 			<effect name="TriggerSkillByAttack">
-				<param attackerType="L2Character" minAttackerLevel="1" maxAttackerLevel="100" />
+				<param attackerType="ENEMY_ALL" minAttackerLevel="1" maxAttackerLevel="100" />
 				<param isCritical="true" />
-				<param minDamage="1" chance="33" />
+				<param chance="33" minDamage="1" mode="DIFF" />
 				<param skillId="5603" skillLevel="1" /> <!-- Dagger Mastery -->
 				<param targetType="SELF" />
 				<param allowWeapons="DAGGER,DUALDAGGER" />
@@ -194,9 +194,9 @@
 				</mul>
 			</effect>
 			<effect name="TriggerSkillByAttack">
-				<param attackerType="L2Character" minAttackerLevel="1" maxAttackerLevel="100" />
+				<param attackerType="ENEMY_ALL" minAttackerLevel="1" maxAttackerLevel="100" />
 				<param isCritical="true" />
-				<param minDamage="1" chance="33" />
+				<param chance="33" minDamage="1" mode="DIFF" />
 				<param skillId="5603" skillLevel="1" /> <!-- Dagger Mastery -->
 				<param targetType="SELF" />
 				<param allowWeapons="DAGGER,DUALDAGGER" />

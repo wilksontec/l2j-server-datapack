@@ -1818,9 +1818,9 @@
 		<set name="targetType" val="ENEMY" />
 		<effects>
 			<effect name="TriggerSkillByAttack">
-				<param attackerType="L2Character" minAttackerLevel="1" maxAttackerLevel="100" />
+				<param attackerType="ENEMY_ALL" maxAttackerLevel="100" minAttackerLevel="1" />
 				<param isCritical="false" />
-				<param minDamage="1" chance="60" />
+				<param chance="60" minDamage="1" mode="DIFF" />
 				<param skillId="5680" skillLevel="1" />
 				<param targetType="SELF" />
 				<param allowWeapons="ALL" />

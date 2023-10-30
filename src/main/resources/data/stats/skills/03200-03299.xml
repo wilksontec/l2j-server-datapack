@@ -190,7 +190,7 @@
 		<effects>
 			<effect name="TriggerSkillByDamage">
 				<param attackerType="ENEMY_ALL" maxAttackerLevel="100" minAttackerLevel="1" />
-				<param chance="2.0" minDamage="1" mode="DIFF" />
+				<param chance="2" minDamage="1" mode="DIFF" />
 				<param skillId="5146" skillLevel="#triggerSkillByDamageLevel" />
 				<param targetType="SELF" />
 			</effect>
@@ -208,7 +208,7 @@
 		<effects>
 			<effect name="TriggerSkillByDamage">
 				<param attackerType="ENEMY_ALL" maxAttackerLevel="100" minAttackerLevel="1" />
-				<param chance="1.0" minDamage="1" mode="DIFF" />
+				<param chance="1" minDamage="1" mode="DIFF" />
 				<param skillId="5147" skillLevel="#triggerSkillByDamageLevel" />
 				<param targetType="SELF" />
 			</effect>
@@ -226,7 +226,7 @@
 		<effects>
 			<effect name="TriggerSkillByDamage">
 				<param attackerType="ENEMY_ALL" maxAttackerLevel="100" minAttackerLevel="1" />
-				<param chance="1.0" minDamage="1" mode="DIFF" />
+				<param chance="1" minDamage="1" mode="DIFF" />
 				<param skillId="5148" skillLevel="#triggerSkillByDamageLevel" />
 				<param targetType="SELF" />
 			</effect>
@@ -244,7 +244,7 @@
 		<effects>
 			<effect name="TriggerSkillByDamage">
 				<param attackerType="ENEMY_ALL" maxAttackerLevel="100" minAttackerLevel="1" />
-				<param chance="1.0" minDamage="1" mode="DIFF" />
+				<param chance="1" minDamage="1" mode="DIFF" />
 				<param skillId="5149" skillLevel="#triggerSkillByDamageLevel" />
 				<param targetType="SELF" />
 			</effect>
@@ -262,7 +262,7 @@
 		<effects>
 			<effect name="TriggerSkillByDamage">
 				<param attackerType="ENEMY_ALL" maxAttackerLevel="100" minAttackerLevel="1" />
-				<param chance="1.0" minDamage="1" mode="DIFF" />
+				<param chance="1" minDamage="1" mode="DIFF" />
 				<param skillId="5150" skillLevel="#triggerSkillByDamageLevel" />
 				<param targetType="SELF" />
 			</effect>
@@ -280,7 +280,7 @@
 		<effects>
 			<effect name="TriggerSkillByDamage">
 				<param attackerType="ENEMY_ALL" maxAttackerLevel="100" minAttackerLevel="1" />
-				<param chance="1.0" minDamage="1" mode="DIFF" />
+				<param chance="1" minDamage="1" mode="DIFF" />
 				<param skillId="5151" skillLevel="#triggerSkillByDamageLevel" />
 				<param targetType="SELF" />
 			</effect>
@@ -298,7 +298,7 @@
 		<effects>
 			<effect name="TriggerSkillByDamage">
 				<param attackerType="ENEMY_ALL" maxAttackerLevel="100" minAttackerLevel="1" />
-				<param chance="2.0" minDamage="1" mode="DIFF" />
+				<param chance="2" minDamage="1" mode="DIFF" />
 				<param skillId="5152" skillLevel="#triggerSkillByDamageLevel" />
 				<param targetType="SELF" />
 			</effect>
@@ -316,7 +316,7 @@
 		<effects>
 			<effect name="TriggerSkillByDamage">
 				<param attackerType="ENEMY_ALL" maxAttackerLevel="100" minAttackerLevel="1" />
-				<param chance="2.0" minDamage="1" mode="DIFF" />
+				<param chance="2" minDamage="1" mode="DIFF" />
 				<param skillId="5153" skillLevel="#triggerSkillByDamageLevel" />
 				<param targetType="SELF" />
 			</effect>
@@ -334,7 +334,7 @@
 		<effects>
 			<effect name="TriggerSkillByDamage">
 				<param attackerType="ENEMY_ALL" maxAttackerLevel="100" minAttackerLevel="1" />
-				<param chance="1.0" minDamage="1" mode="DIFF" />
+				<param chance="1" minDamage="1" mode="DIFF" />
 				<param skillId="5154" skillLevel="#triggerSkillByDamageLevel" />
 				<param targetType="SELF" />
 			</effect>
@@ -352,7 +352,7 @@
 		<effects>
 			<effect name="TriggerSkillByDamage">
 				<param attackerType="ENEMY_ALL" maxAttackerLevel="100" minAttackerLevel="1" />
-				<param chance="1.0" minDamage="1" mode="DIFF" />
+				<param chance="1" minDamage="1" mode="DIFF" />
 				<param skillId="5156" skillLevel="#triggerSkillByDamageLevel" />
 				<param targetType="SELF" />
 			</effect>
@@ -370,7 +370,7 @@
 		<effects>
 			<effect name="TriggerSkillByDamage">
 				<param attackerType="PK" maxAttackerLevel="100" minAttackerLevel="1" />
-				<param chance="1.0" minDamage="1" mode="DIFF" />
+				<param chance="1" minDamage="1" mode="DIFF" />
 				<param skillId="5157" skillLevel="#triggerSkillByDamageLevel" />
 				<param targetType="SELF" />
 			</effect>
@@ -388,7 +388,7 @@
 		<effects>
 			<effect name="TriggerSkillByDamage">
 				<param attackerType="ENEMY_ALL" maxAttackerLevel="100" minAttackerLevel="1" />
-				<param chance="1.0" minDamage="1" mode="DIFF" />
+				<param chance="1" minDamage="1" mode="DIFF" />
 				<param skillId="5158" skillLevel="#triggerSkillByDamageLevel" />
 				<param targetType="SELF" />
 			</effect>
@@ -406,7 +406,7 @@
 		<effects>
 			<effect name="TriggerSkillByDamage">
 				<param attackerType="ENEMY_ALL" maxAttackerLevel="100" minAttackerLevel="1" />
-				<param chance="1.0" minDamage="1" mode="DIFF" />
+				<param chance="1" minDamage="1" mode="DIFF" />
 				<param skillId="5159" skillLevel="#triggerSkillByDamageLevel" />
 				<param targetType="SELF" />
 			</effect>
@@ -424,7 +424,7 @@
 		<effects>
 			<effect name="TriggerSkillByDamage">
 				<param attackerType="ENEMY_ALL" maxAttackerLevel="100" minAttackerLevel="1" />
-				<param chance="1.0" minDamage="1" mode="DIFF" />
+				<param chance="1" minDamage="1" mode="DIFF" />
 				<param skillId="5160" skillLevel="#triggerSkillByDamageLevel" />
 				<param targetType="ENEMY" />
 			</effect>
@@ -442,7 +442,7 @@
 		<effects>
 			<effect name="TriggerSkillByDamage">
 				<param attackerType="ENEMY_ALL" maxAttackerLevel="100" minAttackerLevel="1" />
-				<param chance="1.0" minDamage="1" mode="DIFF" />
+				<param chance="1" minDamage="1" mode="DIFF" />
 				<param skillId="5161" skillLevel="#triggerSkillByDamageLevel" />
 				<param targetType="SELF" />
 			</effect>
@@ -460,7 +460,7 @@
 		<effects>
 			<effect name="TriggerSkillByDamage">
 				<param attackerType="ENEMY_ALL" maxAttackerLevel="100" minAttackerLevel="1" />
-				<param chance="1.0" minDamage="1" mode="DIFF" />
+				<param chance="1" minDamage="1" mode="DIFF" />
 				<param skillId="5162" skillLevel="#triggerSkillByDamageLevel" />
 				<param targetType="SELF" />
 			</effect>
@@ -478,7 +478,7 @@
 		<effects>
 			<effect name="TriggerSkillByDamage">
 				<param attackerType="ENEMY_ALL" maxAttackerLevel="100" minAttackerLevel="1" />
-				<param chance="1.0" minDamage="1" mode="DIFF" />
+				<param chance="1" minDamage="1" mode="DIFF" />
 				<param skillId="5163" skillLevel="#triggerSkillByDamageLevel" />
 				<param targetType="SELF" />
 			</effect>
@@ -496,7 +496,7 @@
 		<effects>
 			<effect name="TriggerSkillByDamage">
 				<param attackerType="ENEMY_ALL" maxAttackerLevel="100" minAttackerLevel="1" />
-				<param chance="1.0" minDamage="1" mode="DIFF" />
+				<param chance="1" minDamage="1" mode="DIFF" />
 				<param skillId="5164" skillLevel="#triggerSkillByDamageLevel" />
 				<param targetType="SELF" />
 			</effect>
@@ -514,7 +514,7 @@
 		<effects>
 			<effect name="TriggerSkillByDamage">
 				<param attackerType="ENEMY_ALL" maxAttackerLevel="100" minAttackerLevel="1" />
-				<param chance="1.0" minDamage="1" mode="DIFF" />
+				<param chance="1" minDamage="1" mode="DIFF" />
 				<param skillId="5165" skillLevel="#triggerSkillByDamageLevel" />
 				<param targetType="ENEMY" />
 			</effect>
@@ -532,7 +532,7 @@
 		<effects>
 			<effect name="TriggerSkillByDamage">
 				<param attackerType="ENEMY_ALL" maxAttackerLevel="100" minAttackerLevel="1" />
-				<param chance="2.0" minDamage="1" mode="DIFF" />
+				<param chance="2" minDamage="1" mode="DIFF" />
 				<param skillId="5166" skillLevel="#triggerSkillByDamageLevel" />
 				<param targetType="ENEMY" />
 			</effect>
@@ -550,7 +550,7 @@
 		<effects>
 			<effect name="TriggerSkillByDamage">
 				<param attackerType="ENEMY_ALL" maxAttackerLevel="100" minAttackerLevel="1" />
-				<param chance="4.0" minDamage="1" mode="DIFF" />
+				<param chance="4" minDamage="1" mode="DIFF" />
 				<param skillId="5167" skillLevel="#triggerSkillByDamageLevel" />
 				<param targetType="ENEMY" />
 			</effect>
@@ -568,7 +568,7 @@
 		<effects>
 			<effect name="TriggerSkillByDamage">
 				<param attackerType="ENEMY_ALL" maxAttackerLevel="100" minAttackerLevel="1" />
-				<param chance="4.0" minDamage="1" mode="DIFF" />
+				<param chance="4" minDamage="1" mode="DIFF" />
 				<param skillId="5168" skillLevel="#triggerSkillByDamageLevel" />
 				<param targetType="ENEMY" />
 			</effect>
@@ -586,7 +586,7 @@
 		<effects>
 			<effect name="TriggerSkillByDamage">
 				<param attackerType="ENEMY_ALL" maxAttackerLevel="100" minAttackerLevel="1" />
-				<param chance="4.0" minDamage="1" mode="DIFF" />
+				<param chance="4" minDamage="1" mode="DIFF" />
 				<param skillId="5169" skillLevel="#triggerSkillByDamageLevel" />
 				<param targetType="ENEMY" />
 			</effect>
@@ -604,7 +604,7 @@
 		<effects>
 			<effect name="TriggerSkillByDamage">
 				<param attackerType="ENEMY_ALL" maxAttackerLevel="100" minAttackerLevel="1" />
-				<param chance="4.0" minDamage="1" mode="DIFF" />
+				<param chance="4" minDamage="1" mode="DIFF" />
 				<param skillId="5170" skillLevel="#triggerSkillByDamageLevel" />
 				<param targetType="ENEMY" />
 			</effect>
@@ -622,7 +622,7 @@
 		<effects>
 			<effect name="TriggerSkillByDamage">
 				<param attackerType="ENEMY_ALL" maxAttackerLevel="100" minAttackerLevel="1" />
-				<param chance="4.0" minDamage="1" mode="DIFF" />
+				<param chance="4" minDamage="1" mode="DIFF" />
 				<param skillId="5171" skillLevel="#triggerSkillByDamageLevel" />
 				<param targetType="ENEMY" />
 			</effect>
@@ -640,7 +640,7 @@
 		<effects>
 			<effect name="TriggerSkillByDamage">
 				<param attackerType="ENEMY_ALL" maxAttackerLevel="100" minAttackerLevel="1" />
-				<param chance="4.0" minDamage="1" mode="DIFF" />
+				<param chance="4" minDamage="1" mode="DIFF" />
 				<param skillId="5172" skillLevel="#triggerSkillByDamageLevel" />
 				<param targetType="ENEMY" />
 			</effect>
@@ -658,7 +658,7 @@
 		<effects>
 			<effect name="TriggerSkillByDamage">
 				<param attackerType="ENEMY_ALL" maxAttackerLevel="100" minAttackerLevel="1" />
-				<param chance="4.0" minDamage="1" mode="DIFF" />
+				<param chance="4" minDamage="1" mode="DIFF" />
 				<param skillId="5173" skillLevel="#triggerSkillByDamageLevel" />
 				<param targetType="ENEMY" />
 			</effect>
@@ -676,7 +676,7 @@
 		<effects>
 			<effect name="TriggerSkillByDamage">
 				<param attackerType="ENEMY_ALL" maxAttackerLevel="100" minAttackerLevel="1" />
-				<param chance="4.0" minDamage="1" mode="DIFF" />
+				<param chance="4" minDamage="1" mode="DIFF" />
 				<param skillId="5174" skillLevel="#triggerSkillByDamageLevel" />
 				<param targetType="ENEMY" />
 			</effect>
@@ -694,7 +694,7 @@
 		<effects>
 			<effect name="TriggerSkillByDamage">
 				<param attackerType="ENEMY_ALL" maxAttackerLevel="100" minAttackerLevel="1" />
-				<param chance="4.0" minDamage="1" mode="DIFF" />
+				<param chance="4" minDamage="1" mode="DIFF" />
 				<param skillId="5175" skillLevel="#triggerSkillByDamageLevel" />
 				<param targetType="ENEMY" />
 			</effect>
@@ -712,7 +712,7 @@
 		<effects>
 			<effect name="TriggerSkillByDamage">
 				<param attackerType="ENEMY_ALL" maxAttackerLevel="100" minAttackerLevel="1" />
-				<param chance="4.0" minDamage="1" mode="DIFF" />
+				<param chance="4" minDamage="1" mode="DIFF" />
 				<param skillId="5176" skillLevel="#triggerSkillByDamageLevel" />
 				<param targetType="ENEMY" />
 			</effect>
@@ -730,7 +730,7 @@
 		<effects>
 			<effect name="TriggerSkillByDamage">
 				<param attackerType="ENEMY_ALL" maxAttackerLevel="100" minAttackerLevel="1" />
-				<param chance="4.0" minDamage="1" mode="DIFF" />
+				<param chance="4" minDamage="1" mode="DIFF" />
 				<param skillId="5177" skillLevel="#triggerSkillByDamageLevel" />
 				<param targetType="ENEMY" />
 			</effect>

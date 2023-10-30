@@ -18,16 +18,16 @@
  */
 package com.l2jserver.datapack.handlers.effecthandlers.instant;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.l2jserver.commons.util.Rnd;
 import com.l2jserver.gameserver.data.xml.impl.NpcData;
 import com.l2jserver.gameserver.model.L2Spawn;
 import com.l2jserver.gameserver.model.Location;
 import com.l2jserver.gameserver.model.StatsSet;
-import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2DecoyInstance;
 import com.l2jserver.gameserver.model.actor.instance.L2EffectPointInstance;
-import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
-import com.l2jserver.gameserver.model.actor.templates.L2NpcTemplate;
 import com.l2jserver.gameserver.model.conditions.Condition;
 import com.l2jserver.gameserver.model.effects.AbstractEffect;
 import com.l2jserver.gameserver.model.effects.L2EffectType;
@@ -39,6 +39,9 @@ import com.l2jserver.gameserver.model.skills.targets.TargetType;
  * @author Zoey76
  */
 public final class SummonNpc extends AbstractEffect {
+	
+	private static final Logger LOG = LoggerFactory.getLogger(SummonNpc.class);
+	
 	private int _despawnDelay;
 	private final int _npcId;
 	private final int _npcCount;
@@ -72,24 +75,24 @@ public final class SummonNpc extends AbstractEffect {
 		}
 		
 		if ((_npcId <= 0) || (_npcCount <= 0)) {
-			_log.warning(SummonNpc.class.getSimpleName() + ": Invalid NPC ID or count skill ID: " + info.getSkill().getId());
+			LOG.warn("Invalid NPC Id or count for skill: {}", info.getSkill());
 			return;
 		}
 		
-		final L2PcInstance player = info.getEffected().getActingPlayer();
+		final var player = info.getEffected().getActingPlayer();
 		if (player.isMounted()) {
 			return;
 		}
 		
-		final L2NpcTemplate npcTemplate = NpcData.getInstance().getTemplate(_npcId);
+		final var npcTemplate = NpcData.getInstance().getTemplate(_npcId);
 		if (npcTemplate == null) {
-			_log.warning(SummonNpc.class.getSimpleName() + ": Spawn of the nonexisting NPC ID: " + _npcId + ", skill ID:" + info.getSkill().getId());
+			LOG.warn("Spawn of the nonexisting NPC Id: {}, skill: {}!", _npcId, info.getSkill());
 			return;
 		}
 		
 		switch (npcTemplate.getType()) {
 			case "L2Decoy": {
-				final L2DecoyInstance decoy = new L2DecoyInstance(npcTemplate, player, _despawnDelay);
+				final var decoy = new L2DecoyInstance(npcTemplate, player, _despawnDelay);
 				decoy.setCurrentHp(decoy.getMaxHp());
 				decoy.setCurrentMp(decoy.getMaxMp());
 				decoy.setHeading(player.getHeading());
@@ -101,7 +104,7 @@ public final class SummonNpc extends AbstractEffect {
 			}
 			case "L2EffectPoint": // TODO: Implement proper signet skills.
 			{
-				final L2EffectPointInstance effectPoint = new L2EffectPointInstance(npcTemplate, player);
+				final var effectPoint = new L2EffectPointInstance(npcTemplate, player);
 				effectPoint.setCurrentHp(effectPoint.getMaxHp());
 				effectPoint.setCurrentMp(effectPoint.getMaxMp());
 				int x = player.getX();
@@ -130,8 +133,8 @@ public final class SummonNpc extends AbstractEffect {
 				L2Spawn spawn;
 				try {
 					spawn = new L2Spawn(_npcId);
-				} catch (Exception e) {
-					_log.warning(SummonNpc.class.getSimpleName() + ": " + e.getMessage());
+				} catch (Exception ex) {
+					LOG.warn("Error summoning an NPC!", ex);
 					return;
 				}
 				
@@ -148,7 +151,7 @@ public final class SummonNpc extends AbstractEffect {
 				spawn.setHeading(player.getHeading());
 				spawn.stopRespawn();
 				
-				final L2Npc npc = spawn.doSpawn(_isSummonSpawn);
+				final var npc = spawn.doSpawn(_isSummonSpawn);
 				npc.setSummoner(player);
 				npc.setName(npcTemplate.getName());
 				npc.setTitle(npcTemplate.getName());

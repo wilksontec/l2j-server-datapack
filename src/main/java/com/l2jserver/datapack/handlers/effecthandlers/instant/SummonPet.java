@@ -18,19 +18,16 @@
  */
 package com.l2jserver.datapack.handlers.effecthandlers.instant;
 
-import java.util.logging.Level;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.l2jserver.gameserver.data.xml.impl.NpcData;
 import com.l2jserver.gameserver.data.xml.impl.PetDataTable;
-import com.l2jserver.gameserver.model.L2PetData;
 import com.l2jserver.gameserver.model.StatsSet;
-import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
 import com.l2jserver.gameserver.model.actor.instance.L2PetInstance;
-import com.l2jserver.gameserver.model.actor.templates.L2NpcTemplate;
 import com.l2jserver.gameserver.model.conditions.Condition;
 import com.l2jserver.gameserver.model.effects.AbstractEffect;
 import com.l2jserver.gameserver.model.holders.PetItemHolder;
-import com.l2jserver.gameserver.model.items.instance.L2ItemInstance;
 import com.l2jserver.gameserver.model.skills.BuffInfo;
 import com.l2jserver.gameserver.network.SystemMessageId;
 import com.l2jserver.gameserver.network.serverpackets.PetItemList;
@@ -40,6 +37,9 @@ import com.l2jserver.gameserver.network.serverpackets.PetItemList;
  * @author UnAfraid
  */
 public final class SummonPet extends AbstractEffect {
+	
+	private static final Logger LOG = LoggerFactory.getLogger(SummonPet.class);
+	
 	public SummonPet(Condition attachCond, Condition applyCond, StatsSet set, StatsSet params) {
 		super(attachCond, applyCond, set, params);
 	}
@@ -55,33 +55,31 @@ public final class SummonPet extends AbstractEffect {
 			return;
 		}
 		
-		final L2PcInstance player = info.getEffector().getActingPlayer();
-		
+		final var player = info.getEffector().getActingPlayer();
 		if ((player.hasSummon() || player.isMounted())) {
 			player.sendPacket(SystemMessageId.YOU_ALREADY_HAVE_A_PET);
 			return;
 		}
 		
-		final PetItemHolder holder = player.removeScript(PetItemHolder.class);
+		final var holder = player.removeScript(PetItemHolder.class);
 		if (holder == null) {
-			_log.log(Level.WARNING, "Summoning pet without attaching PetItemHandler!", new Throwable());
+			LOG.warn("Summoning pet without attaching PetItemHandler!");
 			return;
 		}
 		
-		final L2ItemInstance item = holder.getItem();
+		final var item = holder.getItem();
 		if (player.getInventory().getItemByObjectId(item.getObjectId()) != item) {
-			_log.log(Level.WARNING, "Player: " + player + " is trying to summon pet from item that he doesn't owns.");
+			LOG.warn("Player {} is trying to summon pet from item that he doesn't owns.", player);
 			return;
 		}
 		
-		final L2PetData petData = PetDataTable.getInstance().getPetDataByItemId(item.getId());
+		final var petData = PetDataTable.getInstance().getPetDataByItemId(item.getId());
 		if ((petData == null) || (petData.getNpcId() == -1)) {
 			return;
 		}
 		
-		final L2NpcTemplate npcTemplate = NpcData.getInstance().getTemplate(petData.getNpcId());
-		final L2PetInstance pet = L2PetInstance.spawnPet(npcTemplate, player, item);
-		
+		final var npcTemplate = NpcData.getInstance().getTemplate(petData.getNpcId());
+		final var pet = L2PetInstance.spawnPet(npcTemplate, player, item);
 		pet.setShowSummonAnimation(true);
 		if (!pet.isRespawned()) {
 			pet.setCurrentHp(pet.getMaxHp());

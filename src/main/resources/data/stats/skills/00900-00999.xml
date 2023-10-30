@@ -2430,7 +2430,7 @@
 		<effects>
 			<effect name="TriggerSkillByDamage">
 				<param attackerType="ENEMY_ALL" maxAttackerLevel="99" minAttackerLevel="1" />
-				<param chance="10.0" minDamage="1" mode="DIFF" />
+				<param chance="10" minDamage="1" mode="DIFF" />
 				<param skillId="6687" skillLevel="1" />
 				<param targetType="SELF" />
 			</effect>
@@ -2693,9 +2693,11 @@
 		<!-- High Five Confirmed -->
 		<table name="#magicLvl"> 40 43 49 55 60 66 70 79 </table>
 		<table name="#skillLevel"> 1 2 3 4 5 6 7 8 </table>
+		<set name="blockedInOlympiad" val="true" />
 		<set name="icon" val="icon.skill0992" />
 		<set name="magicLvl" val="#magicLvl" />
 		<set name="operateType" val="P" />
+		<set name="targetType" val="SELF" />
 		<cond msgId="324">
 			<not>
 				<player Charges="#skillLevel" />
@@ -2703,18 +2705,18 @@
 		</cond>
 		<effects>
 			<effect name="TriggerSkillByAttack">
-				<param attackerType="L2Character" minAttackerLevel="1" maxAttackerLevel="100" />
+				<param attackerType="ENEMY_ALL" maxAttackerLevel="100" minAttackerLevel="1" />
 				<param isCritical="false" />
-				<param minDamage="1" chance="15" />
-				<param skillId="6813" skillLevel="#skillLevel" /> <!-- Focus Sonic -->
+				<param chance="30" minDamage="1" mode="DIFF" />
+				<param skillId="6813" skillLevel="#skillLevel" />
 				<param targetType="SELF" />
 				<param allowWeapons="DUAL,SWORD,BLUNT" />
 			</effect>
 			<effect name="TriggerSkillByAttack">
-				<param attackerType="L2Character" minAttackerLevel="1" maxAttackerLevel="100" />
-				<param isCritical="true" />
-				<param minDamage="1" chance="30" />
-				<param skillId="6813" skillLevel="#skillLevel" /> <!-- Focus Sonic -->
+				<param attackerType="ENEMY_ALL" maxAttackerLevel="100" minAttackerLevel="1" />
+				<param isCritical="false" />
+				<param chance="15" minDamage="1" mode="DIFF" />
+				<param skillId="6813" skillLevel="#skillLevel" />
 				<param targetType="SELF" />
 				<param allowWeapons="DUAL,SWORD,BLUNT" />
 			</effect>
@@ -2724,6 +2726,7 @@
 		<!-- High Five Confirmed -->
 		<table name="#magicLvl"> 24 32 40 52 60 66 72 79 </table>
 		<table name="#skillLevel"> 1 2 3 4 5 6 7 8 </table>
+		<set name="blockedInOlympiad" val="true" />
 		<set name="icon" val="icon.skill0993" />
 		<set name="magicLvl" val="#magicLvl" />
 		<set name="operateType" val="P" />
@@ -2735,20 +2738,19 @@
 		</cond>
 		<effects>
 			<effect name="TriggerSkillByAttack">
-				<param attackerType="L2Character" minAttackerLevel="1" maxAttackerLevel="100" />
-				<param isCritical="false" />
-				<param minDamage="1" chance="15" />
+				<param attackerType="ENEMY_ALL" maxAttackerLevel="100" minAttackerLevel="1" />
+				<param isCritical="true" />
+				<param chance="30" minDamage="1" mode="DIFF" />
 				<param skillId="6814" skillLevel="#skillLevel" /> <!-- Focus Force -->
 				<param targetType="SELF" />
-				<param allowWeapons="DUALFIST" />
+				<param allowWeapons="ALL" />
 			</effect>
 			<effect name="TriggerSkillByAttack">
-				<param attackerType="L2Character" minAttackerLevel="1" maxAttackerLevel="100" />
-				<param isCritical="true" />
-				<param minDamage="1" chance="30" />
+				<param isCritical="false" />
+				<param chance="15" minDamage="1" mode="DIFF" />
 				<param skillId="6814" skillLevel="#skillLevel" /> <!-- Focus Force -->
 				<param targetType="SELF" />
-				<param allowWeapons="DUALFIST" />
+				<param allowWeapons="ALL" />
 			</effect>
 		</effects>
 	</skill>
