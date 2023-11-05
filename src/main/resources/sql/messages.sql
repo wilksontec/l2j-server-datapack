@@ -6,12 +6,11 @@ CREATE TABLE IF NOT EXISTS `messages` (
   `content` TEXT,
   `expiration` bigint(13) unsigned NOT NULL DEFAULT '0',
   `reqAdena` BIGINT NOT NULL DEFAULT 0,
-  `hasAttachments` enum('true','false') DEFAULT 'false' NOT NULL,
-  `isUnread` enum('true','false') DEFAULT 'true' NOT NULL,
-  `isDeletedBySender` enum('true','false') DEFAULT 'false' NOT NULL,
-  `isDeletedByReceiver` enum('true','false') DEFAULT 'false' NOT NULL,
-  `isLocked` enum('true','false') DEFAULT 'false' NOT NULL,
+  `hasAttachments` BOOL DEFAULT FALSE NOT NULL,
+  `isUnread` BOOL DEFAULT TRUE NOT NULL,
+  `isDeletedBySender` BOOL DEFAULT FALSE NOT NULL,
+  `isDeletedByReceiver` BOOL DEFAULT FALSE NOT NULL,
   `sendBySystem` tinyint(1) NOT NULL DEFAULT 0,
-  `isReturned` enum('true','false') DEFAULT 'false' NOT NULL,
+  `isReturned` BOOL DEFAULT FALSE NOT NULL,
   PRIMARY KEY (`messageId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
