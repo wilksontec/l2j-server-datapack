@@ -52,7 +52,7 @@ public final class InstantHpByLevelSelf extends AbstractEffect {
 		}
 		
 		// TODO(Zoey76): This formula looks naive to me, test skill id 5878 for game mechanics.
-		final var absorb = Math.max(target.getCurrentHp() + power, target.getMaxHp());
+		final var absorb = Math.min(target.getCurrentHp() + power, target.getMaxHp());
 		final var restored = (int) (absorb - target.getCurrentHp());
 		target.setCurrentHp(absorb);
 		target.sendPacket(SystemMessage.getSystemMessage(S1_HP_HAS_BEEN_RESTORED).addInt(restored));
