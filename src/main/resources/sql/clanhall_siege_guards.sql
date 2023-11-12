@@ -6,7 +6,7 @@ CREATE TABLE IF NOT EXISTS `clanhall_siege_guards` (
   `y` mediumint(6) NOT NULL DEFAULT '0',
   `z` mediumint(6) NOT NULL DEFAULT '0',
   `heading` mediumint(6) NOT NULL DEFAULT '0',
-  `respawnDelay` mediumint(5) NOT NULL DEFAULT '0'
+  `respawnDelay` mediumint(5) NOT NULL DEFAULT '0',
   KEY `clanHallId` (`clanHallId`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
