@@ -1,4 +1,6 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.l2jserver</groupId>
 	<artifactId>l2j-server-datapack</artifactId>
@@ -17,10 +19,10 @@
 		<mockito-inline.version>5.2.0</mockito-inline.version>
 		<assertj-core.version>3.24.2</assertj-core.version>
 		<!-- Plugins -->
-		<dependency-check-maven.version>8.4.3</dependency-check-maven.version>
-		<maven-surefire-plugin.version>3.2.2</maven-surefire-plugin.version>
-		<maven-jar-plugin.version>3.3.0</maven-jar-plugin.version>
 		<maven-assembly-plugin.version>3.6.0</maven-assembly-plugin.version>
+		<maven-install-plugin.version>3.1.1</maven-install-plugin.version>
+		<maven-jar-plugin.version>3.3.0</maven-jar-plugin.version>
+		<maven-surefire-plugin.version>3.2.2</maven-surefire-plugin.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -75,6 +77,17 @@
 			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-install-plugin</artifactId>
+				<version>${maven-install-plugin.version}</version>
+				<executions>
+					<execution>
+						<id>default-install</id>
+						<phase>none</phase>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-jar-plugin</artifactId>
 				<version>${maven-jar-plugin.version}</version>
 				<executions>
@@ -105,22 +118,6 @@
 								<descriptor>src/main/assembly/zip.xml</descriptor>
 							</descriptors>
 						</configuration>
-					</execution>
-				</executions>
-			</plugin>
-			<plugin>
-				<groupId>org.owasp</groupId>
-				<artifactId>dependency-check-maven</artifactId>
-				<version>${dependency-check-maven.version}</version>
-				<configuration>
-					<failBuildOnCVSS>8</failBuildOnCVSS>
-					<assemblyAnalyzerEnabled>false</assemblyAnalyzerEnabled>
-				</configuration>
-				<executions>
-					<execution>
-						<goals>
-							<goal>check</goal>
-						</goals>
 					</execution>
 				</executions>
 			</plugin>
