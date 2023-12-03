@@ -190,7 +190,7 @@ public class DebugHandler implements ITelnetHandler {
 						StackTraceElement[] stes = entry.getValue();
 						Thread t = entry.getKey();
 						sb.append("--------------\n");
-						sb.append(t.toString() + " (" + t.getId() + ")\n");
+						sb.append(t.toString() + " (" + t.threadId() + ")\n");
 						sb.append("State: " + t.getState() + '\n');
 						sb.append("isAlive: " + t.isAlive() + " | isDaemon: " + t.isDaemon() + " | isInterrupted: " + t.isInterrupted() + '\n');
 						sb.append('\n');
@@ -275,7 +275,7 @@ public class DebugHandler implements ITelnetHandler {
 	
 	private Thread findMatchingThread(ThreadInfo inf) {
 		for (Thread thread : Thread.getAllStackTraces().keySet()) {
-			if (thread.getId() == inf.getThreadId()) {
+			if (thread.threadId() == inf.getThreadId()) {
 				return thread;
 			}
 		}

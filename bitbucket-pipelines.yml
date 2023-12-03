@@ -1,32 +1,36 @@
-image: openjdk:17-alpine
+image: eclipse-temurin:21.0.1_12-jdk-ubi9-minimal
 
+definitions:
+   caches:
+      game-server: l2j-server-game
 pipelines:
    branches:
       develop:
-         - step:
+      -  step:
             caches:
-             - maven
+            - maven
             script:
-             - apk update
-             - apk add git
-             - git clone --depth=1 https://bitbucket.org/l2jserver/l2j-server-game.git
-             - cd l2j-server-game
-             - /bin/sh mvnw install -DskipTests
-             - cd ..
-         - step:
+            - apk update
+            - apk add git
+            - git clone --depth=1 https://bitbucket.org/l2jserver/l2j-server-game.git
+            - cd l2j-server-game
+            - /bin/sh mvnw install -DskipTests -Ddependency-check.skip=true
+            - cd ..
+      -  step:
             caches:
-             - maven
+            - maven
+            - game-server
             script:
-             - /bin/sh mvnw install
+            - /bin/sh mvnw install
             artifacts:
-             - target/*.zip
-         - step:
+            - target/*.zip
+      -  step:
             deployment: Production
             script:
-             - pipe: atlassian/ftp-deploy:0.3.6
+            -  pipe: atlassian/ftp-deploy:0.6.0
                variables:
-                 USER: $FTP_USER
-                 PASSWORD: $FTP_PASSWORD
-                 SERVER: $FTP_HOST
-                 REMOTE_PATH: $FTP_REMOTE_PATH
-                 LOCAL_PATH: 'target/'
+                  USER: $FTP_USER
+                  PASSWORD: $FTP_PASSWORD
+                  SERVER: $FTP_HOST
+                  REMOTE_PATH: $FTP_REMOTE_PATH
+                  LOCAL_PATH: target/
