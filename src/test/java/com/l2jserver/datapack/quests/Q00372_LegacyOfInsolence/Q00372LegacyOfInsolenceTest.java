@@ -25,6 +25,7 @@ import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.lenient;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.never;
+import static org.mockito.Mockito.spy;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -36,7 +37,6 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.ArgumentCaptor;
 import org.mockito.Mock;
-import org.mockito.Spy;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import com.l2jserver.gameserver.model.actor.L2Npc;
@@ -85,8 +85,7 @@ public class Q00372LegacyOfInsolenceTest {
 	@Mock
 	private QuestState qs;
 	
-	@Spy
-	private final Quest quest = new Q00372_LegacyOfInsolence();
+	private static final Quest QUEST = spy(new Q00372_LegacyOfInsolence());
 	
 	@BeforeEach
 	void setUp() {
@@ -95,295 +94,295 @@ public class Q00372LegacyOfInsolenceTest {
 	}
 	
 	@Test
-	public void shouldInitQuestCorrectly() {
-		assertThat(quest.getId()).isEqualTo(372);
-		assertThat(quest.getRegisteredIds(ListenerRegisterType.NPC)).containsExactlyInAnyOrder(TRADER_HOLLY, WAREHOUSE_KEEPER_WALDERAL, MAGISTER_DESMOND, ANTIQUE_DEALER_PATRIN, CLAUDIA_ATHEBALDT, CORRUPT_SAGE, ERIN_EDIUNCE, HALLATES_INSPECTOR, PLATINUM_TRIBE_OVERLORD, MESSENGER_ANGEL, PLATINUM_GUARDIAN_PREFECT);
+	void testShouldInitQuestCorrectly() {
+		assertThat(QUEST.getId()).isEqualTo(372);
+		assertThat(QUEST.getRegisteredIds(ListenerRegisterType.NPC)).containsExactlyInAnyOrder(TRADER_HOLLY, WAREHOUSE_KEEPER_WALDERAL, MAGISTER_DESMOND, ANTIQUE_DEALER_PATRIN, CLAUDIA_ATHEBALDT, CORRUPT_SAGE, ERIN_EDIUNCE, HALLATES_INSPECTOR, PLATINUM_TRIBE_OVERLORD, MESSENGER_ANGEL, PLATINUM_GUARDIAN_PREFECT);
 	}
 	
 	@Test
-	public void onAdvEventWithNoQuestStateShouldReturnNull() {
+	void testOnAdvEventWithNoQuestStateShouldReturnNull() {
 		when(player.getQuestState(QUEST_NAME)).thenReturn(null);
 		
-		String result = quest.onAdvEvent("30844-04.htm", npc, player);
+		String result = QUEST.onAdvEvent("30844-04.htm", npc, player);
 		
 		assertThat(result).isNull();
 	}
 	
 	@Test
-	public void onAdvEventWithUnsupportedEventShouldReturnNull() {
+	void testOnAdvEventWithUnsupportedEventShouldReturnNull() {
 		String event = "00001-01.htm";
 		
-		String result = quest.onAdvEvent(event, npc, player);
+		String result = QUEST.onAdvEvent(event, npc, player);
 		
 		assertThat(result).isNull();
 	}
 	
 	@Test
-	public void onAdvEventWalderalStartQuest() {
+	void testOnAdvEventWalderalStartQuest() {
 		String event = "30844-04.htm";
 		when(qs.isCreated()).thenReturn(true);
 		
-		String result = quest.onAdvEvent(event, npc, player);
+		String result = QUEST.onAdvEvent(event, npc, player);
 		
 		verify(qs).startQuest();
 		assertThat(result).isEqualTo(event);
 	}
 	
 	@Test
-	public void onAdvEventWalderalQuestAlreadyStarted() {
+	void testOnAdvEventWalderalQuestAlreadyStarted() {
 		String event = "30844-04.htm";
 		when(qs.isCreated()).thenReturn(false);
 		
-		String result = quest.onAdvEvent(event, npc, player);
+		String result = QUEST.onAdvEvent(event, npc, player);
 		
 		verify(qs, never()).startQuest();
 		assertThat(result).isNull();
 	}
 	
 	@Test
-	public void onAdvEventWalderalOtherBooks() {
+	void testOnAdvEventWalderalOtherBooks() {
 		String event = "30844-05b.html";
 		
-		String result = quest.onAdvEvent(event, npc, player);
+		String result = QUEST.onAdvEvent(event, npc, player);
 		
 		verify(qs).setCond(2);
 		assertThat(result).isEqualTo(event);
 	}
 	
 	@Test
-	public void onAdvEventWalderalNotAllBlueprints() {
+	void testOnAdvEventWalderalNotAllBlueprints() {
 		String event = "30844-07.html";
 		
-		String result = quest.onAdvEvent(event, npc, player);
+		String result = QUEST.onAdvEvent(event, npc, player);
 		
 		assertThat(result).isEqualTo("30844-06.html");
 	}
 	
 	@Test
-	public void onAdvEventWalderalAllBlueprints() {
+	void testOnAdvEventWalderalAllBlueprints() {
 		String event = "30844-07.html";
 		L2ItemInstance item = mock(L2ItemInstance.class);
 		BLUEPRINTS.forEach(itemId -> when(inventory.getItemByItemId(itemId)).thenReturn(item));
 		
-		String result = quest.onAdvEvent(event, npc, player);
+		String result = QUEST.onAdvEvent(event, npc, player);
 		
 		assertThat(result).isEqualTo(event);
 	}
 	
 	@Test
-	public void onAdvEventWalderalDarkCrystalAllBlueprints() {
+	void testOnAdvEventWalderalDarkCrystalAllBlueprints() {
 		String event = "30844-07a.html";
 		BLUEPRINTS.forEach(this::stubInventoryItem);
 		
-		String result = quest.onAdvEvent(event, npc, player);
+		String result = QUEST.onAdvEvent(event, npc, player);
 		
 		assertThat(result).isEqualTo(event);
 	}
 	
 	@Test
-	public void onAdvEventWalderalDarkCrystalNotAllBlueprints() {
+	void testOnAdvEventWalderalDarkCrystalNotAllBlueprints() {
 		String event = "30844-07a.html";
 		
-		String result = quest.onAdvEvent(event, npc, player);
+		String result = QUEST.onAdvEvent(event, npc, player);
 		
 		assertThat(result).isEqualTo("30844-07e.html");
 	}
 	
 	@Test
-	public void onAdvEventWalderalTallumAllBlueprints() {
+	void testOnAdvEventWalderalTallumAllBlueprints() {
 		String event = "30844-07b.html";
 		BLUEPRINTS.forEach(this::stubInventoryItem);
 		
-		String result = quest.onAdvEvent(event, npc, player);
+		String result = QUEST.onAdvEvent(event, npc, player);
 		
 		assertThat(result).isEqualTo(event);
 	}
 	
 	@Test
-	public void onAdvEventWalderalTallumNotAllBlueprints() {
+	void testOnAdvEventWalderalTallumNotAllBlueprints() {
 		String event = "30844-07b.html";
 		
-		String result = quest.onAdvEvent(event, npc, player);
+		String result = QUEST.onAdvEvent(event, npc, player);
 		
 		assertThat(result).isEqualTo("30844-07e.html");
 	}
 	
 	@Test
-	public void onAdvEventWalderalNightmareAllBlueprints() {
+	void testOnAdvEventWalderalNightmareAllBlueprints() {
 		String event = "30844-07c.html";
 		BLUEPRINTS.forEach(this::stubInventoryItem);
 		
-		String result = quest.onAdvEvent(event, npc, player);
+		String result = QUEST.onAdvEvent(event, npc, player);
 		
 		assertThat(result).isEqualTo(event);
 	}
 	
 	@Test
-	public void onAdvEventWalderalNightmareNotAllBlueprints() {
+	void testOnAdvEventWalderalNightmareNotAllBlueprints() {
 		String event = "30844-07c.html";
 		
-		String result = quest.onAdvEvent(event, npc, player);
+		String result = QUEST.onAdvEvent(event, npc, player);
 		
 		assertThat(result).isEqualTo("30844-07e.html");
 	}
 	
 	@Test
-	public void onAdvEventWalderalMajesticAllBlueprints() {
+	void testOnAdvEventWalderalMajesticAllBlueprints() {
 		String event = "30844-07c.html";
 		BLUEPRINTS.forEach(this::stubInventoryItem);
 		
-		String result = quest.onAdvEvent(event, npc, player);
+		String result = QUEST.onAdvEvent(event, npc, player);
 		
 		assertThat(result).isEqualTo(event);
 	}
 	
 	@Test
-	public void onAdvEventWalderalMajesticNotAllBlueprints() {
+	void testOnAdvEventWalderalMajesticNotAllBlueprints() {
 		String event = "30844-07c.html";
 		
-		String result = quest.onAdvEvent(event, npc, player);
+		String result = QUEST.onAdvEvent(event, npc, player);
 		
 		assertThat(result).isEqualTo("30844-07e.html");
 	}
 	
 	@Test
-	public void onAdvEventWalderalAbortQuest() {
+	void testOnAdvEventWalderalAbortQuest() {
 		String event = "30844-09.html";
 		
-		String result = quest.onAdvEvent(event, npc, player);
+		String result = QUEST.onAdvEvent(event, npc, player);
 		
 		verify(qs).exitQuest(true, true);
 		assertThat(result).isEqualTo(event);
 	}
 	
 	@Test
-	public void onAdvEventOtherSupportedEvents() {
+	void testOnAdvEventOtherSupportedEvents() {
 		List.of("30844-03.htm", "30844-05.html", "30844-05a.html", "30844-08.html", "30844-10.html", "30844-11.html")
 			.forEach(event -> {
-				String result = quest.onAdvEvent(event, npc, player);
+				String result = QUEST.onAdvEvent(event, npc, player);
 				
 				assertThat(result).isEqualTo(event);
 			});
 	}
 	
 	@Test
-	public void onTalkShouldInitQuestStateForPlayer() {
+	void testOnTalkShouldInitQuestStateForPlayer() {
 		when(player.getQuestState(QUEST_NAME)).thenReturn(null);
 		
-		quest.onTalk(npc, player);
+		QUEST.onTalk(npc, player);
 		
-		verify(quest).newQuestState(player);
+		verify(QUEST).newQuestState(player);
 	}
 	
 	@Test
-	public void onTalkToWrongNpcWithStateCreated() {
+	void testOnTalkToWrongNpcWithStateCreated() {
 		when(qs.isCreated()).thenReturn(true);
 		when(npc.getId()).thenReturn(WRONG_NPC);
 		
-		String result = quest.onTalk(npc, player);
+		String result = QUEST.onTalk(npc, player);
 		
 		assertThat(result).isEqualTo(Quest.getNoQuestMsg(player));
 	}
 	
 	@Test
-	public void onTalkToWalderalWithStateCreatedAndLevelTooLow() {
+	void testOnTalkToWalderalWithStateCreatedAndLevelTooLow() {
 		when(qs.isCreated()).thenReturn(true);
 		when(npc.getId()).thenReturn(WAREHOUSE_KEEPER_WALDERAL);
 		when(player.getLevel()).thenReturn(MIN_LEVEL - 1);
 		
-		String result = quest.onTalk(npc, player);
+		String result = QUEST.onTalk(npc, player);
 		
 		assertThat(result).isEqualTo(WAREHOUSE_KEEPER_WALDERAL + "-01.htm");
 	}
 	
 	@Test
-	public void onTalkToWalderalWithStateCreated() {
+	void testOnTalkToWalderalWithStateCreated() {
 		when(qs.isCreated()).thenReturn(true);
 		when(npc.getId()).thenReturn(WAREHOUSE_KEEPER_WALDERAL);
 		when(player.getLevel()).thenReturn(MIN_LEVEL);
 		
-		String result = quest.onTalk(npc, player);
+		String result = QUEST.onTalk(npc, player);
 		
 		assertThat(result).isEqualTo(WAREHOUSE_KEEPER_WALDERAL + "-02.htm");
 	}
 	
 	@Test
-	public void onTalkToHollyWithStateCreated() {
+	void testOnTalkToHollyWithStateCreated() {
 		when(qs.isCreated()).thenReturn(true);
 		when(npc.getId()).thenReturn(TRADER_HOLLY);
 		
-		String result = quest.onTalk(npc, player);
+		String result = QUEST.onTalk(npc, player);
 		
 		assertThat(result).isEqualTo(Quest.getNoQuestMsg(player));
 	}
 	
 	@Test
-	public void onTalkToDesmondWithStateCreated() {
+	void testOnTalkToDesmondWithStateCreated() {
 		when(qs.isCreated()).thenReturn(true);
 		when(npc.getId()).thenReturn(MAGISTER_DESMOND);
 		
-		String result = quest.onTalk(npc, player);
+		String result = QUEST.onTalk(npc, player);
 		
 		assertThat(result).isEqualTo(Quest.getNoQuestMsg(player));
 	}
 	
 	@Test
-	public void onTalkToPatrinWithStateCreated() {
+	void testOnTalkToPatrinWithStateCreated() {
 		when(qs.isCreated()).thenReturn(true);
 		when(npc.getId()).thenReturn(ANTIQUE_DEALER_PATRIN);
 		
-		String result = quest.onTalk(npc, player);
+		String result = QUEST.onTalk(npc, player);
 		
 		assertThat(result).isEqualTo(Quest.getNoQuestMsg(player));
 	}
 	
 	@Test
-	public void onTalkToClaudiaWithStateCreated() {
+	void testOnTalkToClaudiaWithStateCreated() {
 		when(qs.isCreated()).thenReturn(true);
 		when(npc.getId()).thenReturn(CLAUDIA_ATHEBALDT);
 		
-		String result = quest.onTalk(npc, player);
+		String result = QUEST.onTalk(npc, player);
 		
 		assertThat(result).isEqualTo(Quest.getNoQuestMsg(player));
 	}
 	
 	@Test
-	public void onTalkToWrongNpcWithStateStarted() {
+	void testOnTalkToWrongNpcWithStateStarted() {
 		when(qs.isStarted()).thenReturn(true);
 		when(npc.getId()).thenReturn(WRONG_NPC);
 		
-		String result = quest.onTalk(npc, player);
+		String result = QUEST.onTalk(npc, player);
 		
 		assertThat(result).isEqualTo(Quest.getNoQuestMsg(player));
 	}
 	
 	@Test
-	public void onTalkToWalderalWithStateStarted() {
+	void testOnTalkToWalderalWithStateStarted() {
 		when(qs.isStarted()).thenReturn(true);
 		when(npc.getId()).thenReturn(WAREHOUSE_KEEPER_WALDERAL);
 		
-		String result = quest.onTalk(npc, player);
+		String result = QUEST.onTalk(npc, player);
 		
 		assertThat(result).isEqualTo(WAREHOUSE_KEEPER_WALDERAL + "-05.html");
 	}
 	
 	@Test
-	public void onTalkToHollyWithStateStarted() {
+	void testOnTalkToHollyWithStateStarted() {
 		when(qs.isStarted()).thenReturn(true);
 		when(npc.getId()).thenReturn(TRADER_HOLLY);
 		
-		String result = quest.onTalk(npc, player);
+		String result = QUEST.onTalk(npc, player);
 		
 		assertThat(result).isEqualTo(TRADER_HOLLY + "-01.html");
 	}
 	
 	@Test
-	public void onTalkToHollyWithStateStartedAndAllItems() {
+	void testOnTalkToHollyWithStateStartedAndAllItems() {
 		when(qs.isStarted()).thenReturn(true);
 		when(npc.getId()).thenReturn(TRADER_HOLLY);
 		IMPERIAL_GENEALOGY.forEach(this::stubInventoryItem);
 		
-		String result = quest.onTalk(npc, player);
+		String result = QUEST.onTalk(npc, player);
 		
 		List<Integer> removedItemIds = verifyItemsRemoved(player, IMPERIAL_GENEALOGY);
 		assertThat(removedItemIds).containsExactlyInAnyOrderElementsOf(IMPERIAL_GENEALOGY);
@@ -391,22 +390,22 @@ public class Q00372LegacyOfInsolenceTest {
 	}
 	
 	@Test
-	public void onTalkToDesmondWithStateStarted() {
+	void testOnTalkToDesmondWithStateStarted() {
 		when(qs.isStarted()).thenReturn(true);
 		when(npc.getId()).thenReturn(MAGISTER_DESMOND);
 		
-		String result = quest.onTalk(npc, player);
+		String result = QUEST.onTalk(npc, player);
 		
 		assertThat(result).isEqualTo(MAGISTER_DESMOND + "-01.html");
 	}
 	
 	@Test
-	public void onTalkToDesmondWithStateStartedAndAllItems() {
+	void testOnTalkToDesmondWithStateStartedAndAllItems() {
 		when(qs.isStarted()).thenReturn(true);
 		when(npc.getId()).thenReturn(MAGISTER_DESMOND);
 		REVELATION_OF_THE_SEALS.forEach(this::stubInventoryItem);
 		
-		String result = quest.onTalk(npc, player);
+		String result = QUEST.onTalk(npc, player);
 		
 		List<Integer> removedItemIds = verifyItemsRemoved(player, REVELATION_OF_THE_SEALS);
 		assertThat(removedItemIds).containsExactlyInAnyOrderElementsOf(REVELATION_OF_THE_SEALS);
@@ -414,22 +413,22 @@ public class Q00372LegacyOfInsolenceTest {
 	}
 	
 	@Test
-	public void onTalkToPatrinWithStateStarted() {
+	void testOnTalkToPatrinWithStateStarted() {
 		when(qs.isStarted()).thenReturn(true);
 		when(npc.getId()).thenReturn(ANTIQUE_DEALER_PATRIN);
 		
-		String result = quest.onTalk(npc, player);
+		String result = QUEST.onTalk(npc, player);
 		
 		assertThat(result).isEqualTo(ANTIQUE_DEALER_PATRIN + "-01.html");
 	}
 	
 	@Test
-	public void onTalkToPatrinWithStateStartedAndAllItems() {
+	void testOnTalkToPatrinWithStateStartedAndAllItems() {
 		when(qs.isStarted()).thenReturn(true);
 		when(npc.getId()).thenReturn(ANTIQUE_DEALER_PATRIN);
 		ANCIENT_EPIC.forEach(this::stubInventoryItem);
 		
-		String result = quest.onTalk(npc, player);
+		String result = QUEST.onTalk(npc, player);
 		
 		List<Integer> removedItemIds = verifyItemsRemoved(player, ANCIENT_EPIC);
 		assertThat(removedItemIds).containsExactlyInAnyOrderElementsOf(ANCIENT_EPIC);
@@ -437,22 +436,22 @@ public class Q00372LegacyOfInsolenceTest {
 	}
 	
 	@Test
-	public void onTalkToClaudiaWithStateStarted() {
+	void testOnTalkToClaudiaWithStateStarted() {
 		when(qs.isStarted()).thenReturn(true);
 		when(npc.getId()).thenReturn(CLAUDIA_ATHEBALDT);
 		
-		String result = quest.onTalk(npc, player);
+		String result = QUEST.onTalk(npc, player);
 		
 		assertThat(result).isEqualTo(CLAUDIA_ATHEBALDT + "-01.html");
 	}
 	
 	@Test
-	public void onTalkToClaudiaWithStateStartedAndAllItems() {
+	void testOnTalkToClaudiaWithStateStartedAndAllItems() {
 		when(qs.isStarted()).thenReturn(true);
 		when(npc.getId()).thenReturn(CLAUDIA_ATHEBALDT);
 		REVELATION_OF_THE_SEALS.forEach(this::stubInventoryItem);
 		
-		String result = quest.onTalk(npc, player);
+		String result = QUEST.onTalk(npc, player);
 		
 		List<Integer> removedItemIds = verifyItemsRemoved(player, REVELATION_OF_THE_SEALS);
 		assertThat(removedItemIds).containsExactlyInAnyOrderElementsOf(REVELATION_OF_THE_SEALS);
@@ -460,57 +459,57 @@ public class Q00372LegacyOfInsolenceTest {
 	}
 	
 	@Test
-	public void onKillCorruptSageShouldGetQuestStateWithCorrectPlayerChance() {
+	void testOnKillCorruptSageShouldGetQuestStateWithCorrectPlayerChance() {
 		when(npc.getId()).thenReturn(CORRUPT_SAGE);
 		
-		quest.onKill(npc, player, false);
+		QUEST.onKill(npc, player, false);
 		
-		verify(quest).getRandomPartyMemberState(player, -1, 1, npc);
+		verify(QUEST).getRandomPartyMemberState(player, -1, 1, npc);
 	}
 	
 	@Test
-	public void onKillErinEdiunceShouldGetQuestStateWithCorrectPlayerChance() {
+	void testOnKillErinEdiunceShouldGetQuestStateWithCorrectPlayerChance() {
 		when(npc.getId()).thenReturn(ERIN_EDIUNCE);
 		
-		quest.onKill(npc, player, false);
+		QUEST.onKill(npc, player, false);
 		
-		verify(quest).getRandomPartyMemberState(player, -1, 1, npc);
+		verify(QUEST).getRandomPartyMemberState(player, -1, 1, npc);
 	}
 	
 	@Test
-	public void onKillHallatesInspectorShouldGetQuestStateWithCorrectPlayerChance() {
+	void testOnKillHallatesInspectorShouldGetQuestStateWithCorrectPlayerChance() {
 		when(npc.getId()).thenReturn(HALLATES_INSPECTOR);
 		
-		quest.onKill(npc, player, false);
+		QUEST.onKill(npc, player, false);
 		
-		verify(quest).getRandomPartyMemberState(player, -1, 3, npc);
+		verify(QUEST).getRandomPartyMemberState(player, -1, 3, npc);
 	}
 	
 	@Test
-	public void onKillPlatinumOverlordShouldGetQuestStateWithCorrectPlayerChance() {
+	void testOnKillPlatinumOverlordShouldGetQuestStateWithCorrectPlayerChance() {
 		when(npc.getId()).thenReturn(PLATINUM_TRIBE_OVERLORD);
 		
-		quest.onKill(npc, player, false);
+		QUEST.onKill(npc, player, false);
 		
-		verify(quest).getRandomPartyMemberState(player, -1, 3, npc);
+		verify(QUEST).getRandomPartyMemberState(player, -1, 3, npc);
 	}
 	
 	@Test
-	public void onKillMessengerAngelShouldGetQuestStateWithCorrectPlayerChance() {
+	void testOnKillMessengerAngelShouldGetQuestStateWithCorrectPlayerChance() {
 		when(npc.getId()).thenReturn(MESSENGER_ANGEL);
 		
-		quest.onKill(npc, player, false);
+		QUEST.onKill(npc, player, false);
 		
-		verify(quest).getRandomPartyMemberState(player, -1, 1, npc);
+		verify(QUEST).getRandomPartyMemberState(player, -1, 1, npc);
 	}
 	
 	@Test
-	public void onKillPlatinumPrefectShouldGetQuestStateWithCorrectPlayerChance() {
+	void testOnKillPlatinumPrefectShouldGetQuestStateWithCorrectPlayerChance() {
 		when(npc.getId()).thenReturn(PLATINUM_GUARDIAN_PREFECT);
 		
-		quest.onKill(npc, player, false);
+		QUEST.onKill(npc, player, false);
 		
-		verify(quest).getRandomPartyMemberState(player, -1, 1, npc);
+		verify(QUEST).getRandomPartyMemberState(player, -1, 1, npc);
 	}
 	
 	private void stubInventoryItem(Integer itemId) {

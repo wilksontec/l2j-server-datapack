@@ -25,10 +25,10 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import com.l2jserver.datapack.ai.npc.AbstractNpcAI;
 import com.l2jserver.gameserver.model.actor.L2Npc;
 
 /**
+ * Corpse test.
  * @author Noé Caratini aka Kita
  */
 @ExtendWith(MockitoExtension.class)
@@ -38,8 +38,8 @@ public class CorpseTest {
 	private L2Npc npc;
 	
 	@Test
-	void shouldDieOnSpawn() {
-		AbstractNpcAI corpseAi = new Corpse();
+	void testShouldDieOnSpawn() {
+		final var corpseAi = new Corpse();
 		
 		corpseAi.onSpawn(npc);
 		
