@@ -23,13 +23,13 @@ import org.slf4j.LoggerFactory;
 
 import com.l2jserver.datapack.custom.service.discord.DiscordBot;
 
-import net.dv8tion.jda.api.events.DisconnectEvent;
-import net.dv8tion.jda.api.events.ReadyEvent;
-import net.dv8tion.jda.api.events.ReconnectedEvent;
+import net.dv8tion.jda.api.events.session.ReadyEvent;
+import net.dv8tion.jda.api.events.session.SessionDisconnectEvent;
+import net.dv8tion.jda.api.events.session.SessionResumeEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 
 /**
- * Basic Listener
+ * Basic Listener.
  * @author Stalitsa
  * @version 2.6.2.0
  */
@@ -42,14 +42,14 @@ public class BasicListener extends ListenerAdapter {
 	}
 	
 	@Override
-	public void onDisconnect(DisconnectEvent event) {
+	public void onSessionDisconnect(SessionDisconnectEvent event) {
 		if (event.isClosedByServer()) {
 			LOG.info(event.getJDA().getSelfUser().getName() + " disconnected (closed by the server) with code: " + event.getServiceCloseFrame().getCloseCode() + " " + event.getCloseCode());
 		}
 	}
 	
 	@Override
-	public void onReconnected(ReconnectedEvent event) {
+	public void onSessionResume(SessionResumeEvent event) {
 		LOG.info(event.getJDA().getSelfUser().getName() + " has reconnected.");
 	}
 }

@@ -55,8 +55,8 @@ public class AnnounceCommand extends AbstractCommand {
 		
 		if (args.length <= 2) {
 			eb.setDescription("Wrong Arguments. Please type the message to be sent.");
-			event.getTextChannel().sendMessageEmbeds(eb.build()).queue();
-			event.getMessage().addReaction("\u274C").queue();
+			event.getChannel().asTextChannel().sendMessageEmbeds(eb.build()).queue();
+			event.getMessage().addReaction(CROSS_MARK).queue();
 			return;
 		}
 		
@@ -73,7 +73,7 @@ public class AnnounceCommand extends AbstractCommand {
 			Broadcast.toAllOnlinePlayers(screenMessage);
 		}
 		eb.setDescription("**In game Announcement have been sent**.");
-		event.getMessage().addReaction("\u2705").queue();
+		event.getMessage().addReaction(CHECK_MARK).queue();
 		event.getChannel().sendMessageEmbeds(eb.build()).queue();
 	}
 }

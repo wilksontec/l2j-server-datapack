@@ -22,8 +22,6 @@ import static com.l2jserver.gameserver.config.Configuration.discord;
 
 import java.awt.Color;
 
-import javax.security.auth.login.LoginException;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -41,7 +39,6 @@ import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.OnlineStatus;
 import net.dv8tion.jda.api.entities.Activity;
-import net.dv8tion.jda.api.entities.MessageChannel;
 import net.dv8tion.jda.api.requests.GatewayIntent;
 import net.dv8tion.jda.api.utils.ChunkingFilter;
 import net.dv8tion.jda.api.utils.MemberCachePolicy;
@@ -86,7 +83,7 @@ public class DiscordBot {
 				.awaitReady(); // Blocking guarantees that JDA will be completely loaded.
 			jda.getPresence().setPresence(OnlineStatus.ONLINE, Activity.listening(": -- L2J"));
 			LOG.info("Discord Bot Started.");
-		} catch (InterruptedException | LoginException ex) {
+		} catch (InterruptedException ex) {
 			LOG.error("Failed to start the Discord Bot!", ex);
 		}
 	}
@@ -106,7 +103,7 @@ public class DiscordBot {
 	 * @param channelId the channel to send the embed. // planned to be used by console logs
 	 */
 	public static void sendMessageTo(EmbedBuilder ed, String channelId) {
-		MessageChannel channel = jda.getTextChannelById(channelId);
+		final var channel = jda.getTextChannelById(channelId);
 		if (channel != null) {
 			channel.sendMessageEmbeds(ed.build()).queue(); // this actually sends the information to discord.
 		}

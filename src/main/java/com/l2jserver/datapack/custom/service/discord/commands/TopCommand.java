@@ -87,8 +87,8 @@ public class TopCommand extends AbstractCommand {
 		if ((args.length == 1) || !Arrays.asList(choice).contains(args[1])) {
 			eb.setColor(Color.RED).setDescription("Wrong Arguments.");
 			eb.addField(discord().getPrefix() + " " + String.join(", ", getCommands()) + " <choice>", "Choice: \n```css\n" + String.join(", ", choice) + "```", false);
-			event.getTextChannel().sendMessageEmbeds(eb.build()).queue(message -> message.delete().queueAfter(30, TimeUnit.SECONDS));
-			event.getMessage().addReaction("\u274C").queue();
+			event.getChannel().asTextChannel().sendMessageEmbeds(eb.build()).queue(message -> message.delete().queueAfter(30, TimeUnit.SECONDS));
+			event.getMessage().addReaction(CROSS_MARK).queue();
 			return;
 		}
 		
@@ -97,8 +97,8 @@ public class TopCommand extends AbstractCommand {
 				if ((args.length == 2) || (args.length > 3) || !Arrays.asList(params).contains(args[2])) {
 					eb.setColor(Color.RED).setDescription("Wrong Arguments.");
 					eb.addField("Example:", discord().getPrefix() + " top players \nParams: \n```css\n" + String.join(", ", params) + "```", false);
-					event.getTextChannel().sendMessageEmbeds(eb.build()).queue(message -> message.delete().queueAfter(30, TimeUnit.SECONDS));
-					event.getMessage().addReaction("\u274C").queue();
+					event.getChannel().asTextChannel().sendMessageEmbeds(eb.build()).queue(message -> message.delete().queueAfter(30, TimeUnit.SECONDS));
+					event.getMessage().addReaction(CROSS_MARK).queue();
 					return;
 				}
 				eb.setDescription("***___TOP 10 " + args[2].toUpperCase() + " PLAYERS___***");
@@ -160,15 +160,15 @@ public class TopCommand extends AbstractCommand {
 					eb.setFooter("Total Players: " + getAllPlayers().size(), event.getGuild().getIconUrl());
 				}
 				eb.setThumbnail(event.getGuild().getIconUrl());
-				event.getMessage().addReaction("\u2705").queue();
+				event.getMessage().addReaction(CHECK_MARK).queue();
 				event.getChannel().sendMessageEmbeds(eb.build()).queue(message -> message.delete().queueAfter(60, TimeUnit.SECONDS));
 			}
 			case "clans" -> {
 				if (args.length > 2) {
 					eb.setColor(Color.RED).setDescription("Wrong Arguments.");
 					eb.addField(discord().getPrefix() + " " + String.join(", ", getCommands()) + " <choice>", "Choice: \n```css\n" + String.join(", ", choice) + "```", false);
-					event.getTextChannel().sendMessageEmbeds(eb.build()).queue(message -> message.delete().queueAfter(30, TimeUnit.SECONDS));
-					event.getMessage().addReaction("\u274C").queue();
+					event.getChannel().asTextChannel().sendMessageEmbeds(eb.build()).queue(message -> message.delete().queueAfter(30, TimeUnit.SECONDS));
+					event.getMessage().addReaction(CROSS_MARK).queue();
 					return;
 				}
 				eb.setDescription("***___TOP 10 CLANS___***");
@@ -204,7 +204,7 @@ public class TopCommand extends AbstractCommand {
 					eb.setFooter("Total Clans: " + ClanTable.getInstance().getClans().size(), event.getGuild().getIconUrl());
 				}
 				eb.setThumbnail(event.getGuild().getIconUrl());
-				event.getMessage().addReaction("\u2705").queue();
+				event.getMessage().addReaction(CHECK_MARK).queue();
 				event.getChannel().sendMessageEmbeds(eb.build()).queue(message -> message.delete().queueAfter(60, TimeUnit.SECONDS));
 			}
 		}

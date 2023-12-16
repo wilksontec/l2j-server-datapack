@@ -25,10 +25,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 import net.dv8tion.jda.api.EmbedBuilder;
-import net.dv8tion.jda.api.entities.ChannelType;
 import net.dv8tion.jda.api.entities.Guild;
 import net.dv8tion.jda.api.entities.Member;
 import net.dv8tion.jda.api.entities.Role;
+import net.dv8tion.jda.api.entities.channel.ChannelType;
+import net.dv8tion.jda.api.entities.emoji.Emoji;
+import net.dv8tion.jda.api.entities.emoji.EmojiUnion;
 import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 
@@ -38,6 +40,10 @@ import net.dv8tion.jda.api.hooks.ListenerAdapter;
  * @version 2.6.2.0
  */
 public abstract class AbstractCommand extends ListenerAdapter {
+	
+	public static final EmojiUnion CROSS_MARK = Emoji.fromFormatted("\u274C");
+	
+	public static final EmojiUnion CHECK_MARK = Emoji.fromFormatted("\u2705");
 	
 	public abstract String[] getCommands();
 	
@@ -71,8 +77,8 @@ public abstract class AbstractCommand extends ListenerAdapter {
 		// Only Server owner and members with the specified role assigned can execute the command.
 		if ((guildMember == null) || (gameMaster == null) || !guildMember.isOwner() || !guildMember.getRoles().contains(gameMaster)) {
 			eb.setDescription("Only Staff members can use this command!");
-			event.getTextChannel().sendMessageEmbeds(eb.build()).queue();
-			event.getMessage().addReaction("\u274C").queue();
+			event.getChannel().asTextChannel().sendMessageEmbeds(eb.build()).queue();
+			event.getMessage().addReaction(CROSS_MARK).queue();
 			return false;
 		}
 		return true;

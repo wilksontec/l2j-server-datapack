@@ -56,8 +56,8 @@ public class ShutdownCommand extends AbstractCommand {
 		if (args.length != 2) {
 			eb.setColor(Color.RED);
 			eb.setDescription("Wrong Arguments. Please just provide a number in seconds.");
-			event.getTextChannel().sendMessageEmbeds(eb.build()).queue();
-			event.getMessage().addReaction("\u274C").queue();
+			event.getChannel().asTextChannel().sendMessageEmbeds(eb.build()).queue();
+			event.getMessage().addReaction(CROSS_MARK).queue();
 			return;
 		}
 		
@@ -68,7 +68,7 @@ public class ShutdownCommand extends AbstractCommand {
 			eb.setColor(Color.RED);
 			eb.setDescription("Wrong Arguments. Please just provide a number in seconds.");
 			event.getChannel().sendMessageEmbeds(eb.build()).queue();
-			event.getMessage().addReaction("\u274C").queue();
+			event.getMessage().addReaction(CROSS_MARK).queue();
 			return;
 		}
 		
@@ -78,6 +78,6 @@ public class ShutdownCommand extends AbstractCommand {
 		eb.setColor(Color.GREEN);
 		eb.setDescription("GM: {" + gmName + "} issued command. **" + commandName + "** in " + seconds + " " + "seconds!");
 		event.getChannel().sendMessageEmbeds(eb.build()).queue();
-		event.getMessage().addReaction("\u2705").queue();
+		event.getMessage().addReaction(CHECK_MARK).queue();
 	}
 }

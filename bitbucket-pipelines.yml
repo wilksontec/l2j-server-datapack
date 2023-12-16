@@ -1,15 +1,11 @@
 image: eclipse-temurin:21.0.1_12-jdk-ubi9-minimal
 
-definitions:
-   caches:
-      game-server: /opt/atlassian/pipelines/agent/build/l2j-server-game
 pipelines:
    branches:
       develop:
       -  step:
             caches:
             - maven
-            - game-server
             script:
             - microdnf update -y
             - microdnf install -y git
@@ -23,14 +19,13 @@ pipelines:
                  git clone --depth=1 https://bitbucket.org/l2jserver/l2j-server-game.git
                  cd l2j-server-game
                fi
-            - /bin/sh mvnw install -DskipTests -Ddependency-check.skip=true
+            - /bin/sh mvnw clean install -DskipTests -Ddependency-check.skip=true
             - cd ..
       -  step:
             caches:
             - maven
-            - game-server
             script:
-            - /bin/sh mvnw install
+            - /bin/sh mvnw clean install
             artifacts:
             - target/*.zip
       -  step:
