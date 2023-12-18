@@ -7,18 +7,9 @@ pipelines:
             caches:
             - maven
             script:
-            - microdnf update -y
             - microdnf install -y git
-            - |
-               if [ -d "l2j-server-game" ]; then
-                 echo "Directory exists, pulling changes..."
-                 cd l2j-server-game
-                 git pull
-               else
-                 echo "Directory does not exist, cloning repository..."
-                 git clone --depth=1 https://bitbucket.org/l2jserver/l2j-server-game.git
-                 cd l2j-server-game
-               fi
+            - git clone --depth=1 https://bitbucket.org/l2jserver/l2j-server-game.git
+            - cd l2j-server-game
             - /bin/sh mvnw clean install -DskipTests -Ddependency-check.skip=true
             - cd ..
       -  step:
