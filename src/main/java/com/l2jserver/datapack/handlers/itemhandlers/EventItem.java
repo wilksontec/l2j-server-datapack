@@ -18,6 +18,9 @@
  */
 package com.l2jserver.datapack.handlers.itemhandlers;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.l2jserver.gameserver.handler.IItemHandler;
 import com.l2jserver.gameserver.instancemanager.HandysBlockCheckerManager;
 import com.l2jserver.gameserver.model.ArenaParticipantsHolder;
@@ -30,6 +33,9 @@ import com.l2jserver.gameserver.network.SystemMessageId;
 import com.l2jserver.gameserver.network.serverpackets.SystemMessage;
 
 public class EventItem implements IItemHandler {
+	
+	private static final Logger LOG = LoggerFactory.getLogger(EventItem.class);
+	
 	@Override
 	public boolean useItem(L2Playable playable, L2ItemInstance item, boolean forceUse) {
 		if (!playable.isPlayer()) {
@@ -50,17 +56,17 @@ public class EventItem implements IItemHandler {
 				used = useBlockCheckerItem(activeChar, item);
 				break;
 			default:
-				_log.warning("EventItemHandler: Item with id: " + itemId + " is not handled");
+				LOG.warn("Item with Id {} is not handled!", itemId);
 		}
 		return used;
 	}
 	
-	private final boolean useBlockCheckerItem(final L2PcInstance castor, L2ItemInstance item) {
-		final int blockCheckerArena = castor.getBlockCheckerArena();
+	private final boolean useBlockCheckerItem(L2PcInstance player, L2ItemInstance item) {
+		final int blockCheckerArena = player.getBlockCheckerArena();
 		if (blockCheckerArena == -1) {
 			SystemMessage msg = SystemMessage.getSystemMessage(SystemMessageId.S1_CANNOT_BE_USED);
 			msg.addItemName(item);
-			castor.sendPacket(msg);
+			player.sendPacket(msg);
 			return false;
 		}
 		
@@ -69,24 +75,24 @@ public class EventItem implements IItemHandler {
 			return false;
 		}
 		
-		if (!castor.destroyItem("Consume", item, 1, castor, true)) {
+		if (!player.destroyItem("Consume", item, 1, player, true)) {
 			return false;
 		}
 		
-		final L2BlockInstance block = (L2BlockInstance) castor.getTarget();
-		
+		final L2BlockInstance block = (L2BlockInstance) player.getTarget();
 		final ArenaParticipantsHolder holder = HandysBlockCheckerManager.getInstance().getHolder(blockCheckerArena);
 		if (holder != null) {
-			final int team = holder.getPlayerTeam(castor);
+			final int team = holder.getPlayerTeam(player);
 			for (final L2PcInstance pc : block.getKnownList().getKnownPlayersInRadius(sk.getEffectRange())) {
 				final int enemyTeam = holder.getPlayerTeam(pc);
 				if ((enemyTeam != -1) && (enemyTeam != team)) {
-					sk.applyEffects(castor, pc);
+					sk.applyEffects(player, pc);
 				}
 			}
 			return true;
 		}
-		_log.warning("Char: " + castor.getName() + "[" + castor.getObjectId() + "] has unknown block checker arena");
+		
+		LOG.warn("{} has unknown block checker arena!", player);
 		return false;
 	}
 }

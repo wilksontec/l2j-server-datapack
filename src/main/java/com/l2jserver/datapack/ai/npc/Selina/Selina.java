@@ -21,6 +21,9 @@ package com.l2jserver.datapack.ai.npc.Selina;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.l2jserver.datapack.ai.npc.AbstractNpcAI;
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
@@ -32,6 +35,9 @@ import com.l2jserver.gameserver.model.skills.Skill;
  * @author Zoey76
  */
 public final class Selina extends AbstractNpcAI {
+	
+	private static final Logger LOG = LoggerFactory.getLogger(Selina.class);
+	
 	// NPC
 	private static final int SELINA = 31556;
 	// Items
@@ -69,7 +75,7 @@ public final class Selina extends AbstractNpcAI {
 				return super.onAdvEvent(event, npc, player);
 			}
 		} else {
-			_log.warning(Selina.class.getSimpleName() + " AI: player " + player + " sent invalid bypass: " + event);
+			LOG.warn("Player {} sent invalid bypass: {}!", player, event);
 		}
 		return "31556-02.html";
 	}

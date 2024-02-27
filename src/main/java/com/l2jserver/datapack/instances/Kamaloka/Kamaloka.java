@@ -24,7 +24,9 @@ import java.util.Calendar;
 import java.util.List;
 import java.util.Map;
 import java.util.function.Function;
-import java.util.logging.Level;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.l2jserver.datapack.instances.AbstractInstance;
 import com.l2jserver.gameserver.datatables.SkillData;
@@ -45,6 +47,9 @@ import com.l2jserver.gameserver.network.SystemMessageId;
 import com.l2jserver.gameserver.network.serverpackets.SystemMessage;
 
 public final class Kamaloka extends AbstractInstance {
+	
+	private static final Logger LOG = LoggerFactory.getLogger(Kamaloka.class);
+	
 	/*
 	 * Reset time for all kamaloka Default: 6:30AM on server time
 	 */
@@ -1470,8 +1475,8 @@ public final class Kamaloka extends AbstractInstance {
 		
 		try {
 			enterInstance(player, Integer.parseInt(event));
-		} catch (Exception e) {
-			_log.log(Level.WARNING, "", e);
+		} catch (Exception ex) {
+			LOG.warn("Exception joining instance!", ex);
 		}
 		return "";
 	}

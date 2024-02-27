@@ -20,6 +20,9 @@ package com.l2jserver.datapack.handlers.communityboard;
 
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.l2jserver.gameserver.cache.HtmCache;
 import com.l2jserver.gameserver.data.sql.impl.ClanTable;
 import com.l2jserver.gameserver.handler.CommunityBoardHandler;
@@ -35,6 +38,9 @@ import com.l2jserver.gameserver.util.Util;
  * @author Zoey76
  */
 public class RegionBoard implements IWriteBoardHandler {
+	
+	private static final Logger LOG = LoggerFactory.getLogger(RegionBoard.class);
+	
 	// Region data
 	// @formatter:off
 	private static final int[] REGIONS = { 1049, 1052, 1053, 1057, 1060, 1059, 1248, 1247, 1056 };
@@ -75,7 +81,7 @@ public class RegionBoard implements IWriteBoardHandler {
 			
 			final String id = command.replace("_bbsloc;", "");
 			if (!Util.isDigit(id)) {
-				LOG.warning(RegionBoard.class.getSimpleName() + ": Player " + activeChar + " sent and invalid region bypass " + command + "!");
+				LOG.warn("Player {} sent and invalid region bypass {}!", activeChar, command);
 				return false;
 			}
 			

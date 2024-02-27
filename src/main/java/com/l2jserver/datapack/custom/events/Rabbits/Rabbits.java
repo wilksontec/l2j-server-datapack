@@ -25,6 +25,9 @@ import java.util.List;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.l2jserver.gameserver.model.L2Object;
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
@@ -39,6 +42,9 @@ import com.l2jserver.gameserver.util.Broadcast;
  * @author Gnacik, Zoey76
  */
 public final class Rabbits extends Event {
+	
+	private static final Logger LOG = LoggerFactory.getLogger(Rabbits.class);
+	
 	// NPCs
 	private static final int NPC_MANAGER = 900101;
 	private static final int CHEST = 900102;
@@ -94,7 +100,7 @@ public final class Rabbits extends Event {
 		
 		// Check starting conditions
 		if (!general().customNpcData()) {
-			_log.info(getName() + ": Event can't be started, because custom NPCs are disabled!");
+			LOG.info("Event can't be started, because custom NPCs are disabled!");
 			eventMaker.sendMessage("Event " + getName() + " can't be started because custom NPCs are disabled!");
 			return false;
 		}

@@ -26,7 +26,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.StringTokenizer;
-import java.util.logging.Level;
 
 import javax.xml.parsers.DocumentBuilderFactory;
 
@@ -177,11 +176,7 @@ public class Q00350_EnhanceYourWeapon extends Quest {
 			return null;
 		}
 		
-		try {
-			((L2Attackable) npc).addAbsorber(caster);
-		} catch (Exception e) {
-			_log.log(Level.SEVERE, "", e);
-		}
+		((L2Attackable) npc).addAbsorber(caster);
 		return super.onSkillSee(npc, caster, skill, targets, isSummon);
 	}
 	

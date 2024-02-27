@@ -18,7 +18,8 @@
  */
 package com.l2jserver.datapack.handlers.bypasshandlers;
 
-import java.util.logging.Level;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.l2jserver.gameserver.handler.IBypassHandler;
 import com.l2jserver.gameserver.model.actor.L2Character;
@@ -27,6 +28,9 @@ import com.l2jserver.gameserver.network.serverpackets.ExShowVariationCancelWindo
 import com.l2jserver.gameserver.network.serverpackets.ExShowVariationMakeWindow;
 
 public class Augment implements IBypassHandler {
+	
+	private static final Logger LOG = LoggerFactory.getLogger(Augment.class);
+	
 	private static final String[] COMMANDS = {
 		"Augment"
 	};
@@ -46,8 +50,8 @@ public class Augment implements IBypassHandler {
 					activeChar.sendPacket(ExShowVariationCancelWindow.STATIC_PACKET);
 					return true;
 			}
-		} catch (Exception e) {
-			_log.log(Level.WARNING, "Exception in " + getClass().getSimpleName(), e);
+		} catch (Exception ex) {
+			LOG.warn("Unable to parse augment bypass!", ex);
 		}
 		return false;
 	}

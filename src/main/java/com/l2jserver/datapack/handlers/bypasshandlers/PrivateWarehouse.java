@@ -21,7 +21,8 @@ package com.l2jserver.datapack.handlers.bypasshandlers;
 import static com.l2jserver.gameserver.config.Configuration.customs;
 import static com.l2jserver.gameserver.config.Configuration.general;
 
-import java.util.logging.Level;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.l2jserver.gameserver.handler.IBypassHandler;
 import com.l2jserver.gameserver.model.actor.L2Character;
@@ -36,6 +37,9 @@ import com.l2jserver.gameserver.network.serverpackets.WareHouseDepositList;
 import com.l2jserver.gameserver.network.serverpackets.WareHouseWithdrawalList;
 
 public class PrivateWarehouse implements IBypassHandler {
+	
+	private static final Logger LOG = LoggerFactory.getLogger(PrivateWarehouse.class);
+	
 	private static final String[] COMMANDS = {
 		"withdrawp",
 		"withdrawsortedp",
@@ -86,8 +90,8 @@ public class PrivateWarehouse implements IBypassHandler {
 			}
 			
 			return false;
-		} catch (Exception e) {
-			_log.log(Level.WARNING, "Exception in " + getClass().getSimpleName(), e);
+		} catch (Exception ex) {
+			LOG.warn("Exception using bypass!", ex);
 		}
 		return false;
 	}
@@ -108,7 +112,7 @@ public class PrivateWarehouse implements IBypassHandler {
 		}
 		
 		if (general().debug()) {
-			_log.fine("Source: L2WarehouseInstance.java; Player: " + player.getName() + "; Command: showRetrieveWindow; Message: Showing stored items.");
+			LOG.info("Player: {}; Command: showRetrieveWindow; Message: Showing stored items.", player);
 		}
 	}
 	

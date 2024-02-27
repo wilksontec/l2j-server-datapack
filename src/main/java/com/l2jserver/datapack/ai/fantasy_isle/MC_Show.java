@@ -24,6 +24,9 @@ import java.text.SimpleDateFormat;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.l2jserver.datapack.ai.npc.AbstractNpcAI;
 import com.l2jserver.gameserver.GameTimeController;
 import com.l2jserver.gameserver.ThreadPoolManager;
@@ -41,21 +44,24 @@ import com.l2jserver.gameserver.network.serverpackets.NpcSay;
  * @author Kerberos
  */
 public class MC_Show extends AbstractNpcAI {
-	private static int MC = 32433;
+	
+	private static final Logger LOG = LoggerFactory.getLogger(MC_Show.class);
+	
+	private static final int MC = 32433;
 	// @formatter:off
-	private static int[] SINGERS =
+	private static final int[] SINGERS =
 	{
 		32431, 32432
 	};
-	private static int[] CIRCUS =
+	private static final int[] CIRCUS =
 	{
 		32442, 32443, 32444, 32445, 32446
 	};
-	private static int[] INDIVIDUALS =
+	private static final int[] INDIVIDUALS =
 	{
 		32439, 32440, 32441
 	};
-	private static int[] SHOWSTUFF =
+	private static final int[] SHOWSTUFF =
 	{
 		32424, 32425, 32426, 32427, 32428
 	};
@@ -274,8 +280,8 @@ public class MC_Show extends AbstractNpcAI {
 		minDiff *= 60000;
 		diff = hourDiff + minDiff;
 		if (general().debug()) {
-			SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
-			_log.info("Fantasy Isle: MC show script starting at " + format.format(System.currentTimeMillis() + diff) + " and is scheduled each next 4 hours.");
+			final var startingTime = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss").format(System.currentTimeMillis() + diff);
+			LOG.info("Fantasy Isle: MC show script starting at {} and is scheduled each next 4 hours.", startingTime);
 		}
 		// TODO startRepeatingQuestTimer("Start", diff, 14400000, null, null);
 		// missing option to provide different initial delay
@@ -327,7 +333,7 @@ public class MC_Show extends AbstractNpcAI {
 	@Override
 	public String onAdvEvent(String event, L2Npc npc, L2PcInstance player) {
 		if ((event == null) || event.isEmpty()) {
-			_log.warning("MC_Show: Null/Empty event for npc " + npc + " and player " + player + "!");
+			LOG.warn("Null/Empty event for npc {} and player {}!", npc, player);
 			return null;
 		}
 		

@@ -31,10 +31,11 @@ import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
-import java.util.logging.Level;
 
 import javax.xml.parsers.DocumentBuilderFactory;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.w3c.dom.Document;
 import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.Node;
@@ -76,13 +77,17 @@ import com.l2jserver.gameserver.network.serverpackets.SystemMessage;
 import com.l2jserver.gameserver.util.Util;
 
 /**
- * Final Emperial Tomb instance zone. TODO:<br>
+ * Final Emperial Tomb instance zone.<br>
+ * TODO:<br>
  * Test when Frintezza song use 5008 effect skill.<br>
  * Test deeply Scarlet van Halisha's AI.<br>
  * Use proper zone spawn system.
  * @author Gigiikun
  */
 public final class FinalEmperialTomb extends AbstractInstance {
+	
+	private static final Logger LOG = LoggerFactory.getLogger(FinalEmperialTomb.class);
+	
 	protected static class FETWorld extends InstanceWorld {
 		protected Lock lock = new ReentrantLock();
 		protected List<L2Npc> npcList = new CopyOnWriteArrayList<>();
@@ -248,7 +253,7 @@ public final class FinalEmperialTomb extends AbstractInstance {
 			
 			File file = new File(server().getDatapackRoot(), "/data/spawnZones/final_emperial_tomb.xml");
 			if (!file.exists()) {
-				_log.severe("[Final Emperial Tomb] Missing final_emperial_tomb.xml. The quest wont work without it!");
+				LOG.error("Missing final_emperial_tomb.xml. The quest wont work without it!");
 				return;
 			}
 			
@@ -262,14 +267,14 @@ public final class FinalEmperialTomb extends AbstractInstance {
 								NamedNodeMap attrs = d.getAttributes();
 								Node att = attrs.getNamedItem("npcId");
 								if (att == null) {
-									_log.severe("[Final Emperial Tomb] Missing npcId in npc List, skipping");
+									LOG.error("Missing npcId in npc List, skipping");
 									continue;
 								}
 								int npcId = Integer.parseInt(attrs.getNamedItem("npcId").getNodeValue());
 								
 								att = attrs.getNamedItem("flag");
 								if (att == null) {
-									_log.severe("[Final Emperial Tomb] Missing flag in npc List npcId: " + npcId + ", skipping");
+									LOG.error("Missing flag in npc List npcId: {}, skipping", npcId);
 									continue;
 								}
 								
@@ -352,19 +357,19 @@ public final class FinalEmperialTomb extends AbstractInstance {
 								NamedNodeMap attrs = d.getAttributes();
 								Node att = attrs.getNamedItem("id");
 								if (att == null) {
-									_log.severe("[Final Emperial Tomb] Missing id in spawnZones List, skipping");
+									LOG.error("Missing id in spawnZones List, skipping");
 									continue;
 								}
 								int id = Integer.parseInt(att.getNodeValue());
 								att = attrs.getNamedItem("minZ");
 								if (att == null) {
-									_log.severe("[Final Emperial Tomb] Missing minZ in spawnZones List id: " + id + ", skipping");
+									LOG.error("Missing minZ in spawnZones List id: {}, skipping", id);
 									continue;
 								}
 								int minz = Integer.parseInt(att.getNodeValue());
 								att = attrs.getNamedItem("maxZ");
 								if (att == null) {
-									_log.severe("[Final Emperial Tomb] Missing maxZ in spawnZones List id: " + id + ", skipping");
+									LOG.error("Missing maxZ in spawnZones List id: {}, skipping", id);
 									continue;
 								}
 								int maxz = Integer.parseInt(att.getNodeValue());
@@ -397,12 +402,12 @@ public final class FinalEmperialTomb extends AbstractInstance {
 					}
 				}
 			}
-		} catch (Exception e) {
-			_log.log(Level.WARNING, "[Final Emperial Tomb] Could not parse final_emperial_tomb.xml file: " + e.getMessage(), e);
+		} catch (Exception ex) {
+			LOG.warn("Could not parse final_emperial_tomb.xml file!", ex);
 		}
 		if (debug) {
-			_log.info("[Final Emperial Tomb] Loaded " + _spawnZoneList.size() + " spawn zones data.");
-			_log.info("[Final Emperial Tomb] Loaded " + spawnCount + " spawns data.");
+			LOG.info("Loaded {} spawn zones data.", _spawnZoneList.size());
+			LOG.info("Loaded {} spawns data.", spawnCount);
 		}
 	}
 	
@@ -492,7 +497,7 @@ public final class FinalEmperialTomb extends AbstractInstance {
 									spawn(world, spw.npcId, location.getX(), location.getY(), GeoData.getInstance().getSpawnHeight(location), getRandom(65535), spw.isNeededNextFlag);
 								}
 							} else {
-								_log.info("[Final Emperial Tomb] Missing zone: " + spw.zone);
+								LOG.info("[Final Emperial Tomb] Missing zone: " + spw.zone);
 							}
 						}
 					} else {
@@ -509,7 +514,7 @@ public final class FinalEmperialTomb extends AbstractInstance {
 		if (world.lock.tryLock()) {
 			try {
 				if (debug) {
-					_log.info("[Final Emperial Tomb] Starting " + world.getStatus() + ". status.");
+					LOG.info("[Final Emperial Tomb] Starting " + world.getStatus() + ". status.");
 				}
 				world.npcList.clear();
 				switch (world.getStatus()) {
@@ -617,7 +622,7 @@ public final class FinalEmperialTomb extends AbstractInstance {
 		public void run() {
 			if ((InstanceManager.getInstance().getWorld(_world.getInstanceId()) != _world) || _world.portraits.isEmpty()) {
 				if (debug) {
-					_log.info("[Final Emperial Tomb] Instance is deleted or all Portraits is killed.");
+					LOG.info("[Final Emperial Tomb] Instance is deleted or all Portraits is killed.");
 				}
 				return;
 			}
@@ -1174,14 +1179,14 @@ public final class FinalEmperialTomb extends AbstractInstance {
 			if (npc.getId() == HALL_ALARM) {
 				ThreadPoolManager.getInstance().scheduleGeneral(new StatusTask(world, 0), 2000);
 				if (debug) {
-					_log.info("[Final Emperial Tomb] Hall alarm is disabled, doors will open!");
+					LOG.info("[Final Emperial Tomb] Hall alarm is disabled, doors will open!");
 				}
 			} else if (npc.getId() == DARK_CHOIR_PLAYER) {
 				world.darkChoirPlayerCount--;
 				if (world.darkChoirPlayerCount < 1) {
 					ThreadPoolManager.getInstance().scheduleGeneral(new StatusTask(world, 2), 2000);
 					if (debug) {
-						_log.info("[Final Emperial Tomb] All Dark Choir Players are killed, doors will open!");
+						LOG.info("[Final Emperial Tomb] All Dark Choir Players are killed, doors will open!");
 					}
 				}
 			} else if (npc.getId() == SCARLET2) {

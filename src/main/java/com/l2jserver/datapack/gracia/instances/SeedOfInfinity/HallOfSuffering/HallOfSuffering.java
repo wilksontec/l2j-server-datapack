@@ -22,6 +22,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.l2jserver.datapack.instances.AbstractInstance;
 import com.l2jserver.datapack.quests.Q00695_DefendTheHallOfSuffering.Q00695_DefendTheHallOfSuffering;
 import com.l2jserver.gameserver.ai.CtrlEvent;
@@ -52,6 +55,9 @@ import com.l2jserver.gameserver.util.Util;
  * @author Gigiikun, ZakaX, Didldak
  */
 public final class HallOfSuffering extends AbstractInstance {
+	
+	private static final Logger LOG = LoggerFactory.getLogger(HallOfSuffering.class);
+	
 	protected static class HSWorld extends InstanceWorld {
 		protected Map<L2Npc, Boolean> npcList = new HashMap<>();
 		protected L2Npc klodekus = null;
@@ -263,7 +269,7 @@ public final class HallOfSuffering extends AbstractInstance {
 			case 4:
 				return ROOM_5_MOBS;
 		}
-		_log.warning("");
+		LOG.warn("Invalid room Id!");
 		return new int[][] {};
 	}
 	
@@ -485,7 +491,7 @@ public final class HallOfSuffering extends AbstractInstance {
 		if (npc.getId() == TEPIOS) {
 			InstanceWorld world = InstanceManager.getInstance().getPlayerWorld(player);
 			if (((HSWorld) world).rewardItemId == -1) {
-				_log.warning("Hall of Suffering: " + player.getName() + "(" + player.getObjectId() + ") is try to cheat!");
+				LOG.warn("{} is try to cheat!", player);
 				return getPtLeaderText(player, (HSWorld) world);
 			} else if (((HSWorld) world).isRewarded) {
 				return "32530-11.htm";
@@ -506,7 +512,7 @@ public final class HallOfSuffering extends AbstractInstance {
 		} else if (npc.getId() == TEPIOS) {
 			InstanceWorld world = InstanceManager.getInstance().getPlayerWorld(talker);
 			if (((HSWorld) world).rewardItemId == -1) {
-				_log.warning("Hall of Suffering: " + talker.getName() + "(" + talker.getObjectId() + ") is try to cheat!");
+				LOG.warn("{} is try to cheat!", talker);
 				return getPtLeaderText(talker, (HSWorld) world);
 			} else if (((HSWorld) world).isRewarded) {
 				return "32530-11.htm";

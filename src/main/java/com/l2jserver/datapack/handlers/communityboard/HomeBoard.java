@@ -22,6 +22,9 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.l2jserver.commons.database.ConnectionFactory;
 import com.l2jserver.gameserver.cache.HtmCache;
 import com.l2jserver.gameserver.data.sql.impl.ClanTable;
@@ -34,6 +37,9 @@ import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
  * @author Zoey76
  */
 public final class HomeBoard implements IParseBoardHandler {
+	
+	private static final Logger LOG = LoggerFactory.getLogger(HomeBoard.class);
+	
 	// SQL Queries
 	private static final String COUNT_FAVORITES = "SELECT COUNT(*) AS favorites FROM `bbs_favorites` WHERE `playerId`=?";
 	
@@ -82,8 +88,8 @@ public final class HomeBoard implements IParseBoardHandler {
 					count = rs.getInt("favorites");
 				}
 			}
-		} catch (Exception e) {
-			LOG.warning(FavoriteBoard.class.getSimpleName() + ": Coudn't load favorites count for player " + player.getName());
+		} catch (Exception ex) {
+			LOG.warn("Coudn't load favorites count for player {}!", player);
 		}
 		return count;
 	}

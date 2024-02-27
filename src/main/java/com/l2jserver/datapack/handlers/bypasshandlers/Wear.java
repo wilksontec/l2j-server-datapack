@@ -21,7 +21,9 @@ package com.l2jserver.datapack.handlers.bypasshandlers;
 import static com.l2jserver.gameserver.config.Configuration.general;
 
 import java.util.StringTokenizer;
-import java.util.logging.Level;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.l2jserver.gameserver.data.xml.impl.BuyListData;
 import com.l2jserver.gameserver.handler.IBypassHandler;
@@ -32,6 +34,9 @@ import com.l2jserver.gameserver.network.serverpackets.ActionFailed;
 import com.l2jserver.gameserver.network.serverpackets.ShopPreviewList;
 
 public class Wear implements IBypassHandler {
+	
+	private static final Logger LOG = LoggerFactory.getLogger(Wear.class);
+	
 	private static final String[] COMMANDS = {
 		"Wear"
 	};
@@ -56,8 +61,8 @@ public class Wear implements IBypassHandler {
 			
 			showWearWindow(activeChar, Integer.parseInt(st.nextToken()));
 			return true;
-		} catch (Exception e) {
-			_log.log(Level.WARNING, "Exception in " + getClass().getSimpleName(), e);
+		} catch (Exception ex) {
+			LOG.warn("Exception using bypass!", ex);
 		}
 		return false;
 	}
@@ -65,7 +70,7 @@ public class Wear implements IBypassHandler {
 	private static final void showWearWindow(L2PcInstance player, int val) {
 		final L2BuyList buyList = BuyListData.getInstance().getBuyList(val);
 		if (buyList == null) {
-			_log.warning("BuyList not found! BuyListId:" + val);
+			LOG.warn("BuyList not found! BuyListId: {}", val);
 			player.sendPacket(ActionFailed.STATIC_PACKET);
 			return;
 		}

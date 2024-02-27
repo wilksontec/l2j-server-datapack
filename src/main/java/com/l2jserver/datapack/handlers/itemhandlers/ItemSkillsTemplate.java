@@ -18,6 +18,9 @@
  */
 package com.l2jserver.datapack.handlers.itemhandlers;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.l2jserver.gameserver.ai.CtrlIntention;
 import com.l2jserver.gameserver.handler.IItemHandler;
 import com.l2jserver.gameserver.model.actor.L2Playable;
@@ -34,6 +37,9 @@ import com.l2jserver.gameserver.network.serverpackets.SystemMessage;
  * @author Zoey76
  */
 public class ItemSkillsTemplate implements IItemHandler {
+	
+	private static final Logger LOG = LoggerFactory.getLogger(ItemSkillsTemplate.class);
+	
 	@Override
 	public boolean useItem(L2Playable playable, L2ItemInstance item, boolean forceUse) {
 		if (!playable.isPlayer() && !playable.isPet()) {
@@ -58,7 +64,7 @@ public class ItemSkillsTemplate implements IItemHandler {
 		
 		final SkillHolder[] skills = item.getEtcItem().getSkills();
 		if (skills == null) {
-			_log.info("Item " + item + " does not have registered any skill for handler.");
+			LOG.warn("Item {} does not have registered any skill for handler!", item);
 			return false;
 		}
 		

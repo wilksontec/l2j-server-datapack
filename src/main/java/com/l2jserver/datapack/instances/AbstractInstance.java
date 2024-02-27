@@ -25,6 +25,9 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.l2jserver.datapack.ai.npc.AbstractNpcAI;
 import com.l2jserver.gameserver.enums.InstanceReenterType;
 import com.l2jserver.gameserver.instancemanager.InstanceManager;
@@ -44,6 +47,9 @@ import com.l2jserver.gameserver.network.serverpackets.SystemMessage;
  * @author FallenAngel
  */
 public abstract class AbstractInstance extends AbstractNpcAI {
+	
+	private static final Logger LOG = LoggerFactory.getLogger(AbstractInstance.class);
+	
 	public AbstractInstance(String name, String desc) {
 		super(name, desc);
 	}
@@ -85,7 +91,7 @@ public abstract class AbstractInstance extends AbstractNpcAI {
 			}
 			
 			if (general().instanceDebug()) {
-				_log.info("Instance " + inst.getName() + " (" + instance.getTemplateId() + ") has been created by player " + player.getName());
+				LOG.info("Instance {} ({}) has been created by player {}.", inst.getName(), instance.getTemplateId(), player);
 			}
 		}
 	}
@@ -194,7 +200,8 @@ public abstract class AbstractInstance extends AbstractNpcAI {
 		}
 		
 		if (general().instanceDebug()) {
-			_log.info("Time restrictions has been set for player in instance ID: " + world.getInstanceId() + " (" + new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(time) + ")");
+			final var formattedTime = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(time);
+			LOG.info("Time restrictions has been set for player in instance ID: {} ({})", world.getInstanceId(), formattedTime);
 		}
 	}
 	

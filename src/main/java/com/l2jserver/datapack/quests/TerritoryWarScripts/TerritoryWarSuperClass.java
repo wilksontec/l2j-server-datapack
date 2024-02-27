@@ -23,6 +23,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.l2jserver.datapack.quests.Q00147_PathtoBecominganEliteMercenary.Q00147_PathtoBecominganEliteMercenary;
 import com.l2jserver.datapack.quests.Q00148_PathtoBecominganExaltedMercenary.Q00148_PathtoBecominganExaltedMercenary;
 import com.l2jserver.datapack.quests.Q00176_StepsForHonor.Q00176_StepsForHonor;
@@ -49,6 +52,9 @@ import com.l2jserver.gameserver.util.Util;
  * @author Gigiikun
  */
 public class TerritoryWarSuperClass extends Quest {
+	
+	private static final Logger LOG = LoggerFactory.getLogger(TerritoryWarSuperClass.class);
+	
 	private static Map<Integer, TerritoryWarSuperClass> _forTheSakeScripts = new HashMap<>();
 	private static Map<Integer, TerritoryWarSuperClass> _protectTheScripts = new HashMap<>();
 	private static Map<Integer, TerritoryWarSuperClass> _killTheScripts = new HashMap<>();
@@ -96,7 +102,7 @@ public class TerritoryWarSuperClass extends Quest {
 				GlobalVariablesManager.getInstance().set(TerritoryWarManager.GLOBAL_VARIABLE, cal.getTimeInMillis());
 			}
 			TerritoryWarManager.getInstance().setTWStartTimeInMillis(cal.getTimeInMillis());
-			_log.info(getClass().getSimpleName() + ": Siege date: " + cal.getTime());
+			LOG.info("{}: Siege date: {}", getClass().getSimpleName(), cal.getTime());
 		}
 	}
 	
@@ -237,7 +243,7 @@ public class TerritoryWarSuperClass extends Quest {
 					}
 					player.addNotifyQuestOfDeath(st);
 				} else {
-					_log.warning("TerritoryWar: Missing Kill the quest for player " + player.getName() + " whose class id: " + player.getClassId().getId());
+					LOG.warn("TerritoryWar: Missing Kill the quest for player {} whose class Id: {}!", player, player.getClassId().getId());
 				}
 			}
 		}
@@ -334,7 +340,7 @@ public class TerritoryWarSuperClass extends Quest {
 							}
 							player.addNotifyQuestOfDeath(st);
 						} else {
-							_log.warning("TerritoryWar: Missing Kill the quest for player " + player.getName() + " whose class id: " + player.getClassId().getId());
+							LOG.warn("TerritoryWar: Missing Kill the quest for player {} whose class Id: {}!", player, player.getClassId().getId());
 						}
 					}
 				} else {

@@ -24,6 +24,9 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.StringTokenizer;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.l2jserver.datapack.ai.npc.AbstractNpcAI;
 import com.l2jserver.gameserver.data.xml.impl.MultisellData;
 import com.l2jserver.gameserver.instancemanager.TerritoryWarManager;
@@ -41,6 +44,9 @@ import com.l2jserver.gameserver.network.serverpackets.NpcHtmlMessage;
  * @author malyelfik
  */
 public final class MercenaryCaptain extends AbstractNpcAI {
+	
+	private static final Logger LOG = LoggerFactory.getLogger(MercenaryCaptain.class);
+	
 	// NPCs
 	private static final Map<Integer, Integer> NPCS = new HashMap<>();
 	static {
@@ -132,7 +138,7 @@ public final class MercenaryCaptain extends AbstractNpcAI {
 							break;
 						}
 						default: {
-							_log.warning(MercenaryCaptain.class.getSimpleName() + ": Unknown strider type: " + type);
+							LOG.warn("Unknown strider type: {}", type);
 							return null;
 						}
 					}

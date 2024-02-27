@@ -24,6 +24,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.l2jserver.datapack.ai.npc.AbstractNpcAI;
 import com.l2jserver.gameserver.ai.CtrlIntention;
 import com.l2jserver.gameserver.enums.MountType;
@@ -54,6 +57,9 @@ import com.l2jserver.gameserver.util.Util;
  * @author St3eT
  */
 public final class Antharas extends AbstractNpcAI {
+	
+	private static final Logger LOG = LoggerFactory.getLogger(Antharas.class);
+	
 	// NPC
 	private static final int ANTHARAS = 29068; // Antharas
 	private static final int BEHEMOTH = 29069; // Behemoth Dragon
@@ -500,7 +506,7 @@ public final class Antharas extends AbstractNpcAI {
 			}
 		} else if (npc.getId() == ANTHARAS) {
 			if (!zone.isCharacterInZone(attacker) || (getStatus() != IN_FIGHT)) {
-				_log.warning(getClass().getSimpleName() + ": Player " + attacker.getName() + " attacked Antharas in invalid conditions!");
+				LOG.warn("Player {} attacked Antharas in invalid conditions!", attacker);
 				attacker.teleToLocation(80464, 152294, -3534);
 			}
 			

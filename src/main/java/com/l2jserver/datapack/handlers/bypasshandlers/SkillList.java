@@ -20,7 +20,8 @@ package com.l2jserver.datapack.handlers.bypasshandlers;
 
 import static com.l2jserver.gameserver.config.Configuration.character;
 
-import java.util.logging.Level;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.l2jserver.gameserver.data.xml.impl.SkillTreesData;
 import com.l2jserver.gameserver.handler.IBypassHandler;
@@ -32,6 +33,9 @@ import com.l2jserver.gameserver.network.serverpackets.ActionFailed;
 import com.l2jserver.gameserver.network.serverpackets.NpcHtmlMessage;
 
 public class SkillList implements IBypassHandler {
+	
+	private static final Logger LOG = LoggerFactory.getLogger(SkillList.class);
+	
 	private static final String[] COMMANDS = {
 		"SkillList"
 	};
@@ -104,8 +108,8 @@ public class SkillList implements IBypassHandler {
 					
 					activeChar.sendPacket(ActionFailed.STATIC_PACKET);
 				}
-			} catch (Exception e) {
-				_log.log(Level.WARNING, "Exception in " + getClass().getSimpleName(), e);
+			} catch (Exception ex) {
+				LOG.warn("Exception using bypass!", ex);
 			}
 		} else {
 			L2NpcInstance.showSkillList(activeChar, npc, activeChar.getClassId());

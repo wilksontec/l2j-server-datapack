@@ -22,6 +22,9 @@ import static com.l2jserver.gameserver.config.Configuration.rates;
 
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.l2jserver.commons.util.Rnd;
 import com.l2jserver.gameserver.handler.IItemHandler;
 import com.l2jserver.gameserver.model.L2ExtractableProduct;
@@ -36,6 +39,9 @@ import com.l2jserver.gameserver.network.SystemMessageId;
  * @author HorridoJoho
  */
 public class ExtractableItems implements IItemHandler {
+	
+	private static final Logger LOG = LoggerFactory.getLogger(ExtractableItems.class);
+	
 	@Override
 	public boolean useItem(L2Playable playable, L2ItemInstance item, boolean forceUse) {
 		if (!playable.isPlayer()) {
@@ -44,10 +50,10 @@ public class ExtractableItems implements IItemHandler {
 		}
 		
 		final L2PcInstance activeChar = playable.getActingPlayer();
-		final L2EtcItem etcitem = (L2EtcItem) item.getItem();
-		final List<L2ExtractableProduct> exitem = etcitem.getExtractableItems();
+		final L2EtcItem etcItem = (L2EtcItem) item.getItem();
+		final List<L2ExtractableProduct> exitem = etcItem.getExtractableItems();
 		if (exitem == null) {
-			_log.info("No extractable data defined for " + etcitem);
+			LOG.warn("No extractable data defined for {}!", etcItem);
 			return false;
 		}
 		

@@ -18,6 +18,9 @@
  */
 package com.l2jserver.datapack.handlers.actionhandlers;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.l2jserver.gameserver.ai.CtrlIntention;
 import com.l2jserver.gameserver.cache.HtmCache;
 import com.l2jserver.gameserver.enums.InstanceType;
@@ -29,11 +32,14 @@ import com.l2jserver.gameserver.model.actor.instance.L2StaticObjectInstance;
 import com.l2jserver.gameserver.network.serverpackets.NpcHtmlMessage;
 
 public class L2StaticObjectInstanceAction implements IActionHandler {
+	
+	private static final Logger LOG = LoggerFactory.getLogger(L2StaticObjectInstanceAction.class);
+	
 	@Override
-	public boolean action(final L2PcInstance activeChar, final L2Object target, final boolean interact) {
+	public boolean action(L2PcInstance activeChar, L2Object target, boolean interact) {
 		final L2StaticObjectInstance staticObject = (L2StaticObjectInstance) target;
 		if (staticObject.getType() < 0) {
-			_log.info("L2StaticObjectInstance: StaticObject with invalid type! StaticObjectId: " + staticObject.getId());
+			LOG.info("StaticObject with invalid type! StaticObjectId {}!", staticObject.getId());
 		}
 		
 		// Check if the L2PcInstance already target the L2NpcInstance

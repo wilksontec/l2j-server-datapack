@@ -18,6 +18,9 @@
  */
 package com.l2jserver.datapack.handlers.communityboard;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.l2jserver.gameserver.data.sql.impl.ClanTable;
 import com.l2jserver.gameserver.handler.CommunityBoardHandler;
 import com.l2jserver.gameserver.handler.IWriteBoardHandler;
@@ -32,6 +35,9 @@ import com.l2jserver.gameserver.util.Util;
  * @author Zoey76
  */
 public class ClanBoard implements IWriteBoardHandler {
+	
+	private static final Logger LOG = LoggerFactory.getLogger(ClanBoard.class);
+	
 	private static final String[] COMMANDS = {
 		"_bbsclan",
 		"_bbsclan_list",
@@ -63,7 +69,7 @@ public class ClanBoard implements IWriteBoardHandler {
 					clanList(activeChar, Integer.parseInt(command.split(";")[1]));
 				} catch (Exception e) {
 					clanList(activeChar, 1);
-					LOG.warning(ClanBoard.class.getSimpleName() + ": Player " + activeChar + " send invalid clan list bypass " + command + "!");
+					LOG.warn("Player {} send invalid clan list bypass {}!", activeChar, command);
 				}
 			}
 		} else if (command.startsWith("_bbsclan_clanhome")) {
@@ -76,7 +82,7 @@ public class ClanBoard implements IWriteBoardHandler {
 					clanHome(activeChar, Integer.parseInt(command.split(";")[1]));
 				} catch (Exception e) {
 					clanHome(activeChar);
-					LOG.warning(ClanBoard.class.getSimpleName() + ": Player " + activeChar + " send invalid clan home bypass " + command + "!");
+					LOG.warn("Player {} send invalid clan home bypass {}!", activeChar, command);
 				}
 			}
 		} else if (command.startsWith("_bbsclan_clannotice_edit;")) {

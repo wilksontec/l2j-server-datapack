@@ -18,7 +18,8 @@
  */
 package com.l2jserver.datapack.handlers.itemhandlers;
 
-import java.util.logging.Level;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.l2jserver.gameserver.enums.ShotType;
 import com.l2jserver.gameserver.handler.IItemHandler;
@@ -34,6 +35,9 @@ import com.l2jserver.gameserver.network.serverpackets.SystemMessage;
 import com.l2jserver.gameserver.util.Broadcast;
 
 public class SpiritShot implements IItemHandler {
+	
+	private static final Logger LOG = LoggerFactory.getLogger(SpiritShot.class);
+	
 	@Override
 	public boolean useItem(L2Playable playable, L2ItemInstance item, boolean forceUse) {
 		if (!playable.isPlayer()) {
@@ -49,7 +53,7 @@ public class SpiritShot implements IItemHandler {
 		int itemId = item.getId();
 		
 		if (skills == null) {
-			_log.log(Level.WARNING, getClass().getSimpleName() + ": is missing skills!");
+			LOG.warn("Item {} is missing skills!", itemId);
 			return false;
 		}
 		

@@ -18,7 +18,8 @@
  */
 package com.l2jserver.datapack.handlers.bypasshandlers;
 
-import java.util.logging.Level;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.l2jserver.gameserver.handler.IBypassHandler;
 import com.l2jserver.gameserver.model.actor.L2Character;
@@ -26,6 +27,9 @@ import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
 import com.l2jserver.gameserver.model.entity.L2Event;
 
 public class EventEngine implements IBypassHandler {
+	
+	private static final Logger LOG = LoggerFactory.getLogger(EventEngine.class);
+	
 	private static final String[] COMMANDS = {
 		"event_participate",
 		"event_unregister"
@@ -45,8 +49,8 @@ public class EventEngine implements IBypassHandler {
 				L2Event.removeAndResetPlayer(activeChar);
 				return true;
 			}
-		} catch (Exception e) {
-			_log.log(Level.WARNING, "Exception in " + getClass().getSimpleName(), e);
+		} catch (Exception ex) {
+			LOG.warn("Exception using bypass!", ex);
 		}
 		return false;
 	}

@@ -22,7 +22,9 @@ import static com.l2jserver.gameserver.config.Configuration.rates;
 
 import java.util.Calendar;
 import java.util.concurrent.ScheduledFuture;
-import java.util.logging.Level;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.l2jserver.datapack.instances.AbstractInstance;
 import com.l2jserver.gameserver.ThreadPoolManager;
@@ -107,14 +109,16 @@ public abstract class Chamber extends AbstractInstance {
 		}
 		
 		protected class ChangeRoomTask implements Runnable {
+			private static final Logger LOG = LoggerFactory.getLogger(ChangeRoomTask.class);
+			
 			@Override
 			public void run() {
 				try {
 					earthQuake(CDWorld.this);
 					Thread.sleep(5000);
 					changeRoom(CDWorld.this);
-				} catch (Exception e) {
-					_log.log(Level.WARNING, getClass().getSimpleName() + " ChangeRoomTask exception : " + e.getMessage(), e);
+				} catch (Exception ex) {
+					LOG.warn("ChangeRoomTask exception!", ex);
 				}
 			}
 		}

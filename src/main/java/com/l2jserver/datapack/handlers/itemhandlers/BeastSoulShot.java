@@ -18,7 +18,8 @@
  */
 package com.l2jserver.datapack.handlers.itemhandlers;
 
-import java.util.logging.Level;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.l2jserver.gameserver.enums.ShotType;
 import com.l2jserver.gameserver.handler.IItemHandler;
@@ -32,10 +33,13 @@ import com.l2jserver.gameserver.network.serverpackets.SystemMessage;
 import com.l2jserver.gameserver.util.Broadcast;
 
 /**
- * Beast SoulShot Handler
+ * Beast SoulShot item handler.
  * @author Tempy
  */
 public class BeastSoulShot implements IItemHandler {
+	
+	private static final Logger LOG = LoggerFactory.getLogger(BeastSoulShot.class);
+	
 	@Override
 	public boolean useItem(L2Playable playable, L2ItemInstance item, boolean forceUse) {
 		if (!playable.isPlayer()) {
@@ -60,7 +64,7 @@ public class BeastSoulShot implements IItemHandler {
 		final SkillHolder[] skills = item.getItem().getSkills();
 		
 		if (skills == null) {
-			_log.log(Level.WARNING, getClass().getSimpleName() + ": is missing skills!");
+			LOG.warn("Item {} is missing skills!", itemId);
 			return false;
 		}
 		

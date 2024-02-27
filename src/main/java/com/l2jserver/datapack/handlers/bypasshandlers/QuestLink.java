@@ -22,7 +22,9 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-import java.util.logging.Level;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.l2jserver.gameserver.data.xml.impl.NpcData;
 import com.l2jserver.gameserver.handler.IBypassHandler;
@@ -42,6 +44,9 @@ import com.l2jserver.gameserver.network.serverpackets.NpcHtmlMessage;
 import com.l2jserver.gameserver.util.StringUtil;
 
 public class QuestLink implements IBypassHandler {
+	
+	private static final Logger LOG = LoggerFactory.getLogger(QuestLink.class);
+	
 	private static final int MAX_QUEST_COUNT = 40;
 	private static final int TO_LEAD_AND_BE_LED = 118;
 	private static final int THE_LEADER_AND_THE_FOLLOWER = 123;
@@ -207,7 +212,7 @@ public class QuestLink implements IBypassHandler {
 		
 		final L2NpcTemplate template = NpcData.getInstance().getTemplate(npcId);
 		if (template == null) {
-			_log.log(Level.WARNING, QuestLink.class.getSimpleName() + ": " + player.getName() + " requested quests for talk on non existing npc " + npcId);
+			LOG.warn("{} requested quests for talk on non existing npc {}!", player, npcId);
 			return states;
 		}
 		
@@ -240,7 +245,7 @@ public class QuestLink implements IBypassHandler {
 		for (QuestState state : getQuestsForTalk(player, npc.getId())) {
 			final Quest quest = state.getQuest();
 			if (quest == null) {
-				_log.log(Level.WARNING, player + " Requested incorrect quest state for non existing quest: " + state.getQuestName());
+				LOG.warn("{} requested incorrect quest state for non existing quest: {}", player, state.getQuestName());
 				continue;
 			}
 			if ((quest.getId() > 0) && (quest.getId() < 20000)) {

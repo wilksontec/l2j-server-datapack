@@ -21,6 +21,9 @@ package com.l2jserver.datapack.quests.Q00511_AwlUnderFoot;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.l2jserver.gameserver.ThreadPoolManager;
 import com.l2jserver.gameserver.enums.audio.Sound;
 import com.l2jserver.gameserver.instancemanager.InstanceManager;
@@ -45,6 +48,9 @@ import com.l2jserver.gameserver.util.Util;
  * @author Gigiikun
  */
 public final class Q00511_AwlUnderFoot extends Quest {
+	
+	private static final Logger LOG = LoggerFactory.getLogger(Q00511_AwlUnderFoot.class);
+	
 	protected static class FAUWorld extends InstanceWorld {
 		
 	}
@@ -92,8 +98,8 @@ public final class Q00511_AwlUnderFoot extends Quest {
 				if (raid instanceof L2RaidBossInstance) {
 					((L2RaidBossInstance) raid).setUseRaidCurse(false);
 				}
-			} catch (Exception e) {
-				_log.warning("Fortress AwlUnderFoot Raid Spawn error: " + e);
+			} catch (Exception ex) {
+				LOG.warn("Fortress AwlUnderFoot Raid Spawn error!", ex);
 			}
 		}
 	}
@@ -248,7 +254,7 @@ public final class Q00511_AwlUnderFoot extends Quest {
 		world.setStatus(0);
 		dungeon.setReEnterTime(System.currentTimeMillis() + REENTERTIME);
 		InstanceManager.getInstance().addWorld(world);
-		_log.info("Fortress AwlUnderFoot started " + template + " Instance: " + instanceId + " created by player: " + player.getName());
+		LOG.info("Fortress AwlUnderFoot started {} Instance: {} created by player: {}.", template, instanceId, player);
 		ThreadPoolManager.getInstance().scheduleGeneral(new spawnRaid((FAUWorld) world), RAID_SPAWN_DELAY);
 		
 		// teleport players

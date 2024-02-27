@@ -20,6 +20,9 @@ package com.l2jserver.datapack.ai.npc.ManorManager;
 
 import static com.l2jserver.gameserver.config.Configuration.general;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.l2jserver.datapack.ai.npc.AbstractNpcAI;
 import com.l2jserver.gameserver.instancemanager.CastleManorManager;
 import com.l2jserver.gameserver.model.PcCondOverride;
@@ -42,10 +45,13 @@ import com.l2jserver.gameserver.network.serverpackets.ExShowSellCropList;
 import com.l2jserver.gameserver.network.serverpackets.SystemMessage;
 
 /**
- * Manor manager AI.
+ * Manor Manager AI.
  * @author malyelfik
  */
 public final class ManorManager extends AbstractNpcAI {
+	
+	private static final Logger LOG = LoggerFactory.getLogger(ManorManager.class);
+	
 	private static final int[] NPC = {
 		35644,
 		35645,
@@ -139,7 +145,7 @@ public final class ManorManager extends AbstractNpcAI {
 				player.sendPacket(new ExShowProcureCropDetail(evt.getManorId()));
 				break;
 			default:
-				_log.warning(getClass().getSimpleName() + ": Player " + player.getName() + " (" + player.getObjectId() + ") send unknown request id " + evt.getRequest() + "!");
+				LOG.warn("Player {} send unknown request Id {}!", player, evt.getRequest());
 		}
 	}
 }

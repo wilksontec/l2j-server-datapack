@@ -24,6 +24,9 @@ import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ScheduledFuture;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.l2jserver.gameserver.ThreadPoolManager;
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2EventMonsterInstance;
@@ -32,6 +35,9 @@ import com.l2jserver.gameserver.model.quest.Event;
 import com.l2jserver.gameserver.util.Broadcast;
 
 public final class Elpies extends Event {
+	
+	private static final Logger LOG = LoggerFactory.getLogger(Elpies.class);
+	
 	// NPC
 	private static final int ELPY = 900100;
 	// Amount of Elpies to spawn when the event starts
@@ -84,7 +90,7 @@ public final class Elpies extends Event {
 		
 		// Check Custom Table - we use custom NPC's
 		if (!general().customNpcData()) {
-			_log.info(getName() + ": Event can't be started because custom NPC table is disabled!");
+			LOG.info("Event can't be started because custom NPC table is disabled!");
 			eventMaker.sendMessage("Event " + getName() + " can't be started because custom NPC table is disabled!");
 			return false;
 		}

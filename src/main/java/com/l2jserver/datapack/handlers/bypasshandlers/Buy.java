@@ -19,7 +19,9 @@
 package com.l2jserver.datapack.handlers.bypasshandlers;
 
 import java.util.StringTokenizer;
-import java.util.logging.Level;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.l2jserver.gameserver.handler.IBypassHandler;
 import com.l2jserver.gameserver.model.actor.L2Character;
@@ -27,6 +29,9 @@ import com.l2jserver.gameserver.model.actor.instance.L2MerchantInstance;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
 
 public class Buy implements IBypassHandler {
+	
+	private static final Logger LOG = LoggerFactory.getLogger(Buy.class);
+	
 	private static final String[] COMMANDS = {
 		"Buy"
 	};
@@ -47,8 +52,8 @@ public class Buy implements IBypassHandler {
 			
 			((L2MerchantInstance) target).showBuyWindow(activeChar, Integer.parseInt(st.nextToken()));
 			return true;
-		} catch (Exception e) {
-			_log.log(Level.WARNING, "Exception in " + getClass().getSimpleName(), e);
+		} catch (Exception ex) {
+			LOG.warn("Unable to use bypass!", ex);
 		}
 		return false;
 	}

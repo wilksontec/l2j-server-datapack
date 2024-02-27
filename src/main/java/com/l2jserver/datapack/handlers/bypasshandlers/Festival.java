@@ -22,7 +22,9 @@ import static com.l2jserver.gameserver.config.Configuration.sevenSigns;
 
 import java.util.Calendar;
 import java.util.List;
-import java.util.logging.Level;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.l2jserver.gameserver.SevenSigns;
 import com.l2jserver.gameserver.SevenSignsFestival;
@@ -40,6 +42,9 @@ import com.l2jserver.gameserver.network.serverpackets.SystemMessage;
 import com.l2jserver.gameserver.util.StringUtil;
 
 public class Festival implements IBypassHandler {
+	
+	private static final Logger LOG = LoggerFactory.getLogger(Festival.class);
+	
 	private static final String[] COMMANDS = {
 		"festival",
 		"festivaldesc"
@@ -285,8 +290,8 @@ public class Festival implements IBypassHandler {
 					npc.showChatWindow(activeChar, val, null, false);
 			}
 			return true;
-		} catch (Exception e) {
-			_log.log(Level.WARNING, "Exception in " + getClass().getSimpleName(), e);
+		} catch (Exception ex) {
+			LOG.warn("Exception using bypass!", ex);
 		}
 		return false;
 	}

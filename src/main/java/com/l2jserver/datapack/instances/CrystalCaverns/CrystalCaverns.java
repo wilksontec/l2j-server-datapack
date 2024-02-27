@@ -28,6 +28,9 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.concurrent.ConcurrentHashMap;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.l2jserver.datapack.instances.AbstractInstance;
 import com.l2jserver.datapack.quests.Q00131_BirdInACage.Q00131_BirdInACage;
 import com.l2jserver.gameserver.GeoData;
@@ -75,6 +78,8 @@ import com.l2jserver.gameserver.util.Util;
  * Original sources: theone, L2JEmu, L2JOfficial, L2JFree Contributing authors: TGS, Lantoc, Janiii, Gigiikun, RosT Please maintain consistency between the Crystal Caverns scripts.
  */
 public final class CrystalCaverns extends AbstractInstance {
+	
+	private static final Logger LOG = LoggerFactory.getLogger(CrystalCaverns.class);
 	
 	protected static class CrystalGolem {
 		protected L2ItemInstance foodItem = null;
@@ -1355,7 +1360,7 @@ public final class CrystalCaverns extends AbstractInstance {
 							startQuestTimer("checkKechiAttack", 1000, kechi, null);
 							return "";
 						default:
-							_log.warning("CrystalCavern-SteamCorridor: status " + world.getStatus() + " error. OracleOrder not found in " + world.getInstanceId());
+							LOG.warn("CrystalCavern-SteamCorridor: status {} error. OracleOrder not found in {}", world.getStatus(), world.getInstanceId());
 							return "";
 					}
 					runSteamOracles(world, oracleOrder);

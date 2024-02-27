@@ -23,6 +23,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.l2jserver.datapack.ai.npc.AbstractNpcAI;
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
@@ -36,6 +39,9 @@ import com.l2jserver.gameserver.network.SystemMessageId;
  * @author ivantotov
  */
 public final class TreasureChest extends AbstractNpcAI {
+	
+	private static final Logger LOG = LoggerFactory.getLogger(TreasureChest.class);
+	
 	private static final String TIMER_1 = "5001";
 	private static final String TIMER_2 = "5002";
 	private static final int MAX_SPAWN_TIME = 14400000;
@@ -873,7 +879,7 @@ public final class TreasureChest extends AbstractNpcAI {
 						
 						final List<ItemChanceHolder> items = DROPS.get(npc.getId());
 						if (items == null) {
-							_log.warning("Tresure Chest ID " + npc.getId() + " doesn't have a drop list!");
+							LOG.warn("Tresure Chest Id {} doesn't have a drop list!", npc.getId());
 						} else {
 							for (ItemChanceHolder item : items) {
 								if (getRandom(10000) < item.getChance()) {

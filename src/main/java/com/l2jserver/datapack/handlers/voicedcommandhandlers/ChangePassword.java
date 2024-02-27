@@ -19,7 +19,9 @@
 package com.l2jserver.datapack.handlers.voicedcommandhandlers;
 
 import java.util.StringTokenizer;
-import java.util.logging.Level;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.l2jserver.gameserver.LoginServerThread;
 import com.l2jserver.gameserver.cache.HtmCache;
@@ -32,6 +34,9 @@ import com.l2jserver.gameserver.network.serverpackets.NpcHtmlMessage;
  * @author Nik
  */
 public class ChangePassword implements IVoicedCommandHandler {
+	
+	private static final Logger LOG = LoggerFactory.getLogger(ChangePassword.class);
+	
 	private static final String[] COMMANDS = {
 		"changepassword"
 	};
@@ -71,9 +76,9 @@ public class ChangePassword implements IVoicedCommandHandler {
 					activeChar.sendMessage("Invalid password data! You have to fill all boxes.");
 					return false;
 				}
-			} catch (Exception e) {
+			} catch (Exception ex) {
 				activeChar.sendMessage("A problem occured while changing password!");
-				_log.log(Level.WARNING, "", e);
+				LOG.warn("Unable to change password!", ex);
 			}
 		} else {
 			String html = HtmCache.getInstance().getHtm(activeChar.getHtmlPrefix(), "data/html/mods/ChangePassword.htm");

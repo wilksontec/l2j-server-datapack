@@ -18,7 +18,8 @@
  */
 package com.l2jserver.datapack.handlers.bypasshandlers;
 
-import java.util.logging.Level;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.l2jserver.gameserver.handler.IBypassHandler;
 import com.l2jserver.gameserver.instancemanager.SiegeManager;
@@ -31,7 +32,13 @@ import com.l2jserver.gameserver.network.SystemMessageId;
 import com.l2jserver.gameserver.network.serverpackets.ActionFailed;
 import com.l2jserver.gameserver.network.serverpackets.ItemList;
 
+/**
+ * Observation bypass handler.
+ */
 public class Observation implements IBypassHandler {
+	
+	private static final Logger LOG = LoggerFactory.getLogger(Observation.class);
+	
 	private static final String[] COMMANDS = {
 		"observesiege",
 		"observeoracle",
@@ -105,8 +112,8 @@ public class Observation implements IBypassHandler {
 		final int param;
 		try {
 			param = Integer.parseInt(command.split(" ")[1]);
-		} catch (NumberFormatException nfe) {
-			_log.log(Level.WARNING, "Exception in " + getClass().getSimpleName(), nfe);
+		} catch (NumberFormatException ex) {
+			LOG.warn("Exception using bypass!", ex);
 			return false;
 		}
 		

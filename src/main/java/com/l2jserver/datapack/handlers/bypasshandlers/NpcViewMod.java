@@ -24,6 +24,9 @@ import java.util.Map;
 import java.util.StringTokenizer;
 import java.util.concurrent.TimeUnit;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.l2jserver.gameserver.cache.HtmCache;
 import com.l2jserver.gameserver.datatables.ItemTable;
 import com.l2jserver.gameserver.handler.IBypassHandler;
@@ -44,9 +47,13 @@ import com.l2jserver.gameserver.util.HtmlUtil;
 import com.l2jserver.gameserver.util.Util;
 
 /**
+ * Npc View Mod bypass handler.
  * @author NosBit
  */
 public class NpcViewMod implements IBypassHandler {
+	
+	private static final Logger LOG = LoggerFactory.getLogger(NpcViewMod.class);
+	
 	private static final String[] COMMANDS = {
 		"NpcViewMod"
 	};
@@ -59,7 +66,7 @@ public class NpcViewMod implements IBypassHandler {
 		st.nextToken();
 		
 		if (!st.hasMoreTokens()) {
-			_log.warning("Bypass[NpcViewMod] used without enough parameters.");
+			LOG.warn("Bypass used without enough parameters.");
 			return false;
 		}
 		
@@ -87,7 +94,7 @@ public class NpcViewMod implements IBypassHandler {
 			}
 			case "droplist": {
 				if (st.countTokens() < 2) {
-					_log.warning("Bypass[NpcViewMod] used without enough parameters.");
+					LOG.warn("Bypass used without enough parameters.");
 					return false;
 				}
 				
@@ -103,8 +110,8 @@ public class NpcViewMod implements IBypassHandler {
 					sendNpcDropList(activeChar, npc, dropListScope, page);
 				} catch (NumberFormatException e) {
 					return false;
-				} catch (IllegalArgumentException e) {
-					_log.warning("Bypass[NpcViewMod] unknown drop list scope: " + dropListScopeString);
+				} catch (IllegalArgumentException ex) {
+					LOG.warn("Bypass unknown drop list scope: {}", dropListScopeString);
 					return false;
 				}
 				break;
@@ -316,9 +323,10 @@ public class NpcViewMod implements IBypassHandler {
 		bodySb.append("</td>");
 		bodySb.append("</tr></table>");
 		
-		String html = HtmCache.getInstance().getHtm(activeChar.getHtmlPrefix(), "data/html/mods/NpcView/DropList.htm");
+		final var fileName = "data/html/mods/NpcView/DropList.htm";
+		String html = HtmCache.getInstance().getHtm(activeChar.getHtmlPrefix(), fileName);
 		if (html == null) {
-			_log.warning(NpcViewMod.class.getSimpleName() + ": The html file data/html/mods/NpcView/DropList.htm could not be found.");
+			LOG.warn("The html file {} could not be found.", fileName);
 			return;
 		}
 		html = html.replaceAll("%name%", npc.getName());

@@ -30,6 +30,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.StringTokenizer;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.l2jserver.datapack.ai.npc.AbstractNpcAI;
 import com.l2jserver.gameserver.SevenSigns;
 import com.l2jserver.gameserver.data.sql.impl.ClanTable;
@@ -72,6 +75,9 @@ import com.l2jserver.gameserver.util.Util;
  * @author malyelfik
  */
 public final class CastleChamberlain extends AbstractNpcAI {
+	
+	private static final Logger LOG = LoggerFactory.getLogger(CastleChamberlain.class);
+	
 	// NPCs
 	private static final int[] NPC = {
 		35100, // Sayres
@@ -1034,7 +1040,7 @@ public final class CastleChamberlain extends AbstractNpcAI {
 					player.sendPacket(new ExShowCropSetting(castleId));
 					break;
 				default:
-					_log.warning(getClass().getSimpleName() + ": Player " + player.getName() + " (" + player.getObjectId() + ") send unknown request id " + evt.getRequest() + "!");
+					LOG.warn("Player {} sent an unknown request Id {}!", player, evt.getRequest());
 			}
 		}
 	}

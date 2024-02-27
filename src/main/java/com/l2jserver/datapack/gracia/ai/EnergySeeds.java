@@ -28,10 +28,11 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ScheduledFuture;
-import java.util.logging.Level;
 
 import javax.xml.parsers.DocumentBuilderFactory;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.w3c.dom.Document;
 import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.Node;
@@ -66,7 +67,10 @@ import com.l2jserver.gameserver.network.serverpackets.ActionFailed;
  * @author Gigiikun, Lomka
  */
 public class EnergySeeds extends AbstractNpcAI {
-	private static final int HOWTOOPPOSEEVIL_CHANCE = 60;
+	
+	private static final Logger LOG = LoggerFactory.getLogger(EnergySeeds.class);
+	
+	private static final int HOW_TO_OPPOSE_EVIL_CHANCE = 60;
 	private static final int RATE = 1;
 	private static final List<L2Npc> SOD_TELEPORTER_SPAWNS = new ArrayList<>();
 	private static final Map<Integer, ESSpawn> SEED_SPAWNS = new HashMap<>();
@@ -133,7 +137,7 @@ public class EnergySeeds extends AbstractNpcAI {
 			
 			File file = new File(server().getDatapackRoot(), "/data/spawnZones/gracia_energy_seeds.xml");
 			if (!file.exists()) {
-				_log.severe("[Energy Seeds] Missing energy_seeds.xml. The spawns wont work without it!");
+				LOG.error("Missing energy_seeds.xml. The spawns wont work without it!");
 				return;
 			}
 			int npcCounter = 1;
@@ -147,21 +151,21 @@ public class EnergySeeds extends AbstractNpcAI {
 								NamedNodeMap attrs = d.getAttributes();
 								Node att = attrs.getNamedItem("npcId");
 								if (att == null) {
-									_log.severe("[Energy Seeds] Missing npcId in npc List, skipping");
+									LOG.error("Missing npcId in npc List, skipping");
 									continue;
 								}
 								int npcId = Integer.parseInt(attrs.getNamedItem("npcId").getNodeValue());
 								
 								att = attrs.getNamedItem("flag");
 								if (att == null) {
-									_log.severe("[Energy Seeds] Missing flag in npc List npcId: " + npcId + ", skipping");
+									LOG.error("Missing flag in npc List npcId: {}, skipping", npcId);
 									continue;
 								}
 								int flag = Integer.parseInt(attrs.getNamedItem("flag").getNodeValue());
 								
 								att = attrs.getNamedItem("respawnDelay");
 								if (att == null) {
-									_log.severe("[Energy Seeds] Missing respawnDelay in npc List npcId: " + npcId + ", skipping");
+									LOG.error("Missing respawnDelay in npc List npcId: {}, skipping", npcId);
 									continue;
 								}
 								int respawnDelay = Integer.parseInt(attrs.getNamedItem("respawnDelay").getNodeValue());
@@ -213,19 +217,19 @@ public class EnergySeeds extends AbstractNpcAI {
 								NamedNodeMap attrs = d.getAttributes();
 								Node att = attrs.getNamedItem("id");
 								if (att == null) {
-									_log.severe("[Energy Seeds] Missing id in spawnZones List, skipping");
+									LOG.error("Missing id in spawnZones List, skipping");
 									continue;
 								}
 								int id = Integer.parseInt(att.getNodeValue());
 								att = attrs.getNamedItem("minZ");
 								if (att == null) {
-									_log.severe("[Energy Seeds] Missing minZ in spawnZones List id: " + id + ", skipping");
+									LOG.error("Missing minZ in spawnZones List id: {}, skipping", id);
 									continue;
 								}
 								int minz = Integer.parseInt(att.getNodeValue());
 								att = attrs.getNamedItem("maxZ");
 								if (att == null) {
-									_log.severe("[Energy Seeds] Missing maxZ in spawnZones List id: " + id + ", skipping");
+									LOG.error("Missing maxZ in spawnZones List id: {}, skipping", id);
 									continue;
 								}
 								int maxz = Integer.parseInt(att.getNodeValue());
@@ -258,8 +262,8 @@ public class EnergySeeds extends AbstractNpcAI {
 					}
 				}
 			}
-		} catch (Exception e) {
-			_log.log(Level.WARNING, "[Energy Seeds] Could not parse data.xml file: " + e.getMessage(), e);
+		} catch (Exception ex) {
+			LOG.warn("Could not parse data.xml file!", ex);
 		}
 	}
 	
@@ -503,7 +507,7 @@ public class EnergySeeds extends AbstractNpcAI {
 	}
 	
 	private void handleQuestDrop(L2PcInstance player, int itemId) {
-		double chance = HOWTOOPPOSEEVIL_CHANCE * rates().getQuestDropChanceMultiplier();
+		double chance = HOW_TO_OPPOSE_EVIL_CHANCE * rates().getQuestDropChanceMultiplier();
 		int numItems = (int) (chance / 100);
 		chance = chance % 100;
 		if (getRandom(100) < chance) {

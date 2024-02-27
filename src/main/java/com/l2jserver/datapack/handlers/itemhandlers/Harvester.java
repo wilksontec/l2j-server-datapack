@@ -20,6 +20,9 @@ package com.l2jserver.datapack.handlers.itemhandlers;
 
 import static com.l2jserver.gameserver.config.Configuration.general;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.l2jserver.gameserver.handler.IItemHandler;
 import com.l2jserver.gameserver.model.L2Object;
 import com.l2jserver.gameserver.model.actor.L2Character;
@@ -31,9 +34,13 @@ import com.l2jserver.gameserver.network.SystemMessageId;
 import com.l2jserver.gameserver.network.serverpackets.ActionFailed;
 
 /**
+ * Harvester item handler.
  * @author l3x
  */
 public final class Harvester implements IItemHandler {
+	
+	private static final Logger LOG = LoggerFactory.getLogger(Harvester.class);
+	
 	@Override
 	public boolean useItem(L2Playable playable, L2ItemInstance item, boolean forceUse) {
 		if (!general().allowManor()) {
@@ -45,7 +52,7 @@ public final class Harvester implements IItemHandler {
 		
 		final SkillHolder[] skills = item.getItem().getSkills();
 		if (skills == null) {
-			_log.warning(getClass().getSimpleName() + ": is missing skills!");
+			LOG.warn("Item {} is missing skills!", item.getId());
 			return false;
 		}
 		

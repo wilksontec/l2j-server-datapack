@@ -22,6 +22,9 @@ import static com.l2jserver.gameserver.config.Configuration.character;
 
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.l2jserver.datapack.ai.npc.AbstractNpcAI;
 import com.l2jserver.datapack.custom.Validators.SubClassSkills;
 import com.l2jserver.gameserver.data.xml.impl.MultisellData;
@@ -32,7 +35,6 @@ import com.l2jserver.gameserver.model.L2SkillLearn;
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
 import com.l2jserver.gameserver.model.base.AcquireSkillType;
-import com.l2jserver.gameserver.model.items.instance.L2ItemInstance;
 import com.l2jserver.gameserver.model.quest.QuestState;
 import com.l2jserver.gameserver.model.skills.Skill;
 import com.l2jserver.gameserver.network.SystemMessageId;
@@ -48,6 +50,9 @@ import com.l2jserver.gameserver.util.Util;
  * @author Zoey76
  */
 public class AvantGarde extends AbstractNpcAI {
+	
+	private static final Logger LOG = LoggerFactory.getLogger(AvantGarde.class);
+	
 	// NPC
 	private static final int AVANT_GARDE = 32323;
 	// Items
@@ -181,26 +186,26 @@ public class AvantGarde extends AbstractNpcAI {
 											st.saveGlobalQuestVar(qvarName, "0");
 										}
 									} else {
-										_log.warning("Invalid Sub-Class Skill Id: " + skillIdVar + " for player " + player.getName() + "!");
+										LOG.warn("Invalid Sub-Class Skill Id {} for player {}!", skillIdVar, player);
 									}
 								} else if (!qvar.isEmpty() && !qvar.equals("0")) {
 									if (Util.isDigit(qvar)) {
 										final int itemObjId = Integer.parseInt(qvar);
-										L2ItemInstance itemInstance = player.getInventory().getItemByObjectId(itemObjId);
+										var itemInstance = player.getInventory().getItemByObjectId(itemObjId);
 										if (itemInstance != null) {
 											player.destroyItem("CancelCertification", itemObjId, 1, player, false);
 										} else {
 											itemInstance = player.getWarehouse().getItemByObjectId(itemObjId);
 											if (itemInstance != null) {
-												_log.warning("Somehow " + player.getName() + " put a certification book into warehouse!");
+												LOG.warn("Somehow {} put a certification book into warehouse!", player);
 												player.getWarehouse().destroyItem("CancelCertification", itemInstance, 1, player, false);
 											} else {
-												_log.warning("Somehow " + player.getName() + " deleted a certification book!");
+												LOG.warn("Somehow {} deleted a certification book!", player);
 											}
 										}
 										st.saveGlobalQuestVar(qvarName, "0");
 									} else {
-										_log.warning("Invalid item object Id: " + qvar + " for player " + player.getName() + "!");
+										LOG.warn("Invalid item object Id {} for player {}!", qvar, player);
 									}
 								}
 							}
@@ -213,9 +218,9 @@ public class AvantGarde extends AbstractNpcAI {
 					
 					// Let's consume all certification books, even those not present in database.
 					for (int itemId : ITEMS) {
-						L2ItemInstance item = player.getInventory().getItemByItemId(itemId);
+						final var item = player.getInventory().getItemByItemId(itemId);
 						if (item != null) {
-							_log.warning(getClass().getName() + ": player " + player + " had 'extra' certification skill books while cancelling sub-class certifications!");
+							LOG.warn("Player {} had extra certification skill books while cancelling sub-class certifications!", player);
 							player.destroyItem("CancelCertificationExtraBooks", item, npc, false);
 						}
 					}

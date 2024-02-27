@@ -23,6 +23,9 @@ import static com.l2jserver.gameserver.config.Configuration.npc;
 
 import java.util.StringTokenizer;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.l2jserver.gameserver.handler.IBypassHandler;
 import com.l2jserver.gameserver.model.actor.L2Character;
 import com.l2jserver.gameserver.model.actor.L2Npc;
@@ -32,6 +35,9 @@ import com.l2jserver.gameserver.network.serverpackets.NpcHtmlMessage;
 import com.l2jserver.gameserver.network.serverpackets.SetupGauge;
 
 public class RentPet implements IBypassHandler {
+	
+	private static final Logger LOG = LoggerFactory.getLogger(RentPet.class);
+	
 	private static final String[] COMMANDS = {
 		"RentPet"
 	};
@@ -68,8 +74,8 @@ public class RentPet implements IBypassHandler {
 			}
 			
 			return true;
-		} catch (Exception e) {
-			_log.info("Exception in " + getClass().getSimpleName());
+		} catch (Exception ex) {
+			LOG.warn("Exception using bypass!", ex);
 		}
 		return false;
 	}

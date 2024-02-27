@@ -23,6 +23,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.text.SimpleDateFormat;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.l2jserver.commons.database.ConnectionFactory;
 import com.l2jserver.gameserver.cache.HtmCache;
 import com.l2jserver.gameserver.handler.CommunityBoardHandler;
@@ -35,6 +38,9 @@ import com.l2jserver.gameserver.util.Util;
  * @author Zoey76
  */
 public class FavoriteBoard implements IParseBoardHandler {
+	
+	private static final Logger LOG = LoggerFactory.getLogger(FavoriteBoard.class);
+	
 	// SQL Queries
 	private static final String SELECT_FAVORITES = "SELECT * FROM `bbs_favorites` WHERE `playerId`=? ORDER BY `favAddDate` DESC";
 	private static final String DELETE_FAVORITE = "DELETE FROM `bbs_favorites` WHERE `playerId`=? AND `favId`=?";
@@ -74,15 +80,15 @@ public class FavoriteBoard implements IParseBoardHandler {
 				String html = HtmCache.getInstance().getHtm(activeChar.getHtmlPrefix(), "data/html/CommunityBoard/favorite.html");
 				html = html.replaceAll("%fav_list%", sb.toString());
 				CommunityBoardHandler.separateAndSend(html, activeChar);
-			} catch (Exception e) {
-				LOG.warning(FavoriteBoard.class.getSimpleName() + ": Couldn't load favorite links for player " + activeChar.getName());
+			} catch (Exception ex) {
+				LOG.warn("Couldn't load favorite links for player {}!", activeChar);
 			}
 		} else if (command.startsWith("bbs_add_fav")) {
 			final String bypass = CommunityBoardHandler.getInstance().removeBypass(activeChar);
 			if (bypass != null) {
 				final String[] parts = bypass.split("&", 2);
 				if (parts.length != 2) {
-					LOG.warning(FavoriteBoard.class.getSimpleName() + ": Couldn't add favorite link, " + bypass + " it's not a valid bypass!");
+					LOG.warn("Couldn't add favorite link, {} it's not a valid bypass!", bypass);
 					return false;
 				}
 				
@@ -95,13 +101,13 @@ public class FavoriteBoard implements IParseBoardHandler {
 					// Callback
 					parseCommunityBoardCommand("_bbsgetfav", activeChar);
 				} catch (Exception e) {
-					LOG.warning(FavoriteBoard.class.getSimpleName() + ": Couldn't add favorite link " + bypass + " for player " + activeChar.getName());
+					LOG.warn("Couldn't add favorite link {} for player {}!", bypass, activeChar);
 				}
 			}
 		} else if (command.startsWith("_bbsdelfav_")) {
 			final String favId = command.replace("_bbsdelfav_", "");
 			if (!Util.isDigit(favId)) {
-				LOG.warning(FavoriteBoard.class.getSimpleName() + ": Couldn't delete favorite link, " + favId + " it's not a valid ID!");
+				LOG.warn("Couldn't delete favorite link, {} it's not a valid Id!", favId);
 				return false;
 			}
 			
@@ -113,7 +119,7 @@ public class FavoriteBoard implements IParseBoardHandler {
 				// Callback
 				parseCommunityBoardCommand("_bbsgetfav", activeChar);
 			} catch (Exception e) {
-				LOG.warning(FavoriteBoard.class.getSimpleName() + ": Couldn't delete favorite link ID " + favId + " for player " + activeChar.getName());
+				LOG.warn("Couldn't delete favorite link Id {} for player {}!", favId, activeChar);
 			}
 		}
 		return true;

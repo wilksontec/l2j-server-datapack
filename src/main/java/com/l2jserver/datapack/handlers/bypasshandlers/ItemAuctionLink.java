@@ -23,7 +23,9 @@ import static com.l2jserver.gameserver.config.Configuration.general;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.StringTokenizer;
-import java.util.logging.Level;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.l2jserver.gameserver.handler.IBypassHandler;
 import com.l2jserver.gameserver.instancemanager.ItemAuctionManager;
@@ -35,6 +37,9 @@ import com.l2jserver.gameserver.network.SystemMessageId;
 import com.l2jserver.gameserver.network.serverpackets.ExItemAuctionInfoPacket;
 
 public class ItemAuctionLink implements IBypassHandler {
+	
+	private static final Logger LOG = LoggerFactory.getLogger(ItemAuctionLink.class);
+	
 	private static final SimpleDateFormat fmt = new SimpleDateFormat("HH:mm:ss dd.MM.yyyy");
 	
 	private static final String[] COMMANDS = {
@@ -101,8 +106,8 @@ public class ItemAuctionLink implements IBypassHandler {
 			} else {
 				return false;
 			}
-		} catch (Exception e) {
-			_log.log(Level.WARNING, "Exception in " + getClass().getSimpleName(), e);
+		} catch (Exception ex) {
+			LOG.warn("Exception using bypass!", ex);
 		}
 		
 		return true;

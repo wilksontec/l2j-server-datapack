@@ -19,7 +19,9 @@
 package com.l2jserver.datapack.handlers.bypasshandlers;
 
 import java.util.StringTokenizer;
-import java.util.logging.Level;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.l2jserver.gameserver.handler.IBypassHandler;
 import com.l2jserver.gameserver.model.actor.L2Character;
@@ -27,6 +29,9 @@ import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
 import com.l2jserver.gameserver.network.serverpackets.NpcHtmlMessage;
 
 public class PlayerHelp implements IBypassHandler {
+	
+	private static final Logger LOG = LoggerFactory.getLogger(PlayerHelp.class);
+	
 	private static final String[] COMMANDS = {
 		"player_help"
 	};
@@ -56,8 +61,8 @@ public class PlayerHelp implements IBypassHandler {
 			
 			html.setFile(activeChar.getHtmlPrefix(), "data/html/help/" + cmd[0]);
 			activeChar.sendPacket(html);
-		} catch (Exception e) {
-			_log.log(Level.WARNING, "Exception in " + getClass().getSimpleName(), e);
+		} catch (Exception ex) {
+			LOG.warn("Exception using bypass!", ex);
 		}
 		return true;
 	}

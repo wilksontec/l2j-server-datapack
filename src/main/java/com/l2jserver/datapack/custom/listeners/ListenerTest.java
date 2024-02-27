@@ -18,7 +18,8 @@
  */
 package com.l2jserver.datapack.custom.listeners;
 
-import java.util.logging.Level;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.l2jserver.datapack.ai.npc.AbstractNpcAI;
 import com.l2jserver.gameserver.model.actor.L2Attackable;
@@ -46,6 +47,9 @@ import com.l2jserver.gameserver.model.holders.ItemHolder;
  * @author UnAfraid
  */
 public class ListenerTest extends AbstractNpcAI {
+	
+	private static final Logger LOG = LoggerFactory.getLogger(ListenerTest.class);
+	
 	private static final int[] ELPIES = {
 		20432,
 		22228
@@ -60,7 +64,7 @@ public class ListenerTest extends AbstractNpcAI {
 		
 		// Manual listener registration
 		Containers.Global().addListener(new ConsumerEventListener(Containers.Global(), EventType.ON_PLAYER_DLG_ANSWER, (OnPlayerDlgAnswer event) -> {
-			_log.log(Level.INFO, ListenerTest.class.getSimpleName() + ": " + event.getActiveChar() + " OnPlayerDlgAnswer: Answer: " + event.getAnswer() + " MessageId: " + event.getMessageId());
+			LOG.info("{} OnPlayerDlgAnswer: Answer: {} MessageId: {}", event.getActiveChar(), event.getAnswer(), event.getMessageId());
 		}, this));
 	}
 	
@@ -69,7 +73,7 @@ public class ListenerTest extends AbstractNpcAI {
 	 * @param event
 	 */
 	public void onAttackableAttack(OnAttackableAttack event) {
-		_log.log(Level.INFO, getClass().getSimpleName() + ": " + event.getClass().getSimpleName() + " invoked attacker: " + event.getAttacker() + " target: " + event.getTarget() + " damage: " + event.getDamage() + " skill: " + event.getSkill());
+		LOG.info("{} invoked attacker: {} target: {} damage: {} skill: {}", event.getClass().getSimpleName(), event.getAttacker(), event.getTarget(), event.getDamage(), event.getSkill());
 	}
 	
 	/**
@@ -83,7 +87,7 @@ public class ListenerTest extends AbstractNpcAI {
 	@Id(20432)
 	@Id(22228)
 	public void onCreatureKill(OnCreatureKill event) {
-		_log.log(Level.INFO, getClass().getSimpleName() + ": " + event.getClass().getSimpleName() + " invoked attacker: " + event.getAttacker() + " target: " + event.getTarget());
+		LOG.info("{} invoked attacker: {} target: {}", event.getClass().getSimpleName(), event.getAttacker(), event.getTarget());
 	}
 	
 	/**
@@ -95,7 +99,7 @@ public class ListenerTest extends AbstractNpcAI {
 	@RegisterType(ListenerRegisterType.CASTLE)
 	@Range(from = 1, to = 9)
 	public void onSiegeStart(OnCastleSiegeStart event) {
-		_log.log(Level.INFO, getClass().getSimpleName() + ": The siege of " + event.getSiege().getCastle().getName() + " (" + event.getSiege().getCastle().getResidenceId() + ") has started!");
+		LOG.info("The siege of {} ({}) has started!", event.getSiege().getCastle().getName(), event.getSiege().getCastle().getResidenceId());
 	}
 	
 	/**
@@ -107,7 +111,7 @@ public class ListenerTest extends AbstractNpcAI {
 	@RegisterType(ListenerRegisterType.ITEM)
 	@Id(5575)
 	public void onItemCreate(OnItemCreate event) {
-		_log.log(Level.INFO, getClass().getSimpleName() + ": Item [" + event.getItem() + "] has been created actor: " + event.getActiveChar() + " process: " + event.getProcess() + " reference: " + event.getReference());
+		LOG.info("Item [{}] has been created actor: {} process: {} reference: {}", event.getItem(), event.getActiveChar(), event.getProcess(), event.getReference());
 	}
 	
 	/**
@@ -141,7 +145,7 @@ public class ListenerTest extends AbstractNpcAI {
 	@RegisterEvent(EventType.ON_PLAYER_LOGIN)
 	@RegisterType(ListenerRegisterType.GLOBAL_PLAYERS)
 	public void onPlayerLogin(OnPlayerLogin event) {
-		_log.log(Level.INFO, getClass().getSimpleName() + ": Player: " + event.getActiveChar() + " has logged in!");
+		LOG.info("Player: {} has logged in!", event.getActiveChar());
 	}
 	
 	/**
@@ -157,7 +161,7 @@ public class ListenerTest extends AbstractNpcAI {
 	@Priority(Integer.MAX_VALUE)
 	public TerminateReturn onPlayerDeath(OnCreatureKill event) {
 		if (event.getTarget().isGM()) {
-			_log.log(Level.INFO, getClass().getSimpleName() + ": Player: " + event.getTarget() + " was prevented from dying!");
+			LOG.info("Player: {} was prevented from dying!", event.getTarget());
 			return new TerminateReturn(true, true, true);
 		}
 		return null;

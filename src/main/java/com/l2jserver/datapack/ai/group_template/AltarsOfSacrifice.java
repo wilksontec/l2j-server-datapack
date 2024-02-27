@@ -18,7 +18,8 @@
  */
 package com.l2jserver.datapack.ai.group_template;
 
-import java.util.logging.Level;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.l2jserver.datapack.ai.npc.AbstractNpcAI;
 import com.l2jserver.gameserver.GeoData;
@@ -36,6 +37,9 @@ import com.l2jserver.gameserver.model.interfaces.ILocational;
  * @author lion
  */
 public final class AltarsOfSacrifice extends AbstractNpcAI {
+	
+	private static final Logger LOG = LoggerFactory.getLogger(AltarsOfSacrifice.class);
+	
 	private static final class Altar {
 		private final ILocational _middlePoint;
 		private final int[] _bossNpcIds;
@@ -238,7 +242,7 @@ public final class AltarsOfSacrifice extends AbstractNpcAI {
 	
 	@Override
 	public boolean unload(boolean removeFromList) {
-		_log.info(getClass().getSimpleName() + ": Unloading altars due to script unloading.");
+		LOG.info("Unloading altars due to script unloading.");
 		
 		for (final Altar altar : _altars) {
 			altar.unload();
@@ -255,8 +259,8 @@ public final class AltarsOfSacrifice extends AbstractNpcAI {
 			try {
 				altar.spawnBoss();
 				startQuestTimer(makeDespawnBossEvt(altarIndex), ALTAR_STATE_CHANGE_DELAY, null, null);
-			} catch (Exception e) {
-				_log.log(Level.WARNING, getClass().getSimpleName() + ": Failed to spawn altar boss.", e);
+			} catch (Exception ex) {
+				LOG.warn("Failed to spawn altar boss.", ex);
 				// let's try again to spawn it in 5 seconds
 				startQuestTimer(event, 5000, null, null);
 			}

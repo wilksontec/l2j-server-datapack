@@ -18,6 +18,9 @@
  */
 package com.l2jserver.datapack.instances.NornilsGarden;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.l2jserver.datapack.instances.AbstractInstance;
 import com.l2jserver.datapack.quests.Q00179_IntoTheLargeCavern.Q00179_IntoTheLargeCavern;
 import com.l2jserver.gameserver.instancemanager.InstanceManager;
@@ -43,6 +46,9 @@ import com.l2jserver.gameserver.util.Util;
  * @version 2010-10-15 Based on official server Naia
  */
 public final class NornilsGarden extends AbstractInstance {
+	
+	private static final Logger LOG = LoggerFactory.getLogger(NornilsGarden.class);
+	
 	protected static class NornilsWorld extends InstanceWorld {
 		protected L2Npc first_npc = null;
 		protected boolean spawned_1 = false;
@@ -258,7 +264,7 @@ public final class NornilsGarden extends AbstractInstance {
 		world.setInstanceId(instanceId);
 		world.setTemplateId(TEMPLATE_ID);
 		InstanceManager.getInstance().addWorld(world);
-		_log.info("Nornils Garden: started, Instance: " + instanceId + " created by player: " + player.getName());
+		LOG.info("Started, Instance: {} created by player: {}." + player, instanceId, player);
 		
 		prepareInstance((NornilsWorld) world);
 		

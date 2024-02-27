@@ -24,6 +24,9 @@ import static com.l2jserver.gameserver.network.SystemMessageId.INVENTORY_LESS_TH
 import static com.l2jserver.gameserver.network.SystemMessageId.NOT_ENOUGH_ITEMS;
 import static com.l2jserver.gameserver.network.serverpackets.TutorialCloseHtml.STATIC_PACKET;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.l2jserver.datapack.ai.npc.AbstractNpcAI;
 import com.l2jserver.gameserver.data.xml.impl.ClassListData;
 import com.l2jserver.gameserver.datatables.ItemTable;
@@ -48,6 +51,9 @@ import com.l2jserver.gameserver.util.StringUtil;
  * @since 2.6.0.0
  */
 public final class ClassMaster extends AbstractNpcAI {
+	
+	private static final Logger LOG = LoggerFactory.getLogger(ClassMaster.class);
+	
 	// NPCs
 	private static final int MR_CAT = 31756;
 	private static final int MISS_QUEEN = 31757;
@@ -175,7 +181,7 @@ public final class ClassMaster extends AbstractNpcAI {
 			}
 			player.getClan().changeLevel(5);
 		} else {
-			_log.warning("Player " + player + " send invalid request [" + event + "]");
+			LOG.warn("Player {} send invalid request [{}]!", player, event);
 		}
 		return "";
 	}
@@ -198,7 +204,7 @@ public final class ClassMaster extends AbstractNpcAI {
 			int val = Integer.parseInt(request.substring(2));
 			checkAndChangeClass(player, val);
 		} catch (NumberFormatException e) {
-			_log.warning("Player " + player + " send invalid class change request [" + request + "]!");
+			LOG.warn("Player {} send invalid class change request [{}]!", player, request);
 		}
 		player.sendPacket(STATIC_PACKET);
 	}

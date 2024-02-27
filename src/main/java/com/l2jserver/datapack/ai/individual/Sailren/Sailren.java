@@ -18,6 +18,9 @@
  */
 package com.l2jserver.datapack.ai.individual.Sailren;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.l2jserver.datapack.ai.npc.AbstractNpcAI;
 import com.l2jserver.gameserver.instancemanager.GlobalVariablesManager;
 import com.l2jserver.gameserver.instancemanager.ZoneManager;
@@ -35,6 +38,9 @@ import com.l2jserver.gameserver.network.serverpackets.SpecialCamera;
  * @author St3eT
  */
 public final class Sailren extends AbstractNpcAI {
+	
+	private static final Logger LOG = LoggerFactory.getLogger(Sailren.class);
+	
 	// NPCs
 	private static final int STATUE = 32109; // Shilen's Stone Statue
 	private static final int MOVIE_NPC = 32110; // Invisible NPC for movie
@@ -258,7 +264,7 @@ public final class Sailren extends AbstractNpcAI {
 	@Override
 	public boolean unload(boolean removeFromList) {
 		if (STATUS == Status.IN_FIGHT) {
-			_log.info(getClass().getSimpleName() + ": Script is being unloaded while Sailren is active, clearing zone.");
+			LOG.info("Script is being unloaded while Sailren is active, clearing zone.");
 			notifyEvent("TIME_OUT", null, null);
 		}
 		return super.unload(removeFromList);

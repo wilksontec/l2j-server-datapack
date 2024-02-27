@@ -18,6 +18,9 @@
  */
 package com.l2jserver.datapack.ai.group_template;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.l2jserver.datapack.ai.npc.AbstractNpcAI;
 import com.l2jserver.gameserver.ThreadPoolManager;
 import com.l2jserver.gameserver.instancemanager.ZoneManager;
@@ -36,6 +39,9 @@ import com.l2jserver.gameserver.util.Util;
  * @author Gnacik
  */
 public final class DenOfEvil extends AbstractNpcAI {
+	
+	private static final Logger LOG = LoggerFactory.getLogger(DenOfEvil.class);
+	
 	// private static final int _buffer_id = 32656;
 	protected static final int[] EYE_IDS = {
 		18812,
@@ -113,7 +119,7 @@ public final class DenOfEvil extends AbstractNpcAI {
 		npc.setIsImmobilized(true);
 		L2EffectZone zone = ZoneManager.getInstance().getZone(npc, L2EffectZone.class);
 		if (zone == null) {
-			_log.warning("NPC " + npc + " spawned outside of L2EffectZone, check your zone coords! X:" + npc.getX() + " Y:" + npc.getY() + " Z:" + npc.getZ());
+			LOG.warn("NPC {} spawned outside of L2EffectZone, check your zone coords! {}", npc, npc.getLocation());
 			return null;
 		}
 		int skillId = getSkillIdByNpcId(npc.getId());
@@ -136,7 +142,7 @@ public final class DenOfEvil extends AbstractNpcAI {
 		}, 15000);
 		L2EffectZone zone = ZoneManager.getInstance().getZone(npc, L2EffectZone.class);
 		if (zone == null) {
-			_log.warning("NPC " + npc + " killed outside of L2EffectZone, check your zone coords! X:" + npc.getX() + " Y:" + npc.getY() + " Z:" + npc.getZ());
+			LOG.warn("NPC {} killed outside of L2EffectZone, check your zone coords! {}", npc, npc.getLocation());
 			return null;
 		}
 		int skillId = getSkillIdByNpcId(npc.getId());

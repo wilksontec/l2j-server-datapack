@@ -24,6 +24,9 @@ import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ScheduledFuture;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.l2jserver.gameserver.ThreadPoolManager;
 import com.l2jserver.gameserver.datatables.SkillData;
 import com.l2jserver.gameserver.model.actor.L2Npc;
@@ -37,9 +40,13 @@ import com.l2jserver.gameserver.network.serverpackets.NpcHtmlMessage;
 import com.l2jserver.gameserver.util.Broadcast;
 
 /**
+ * Race event.
  * @author Gnacik
  */
 public final class Race extends Event {
+	
+	private static final Logger LOG = LoggerFactory.getLogger(Race.class);
+	
 	// Event NPC's list
 	private final Set<L2Npc> _npcs = ConcurrentHashMap.newKeySet();
 	// Npc
@@ -118,7 +125,7 @@ public final class Race extends Event {
 		
 		// Check Custom Table - we use custom NPC's
 		if (!general().customNpcData()) {
-			_log.info(getName() + ": Event can't be started, because custom npc table is disabled!");
+			LOG.info("Event can't be started, because custom npc table is disabled!");
 			eventMaker.sendMessage("Event " + getName() + " can't be started because custom NPC table is disabled!");
 			return false;
 		}
@@ -140,7 +147,7 @@ public final class Race extends Event {
 	}
 	
 	protected void StartRace() {
-		// Abort race if no players signup
+		// Abort race if no players sign up
 		if (_players.isEmpty()) {
 			Broadcast.toAllOnlinePlayers("Race aborted, nobody signup.");
 			eventStop();
