@@ -56,7 +56,7 @@ public final class Q00235_MimirsElixir extends Quest {
 	private static final int ENCHANT_WEAPON_A = 729;
 	// Misc
 	private static final int MIN_LEVEL = 75;
-	private static final Map<Integer, Integer> ITEM_STATE = Map.of(SAGES_STONE.getId(), 4, BLOOD_FIRE.getId(), 1);
+	private static final Map<Integer, Integer> ITEM_STATE = Map.of(SAGES_STONE.getId(), 4, BLOOD_FIRE.getId(), 7);
 	// Skill
 	private static final SkillHolder QUEST_MIMIRS_ELIXIR = new SkillHolder(4339);
 	
