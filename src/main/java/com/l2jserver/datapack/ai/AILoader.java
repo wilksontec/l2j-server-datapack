@@ -182,6 +182,7 @@ import com.l2jserver.datapack.ai.npc.Teleports.TeleportToUndergroundColiseum.Tel
 import com.l2jserver.datapack.ai.npc.Teleports.TeleportWithCharm.TeleportWithCharm;
 import com.l2jserver.datapack.ai.npc.Teleports.ToIVortex.ToIVortex;
 import com.l2jserver.datapack.ai.npc.TerritoryManagers.TerritoryManagers;
+import com.l2jserver.datapack.ai.npc.Tolonis.Tolonis;
 import com.l2jserver.datapack.ai.npc.TownPets.TownPets;
 import com.l2jserver.datapack.ai.npc.Trainers.HealerTrainer.HealerTrainer;
 import com.l2jserver.datapack.ai.npc.Tunatun.Tunatun;
@@ -307,6 +308,7 @@ public class AILoader {
 		FirstClassTransferTalk.class,
 		WeaverOlf.class,
 		WyvernManager.class,
+		Tolonis.class,
 		// Fantasy Isle
 		MC_Show.class,
 		HandysBlockCheckerEvent.class,

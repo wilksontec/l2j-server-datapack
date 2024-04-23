@@ -123,6 +123,7 @@ import com.l2jserver.datapack.handlers.bypasshandlers.EventEngine;
 import com.l2jserver.datapack.handlers.bypasshandlers.Festival;
 import com.l2jserver.datapack.handlers.bypasshandlers.Freight;
 import com.l2jserver.datapack.handlers.bypasshandlers.ItemAuctionLink;
+import com.l2jserver.datapack.handlers.bypasshandlers.LearnSkill;
 import com.l2jserver.datapack.handlers.bypasshandlers.Link;
 import com.l2jserver.datapack.handlers.bypasshandlers.Loto;
 import com.l2jserver.datapack.handlers.bypasshandlers.Multisell;
@@ -137,7 +138,6 @@ import com.l2jserver.datapack.handlers.bypasshandlers.QuestList;
 import com.l2jserver.datapack.handlers.bypasshandlers.ReceivePremium;
 import com.l2jserver.datapack.handlers.bypasshandlers.ReleaseAttribute;
 import com.l2jserver.datapack.handlers.bypasshandlers.RentPet;
-import com.l2jserver.datapack.handlers.bypasshandlers.SkillList;
 import com.l2jserver.datapack.handlers.bypasshandlers.SupportBlessing;
 import com.l2jserver.datapack.handlers.bypasshandlers.SupportMagic;
 import com.l2jserver.datapack.handlers.bypasshandlers.TerritoryStatus;
@@ -359,6 +359,7 @@ public class MasterHandler {
 		Festival.class,
 		Freight.class,
 		ItemAuctionLink.class,
+		LearnSkill.class,
 		Link.class,
 		Loto.class,
 		Multisell.class,
@@ -373,8 +374,6 @@ public class MasterHandler {
 		ReceivePremium.class,
 		ReleaseAttribute.class,
 		RentPet.class,
-		
-		SkillList.class,
 		SupportBlessing.class,
 		SupportMagic.class,
 		TerritoryStatus.class,
