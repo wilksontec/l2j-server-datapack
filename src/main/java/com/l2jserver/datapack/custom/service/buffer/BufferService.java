@@ -583,7 +583,7 @@ public final class BufferService extends CustomServiceScript {
 		} else if (Configuration.bufferService().getForbidInEvents() && ((player.getEventStatus() != null) || (player.getBlockCheckerArena() != -1) || player.isOnEvent() || player.isInOlympiadMode() || TvTEvent.isPlayerParticipant(player.getObjectId()))) {
 			abortSysMsg = SystemMessage.getSystemMessage(SystemMessageId.S1_CANNOT_BE_USED);
 			abortSysMsg.addString("Buffer");
-		} else if (Configuration.bufferService().getForbidInDuell() && player.isInDuel()) {
+		} else if (Configuration.bufferService().getForbidInDuel() && player.isInDuel()) {
 			abortSysMsg = SystemMessage.getSystemMessage(SystemMessageId.S1_CANNOT_BE_USED);
 			abortSysMsg.addString("Buffer");
 		} else if (Configuration.bufferService().getForbidInFight() && AttackStanceTaskManager.getInstance().hasAttackStanceTask(player)) {
