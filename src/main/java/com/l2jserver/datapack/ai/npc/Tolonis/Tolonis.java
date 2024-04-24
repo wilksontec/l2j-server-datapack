@@ -18,6 +18,7 @@
  */
 package com.l2jserver.datapack.ai.npc.Tolonis;
 
+import static com.l2jserver.gameserver.config.Configuration.character;
 import static com.l2jserver.gameserver.model.base.AcquireSkillType.COLLECT;
 import static com.l2jserver.gameserver.network.SystemMessageId.DO_NOT_HAVE_FURTHER_SKILLS_TO_LEARN_S1;
 import static com.l2jserver.gameserver.network.SystemMessageId.NO_MORE_SKILLS_TO_LEARN;
@@ -49,7 +50,7 @@ public class Tolonis extends AbstractNpcAI {
 	
 	@Override
 	public String onFirstTalk(L2Npc npc, L2PcInstance player) {
-		if (player.getKarma() > 0) {
+		if ((player.getKarma() > 0) && !character().karmaPlayerCanShop()) {
 			return "officer_tolonis006.html";
 		}
 		return "officer_tolonis001.html";

@@ -19,18 +19,17 @@
 package com.l2jserver.datapack.ai.npc.Fisherman;
 
 import static com.l2jserver.gameserver.config.Configuration.character;
-
-import java.util.List;
+import static com.l2jserver.gameserver.model.base.AcquireSkillType.FISHING;
+import static com.l2jserver.gameserver.network.SystemMessageId.DO_NOT_HAVE_FURTHER_SKILLS_TO_LEARN_S1;
+import static com.l2jserver.gameserver.network.SystemMessageId.NO_MORE_SKILLS_TO_LEARN;
 
 import com.l2jserver.datapack.ai.npc.AbstractNpcAI;
 import com.l2jserver.gameserver.data.xml.impl.SkillTreesData;
 import com.l2jserver.gameserver.datatables.SkillData;
-import com.l2jserver.gameserver.model.L2SkillLearn;
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2MerchantInstance;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
-import com.l2jserver.gameserver.model.base.AcquireSkillType;
-import com.l2jserver.gameserver.network.SystemMessageId;
+import com.l2jserver.gameserver.model.events.impl.character.player.PlayerLearnSkillRequested;
 import com.l2jserver.gameserver.network.serverpackets.AcquireSkillList;
 import com.l2jserver.gameserver.network.serverpackets.SystemMessage;
 
@@ -70,18 +69,15 @@ public class Fisherman extends AbstractNpcAI {
 	public Fisherman() {
 		super(Fisherman.class.getSimpleName(), "ai/npc");
 		bindStartNpc(FISHERMAN);
-		bindTalk(FISHERMAN);
 		bindFirstTalk(FISHERMAN);
+		bindTalk(FISHERMAN);
+		bindPlayerLearnSkillRequested(FISHERMAN);
 	}
 	
 	@Override
 	public String onAdvEvent(String event, L2Npc npc, L2PcInstance player) {
 		String htmltext = null;
 		switch (event) {
-			case "LearnFishSkill": {
-				showFishSkillList(player);
-				break;
-			}
 			case "fishing_championship.htm": {
 				htmltext = event;
 				break;
@@ -102,16 +98,21 @@ public class Fisherman extends AbstractNpcAI {
 		return npc.getId() + ".htm";
 	}
 	
+	@Override
+	public void onLearnSkillRequested(PlayerLearnSkillRequested event) {
+		showFishSkillList(event.player());
+	}
+	
 	/**
 	 * Display the Fishing Skill list to the player.
 	 * @param player the player
 	 */
 	public static void showFishSkillList(L2PcInstance player) {
-		final List<L2SkillLearn> fishskills = SkillTreesData.getInstance().getAvailableFishingSkills(player);
-		final AcquireSkillList asl = new AcquireSkillList(AcquireSkillType.FISHING);
+		final var fishskills = SkillTreesData.getInstance().getAvailableFishingSkills(player);
+		final var asl = new AcquireSkillList(FISHING);
 		int count = 0;
 		
-		for (L2SkillLearn s : fishskills) {
+		for (var s : fishskills) {
 			if (SkillData.getInstance().getSkill(s.getSkillId(), s.getSkillLevel()) != null) {
 				count++;
 				asl.addSkill(s.getSkillId(), s.getSkillLevel(), s.getSkillLevel(), s.getLevelUpSp(), 1);
@@ -123,11 +124,11 @@ public class Fisherman extends AbstractNpcAI {
 		} else {
 			final int minlLevel = SkillTreesData.getInstance().getMinLevelForNewSkill(player, SkillTreesData.getInstance().getFishingSkillTree());
 			if (minlLevel > 0) {
-				SystemMessage sm = SystemMessage.getSystemMessage(SystemMessageId.DO_NOT_HAVE_FURTHER_SKILLS_TO_LEARN_S1);
+				final var sm = SystemMessage.getSystemMessage(DO_NOT_HAVE_FURTHER_SKILLS_TO_LEARN_S1);
 				sm.addInt(minlLevel);
 				player.sendPacket(sm);
 			} else {
-				player.sendPacket(SystemMessageId.NO_MORE_SKILLS_TO_LEARN);
+				player.sendPacket(NO_MORE_SKILLS_TO_LEARN);
 			}
 		}
 	}
