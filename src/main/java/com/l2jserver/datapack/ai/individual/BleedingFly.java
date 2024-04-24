@@ -51,8 +51,8 @@ public class BleedingFly extends AbstractNpcAI {
 	
 	public BleedingFly() {
 		super(BleedingFly.class.getSimpleName(), "ai/individual");
-		addAttackId(BLEEDING_FLY);
-		addSpawnId(BLEEDING_FLY);
+		bindAttack(BLEEDING_FLY);
+		bindSpawn(BLEEDING_FLY);
 	}
 	
 	@Override

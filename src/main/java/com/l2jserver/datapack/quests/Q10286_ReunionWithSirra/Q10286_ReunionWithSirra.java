@@ -50,8 +50,8 @@ public final class Q10286_ReunionWithSirra extends Quest {
 	
 	public Q10286_ReunionWithSirra() {
 		super(10286, Q10286_ReunionWithSirra.class.getSimpleName(), "Reunion with Sirra");
-		addStartNpc(RAFFORTY);
-		addTalkId(RAFFORTY, JINIA, SIRRA, JINIA2);
+		bindStartNpc(RAFFORTY);
+		bindTalk(RAFFORTY, JINIA, SIRRA, JINIA2);
 		registerQuestItems(BLACK_FROZEN_CORE);
 	}
 	

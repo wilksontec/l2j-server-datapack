@@ -43,8 +43,8 @@ public final class SteelCitadelTeleport extends AbstractNpcAI {
 	
 	public SteelCitadelTeleport() {
 		super(SteelCitadelTeleport.class.getSimpleName(), "ai/npc/Teleports");
-		addStartNpc(NAIA_CUBE);
-		addTalkId(NAIA_CUBE);
+		bindStartNpc(NAIA_CUBE);
+		bindTalk(NAIA_CUBE);
 	}
 	
 	@Override

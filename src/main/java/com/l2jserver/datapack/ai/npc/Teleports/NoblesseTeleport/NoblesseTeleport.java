@@ -55,8 +55,8 @@ public final class NoblesseTeleport extends AbstractNpcAI {
 	
 	public NoblesseTeleport() {
 		super(NoblesseTeleport.class.getSimpleName(), "ai/npc/Teleports");
-		addStartNpc(NPCs);
-		addTalkId(NPCs);
+		bindStartNpc(NPCs);
+		bindTalk(NPCs);
 	}
 	
 	@Override

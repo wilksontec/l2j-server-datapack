@@ -36,9 +36,9 @@ public final class Buron extends AbstractNpcAI {
 	
 	public Buron() {
 		super(Buron.class.getSimpleName(), "hellbound/AI/NPC");
-		addFirstTalkId(BURON);
-		addStartNpc(BURON);
-		addTalkId(BURON);
+		bindFirstTalk(BURON);
+		bindStartNpc(BURON);
+		bindTalk(BURON);
 	}
 	
 	@Override

@@ -40,9 +40,9 @@ public class TemporaryTeleporter extends AbstractNpcAI {
 	
 	public TemporaryTeleporter() {
 		super(TemporaryTeleporter.class.getSimpleName(), "gracia/AI/NPC");
-		addStartNpc(TEMPORARY_TELEPORTER);
-		addFirstTalkId(TEMPORARY_TELEPORTER);
-		addTalkId(TEMPORARY_TELEPORTER);
+		bindStartNpc(TEMPORARY_TELEPORTER);
+		bindFirstTalk(TEMPORARY_TELEPORTER);
+		bindTalk(TEMPORARY_TELEPORTER);
 	}
 	
 	@Override

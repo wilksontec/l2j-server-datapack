@@ -51,9 +51,9 @@ public final class Q00370_AnElderSowsSeeds extends Quest {
 	
 	public Q00370_AnElderSowsSeeds() {
 		super(370, Q00370_AnElderSowsSeeds.class.getSimpleName(), "An Elder Sows Seeds");
-		addStartNpc(CASIAN);
-		addTalkId(CASIAN);
-		addKillId(DROPLIST.getNpcIds());
+		bindStartNpc(CASIAN);
+		bindTalk(CASIAN);
+		bindKill(DROPLIST.getNpcIds());
 	}
 	
 	@Override

@@ -59,10 +59,10 @@ public final class Q00625_TheFinestIngredientsPart2 extends Quest {
 	
 	public Q00625_TheFinestIngredientsPart2() {
 		super(625, Q00625_TheFinestIngredientsPart2.class.getSimpleName(), "The Finest Ingredients - Part 2");
-		addStartNpc(JEREMY);
-		addTalkId(JEREMY, YETIS_TABLE);
-		addSpawnId(ICICLE_EMPEROR_BUMBALUMP);
-		addKillId(ICICLE_EMPEROR_BUMBALUMP);
+		bindStartNpc(JEREMY);
+		bindTalk(JEREMY, YETIS_TABLE);
+		bindSpawn(ICICLE_EMPEROR_BUMBALUMP);
+		bindKill(ICICLE_EMPEROR_BUMBALUMP);
 		registerQuestItems(FOOD_FOR_BUMBALUMP.getId(), SPECIAL_YETI_MEAT.getId());
 	}
 	

@@ -47,9 +47,9 @@ public final class DemonPrince extends AbstractNpcAI {
 	
 	public DemonPrince() {
 		super(DemonPrince.class.getSimpleName(), "hellbound/AI");
-		addAttackId(DEMON_PRINCE);
-		addKillId(DEMON_PRINCE);
-		addSpawnId(FIEND);
+		bindAttack(DEMON_PRINCE);
+		bindKill(DEMON_PRINCE);
+		bindSpawn(FIEND);
 	}
 	
 	@Override

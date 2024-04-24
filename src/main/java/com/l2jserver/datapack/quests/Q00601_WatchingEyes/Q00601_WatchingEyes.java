@@ -71,9 +71,9 @@ public class Q00601_WatchingEyes extends Quest {
 	
 	public Q00601_WatchingEyes() {
 		super(601, Q00601_WatchingEyes.class.getSimpleName(), "Watching Eyes");
-		addStartNpc(EYE_OF_ARGOS);
-		addTalkId(EYE_OF_ARGOS);
-		addKillId(MOBS.keySet());
+		bindStartNpc(EYE_OF_ARGOS);
+		bindTalk(EYE_OF_ARGOS);
+		bindKill(MOBS.keySet());
 		registerQuestItems(PROOF_OF_AVENGER);
 	}
 	

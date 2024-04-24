@@ -51,10 +51,10 @@ public class Q00251_NoSecrets extends Quest {
 	
 	public Q00251_NoSecrets() {
 		super(251, Q00251_NoSecrets.class.getSimpleName(), "No Secrets");
-		addStartNpc(PINAPS);
-		addTalkId(PINAPS);
-		addKillId(MOBS);
-		addKillId(MOBS2);
+		bindStartNpc(PINAPS);
+		bindTalk(PINAPS);
+		bindKill(MOBS);
+		bindKill(MOBS2);
 		registerQuestItems(DIARY, TABLE);
 	}
 	

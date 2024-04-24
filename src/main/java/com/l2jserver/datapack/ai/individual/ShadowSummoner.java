@@ -54,8 +54,8 @@ public class ShadowSummoner extends AbstractNpcAI {
 	
 	public ShadowSummoner() {
 		super(ShadowSummoner.class.getSimpleName(), "ai/individual");
-		addAttackId(SHADOW_SUMMONER);
-		addSeeCreatureId(SHADOW_SUMMONER);
+		bindAttack(SHADOW_SUMMONER);
+		bindSeeCreature(SHADOW_SUMMONER);
 	}
 	
 	@Override

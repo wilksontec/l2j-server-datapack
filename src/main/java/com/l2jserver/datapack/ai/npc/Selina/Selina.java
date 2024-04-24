@@ -60,10 +60,10 @@ public final class Selina extends AbstractNpcAI {
 	
 	public Selina() {
 		super(Selina.class.getSimpleName(), "ai/npc");
-		addStartNpc(SELINA);
-		addTalkId(SELINA);
-		addFirstTalkId(SELINA);
-		addSpellFinishedId(SELINA);
+		bindStartNpc(SELINA);
+		bindTalk(SELINA);
+		bindFirstTalk(SELINA);
+		bindSpellFinished(SELINA);
 	}
 	
 	@Override

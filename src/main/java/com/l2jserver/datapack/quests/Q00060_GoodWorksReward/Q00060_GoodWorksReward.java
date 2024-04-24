@@ -101,10 +101,10 @@ public final class Q00060_GoodWorksReward extends Quest {
 	
 	public Q00060_GoodWorksReward() {
 		super(60, Q00060_GoodWorksReward.class.getSimpleName(), "Good Work's Reward");
-		addStartNpc(BLUEPRINT_SELLER_DAEGER);
-		addTalkId(BLUEPRINT_SELLER_DAEGER, GROCER_HELVERIA, BLACK_MARKETEER_OF_MAMMON, MARK);
-		addKillId(PURSUER);
-		addSpawnId(PURSUER);
+		bindStartNpc(BLUEPRINT_SELLER_DAEGER);
+		bindTalk(BLUEPRINT_SELLER_DAEGER, GROCER_HELVERIA, BLACK_MARKETEER_OF_MAMMON, MARK);
+		bindKill(PURSUER);
+		bindSpawn(PURSUER);
 		registerQuestItems(BLOODY_CLOTH_FRAGMENT, HELVETIAS_ANTIDOTE);
 	}
 	

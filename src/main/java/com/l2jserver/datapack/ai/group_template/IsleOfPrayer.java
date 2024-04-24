@@ -58,7 +58,7 @@ public final class IsleOfPrayer extends AbstractNpcAI {
 	
 	public IsleOfPrayer() {
 		super(IsleOfPrayer.class.getSimpleName(), "ai/group_template");
-		addKillId(MONSTERS.keySet());
+		bindKill(MONSTERS.keySet());
 	}
 	
 	@Override

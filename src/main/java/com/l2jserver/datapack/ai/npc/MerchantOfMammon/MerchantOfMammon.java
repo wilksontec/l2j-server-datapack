@@ -36,8 +36,8 @@ public final class MerchantOfMammon extends AbstractNpcAI {
 	
 	public MerchantOfMammon() {
 		super(MerchantOfMammon.class.getSimpleName(), "ai/npc");
-		addStartNpc(MERCHANT_MAMMON);
-		addFirstTalkId(MERCHANT_MAMMON);
+		bindStartNpc(MERCHANT_MAMMON);
+		bindFirstTalk(MERCHANT_MAMMON);
 	}
 	
 	@Override

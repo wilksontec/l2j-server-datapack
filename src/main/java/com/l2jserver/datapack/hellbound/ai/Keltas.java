@@ -102,8 +102,8 @@ public final class Keltas extends AbstractNpcAI {
 	
 	public Keltas() {
 		super(Keltas.class.getSimpleName(), "hellbound/AI");
-		addKillId(KELTAS);
-		addSpawnId(KELTAS);
+		bindKill(KELTAS);
+		bindSpawn(KELTAS);
 	}
 	
 	private void spawnMinions() {

@@ -51,9 +51,9 @@ public final class Nottingale extends AbstractNpcAI {
 	
 	public Nottingale() {
 		super(Nottingale.class.getSimpleName(), "gracia/AI/NPC");
-		addStartNpc(NOTTINGALE);
-		addTalkId(NOTTINGALE);
-		addFirstTalkId(NOTTINGALE);
+		bindStartNpc(NOTTINGALE);
+		bindTalk(NOTTINGALE);
+		bindFirstTalk(NOTTINGALE);
 	}
 	
 	@Override

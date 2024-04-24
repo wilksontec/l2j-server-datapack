@@ -100,9 +100,9 @@ public class Q00463_IMustBeaGenius extends Quest {
 	
 	public Q00463_IMustBeaGenius() {
 		super(463, Q00463_IMustBeaGenius.class.getSimpleName(), "I Must Be a Genius");
-		addStartNpc(GUTENHAGEN);
-		addTalkId(GUTENHAGEN);
-		addKillId(MOBS.keySet());
+		bindStartNpc(GUTENHAGEN);
+		bindTalk(GUTENHAGEN);
+		bindKill(MOBS.keySet());
 		registerQuestItems(COLLECTION, CORPSE_LOG);
 	}
 	

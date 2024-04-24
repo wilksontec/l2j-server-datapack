@@ -61,9 +61,9 @@ public final class Q00280_TheFoodChain extends Quest {
 	
 	public Q00280_TheFoodChain() {
 		super(280, Q00280_TheFoodChain.class.getSimpleName(), "The Food Chain");
-		addStartNpc(BIXON);
-		addTalkId(BIXON);
-		addKillId(DROPLIST.getNpcIds());
+		bindStartNpc(BIXON);
+		bindTalk(BIXON);
+		bindKill(DROPLIST.getNpcIds());
 		registerQuestItems(GREY_KELTIR_TOOTH, BLACK_WOLF_TOOTH.getId());
 	}
 	

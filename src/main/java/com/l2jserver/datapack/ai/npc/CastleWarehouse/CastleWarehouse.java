@@ -45,9 +45,9 @@ public final class CastleWarehouse extends AbstractNpcAI {
 	
 	public CastleWarehouse() {
 		super(CastleWarehouse.class.getSimpleName(), "ai/npc");
-		addStartNpc(NPCS);
-		addTalkId(NPCS);
-		addFirstTalkId(NPCS);
+		bindStartNpc(NPCS);
+		bindTalk(NPCS);
+		bindFirstTalk(NPCS);
 	}
 	
 	@Override

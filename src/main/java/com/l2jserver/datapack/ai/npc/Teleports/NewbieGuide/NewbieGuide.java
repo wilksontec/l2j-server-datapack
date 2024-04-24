@@ -129,9 +129,9 @@ public final class NewbieGuide extends AbstractNpcAI {
 			NEWBIE_GUIDE_GLUDIO,
 			ADVENTURERS_GUIDE
 		};
-		addStartNpc(newbieList);
-		addFirstTalkId(newbieList);
-		addTalkId(newbieList);
+		bindStartNpc(newbieList);
+		bindFirstTalk(newbieList);
+		bindTalk(newbieList);
 	}
 	
 	@Override

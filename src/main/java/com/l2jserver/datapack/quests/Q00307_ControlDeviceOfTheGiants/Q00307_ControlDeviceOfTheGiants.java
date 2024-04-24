@@ -49,9 +49,9 @@ public class Q00307_ControlDeviceOfTheGiants extends Quest {
 	
 	public Q00307_ControlDeviceOfTheGiants() {
 		super(307, Q00307_ControlDeviceOfTheGiants.class.getSimpleName(), "Control Device of the Giants");
-		addStartNpc(DROPH);
-		addTalkId(DROPH);
-		addKillId(GORGOLOS, LAST_TITAN_UTENUS, GIANT_MARPANAK, HEKATON_PRIME);
+		bindStartNpc(DROPH);
+		bindTalk(DROPH);
+		bindKill(GORGOLOS, LAST_TITAN_UTENUS, GIANT_MARPANAK, HEKATON_PRIME);
 	}
 	
 	@Override

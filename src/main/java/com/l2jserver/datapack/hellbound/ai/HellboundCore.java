@@ -38,7 +38,7 @@ public final class HellboundCore extends AbstractNpcAI {
 	
 	public HellboundCore() {
 		super(HellboundCore.class.getSimpleName(), "hellbound/AI");
-		addSpawnId(HELLBOUND_CORE, NAIA);
+		bindSpawn(HELLBOUND_CORE, NAIA);
 	}
 	
 	@Override

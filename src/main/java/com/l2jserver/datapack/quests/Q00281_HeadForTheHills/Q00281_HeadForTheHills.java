@@ -75,9 +75,9 @@ public final class Q00281_HeadForTheHills extends Quest {
 	
 	public Q00281_HeadForTheHills() {
 		super(281, Q00281_HeadForTheHills.class.getSimpleName(), "Head for the Hills!");
-		addStartNpc(MERCELA);
-		addTalkId(MERCELA);
-		addKillId(MONSTERS.keySet());
+		bindStartNpc(MERCELA);
+		bindTalk(MERCELA);
+		bindKill(MONSTERS.keySet());
 		registerQuestItems(CLAWS);
 	}
 	

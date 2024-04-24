@@ -36,7 +36,7 @@ public final class Kier extends AbstractNpcAI {
 	
 	public Kier() {
 		super(Kier.class.getSimpleName(), "ai/npc");
-		addFirstTalkId(KIER);
+		bindFirstTalk(KIER);
 	}
 	
 	@Override

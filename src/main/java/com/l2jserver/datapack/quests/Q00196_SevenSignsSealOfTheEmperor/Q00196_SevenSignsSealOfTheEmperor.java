@@ -51,9 +51,9 @@ public final class Q00196_SevenSignsSealOfTheEmperor extends Quest {
 	
 	public Q00196_SevenSignsSealOfTheEmperor() {
 		super(196, Q00196_SevenSignsSealOfTheEmperor.class.getSimpleName(), "Seven Signs, Seal of the Emperor");
-		addFirstTalkId(MERCHANT_OF_MAMMON);
-		addStartNpc(IASON_HEINE);
-		addTalkId(IASON_HEINE, MERCHANT_OF_MAMMON, SHUNAIMAN, WOOD, COURT_MAGICIAN);
+		bindFirstTalk(MERCHANT_OF_MAMMON);
+		bindStartNpc(IASON_HEINE);
+		bindTalk(IASON_HEINE, MERCHANT_OF_MAMMON, SHUNAIMAN, WOOD, COURT_MAGICIAN);
 		registerQuestItems(ELMOREDEN_HOLY_WATER, COURT_MAGICIANS_MAGIC_STAFF, SEAL_OF_BINDING, SACRED_SWORD_OF_EINHASAD);
 	}
 	

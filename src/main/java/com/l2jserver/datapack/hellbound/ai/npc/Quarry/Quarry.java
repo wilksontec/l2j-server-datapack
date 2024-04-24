@@ -57,12 +57,12 @@ public final class Quarry extends AbstractNpcAI {
 	
 	public Quarry() {
 		super(Quarry.class.getSimpleName(), "hellbound/AI/NPC");
-		addSpawnId(SLAVE);
-		addFirstTalkId(SLAVE);
-		addStartNpc(SLAVE);
-		addTalkId(SLAVE);
-		addKillId(SLAVE);
-		addEnterZoneId(ZONE);
+		bindSpawn(SLAVE);
+		bindFirstTalk(SLAVE);
+		bindStartNpc(SLAVE);
+		bindTalk(SLAVE);
+		bindKill(SLAVE);
+		bindEnterZone(ZONE);
 	}
 	
 	@Override

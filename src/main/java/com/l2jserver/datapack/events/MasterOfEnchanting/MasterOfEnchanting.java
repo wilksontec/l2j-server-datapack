@@ -65,9 +65,9 @@ public final class MasterOfEnchanting extends LongTimeEvent {
 	
 	private MasterOfEnchanting() {
 		super(MasterOfEnchanting.class.getSimpleName(), "events");
-		addStartNpc(MASTER_YOGI);
-		addFirstTalkId(MASTER_YOGI);
-		addTalkId(MASTER_YOGI);
+		bindStartNpc(MASTER_YOGI);
+		bindFirstTalk(MASTER_YOGI);
+		bindTalk(MASTER_YOGI);
 	}
 	
 	@Override

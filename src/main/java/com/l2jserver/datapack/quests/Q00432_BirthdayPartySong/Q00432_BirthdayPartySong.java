@@ -42,9 +42,9 @@ public class Q00432_BirthdayPartySong extends Quest {
 	
 	public Q00432_BirthdayPartySong() {
 		super(432, Q00432_BirthdayPartySong.class.getSimpleName(), "Birthday Party Song");
-		addStartNpc(OCTAVIA);
-		addTalkId(OCTAVIA);
-		addKillId(GOLEM);
+		bindStartNpc(OCTAVIA);
+		bindTalk(OCTAVIA);
+		bindKill(GOLEM);
 		registerQuestItems(RED_CRYSTAL);
 	}
 	

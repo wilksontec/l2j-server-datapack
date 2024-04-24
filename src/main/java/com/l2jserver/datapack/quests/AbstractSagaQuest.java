@@ -778,18 +778,18 @@ public abstract class AbstractSagaQuest extends Quest {
 	}
 	
 	public void registerNPCs() {
-		addStartNpc(_npc[0]);
-		addAttackId(_mob[2], _mob[1]);
-		addSkillSeeId(_mob[1]);
-		addFirstTalkId(_npc[4]);
-		addTalkId(_npc);
-		addKillId(_mob);
+		bindStartNpc(_npc[0]);
+		bindAttack(_mob[2], _mob[1]);
+		bindSkillSee(_mob[1]);
+		bindFirstTalk(_npc[4]);
+		bindTalk(_npc);
+		bindKill(_mob);
 		final int[] questItemIds = _items.clone();
 		questItemIds[0] = 0;
 		questItemIds[2] = 0; // remove Ice Crystal and Divine Stone of Wisdom
 		registerQuestItems(questItemIds);
 		for (int Archon_Minion = 21646; Archon_Minion < 21652; Archon_Minion++) {
-			addKillId(Archon_Minion);
+			bindKill(Archon_Minion);
 		}
 		int[] Archon_Hellisha_Norm = {
 			18212,
@@ -798,9 +798,9 @@ public abstract class AbstractSagaQuest extends Quest {
 			18216,
 			18218
 		};
-		addKillId(Archon_Hellisha_Norm);
+		bindKill(Archon_Hellisha_Norm);
 		for (int Guardian_Angel = 27214; Guardian_Angel < 27217; Guardian_Angel++) {
-			addKillId(Guardian_Angel);
+			bindKill(Guardian_Angel);
 		}
 	}
 	

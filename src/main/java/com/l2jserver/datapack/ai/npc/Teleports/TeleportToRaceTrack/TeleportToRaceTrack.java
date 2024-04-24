@@ -72,10 +72,10 @@ public final class TeleportToRaceTrack extends AbstractNpcAI {
 	
 	public TeleportToRaceTrack() {
 		super(TeleportToRaceTrack.class.getSimpleName(), "ai/npc/Teleports");
-		addStartNpc(RACE_MANAGER);
-		addStartNpc(TELEPORTERS.keySet());
-		addTalkId(RACE_MANAGER);
-		addTalkId(TELEPORTERS.keySet());
+		bindStartNpc(RACE_MANAGER);
+		bindStartNpc(TELEPORTERS.keySet());
+		bindTalk(RACE_MANAGER);
+		bindTalk(TELEPORTERS.keySet());
 	}
 	
 	@Override

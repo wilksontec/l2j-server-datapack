@@ -42,8 +42,8 @@ public class Q00133_ThatsBloodyHot extends Quest {
 	
 	public Q00133_ThatsBloodyHot() {
 		super(133, Q00133_ThatsBloodyHot.class.getSimpleName(), "That's Bloody Hot!");
-		addStartNpc(KANIS);
-		addTalkId(KANIS, GALATE);
+		bindStartNpc(KANIS);
+		bindTalk(KANIS, GALATE);
 		registerQuestItems(REFINED_CRYSTAL_SAMPLE);
 	}
 	

@@ -97,13 +97,13 @@ public final class QueenAnt extends AbstractNpcAI {
 	
 	public QueenAnt() {
 		super(QueenAnt.class.getSimpleName(), "ai/individual");
-		addKillId(MOBS);
-		addSpawnId(MOBS);
-		addExitZoneId(ZONE);
-		addEnterZoneId(ZONE);
-		addSkillSeeId(QUEEN);
-		addMoveFinishedId(QUEEN);
-		addAttackId(QUEEN, NURSE, GUARD, ROYAL);
+		bindKill(MOBS);
+		bindSpawn(MOBS);
+		bindExitZone(ZONE);
+		bindEnterZone(ZONE);
+		bindSkillSee(QUEEN);
+		bindMoveFinished(QUEEN);
+		bindAttack(QUEEN, NURSE, GUARD, ROYAL);
 		
 		_zone = GrandBossManager.getInstance().getZone(QUEEN_X, QUEEN_Y, QUEEN_Z);
 		final StatsSet info = GrandBossManager.getInstance().getStatsSet(QUEEN);

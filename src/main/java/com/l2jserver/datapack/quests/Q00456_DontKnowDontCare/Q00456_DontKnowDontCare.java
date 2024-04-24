@@ -133,11 +133,11 @@ public final class Q00456_DontKnowDontCare extends Quest {
 	
 	public Q00456_DontKnowDontCare() {
 		super(456, Q00456_DontKnowDontCare.class.getSimpleName(), "Don't Know, Don't Care");
-		addStartNpc(SEPARATED_SOUL);
-		addTalkId(SEPARATED_SOUL);
-		addFirstTalkId(DRAKE_LORD_CORPSE, BEHEMOTH_LEADER_CORPSE, DRAGON_BEAST_CORPSE);
-		addTalkId(DRAKE_LORD_CORPSE, BEHEMOTH_LEADER_CORPSE, DRAGON_BEAST_CORPSE);
-		addKillId(MONSTER_NPCS.keySet());
+		bindStartNpc(SEPARATED_SOUL);
+		bindTalk(SEPARATED_SOUL);
+		bindFirstTalk(DRAKE_LORD_CORPSE, BEHEMOTH_LEADER_CORPSE, DRAGON_BEAST_CORPSE);
+		bindTalk(DRAKE_LORD_CORPSE, BEHEMOTH_LEADER_CORPSE, DRAGON_BEAST_CORPSE);
+		bindKill(MONSTER_NPCS.keySet());
 		registerQuestItems(DRAKE_LORD_ESSENCE, BEHEMOTH_LEADER_ESSENCE, DRAGON_BEAST_ESSENCE);
 	}
 	

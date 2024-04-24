@@ -44,9 +44,9 @@ public final class TvTManager extends AbstractNpcAI implements IVoicedCommandHan
 	
 	public TvTManager() {
 		super(TvTManager.class.getSimpleName(), "custom/events/TvT");
-		addFirstTalkId(MANAGER_ID);
-		addTalkId(MANAGER_ID);
-		addStartNpc(MANAGER_ID);
+		bindFirstTalk(MANAGER_ID);
+		bindTalk(MANAGER_ID);
+		bindStartNpc(MANAGER_ID);
 		
 		if (tvt().allowVoicedInfoCommand()) {
 			VoicedCommandHandler.getInstance().registerHandler(this);

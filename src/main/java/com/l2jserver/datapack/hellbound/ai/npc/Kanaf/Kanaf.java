@@ -32,9 +32,9 @@ public final class Kanaf extends AbstractNpcAI {
 	
 	public Kanaf() {
 		super(Kanaf.class.getSimpleName(), "hellbound/AI/NPC");
-		addStartNpc(KANAF);
-		addTalkId(KANAF);
-		addFirstTalkId(KANAF);
+		bindStartNpc(KANAF);
+		bindTalk(KANAF);
+		bindFirstTalk(KANAF);
 	}
 	
 	@Override

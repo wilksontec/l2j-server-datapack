@@ -35,9 +35,9 @@ public final class Jude extends AbstractNpcAI {
 	
 	public Jude() {
 		super(Jude.class.getSimpleName(), "hellbound/AI/NPC");
-		addFirstTalkId(JUDE);
-		addStartNpc(JUDE);
-		addTalkId(JUDE);
+		bindFirstTalk(JUDE);
+		bindStartNpc(JUDE);
+		bindTalk(JUDE);
 	}
 	
 	@Override

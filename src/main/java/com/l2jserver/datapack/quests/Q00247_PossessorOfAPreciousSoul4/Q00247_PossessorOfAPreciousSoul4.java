@@ -47,8 +47,8 @@ public class Q00247_PossessorOfAPreciousSoul4 extends Quest {
 	
 	public Q00247_PossessorOfAPreciousSoul4() {
 		super(247, Q00247_PossessorOfAPreciousSoul4.class.getSimpleName(), "Possessor Of A Precious Soul 4");
-		addStartNpc(CARADINE);
-		addTalkId(CARADINE, LADY_OF_LAKE);
+		bindStartNpc(CARADINE);
+		bindTalk(CARADINE, LADY_OF_LAKE);
 	}
 	
 	@Override

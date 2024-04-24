@@ -63,13 +63,13 @@ public final class KeucereusSouthController extends AirShipController {
 	
 	public KeucereusSouthController() {
 		super(-1, KeucereusSouthController.class.getSimpleName(), "gracia/vehicles");
-		addStartNpc(CONTROLLER_ID);
-		addFirstTalkId(CONTROLLER_ID);
-		addTalkId(CONTROLLER_ID);
+		bindStartNpc(CONTROLLER_ID);
+		bindFirstTalk(CONTROLLER_ID);
+		bindTalk(CONTROLLER_ID);
 		
 		_dockZone = DOCK_ZONE;
-		addEnterZoneId(DOCK_ZONE);
-		addExitZoneId(DOCK_ZONE);
+		bindEnterZone(DOCK_ZONE);
+		bindExitZone(DOCK_ZONE);
 		
 		_shipSpawnX = -184527;
 		_shipSpawnY = 243611;

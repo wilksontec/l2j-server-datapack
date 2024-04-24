@@ -53,9 +53,9 @@ public final class Q00650_ABrokenDream extends Quest {
 	
 	public Q00650_ABrokenDream() {
 		super(650, Q00650_ABrokenDream.class.getSimpleName(), "A Broken Dream");
-		addStartNpc(GHOST_OF_A_RAILROAD_ENGINEER);
-		addTalkId(GHOST_OF_A_RAILROAD_ENGINEER);
-		addKillId(MONSTER_DROP_CHANCES.keySet());
+		bindStartNpc(GHOST_OF_A_RAILROAD_ENGINEER);
+		bindTalk(GHOST_OF_A_RAILROAD_ENGINEER);
+		bindKill(MONSTER_DROP_CHANCES.keySet());
 		registerQuestItems(REMNANTS_OF_OLD_DWARVES_DREAMS);
 	}
 	

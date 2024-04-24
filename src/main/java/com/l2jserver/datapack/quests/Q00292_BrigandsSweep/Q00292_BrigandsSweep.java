@@ -56,9 +56,9 @@ public final class Q00292_BrigandsSweep extends Quest {
 	
 	public Q00292_BrigandsSweep() {
 		super(292, Q00292_BrigandsSweep.class.getSimpleName(), "Brigands Sweep");
-		addStartNpc(SPIRON);
-		addTalkId(SPIRON, BALANKI);
-		addKillId(DROPLIST.getNpcIds());
+		bindStartNpc(SPIRON);
+		bindTalk(SPIRON, BALANKI);
+		bindKill(DROPLIST.getNpcIds());
 		registerQuestItems(GOBLIN_NECKLACE, GOBLIN_PENDANT, GOBLIN_LORD_PENDANT, SUSPICIOUS_MEMO.getId(), SUSPICIOUS_CONTRACT);
 	}
 	

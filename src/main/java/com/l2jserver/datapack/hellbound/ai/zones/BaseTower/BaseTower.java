@@ -44,10 +44,10 @@ public final class BaseTower extends AbstractNpcAI {
 	
 	public BaseTower() {
 		super(BaseTower.class.getSimpleName(), "hellbound/AI/Zones");
-		addKillId(GUZEN);
-		addKillId(BODY_DESTROYER);
-		addFirstTalkId(KENDAL);
-		addAggroRangeEnterId(BODY_DESTROYER);
+		bindKill(GUZEN);
+		bindKill(BODY_DESTROYER);
+		bindFirstTalk(KENDAL);
+		bindAggroRangeEnter(BODY_DESTROYER);
 	}
 	
 	@Override

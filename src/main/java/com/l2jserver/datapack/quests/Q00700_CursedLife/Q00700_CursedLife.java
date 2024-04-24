@@ -63,10 +63,10 @@ public class Q00700_CursedLife extends Quest {
 	
 	public Q00700_CursedLife() {
 		super(700, Q00700_CursedLife.class.getSimpleName(), "Cursed Life");
-		addStartNpc(ORBYU);
-		addTalkId(ORBYU);
-		addKillId(ROK);
-		addKillId(MONSTERS.keySet());
+		bindStartNpc(ORBYU);
+		bindTalk(ORBYU);
+		bindKill(ROK);
+		bindKill(MONSTERS.keySet());
 		registerQuestItems(SWALLOWED_BONES, SWALLOWED_STERNUM, SWALLOWED_SKULL);
 	}
 	

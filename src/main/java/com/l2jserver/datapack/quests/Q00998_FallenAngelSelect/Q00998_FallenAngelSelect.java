@@ -42,8 +42,8 @@ public class Q00998_FallenAngelSelect extends Quest {
 	public Q00998_FallenAngelSelect() {
 		super(998, Q00998_FallenAngelSelect.class.getSimpleName(), "Fallen Angel - Select");
 		setIsCustom(true);
-		addStartNpc(NATOOLS);
-		addTalkId(NATOOLS);
+		bindStartNpc(NATOOLS);
+		bindTalk(NATOOLS);
 	}
 	
 	@Override

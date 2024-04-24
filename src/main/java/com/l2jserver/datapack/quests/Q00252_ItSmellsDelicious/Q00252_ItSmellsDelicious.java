@@ -45,10 +45,10 @@ public class Q00252_ItSmellsDelicious extends Quest {
 	
 	public Q00252_ItSmellsDelicious() {
 		super(252, Q00252_ItSmellsDelicious.class.getSimpleName(), "It Smells Delicious!");
-		addStartNpc(STAN);
-		addTalkId(STAN);
-		addKillId(CHEF);
-		addKillId(MOBS);
+		bindStartNpc(STAN);
+		bindTalk(STAN);
+		bindKill(CHEF);
+		bindKill(MOBS);
 		registerQuestItems(DIARY.getId(), COOKBOOK_PAGE.getId());
 	}
 	

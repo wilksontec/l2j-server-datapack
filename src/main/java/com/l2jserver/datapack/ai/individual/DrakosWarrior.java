@@ -37,7 +37,7 @@ public class DrakosWarrior extends AbstractNpcAI {
 	
 	public DrakosWarrior() {
 		super(DrakosWarrior.class.getSimpleName(), "ai/individual");
-		addAttackId(DRAKOS_WARRIOR);
+		bindAttack(DRAKOS_WARRIOR);
 	}
 	
 	@Override

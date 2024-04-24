@@ -53,9 +53,9 @@ public class Q00702_ATrapForRevenge extends Quest {
 	
 	public Q00702_ATrapForRevenge() {
 		super(702, Q00702_ATrapForRevenge.class.getSimpleName(), "A Trap for Revenge");
-		addStartNpc(PLENOS);
-		addTalkId(PLENOS, LEKON, TENIUS);
-		addKillId(MONSTERS);
+		bindStartNpc(PLENOS);
+		bindTalk(PLENOS, LEKON, TENIUS);
+		bindKill(MONSTERS);
 		registerQuestItems(DRAKES_FLESH, ROTTEN_BLOOD, BAIT_FOR_DRAKES, VARIANT_DRAKE_WING_HORNS);
 	}
 	

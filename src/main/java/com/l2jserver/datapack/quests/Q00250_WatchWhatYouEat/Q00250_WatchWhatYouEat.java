@@ -51,11 +51,11 @@ public class Q00250_WatchWhatYouEat extends Quest {
 	
 	public Q00250_WatchWhatYouEat() {
 		super(250, Q00250_WatchWhatYouEat.class.getSimpleName(), "Watch What You Eat");
-		addStartNpc(SALLY);
-		addFirstTalkId(SALLY);
-		addTalkId(SALLY);
+		bindStartNpc(SALLY);
+		bindFirstTalk(SALLY);
+		bindTalk(SALLY);
 		for (int[] mob : MOBS) {
-			addKillId(mob[0]);
+			bindKill(mob[0]);
 		}
 		registerQuestItems(15493, 15494, 15495);
 	}

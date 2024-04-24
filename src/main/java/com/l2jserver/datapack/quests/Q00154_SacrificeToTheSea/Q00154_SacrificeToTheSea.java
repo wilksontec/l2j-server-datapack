@@ -48,9 +48,9 @@ public final class Q00154_SacrificeToTheSea extends Quest {
 	
 	public Q00154_SacrificeToTheSea() {
 		super(154, Q00154_SacrificeToTheSea.class.getSimpleName(), "Sacrifice to the Sea");
-		addStartNpc(ROCKSWELL);
-		addTalkId(ROCKSWELL, CRISTEL, ROLLFNAN);
-		addKillId(ELDER_KELTIR, YOUNG_KELTIR, KELTIR);
+		bindStartNpc(ROCKSWELL);
+		bindTalk(ROCKSWELL, CRISTEL, ROLLFNAN);
+		bindKill(ELDER_KELTIR, YOUNG_KELTIR, KELTIR);
 		registerQuestItems(FOX_FUR.getId(), FOX_FUR_YAM, MAIDEN_DOLL);
 	}
 	

@@ -47,9 +47,9 @@ public final class Q00284_MuertosFeather extends Quest {
 	
 	public Q00284_MuertosFeather() {
 		super(284, Q00284_MuertosFeather.class.getSimpleName(), "Muertos Feather");
-		addStartNpc(TREVOR);
-		addTalkId(TREVOR);
-		addKillId(DROPLIST.getNpcIds());
+		bindStartNpc(TREVOR);
+		bindTalk(TREVOR);
+		bindKill(DROPLIST.getNpcIds());
 		registerQuestItems(MUERTOS_FEATHER);
 	}
 	

@@ -41,10 +41,10 @@ public final class Alarm extends AbstractNpcAI {
 	
 	public Alarm() {
 		super(Alarm.class.getSimpleName(), "ai/npc");
-		addStartNpc(ALARM);
-		addTalkId(ALARM);
-		addFirstTalkId(ALARM);
-		addSpawnId(ALARM);
+		bindStartNpc(ALARM);
+		bindTalk(ALARM);
+		bindFirstTalk(ALARM);
+		bindSpawn(ALARM);
 	}
 	
 	@Override

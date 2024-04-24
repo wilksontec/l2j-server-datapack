@@ -38,8 +38,8 @@ public final class Q00061_LawEnforcement extends Quest {
 	
 	public Q00061_LawEnforcement() {
 		super(61, Q00061_LawEnforcement.class.getSimpleName(), "Law Enforcement");
-		addStartNpc(LIANE);
-		addTalkId(LIANE, KEKROPUS, EINDBURGH);
+		bindStartNpc(LIANE);
+		bindTalk(LIANE, KEKROPUS, EINDBURGH);
 	}
 	
 	@Override

@@ -41,8 +41,8 @@ public class Q00027_ChestCaughtWithABaitOfWind extends Quest {
 	
 	public Q00027_ChestCaughtWithABaitOfWind() {
 		super(27, Q00027_ChestCaughtWithABaitOfWind.class.getSimpleName(), "Chest Caught With A Bait Of Wind");
-		addStartNpc(LANOSCO);
-		addTalkId(LANOSCO, SHALING);
+		bindStartNpc(LANOSCO);
+		bindTalk(LANOSCO, SHALING);
 		registerQuestItems(STRANGE_BLUESPRINT);
 	}
 	

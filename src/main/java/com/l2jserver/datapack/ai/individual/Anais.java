@@ -49,9 +49,9 @@ public final class Anais extends AbstractNpcAI {
 	
 	public Anais() {
 		super(Anais.class.getSimpleName(), "ai/individual");
-		addAttackId(ANAIS);
-		addSpawnId(DIVINE_BURNER);
-		addKillId(GRAIL_WARD);
+		bindAttack(ANAIS);
+		bindSpawn(DIVINE_BURNER);
+		bindKill(GRAIL_WARD);
 	}
 	
 	private void burnerOnAttack(int pot, L2Npc anais) {

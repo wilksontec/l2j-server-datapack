@@ -108,12 +108,12 @@ public final class Race extends Event {
 	
 	private Race() {
 		super(Race.class.getSimpleName(), "custom/events");
-		addStartNpc(START_NPC);
-		addFirstTalkId(START_NPC);
-		addTalkId(START_NPC);
-		addStartNpc(STOP_NPC);
-		addFirstTalkId(STOP_NPC);
-		addTalkId(STOP_NPC);
+		bindStartNpc(START_NPC);
+		bindFirstTalk(START_NPC);
+		bindTalk(START_NPC);
+		bindStartNpc(STOP_NPC);
+		bindFirstTalk(STOP_NPC);
+		bindTalk(STOP_NPC);
 	}
 	
 	@Override

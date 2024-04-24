@@ -75,9 +75,9 @@ public final class MercenaryCaptain extends AbstractNpcAI {
 	public MercenaryCaptain() {
 		super(MercenaryCaptain.class.getSimpleName(), "ai/npc");
 		for (int id : NPCS.keySet()) {
-			addStartNpc(id);
-			addFirstTalkId(id);
-			addTalkId(id);
+			bindStartNpc(id);
+			bindFirstTalk(id);
+			bindTalk(id);
 		}
 		
 		for (Territory terr : TerritoryWarManager.getInstance().getAllTerritories()) {

@@ -36,7 +36,7 @@ public final class Q00729_ProtectTheTerritoryCatapult extends TerritoryWarSuperC
 			36506,
 			36507
 		};
-		addAttackId(NPC_IDS);
+		bindAttack(NPC_IDS);
 	}
 	
 	@Override

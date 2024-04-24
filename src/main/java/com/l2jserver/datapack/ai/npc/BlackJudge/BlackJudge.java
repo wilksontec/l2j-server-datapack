@@ -42,9 +42,9 @@ public class BlackJudge extends AbstractNpcAI {
 	
 	public BlackJudge() {
 		super(BlackJudge.class.getSimpleName(), "ai/npc");
-		addStartNpc(BLACK_JUDGE);
-		addTalkId(BLACK_JUDGE);
-		addFirstTalkId(BLACK_JUDGE);
+		bindStartNpc(BLACK_JUDGE);
+		bindTalk(BLACK_JUDGE);
+		bindFirstTalk(BLACK_JUDGE);
 	}
 	
 	@Override

@@ -103,7 +103,7 @@ public class Q00073_SagaOfTheDuelist extends AbstractSagaQuest {
 		};
 		registerNPCs();
 		
-		addTalkId(TUNATUN);
+		bindTalk(TUNATUN);
 	}
 	
 	@Override

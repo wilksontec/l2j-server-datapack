@@ -41,9 +41,9 @@ public final class Q00303_CollectArrowheads extends Quest {
 	
 	public Q00303_CollectArrowheads() {
 		super(303, Q00303_CollectArrowheads.class.getSimpleName(), "Collect Arrowheads");
-		addStartNpc(MINIA);
-		addTalkId(MINIA);
-		addKillId(TUNATH_ORC_MARKSMAN);
+		bindStartNpc(MINIA);
+		bindTalk(MINIA);
+		bindKill(TUNATH_ORC_MARKSMAN);
 		registerQuestItems(ORCISH_ARROWHEAD.getId());
 	}
 	

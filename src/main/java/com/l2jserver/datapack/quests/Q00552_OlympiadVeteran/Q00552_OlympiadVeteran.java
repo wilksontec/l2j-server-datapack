@@ -42,10 +42,10 @@ public class Q00552_OlympiadVeteran extends Quest {
 	
 	public Q00552_OlympiadVeteran() {
 		super(552, Q00552_OlympiadVeteran.class.getSimpleName(), "Olympiad Veteran");
-		addStartNpc(MANAGER);
-		addTalkId(MANAGER);
+		bindStartNpc(MANAGER);
+		bindTalk(MANAGER);
 		registerQuestItems(TEAM_EVENT_CERTIFICATE, CLASS_FREE_BATTLE_CERTIFICATE, CLASS_BATTLE_CERTIFICATE);
-		addOlympiadMatchFinishId();
+		bindOlympiadMatchFinish();
 	}
 	
 	@Override

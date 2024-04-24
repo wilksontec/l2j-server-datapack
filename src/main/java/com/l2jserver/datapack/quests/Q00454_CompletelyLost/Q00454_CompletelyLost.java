@@ -30,7 +30,7 @@ import com.l2jserver.gameserver.model.events.ListenerRegisterType;
 import com.l2jserver.gameserver.model.events.annotations.Id;
 import com.l2jserver.gameserver.model.events.annotations.RegisterEvent;
 import com.l2jserver.gameserver.model.events.annotations.RegisterType;
-import com.l2jserver.gameserver.model.events.impl.character.OnCreatureAttacked;
+import com.l2jserver.gameserver.model.events.impl.character.CreatureAttacked;
 import com.l2jserver.gameserver.model.events.returns.TerminateReturn;
 import com.l2jserver.gameserver.model.quest.Quest;
 import com.l2jserver.gameserver.model.quest.QuestState;
@@ -55,12 +55,12 @@ public final class Q00454_CompletelyLost extends Quest {
 	
 	public Q00454_CompletelyLost() {
 		super(454, Q00454_CompletelyLost.class.getSimpleName(), "Completely Lost");
-		addStartNpc(INJURED_SOLDIER);
-		addTalkId(INJURED_SOLDIER, ERMIAN);
-		addSpawnId(ERMIAN);
-		addMoveFinishedId(INJURED_SOLDIER);
-		addSeeCreatureId(INJURED_SOLDIER);
-		addEventReceivedId(INJURED_SOLDIER);
+		bindStartNpc(INJURED_SOLDIER);
+		bindTalk(INJURED_SOLDIER, ERMIAN);
+		bindSpawn(ERMIAN);
+		bindMoveFinished(INJURED_SOLDIER);
+		bindSeeCreature(INJURED_SOLDIER);
+		bindEventReceived(INJURED_SOLDIER);
 	}
 	
 	@Override
@@ -235,11 +235,11 @@ public final class Q00454_CompletelyLost extends Quest {
 		return htmltext;
 	}
 	
-	@RegisterEvent(EventType.ON_CREATURE_ATTACKED)
+	@RegisterEvent(EventType.CREATURE_ATTACKED)
 	@RegisterType(ListenerRegisterType.NPC)
 	@Id(INJURED_SOLDIER)
-	public TerminateReturn onAttacked(OnCreatureAttacked event) {
-		final L2Npc npc = (L2Npc) event.getTarget();
+	public TerminateReturn onAttacked(CreatureAttacked event) {
+		final L2Npc npc = (L2Npc) event.target();
 		// TODO: npc.changeStatus(2);
 		npc.getVariables().set("state", 1);
 		npc.getAI().setIntention(CtrlIntention.AI_INTENTION_IDLE);

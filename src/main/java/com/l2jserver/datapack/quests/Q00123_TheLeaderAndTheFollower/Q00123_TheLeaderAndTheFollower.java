@@ -63,9 +63,9 @@ public final class Q00123_TheLeaderAndTheFollower extends Quest {
 	
 	public Q00123_TheLeaderAndTheFollower() {
 		super(123, Q00123_TheLeaderAndTheFollower.class.getSimpleName(), "The Leader And The Follower");
-		addStartNpc(HEAD_BLACKSMITH_NEWYEAR);
-		addTalkId(HEAD_BLACKSMITH_NEWYEAR);
-		addKillId(BRUIN_LIZARDMAN, PICOT_ARANEID);
+		bindStartNpc(HEAD_BLACKSMITH_NEWYEAR);
+		bindTalk(HEAD_BLACKSMITH_NEWYEAR);
+		bindKill(BRUIN_LIZARDMAN, PICOT_ARANEID);
 		registerQuestItems(BRUIN_LIZARDMAN_BLOOD.getId(), PICOT_ARANEIDS_LEG.getId());
 	}
 	

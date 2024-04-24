@@ -37,9 +37,9 @@ public final class TheValentineEvent extends LongTimeEvent {
 	
 	private TheValentineEvent() {
 		super(TheValentineEvent.class.getSimpleName(), "events");
-		addStartNpc(NPC);
-		addFirstTalkId(NPC);
-		addTalkId(NPC);
+		bindStartNpc(NPC);
+		bindFirstTalk(NPC);
+		bindTalk(NPC);
 	}
 	
 	@Override

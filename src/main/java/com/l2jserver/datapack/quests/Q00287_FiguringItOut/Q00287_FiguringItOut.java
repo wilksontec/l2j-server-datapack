@@ -84,9 +84,9 @@ public class Q00287_FiguringItOut extends Quest {
 	
 	public Q00287_FiguringItOut() {
 		super(287, Q00287_FiguringItOut.class.getSimpleName(), "Figuring It Out!");
-		addStartNpc(LAKI);
-		addTalkId(LAKI);
-		addKillId(MONSTERS.keySet());
+		bindStartNpc(LAKI);
+		bindTalk(LAKI);
+		bindKill(MONSTERS.keySet());
 		registerQuestItems(VIAL_OF_TANTA_BLOOD);
 	}
 	

@@ -69,9 +69,9 @@ public class Q00135_TempleExecutor extends Quest {
 	
 	public Q00135_TempleExecutor() {
 		super(135, Q00135_TempleExecutor.class.getSimpleName(), "Temple Executor");
-		addStartNpc(SHEGFIELD);
-		addTalkId(SHEGFIELD, ALEX, SONIN, PANO);
-		addKillId(DROPLIST.getNpcIds());
+		bindStartNpc(SHEGFIELD);
+		bindTalk(SHEGFIELD, ALEX, SONIN, PANO);
+		bindKill(DROPLIST.getNpcIds());
 		registerQuestItems(STOLEN_CARGO.getId(), HATE_CRYSTAL.getId(), OLD_TREASURE_MAP.getId(), SONINS_CREDENTIALS, PANOS_CREDENTIALS, ALEXS_CREDENTIALS);
 	}
 	

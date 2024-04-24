@@ -44,10 +44,10 @@ public class BloodyBerserker extends AbstractNpcAI {
 	
 	public BloodyBerserker() {
 		super(BloodyBerserker.class.getSimpleName(), "ai/individual");
-		addKillId(BLOODY_BERSERKER);
-		addAttackId(BLOODY_BERSERKER);
-		addTeleportId(BLOODY_BERSERKER);
-		addMoveFinishedId(BLOODY_BERSERKER);
+		bindKill(BLOODY_BERSERKER);
+		bindAttack(BLOODY_BERSERKER);
+		bindTeleport(BLOODY_BERSERKER);
+		bindMoveFinished(BLOODY_BERSERKER);
 	}
 	
 	@Override

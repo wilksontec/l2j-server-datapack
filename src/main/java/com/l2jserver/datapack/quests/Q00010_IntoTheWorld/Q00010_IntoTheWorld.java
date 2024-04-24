@@ -43,8 +43,8 @@ public class Q00010_IntoTheWorld extends Quest {
 	
 	public Q00010_IntoTheWorld() {
 		super(10, Q00010_IntoTheWorld.class.getSimpleName(), "Into the World");
-		addStartNpc(BALANKI);
-		addTalkId(BALANKI, REED, GERALD);
+		bindStartNpc(BALANKI);
+		bindTalk(BALANKI, REED, GERALD);
 		registerQuestItems(VERY_EXPENSIVE_NECKLACE);
 	}
 	

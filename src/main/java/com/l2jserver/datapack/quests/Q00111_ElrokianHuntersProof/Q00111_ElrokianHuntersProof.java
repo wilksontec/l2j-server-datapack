@@ -77,10 +77,10 @@ public final class Q00111_ElrokianHuntersProof extends Quest {
 	
 	public Q00111_ElrokianHuntersProof() {
 		super(111, Q00111_ElrokianHuntersProof.class.getSimpleName(), "Elrokian Hunter's Proof");
-		addStartNpc(MARQUEZ);
-		addTalkId(MARQUEZ, MUSHIKA, ASAMAH, KIRIKACHIN);
-		addKillId(DROPLIST_DIARY.getNpcIds());
-		addKillId(DROPLIST_DINO.getNpcIds());
+		bindStartNpc(MARQUEZ);
+		bindTalk(MARQUEZ, MUSHIKA, ASAMAH, KIRIKACHIN);
+		bindKill(DROPLIST_DIARY.getNpcIds());
+		bindKill(DROPLIST_DINO.getNpcIds());
 		registerQuestItems(DIARY_FRAGMENT.getId(), EXPEDITION_MEMBERS_LETTER, ORNITHOMINUS_CLAW.getId(), DEINONYCHUS_BONE.getId(), PACHYCEPHALOSAURUS_SKIN.getId(), PRACTICE_ELROKIAN_TRAP);
 	}
 	

@@ -38,10 +38,10 @@ public final class Katenar extends AbstractNpcAI {
 	
 	public Katenar() {
 		super(Katenar.class.getSimpleName(), "ai/npc");
-		addStartNpc(KATENAR);
-		addTalkId(KATENAR);
-		addFirstTalkId(KATENAR);
-		addSpawnId(KATENAR);
+		bindStartNpc(KATENAR);
+		bindTalk(KATENAR);
+		bindFirstTalk(KATENAR);
+		bindSpawn(KATENAR);
 	}
 	
 	@Override

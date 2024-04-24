@@ -48,8 +48,8 @@ public final class Q00363_SorrowfulSoundOfFlute extends Quest {
 	
 	public Q00363_SorrowfulSoundOfFlute() {
 		super(363, Q00363_SorrowfulSoundOfFlute.class.getSimpleName(), "Sorrowful Sound of Flute");
-		addStartNpc(NANARIN);
-		addTalkId(NANARIN, POITAN, RANSPO, ALDO, HOLVAS, OPIX, BARBADO);
+		bindStartNpc(NANARIN);
+		bindTalk(NANARIN, POITAN, RANSPO, ALDO, HOLVAS, OPIX, BARBADO);
 		registerQuestItems(EVENT_CLOTHES, NANARINS_FLUTE, SABRINS_BLACK_BEER);
 	}
 	

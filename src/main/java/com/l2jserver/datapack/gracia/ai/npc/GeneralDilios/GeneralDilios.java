@@ -44,8 +44,8 @@ public final class GeneralDilios extends AbstractNpcAI {
 	
 	public GeneralDilios() {
 		super(GeneralDilios.class.getSimpleName(), "gracia/AI/NPC");
-		addTalkId(GENERAL_ID);
-		addSpawnId(GENERAL_ID, GUARD_ID);
+		bindTalk(GENERAL_ID);
+		bindSpawn(GENERAL_ID, GUARD_ID);
 	}
 	
 	@Override

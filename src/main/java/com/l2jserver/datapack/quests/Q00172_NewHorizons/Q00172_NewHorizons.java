@@ -43,8 +43,8 @@ public class Q00172_NewHorizons extends Quest {
 	
 	public Q00172_NewHorizons() {
 		super(172, Q00172_NewHorizons.class.getSimpleName(), "New Horizons");
-		addStartNpc(ZENYA);
-		addTalkId(ZENYA, RAGARA);
+		bindStartNpc(ZENYA);
+		bindTalk(ZENYA, RAGARA);
 	}
 	
 	@Override

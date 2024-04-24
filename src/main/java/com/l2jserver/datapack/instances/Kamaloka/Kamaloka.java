@@ -1172,31 +1172,31 @@ public final class Kamaloka extends AbstractInstance {
 	
 	public Kamaloka() {
 		super(Kamaloka.class.getSimpleName());
-		addFirstTalkId(TELEPORTER);
-		addTalkId(TELEPORTER);
-		addStartNpc(CAPTAINS);
-		addTalkId(CAPTAINS);
+		bindFirstTalk(TELEPORTER);
+		bindTalk(TELEPORTER);
+		bindStartNpc(CAPTAINS);
+		bindTalk(CAPTAINS);
 		for (int[] mob : FIRST_ROOM) {
 			if (mob != null) {
 				if (STEALTH_SHAMAN) {
-					addKillId(mob[1]);
+					bindKill(mob[1]);
 				} else {
-					addKillId(mob[0]);
+					bindKill(mob[0]);
 				}
 			}
 		}
 		for (int[] mob : SECOND_ROOM) {
 			if (mob != null) {
-				addKillId(mob[0]);
+				bindKill(mob[0]);
 			}
 		}
 		for (int[] mob : MINIBOSS) {
 			if (mob != null) {
-				addKillId(mob[0]);
+				bindKill(mob[0]);
 			}
 		}
 		for (int[] mob : BOSS) {
-			addKillId(mob[0]);
+			bindKill(mob[0]);
 		}
 	}
 	

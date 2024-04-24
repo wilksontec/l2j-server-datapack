@@ -61,9 +61,9 @@ public final class Q00047_IntoTheDarkElvenForest extends Quest {
 	
 	public Q00047_IntoTheDarkElvenForest() {
 		super(47, Q00047_IntoTheDarkElvenForest.class.getSimpleName(), "Into the Dark Elven Forest");
-		addStartNpc(GALLADUCCI);
-		addTalkId(GALLADUCCI);
-		addTalkId(NPC_ITEMS.keySet());
+		bindStartNpc(GALLADUCCI);
+		bindTalk(GALLADUCCI);
+		bindTalk(NPC_ITEMS.keySet());
 		registerQuestItems(GALLADUCCIS_ORDER_1, GALLADUCCIS_ORDER_2, GALLADUCCIS_ORDER_3, PURIFIED_MAGIC_NECKLACE, GEMSTONE_POWDER, MAGIC_SWORD_HILT);
 	}
 	

@@ -44,7 +44,7 @@ public final class CastleSiegeManager extends AbstractNpcAI {
 	
 	public CastleSiegeManager() {
 		super(CastleSiegeManager.class.getSimpleName(), "ai/npc");
-		addFirstTalkId(SIEGE_MANAGER);
+		bindFirstTalk(SIEGE_MANAGER);
 	}
 	
 	@Override

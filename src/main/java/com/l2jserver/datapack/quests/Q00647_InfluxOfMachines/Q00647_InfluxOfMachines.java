@@ -71,9 +71,9 @@ public class Q00647_InfluxOfMachines extends Quest {
 	
 	public Q00647_InfluxOfMachines() {
 		super(647, Q00647_InfluxOfMachines.class.getSimpleName(), "Influx of Machines");
-		addStartNpc(GUTENHAGEN);
-		addTalkId(GUTENHAGEN);
-		addKillId(MOBS.keySet());
+		bindStartNpc(GUTENHAGEN);
+		bindTalk(GUTENHAGEN);
+		bindKill(MOBS.keySet());
 		registerQuestItems(BROKEN_GOLEM_FRAGMENT);
 	}
 	

@@ -45,9 +45,9 @@ public class Q10279_MutatedKaneusOren extends Quest {
 	
 	public Q10279_MutatedKaneusOren() {
 		super(10279, Q10279_MutatedKaneusOren.class.getSimpleName(), "Mutated Kaneus - Oren");
-		addStartNpc(MOUEN);
-		addTalkId(MOUEN, ROVIA);
-		addKillId(KAIM_ABIGORE, KNIGHT_MONTAGNAR);
+		bindStartNpc(MOUEN);
+		bindTalk(MOUEN, ROVIA);
+		bindKill(KAIM_ABIGORE, KNIGHT_MONTAGNAR);
 		registerQuestItems(TISSUE_KA, TISSUE_KM);
 	}
 	

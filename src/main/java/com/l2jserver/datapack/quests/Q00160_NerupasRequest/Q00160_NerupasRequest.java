@@ -47,8 +47,8 @@ public final class Q00160_NerupasRequest extends Quest {
 	
 	public Q00160_NerupasRequest() {
 		super(160, Q00160_NerupasRequest.class.getSimpleName(), "Nerupa's Request");
-		addStartNpc(NERUPA);
-		addTalkId(NERUPA, UNOREN, CREAMEES, JULIA);
+		bindStartNpc(NERUPA);
+		bindTalk(NERUPA, UNOREN, CREAMEES, JULIA);
 		registerQuestItems(SILVERY_SPIDERSILK, UNOS_RECEIPT, CELS_TICKET, NIGHTSHADE_LEAF);
 	}
 	

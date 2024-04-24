@@ -46,9 +46,9 @@ public class Q00036_MakeASewingKit extends Quest {
 	
 	public Q00036_MakeASewingKit() {
 		super(36, Q00036_MakeASewingKit.class.getSimpleName(), "Make a Sewing Kit");
-		addStartNpc(FERRIS);
-		addTalkId(FERRIS);
-		addKillId(ENCHANTED_IRON_GOLEM);
+		bindStartNpc(FERRIS);
+		bindTalk(FERRIS);
+		bindKill(ENCHANTED_IRON_GOLEM);
 		registerQuestItems(ENCHANTED_IRON);
 	}
 	

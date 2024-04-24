@@ -63,9 +63,9 @@ public class Q00612_BattleAgainstKetraOrcs extends Quest {
 	
 	public Q00612_BattleAgainstKetraOrcs() {
 		super(612, Q00612_BattleAgainstKetraOrcs.class.getSimpleName(), "Battle against Ketra Orcs");
-		addStartNpc(ASHAS);
-		addTalkId(ASHAS);
-		addKillId(MOBS.keySet());
+		bindStartNpc(ASHAS);
+		bindTalk(ASHAS);
+		bindKill(MOBS.keySet());
 		registerQuestItems(MOLAR);
 	}
 	

@@ -37,9 +37,9 @@ public final class ElrokiTeleporters extends AbstractNpcAI {
 	
 	public ElrokiTeleporters() {
 		super(ElrokiTeleporters.class.getSimpleName(), "ai/npc/Teleports");
-		addFirstTalkId(ORAHOCHIN, GARIACHIN);
-		addStartNpc(ORAHOCHIN, GARIACHIN);
-		addTalkId(ORAHOCHIN, GARIACHIN);
+		bindFirstTalk(ORAHOCHIN, GARIACHIN);
+		bindStartNpc(ORAHOCHIN, GARIACHIN);
+		bindTalk(ORAHOCHIN, GARIACHIN);
 	}
 	
 	@Override

@@ -46,9 +46,9 @@ public final class Q00659_IdRatherBeCollectingFairyBreath extends Quest {
 	
 	public Q00659_IdRatherBeCollectingFairyBreath() {
 		super(659, Q00659_IdRatherBeCollectingFairyBreath.class.getSimpleName(), "I'd Rather Be Collecting Fairy Breath");
-		addStartNpc(GALATEA);
-		addTalkId(GALATEA);
-		addKillId(DROPLIST.getNpcIds());
+		bindStartNpc(GALATEA);
+		bindTalk(GALATEA);
+		bindKill(DROPLIST.getNpcIds());
 		registerQuestItems(FAIRY_BREATH);
 	}
 	

@@ -68,9 +68,9 @@ public final class TerritoryManagers extends AbstractNpcAI {
 		super(TerritoryManagers.class.getSimpleName(), "ai/npc");
 		
 		for (int i = 0; i < 9; i++) {
-			addFirstTalkId(36490 + i);
-			addTalkId(36490 + i);
-			addStartNpc(36490 + i);
+			bindFirstTalk(36490 + i);
+			bindTalk(36490 + i);
+			bindStartNpc(36490 + i);
 		}
 	}
 	

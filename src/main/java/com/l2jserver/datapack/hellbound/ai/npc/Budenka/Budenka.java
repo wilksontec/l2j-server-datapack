@@ -35,9 +35,9 @@ public final class Budenka extends AbstractNpcAI {
 	
 	public Budenka() {
 		super(Budenka.class.getSimpleName(), "hellbound/AI/NPC");
-		addStartNpc(BUDENKA);
-		addFirstTalkId(BUDENKA);
-		addTalkId(BUDENKA);
+		bindStartNpc(BUDENKA);
+		bindFirstTalk(BUDENKA);
+		bindTalk(BUDENKA);
 	}
 	
 	@Override

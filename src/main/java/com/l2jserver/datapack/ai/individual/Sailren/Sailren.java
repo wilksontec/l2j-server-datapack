@@ -70,11 +70,11 @@ public final class Sailren extends AbstractNpcAI {
 	
 	public Sailren() {
 		super(Sailren.class.getSimpleName(), "ai/individual");
-		addStartNpc(STATUE, CUBIC);
-		addTalkId(STATUE, CUBIC);
-		addFirstTalkId(STATUE);
-		addKillId(VELOCIRAPTOR, PTEROSAUR, TREX, SAILREN);
-		addAttackId(VELOCIRAPTOR, PTEROSAUR, TREX, SAILREN);
+		bindStartNpc(STATUE, CUBIC);
+		bindTalk(STATUE, CUBIC);
+		bindFirstTalk(STATUE);
+		bindKill(VELOCIRAPTOR, PTEROSAUR, TREX, SAILREN);
+		bindAttack(VELOCIRAPTOR, PTEROSAUR, TREX, SAILREN);
 		
 		final long remain = GlobalVariablesManager.getInstance().getLong("SailrenRespawn", 0) - System.currentTimeMillis();
 		if (remain > 0) {

@@ -62,10 +62,10 @@ public class Q00246_PossessorOfAPreciousSoul3 extends Quest {
 	
 	public Q00246_PossessorOfAPreciousSoul3() {
 		super(246, Q00246_PossessorOfAPreciousSoul3.class.getSimpleName(), "Possessor Of A Precious Soul 3");
-		addStartNpc(CARADINE);
-		addTalkId(LADD, CARADINE, OSSIAN);
-		addKillId(PILGRIM_OF_SPLENDOR, JUDGE_OF_SPLENDOR, BARAKIEL);
-		addKillId(MOBS);
+		bindStartNpc(CARADINE);
+		bindTalk(LADD, CARADINE, OSSIAN);
+		bindKill(PILGRIM_OF_SPLENDOR, JUDGE_OF_SPLENDOR, BARAKIEL);
+		bindKill(MOBS);
 		registerQuestItems(WATERBINDER, EVERGREEN, FRAGMENTS, RAIN_SONG, RELIC_BOX);
 	}
 	

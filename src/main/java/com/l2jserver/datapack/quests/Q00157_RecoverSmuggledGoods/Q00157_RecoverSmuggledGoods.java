@@ -42,9 +42,9 @@ public class Q00157_RecoverSmuggledGoods extends Quest {
 	
 	public Q00157_RecoverSmuggledGoods() {
 		super(157, Q00157_RecoverSmuggledGoods.class.getSimpleName(), "Recover Smuggled Goods");
-		addStartNpc(WILFORD);
-		addTalkId(WILFORD);
-		addKillId(GIANT_TOAD);
+		bindStartNpc(WILFORD);
+		bindTalk(WILFORD);
+		bindKill(GIANT_TOAD);
 		registerQuestItems(ADAMANTITE_ORE);
 	}
 	

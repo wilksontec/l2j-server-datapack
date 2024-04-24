@@ -47,9 +47,9 @@ public final class Q10290_LandDragonConqueror extends Quest {
 	
 	public Q10290_LandDragonConqueror() {
 		super(10290, Q10290_LandDragonConqueror.class.getSimpleName(), "Land Dragon Conqueror");
-		addStartNpc(THEODRIC);
-		addTalkId(THEODRIC);
-		addKillId(ANTHARAS);
+		bindStartNpc(THEODRIC);
+		bindTalk(THEODRIC);
+		bindKill(ANTHARAS);
 		registerQuestItems(MIRACLE_NECKLACE, SHABBY_NECKLACE);
 	}
 	

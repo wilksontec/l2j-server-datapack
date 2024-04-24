@@ -33,8 +33,8 @@ public final class Gordon extends AbstractNpcAI {
 	
 	public Gordon() {
 		super(Gordon.class.getSimpleName(), "ai/individual");
-		addSpawnId(GORDON);
-		addSeeCreatureId(GORDON);
+		bindSpawn(GORDON);
+		bindSeeCreature(GORDON);
 	}
 	
 	@Override

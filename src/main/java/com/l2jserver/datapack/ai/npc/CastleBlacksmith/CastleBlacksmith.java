@@ -44,9 +44,9 @@ public final class CastleBlacksmith extends AbstractNpcAI {
 	
 	public CastleBlacksmith() {
 		super(CastleBlacksmith.class.getSimpleName(), "ai/npc");
-		addStartNpc(NPCS);
-		addTalkId(NPCS);
-		addFirstTalkId(NPCS);
+		bindStartNpc(NPCS);
+		bindTalk(NPCS);
+		bindFirstTalk(NPCS);
 	}
 	
 	private boolean hasRights(L2PcInstance player, L2Npc npc) {

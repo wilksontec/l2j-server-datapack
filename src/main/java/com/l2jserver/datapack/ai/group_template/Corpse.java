@@ -29,7 +29,7 @@ public final class Corpse extends AbstractNpcAI {
 	
 	public Corpse() {
 		super(Corpse.class.getSimpleName(), "ai/group_template");
-		addSpawnId(CORPSE_OF_DEADMAN);
+		bindSpawn(CORPSE_OF_DEADMAN);
 	}
 	
 	@Override

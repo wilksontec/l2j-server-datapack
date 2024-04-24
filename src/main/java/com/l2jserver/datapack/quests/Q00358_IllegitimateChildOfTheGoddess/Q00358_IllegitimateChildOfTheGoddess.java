@@ -55,9 +55,9 @@ public final class Q00358_IllegitimateChildOfTheGoddess extends Quest {
 	
 	public Q00358_IllegitimateChildOfTheGoddess() {
 		super(358, Q00358_IllegitimateChildOfTheGoddess.class.getSimpleName(), "Illegitimate Child of the Goddess");
-		addStartNpc(OLTRAN);
-		addTalkId(OLTRAN);
-		addKillId(DROPLIST.getNpcIds());
+		bindStartNpc(OLTRAN);
+		bindTalk(OLTRAN);
+		bindKill(DROPLIST.getNpcIds());
 		registerQuestItems(SNAKE_SCALE.getId());
 	}
 	

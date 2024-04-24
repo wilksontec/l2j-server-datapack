@@ -50,9 +50,9 @@ public final class Q00265_BondsOfSlavery extends Quest {
 	
 	public Q00265_BondsOfSlavery() {
 		super(265, Q00265_BondsOfSlavery.class.getSimpleName(), "Bonds of Slavery");
-		addStartNpc(KRISTIN);
-		addTalkId(KRISTIN);
-		addKillId(MONSTERS.keySet());
+		bindStartNpc(KRISTIN);
+		bindTalk(KRISTIN);
+		bindKill(MONSTERS.keySet());
 		registerQuestItems(IMP_SHACKLES);
 	}
 	

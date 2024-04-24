@@ -78,9 +78,9 @@ public final class Q00257_TheGuardIsBusy extends Quest {
 	
 	public Q00257_TheGuardIsBusy() {
 		super(257, Q00257_TheGuardIsBusy.class.getSimpleName(), "The Guard is Busy");
-		addStartNpc(GILBERT);
-		addTalkId(GILBERT);
-		addKillId(MONSTERS.keySet());
+		bindStartNpc(GILBERT);
+		bindTalk(GILBERT);
+		bindKill(MONSTERS.keySet());
 		registerQuestItems(ORC_AMULET, GLUDIO_LORDS_MARK, ORC_NECKLACE, WEREWOLF_FANG);
 	}
 	

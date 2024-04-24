@@ -44,10 +44,10 @@ public final class GatekeeperSpirit extends AbstractNpcAI {
 	
 	public GatekeeperSpirit() {
 		super(GatekeeperSpirit.class.getSimpleName(), "ai/npc/Teleports");
-		addStartNpc(GATEKEEPER_SPIRIT_ENTER, GATEKEEPER_SPIRIT_EXIT);
-		addFirstTalkId(GATEKEEPER_SPIRIT_ENTER, GATEKEEPER_SPIRIT_EXIT);
-		addTalkId(GATEKEEPER_SPIRIT_ENTER, GATEKEEPER_SPIRIT_EXIT);
-		addKillId(LILITH, ANAKIM);
+		bindStartNpc(GATEKEEPER_SPIRIT_ENTER, GATEKEEPER_SPIRIT_EXIT);
+		bindFirstTalk(GATEKEEPER_SPIRIT_ENTER, GATEKEEPER_SPIRIT_EXIT);
+		bindTalk(GATEKEEPER_SPIRIT_ENTER, GATEKEEPER_SPIRIT_EXIT);
+		bindKill(LILITH, ANAKIM);
 	}
 	
 	@Override

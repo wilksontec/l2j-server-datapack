@@ -100,17 +100,17 @@ public final class PrimevalIsle extends AbstractNpcAI {
 	
 	public PrimevalIsle() {
 		super(PrimevalIsle.class.getSimpleName(), "ai/group_template");
-		addSpawnId(TREX);
-		addSpawnId(SPRIGNANT);
-		addSpawnId(MONSTERS);
-		addAggroRangeEnterId(TREX);
-		addSpellFinishedId(TREX);
-		addAttackId(EGG);
-		addAttackId(TREX);
-		addAttackId(MONSTERS);
-		addKillId(EGG, SAILREN, DEINO, ORNIT);
-		addSeeCreatureId(TREX);
-		addSeeCreatureId(MONSTERS);
+		bindSpawn(TREX);
+		bindSpawn(SPRIGNANT);
+		bindSpawn(MONSTERS);
+		bindAggroRangeEnter(TREX);
+		bindSpellFinished(TREX);
+		bindAttack(EGG);
+		bindAttack(TREX);
+		bindAttack(MONSTERS);
+		bindKill(EGG, SAILREN, DEINO, ORNIT);
+		bindSeeCreature(TREX);
+		bindSeeCreature(MONSTERS);
 	}
 	
 	@Override

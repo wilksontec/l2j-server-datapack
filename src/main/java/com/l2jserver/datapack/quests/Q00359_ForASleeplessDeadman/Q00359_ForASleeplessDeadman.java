@@ -56,9 +56,9 @@ public final class Q00359_ForASleeplessDeadman extends Quest {
 	
 	public Q00359_ForASleeplessDeadman() {
 		super(359, Q00359_ForASleeplessDeadman.class.getSimpleName(), "For a Sleepless Deadman");
-		addStartNpc(ORVEN);
-		addTalkId(ORVEN);
-		addKillId(DROPLIST.getNpcIds());
+		bindStartNpc(ORVEN);
+		bindTalk(ORVEN);
+		bindKill(DROPLIST.getNpcIds());
 		registerQuestItems(REMAINS_OF_ADEN_RESIDENTS.getId());
 	}
 	

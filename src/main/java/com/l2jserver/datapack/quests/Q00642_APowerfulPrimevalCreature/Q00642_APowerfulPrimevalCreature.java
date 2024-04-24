@@ -51,9 +51,9 @@ public class Q00642_APowerfulPrimevalCreature extends Quest {
 	
 	public Q00642_APowerfulPrimevalCreature() {
 		super(642, Q00642_APowerfulPrimevalCreature.class.getSimpleName(), "A Powerful Primeval Creature");
-		addStartNpc(DINN);
-		addTalkId(DINN);
-		addKillId(DROPLIST.getNpcIds());
+		bindStartNpc(DINN);
+		bindTalk(DINN);
+		bindKill(DROPLIST.getNpcIds());
 		registerQuestItems(DINOSAUR_TISSUE, DINOSAUR_EGG);
 	}
 	

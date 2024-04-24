@@ -37,8 +37,8 @@ public final class Deltuva extends AbstractNpcAI {
 	
 	public Deltuva() {
 		super(Deltuva.class.getSimpleName(), "hellbound/AI/NPC");
-		addStartNpc(DELTUVA);
-		addTalkId(DELTUVA);
+		bindStartNpc(DELTUVA);
+		bindTalk(DELTUVA);
 	}
 	
 	@Override

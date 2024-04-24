@@ -81,8 +81,8 @@ public final class EchoCrystals extends AbstractNpcAI {
 	
 	public EchoCrystals() {
 		super(EchoCrystals.class.getSimpleName(), "ai/npc");
-		addStartNpc(NPCs);
-		addTalkId(NPCs);
+		bindStartNpc(NPCs);
+		bindTalk(NPCs);
 	}
 	
 	@Override

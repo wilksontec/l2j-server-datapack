@@ -65,9 +65,9 @@ public final class Q00355_FamilyHonor extends Quest {
 	
 	public Q00355_FamilyHonor() {
 		super(355, Q00355_FamilyHonor.class.getSimpleName(), "Family Honor");
-		addStartNpc(GALIBREDO);
-		addTalkId(GALIBREDO, PATRIN);
-		addKillId(DROPLIST.getNpcIds());
+		bindStartNpc(GALIBREDO);
+		bindTalk(GALIBREDO, PATRIN);
+		bindKill(DROPLIST.getNpcIds());
 		registerQuestItems(GALFREDO_ROMERS_BUST);
 	}
 	

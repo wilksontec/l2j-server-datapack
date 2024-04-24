@@ -69,9 +69,9 @@ public class Fisherman extends AbstractNpcAI {
 	
 	public Fisherman() {
 		super(Fisherman.class.getSimpleName(), "ai/npc");
-		addStartNpc(FISHERMAN);
-		addTalkId(FISHERMAN);
-		addFirstTalkId(FISHERMAN);
+		bindStartNpc(FISHERMAN);
+		bindTalk(FISHERMAN);
+		bindFirstTalk(FISHERMAN);
 	}
 	
 	@Override

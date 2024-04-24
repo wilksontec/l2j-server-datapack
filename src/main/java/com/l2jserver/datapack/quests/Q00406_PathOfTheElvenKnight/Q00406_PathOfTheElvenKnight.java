@@ -64,9 +64,9 @@ public final class Q00406_PathOfTheElvenKnight extends Quest {
 	
 	public Q00406_PathOfTheElvenKnight() {
 		super(406, Q00406_PathOfTheElvenKnight.class.getSimpleName(), "Path Of The Elven Knight");
-		addStartNpc(MASTER_SORIUS);
-		addTalkId(MASTER_SORIUS, BLACKSMITH_KLUTO);
-		addKillId(MONSTER_DROPS.keySet());
+		bindStartNpc(MASTER_SORIUS);
+		bindTalk(MASTER_SORIUS, BLACKSMITH_KLUTO);
+		bindKill(MONSTER_DROPS.keySet());
 		registerQuestItems(SORIUS_LETTER, KLUTO_BOX, TOPAZ_PIECE, EMERALD_PIECE, KLUTO_MEMO);
 	}
 	

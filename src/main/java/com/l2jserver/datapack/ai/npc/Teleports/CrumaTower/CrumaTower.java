@@ -38,9 +38,9 @@ public final class CrumaTower extends AbstractNpcAI {
 	
 	public CrumaTower() {
 		super(CrumaTower.class.getSimpleName(), "ai/npc/Teleports");
-		addFirstTalkId(MOZELLA);
-		addStartNpc(MOZELLA);
-		addTalkId(MOZELLA);
+		bindFirstTalk(MOZELLA);
+		bindStartNpc(MOZELLA);
+		bindTalk(MOZELLA);
 	}
 	
 	@Override

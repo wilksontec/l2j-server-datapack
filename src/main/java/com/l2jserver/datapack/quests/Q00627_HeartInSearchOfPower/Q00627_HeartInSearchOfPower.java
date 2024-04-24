@@ -65,9 +65,9 @@ public class Q00627_HeartInSearchOfPower extends Quest {
 	
 	public Q00627_HeartInSearchOfPower() {
 		super(627, Q00627_HeartInSearchOfPower.class.getSimpleName(), "Heart in Search of Power");
-		addStartNpc(MYSTERIOUS_NECROMANCER);
-		addTalkId(MYSTERIOUS_NECROMANCER, ENFEUX);
-		addKillId(DROPLIST.getNpcIds());
+		bindStartNpc(MYSTERIOUS_NECROMANCER);
+		bindTalk(MYSTERIOUS_NECROMANCER, ENFEUX);
+		bindKill(DROPLIST.getNpcIds());
 		registerQuestItems(SEAL_OF_LIGHT, BEAD_OF_OBEDIENCE.getId(), GEM_OF_SAINTS);
 	}
 	

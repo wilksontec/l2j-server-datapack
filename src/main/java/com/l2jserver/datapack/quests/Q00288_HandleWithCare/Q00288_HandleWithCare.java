@@ -55,9 +55,9 @@ public class Q00288_HandleWithCare extends Quest {
 	
 	public Q00288_HandleWithCare() {
 		super(288, Q00288_HandleWithCare.class.getSimpleName(), "Handle With Care");
-		addStartNpc(ANKUMI);
-		addTalkId(ANKUMI);
-		addKillId(SEER_UGOROS);
+		bindStartNpc(ANKUMI);
+		bindTalk(ANKUMI);
+		bindKill(SEER_UGOROS);
 		registerQuestItems(HIGH_GRADE_LIZARD_SCALE, MIDDLE_GRADE_LIZARD_SCALE);
 	}
 	

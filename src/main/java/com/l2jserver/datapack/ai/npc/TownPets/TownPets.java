@@ -51,7 +51,7 @@ public final class TownPets extends AbstractNpcAI {
 		super(TownPets.class.getSimpleName(), "ai/npc");
 		
 		if (general().allowPetWalkers()) {
-			addSpawnId(PETS);
+			bindSpawn(PETS);
 		}
 	}
 	

@@ -42,8 +42,8 @@ public final class Q00187_NikolasHeart extends Quest {
 	
 	public Q00187_NikolasHeart() {
 		super(187, Q00187_NikolasHeart.class.getSimpleName(), "Nikola's Heart");
-		addStartNpc(RESEARCHER_LORAIN);
-		addTalkId(HEAD_BLACKSMITH_KUSTO, RESEARCHER_LORAIN, MAESTRO_NIKOLA);
+		bindStartNpc(RESEARCHER_LORAIN);
+		bindTalk(HEAD_BLACKSMITH_KUSTO, RESEARCHER_LORAIN, MAESTRO_NIKOLA);
 		registerQuestItems(METALLOGRAPH);
 	}
 	

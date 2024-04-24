@@ -43,9 +43,9 @@ public class Q00277_GatekeepersOffering extends Quest {
 	
 	public Q00277_GatekeepersOffering() {
 		super(277, Q00277_GatekeepersOffering.class.getSimpleName(), "Gatekeeper's Offering");
-		addStartNpc(TAMIL);
-		addTalkId(TAMIL);
-		addKillId(GREYSTONE_GOLEM);
+		bindStartNpc(TAMIL);
+		bindTalk(TAMIL);
+		bindKill(GREYSTONE_GOLEM);
 		registerQuestItems(STARSTONE);
 	}
 	

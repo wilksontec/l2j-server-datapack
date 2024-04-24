@@ -217,7 +217,7 @@ public class QuestLink implements IBypassHandler {
 		}
 		
 		// Go through the QuestState of the L2PcInstance quests
-		for (AbstractEventListener listener : template.getListeners(EventType.ON_NPC_TALK)) {
+		for (AbstractEventListener listener : template.getListeners(EventType.NPC_TALK)) {
 			if (listener.getOwner() instanceof Quest) {
 				final Quest quest = (Quest) listener.getOwner();
 				if (quest.isVisibleInQuestWindow()) {
@@ -256,7 +256,7 @@ public class QuestLink implements IBypassHandler {
 			}
 		}
 		
-		for (AbstractEventListener listener : npc.getListeners(EventType.ON_NPC_QUEST_START)) {
+		for (AbstractEventListener listener : npc.getListeners(EventType.NPC_QUEST_START)) {
 			if (listener.getOwner() instanceof Quest) {
 				final Quest quest = (Quest) listener.getOwner();
 				if (quest.isVisibleInQuestWindow()) {

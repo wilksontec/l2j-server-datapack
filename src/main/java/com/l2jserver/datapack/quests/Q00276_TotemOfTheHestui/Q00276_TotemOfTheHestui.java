@@ -55,9 +55,9 @@ public final class Q00276_TotemOfTheHestui extends Quest {
 	
 	public Q00276_TotemOfTheHestui() {
 		super(276, Q00276_TotemOfTheHestui.class.getSimpleName(), "Totem of the Hestui");
-		addStartNpc(TANAPI);
-		addTalkId(TANAPI);
-		addKillId(KASHA_BEAR, KASHA_BEAR_TOTEM);
+		bindStartNpc(TANAPI);
+		bindTalk(TANAPI);
+		bindKill(KASHA_BEAR, KASHA_BEAR_TOTEM);
 		registerQuestItems(KASHA_PARASITE, KASHA_CRYSTAL.getId());
 	}
 	

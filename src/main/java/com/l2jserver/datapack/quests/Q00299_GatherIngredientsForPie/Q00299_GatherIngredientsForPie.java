@@ -59,9 +59,9 @@ public final class Q00299_GatherIngredientsForPie extends Quest {
 	
 	public Q00299_GatherIngredientsForPie() {
 		super(299, Q00299_GatherIngredientsForPie.class.getSimpleName(), "Gather Ingredients for Pie");
-		addStartNpc(EMILLY);
-		addTalkId(LARS, BRIGHT, EMILLY);
-		addKillId(DROPLIST.getNpcIds());
+		bindStartNpc(EMILLY);
+		bindTalk(LARS, BRIGHT, EMILLY);
+		bindKill(DROPLIST.getNpcIds());
 		registerQuestItems(FRUIT_BASKET, HONEY_POUCH.getId(), AVELLAN_SPICE);
 	}
 	

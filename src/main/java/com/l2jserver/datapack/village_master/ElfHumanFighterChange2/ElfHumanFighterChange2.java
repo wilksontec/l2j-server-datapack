@@ -69,8 +69,8 @@ public final class ElfHumanFighterChange2 extends AbstractNpcAI {
 	
 	public ElfHumanFighterChange2() {
 		super(ElfHumanFighterChange2.class.getSimpleName(), "village_master");
-		addStartNpc(NPCS);
-		addTalkId(NPCS);
+		bindStartNpc(NPCS);
+		bindTalk(NPCS);
 	}
 	
 	@Override

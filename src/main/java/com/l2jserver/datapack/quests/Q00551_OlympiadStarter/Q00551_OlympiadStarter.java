@@ -44,10 +44,10 @@ public class Q00551_OlympiadStarter extends Quest {
 	
 	public Q00551_OlympiadStarter() {
 		super(551, Q00551_OlympiadStarter.class.getSimpleName(), "Olympiad Starter");
-		addStartNpc(MANAGER);
-		addTalkId(MANAGER);
+		bindStartNpc(MANAGER);
+		bindTalk(MANAGER);
 		registerQuestItems(CERT_3, CERT_5, CERT_10);
-		addOlympiadMatchFinishId();
+		bindOlympiadMatchFinish();
 	}
 	
 	@Override

@@ -47,9 +47,9 @@ public class Q00319_ScentOfDeath extends Quest {
 	
 	public Q00319_ScentOfDeath() {
 		super(319, Q00319_ScentOfDeath.class.getSimpleName(), "Scent of Death");
-		addStartNpc(MINALESS);
-		addTalkId(MINALESS);
-		addKillId(MARSH_ZOMBIE, MARSH_ZOMBIE_LORD);
+		bindStartNpc(MINALESS);
+		bindTalk(MINALESS);
+		bindKill(MARSH_ZOMBIE, MARSH_ZOMBIE_LORD);
 		registerQuestItems(ZOMBIES_SKIN);
 	}
 	

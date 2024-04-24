@@ -70,9 +70,9 @@ public final class Q00211_TrialOfTheChallenger extends Quest {
 	
 	public Q00211_TrialOfTheChallenger() {
 		super(211, Q00211_TrialOfTheChallenger.class.getSimpleName(), "Trial of the Challenger");
-		addStartNpc(KASH);
-		addTalkId(FILAUR, KASH, MARTIAN, RALDO, CHEST_OF_SHYSLASSYS, MARKETEER_OF_MAMMON);
-		addKillId(SHYSLASSYS, GORR, BARAHAM, QUEEN_OF_SUCCUBUS);
+		bindStartNpc(KASH);
+		bindTalk(FILAUR, KASH, MARTIAN, RALDO, CHEST_OF_SHYSLASSYS, MARKETEER_OF_MAMMON);
+		bindKill(SHYSLASSYS, GORR, BARAHAM, QUEEN_OF_SUCCUBUS);
 		registerQuestItems(LETTER_OF_KASH, WATCHERS_EYE1, WATCHERS_EYE2, SCROLL_OF_SHYSLASSYS, BROKEN_KEY);
 	}
 	

@@ -52,9 +52,9 @@ public final class Q00379_FantasyWine extends Quest {
 	
 	public Q00379_FantasyWine() {
 		super(379, Q00379_FantasyWine.class.getSimpleName(), "Fantasy Wine");
-		addStartNpc(HARLAN);
-		addTalkId(HARLAN);
-		addKillId(ENKU_ORC_CHAMPION, ENKU_ORC_SHAMAN);
+		bindStartNpc(HARLAN);
+		bindTalk(HARLAN);
+		bindKill(ENKU_ORC_CHAMPION, ENKU_ORC_SHAMAN);
 		registerQuestItems(LEAF_OF_EUCALYPTUS.getId(), STONE_OF_CHILL.getId());
 	}
 	

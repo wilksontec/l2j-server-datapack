@@ -41,9 +41,9 @@ public class Q00693_DefeatingDragonkinRemnants extends Quest {
 	
 	public Q00693_DefeatingDragonkinRemnants() {
 		super(693, Q00693_DefeatingDragonkinRemnants.class.getSimpleName(), "Defeating Dragonkin Remnants");
-		addStartNpc(EDRIC);
-		addFirstTalkId(EDRIC);
-		addTalkId(EDRIC);
+		bindStartNpc(EDRIC);
+		bindFirstTalk(EDRIC);
+		bindTalk(EDRIC);
 	}
 	
 	@Override

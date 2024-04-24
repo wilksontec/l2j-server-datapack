@@ -169,8 +169,8 @@ public final class FeedableBeasts extends AbstractNpcAI {
 	
 	public FeedableBeasts() {
 		super(FeedableBeasts.class.getSimpleName(), "ai/group_template");
-		addKillId(FEEDABLE_BEASTS);
-		addSkillSeeId(FEEDABLE_BEASTS);
+		bindKill(FEEDABLE_BEASTS);
+		bindSkillSee(FEEDABLE_BEASTS);
 		
 		// TODO: no grendels?
 		GrowthCapableMob temp;

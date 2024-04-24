@@ -41,7 +41,7 @@ public class DustRider extends AbstractNpcAI {
 	
 	public DustRider() {
 		super(DustRider.class.getSimpleName(), "ai/individual");
-		addAttackId(DUST_RIDER);
+		bindAttack(DUST_RIDER);
 	}
 	
 	@Override

@@ -48,9 +48,9 @@ public class Q00610_MagicalPowerOfWaterPart2 extends Quest {
 	
 	public Q00610_MagicalPowerOfWaterPart2() {
 		super(610, Q00610_MagicalPowerOfWaterPart2.class.getSimpleName(), "Magical Power of Water - Part 2");
-		addStartNpc(ASEFA);
-		addTalkId(ASEFA, VARKA_TOTEM);
-		addKillId(ASHUTAR);
+		bindStartNpc(ASEFA);
+		bindTalk(ASEFA, VARKA_TOTEM);
+		bindKill(ASHUTAR);
 		registerQuestItems(GREEN_TOTEM, ASHUTAR_HEART);
 		
 		final String test = loadGlobalQuestVar("Q00610_respawn");

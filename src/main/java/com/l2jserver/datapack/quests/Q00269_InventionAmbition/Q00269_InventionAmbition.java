@@ -49,9 +49,9 @@ public final class Q00269_InventionAmbition extends Quest {
 	
 	public Q00269_InventionAmbition() {
 		super(269, Q00269_InventionAmbition.class.getSimpleName(), "Invention Ambition");
-		addStartNpc(INVENTOR_MARU);
-		addTalkId(INVENTOR_MARU);
-		addKillId(DROPLIST.getNpcIds());
+		bindStartNpc(INVENTOR_MARU);
+		bindTalk(INVENTOR_MARU);
+		bindKill(DROPLIST.getNpcIds());
 		registerQuestItems(ENERGY_ORE);
 	}
 	

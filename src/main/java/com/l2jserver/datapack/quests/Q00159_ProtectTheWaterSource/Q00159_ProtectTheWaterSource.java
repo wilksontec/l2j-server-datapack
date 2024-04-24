@@ -44,9 +44,9 @@ public class Q00159_ProtectTheWaterSource extends Quest {
 	
 	public Q00159_ProtectTheWaterSource() {
 		super(159, Q00159_ProtectTheWaterSource.class.getSimpleName(), "Protect the Water Source");
-		addStartNpc(ASTERIOS);
-		addTalkId(ASTERIOS);
-		addKillId(PLAGUE_ZOMBIE);
+		bindStartNpc(ASTERIOS);
+		bindTalk(ASTERIOS);
+		bindKill(PLAGUE_ZOMBIE);
 		registerQuestItems(PLAGUE_DUST, HYACINTH_CHARM, HYACINTH_CHARM2);
 	}
 	

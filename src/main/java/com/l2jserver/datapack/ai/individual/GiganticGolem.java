@@ -68,12 +68,12 @@ public class GiganticGolem extends AbstractNpcAI {
 	
 	public GiganticGolem() {
 		super(GiganticGolem.class.getSimpleName(), "ai/individual");
-		addFirstTalkId(DR_CHAOS);
-		addKillId(GIGANTIC_GOLEM);
-		addTeleportId(GIGANTIC_GOLEM);
-		addMoveFinishedId(GIGANTIC_BOOM_GOLEM);
-		addSpawnId(GIGANTIC_GOLEM, GIGANTIC_BOOM_GOLEM);
-		addAttackId(GIGANTIC_GOLEM, GIGANTIC_BOOM_GOLEM);
+		bindFirstTalk(DR_CHAOS);
+		bindKill(GIGANTIC_GOLEM);
+		bindTeleport(GIGANTIC_GOLEM);
+		bindMoveFinished(GIGANTIC_BOOM_GOLEM);
+		bindSpawn(GIGANTIC_GOLEM, GIGANTIC_BOOM_GOLEM);
+		bindAttack(GIGANTIC_GOLEM, GIGANTIC_BOOM_GOLEM);
 		
 		final long remain = GlobalVariablesManager.getInstance().getLong("GolemRespawn", 0) - System.currentTimeMillis();
 		if (remain > 0) {

@@ -42,8 +42,8 @@ public class Q00009_IntoTheCityOfHumans extends Quest {
 	
 	public Q00009_IntoTheCityOfHumans() {
 		super(9, Q00009_IntoTheCityOfHumans.class.getSimpleName(), "Into the City of Humans");
-		addStartNpc(PETUKAI);
-		addTalkId(PETUKAI, TANAPI, TAMIL);
+		bindStartNpc(PETUKAI);
+		bindTalk(PETUKAI, TANAPI, TAMIL);
 	}
 	
 	@Override

@@ -66,10 +66,10 @@ public final class NevitsHerald extends AbstractNpcAI {
 	
 	public NevitsHerald() {
 		super(NevitsHerald.class.getSimpleName(), "ai/npc");
-		addFirstTalkId(NEVITS_HERALD);
-		addStartNpc(NEVITS_HERALD);
-		addTalkId(NEVITS_HERALD);
-		addKillId(ANTHARAS, VALAKAS);
+		bindFirstTalk(NEVITS_HERALD);
+		bindStartNpc(NEVITS_HERALD);
+		bindTalk(NEVITS_HERALD);
+		bindKill(ANTHARAS, VALAKAS);
 	}
 	
 	@Override

@@ -61,9 +61,9 @@ public class Q00509_AClansFame extends Quest {
 	
 	public Q00509_AClansFame() {
 		super(509, Q00509_AClansFame.class.getSimpleName(), "A Clan's Fame");
-		addStartNpc(VALDIS);
-		addTalkId(VALDIS);
-		addKillId(RAID_BOSS);
+		bindStartNpc(VALDIS);
+		bindTalk(VALDIS);
+		bindKill(RAID_BOSS);
 	}
 	
 	@Override

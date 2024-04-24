@@ -72,10 +72,10 @@ public class AvantGarde extends AbstractNpcAI {
 	
 	public AvantGarde() {
 		super(AvantGarde.class.getSimpleName(), "ai/npc");
-		addStartNpc(AVANT_GARDE);
-		addTalkId(AVANT_GARDE);
-		addFirstTalkId(AVANT_GARDE);
-		addAcquireSkillId(AVANT_GARDE);
+		bindStartNpc(AVANT_GARDE);
+		bindTalk(AVANT_GARDE);
+		bindFirstTalk(AVANT_GARDE);
+		bindAcquireSkill(AVANT_GARDE);
 	}
 	
 	@Override

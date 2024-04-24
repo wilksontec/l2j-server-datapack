@@ -56,9 +56,9 @@ public final class HealerTrainer extends AbstractNpcAI {
 	
 	public HealerTrainer() {
 		super(HealerTrainer.class.getSimpleName(), "ai/npc/Trainers");
-		addStartNpc(HEALER_TRAINERS);
-		addTalkId(HEALER_TRAINERS);
-		addFirstTalkId(HEALER_TRAINERS);
+		bindStartNpc(HEALER_TRAINERS);
+		bindTalk(HEALER_TRAINERS);
+		bindFirstTalk(HEALER_TRAINERS);
 	}
 	
 	@Override

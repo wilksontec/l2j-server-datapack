@@ -54,9 +54,9 @@ public class Q00140_ShadowFoxPart2 extends Quest {
 	
 	public Q00140_ShadowFoxPart2() {
 		super(140, Q00140_ShadowFoxPart2.class.getSimpleName(), "Shadow Fox - 2");
-		addStartNpc(KLUCK);
-		addTalkId(KLUCK, XENOVIA);
-		addKillId(DROPLIST.getNpcIds());
+		bindStartNpc(KLUCK);
+		bindTalk(KLUCK, XENOVIA);
+		bindKill(DROPLIST.getNpcIds());
 		registerQuestItems(DARK_CRYSTAL, DARK_OXYDE, CRYPTOGRAM_OF_THE_GODDESS_SWORD);
 	}
 	

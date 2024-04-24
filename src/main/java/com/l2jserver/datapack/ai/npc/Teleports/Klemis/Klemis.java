@@ -37,9 +37,9 @@ public class Klemis extends AbstractNpcAI {
 	
 	public Klemis() {
 		super(Klemis.class.getSimpleName(), "ai/npc/Teleports");
-		addStartNpc(KLEMIS);
-		addTalkId(KLEMIS);
-		addFirstTalkId(KLEMIS);
+		bindStartNpc(KLEMIS);
+		bindTalk(KLEMIS);
+		bindFirstTalk(KLEMIS);
 	}
 	
 	@Override

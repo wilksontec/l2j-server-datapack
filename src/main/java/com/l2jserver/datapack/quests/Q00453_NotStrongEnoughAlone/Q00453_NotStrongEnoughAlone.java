@@ -95,11 +95,11 @@ public class Q00453_NotStrongEnoughAlone extends Quest {
 	
 	public Q00453_NotStrongEnoughAlone() {
 		super(453, Q00453_NotStrongEnoughAlone.class.getSimpleName(), "Not Strong Enought Alone");
-		addStartNpc(KLEMIS);
-		addTalkId(KLEMIS);
-		addKillId(MONSTER1);
-		addKillId(MONSTER2);
-		addKillId(MONSTER3);
+		bindStartNpc(KLEMIS);
+		bindTalk(KLEMIS);
+		bindKill(MONSTER1);
+		bindKill(MONSTER2);
+		bindKill(MONSTER3);
 	}
 	
 	private void increaseKill(L2PcInstance player, L2Npc npc) {

@@ -84,9 +84,9 @@ public class Q00309_ForAGoodCause extends Quest {
 	
 	public Q00309_ForAGoodCause() {
 		super(309, Q00309_ForAGoodCause.class.getSimpleName(), "For A Good Cause");
-		addStartNpc(ATRA);
-		addTalkId(ATRA);
-		addKillId(DROPLIST.getNpcIds());
+		bindStartNpc(ATRA);
+		bindTalk(ATRA);
+		bindKill(DROPLIST.getNpcIds());
 	}
 	
 	private boolean canGiveItem(QuestState st, int quanty) {

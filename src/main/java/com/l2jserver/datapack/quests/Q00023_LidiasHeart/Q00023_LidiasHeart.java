@@ -56,9 +56,9 @@ public final class Q00023_LidiasHeart extends Quest {
 	
 	public Q00023_LidiasHeart() {
 		super(23, Q00023_LidiasHeart.class.getSimpleName(), "Lidia's Heart");
-		addStartNpc(HIGH_PRIEST_INNOCENTIN);
-		addTalkId(HIGH_PRIEST_INNOCENTIN, TRADER_VIOLET, TOMBSTONE, GHOST_OF_VON_HELLMANN, BROKEN_BOOKSHELF, BOX);
-		addSpawnId(GHOST_OF_VON_HELLMANN);
+		bindStartNpc(HIGH_PRIEST_INNOCENTIN);
+		bindTalk(HIGH_PRIEST_INNOCENTIN, TRADER_VIOLET, TOMBSTONE, GHOST_OF_VON_HELLMANN, BROKEN_BOOKSHELF, BOX);
+		bindSpawn(GHOST_OF_VON_HELLMANN);
 		registerQuestItems(LIDIAS_DIARY, SILVER_KEY, SILVER_SPEAR);
 	}
 	

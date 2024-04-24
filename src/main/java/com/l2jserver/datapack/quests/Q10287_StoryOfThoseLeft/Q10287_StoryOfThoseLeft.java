@@ -44,8 +44,8 @@ public final class Q10287_StoryOfThoseLeft extends Quest {
 	
 	public Q10287_StoryOfThoseLeft() {
 		super(10287, Q10287_StoryOfThoseLeft.class.getSimpleName(), "Story of Those Left");
-		addStartNpc(RAFFORTY);
-		addTalkId(RAFFORTY, JINIA, KEGOR);
+		bindStartNpc(RAFFORTY);
+		bindTalk(RAFFORTY, JINIA, KEGOR);
 	}
 	
 	@Override

@@ -45,9 +45,9 @@ public final class Q00268_TracesOfEvil extends Quest {
 	
 	public Q00268_TracesOfEvil() {
 		super(268, Q00268_TracesOfEvil.class.getSimpleName(), "Traces of Evil");
-		addStartNpc(KUNAI);
-		addTalkId(KUNAI);
-		addKillId(MONSTERS);
+		bindStartNpc(KUNAI);
+		bindTalk(KUNAI);
+		bindKill(MONSTERS);
 		registerQuestItems(CONTAMINATED_KASHA_SPIDER_VENOM);
 	}
 	

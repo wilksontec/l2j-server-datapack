@@ -49,11 +49,11 @@ public final class CastleAmbassador extends AbstractNpcAI {
 	
 	public CastleAmbassador() {
 		super(CastleAmbassador.class.getSimpleName(), "ai/npc");
-		addStartNpc(CASTLE_AMBASSADOR);
-		addTalkId(CASTLE_AMBASSADOR);
-		addFirstTalkId(CASTLE_AMBASSADOR);
-		addEventReceivedId(CASTLE_AMBASSADOR);
-		addSpawnId(CASTLE_AMBASSADOR);
+		bindStartNpc(CASTLE_AMBASSADOR);
+		bindTalk(CASTLE_AMBASSADOR);
+		bindFirstTalk(CASTLE_AMBASSADOR);
+		bindEventReceived(CASTLE_AMBASSADOR);
+		bindSpawn(CASTLE_AMBASSADOR);
 	}
 	
 	@Override

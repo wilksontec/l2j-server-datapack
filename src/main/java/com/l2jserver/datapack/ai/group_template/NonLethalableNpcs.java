@@ -35,7 +35,7 @@ public final class NonLethalableNpcs extends AbstractNpcAI {
 	
 	public NonLethalableNpcs() {
 		super(NonLethalableNpcs.class.getSimpleName(), "ai/group_template");
-		addSpawnId(NPCS);
+		bindSpawn(NPCS);
 	}
 	
 	@Override

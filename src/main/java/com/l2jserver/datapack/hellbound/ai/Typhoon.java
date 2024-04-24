@@ -35,8 +35,8 @@ public final class Typhoon extends AbstractNpcAI {
 	
 	public Typhoon() {
 		super(Typhoon.class.getSimpleName(), "hellbound/AI");
-		addAggroRangeEnterId(TYPHOON);
-		addSpawnId(TYPHOON);
+		bindAggroRangeEnter(TYPHOON);
+		bindSpawn(TYPHOON);
 	}
 	
 	@Override

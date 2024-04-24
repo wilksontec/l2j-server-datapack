@@ -106,8 +106,8 @@ public final class BeastFarm extends AbstractNpcAI {
 	
 	public BeastFarm() {
 		super(BeastFarm.class.getSimpleName(), "ai/group_template");
-		addSkillSeeId(FEEDABLE_BEASTS);
-		addKillId(FEEDABLE_BEASTS);
+		bindSkillSee(FEEDABLE_BEASTS);
+		bindKill(FEEDABLE_BEASTS);
 		
 		GrowthCapableMob temp;
 		

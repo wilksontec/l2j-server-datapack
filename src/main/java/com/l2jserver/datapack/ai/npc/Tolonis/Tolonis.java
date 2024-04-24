@@ -26,7 +26,7 @@ import com.l2jserver.datapack.ai.npc.AbstractNpcAI;
 import com.l2jserver.gameserver.data.xml.impl.SkillTreesData;
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
-import com.l2jserver.gameserver.model.events.impl.character.player.LearnSkillRequestedEvent;
+import com.l2jserver.gameserver.model.events.impl.character.player.PlayerLearnSkillRequested;
 import com.l2jserver.gameserver.network.serverpackets.AcquireSkillList;
 import com.l2jserver.gameserver.network.serverpackets.SystemMessage;
 
@@ -43,8 +43,8 @@ public class Tolonis extends AbstractNpcAI {
 	
 	public Tolonis() {
 		super(Tolonis.class.getSimpleName(), "ai/npc");
-		addFirstTalkId(TOLONIS_ID);
-		bindLearnSkillRequested(TOLONIS_ID);
+		bindFirstTalk(TOLONIS_ID);
+		bindPlayerLearnSkillRequested(TOLONIS_ID);
 	}
 	
 	@Override
@@ -56,7 +56,7 @@ public class Tolonis extends AbstractNpcAI {
 	}
 	
 	@Override
-	public void onLearnSkillRequested(LearnSkillRequestedEvent event) {
+	public void onLearnSkillRequested(PlayerLearnSkillRequested event) {
 		if (event.player().getLevel() >= MINIMUM_LEVEL) {
 			showEtcSkillList(event.player());
 		} else {

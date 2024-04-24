@@ -83,7 +83,7 @@ public final class RangeGuard extends AbstractNpcAI {
 		
 		for (L2NpcTemplate template : NpcData.getInstance().getAllNpcOfClassType("L2Monster")) {
 			if (template.getParameters().getInt("LongRangeGuardRate", -1) > 0) {
-				addAttackId(template.getId());
+				bindAttack(template.getId());
 			}
 		}
 	}

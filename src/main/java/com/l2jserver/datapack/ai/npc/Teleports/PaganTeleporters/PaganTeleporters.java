@@ -54,9 +54,9 @@ public final class PaganTeleporters extends AbstractNpcAI {
 	
 	public PaganTeleporters() {
 		super(PaganTeleporters.class.getSimpleName(), "ai/npc/Teleports");
-		addStartNpc(NPCS);
-		addTalkId(NPCS);
-		addFirstTalkId(TRIOLS_MIRROR_1, TRIOLS_MIRROR_2);
+		bindStartNpc(NPCS);
+		bindTalk(NPCS);
+		bindFirstTalk(TRIOLS_MIRROR_1, TRIOLS_MIRROR_2);
 	}
 	
 	@Override

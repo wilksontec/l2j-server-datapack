@@ -52,11 +52,11 @@ public class Knoriks extends AbstractNpcAI {
 	
 	public Knoriks() {
 		super(Knoriks.class.getSimpleName(), "ai/individual");
-		addAggroRangeEnterId(KNORIKS);
-		addSkillSeeId(KNORIKS);
-		addTeleportId(KNORIKS);
-		addAttackId(KNORIKS);
-		addSpawnId(KNORIKS);
+		bindAggroRangeEnter(KNORIKS);
+		bindSkillSee(KNORIKS);
+		bindTeleport(KNORIKS);
+		bindAttack(KNORIKS);
+		bindSpawn(KNORIKS);
 		startQuestTimer("KNORIKS_SPAWN", 1800000, null, null);
 	}
 	

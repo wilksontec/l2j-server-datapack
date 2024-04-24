@@ -64,10 +64,10 @@ public final class Q00129_PailakaDevilsLegacy extends Quest {
 	
 	public Q00129_PailakaDevilsLegacy() {
 		super(129, Q00129_PailakaDevilsLegacy.class.getSimpleName(), "Pailaka - Devil's Legacy");
-		addStartNpc(SURVIVOR);
-		addFirstTalkId(SURVIVOR, SUPPORTER, ADVENTURER1, ADVENTURER2);
-		addTalkId(SURVIVOR, SUPPORTER, ADVENTURER1, ADVENTURER2);
-		addKillId(KAMS, ALKASO, LEMATAN);
+		bindStartNpc(SURVIVOR);
+		bindFirstTalk(SURVIVOR, SUPPORTER, ADVENTURER1, ADVENTURER2);
+		bindTalk(SURVIVOR, SUPPORTER, ADVENTURER1, ADVENTURER2);
+		bindKill(KAMS, ALKASO, LEMATAN);
 		registerQuestItems(SWORD, ENH_SWORD1, ENH_SWORD2, SCROLL_1, SCROLL_2, SHIELD, HEALING_POTION, ANTIDOTE_POTION, DIVINE_POTION, DEFENCE_POTION, PAILAKA_KEY);
 	}
 	

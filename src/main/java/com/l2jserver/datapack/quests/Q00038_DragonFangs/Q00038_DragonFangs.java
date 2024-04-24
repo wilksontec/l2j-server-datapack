@@ -54,9 +54,9 @@ public final class Q00038_DragonFangs extends Quest {
 	
 	public Q00038_DragonFangs() {
 		super(38, Q00038_DragonFangs.class.getSimpleName(), "Dragon Fangs");
-		addStartNpc(GUARD_LUIS);
-		addTalkId(GUARD_LUIS, IRIS, MAGISTER_ROHMER);
-		addKillId(LIZARDMAN_SENTINEL, LIZARDMAN_SHAMAN, LIZARDMAN_LEADER, LIZARDMAN_SUB_LEADER);
+		bindStartNpc(GUARD_LUIS);
+		bindTalk(GUARD_LUIS, IRIS, MAGISTER_ROHMER);
+		bindKill(LIZARDMAN_SENTINEL, LIZARDMAN_SHAMAN, LIZARDMAN_LEADER, LIZARDMAN_SUB_LEADER);
 		registerQuestItems(FEATHER.getId(), TOTEM_TOOTH_1ST, TOTEM_TOOTH_2ND.getId(), LETTER_1ST, LETTER_2ND);
 	}
 	

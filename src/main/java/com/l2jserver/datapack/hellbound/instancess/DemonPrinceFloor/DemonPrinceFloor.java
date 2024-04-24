@@ -55,9 +55,9 @@ public final class DemonPrinceFloor extends AbstractInstance {
 	
 	public DemonPrinceFloor() {
 		super(DemonPrinceFloor.class.getSimpleName(), "hellbound/Instances");
-		addStartNpc(GK_4, CUBE);
-		addTalkId(GK_4, CUBE);
-		addKillId(DEMON_PRINCE);
+		bindStartNpc(GK_4, CUBE);
+		bindTalk(GK_4, CUBE);
+		bindKill(DEMON_PRINCE);
 	}
 	
 	@Override

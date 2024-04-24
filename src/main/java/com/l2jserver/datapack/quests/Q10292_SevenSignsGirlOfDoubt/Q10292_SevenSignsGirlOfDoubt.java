@@ -56,11 +56,11 @@ public final class Q10292_SevenSignsGirlOfDoubt extends Quest {
 	
 	public Q10292_SevenSignsGirlOfDoubt() {
 		super(10292, Q10292_SevenSignsGirlOfDoubt.class.getSimpleName(), "Seven Signs, Girl of Doubt");
-		addStartNpc(WOOD);
-		addSpawnId(ELCADIA);
-		addTalkId(WOOD, FRANZ, ELCADIA, HARDIN);
-		addKillId(DROPLIST.getNpcIds());
-		addKillId(CREATURE_OF_THE_DUSK1, CREATURE_OF_THE_DUSK2);
+		bindStartNpc(WOOD);
+		bindSpawn(ELCADIA);
+		bindTalk(WOOD, FRANZ, ELCADIA, HARDIN);
+		bindKill(DROPLIST.getNpcIds());
+		bindKill(CREATURE_OF_THE_DUSK1, CREATURE_OF_THE_DUSK2);
 		registerQuestItems(ELCADIAS_MARK.getId());
 	}
 	

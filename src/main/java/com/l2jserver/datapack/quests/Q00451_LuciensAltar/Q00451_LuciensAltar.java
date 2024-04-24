@@ -50,9 +50,9 @@ public class Q00451_LuciensAltar extends Quest {
 	
 	public Q00451_LuciensAltar() {
 		super(451, Q00451_LuciensAltar.class.getSimpleName(), "Lucien's Altar");
-		addStartNpc(DAICHIR);
-		addTalkId(ALTARS);
-		addTalkId(DAICHIR);
+		bindStartNpc(DAICHIR);
+		bindTalk(ALTARS);
+		bindTalk(DAICHIR);
 		registerQuestItems(REPLENISHED_BEAD, DISCHARGED_BEAD);
 	}
 	

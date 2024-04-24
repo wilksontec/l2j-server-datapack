@@ -105,9 +105,9 @@ public final class Q00638_SeekersOfTheHolyGrail extends Quest {
 	
 	public Q00638_SeekersOfTheHolyGrail() {
 		super(638, Q00638_SeekersOfTheHolyGrail.class.getSimpleName(), "Seekers Of The Holy Grail");
-		addStartNpc(INNOCENTIN);
-		addTalkId(INNOCENTIN);
-		addKillId(DROPLIST.getNpcIds());
+		bindStartNpc(INNOCENTIN);
+		bindTalk(INNOCENTIN);
+		bindKill(DROPLIST.getNpcIds());
 		registerQuestItems(TOTEM);
 	}
 	

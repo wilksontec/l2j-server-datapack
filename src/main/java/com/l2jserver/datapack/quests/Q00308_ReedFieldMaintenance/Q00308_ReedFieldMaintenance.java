@@ -84,9 +84,9 @@ public class Q00308_ReedFieldMaintenance extends Quest {
 	
 	public Q00308_ReedFieldMaintenance() {
 		super(308, Q00308_ReedFieldMaintenance.class.getSimpleName(), "Reed Field Maintenance");
-		addStartNpc(KATENSA);
-		addTalkId(KATENSA);
-		addKillId(DROPLIST.getNpcIds());
+		bindStartNpc(KATENSA);
+		bindTalk(KATENSA);
+		bindKill(DROPLIST.getNpcIds());
 	}
 	
 	private boolean canGiveItem(QuestState st, int quanty) {

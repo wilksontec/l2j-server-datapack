@@ -35,7 +35,7 @@ public final class Abercrombie extends AbstractNpcAI {
 	
 	public Abercrombie() {
 		super(Abercrombie.class.getSimpleName(), "ai/npc");
-		addFirstTalkId(ABERCROMBIE);
+		bindFirstTalk(ABERCROMBIE);
 	}
 	
 	@Override

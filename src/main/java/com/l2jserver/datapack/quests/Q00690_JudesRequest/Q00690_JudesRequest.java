@@ -70,9 +70,9 @@ public class Q00690_JudesRequest extends Quest {
 	
 	public Q00690_JudesRequest() {
 		super(690, Q00690_JudesRequest.class.getSimpleName(), "Jude's Request");
-		addStartNpc(JUDE);
-		addTalkId(JUDE);
-		addKillId(LESSER_EVIL, GREATER_EVIL);
+		bindStartNpc(JUDE);
+		bindTalk(JUDE);
+		bindKill(LESSER_EVIL, GREATER_EVIL);
 	}
 	
 	@Override

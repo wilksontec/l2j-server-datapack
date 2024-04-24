@@ -138,16 +138,16 @@ public final class OracleTeleport extends AbstractNpcAI {
 	
 	public OracleTeleport() {
 		super(OracleTeleport.class.getSimpleName(), "ai/npc/Teleports");
-		addStartNpc(RIFT_POSTERS);
-		addStartNpc(TELEPORTERS);
-		addStartNpc(TEMPLE_PRIEST);
-		addStartNpc(TOWN_DAWN);
-		addStartNpc(TOWN_DUSK);
-		addTalkId(RIFT_POSTERS);
-		addTalkId(TELEPORTERS);
-		addTalkId(TEMPLE_PRIEST);
-		addTalkId(TOWN_DAWN);
-		addTalkId(TOWN_DUSK);
+		bindStartNpc(RIFT_POSTERS);
+		bindStartNpc(TELEPORTERS);
+		bindStartNpc(TEMPLE_PRIEST);
+		bindStartNpc(TOWN_DAWN);
+		bindStartNpc(TOWN_DUSK);
+		bindTalk(RIFT_POSTERS);
+		bindTalk(TELEPORTERS);
+		bindTalk(TEMPLE_PRIEST);
+		bindTalk(TOWN_DAWN);
+		bindTalk(TOWN_DUSK);
 	}
 	
 	@Override

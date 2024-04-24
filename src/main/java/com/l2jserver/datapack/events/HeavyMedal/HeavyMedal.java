@@ -49,12 +49,12 @@ public final class HeavyMedal extends LongTimeEvent {
 	
 	private HeavyMedal() {
 		super(HeavyMedal.class.getSimpleName(), "events");
-		addStartNpc(CAT_ROY);
-		addStartNpc(CAT_WINNIE);
-		addTalkId(CAT_ROY);
-		addTalkId(CAT_WINNIE);
-		addFirstTalkId(CAT_ROY);
-		addFirstTalkId(CAT_WINNIE);
+		bindStartNpc(CAT_ROY);
+		bindStartNpc(CAT_WINNIE);
+		bindTalk(CAT_ROY);
+		bindTalk(CAT_WINNIE);
+		bindFirstTalk(CAT_ROY);
+		bindFirstTalk(CAT_WINNIE);
 	}
 	
 	@Override

@@ -82,9 +82,9 @@ public class Q00609_MagicalPowerOfWaterPart1 extends Quest {
 	
 	public Q00609_MagicalPowerOfWaterPart1() {
 		super(609, Q00609_MagicalPowerOfWaterPart1.class.getSimpleName(), "Magical Power of Water - Part 1");
-		addStartNpc(WAHKAN);
-		addTalkId(ASEFA, WAHKAN, UDANS_BOX);
-		addAttackId(VARKA_MOBS);
+		bindStartNpc(WAHKAN);
+		bindTalk(ASEFA, WAHKAN, UDANS_BOX);
+		bindAttack(VARKA_MOBS);
 		registerQuestItems(STOLEN_GREEN_TOTEM);
 	}
 	

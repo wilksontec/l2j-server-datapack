@@ -18,7 +18,7 @@
  */
 package com.l2jserver.datapack.instances.IceQueensCastleNormalBattle;
 
-import static com.l2jserver.gameserver.model.events.EventType.ON_PLAYER_LOGOUT;
+import static com.l2jserver.gameserver.model.events.EventType.PLAYER_LOGOUT;
 import static com.l2jserver.gameserver.model.events.ListenerRegisterType.GLOBAL;
 
 import java.util.ArrayList;
@@ -46,7 +46,7 @@ import com.l2jserver.gameserver.model.actor.instance.L2QuestGuardInstance;
 import com.l2jserver.gameserver.model.actor.instance.L2RaidBossInstance;
 import com.l2jserver.gameserver.model.events.annotations.RegisterEvent;
 import com.l2jserver.gameserver.model.events.annotations.RegisterType;
-import com.l2jserver.gameserver.model.events.impl.character.player.OnPlayerLogout;
+import com.l2jserver.gameserver.model.events.impl.character.player.PlayerLogout;
 import com.l2jserver.gameserver.model.holders.SkillHolder;
 import com.l2jserver.gameserver.model.instancezone.InstanceWorld;
 import com.l2jserver.gameserver.model.quest.QuestState;
@@ -172,13 +172,13 @@ public final class IceQueensCastleNormalBattle extends AbstractInstance {
 	
 	public IceQueensCastleNormalBattle() {
 		super(IceQueensCastleNormalBattle.class.getSimpleName());
-		addStartNpc(SIRRA, SUPP_KEGOR, SUPP_JINIA);
-		addFirstTalkId(SUPP_KEGOR, SUPP_JINIA);
-		addTalkId(SIRRA, JINIA, SUPP_KEGOR);
-		addAttackId(FREYA_THRONE, FREYA_STAND, FREYA_STAND_ULTIMATE, GLAKIAS, GLAKIAS_ULTIMATE, GLACIER, BREATH, KNIGHT, KNIGHT_ULTIMATE);
-		addKillId(GLAKIAS, GLAKIAS_ULTIMATE, FREYA_STAND, FREYA_STAND_ULTIMATE, KNIGHT, KNIGHT_ULTIMATE, GLACIER, BREATH);
-		addSpawnId(GLAKIAS, GLAKIAS_ULTIMATE, FREYA_STAND, FREYA_STAND_ULTIMATE, KNIGHT, KNIGHT_ULTIMATE, GLACIER, BREATH);
-		addSpellFinishedId(GLACIER, BREATH);
+		bindStartNpc(SIRRA, SUPP_KEGOR, SUPP_JINIA);
+		bindFirstTalk(SUPP_KEGOR, SUPP_JINIA);
+		bindTalk(SIRRA, JINIA, SUPP_KEGOR);
+		bindAttack(FREYA_THRONE, FREYA_STAND, FREYA_STAND_ULTIMATE, GLAKIAS, GLAKIAS_ULTIMATE, GLACIER, BREATH, KNIGHT, KNIGHT_ULTIMATE);
+		bindKill(GLAKIAS, GLAKIAS_ULTIMATE, FREYA_STAND, FREYA_STAND_ULTIMATE, KNIGHT, KNIGHT_ULTIMATE, GLACIER, BREATH);
+		bindSpawn(GLAKIAS, GLAKIAS_ULTIMATE, FREYA_STAND, FREYA_STAND_ULTIMATE, KNIGHT, KNIGHT_ULTIMATE, GLACIER, BREATH);
+		bindSpellFinished(GLACIER, BREATH);
 	}
 	
 	@Override
@@ -1006,11 +1006,11 @@ public final class IceQueensCastleNormalBattle extends AbstractInstance {
 	}
 	
 	@RegisterType(GLOBAL)
-	@RegisterEvent(ON_PLAYER_LOGOUT)
-	public void onPlayerLogout(OnPlayerLogout event) {
-		final var instanceWorld = InstanceManager.getInstance().getWorld(event.getActiveChar().getInstanceId());
+	@RegisterEvent(PLAYER_LOGOUT)
+	public void onPlayerLogout(PlayerLogout event) {
+		final var instanceWorld = InstanceManager.getInstance().getWorld(event.player().getInstanceId());
 		if (instanceWorld instanceof IQCNBWorld world) {
-			world.playersInside.remove(event.getActiveChar());
+			world.playersInside.remove(event.player());
 		}
 	}
 	

@@ -44,9 +44,9 @@ public final class Q00267_WrathOfVerdure extends Quest {
 	
 	public Q00267_WrathOfVerdure() {
 		super(267, Q00267_WrathOfVerdure.class.getSimpleName(), "Wrath of Verdure");
-		addStartNpc(TREANT_BREMEC);
-		addTalkId(TREANT_BREMEC);
-		addKillId(GOBLIN_RAIDER);
+		bindStartNpc(TREANT_BREMEC);
+		bindTalk(TREANT_BREMEC);
+		bindKill(GOBLIN_RAIDER);
 		registerQuestItems(GOBLIN_CLUB);
 	}
 	

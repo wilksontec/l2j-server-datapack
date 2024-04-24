@@ -66,9 +66,9 @@ public class Q00142_FallenAngelRequestOfDawn extends Quest {
 	
 	public Q00142_FallenAngelRequestOfDawn() {
 		super(142, Q00142_FallenAngelRequestOfDawn.class.getSimpleName(), "Fallen Angel - Request of Dawn");
-		addTalkId(NATOOLS, RAYMOND, CASIAN, ROCK);
-		addKillId(MOBS.keySet());
-		addKillId(FALLEN_ANGEL);
+		bindTalk(NATOOLS, RAYMOND, CASIAN, ROCK);
+		bindKill(MOBS.keySet());
+		bindKill(FALLEN_ANGEL);
 		registerQuestItems(CRYPTOGRAM_OF_THE_ANGEL_SEARCH, PROPHECY_FRAGMENT, FALLEN_ANGEL_BLOOD);
 	}
 	

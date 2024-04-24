@@ -46,8 +46,8 @@ public final class Alliance extends Quest {
 	
 	public Alliance() {
 		super(-1, Alliance.class.getSimpleName(), "village_master");
-		addStartNpc(NPCS);
-		addTalkId(NPCS);
+		bindStartNpc(NPCS);
+		bindTalk(NPCS);
 	}
 	
 	@Override

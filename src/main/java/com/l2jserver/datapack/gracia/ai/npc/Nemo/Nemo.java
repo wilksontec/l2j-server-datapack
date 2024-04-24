@@ -42,9 +42,9 @@ public final class Nemo extends AbstractNpcAI {
 	
 	public Nemo() {
 		super(Nemo.class.getSimpleName(), "gracia/AI/NPC");
-		addStartNpc(NEMO);
-		addFirstTalkId(NEMO);
-		addTalkId(NEMO);
+		bindStartNpc(NEMO);
+		bindFirstTalk(NEMO);
+		bindTalk(NEMO);
 	}
 	
 	@Override

@@ -53,9 +53,9 @@ public final class Q00691_MatrasSuspiciousRequest extends Quest {
 	
 	public Q00691_MatrasSuspiciousRequest() {
 		super(691, Q00691_MatrasSuspiciousRequest.class.getSimpleName(), "Matras' Suspicious Request");
-		addStartNpc(MATRAS);
-		addTalkId(MATRAS);
-		addKillId(DROPLIST.getNpcIds());
+		bindStartNpc(MATRAS);
+		bindTalk(MATRAS);
+		bindKill(DROPLIST.getNpcIds());
 	}
 	
 	@Override

@@ -99,11 +99,11 @@ public final class Beleth extends AbstractNpcAI {
 	
 	public Beleth() {
 		super(Beleth.class.getSimpleName(), "ai/individual");
-		addEnterZoneId(ZONE.getId());
+		bindEnterZone(ZONE.getId());
 		registerMobs(REAL_BELETH, FAKE_BELETH);
-		addStartNpc(STONE_COFFIN);
-		addTalkId(STONE_COFFIN);
-		addFirstTalkId(ELF);
+		bindStartNpc(STONE_COFFIN);
+		bindTalk(STONE_COFFIN);
+		bindFirstTalk(ELF);
 		StatsSet info = GrandBossManager.getInstance().getStatsSet(REAL_BELETH);
 		int status = GrandBossManager.getInstance().getBossStatus(REAL_BELETH);
 		if (status == DEAD) {

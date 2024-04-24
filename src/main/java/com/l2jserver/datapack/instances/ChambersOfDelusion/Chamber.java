@@ -168,16 +168,16 @@ public abstract class Chamber extends AbstractInstance {
 		AENKINEL = aenkinelId;
 		BOX = boxId;
 		
-		addStartNpc(ENTRANCE_GATEKEEPER);
-		addTalkId(ENTRANCE_GATEKEEPER);
+		bindStartNpc(ENTRANCE_GATEKEEPER);
+		bindTalk(ENTRANCE_GATEKEEPER);
 		for (int i = ROOM_GATEKEEPER_FIRST; i <= ROOM_GATEKEEPER_LAST; i++) {
-			addStartNpc(i);
-			addTalkId(i);
+			bindStartNpc(i);
+			bindTalk(i);
 		}
-		addKillId(AENKINEL);
-		addAttackId(BOX);
-		addSpellFinishedId(BOX);
-		addEventReceivedId(BOX);
+		bindKill(AENKINEL);
+		bindAttack(BOX);
+		bindSpellFinished(BOX);
+		bindEventReceived(BOX);
 	}
 	
 	private boolean isBigChamber() {

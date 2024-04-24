@@ -75,18 +75,18 @@ public final class SelMahumSquad extends AbstractNpcAI {
 	public SelMahumSquad() {
 		super(SelMahumSquad.class.getSimpleName(), "ai/group_template");
 		
-		addAttackId(CHEF);
-		addAttackId(SQUAD_LEADERS);
-		addEventReceivedId(CHEF, FIRE, STOVE);
-		addEventReceivedId(SQUAD_LEADERS);
-		addFactionCallId(SQUAD_LEADERS);
-		addKillId(CHEF);
-		addMoveFinishedId(SQUAD_LEADERS);
-		addNodeArrivedId(CHEF);
-		addSkillSeeId(STOVE);
-		addSpawnId(CHEF, FIRE);
-		addSpawnId(SQUAD_LEADERS);
-		addSpellFinishedId(CHEF);
+		bindAttack(CHEF);
+		bindAttack(SQUAD_LEADERS);
+		bindEventReceived(CHEF, FIRE, STOVE);
+		bindEventReceived(SQUAD_LEADERS);
+		bindFactionCall(SQUAD_LEADERS);
+		bindKill(CHEF);
+		bindMoveFinished(SQUAD_LEADERS);
+		bindNodeArrived(CHEF);
+		bindSkillSee(STOVE);
+		bindSpawn(CHEF, FIRE);
+		bindSpawn(SQUAD_LEADERS);
+		bindSpellFinished(CHEF);
 	}
 	
 	@Override

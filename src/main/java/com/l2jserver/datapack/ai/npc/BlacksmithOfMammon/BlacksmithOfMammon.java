@@ -36,8 +36,8 @@ public final class BlacksmithOfMammon extends AbstractNpcAI {
 	
 	public BlacksmithOfMammon() {
 		super(BlacksmithOfMammon.class.getSimpleName(), "ai/npc");
-		addStartNpc(BLACKSMITH_MAMMON);
-		addFirstTalkId(BLACKSMITH_MAMMON);
+		bindStartNpc(BLACKSMITH_MAMMON);
+		bindFirstTalk(BLACKSMITH_MAMMON);
 	}
 	
 	@Override

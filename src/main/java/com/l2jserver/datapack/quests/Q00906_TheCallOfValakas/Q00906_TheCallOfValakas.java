@@ -45,9 +45,9 @@ public class Q00906_TheCallOfValakas extends Quest {
 	
 	public Q00906_TheCallOfValakas() {
 		super(906, Q00906_TheCallOfValakas.class.getSimpleName(), "The Call of Valakas");
-		addStartNpc(KLEIN);
-		addTalkId(KLEIN);
-		addKillId(LAVASAURUS_ALPHA);
+		bindStartNpc(KLEIN);
+		bindTalk(KLEIN);
+		bindKill(LAVASAURUS_ALPHA);
 		registerQuestItems(LAVASAURUS_ALPHA_FRAGMENT);
 	}
 	

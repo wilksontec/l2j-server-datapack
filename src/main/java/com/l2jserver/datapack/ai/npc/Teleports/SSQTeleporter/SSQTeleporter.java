@@ -81,9 +81,9 @@ public final class SSQTeleporter extends AbstractNpcAI {
 	
 	public SSQTeleporter() {
 		super(SSQTeleporter.class.getSimpleName(), "ai/npc/Teleports");
-		addStartNpc(NPCS);
-		addTalkId(NPCS);
-		addFirstTalkId(NPCS);
+		bindStartNpc(NPCS);
+		bindTalk(NPCS);
+		bindFirstTalk(NPCS);
 	}
 	
 	private int getMemoStateId(int npcId) {

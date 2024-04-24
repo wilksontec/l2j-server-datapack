@@ -68,10 +68,10 @@ public final class KamaelChange2 extends AbstractNpcAI {
 	
 	public KamaelChange2() {
 		super(KamaelChange2.class.getSimpleName(), "village_master");
-		addStartNpc(NPCS_MALE);
-		addStartNpc(NPCS_FEMALE);
-		addTalkId(NPCS_MALE);
-		addTalkId(NPCS_FEMALE);
+		bindStartNpc(NPCS_MALE);
+		bindStartNpc(NPCS_FEMALE);
+		bindTalk(NPCS_MALE);
+		bindTalk(NPCS_FEMALE);
 	}
 	
 	@Override

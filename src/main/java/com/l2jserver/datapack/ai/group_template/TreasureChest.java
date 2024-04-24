@@ -834,8 +834,8 @@ public final class TreasureChest extends AbstractNpcAI {
 	public TreasureChest() {
 		super(TreasureChest.class.getSimpleName(), "ai/group_template");
 		
-		addSpawnId(DROPS.keySet());
-		addAttackId(DROPS.keySet());
+		bindSpawn(DROPS.keySet());
+		bindAttack(DROPS.keySet());
 	}
 	
 	@Override

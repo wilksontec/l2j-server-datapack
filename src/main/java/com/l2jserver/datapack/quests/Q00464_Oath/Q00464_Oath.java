@@ -78,10 +78,10 @@ public class Q00464_Oath extends Quest {
 	public Q00464_Oath() {
 		super(464, Q00464_Oath.class.getSimpleName(), "Oath");
 		for (int[] npc : NPC) {
-			addTalkId(npc[0]);
+			bindTalk(npc[0]);
 		}
-		addKillId(MOBS.keySet());
-		addItemTalkId(STRONGBOX);
+		bindKill(MOBS.keySet());
+		bindItemTalk(STRONGBOX);
 		registerQuestItems(BOOK, BOOK2);
 	}
 	

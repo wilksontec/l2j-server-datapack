@@ -77,7 +77,7 @@ public class TerritoryWarSuperClass extends Quest {
 		
 		if (questId < 0) {
 			// Outpost and Ward handled by the Super Class script
-			addSkillSeeId(36590);
+			bindSkillSee(36590);
 			
 			// Calculate next TW date
 			final Calendar cal = Calendar.getInstance();
@@ -306,12 +306,12 @@ public class TerritoryWarSuperClass extends Quest {
 	
 	// Used to register NPCs "For the Sake of the Territory ..." quests
 	public void registerKillIds() {
-		addKillId(CATAPULT_ID);
+		bindKill(CATAPULT_ID);
 		for (int mobid : LEADER_IDS) {
-			addKillId(mobid);
+			bindKill(mobid);
 		}
 		for (int mobid : GUARD_IDS) {
-			addKillId(mobid);
+			bindKill(mobid);
 		}
 	}
 	

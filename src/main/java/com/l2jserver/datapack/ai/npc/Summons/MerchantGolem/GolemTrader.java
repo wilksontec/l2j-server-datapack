@@ -33,7 +33,7 @@ public final class GolemTrader extends AbstractNpcAI {
 	
 	public GolemTrader() {
 		super(GolemTrader.class.getSimpleName(), "ai/npc/Summons");
-		addSpawnId(GOLEM_TRADER);
+		bindSpawn(GOLEM_TRADER);
 	}
 	
 	@Override

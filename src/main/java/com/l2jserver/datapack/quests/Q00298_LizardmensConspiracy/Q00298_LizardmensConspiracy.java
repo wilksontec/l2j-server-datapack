@@ -50,9 +50,9 @@ public final class Q00298_LizardmensConspiracy extends Quest {
 	
 	public Q00298_LizardmensConspiracy() {
 		super(298, Q00298_LizardmensConspiracy.class.getSimpleName(), "Lizardmen's Conspiracy");
-		addStartNpc(GUARD_PRAGA);
-		addTalkId(GUARD_PRAGA, MAGISTER_ROHMER);
-		addKillId(DROPLIST.getNpcIds());
+		bindStartNpc(GUARD_PRAGA);
+		bindTalk(GUARD_PRAGA, MAGISTER_ROHMER);
+		bindKill(DROPLIST.getNpcIds());
 		registerQuestItems(PATROLS_REPORT, SHINING_GEM.getId(), SHINING_RED_GEM.getId());
 	}
 	

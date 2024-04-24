@@ -210,16 +210,16 @@ public final class Stage1 extends AbstractInstance {
 	public Stage1() {
 		super(Stage1.class.getSimpleName(), "gracia/instances");
 		load();
-		addStartNpc(ALENOS, TELEPORT);
-		addTalkId(ALENOS, TELEPORT);
-		addAttackId(OBELISK, TIAT);
-		addSpawnId(OBELISK, POWERFUL_DEVICE, THRONE_POWERFUL_DEVICE, TIAT_GUARD);
-		addKillId(OBELISK, POWERFUL_DEVICE, THRONE_POWERFUL_DEVICE, TIAT, SPAWN_DEVICE, TIAT_GUARD);
-		addKillId(_mustKillMobsId);
-		addAggroRangeEnterId(TIAT_VIDEO_NPC);
+		bindStartNpc(ALENOS, TELEPORT);
+		bindTalk(ALENOS, TELEPORT);
+		bindAttack(OBELISK, TIAT);
+		bindSpawn(OBELISK, POWERFUL_DEVICE, THRONE_POWERFUL_DEVICE, TIAT_GUARD);
+		bindKill(OBELISK, POWERFUL_DEVICE, THRONE_POWERFUL_DEVICE, TIAT, SPAWN_DEVICE, TIAT_GUARD);
+		bindKill(_mustKillMobsId);
+		bindAggroRangeEnter(TIAT_VIDEO_NPC);
 		// registering spawn traps which handled in this script
 		for (int i = 18771; i <= 18774; i++) {
-			addTrapActionId(i);
+			bindTrapAction(i);
 		}
 	}
 	

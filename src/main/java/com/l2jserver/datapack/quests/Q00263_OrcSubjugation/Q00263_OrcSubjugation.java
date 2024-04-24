@@ -52,9 +52,9 @@ public final class Q00263_OrcSubjugation extends Quest {
 	
 	public Q00263_OrcSubjugation() {
 		super(263, Q00263_OrcSubjugation.class.getSimpleName(), "Orc Subjugation");
-		addStartNpc(KAYLEEN);
-		addTalkId(KAYLEEN);
-		addKillId(MONSTERS.keySet());
+		bindStartNpc(KAYLEEN);
+		bindTalk(KAYLEEN);
+		bindKill(MONSTERS.keySet());
 		registerQuestItems(ORC_AMULET, ORC_NECKLACE);
 	}
 	

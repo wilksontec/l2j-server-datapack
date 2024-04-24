@@ -50,9 +50,9 @@ public class Q00238_SuccessFailureOfBusiness extends Quest {
 	
 	public Q00238_SuccessFailureOfBusiness() {
 		super(238, Q00238_SuccessFailureOfBusiness.class.getSimpleName(), "Success/Failure Of Business");
-		addStartNpc(HELVETICA);
-		addTalkId(HELVETICA);
-		addKillId(BRAZIER_OF_PURITY, EVIL_SPIRITS, GUARDIAN_SPIRITS);
+		bindStartNpc(HELVETICA);
+		bindTalk(HELVETICA);
+		bindKill(BRAZIER_OF_PURITY, EVIL_SPIRITS, GUARDIAN_SPIRITS);
 		registerQuestItems(BROKEN_PIECE_OF_MAGIC_FORCE, GUARDIAN_SPIRIT_FRAGMENT);
 	}
 	

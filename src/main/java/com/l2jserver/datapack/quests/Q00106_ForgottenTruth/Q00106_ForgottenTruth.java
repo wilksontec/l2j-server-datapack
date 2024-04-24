@@ -50,9 +50,9 @@ public final class Q00106_ForgottenTruth extends Quest {
 	
 	public Q00106_ForgottenTruth() {
 		super(106, Q00106_ForgottenTruth.class.getSimpleName(), "Forgotten Truth");
-		addStartNpc(THIFIELL);
-		addTalkId(THIFIELL, KARTA);
-		addKillId(TUMRAN_ORC_BRIGAND);
+		bindStartNpc(THIFIELL);
+		bindTalk(THIFIELL, KARTA);
+		bindKill(TUMRAN_ORC_BRIGAND);
 		registerQuestItems(KARTAS_TRANSLATION, ONYX_TALISMAN1, ONYX_TALISMAN2, ANCIENT_SCROLL.getId(), ANCIENT_CLAY_TABLET.getId());
 	}
 	

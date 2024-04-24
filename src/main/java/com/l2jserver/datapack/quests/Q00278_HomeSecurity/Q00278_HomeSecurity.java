@@ -43,9 +43,9 @@ public class Q00278_HomeSecurity extends Quest {
 	
 	public Q00278_HomeSecurity() {
 		super(278, Q00278_HomeSecurity.class.getSimpleName(), "Home Security");
-		addStartNpc(TUNATUN);
-		addTalkId(TUNATUN);
-		addKillId(MONSTER);
+		bindStartNpc(TUNATUN);
+		bindTalk(TUNATUN);
+		bindKill(MONSTER);
 		registerQuestItems(SEL_MAHUM_MANE.getId());
 	}
 	

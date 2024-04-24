@@ -456,70 +456,70 @@ public final class TullyWorkshop extends AbstractNpcAI {
 	
 	public TullyWorkshop() {
 		super(TullyWorkshop.class.getSimpleName(), "hellbound/AI/Zones");
-		addStartNpc(DORIAN);
-		addTalkId(DORIAN);
+		bindStartNpc(DORIAN);
+		bindTalk(DORIAN);
 		
 		for (int npcId : TULLY_DOORLIST.keySet()) {
 			if (npcId != 99999) {
-				addFirstTalkId(npcId);
-				addStartNpc(npcId);
-				addTalkId(npcId);
+				bindFirstTalk(npcId);
+				bindStartNpc(npcId);
+				bindTalk(npcId);
 			}
 		}
 		
 		for (int npcId : TELE_COORDS.keySet()) {
-			addStartNpc(npcId);
-			addTalkId(npcId);
+			bindStartNpc(npcId);
+			bindTalk(npcId);
 		}
 		
 		for (int monsterId : TELEPORTING_MONSTERS) {
-			addAttackId(monsterId);
+			bindAttack(monsterId);
 		}
 		
 		for (int monsterId : SIN_WARDENS) {
-			addKillId(monsterId);
+			bindKill(monsterId);
 		}
 		
-		addStartNpc(AGENT);
-		addStartNpc(CUBE_68);
-		addStartNpc(INGENIOUS_CONTRAPTION);
-		addStartNpc(DWARVEN_GHOST);
-		addStartNpc(TOMBSTONE);
-		addTalkId(AGENT);
-		addTalkId(CUBE_68);
-		addTalkId(INGENIOUS_CONTRAPTION);
-		addTalkId(DWARVEN_GHOST);
-		addTalkId(DWARVEN_GHOST);
-		addTalkId(TOMBSTONE);
-		addFirstTalkId(AGENT);
-		addFirstTalkId(CUBE_68);
-		addFirstTalkId(INGENIOUS_CONTRAPTION);
-		addFirstTalkId(DWARVEN_GHOST);
-		addFirstTalkId(TOMBSTONE);
-		addKillId(TULLY);
-		addKillId(TIMETWISTER_GOLEM);
-		addKillId(TEMENIR);
-		addKillId(DRAXIUS);
-		addKillId(KIRETCENAH);
-		addKillId(DARION);
-		addKillId(PILLAR);
-		addFactionCallId(TEMENIR);
-		addFactionCallId(DRAXIUS);
-		addFactionCallId(KIRETCENAH);
+		bindStartNpc(AGENT);
+		bindStartNpc(CUBE_68);
+		bindStartNpc(INGENIOUS_CONTRAPTION);
+		bindStartNpc(DWARVEN_GHOST);
+		bindStartNpc(TOMBSTONE);
+		bindTalk(AGENT);
+		bindTalk(CUBE_68);
+		bindTalk(INGENIOUS_CONTRAPTION);
+		bindTalk(DWARVEN_GHOST);
+		bindTalk(DWARVEN_GHOST);
+		bindTalk(TOMBSTONE);
+		bindFirstTalk(AGENT);
+		bindFirstTalk(CUBE_68);
+		bindFirstTalk(INGENIOUS_CONTRAPTION);
+		bindFirstTalk(DWARVEN_GHOST);
+		bindFirstTalk(TOMBSTONE);
+		bindKill(TULLY);
+		bindKill(TIMETWISTER_GOLEM);
+		bindKill(TEMENIR);
+		bindKill(DRAXIUS);
+		bindKill(KIRETCENAH);
+		bindKill(DARION);
+		bindKill(PILLAR);
+		bindFactionCall(TEMENIR);
+		bindFactionCall(DRAXIUS);
+		bindFactionCall(KIRETCENAH);
 		
-		addSpawnId(CUBE_68);
-		addSpawnId(DARION);
-		addSpawnId(TULLY);
-		addSpawnId(PILLAR);
-		addSpellFinishedId(AGENT);
-		addSpellFinishedId(TEMENIR);
+		bindSpawn(CUBE_68);
+		bindSpawn(DARION);
+		bindSpawn(TULLY);
+		bindSpawn(PILLAR);
+		bindSpellFinished(AGENT);
+		bindSpellFinished(TEMENIR);
 		
 		for (int i = SERVANT_FIRST; i <= SERVANT_LAST; i++) {
-			addKillId(i);
+			bindKill(i);
 		}
 		
 		for (int i = SERVANT_FIRST; i <= SERVANT_LAST; i++) {
-			addSpellFinishedId(i);
+			bindSpellFinished(i);
 		}
 		
 		initDeathCounter(0);

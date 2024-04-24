@@ -112,9 +112,9 @@ public final class Q00325_GrimCollector extends Quest {
 	
 	public Q00325_GrimCollector() {
 		super(325, Q00325_GrimCollector.class.getSimpleName(), "Grim Collector");
-		addStartNpc(GUARD_CURTIZ);
-		addTalkId(GUARD_CURTIZ, VARSAK, SAMED);
-		addKillId(DROPLIST.getNpcIds());
+		bindStartNpc(GUARD_CURTIZ);
+		bindTalk(GUARD_CURTIZ, VARSAK, SAMED);
+		bindKill(DROPLIST.getNpcIds());
 		registerQuestItems(ANATOMY_DIAGRAM, ZOMBIE_HEAD, ZOMBIE_HEART, ZOMBIE_LIVER, SKULL, RIB_BONE, SPINE, ARM_BONE, THIGH_BONE, COMPLETE_SKELETON);
 	}
 	

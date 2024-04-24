@@ -36,8 +36,8 @@ public class FortuneTelling extends AbstractNpcAI {
 	
 	public FortuneTelling() {
 		super(FortuneTelling.class.getSimpleName(), "gracia/AI/NPC");
-		addStartNpc(MINE);
-		addTalkId(MINE);
+		bindStartNpc(MINE);
+		bindTalk(MINE);
 	}
 	
 	@Override

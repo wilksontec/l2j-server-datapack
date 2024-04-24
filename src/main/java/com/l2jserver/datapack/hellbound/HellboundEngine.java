@@ -66,7 +66,7 @@ public final class HellboundEngine extends AbstractNpcAI {
 	public HellboundEngine() {
 		super(HellboundEngine.class.getSimpleName(), "hellbound");
 		
-		addKillId(HellboundPointData.getInstance().getPointsInfo().keySet());
+		bindKill(HellboundPointData.getInstance().getPointsInfo().keySet());
 		
 		startQuestTimer(UPDATE_EVENT, 1000, null, null);
 		

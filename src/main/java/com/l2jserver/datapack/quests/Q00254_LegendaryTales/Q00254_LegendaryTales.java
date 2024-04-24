@@ -86,9 +86,9 @@ public class Q00254_LegendaryTales extends Quest {
 	
 	public Q00254_LegendaryTales() {
 		super(254, Q00254_LegendaryTales.class.getSimpleName(), "Legendary Tales");
-		addStartNpc(GILMORE);
-		addTalkId(GILMORE);
-		addKillId(MONSTERS);
+		bindStartNpc(GILMORE);
+		bindTalk(GILMORE);
+		bindKill(MONSTERS);
 		registerQuestItems(LARGE_DRAGON_SKULL);
 	}
 	

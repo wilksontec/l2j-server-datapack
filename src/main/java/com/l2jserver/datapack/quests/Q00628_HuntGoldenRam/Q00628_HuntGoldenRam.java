@@ -59,10 +59,10 @@ public final class Q00628_HuntGoldenRam extends Quest {
 	
 	public Q00628_HuntGoldenRam() {
 		super(628, Q00628_HuntGoldenRam.class.getSimpleName(), "Hunt of the Golden Ram Mercenary Force");
-		addStartNpc(KAHMAN);
-		addTalkId(KAHMAN);
-		addKillId(SPLINTER_DROPLIST.getNpcIds());
-		addKillId(NEEDLE_DROPLIST.getNpcIds());
+		bindStartNpc(KAHMAN);
+		bindTalk(KAHMAN);
+		bindKill(SPLINTER_DROPLIST.getNpcIds());
+		bindKill(NEEDLE_DROPLIST.getNpcIds());
 		registerQuestItems(SPLINTER_STAKATO_CHITIN.getId(), NEEDLE_STAKATO_CHITIN.getId());
 	}
 	

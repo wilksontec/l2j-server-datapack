@@ -53,9 +53,9 @@ public class Q00376_ExplorationOfTheGiantsCavePart1 extends Quest {
 	
 	public Q00376_ExplorationOfTheGiantsCavePart1() {
 		super(376, Q00376_ExplorationOfTheGiantsCavePart1.class.getSimpleName(), "Exploration of the Giants' Cave - Part 1");
-		addStartNpc(SOBLING);
-		addTalkId(SOBLING);
-		addKillId(DROPLIST.getNpcIds());
+		bindStartNpc(SOBLING);
+		bindTalk(SOBLING);
+		bindKill(DROPLIST.getNpcIds());
 		registerQuestItems(ANCIENT_PARCHMENT);
 	}
 	

@@ -105,9 +105,9 @@ public final class AirShipGludioGracia extends Quest implements Runnable {
 	
 	public AirShipGludioGracia() {
 		super(-1, AirShipGludioGracia.class.getSimpleName(), "gracia/vehicles");
-		addStartNpc(CONTROLLERS);
-		addFirstTalkId(CONTROLLERS);
-		addTalkId(CONTROLLERS);
+		bindStartNpc(CONTROLLERS);
+		bindFirstTalk(CONTROLLERS);
+		bindTalk(CONTROLLERS);
 		_ship = AirShipManager.getInstance().getNewAirShip(-149378, 252552, 198, 33837);
 		_ship.setOustLoc(OUST_GLUDIO);
 		_ship.setInDock(GLUDIO_DOCK_ID);

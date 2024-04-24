@@ -63,9 +63,9 @@ public class Q00136_MoreThanMeetsTheEye extends Quest {
 	
 	public Q00136_MoreThanMeetsTheEye() {
 		super(136, Q00136_MoreThanMeetsTheEye.class.getSimpleName(), "More Than Meets the Eye");
-		addStartNpc(HARDIN);
-		addTalkId(HARDIN, ERRICKIN, CLAYTON);
-		addKillId(GHOST1, GHOST2, GHOST3, GLASS_JAGUAR, MIRROR);
+		bindStartNpc(HARDIN);
+		bindTalk(HARDIN, ERRICKIN, CLAYTON);
+		bindKill(GHOST1, GHOST2, GHOST3, GLASS_JAGUAR, MIRROR);
 		
 		registerQuestItems(ECTOPLASM, STABILIZED_ECTOPLASM, ORDER, GLASS_JAGUAR_CRYSTAL, BOOK_OF_SEAL);
 	}

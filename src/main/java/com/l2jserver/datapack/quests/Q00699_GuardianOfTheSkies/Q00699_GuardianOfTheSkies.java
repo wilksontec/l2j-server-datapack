@@ -54,10 +54,10 @@ public class Q00699_GuardianOfTheSkies extends Quest {
 	
 	public Q00699_GuardianOfTheSkies() {
 		super(699, Q00699_GuardianOfTheSkies.class.getSimpleName(), "Guardian of the Skies");
-		addStartNpc(LEKON);
-		addTalkId(LEKON);
-		addKillId(VALDSTONE);
-		addKillId(MONSTERS.keySet());
+		bindStartNpc(LEKON);
+		bindTalk(LEKON);
+		bindKill(VALDSTONE);
+		bindKill(MONSTERS.keySet());
 		registerQuestItems(VULTURES_GOLDEN_FEATHER);
 	}
 	

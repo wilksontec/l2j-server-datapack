@@ -50,9 +50,9 @@ public final class Q00354_ConquestOfAlligatorIsland extends Quest {
 	
 	public Q00354_ConquestOfAlligatorIsland() {
 		super(354, Q00354_ConquestOfAlligatorIsland.class.getSimpleName(), "Conquest of Alligator Island");
-		addStartNpc(KLUCK);
-		addTalkId(KLUCK);
-		addKillId(DROPLIST.getNpcIds());
+		bindStartNpc(KLUCK);
+		bindTalk(KLUCK);
+		bindKill(DROPLIST.getNpcIds());
 		registerQuestItems(ALLIGATOR_TOOTH, MYSTERIOUS_MAP_PIECE.getId());
 	}
 	

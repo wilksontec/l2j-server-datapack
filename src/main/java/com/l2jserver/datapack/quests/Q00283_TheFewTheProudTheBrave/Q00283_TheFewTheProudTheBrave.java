@@ -44,9 +44,9 @@ public final class Q00283_TheFewTheProudTheBrave extends Quest {
 	
 	public Q00283_TheFewTheProudTheBrave() {
 		super(283, Q00283_TheFewTheProudTheBrave.class.getSimpleName(), "The Few, The Proud, The Brave");
-		addKillId(CRIMSON_SPIDER);
-		addStartNpc(PERWAN);
-		addTalkId(PERWAN);
+		bindKill(CRIMSON_SPIDER);
+		bindStartNpc(PERWAN);
+		bindTalk(PERWAN);
 		registerQuestItems(CRIMSON_SPIDER_CLAW.getId());
 	}
 	

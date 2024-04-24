@@ -43,8 +43,8 @@ public class Q00008_AnAdventureBegins extends Quest {
 	
 	public Q00008_AnAdventureBegins() {
 		super(8, Q00008_AnAdventureBegins.class.getSimpleName(), "An Adventure Begins");
-		addStartNpc(JASMINE);
-		addTalkId(JASMINE, ROSELYN, HARNE);
+		bindStartNpc(JASMINE);
+		bindTalk(JASMINE, ROSELYN, HARNE);
 		registerQuestItems(ROSELYNS_NOTE);
 	}
 	

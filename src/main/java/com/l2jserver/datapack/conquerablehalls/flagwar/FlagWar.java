@@ -95,25 +95,25 @@ public abstract class FlagWar extends ClanHallSiegeEngine {
 	
 	public FlagWar(String name, int hallId) {
 		super(name, "conquerablehalls/flagwar", hallId);
-		addStartNpc(MESSENGER);
-		addFirstTalkId(MESSENGER);
-		addTalkId(MESSENGER);
+		bindStartNpc(MESSENGER);
+		bindFirstTalk(MESSENGER);
+		bindTalk(MESSENGER);
 		
 		for (int i = 0; i < 6; i++) {
-			addFirstTalkId(TELEPORT_1 + i);
+			bindFirstTalk(TELEPORT_1 + i);
 		}
 		
-		addKillId(ALLY_1);
-		addKillId(ALLY_2);
-		addKillId(ALLY_3);
-		addKillId(ALLY_4);
-		addKillId(ALLY_5);
+		bindKill(ALLY_1);
+		bindKill(ALLY_2);
+		bindKill(ALLY_3);
+		bindKill(ALLY_4);
+		bindKill(ALLY_5);
 		
-		addSpawnId(ALLY_1);
-		addSpawnId(ALLY_2);
-		addSpawnId(ALLY_3);
-		addSpawnId(ALLY_4);
-		addSpawnId(ALLY_5);
+		bindSpawn(ALLY_1);
+		bindSpawn(ALLY_2);
+		bindSpawn(ALLY_3);
+		bindSpawn(ALLY_4);
+		bindSpawn(ALLY_5);
 		
 		// If siege ends w/ more than 1 flag alive, winner is old owner
 		_winner = ClanTable.getInstance().getClan(_hall.getOwnerId());

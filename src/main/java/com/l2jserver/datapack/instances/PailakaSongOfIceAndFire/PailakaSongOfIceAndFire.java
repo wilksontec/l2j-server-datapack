@@ -57,13 +57,13 @@ public final class PailakaSongOfIceAndFire extends AbstractInstance {
 	
 	public PailakaSongOfIceAndFire() {
 		super(PailakaSongOfIceAndFire.class.getSimpleName());
-		addStartNpc(ADLER1);
-		addTalkId(ADLER1);
-		addAttackId(BOTTLE, BRAZIER);
-		addExitZoneId(ZONE);
-		addSeeCreatureId(GARGOS);
-		addSpawnId(BLOOM);
-		addKillId(BLOOM);
+		bindStartNpc(ADLER1);
+		bindTalk(ADLER1);
+		bindAttack(BOTTLE, BRAZIER);
+		bindExitZone(ZONE);
+		bindSeeCreature(GARGOS);
+		bindSpawn(BLOOM);
+		bindKill(BLOOM);
 	}
 	
 	@Override

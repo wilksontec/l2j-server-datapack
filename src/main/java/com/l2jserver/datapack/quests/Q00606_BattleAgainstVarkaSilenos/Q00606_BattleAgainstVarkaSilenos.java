@@ -63,9 +63,9 @@ public class Q00606_BattleAgainstVarkaSilenos extends Quest {
 	
 	public Q00606_BattleAgainstVarkaSilenos() {
 		super(606, Q00606_BattleAgainstVarkaSilenos.class.getSimpleName(), "Battle against Varka Silenos");
-		addStartNpc(KADUN);
-		addTalkId(KADUN);
-		addKillId(MOBS.keySet());
+		bindStartNpc(KADUN);
+		bindTalk(KADUN);
+		bindKill(MOBS.keySet());
 		registerQuestItems(MANE);
 	}
 	

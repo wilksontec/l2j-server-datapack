@@ -43,9 +43,9 @@ public final class Q00317_CatchTheWind extends Quest {
 	
 	public Q00317_CatchTheWind() {
 		super(317, Q00317_CatchTheWind.class.getSimpleName(), "Catch The Wind");
-		addStartNpc(RIZRAELL);
-		addTalkId(RIZRAELL);
-		addKillId(MONSTERS);
+		bindStartNpc(RIZRAELL);
+		bindTalk(RIZRAELL);
+		bindKill(MONSTERS);
 		registerQuestItems(WIND_SHARD.getId());
 	}
 	

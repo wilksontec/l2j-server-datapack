@@ -30,7 +30,7 @@ public final class RagnaOrcHero extends AbstractNpcAI {
 	
 	public RagnaOrcHero() {
 		super(RagnaOrcHero.class.getSimpleName(), "ai/individual");
-		addSpawnId(RAGNA_ORC_HERO);
+		bindSpawn(RAGNA_ORC_HERO);
 	}
 	
 	@Override

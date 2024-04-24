@@ -44,9 +44,9 @@ public final class Q00904_DragonTrophyAntharas extends Quest {
 	
 	public Q00904_DragonTrophyAntharas() {
 		super(904, Q00904_DragonTrophyAntharas.class.getSimpleName(), "Dragon Trophy - Antharas");
-		addStartNpc(THEODRIC);
-		addTalkId(THEODRIC);
-		addKillId(ANTHARAS);
+		bindStartNpc(THEODRIC);
+		bindTalk(THEODRIC);
+		bindKill(ANTHARAS);
 	}
 	
 	@Override

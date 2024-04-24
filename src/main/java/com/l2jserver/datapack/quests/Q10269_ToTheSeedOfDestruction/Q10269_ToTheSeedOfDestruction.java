@@ -38,8 +38,8 @@ public class Q10269_ToTheSeedOfDestruction extends Quest {
 	
 	public Q10269_ToTheSeedOfDestruction() {
 		super(10269, Q10269_ToTheSeedOfDestruction.class.getSimpleName(), "To the Seed of Destruction");
-		addStartNpc(KEUCEREUS);
-		addTalkId(KEUCEREUS, ALLENOS);
+		bindStartNpc(KEUCEREUS);
+		bindTalk(KEUCEREUS, ALLENOS);
 		registerQuestItems(INTRODUCTION);
 	}
 	

@@ -47,9 +47,9 @@ public class Q00170_DangerousSeduction extends Quest {
 	
 	public Q00170_DangerousSeduction() {
 		super(170, Q00170_DangerousSeduction.class.getSimpleName(), "Dangerous Seduction");
-		addStartNpc(VELLIOR);
-		addTalkId(VELLIOR);
-		addKillId(MERKENIS);
+		bindStartNpc(VELLIOR);
+		bindTalk(VELLIOR);
+		bindKill(MERKENIS);
 		
 		registerQuestItems(NIGHTMARE_CRYSTAL);
 	}

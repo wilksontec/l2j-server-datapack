@@ -75,10 +75,10 @@ public final class Q00175_TheWayOfTheWarrior extends Quest {
 	
 	public Q00175_TheWayOfTheWarrior() {
 		super(175, Q00175_TheWayOfTheWarrior.class.getSimpleName(), "The Way of the Warrior");
-		addStartNpc(KEKROPUS);
-		addTalkId(KEKROPUS, PERWAN);
-		addKillId(MOUNTAIN_WEREWOLF);
-		addKillId(MONSTERS);
+		bindStartNpc(KEKROPUS);
+		bindTalk(KEKROPUS, PERWAN);
+		bindKill(MOUNTAIN_WEREWOLF);
+		bindKill(MONSTERS);
 		registerQuestItems(WOLF_TAIL.getId(), MUERTOS_CLAW.getId());
 	}
 	

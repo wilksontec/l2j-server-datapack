@@ -55,9 +55,9 @@ public final class RankuFloor extends AbstractInstance {
 	
 	public RankuFloor() {
 		super(RankuFloor.class.getSimpleName(), "hellbound/Instances");
-		addStartNpc(GK_9, CUBE);
-		addTalkId(GK_9, CUBE);
-		addKillId(RANKU);
+		bindStartNpc(GK_9, CUBE);
+		bindTalk(GK_9, CUBE);
+		bindKill(RANKU);
 	}
 	
 	@Override

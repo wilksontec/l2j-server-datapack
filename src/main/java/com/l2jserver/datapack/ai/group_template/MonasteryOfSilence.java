@@ -72,11 +72,11 @@ public final class MonasteryOfSilence extends AbstractNpcAI {
 	
 	public MonasteryOfSilence() {
 		super(MonasteryOfSilence.class.getSimpleName(), "ai/group_template");
-		addSkillSeeId(DIVINITY_CLAN);
-		addAttackId(KNIGHT, CAPTAIN, GUIDE, SEEKER, ASCETIC);
-		addNpcHateId(GUIDE, SEEKER, SAVIOR, ASCETIC);
-		addAggroRangeEnterId(GUIDE, SEEKER, SAVIOR, ASCETIC);
-		addSpawnId(SCARECROW);
+		bindSkillSee(DIVINITY_CLAN);
+		bindAttack(KNIGHT, CAPTAIN, GUIDE, SEEKER, ASCETIC);
+		bindNpcHate(GUIDE, SEEKER, SAVIOR, ASCETIC);
+		bindAggroRangeEnter(GUIDE, SEEKER, SAVIOR, ASCETIC);
+		bindSpawn(SCARECROW);
 	}
 	
 	@Override

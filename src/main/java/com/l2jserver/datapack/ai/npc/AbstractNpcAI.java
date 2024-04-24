@@ -60,13 +60,13 @@ public abstract class AbstractNpcAI extends Quest {
 	 * @param mobs
 	 */
 	public void registerMobs(int... mobs) {
-		addAttackId(mobs);
-		addKillId(mobs);
-		addSpawnId(mobs);
-		addSpellFinishedId(mobs);
-		addSkillSeeId(mobs);
-		addAggroRangeEnterId(mobs);
-		addFactionCallId(mobs);
+		bindAttack(mobs);
+		bindKill(mobs);
+		bindSpawn(mobs);
+		bindSpellFinished(mobs);
+		bindSkillSee(mobs);
+		bindAggroRangeEnter(mobs);
+		bindFactionCall(mobs);
 	}
 	
 	/**

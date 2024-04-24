@@ -41,8 +41,8 @@ public final class Q00183_RelicExploration extends Quest {
 	
 	public Q00183_RelicExploration() {
 		super(183, Q00183_RelicExploration.class.getSimpleName(), "Relic Exploration");
-		addStartNpc(HEAD_BLACKSMITH_KUSTO);
-		addTalkId(HEAD_BLACKSMITH_KUSTO, RESEARCHER_LORAIN, MAESTRO_NIKOLA);
+		bindStartNpc(HEAD_BLACKSMITH_KUSTO);
+		bindTalk(HEAD_BLACKSMITH_KUSTO, RESEARCHER_LORAIN, MAESTRO_NIKOLA);
 	}
 	
 	@Override

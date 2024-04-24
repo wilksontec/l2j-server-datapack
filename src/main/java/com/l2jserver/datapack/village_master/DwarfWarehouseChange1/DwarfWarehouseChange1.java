@@ -45,8 +45,8 @@ public final class DwarfWarehouseChange1 extends AbstractNpcAI {
 	
 	public DwarfWarehouseChange1() {
 		super(DwarfWarehouseChange1.class.getSimpleName(), "village_master");
-		addStartNpc(NPCS);
-		addTalkId(NPCS);
+		bindStartNpc(NPCS);
+		bindTalk(NPCS);
 	}
 	
 	@Override

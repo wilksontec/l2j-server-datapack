@@ -43,9 +43,9 @@ public class Q00608_SlayTheEnemyCommanderKetra extends Quest {
 	
 	public Q00608_SlayTheEnemyCommanderKetra() {
 		super(608, Q00608_SlayTheEnemyCommanderKetra.class.getSimpleName(), "Slay the Enemy Commander! (Ketra)");
-		addStartNpc(KADUN);
-		addTalkId(KADUN);
-		addKillId(MOS);
+		bindStartNpc(KADUN);
+		bindTalk(KADUN);
+		bindKill(MOS);
 		registerQuestItems(MOS_HEAD);
 	}
 	

@@ -62,9 +62,9 @@ public final class Q00644_GraveRobberAnnihilation extends Quest {
 	
 	public Q00644_GraveRobberAnnihilation() {
 		super(644, Q00644_GraveRobberAnnihilation.class.getSimpleName(), "Grave Robber Annihilation");
-		addStartNpc(KARUDA);
-		addTalkId(KARUDA);
-		addKillId(DROPLIST.getNpcIds());
+		bindStartNpc(KARUDA);
+		bindTalk(KARUDA);
+		bindKill(DROPLIST.getNpcIds());
 		registerQuestItems(ORC_GOODS.getId());
 	}
 	

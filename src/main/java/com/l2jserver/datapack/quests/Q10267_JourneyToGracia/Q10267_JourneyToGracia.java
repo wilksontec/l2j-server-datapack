@@ -39,8 +39,8 @@ public class Q10267_JourneyToGracia extends Quest {
 	
 	public Q10267_JourneyToGracia() {
 		super(10267, Q10267_JourneyToGracia.class.getSimpleName(), "Journey to Gracia");
-		addStartNpc(ORVEN);
-		addTalkId(ORVEN, KEUCEREUS, PAPIKU);
+		bindStartNpc(ORVEN);
+		bindTalk(ORVEN, KEUCEREUS, PAPIKU);
 		registerQuestItems(LETTER);
 	}
 	

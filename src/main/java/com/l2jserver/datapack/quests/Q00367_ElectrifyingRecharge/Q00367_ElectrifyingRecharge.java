@@ -49,9 +49,9 @@ public final class Q00367_ElectrifyingRecharge extends Quest {
 	
 	public Q00367_ElectrifyingRecharge() {
 		super(367, Q00367_ElectrifyingRecharge.class.getSimpleName(), "Electrifying Recharge!");
-		addStartNpc(LORAIN);
-		addTalkId(LORAIN);
-		addAttackId(CATHEROK);
+		bindStartNpc(LORAIN);
+		bindTalk(LORAIN);
+		bindAttack(CATHEROK);
 		registerQuestItems(TITAN_LAMP1, TITAN_LAMP2, TITAN_LAMP3, TITAN_LAMP4, TITAN_LAMP5, BROKEN_TITAN_LAMP);
 	}
 	

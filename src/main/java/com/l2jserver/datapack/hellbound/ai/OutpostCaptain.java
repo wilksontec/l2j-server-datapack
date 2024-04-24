@@ -40,9 +40,9 @@ public final class OutpostCaptain extends AbstractNpcAI {
 	
 	public OutpostCaptain() {
 		super(OutpostCaptain.class.getSimpleName(), "hellbound/AI");
-		addKillId(CAPTAIN);
-		addSpawnId(CAPTAIN, DOORKEEPER);
-		addSpawnId(DEFENDERS);
+		bindKill(CAPTAIN);
+		bindSpawn(CAPTAIN, DOORKEEPER);
+		bindSpawn(DEFENDERS);
 	}
 	
 	@Override

@@ -59,13 +59,13 @@ public final class SilentValley extends AbstractNpcAI {
 	
 	public SilentValley() {
 		super(SilentValley.class.getSimpleName(), "ai/group_template");
-		addAttackId(MOBS);
-		addAttackId(CHEST, GUARD1, GUARD2);
-		addEventReceivedId(GUARD1, GUARD2);
-		addKillId(MOBS);
-		addSeeCreatureId(MOBS);
-		addSeeCreatureId(GUARD1, GUARD2);
-		addSpawnId(CHEST, GUARD2);
+		bindAttack(MOBS);
+		bindAttack(CHEST, GUARD1, GUARD2);
+		bindEventReceived(GUARD1, GUARD2);
+		bindKill(MOBS);
+		bindSeeCreature(MOBS);
+		bindSeeCreature(GUARD1, GUARD2);
+		bindSpawn(CHEST, GUARD2);
 	}
 	
 	@Override

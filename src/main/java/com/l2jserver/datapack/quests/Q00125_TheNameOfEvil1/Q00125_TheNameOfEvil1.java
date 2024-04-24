@@ -63,9 +63,9 @@ public class Q00125_TheNameOfEvil1 extends Quest {
 	
 	public Q00125_TheNameOfEvil1() {
 		super(125, Q00125_TheNameOfEvil1.class.getSimpleName(), "The Name of Evil - 1");
-		addStartNpc(MUSHIKA);
-		addTalkId(MUSHIKA, KARAKAWEI, ULU_KAIMU, BALU_KAIMU, CHUTA_KAIMU);
-		addKillId(DROPLIST.getNpcIds());
+		bindStartNpc(MUSHIKA);
+		bindTalk(MUSHIKA, KARAKAWEI, ULU_KAIMU, BALU_KAIMU, CHUTA_KAIMU);
+		bindKill(DROPLIST.getNpcIds());
 		registerQuestItems(ORNITHOMIMUS_CLAW.getId(), DEINONYCHUS_BONE.getId(), EPITAPH_OF_WISDOM, GAZKH_FRAGMENT);
 	}
 	

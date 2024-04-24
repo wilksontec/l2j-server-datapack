@@ -62,9 +62,9 @@ public final class Q00902_ReclaimOurEra extends Quest {
 	
 	public Q00902_ReclaimOurEra() {
 		super(902, Q00902_ReclaimOurEra.class.getSimpleName(), "Reclaim Our Era");
-		addStartNpc(MATHIAS);
-		addTalkId(MATHIAS);
-		addKillId(MONSTER_DROPS.keySet());
+		bindStartNpc(MATHIAS);
+		bindTalk(MATHIAS);
+		bindKill(MONSTER_DROPS.keySet());
 		registerQuestItems(SHATTERED_BONES, CANNIBALISTIC_STAKATO_LDR_CLAW, ANAIS_SCROLL);
 	}
 	

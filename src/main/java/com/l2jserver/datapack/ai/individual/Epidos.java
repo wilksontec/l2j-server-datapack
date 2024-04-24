@@ -58,8 +58,8 @@ public final class Epidos extends AbstractNpcAI {
 	
 	public Epidos() {
 		super(Epidos.class.getSimpleName(), "ai/individual");
-		addKillId(EPIDOSES);
-		addSpawnId(EPIDOSES);
+		bindKill(EPIDOSES);
+		bindSpawn(EPIDOSES);
 	}
 	
 	@Override

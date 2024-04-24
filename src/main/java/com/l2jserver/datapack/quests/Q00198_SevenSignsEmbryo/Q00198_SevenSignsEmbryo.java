@@ -52,9 +52,9 @@ public final class Q00198_SevenSignsEmbryo extends Quest {
 	
 	public Q00198_SevenSignsEmbryo() {
 		super(198, Q00198_SevenSignsEmbryo.class.getSimpleName(), "Seven Signs, Embryo");
-		addStartNpc(WOOD);
-		addTalkId(WOOD, FRANZ);
-		addKillId(SHILENS_EVIL_THOUGHTS);
+		bindStartNpc(WOOD);
+		bindTalk(WOOD, FRANZ);
+		bindKill(SHILENS_EVIL_THOUGHTS);
 		registerQuestItems(SCULPTURE_OF_DOUBT);
 	}
 	

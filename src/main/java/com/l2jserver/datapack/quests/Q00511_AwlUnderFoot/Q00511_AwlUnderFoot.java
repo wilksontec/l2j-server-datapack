@@ -160,16 +160,16 @@ public final class Q00511_AwlUnderFoot extends Quest {
 		_fortDungeons.put(36364, new FortDungeon(42));
 		
 		for (int i : _fortDungeons.keySet()) {
-			addStartNpc(i);
-			addTalkId(i);
+			bindStartNpc(i);
+			bindTalk(i);
 		}
 		
-		addKillId(RAIDS1);
-		addKillId(RAIDS2);
-		addKillId(RAIDS3);
+		bindKill(RAIDS1);
+		bindKill(RAIDS2);
+		bindKill(RAIDS3);
 		
 		for (int i = 25572; i <= 25595; i++) {
-			addAttackId(i);
+			bindAttack(i);
 		}
 	}
 	

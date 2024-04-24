@@ -118,9 +118,9 @@ public final class DragonValley extends AbstractNpcAI {
 	
 	public DragonValley() {
 		super(DragonValley.class.getSimpleName(), "ai/group_template");
-		addAttackId(SUMMON_NPC);
-		addKillId(SPOIL_REACT_MONSTER);
-		addSpawnId(SPOIL_REACT_MONSTER);
+		bindAttack(SUMMON_NPC);
+		bindKill(SPOIL_REACT_MONSTER);
+		bindSpawn(SPOIL_REACT_MONSTER);
 	}
 	
 	@Override

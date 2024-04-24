@@ -71,9 +71,9 @@ public class Q00602_ShadowOfLight extends Quest {
 	
 	public Q00602_ShadowOfLight() {
 		super(602, Q00602_ShadowOfLight.class.getSimpleName(), "Shadow of Light");
-		addStartNpc(EYE_OF_ARGOS);
-		addTalkId(EYE_OF_ARGOS);
-		addKillId(MOBS);
+		bindStartNpc(EYE_OF_ARGOS);
+		bindTalk(EYE_OF_ARGOS);
+		bindKill(MOBS);
 		registerQuestItems(EYE_OF_DARKNESS);
 	}
 	

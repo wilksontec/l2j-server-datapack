@@ -36,8 +36,8 @@ public class Q00121_PavelTheGiant extends Quest {
 	
 	public Q00121_PavelTheGiant() {
 		super(121, Q00121_PavelTheGiant.class.getSimpleName(), "Pavel the Giant");
-		addStartNpc(NEWYEAR);
-		addTalkId(NEWYEAR, YUMI);
+		bindStartNpc(NEWYEAR);
+		bindTalk(NEWYEAR, YUMI);
 	}
 	
 	@Override

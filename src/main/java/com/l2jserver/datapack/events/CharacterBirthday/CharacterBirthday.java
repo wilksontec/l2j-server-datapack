@@ -56,10 +56,10 @@ public final class CharacterBirthday extends Quest {
 	
 	private CharacterBirthday() {
 		super(-1, CharacterBirthday.class.getSimpleName(), "events");
-		addStartNpc(ALEGRIA);
-		addStartNpc(GK);
-		addTalkId(ALEGRIA);
-		addTalkId(GK);
+		bindStartNpc(ALEGRIA);
+		bindStartNpc(GK);
+		bindTalk(ALEGRIA);
+		bindTalk(GK);
 	}
 	
 	@Override

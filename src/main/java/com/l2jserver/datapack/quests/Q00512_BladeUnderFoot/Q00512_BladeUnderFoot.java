@@ -81,9 +81,9 @@ public class Q00512_BladeUnderFoot extends Quest {
 	
 	public Q00512_BladeUnderFoot() {
 		super(512, Q00512_BladeUnderFoot.class.getSimpleName(), "Blade Under Foot");
-		addStartNpc(WARDEN);
-		addTalkId(WARDEN);
-		addKillId(RAID_BOSSES.keySet());
+		bindStartNpc(WARDEN);
+		bindTalk(WARDEN);
+		bindKill(RAID_BOSSES.keySet());
 		registerQuestItems(FRAGMENT_OF_THE_DUNGEON_LEADER_MARK);
 	}
 	

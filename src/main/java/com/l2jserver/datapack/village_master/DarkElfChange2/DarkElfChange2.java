@@ -72,8 +72,8 @@ public final class DarkElfChange2 extends AbstractNpcAI {
 	
 	public DarkElfChange2() {
 		super(DarkElfChange2.class.getSimpleName(), "village_master");
-		addStartNpc(NPCS);
-		addTalkId(NPCS);
+		bindStartNpc(NPCS);
+		bindTalk(NPCS);
 	}
 	
 	@Override

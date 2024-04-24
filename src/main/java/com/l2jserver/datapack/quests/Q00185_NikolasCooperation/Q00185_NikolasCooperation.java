@@ -47,8 +47,8 @@ public final class Q00185_NikolasCooperation extends Quest {
 	
 	public Q00185_NikolasCooperation() {
 		super(185, Q00185_NikolasCooperation.class.getSimpleName(), "Nikola's Cooperation");
-		addStartNpc(MAESTRO_NIKOLA);
-		addTalkId(MAESTRO_NIKOLA, RESEARCHER_LORAIN, DESTROYED_DEVICE);
+		bindStartNpc(MAESTRO_NIKOLA);
+		bindTalk(MAESTRO_NIKOLA, RESEARCHER_LORAIN, DESTROYED_DEVICE);
 		registerQuestItems(METALLOGRAPH, BROKEN_METAL_PIECES, NIKOLAS_MAP);
 	}
 	

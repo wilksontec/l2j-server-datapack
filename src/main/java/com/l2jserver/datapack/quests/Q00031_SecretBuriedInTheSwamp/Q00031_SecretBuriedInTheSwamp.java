@@ -48,9 +48,9 @@ public final class Q00031_SecretBuriedInTheSwamp extends Quest {
 	
 	public Q00031_SecretBuriedInTheSwamp() {
 		super(31, Q00031_SecretBuriedInTheSwamp.class.getSimpleName(), "Secret Buried in the Swamp");
-		addStartNpc(ABERCROMBIE);
-		addTalkId(ABERCROMBIE, CORPSE_OF_DWARF);
-		addTalkId(MONUMENTS);
+		bindStartNpc(ABERCROMBIE);
+		bindTalk(ABERCROMBIE, CORPSE_OF_DWARF);
+		bindTalk(MONUMENTS);
 		registerQuestItems(KRORINS_JOURNAL);
 	}
 	

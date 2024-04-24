@@ -41,8 +41,8 @@ public class Q00167_DwarvenKinship extends Quest {
 	
 	public Q00167_DwarvenKinship() {
 		super(167, Q00167_DwarvenKinship.class.getSimpleName(), "Dwarven Kinship");
-		addStartNpc(CARLON);
-		addTalkId(CARLON, NORMAN, HAPROCK);
+		bindStartNpc(CARLON);
+		bindTalk(CARLON, NORMAN, HAPROCK);
 		registerQuestItems(CARLONS_LETTER, NORMANS_LETTER);
 	}
 	

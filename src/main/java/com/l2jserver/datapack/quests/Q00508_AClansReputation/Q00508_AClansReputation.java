@@ -66,9 +66,9 @@ public class Q00508_AClansReputation extends Quest {
 	
 	public Q00508_AClansReputation() {
 		super(508, Q00508_AClansReputation.class.getSimpleName(), "A Clan's Reputation");
-		addStartNpc(SIR_ERIC_RODEMAI);
-		addTalkId(SIR_ERIC_RODEMAI);
-		addKillId(RAID_BOSS);
+		bindStartNpc(SIR_ERIC_RODEMAI);
+		bindTalk(SIR_ERIC_RODEMAI);
+		bindKill(RAID_BOSS);
 	}
 	
 	@Override

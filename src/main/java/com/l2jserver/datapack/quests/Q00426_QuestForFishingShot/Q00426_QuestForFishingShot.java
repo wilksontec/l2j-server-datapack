@@ -323,9 +323,9 @@ public class Q00426_QuestForFishingShot extends Quest {
 	
 	public Q00426_QuestForFishingShot() {
 		super(426, Q00426_QuestForFishingShot.class.getSimpleName(), "Quest for Fishing Shot");
-		addStartNpc(NPC);
-		addTalkId(NPC);
-		addKillId(MOBS.keySet());
+		bindStartNpc(NPC);
+		bindTalk(NPC);
+		bindKill(MOBS.keySet());
 		registerQuestItems(SWEET_FLUID);
 	}
 	

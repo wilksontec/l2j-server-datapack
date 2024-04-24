@@ -69,11 +69,11 @@ public final class Q00022_TragedyInVonHellmannForest extends Quest {
 	
 	public Q00022_TragedyInVonHellmannForest() {
 		super(22, Q00022_TragedyInVonHellmannForest.class.getSimpleName(), "Tragedy in Von Hellmann Forest");
-		addKillId(MOBS);
-		addKillId(SOUL_OF_WELL);
-		addAttackId(SOUL_OF_WELL);
-		addStartNpc(TIFAREN);
-		addTalkId(INNOCENTIN, TIFAREN, WELL, GHOST_OF_PRIEST, GHOST_OF_ADVENTURER);
+		bindKill(MOBS);
+		bindKill(SOUL_OF_WELL);
+		bindAttack(SOUL_OF_WELL);
+		bindStartNpc(TIFAREN);
+		bindTalk(INNOCENTIN, TIFAREN, WELL, GHOST_OF_PRIEST, GHOST_OF_ADVENTURER);
 		registerQuestItems(LOST_SKULL_OF_ELF, CROSS_OF_EINHASAD, REPORT_BOX, JEWEL_OF_ADVENTURER_1, JEWEL_OF_ADVENTURER_2, SEALED_REPORT_BOX);
 	}
 	

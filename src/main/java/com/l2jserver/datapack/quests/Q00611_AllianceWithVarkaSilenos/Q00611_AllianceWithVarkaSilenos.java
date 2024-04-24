@@ -134,9 +134,9 @@ public class Q00611_AllianceWithVarkaSilenos extends Quest {
 	
 	public Q00611_AllianceWithVarkaSilenos() {
 		super(611, Q00611_AllianceWithVarkaSilenos.class.getSimpleName(), "Alliance with Varka Silenos");
-		addStartNpc(NARAN_ASHANUK);
-		addTalkId(NARAN_ASHANUK);
-		addKillId(MOBS.keySet());
+		bindStartNpc(NARAN_ASHANUK);
+		bindTalk(NARAN_ASHANUK);
+		bindKill(MOBS.keySet());
 		registerQuestItems(KETRA_BADGE_CAPTAIN, KETRA_BADGE_OFFICER, KETRA_BADGE_SOLDIER);
 	}
 	

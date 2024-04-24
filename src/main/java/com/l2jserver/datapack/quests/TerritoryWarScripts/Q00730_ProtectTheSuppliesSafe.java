@@ -36,7 +36,7 @@ public final class Q00730_ProtectTheSuppliesSafe extends TerritoryWarSuperClass 
 			36598,
 			36599
 		};
-		addAttackId(NPC_IDS);
+		bindAttack(NPC_IDS);
 	}
 	
 	@Override

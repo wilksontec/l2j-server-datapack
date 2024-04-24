@@ -81,11 +81,11 @@ public final class TeleportToUndergroundColiseum extends AbstractNpcAI {
 	
 	public TeleportToUndergroundColiseum() {
 		super(TeleportToUndergroundColiseum.class.getSimpleName(), "ai/npc/Teleports");
-		addStartNpc(MANAGERS);
-		addStartNpc(COLISEUM_HELPER, PADDIES);
-		addFirstTalkId(COLISEUM_HELPER);
-		addTalkId(MANAGERS);
-		addTalkId(COLISEUM_HELPER, PADDIES);
+		bindStartNpc(MANAGERS);
+		bindStartNpc(COLISEUM_HELPER, PADDIES);
+		bindFirstTalk(COLISEUM_HELPER);
+		bindTalk(MANAGERS);
+		bindTalk(COLISEUM_HELPER, PADDIES);
 	}
 	
 	@Override

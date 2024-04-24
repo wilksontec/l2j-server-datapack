@@ -37,7 +37,7 @@ public final class Sirra extends AbstractNpcAI {
 	
 	public Sirra() {
 		super(Sirra.class.getSimpleName(), "ai/npc");
-		addFirstTalkId(SIRRA);
+		bindFirstTalk(SIRRA);
 	}
 	
 	@Override

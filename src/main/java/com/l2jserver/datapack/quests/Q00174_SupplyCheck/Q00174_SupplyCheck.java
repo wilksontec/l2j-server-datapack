@@ -51,8 +51,8 @@ public class Q00174_SupplyCheck extends Quest {
 	
 	public Q00174_SupplyCheck() {
 		super(174, Q00174_SupplyCheck.class.getSimpleName(), "Supply Check");
-		addStartNpc(MARCELA);
-		addTalkId(MARCELA, BENIS, NIKA);
+		bindStartNpc(MARCELA);
+		bindTalk(MARCELA, BENIS, NIKA);
 		
 		registerQuestItems(WAREHOUSE_MANIFEST, GROCERY_STORE_MANIFEST);
 	}

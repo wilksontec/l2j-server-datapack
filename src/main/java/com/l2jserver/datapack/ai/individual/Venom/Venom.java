@@ -30,8 +30,8 @@ import com.l2jserver.gameserver.model.TeleportWhereType;
 import com.l2jserver.gameserver.model.actor.L2Attackable;
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
-import com.l2jserver.gameserver.model.events.impl.sieges.castle.OnCastleSiegeFinish;
-import com.l2jserver.gameserver.model.events.impl.sieges.castle.OnCastleSiegeStart;
+import com.l2jserver.gameserver.model.events.impl.sieges.castle.CastleSiegeFinish;
+import com.l2jserver.gameserver.model.events.impl.sieges.castle.CastleSiegeStart;
 import com.l2jserver.gameserver.model.holders.SkillHolder;
 import com.l2jserver.gameserver.model.skills.Skill;
 import com.l2jserver.gameserver.model.zone.ZoneId;
@@ -98,14 +98,14 @@ public final class Venom extends AbstractNpcAI {
 	
 	public Venom() {
 		super(Venom.class.getSimpleName(), "ai/individual");
-		addStartNpc(DUNGEON_KEEPER, TELEPORT_CUBE);
-		addFirstTalkId(DUNGEON_KEEPER, TELEPORT_CUBE);
-		addTalkId(DUNGEON_KEEPER, TELEPORT_CUBE);
-		addSpawnId(VENOM, DUNGEON_KEEPER);
-		addSpellFinishedId(VENOM);
-		addAttackId(VENOM);
-		addKillId(VENOM);
-		addAggroRangeEnterId(VENOM);
+		bindStartNpc(DUNGEON_KEEPER, TELEPORT_CUBE);
+		bindFirstTalk(DUNGEON_KEEPER, TELEPORT_CUBE);
+		bindTalk(DUNGEON_KEEPER, TELEPORT_CUBE);
+		bindSpawn(VENOM, DUNGEON_KEEPER);
+		bindSpellFinished(VENOM);
+		bindAttack(VENOM);
+		bindKill(VENOM);
+		bindAggroRangeEnter(VENOM);
 		setCastleSiegeStartId(this::onSiegeStart, CASTLE);
 		setCastleSiegeFinishId(this::onSiegeFinish, CASTLE);
 		
@@ -173,7 +173,7 @@ public final class Venom extends AbstractNpcAI {
 		return super.onAggroRangeEnter(npc, player, isSummon);
 	}
 	
-	public void onSiegeStart(OnCastleSiegeStart event) {
+	public void onSiegeStart(CastleSiegeStart event) {
 		_aggroMode = true;
 		_prisonIsOpen = false;
 		if ((_venom != null) && !_venom.isDead()) {
@@ -185,7 +185,7 @@ public final class Venom extends AbstractNpcAI {
 		}
 	}
 	
-	public void onSiegeFinish(OnCastleSiegeFinish event) {
+	public void onSiegeFinish(CastleSiegeFinish event) {
 		_aggroMode = false;
 		if ((_venom != null) && !_venom.isDead()) {
 			changeLocation(MoveTo.PRISON);

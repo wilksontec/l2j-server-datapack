@@ -36,7 +36,7 @@ public final class Q00733_ProtectTheEconomicAssociationLeader extends TerritoryW
 			36555,
 			36561
 		};
-		addAttackId(NPC_IDS);
+		bindAttack(NPC_IDS);
 	}
 	
 	@Override

@@ -77,10 +77,10 @@ public final class TeleportToFantasy extends AbstractNpcAI {
 	
 	public TeleportToFantasy() {
 		super(TeleportToFantasy.class.getSimpleName(), "ai/npc/Teleports");
-		addStartNpc(PADDIES);
-		addStartNpc(TELEPORTERS.keySet());
-		addTalkId(PADDIES);
-		addTalkId(TELEPORTERS.keySet());
+		bindStartNpc(PADDIES);
+		bindStartNpc(TELEPORTERS.keySet());
+		bindTalk(PADDIES);
+		bindTalk(TELEPORTERS.keySet());
 	}
 	
 	@Override

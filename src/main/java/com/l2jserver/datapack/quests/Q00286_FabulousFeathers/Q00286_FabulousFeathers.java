@@ -47,9 +47,9 @@ public final class Q00286_FabulousFeathers extends Quest {
 	
 	public Q00286_FabulousFeathers() {
 		super(286, Q00286_FabulousFeathers.class.getSimpleName(), "Fabulous Feathers");
-		addStartNpc(ERINU);
-		addTalkId(ERINU);
-		addKillId(DROPLIST.getNpcIds());
+		bindStartNpc(ERINU);
+		bindTalk(ERINU);
+		bindKill(DROPLIST.getNpcIds());
 		registerQuestItems(COMMANDERS_FEATHER.getId());
 	}
 	

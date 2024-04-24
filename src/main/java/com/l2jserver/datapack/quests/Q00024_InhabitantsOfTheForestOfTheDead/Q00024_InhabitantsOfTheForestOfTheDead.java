@@ -52,9 +52,9 @@ public class Q00024_InhabitantsOfTheForestOfTheDead extends Quest {
 	
 	public Q00024_InhabitantsOfTheForestOfTheDead() {
 		super(24, Q00024_InhabitantsOfTheForestOfTheDead.class.getSimpleName(), "Inhabitants of the Forest of the Dead");
-		addStartNpc(DORIAN);
-		addTalkId(DORIAN, MYSTERIOUS_WIZARD, TOMBSTONE, LIDIA_MAID);
-		addKillId(MOBS);
+		bindStartNpc(DORIAN);
+		bindTalk(DORIAN, MYSTERIOUS_WIZARD, TOMBSTONE, LIDIA_MAID);
+		bindKill(MOBS);
 		registerQuestItems(LIDIA_LETTER, LIDIA_HAIRPIN, SUSPICIOUS_TOTEM_DOLL, FLOWER_BOUQUET, SILVER_CROSS_OF_EINHASAD, BROKEN_SILVER_CROSS_OF_EINHASAD);
 	}
 	

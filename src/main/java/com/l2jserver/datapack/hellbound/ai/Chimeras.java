@@ -58,9 +58,9 @@ public final class Chimeras extends AbstractNpcAI {
 	
 	public Chimeras() {
 		super(Chimeras.class.getSimpleName(), "hellbound/AI");
-		addSkillSeeId(NPCS);
-		addSpawnId(CELTUS);
-		addSkillSeeId(CELTUS);
+		bindSkillSee(NPCS);
+		bindSpawn(CELTUS);
+		bindSkillSee(CELTUS);
 	}
 	
 	@Override

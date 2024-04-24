@@ -62,9 +62,9 @@ public final class DarkWaterDragon extends AbstractNpcAI {
 			DETRACTOR1,
 			DETRACTOR2
 		};
-		addKillId(mobs);
-		addAttackId(mobs);
-		addSpawnId(mobs);
+		bindKill(mobs);
+		bindAttack(mobs);
+		bindSpawn(mobs);
 		MY_TRACKING_SET.clear();
 		SECOND_SPAWN.clear();
 	}

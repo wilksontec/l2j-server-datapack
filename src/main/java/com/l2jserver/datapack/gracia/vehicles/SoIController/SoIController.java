@@ -57,13 +57,13 @@ public final class SoIController extends AirShipController {
 	
 	public SoIController() {
 		super(-1, SoIController.class.getSimpleName(), "gracia/vehicles");
-		addStartNpc(CONTROLLER_ID);
-		addFirstTalkId(CONTROLLER_ID);
-		addTalkId(CONTROLLER_ID);
+		bindStartNpc(CONTROLLER_ID);
+		bindFirstTalk(CONTROLLER_ID);
+		bindTalk(CONTROLLER_ID);
 		
 		_dockZone = DOCK_ZONE;
-		addEnterZoneId(DOCK_ZONE);
-		addExitZoneId(DOCK_ZONE);
+		bindEnterZone(DOCK_ZONE);
+		bindExitZone(DOCK_ZONE);
 		
 		_shipSpawnX = -212719;
 		_shipSpawnY = 213348;

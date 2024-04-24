@@ -240,12 +240,12 @@ public final class RainbowSpringsChateau extends ClanHallSiegeEngine {
 	public RainbowSpringsChateau() {
 		super(RainbowSpringsChateau.class.getSimpleName(), "conquerablehalls", RAINBOW_SPRINGS);
 		
-		addFirstTalkId(MESSENGER);
-		addTalkId(MESSENGER);
-		addFirstTalkId(CARETAKER);
-		addTalkId(CARETAKER);
-		addFirstTalkId(YETIS);
-		addTalkId(YETIS);
+		bindFirstTalk(MESSENGER);
+		bindTalk(MESSENGER);
+		bindFirstTalk(CARETAKER);
+		bindTalk(CARETAKER);
+		bindFirstTalk(YETIS);
+		bindTalk(YETIS);
 		
 		loadAttackers();
 		

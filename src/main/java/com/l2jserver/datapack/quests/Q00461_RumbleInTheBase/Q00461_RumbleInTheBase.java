@@ -55,9 +55,9 @@ public class Q00461_RumbleInTheBase extends Quest {
 	
 	public Q00461_RumbleInTheBase() {
 		super(461, Q00461_RumbleInTheBase.class.getSimpleName(), "Rumble in the Base");
-		addStartNpc(STAN);
-		addTalkId(STAN);
-		addKillId(MONSTERS.keySet());
+		bindStartNpc(STAN);
+		bindTalk(STAN);
+		bindKill(MONSTERS.keySet());
 		registerQuestItems(SHINY_SALMON, SHOES_STRING_OF_SEL_MAHUM);
 	}
 	

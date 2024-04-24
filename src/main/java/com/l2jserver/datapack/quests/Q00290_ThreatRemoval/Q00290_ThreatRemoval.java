@@ -56,9 +56,9 @@ public class Q00290_ThreatRemoval extends Quest {
 	
 	public Q00290_ThreatRemoval() {
 		super(290, Q00290_ThreatRemoval.class.getSimpleName(), "Threat Removal");
-		addStartNpc(PINAPS);
-		addTalkId(PINAPS);
-		addKillId(DROPLIST.getNpcIds());
+		bindStartNpc(PINAPS);
+		bindTalk(PINAPS);
+		bindKill(DROPLIST.getNpcIds());
 		registerQuestItems(SEL_MAHUM_ID_TAG);
 	}
 	

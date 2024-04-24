@@ -44,9 +44,9 @@ public class Q10501_ZakenEmbroideredSoulCloak extends Quest {
 	
 	public Q10501_ZakenEmbroideredSoulCloak() {
 		super(10501, Q10501_ZakenEmbroideredSoulCloak.class.getSimpleName(), "Zaken Embroidered Soul Cloak");
-		addStartNpc(OLF_ADAMS);
-		addTalkId(OLF_ADAMS);
-		addKillId(ZAKEN);
+		bindStartNpc(OLF_ADAMS);
+		bindTalk(OLF_ADAMS);
+		bindKill(ZAKEN);
 		registerQuestItems(ZAKENS_SOUL_FRAGMENT);
 	}
 	

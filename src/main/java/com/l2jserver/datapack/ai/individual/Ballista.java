@@ -66,8 +66,8 @@ public final class Ballista extends AbstractNpcAI {
 	
 	public Ballista() {
 		super(Ballista.class.getSimpleName(), "ai/individual");
-		addSkillSeeId(BALLISTA);
-		addSpawnId(BALLISTA);
+		bindSkillSee(BALLISTA);
+		bindSpawn(BALLISTA);
 	}
 	
 	@Override

@@ -43,7 +43,7 @@ public class StarStones extends AbstractNpcAI {
 	
 	public StarStones() {
 		super(StarStones.class.getSimpleName(), "gracia/AI");
-		addSkillSeeId(MOBS);
+		bindSkillSee(MOBS);
 	}
 	
 	@Override

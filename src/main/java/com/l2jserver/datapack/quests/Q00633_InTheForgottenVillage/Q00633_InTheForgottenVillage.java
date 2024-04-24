@@ -71,9 +71,9 @@ public final class Q00633_InTheForgottenVillage extends Quest {
 	
 	public Q00633_InTheForgottenVillage() {
 		super(633, Q00633_InTheForgottenVillage.class.getSimpleName(), "In The Forgotten Village");
-		addStartNpc(MINA);
-		addTalkId(MINA);
-		addKillId(DROPLIST.getNpcIds());
+		bindStartNpc(MINA);
+		bindTalk(MINA);
+		bindKill(DROPLIST.getNpcIds());
 		registerQuestItems(RIB_BONE_OF_A_BLACK_MAGUS.getId(), ZOMBIES_LIVER);
 	}
 	

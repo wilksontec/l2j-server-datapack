@@ -55,9 +55,9 @@ public final class Q00193_SevenSignsDyingMessage extends Quest {
 	
 	public Q00193_SevenSignsDyingMessage() {
 		super(193, Q00193_SevenSignsDyingMessage.class.getSimpleName(), "Seven Signs, Dying Message");
-		addStartNpc(HOLLINT);
-		addTalkId(HOLLINT, CAIN, ERIC, SIR_GUSTAV_ATHEBALDT);
-		addKillId(SHILENS_EVIL_THOUGHTS);
+		bindStartNpc(HOLLINT);
+		bindTalk(HOLLINT, CAIN, ERIC, SIR_GUSTAV_ATHEBALDT);
+		bindKill(SHILENS_EVIL_THOUGHTS);
 		registerQuestItems(JACOBS_NECKLACE, DEADMANS_HERB, SCULPTURE_OF_DOUBT);
 	}
 	

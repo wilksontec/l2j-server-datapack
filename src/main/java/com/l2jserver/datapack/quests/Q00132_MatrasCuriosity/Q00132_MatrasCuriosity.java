@@ -45,9 +45,9 @@ public final class Q00132_MatrasCuriosity extends Quest {
 	
 	public Q00132_MatrasCuriosity() {
 		super(132, Q00132_MatrasCuriosity.class.getSimpleName(), "Matras' Curiosity");
-		addStartNpc(MATRAS);
-		addTalkId(MATRAS);
-		addKillId(RANKU, DEMON_PRINCE);
+		bindStartNpc(MATRAS);
+		bindTalk(MATRAS);
+		bindKill(RANKU, DEMON_PRINCE);
 		registerQuestItems(BLUEPRINT_RANKU, BLUEPRINT_PRINCE);
 	}
 	

@@ -71,9 +71,9 @@ public final class Q00905_RefinedDragonBlood extends Quest {
 	
 	public Q00905_RefinedDragonBlood() {
 		super(905, Q00905_RefinedDragonBlood.class.getSimpleName(), "Refined Dragon Blood");
-		addStartNpc(SEPARATED_SOULS);
-		addTalkId(SEPARATED_SOULS);
-		addKillId(MONSTERS.keySet());
+		bindStartNpc(SEPARATED_SOULS);
+		bindTalk(SEPARATED_SOULS);
+		bindKill(MONSTERS.keySet());
 		registerQuestItems(UNREFINED_RED_DRAGON_BLOOD, UNREFINED_BLUE_DRAGON_BLOOD);
 	}
 	

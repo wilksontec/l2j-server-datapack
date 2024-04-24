@@ -37,7 +37,7 @@ public final class Shadai extends AbstractNpcAI {
 	
 	public Shadai() {
 		super(Shadai.class.getSimpleName(), "hellbound/AI/NPC");
-		addSpawnId(SHADAI);
+		bindSpawn(SHADAI);
 	}
 	
 	@Override

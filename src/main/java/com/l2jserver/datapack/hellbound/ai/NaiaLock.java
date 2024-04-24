@@ -34,7 +34,7 @@ public final class NaiaLock extends AbstractNpcAI {
 	
 	public NaiaLock() {
 		super(NaiaLock.class.getSimpleName(), "hellbound/AI");
-		addKillId(LOCK);
+		bindKill(LOCK);
 	}
 	
 	@Override

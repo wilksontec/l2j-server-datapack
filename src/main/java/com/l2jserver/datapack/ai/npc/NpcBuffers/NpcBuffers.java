@@ -34,8 +34,8 @@ public final class NpcBuffers extends AbstractNpcAI {
 		
 		for (int npcId : _npcBuffers.getNpcBufferIds()) {
 			// TODO: Cleanup once npc rework is finished and default html is configurable.
-			addFirstTalkId(npcId);
-			addSpawnId(npcId);
+			bindFirstTalk(npcId);
+			bindSpawn(npcId);
 		}
 	}
 	

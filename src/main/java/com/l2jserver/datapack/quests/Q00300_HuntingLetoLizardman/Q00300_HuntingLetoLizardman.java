@@ -58,9 +58,9 @@ public final class Q00300_HuntingLetoLizardman extends Quest {
 	
 	public Q00300_HuntingLetoLizardman() {
 		super(300, Q00300_HuntingLetoLizardman.class.getSimpleName(), "Hunting Leto Lizardman");
-		addStartNpc(RATH);
-		addTalkId(RATH);
-		addKillId(MOBS_SAC.keySet());
+		bindStartNpc(RATH);
+		bindTalk(RATH);
+		bindKill(MOBS_SAC.keySet());
 		registerQuestItems(BRACELET_OF_LIZARDMAN);
 	}
 	

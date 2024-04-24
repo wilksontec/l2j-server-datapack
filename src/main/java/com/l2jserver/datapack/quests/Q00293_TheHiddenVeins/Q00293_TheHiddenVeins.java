@@ -51,9 +51,9 @@ public final class Q00293_TheHiddenVeins extends Quest {
 	
 	public Q00293_TheHiddenVeins() {
 		super(293, Q00293_TheHiddenVeins.class.getSimpleName(), "The Hidden Veins");
-		addStartNpc(FILAUR);
-		addTalkId(FILAUR, CHICHIRIN);
-		addKillId(MONSTERS);
+		bindStartNpc(FILAUR);
+		bindTalk(FILAUR, CHICHIRIN);
+		bindKill(MONSTERS);
 		registerQuestItems(CHRYSOLITE_ORE, TORN_MAP_FRAGMENT, HIDDEN_ORE_MAP);
 	}
 	

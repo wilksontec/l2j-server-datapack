@@ -82,9 +82,9 @@ public final class Q00662_AGameOfCards extends Quest {
 	
 	public Q00662_AGameOfCards() {
 		super(662, Q00662_AGameOfCards.class.getSimpleName(), "A Game of Cards");
-		addStartNpc(KLUMP);
-		addTalkId(KLUMP);
-		addKillId(DROPLIST.getNpcIds());
+		bindStartNpc(KLUMP);
+		bindTalk(KLUMP);
+		bindKill(DROPLIST.getNpcIds());
 	}
 	
 	@Override

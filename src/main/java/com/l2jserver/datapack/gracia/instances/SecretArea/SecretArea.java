@@ -47,9 +47,9 @@ public final class SecretArea extends Quest {
 	
 	public SecretArea() {
 		super(-1, SecretArea.class.getSimpleName(), "gracia/instances");
-		addStartNpc(GINBY);
-		addTalkId(GINBY);
-		addTalkId(LELRIKIA);
+		bindStartNpc(GINBY);
+		bindTalk(GINBY);
+		bindTalk(LELRIKIA);
 	}
 	
 	protected void enterInstance(L2PcInstance player) {

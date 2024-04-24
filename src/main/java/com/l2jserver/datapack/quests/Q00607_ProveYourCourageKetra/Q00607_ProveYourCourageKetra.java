@@ -43,9 +43,9 @@ public class Q00607_ProveYourCourageKetra extends Quest {
 	
 	public Q00607_ProveYourCourageKetra() {
 		super(607, Q00607_ProveYourCourageKetra.class.getSimpleName(), "Prove Your Courage! (Ketra)");
-		addStartNpc(KADUN);
-		addTalkId(KADUN);
-		addKillId(SHADITH);
+		bindStartNpc(KADUN);
+		bindTalk(KADUN);
+		bindKill(SHADITH);
 		registerQuestItems(SHADITH_HEAD);
 	}
 	

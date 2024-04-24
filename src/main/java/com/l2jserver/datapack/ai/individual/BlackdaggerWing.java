@@ -51,9 +51,9 @@ public class BlackdaggerWing extends AbstractNpcAI {
 	
 	public BlackdaggerWing() {
 		super(BlackdaggerWing.class.getSimpleName(), "ai/individual");
-		addAttackId(BLACKDAGGER_WING);
-		addSeeCreatureId(BLACKDAGGER_WING);
-		addSpellFinishedId(BLACKDAGGER_WING);
+		bindAttack(BLACKDAGGER_WING);
+		bindSeeCreature(BLACKDAGGER_WING);
+		bindSpellFinished(BLACKDAGGER_WING);
 	}
 	
 	@Override

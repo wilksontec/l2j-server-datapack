@@ -44,8 +44,8 @@ public final class TarBeetle extends AbstractNpcAI {
 	
 	public TarBeetle() {
 		super(TarBeetle.class.getSimpleName(), "ai/npc");
-		addAggroRangeEnterId(TAR_BEETLE);
-		addSpellFinishedId(TAR_BEETLE);
+		bindAggroRangeEnter(TAR_BEETLE);
+		bindSpellFinished(TAR_BEETLE);
 	}
 	
 	@Override

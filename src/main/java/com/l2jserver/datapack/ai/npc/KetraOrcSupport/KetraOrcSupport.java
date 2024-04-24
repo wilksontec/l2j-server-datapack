@@ -84,9 +84,9 @@ public final class KetraOrcSupport extends AbstractNpcAI {
 	
 	public KetraOrcSupport() {
 		super(KetraOrcSupport.class.getSimpleName(), "ai/npc");
-		addFirstTalkId(KADUN, WAHKAN, ASEFA, ATAN, JAFF, JUMARA, KURFA);
-		addTalkId(ASEFA, KURFA, JAFF);
-		addStartNpc(KURFA, JAFF);
+		bindFirstTalk(KADUN, WAHKAN, ASEFA, ATAN, JAFF, JUMARA, KURFA);
+		bindTalk(ASEFA, KURFA, JAFF);
+		bindStartNpc(KURFA, JAFF);
 	}
 	
 	private int getAllianceLevel(L2PcInstance player) {

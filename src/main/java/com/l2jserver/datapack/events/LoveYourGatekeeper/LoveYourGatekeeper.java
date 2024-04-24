@@ -44,9 +44,9 @@ public final class LoveYourGatekeeper extends LongTimeEvent {
 	
 	private LoveYourGatekeeper() {
 		super(LoveYourGatekeeper.class.getSimpleName(), "events");
-		addStartNpc(GATEKEEPER);
-		addFirstTalkId(GATEKEEPER);
-		addTalkId(GATEKEEPER);
+		bindStartNpc(GATEKEEPER);
+		bindFirstTalk(GATEKEEPER);
+		bindTalk(GATEKEEPER);
 	}
 	
 	@Override

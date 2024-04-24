@@ -147,7 +147,7 @@ public class MC_Show extends AbstractNpcAI {
 	
 	public MC_Show() {
 		super(MC_Show.class.getSimpleName(), "ai/fantasy_isle");
-		addSpawnId(32433, 32431, 32432, 32442, 32443, 32444, 32445, 32446, 32424, 32425, 32426, 32427, 32428);
+		bindSpawn(32433, 32431, 32432, 32442, 32443, 32444, 32445, 32446, 32424, 32425, 32426, 32427, 32428);
 		load();
 		scheduleTimer();
 	}

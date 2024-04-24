@@ -48,9 +48,9 @@ public class Q00163_LegacyOfThePoet extends Quest {
 	
 	public Q00163_LegacyOfThePoet() {
 		super(163, Q00163_LegacyOfThePoet.class.getSimpleName(), "Legacy of the Poet");
-		addStartNpc(STARDEN);
-		addTalkId(STARDEN);
-		addKillId(MONSTERS);
+		bindStartNpc(STARDEN);
+		bindTalk(STARDEN);
+		bindKill(MONSTERS);
 		registerQuestItems(RUMIELS_1ST_POEM, RUMIELS_2ND_POEM, RUMIELS_3RD_POEM, RUMIELS_4TH_POEM);
 	}
 	

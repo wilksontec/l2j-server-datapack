@@ -50,9 +50,9 @@ public final class Q00117_TheOceanOfDistantStars extends Quest {
 	
 	public Q00117_TheOceanOfDistantStars() {
 		super(117, Q00117_TheOceanOfDistantStars.class.getSimpleName(), "The Ocean of Distant Stars");
-		addStartNpc(ABEY);
-		addTalkId(ABEY, GHOST_OF_A_RAILROAD_ENGINEER, GHOST_OF_AN_ANCIENT_RAILROAD_ENGINEER, BOX, OBI);
-		addKillId(DROPLIST.getNpcIds());
+		bindStartNpc(ABEY);
+		bindTalk(ABEY, GHOST_OF_A_RAILROAD_ENGINEER, GHOST_OF_AN_ANCIENT_RAILROAD_ENGINEER, BOX, OBI);
+		bindKill(DROPLIST.getNpcIds());
 		registerQuestItems(ENGRAVED_HAMMER, BOOK_OF_GREY_STAR.getId());
 	}
 	

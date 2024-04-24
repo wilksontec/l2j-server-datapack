@@ -40,9 +40,9 @@ public class Q00688_DefeatTheElrokianRaiders extends Quest {
 	
 	public Q00688_DefeatTheElrokianRaiders() {
 		super(688, Q00688_DefeatTheElrokianRaiders.class.getSimpleName(), "Defeat the Elrokian Raiders!");
-		addStartNpc(DINN);
-		addTalkId(DINN);
-		addKillId(ELROKI);
+		bindStartNpc(DINN);
+		bindTalk(DINN);
+		bindKill(ELROKI);
 		registerQuestItems(DINOSAUR_FANG_NECKLACE.getId());
 	}
 	

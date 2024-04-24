@@ -46,8 +46,8 @@ public final class FrightenedRagnaOrc extends AbstractNpcAI {
 	
 	public FrightenedRagnaOrc() {
 		super(FrightenedRagnaOrc.class.getSimpleName(), "ai/individual");
-		addAttackId(MOB_ID);
-		addKillId(MOB_ID);
+		bindAttack(MOB_ID);
+		bindKill(MOB_ID);
 	}
 	
 	@Override

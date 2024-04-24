@@ -28,10 +28,10 @@ import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
 import com.l2jserver.gameserver.model.base.ClassId;
 import com.l2jserver.gameserver.model.events.EventType;
-import com.l2jserver.gameserver.model.events.impl.character.OnCreatureAttacked;
-import com.l2jserver.gameserver.model.events.impl.character.player.OnPlayerLevelChanged;
-import com.l2jserver.gameserver.model.events.impl.character.player.OnPlayerSit;
-import com.l2jserver.gameserver.model.events.impl.character.player.inventory.OnPlayerItemPickup;
+import com.l2jserver.gameserver.model.events.impl.character.CreatureAttacked;
+import com.l2jserver.gameserver.model.events.impl.character.player.PlayerLevelChanged;
+import com.l2jserver.gameserver.model.events.impl.character.player.PlayerSit;
+import com.l2jserver.gameserver.model.events.impl.character.player.inventory.PlayerItemPickup;
 import com.l2jserver.gameserver.model.events.listeners.ConsumerEventListener;
 import com.l2jserver.gameserver.model.quest.Quest;
 import com.l2jserver.gameserver.model.quest.QuestState;
@@ -131,10 +131,10 @@ public class Q00255_Tutorial extends Quest {
 		super(255, Q00255_Tutorial.class.getSimpleName(), "Tutorial");
 		if (character().tutorial()) {
 			setOnEnterWorld(true);
-			registerTutorialEvent();
-			registerTutorialClientEvent();
-			registerTutorialQuestionMark();
-			registerTutorialCmd();
+			bindTutorial();
+			bindTutorialClient();
+			bindTutorialQuestionMark();
+			bindTutorialCmd();
 			
 			int[] list = {
 				ROIEN,
@@ -152,10 +152,10 @@ public class Q00255_Tutorial extends Quest {
 				PERWAN,
 				NEWBIE_HELPER_KAMAEL
 			};
-			addStartNpc(list);
-			addFirstTalkId(list);
-			addTalkId(list);
-			addKillId(TUTORIAL_GREMLIN);
+			bindStartNpc(list);
+			bindFirstTalk(list);
+			bindTalk(list);
+			bindKill(TUTORIAL_GREMLIN);
 		}
 	}
 	
@@ -199,8 +199,8 @@ public class Q00255_Tutorial extends Quest {
 	@Override
 	public String onEnterWorld(L2PcInstance player) {
 		userConnected(player);
-		player.addListener(new ConsumerEventListener(player, EventType.ON_PLAYER_LEVEL_CHANGED, (OnPlayerLevelChanged event) -> {
-			levelUp(event.getActiveChar(), event.getNewLevel());
+		player.addListener(new ConsumerEventListener(player, EventType.PLAYER_LEVEL_CHANGED, (PlayerLevelChanged event) -> {
+			levelUp(event.player(), event.newLevel());
 		}, player));
 		
 		return super.onEnterWorld(player);
@@ -210,42 +210,42 @@ public class Q00255_Tutorial extends Quest {
 		L2PcInstance player = qs.getPlayer();
 		
 		if (((eventStatus & (1048576 | 2097152)) != 0)) {
-			if (!player.hasListener(EventType.ON_PLAYER_ITEM_PICKUP)) {
-				player.addListener(new ConsumerEventListener(player, EventType.ON_PLAYER_ITEM_PICKUP, (OnPlayerItemPickup event) -> {
-					if ((event.getItem().getId() == BLUE_GEMSTONE) && ((qs.getMemoState() & 1048576) != 0)) {
-						tutorialEvent(event.getActiveChar(), 1048576);
+			if (!player.hasListener(EventType.PLAYER_ITEM_PICKUP)) {
+				player.addListener(new ConsumerEventListener(player, EventType.PLAYER_ITEM_PICKUP, (PlayerItemPickup event) -> {
+					if ((event.item().getId() == BLUE_GEMSTONE) && ((qs.getMemoState() & 1048576) != 0)) {
+						tutorialEvent(event.player(), 1048576);
 					}
 					
-					if ((event.getItem().getId() == 57) && ((qs.getMemoState() & 2097152) != 0)) {
-						tutorialEvent(event.getActiveChar(), 2097152);
+					if ((event.item().getId() == 57) && ((qs.getMemoState() & 2097152) != 0)) {
+						tutorialEvent(event.player(), 2097152);
 					}
 				}, player));
 			}
-		} else if (player.hasListener(EventType.ON_PLAYER_ITEM_PICKUP)) {
-			player.removeListenerIf(EventType.ON_PLAYER_ITEM_PICKUP, listener -> listener.getOwner() == player);
+		} else if (player.hasListener(EventType.PLAYER_ITEM_PICKUP)) {
+			player.removeListenerIf(EventType.PLAYER_ITEM_PICKUP, listener -> listener.getOwner() == player);
 		}
 		
 		if ((eventStatus & 8388608) != 0) {
-			if (!player.hasListener(EventType.ON_PLAYER_SIT)) {
-				player.addListener(new ConsumerEventListener(player, EventType.ON_PLAYER_SIT, (OnPlayerSit event) -> {
+			if (!player.hasListener(EventType.PLAYER_SIT)) {
+				player.addListener(new ConsumerEventListener(player, EventType.PLAYER_SIT, (PlayerSit event) -> {
 					tutorialEvent(player, 8388608);
 				}, player));
 			}
-		} else if (player.hasListener(EventType.ON_PLAYER_SIT)) {
-			player.removeListenerIf(EventType.ON_PLAYER_SIT, listener -> listener.getOwner() == player);
+		} else if (player.hasListener(EventType.PLAYER_SIT)) {
+			player.removeListenerIf(EventType.PLAYER_SIT, listener -> listener.getOwner() == player);
 		}
 		
 		if ((eventStatus & 256) != 0) {
-			if (!player.hasListener(EventType.ON_CREATURE_ATTACKED)) {
-				player.addListener(new ConsumerEventListener(player, EventType.ON_CREATURE_ATTACKED, (OnCreatureAttacked event) -> {
-					L2PcInstance pp = event.getTarget().getActingPlayer();
+			if (!player.hasListener(EventType.CREATURE_ATTACKED)) {
+				player.addListener(new ConsumerEventListener(player, EventType.CREATURE_ATTACKED, (CreatureAttacked event) -> {
+					L2PcInstance pp = event.target().getActingPlayer();
 					if ((pp != null) && (pp.getCurrentHp() <= (pp.getStat().getMaxHp() * 0.3))) {
 						tutorialEvent(pp, 256);
 					}
 				}, player));
 			}
 		} else {
-			player.removeListenerIf(EventType.ON_CREATURE_ATTACKED, listener -> listener.getOwner() == player);
+			player.removeListenerIf(EventType.CREATURE_ATTACKED, listener -> listener.getOwner() == player);
 		}
 		qs.enableTutorialEvent(player, eventStatus);
 	}

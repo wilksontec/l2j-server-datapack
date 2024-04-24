@@ -50,9 +50,9 @@ public class Q00138_TempleChampionPart2 extends Quest {
 	
 	public Q00138_TempleChampionPart2() {
 		super(138, Q00138_TempleChampionPart2.class.getSimpleName(), "Temple Champion - 2");
-		addStartNpc(SYLVAIN);
-		addTalkId(SYLVAIN, PUPINA, ANGUS, SLA);
-		addKillId(MOBS);
+		bindStartNpc(SYLVAIN);
+		bindTalk(SYLVAIN, PUPINA, ANGUS, SLA);
+		bindKill(MOBS);
 		registerQuestItems(TEMPLE_MANIFESTO, RELICS_OF_THE_DARK_ELF_TRAINEE.getId(), ANGUS_RECOMMENDATION, PUPINAS_RECOMMENDATION);
 	}
 	

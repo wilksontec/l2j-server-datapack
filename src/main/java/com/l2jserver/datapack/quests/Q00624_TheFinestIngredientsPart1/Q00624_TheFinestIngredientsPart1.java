@@ -54,9 +54,9 @@ public final class Q00624_TheFinestIngredientsPart1 extends Quest {
 	
 	public Q00624_TheFinestIngredientsPart1() {
 		super(624, Q00624_TheFinestIngredientsPart1.class.getSimpleName(), "The Finest Ingredients - Part 1");
-		addStartNpc(JEREMY);
-		addTalkId(JEREMY);
-		addKillId(MONSTER_DROPS.keySet());
+		bindStartNpc(JEREMY);
+		bindTalk(JEREMY);
+		bindKill(MONSTER_DROPS.keySet());
 		registerQuestItems(TRUNK_OF_NEPENTHES, FOOT_OF_BANDERSNATCHLING, SECRET_SPICE);
 	}
 	

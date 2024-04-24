@@ -55,9 +55,9 @@ public final class Q00622_SpecialtyLiquorDelivery extends Quest {
 	
 	public Q00622_SpecialtyLiquorDelivery() {
 		super(622, Q00622_SpecialtyLiquorDelivery.class.getSimpleName(), "Specialty Liquor Delivery");
-		addStartNpc(JEREMY);
-		addTalkId(JEREMY, BOELIN, LIETTA);
-		addTalkId(TALKERS);
+		bindStartNpc(JEREMY);
+		bindTalk(JEREMY, BOELIN, LIETTA);
+		bindTalk(TALKERS);
 		registerQuestItems(SPECIAL_DRINK, SPECIAL_DRINK_PRICE);
 	}
 	

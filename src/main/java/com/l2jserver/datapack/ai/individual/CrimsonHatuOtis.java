@@ -38,8 +38,8 @@ public final class CrimsonHatuOtis extends AbstractNpcAI {
 	
 	public CrimsonHatuOtis() {
 		super(CrimsonHatuOtis.class.getSimpleName(), "ai/individual");
-		addAttackId(CRIMSON_HATU_OTIS);
-		addKillId(CRIMSON_HATU_OTIS);
+		bindAttack(CRIMSON_HATU_OTIS);
+		bindKill(CRIMSON_HATU_OTIS);
 	}
 	
 	@Override

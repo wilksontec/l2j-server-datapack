@@ -80,12 +80,12 @@ public final class Q00403_PathOfTheRogue extends Quest {
 	
 	public Q00403_PathOfTheRogue() {
 		super(403, Q00403_PathOfTheRogue.class.getSimpleName(), "Path Of The Rogue");
-		addStartNpc(CAPTAIN_BEZIQUE);
-		addTalkId(CAPTAIN_BEZIQUE, NETI);
-		addAttackId(MONSTER_DROPS.keySet());
-		addAttackId(CATS_EYE_BANDIT);
-		addKillId(MONSTER_DROPS.keySet());
-		addKillId(CATS_EYE_BANDIT);
+		bindStartNpc(CAPTAIN_BEZIQUE);
+		bindTalk(CAPTAIN_BEZIQUE, NETI);
+		bindAttack(MONSTER_DROPS.keySet());
+		bindAttack(CATS_EYE_BANDIT);
+		bindKill(MONSTER_DROPS.keySet());
+		bindKill(CATS_EYE_BANDIT);
 		registerQuestItems(BEZIQUES_LETTER, NETIS_BOW, NETIS_DAGGER, SPARTOIS_BONES, HORSESHOE_OF_LIGHT, MOST_WANTED_LIST, STOLEN_JEWELRY, STOLEN_TOMES, STOLEN_RING, STOLEN_NECKLACE);
 	}
 	

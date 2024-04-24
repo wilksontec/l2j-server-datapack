@@ -43,10 +43,10 @@ public class Q00553_OlympiadUndefeated extends Quest {
 	
 	public Q00553_OlympiadUndefeated() {
 		super(553, Q00553_OlympiadUndefeated.class.getSimpleName(), "Olympiad Undefeated");
-		addStartNpc(MANAGER);
-		addTalkId(MANAGER);
+		bindStartNpc(MANAGER);
+		bindTalk(MANAGER);
 		registerQuestItems(WIN_CONF_2, WIN_CONF_5, WIN_CONF_10);
-		addOlympiadMatchFinishId();
+		bindOlympiadMatchFinish();
 	}
 	
 	@Override

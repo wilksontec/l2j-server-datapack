@@ -96,9 +96,9 @@ public final class WyvernManager extends AbstractNpcAI {
 	
 	public WyvernManager() {
 		super(WyvernManager.class.getSimpleName(), "ai/npc");
-		addStartNpc(MANAGERS.keySet());
-		addTalkId(MANAGERS.keySet());
-		addFirstTalkId(MANAGERS.keySet());
+		bindStartNpc(MANAGERS.keySet());
+		bindTalk(MANAGERS.keySet());
+		bindFirstTalk(MANAGERS.keySet());
 	}
 	
 	private String mountWyvern(L2Npc npc, L2PcInstance player) {

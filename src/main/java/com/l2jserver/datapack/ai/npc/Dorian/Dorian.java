@@ -40,7 +40,7 @@ public final class Dorian extends AbstractNpcAI {
 	
 	public Dorian() {
 		super(Dorian.class.getSimpleName(), "ai/npc");
-		addSeeCreatureId(DORIAN);
+		bindSeeCreature(DORIAN);
 	}
 	
 	@Override

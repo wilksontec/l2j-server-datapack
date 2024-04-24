@@ -19,7 +19,7 @@
 package com.l2jserver.datapack.ai.npc.ClassMaster;
 
 import static com.l2jserver.gameserver.config.Configuration.character;
-import static com.l2jserver.gameserver.model.events.EventType.ON_PLAYER_LEVEL_CHANGED;
+import static com.l2jserver.gameserver.model.events.EventType.PLAYER_LEVEL_CHANGED;
 import static com.l2jserver.gameserver.network.SystemMessageId.INVENTORY_LESS_THAN_80_PERCENT;
 import static com.l2jserver.gameserver.network.SystemMessageId.NOT_ENOUGH_ITEMS;
 import static com.l2jserver.gameserver.network.serverpackets.TutorialCloseHtml.STATIC_PACKET;
@@ -35,7 +35,7 @@ import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
 import com.l2jserver.gameserver.model.base.ClassId;
 import com.l2jserver.gameserver.model.events.Containers;
-import com.l2jserver.gameserver.model.events.impl.character.player.OnPlayerLevelChanged;
+import com.l2jserver.gameserver.model.events.impl.character.player.PlayerLevelChanged;
 import com.l2jserver.gameserver.model.events.listeners.ConsumerEventListener;
 import com.l2jserver.gameserver.model.holders.ItemHolder;
 import com.l2jserver.gameserver.network.serverpackets.ExBrExtraUserInfo;
@@ -62,13 +62,13 @@ public final class ClassMaster extends AbstractNpcAI {
 	
 	public ClassMaster() {
 		super(ClassMaster.class.getSimpleName(), "ai/npc");
-		addStartNpc(MR_CAT, MISS_QUEEN);
-		addFirstTalkId(MR_CAT, MISS_QUEEN);
-		addTalkId(MR_CAT, MISS_QUEEN);
+		bindStartNpc(MR_CAT, MISS_QUEEN);
+		bindFirstTalk(MR_CAT, MISS_QUEEN);
+		bindTalk(MR_CAT, MISS_QUEEN);
 		if (character().alternateClassMaster()) {
 			setOnEnterWorld(true);
-			registerTutorialEvent();
-			registerTutorialQuestionMark();
+			bindTutorial();
+			bindTutorialQuestionMark();
 		}
 		
 		if (character().allowClassMasters()) {
@@ -138,8 +138,8 @@ public final class ClassMaster extends AbstractNpcAI {
 	@Override
 	public String onEnterWorld(L2PcInstance player) {
 		showQuestionMark(player);
-		Containers.Players().addListener(new ConsumerEventListener(Containers.Players(), ON_PLAYER_LEVEL_CHANGED, (OnPlayerLevelChanged event) -> {
-			showQuestionMark(event.getActiveChar());
+		Containers.Players().addListener(new ConsumerEventListener(Containers.Players(), PLAYER_LEVEL_CHANGED, (PlayerLevelChanged event) -> {
+			showQuestionMark(event.player());
 		}, this));
 		
 		return super.onEnterWorld(player);

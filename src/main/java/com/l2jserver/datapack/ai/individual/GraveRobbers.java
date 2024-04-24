@@ -35,7 +35,7 @@ public final class GraveRobbers extends AbstractNpcAI {
 	
 	public GraveRobbers() {
 		super(GraveRobbers.class.getSimpleName(), "ai/individual");
-		addSpawnId(GRAVE_ROBBER_SUMMONER, GRAVE_ROBBER_MEGICIAN);
+		bindSpawn(GRAVE_ROBBER_SUMMONER, GRAVE_ROBBER_MEGICIAN);
 	}
 	
 	@Override

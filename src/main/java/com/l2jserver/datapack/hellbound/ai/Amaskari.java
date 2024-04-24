@@ -62,9 +62,9 @@ public final class Amaskari extends AbstractNpcAI {
 	
 	public Amaskari() {
 		super(Amaskari.class.getSimpleName(), "hellbound/AI");
-		addKillId(AMASKARI, AMASKARI_PRISONER);
-		addAttackId(AMASKARI);
-		addSpawnId(AMASKARI_PRISONER);
+		bindKill(AMASKARI, AMASKARI_PRISONER);
+		bindAttack(AMASKARI);
+		bindSpawn(AMASKARI_PRISONER);
 	}
 	
 	@Override

@@ -84,9 +84,9 @@ public final class PriestOfBlessing extends AbstractNpcAI {
 	
 	public PriestOfBlessing() {
 		super(PriestOfBlessing.class.getSimpleName(), "ai/npc");
-		addStartNpc(PRIEST);
-		addFirstTalkId(PRIEST);
-		addTalkId(PRIEST);
+		bindStartNpc(PRIEST);
+		bindFirstTalk(PRIEST);
+		bindTalk(PRIEST);
 		
 		if (!SPAWNED) {
 			for (Location spawn : SPAWNS) {

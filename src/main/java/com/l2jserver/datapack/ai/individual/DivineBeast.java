@@ -34,7 +34,7 @@ public final class DivineBeast extends AbstractNpcAI {
 	
 	public DivineBeast() {
 		super(DivineBeast.class.getSimpleName(), "ai");
-		addSummonSpawnId(DIVINE_BEAST);
+		bindSummonSpawn(DIVINE_BEAST);
 	}
 	
 	@Override

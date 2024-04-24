@@ -35,7 +35,7 @@ public final class Asamah extends AbstractNpcAI {
 	
 	public Asamah() {
 		super(Asamah.class.getSimpleName(), "ai/npc");
-		addFirstTalkId(ASAMAH);
+		bindFirstTalk(ASAMAH);
 	}
 	
 	@Override

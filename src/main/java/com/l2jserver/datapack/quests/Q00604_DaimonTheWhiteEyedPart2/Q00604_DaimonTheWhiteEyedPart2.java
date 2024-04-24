@@ -58,10 +58,10 @@ public final class Q00604_DaimonTheWhiteEyedPart2 extends Quest {
 	
 	public Q00604_DaimonTheWhiteEyedPart2() {
 		super(604, Q00604_DaimonTheWhiteEyedPart2.class.getSimpleName(), "Daimon the White-Eyed - Part 2");
-		addStartNpc(EYE_OF_ARGOS);
-		addTalkId(EYE_OF_ARGOS, DAIMONS_ALTAR);
-		addSpawnId(DAIMON_THE_WHITE_EYED);
-		addKillId(DAIMON_THE_WHITE_EYED);
+		bindStartNpc(EYE_OF_ARGOS);
+		bindTalk(EYE_OF_ARGOS, DAIMONS_ALTAR);
+		bindSpawn(DAIMON_THE_WHITE_EYED);
+		bindKill(DAIMON_THE_WHITE_EYED);
 		registerQuestItems(SUMMON_CRYSTAL, ESSENCE_OF_DAIMON);
 	}
 	

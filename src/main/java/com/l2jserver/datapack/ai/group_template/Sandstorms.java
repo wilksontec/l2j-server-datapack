@@ -35,7 +35,7 @@ public class Sandstorms extends AbstractNpcAI {
 	
 	public Sandstorms() {
 		super(Sandstorms.class.getSimpleName(), "ai/group_template");
-		addAggroRangeEnterId(SANDSTORM);
+		bindAggroRangeEnter(SANDSTORM);
 	}
 	
 	@Override

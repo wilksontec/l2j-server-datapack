@@ -38,9 +38,9 @@ public final class Tunatun extends AbstractNpcAI {
 	
 	public Tunatun() {
 		super(Tunatun.class.getSimpleName(), "ai/npc");
-		addStartNpc(TUNATUN);
-		addFirstTalkId(TUNATUN);
-		addTalkId(TUNATUN);
+		bindStartNpc(TUNATUN);
+		bindFirstTalk(TUNATUN);
+		bindTalk(TUNATUN);
 	}
 	
 	@Override

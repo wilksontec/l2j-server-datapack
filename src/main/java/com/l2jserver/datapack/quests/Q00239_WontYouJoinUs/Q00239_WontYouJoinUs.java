@@ -51,9 +51,9 @@ public class Q00239_WontYouJoinUs extends Quest {
 	
 	public Q00239_WontYouJoinUs() {
 		super(239, Q00239_WontYouJoinUs.class.getSimpleName(), "Won't You Join Us?");
-		addStartNpc(ATHENIA);
-		addTalkId(ATHENIA);
-		addKillId(WASTE_LANDFILL_MACHINE, SUPPRESSOR, EXTERMINATOR);
+		bindStartNpc(ATHENIA);
+		bindTalk(ATHENIA);
+		bindKill(WASTE_LANDFILL_MACHINE, SUPPRESSOR, EXTERMINATOR);
 		registerQuestItems(DESTROYED_MACHINE_PIECE, ENCHANTED_GOLEM_FRAGMENT);
 	}
 	

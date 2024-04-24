@@ -81,9 +81,9 @@ public final class Q00648_AnIceMerchantsDream extends Quest {
 	
 	public Q00648_AnIceMerchantsDream() {
 		super(648, Q00648_AnIceMerchantsDream.class.getSimpleName(), "An Ice Merchants Dream");
-		addStartNpc(RAFFORTY);
-		addTalkId(RAFFORTY, ICE_SHELF);
-		addKillId(DROPLIST.getNpcIds());
+		bindStartNpc(RAFFORTY);
+		bindTalk(RAFFORTY, ICE_SHELF);
+		bindKill(DROPLIST.getNpcIds());
 		registerQuestItems(SILVER_HEMOCYTE, SILVER_ICE_CRYSTAL, BLACK_ICE_CRYSTAL);
 	}
 	

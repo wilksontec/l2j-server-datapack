@@ -43,9 +43,9 @@ public final class LairOfAntharas extends AbstractNpcAI {
 	
 	public LairOfAntharas() {
 		super(LairOfAntharas.class.getSimpleName(), "ai/group_template");
-		addKillId(DRAGON_KNIGHT, DRAGON_KNIGHT2, DRAGON_GUARD, DRAGON_MAGE);
-		addSpawnId(DRAGON_KNIGHT, DRAGON_KNIGHT2, DRAGON_GUARD, DRAGON_MAGE);
-		addMoveFinishedId(DRAGON_GUARD, DRAGON_MAGE);
+		bindKill(DRAGON_KNIGHT, DRAGON_KNIGHT2, DRAGON_GUARD, DRAGON_MAGE);
+		bindSpawn(DRAGON_KNIGHT, DRAGON_KNIGHT2, DRAGON_GUARD, DRAGON_MAGE);
+		bindMoveFinished(DRAGON_GUARD, DRAGON_MAGE);
 	}
 	
 	@Override

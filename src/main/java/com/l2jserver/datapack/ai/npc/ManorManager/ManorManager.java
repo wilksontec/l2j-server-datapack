@@ -34,7 +34,7 @@ import com.l2jserver.gameserver.model.events.ListenerRegisterType;
 import com.l2jserver.gameserver.model.events.annotations.Id;
 import com.l2jserver.gameserver.model.events.annotations.RegisterEvent;
 import com.l2jserver.gameserver.model.events.annotations.RegisterType;
-import com.l2jserver.gameserver.model.events.impl.character.npc.OnNpcManorBypass;
+import com.l2jserver.gameserver.model.events.impl.character.npc.NpcManorBypass;
 import com.l2jserver.gameserver.network.SystemMessageId;
 import com.l2jserver.gameserver.network.serverpackets.BuyListSeed;
 import com.l2jserver.gameserver.network.serverpackets.ExShowCropInfo;
@@ -71,9 +71,9 @@ public final class ManorManager extends AbstractNpcAI {
 	
 	public ManorManager() {
 		super(ManorManager.class.getSimpleName(), "ai/npc");
-		addStartNpc(NPC);
-		addFirstTalkId(NPC);
-		addTalkId(NPC);
+		bindStartNpc(NPC);
+		bindFirstTalk(NPC);
+		bindTalk(NPC);
 	}
 	
 	@Override
@@ -102,21 +102,21 @@ public final class ManorManager extends AbstractNpcAI {
 	}
 	
 	// @formatter:off
-	@RegisterEvent(EventType.ON_NPC_MANOR_BYPASS)
+	@RegisterEvent(EventType.NPC_MANOR_BYPASS)
 	@RegisterType(ListenerRegisterType.NPC)
 	@Id({35644, 35645, 35319, 35366, 36456, 35512, 35558, 35229, 35230, 35231, 35277, 35103, 35145, 35187})
 	// @formatter:on
-	public void onNpcManorBypass(OnNpcManorBypass evt) {
-		final L2PcInstance player = evt.getActiveChar();
+	public void onNpcManorBypass(NpcManorBypass evt) {
+		final L2PcInstance player = evt.player();
 		if (CastleManorManager.getInstance().isUnderMaintenance()) {
 			player.sendPacket(SystemMessageId.THE_MANOR_SYSTEM_IS_CURRENTLY_UNDER_MAINTENANCE);
 			return;
 		}
 		
-		final L2Npc npc = evt.getTarget();
+		final L2Npc npc = evt.target();
 		final int templateId = npc.getTemplate().getParameters().getInt("manor_id", -1);
-		final int castleId = (evt.getManorId() == -1) ? templateId : evt.getManorId();
-		switch (evt.getRequest()) {
+		final int castleId = (evt.manorId() == -1) ? templateId : evt.manorId();
+		switch (evt.request()) {
 			case 1: // Seed purchase
 			{
 				if (templateId != castleId) {
@@ -130,10 +130,10 @@ public final class ManorManager extends AbstractNpcAI {
 				player.sendPacket(new ExShowSellCropList(player.getInventory(), castleId));
 				break;
 			case 3: // Seed info
-				player.sendPacket(new ExShowSeedInfo(castleId, evt.isNextPeriod(), false));
+				player.sendPacket(new ExShowSeedInfo(castleId, evt.nextPeriod(), false));
 				break;
 			case 4: // Crop info
-				player.sendPacket(new ExShowCropInfo(castleId, evt.isNextPeriod(), false));
+				player.sendPacket(new ExShowCropInfo(castleId, evt.nextPeriod(), false));
 				break;
 			case 5: // Basic info
 				player.sendPacket(new ExShowManorDefaultInfo(false));
@@ -142,10 +142,10 @@ public final class ManorManager extends AbstractNpcAI {
 				((L2MerchantInstance) npc).showBuyWindow(player, 300000 + npc.getId());
 				break;
 			case 9: // Edit sales (Crop sales)
-				player.sendPacket(new ExShowProcureCropDetail(evt.getManorId()));
+				player.sendPacket(new ExShowProcureCropDetail(evt.manorId()));
 				break;
 			default:
-				LOG.warn("Player {} send unknown request Id {}!", player, evt.getRequest());
+				LOG.warn("Player {} send unknown request Id {}!", player, evt.request());
 		}
 	}
 }

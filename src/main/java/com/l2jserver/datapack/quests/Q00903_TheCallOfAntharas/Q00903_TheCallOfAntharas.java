@@ -47,9 +47,9 @@ public class Q00903_TheCallOfAntharas extends Quest {
 	
 	public Q00903_TheCallOfAntharas() {
 		super(903, Q00903_TheCallOfAntharas.class.getSimpleName(), "The Call of Antharas");
-		addStartNpc(THEODRIC);
-		addTalkId(THEODRIC);
-		addKillId(BEHEMOTH_DRAGON, TARASK_DRAGON);
+		bindStartNpc(THEODRIC);
+		bindTalk(THEODRIC);
+		bindKill(BEHEMOTH_DRAGON, TARASK_DRAGON);
 		registerQuestItems(TARASK_DRAGONS_LEATHER_FRAGMENT, BEHEMOTH_DRAGON_LEATHER);
 	}
 	

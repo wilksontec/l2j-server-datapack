@@ -134,12 +134,12 @@ public class Defence extends AbstractNpcAI {
 	
 	public Defence() {
 		super(Defence.class.getSimpleName(), "gracia/AI");
-		addKillId(TIAT_RETURN, SPAWNER_PORTAL);
-		addAttackId(TIAT_RETURN);
-		addRouteFinishedId(TIAT_RETURN);
-		addRouteFinishedId(POSSIBLE_MOB_FROM_PORTAL_LIST);
-		addAggroRangeEnterId(TIAT_RETURN, TIAT_FIGHTER);
-		addAggroRangeEnterId(POSSIBLE_MOB_FROM_PORTAL_LIST);
+		bindKill(TIAT_RETURN, SPAWNER_PORTAL);
+		bindAttack(TIAT_RETURN);
+		bindRouteFinished(TIAT_RETURN);
+		bindRouteFinished(POSSIBLE_MOB_FROM_PORTAL_LIST);
+		bindAggroRangeEnter(TIAT_RETURN, TIAT_FIGHTER);
+		bindAggroRangeEnter(POSSIBLE_MOB_FROM_PORTAL_LIST);
 		startQuestTimer("start", 5000, null, null);
 	}
 	
@@ -307,7 +307,7 @@ public class Defence extends AbstractNpcAI {
 	public void onRouteFinished(L2Npc npc) {
 		if (npc == tiatRet) {
 			WalkingManager.getInstance().cancelMoving(npc);
-			addMoveFinishedId(TIAT_RETURN);
+			bindMoveFinished(TIAT_RETURN);
 			tiatRet.getAI().setIntention(CtrlIntention.AI_INTENTION_MOVE_TO, TIAT_RETURN_FINAL_POINT);
 			cancelQuestTimer("check_walk_tiat_to_throne", npc, null);
 			startQuestTimer("tiat_move_to_throne_point_desire", 10000, tiatRet, null);
@@ -320,7 +320,7 @@ public class Defence extends AbstractNpcAI {
 	@Override
 	public void onMoveFinished(L2Npc npc) {
 		if (npc == tiatRet) {
-			tiatRet.removeListenerIf(EventType.ON_NPC_MOVE_FINISHED, listener -> listener.getOwner() == this);
+			tiatRet.removeListenerIf(EventType.NPC_MOVE_FINISHED, listener -> listener.getOwner() == this);
 		}
 	}
 	

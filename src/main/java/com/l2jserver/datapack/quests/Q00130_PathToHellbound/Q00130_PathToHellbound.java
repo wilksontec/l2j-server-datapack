@@ -40,8 +40,8 @@ public class Q00130_PathToHellbound extends Quest {
 	
 	public Q00130_PathToHellbound() {
 		super(130, Q00130_PathToHellbound.class.getSimpleName(), "Path To Hellbound");
-		addStartNpc(CASIAN);
-		addTalkId(CASIAN, GALATE);
+		bindStartNpc(CASIAN);
+		bindTalk(CASIAN, GALATE);
 		registerQuestItems(CASIANS_BLUE_CRYSTAL);
 	}
 	

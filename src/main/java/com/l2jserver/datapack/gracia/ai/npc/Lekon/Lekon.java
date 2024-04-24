@@ -41,9 +41,9 @@ public final class Lekon extends AbstractNpcAI {
 	
 	public Lekon() {
 		super(Lekon.class.getSimpleName(), "gracia/AI/NPC");
-		addFirstTalkId(LEKON);
-		addTalkId(LEKON);
-		addStartNpc(LEKON);
+		bindFirstTalk(LEKON);
+		bindTalk(LEKON);
+		bindStartNpc(LEKON);
 	}
 	
 	@Override

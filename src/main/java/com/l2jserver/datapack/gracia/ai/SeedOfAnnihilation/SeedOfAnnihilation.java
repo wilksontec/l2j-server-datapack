@@ -81,15 +81,15 @@ public class SeedOfAnnihilation extends AbstractNpcAI {
 		super(SeedOfAnnihilation.class.getSimpleName(), "gracia/AI");
 		loadSeedRegionData();
 		for (int i : TELEPORT_ZONES.keySet()) {
-			addEnterZoneId(i);
+			bindEnterZone(i);
 		}
 		for (SeedRegion element : _regionsData) {
 			for (int elite_mob_id : element.elite_mob_ids) {
-				addSpawnId(elite_mob_id);
+				bindSpawn(elite_mob_id);
 			}
 		}
-		addStartNpc(32739);
-		addTalkId(32739);
+		bindStartNpc(32739);
+		bindTalk(32739);
 		startEffectZonesControl();
 	}
 	

@@ -86,13 +86,13 @@ public final class UrbanArea extends AbstractInstance {
 	
 	public UrbanArea() {
 		super(UrbanArea.class.getSimpleName(), "hellbound/Instances");
-		addFirstTalkId(DOWNTOWN_NATIVE);
-		addStartNpc(KANAF, DOWNTOWN_NATIVE);
-		addTalkId(KANAF, DOWNTOWN_NATIVE);
-		addAttackId(TOWN_GUARD, KEYMASTER);
-		addAggroRangeEnterId(TOWN_GUARD);
-		addKillId(AMASKARI);
-		addSpawnId(DOWNTOWN_NATIVE, TOWN_GUARD, TOWN_PATROL, KEYMASTER);
+		bindFirstTalk(DOWNTOWN_NATIVE);
+		bindStartNpc(KANAF, DOWNTOWN_NATIVE);
+		bindTalk(KANAF, DOWNTOWN_NATIVE);
+		bindAttack(TOWN_GUARD, KEYMASTER);
+		bindAggroRangeEnter(TOWN_GUARD);
+		bindKill(AMASKARI);
+		bindSpawn(DOWNTOWN_NATIVE, TOWN_GUARD, TOWN_PATROL, KEYMASTER);
 	}
 	
 	@Override

@@ -57,10 +57,10 @@ public class Q00114_ResurrectionOfAnOldManager extends Quest {
 	
 	public Q00114_ResurrectionOfAnOldManager() {
 		super(114, Q00114_ResurrectionOfAnOldManager.class.getSimpleName(), "Resurrection of an Old Manager");
-		addStartNpc(YUMI);
-		addTalkId(YUMI, WENDY, BOX, STONES, NEWYEAR);
-		addKillId(GUARDIAN);
-		addSeeCreatureId(STONES);
+		bindStartNpc(YUMI);
+		bindTalk(YUMI, WENDY, BOX, STONES, NEWYEAR);
+		bindKill(GUARDIAN);
+		bindSeeCreature(STONES);
 		registerQuestItems(STARSTONE, STARSTONE2, DETCTOR, DETCTOR2, LETTER);
 	}
 	

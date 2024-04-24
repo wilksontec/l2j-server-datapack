@@ -36,7 +36,7 @@ public final class Q00732_ProtectTheReligiousAssociationLeader extends Territory
 			36552,
 			36558
 		};
-		addAttackId(NPC_IDS);
+		bindAttack(NPC_IDS);
 	}
 	
 	@Override

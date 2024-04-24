@@ -72,9 +72,9 @@ public final class Q00632_NecromancersRequest extends Quest {
 	
 	public Q00632_NecromancersRequest() {
 		super(632, Q00632_NecromancersRequest.class.getSimpleName(), "Necromancer's Request");
-		addStartNpc(MYSTERIOUS_WIZARD);
-		addTalkId(MYSTERIOUS_WIZARD);
-		addKillId(DROPLIST.getNpcIds());
+		bindStartNpc(MYSTERIOUS_WIZARD);
+		bindTalk(MYSTERIOUS_WIZARD);
+		bindKill(DROPLIST.getNpcIds());
 		registerQuestItems(VAMPIRES_HEART, ZOMBIES_BRAIN);
 	}
 	

@@ -40,7 +40,7 @@ public class SeeThroughSilentMove extends AbstractNpcAI {
 	
 	public SeeThroughSilentMove() {
 		super(SeeThroughSilentMove.class.getSimpleName(), "ai/group_template");
-		addSpawnId(MONSTERS);
+		bindSpawn(MONSTERS);
 	}
 	
 	@Override

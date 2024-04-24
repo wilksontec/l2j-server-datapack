@@ -115,8 +115,8 @@ public class EnergySeeds extends AbstractNpcAI {
 	public EnergySeeds() {
 		super(EnergySeeds.class.getSimpleName(), "gracia/AI");
 		registerMobs(SEED_IDS);
-		addFirstTalkId(SEED_IDS);
-		addEnterZoneId(SOD_ZONE);
+		bindFirstTalk(SEED_IDS);
+		bindEnterZone(SOD_ZONE);
 		loadSpawns();
 		startAI();
 	}

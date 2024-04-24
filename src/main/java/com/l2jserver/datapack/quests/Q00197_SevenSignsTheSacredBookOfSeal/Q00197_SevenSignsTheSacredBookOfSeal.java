@@ -52,9 +52,9 @@ public final class Q00197_SevenSignsTheSacredBookOfSeal extends Quest {
 	
 	public Q00197_SevenSignsTheSacredBookOfSeal() {
 		super(197, Q00197_SevenSignsTheSacredBookOfSeal.class.getSimpleName(), "Seven Signs, the Sacred Book of Seal");
-		addStartNpc(WOOD);
-		addTalkId(WOOD, ORVEN, LEOPARD, LAWRENCE, SOPHIA);
-		addKillId(SHILENS_EVIL_THOUGHTS);
+		bindStartNpc(WOOD);
+		bindTalk(WOOD, ORVEN, LEOPARD, LAWRENCE, SOPHIA);
+		bindKill(SHILENS_EVIL_THOUGHTS);
 		registerQuestItems(MYSTERIOUS_HAND_WRITTEN_TEXT, SCULPTURE_OF_DOUBT);
 	}
 	

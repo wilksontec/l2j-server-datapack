@@ -37,9 +37,9 @@ public final class Falk extends AbstractNpcAI {
 	
 	public Falk() {
 		super(Falk.class.getSimpleName(), "hellbound/AI/NPC");
-		addFirstTalkId(FALK);
-		addStartNpc(FALK);
-		addTalkId(FALK);
+		bindFirstTalk(FALK);
+		bindStartNpc(FALK);
+		bindTalk(FALK);
 	}
 	
 	@Override

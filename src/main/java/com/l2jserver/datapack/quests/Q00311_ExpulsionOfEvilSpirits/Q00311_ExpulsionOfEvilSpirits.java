@@ -58,9 +58,9 @@ public final class Q00311_ExpulsionOfEvilSpirits extends Quest {
 	
 	public Q00311_ExpulsionOfEvilSpirits() {
 		super(311, Q00311_ExpulsionOfEvilSpirits.class.getSimpleName(), "Expulsion of Evil Spirits");
-		addStartNpc(CHAIREN);
-		addTalkId(CHAIREN);
-		addKillId(DROPLIST.getNpcIds());
+		bindStartNpc(CHAIREN);
+		bindTalk(CHAIREN);
+		bindKill(DROPLIST.getNpcIds());
 		registerQuestItems(SOUL_CORE_CONTAINING_EVIL_SPIRIT, RAGNA_ORCS_AMULET);
 	}
 	

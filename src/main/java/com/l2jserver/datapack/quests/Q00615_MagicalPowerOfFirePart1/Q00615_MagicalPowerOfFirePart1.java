@@ -82,9 +82,9 @@ public class Q00615_MagicalPowerOfFirePart1 extends Quest {
 	
 	public Q00615_MagicalPowerOfFirePart1() {
 		super(615, Q00615_MagicalPowerOfFirePart1.class.getSimpleName(), "Magical Power of Fire - Part 1");
-		addStartNpc(NARAN);
-		addTalkId(UDAN, NARAN, ASEFA_BOX);
-		addAttackId(KETRA_MOBS);
+		bindStartNpc(NARAN);
+		bindTalk(UDAN, NARAN, ASEFA_BOX);
+		bindAttack(KETRA_MOBS);
 		registerQuestItems(STOLEN_RED_TOTEM);
 	}
 	

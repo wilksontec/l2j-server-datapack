@@ -61,9 +61,9 @@ public final class Q00326_VanquishRemnants extends Quest {
 	
 	public Q00326_VanquishRemnants() {
 		super(326, Q00326_VanquishRemnants.class.getSimpleName(), "Vanquish Remnants");
-		addStartNpc(LEOPOLD);
-		addTalkId(LEOPOLD);
-		addKillId(MONSTERS.keySet());
+		bindStartNpc(LEOPOLD);
+		bindTalk(LEOPOLD);
+		bindKill(MONSTERS.keySet());
 		registerQuestItems(RED_CROSS_BADGE, BLUE_CROSS_BADGE, BLACK_CROSS_BADGE);
 	}
 	

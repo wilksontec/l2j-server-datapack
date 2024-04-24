@@ -50,8 +50,8 @@ public class EmeraldHorn extends AbstractNpcAI {
 	
 	public EmeraldHorn() {
 		super(EmeraldHorn.class.getSimpleName(), "ai/individual");
-		addAttackId(EMERALD_HORN);
-		addSpellFinishedId(EMERALD_HORN);
+		bindAttack(EMERALD_HORN);
+		bindSpellFinished(EMERALD_HORN);
 	}
 	
 	@Override

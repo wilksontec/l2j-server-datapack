@@ -44,9 +44,9 @@ public final class Q00366_SilverHairedShaman extends Quest {
 	
 	public Q00366_SilverHairedShaman() {
 		super(366, Q00366_SilverHairedShaman.class.getSimpleName(), "Silver Haired Shaman");
-		addStartNpc(DIETER);
-		addTalkId(DIETER);
-		addKillId(DROPLIST.getNpcIds());
+		bindStartNpc(DIETER);
+		bindTalk(DIETER);
+		bindKill(DROPLIST.getNpcIds());
 		registerQuestItems(SAIRONS_SILVER_HAIR);
 	}
 	

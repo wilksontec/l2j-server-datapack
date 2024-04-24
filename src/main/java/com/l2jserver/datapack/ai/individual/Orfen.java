@@ -75,12 +75,12 @@ public final class Orfen extends AbstractNpcAI {
 	
 	public Orfen() {
 		super(Orfen.class.getSimpleName(), "ai/individual");
-		addKillId(ORFEN);
-		addSpawnId(ORFEN, RIBA_IREN);
-		addExitZoneId(ZONE);
-		addSkillSeeId(ORFEN);
-		addTeleportId(ORFEN);
-		addAttackId(ORFEN, RAIKEL_LEOS, RAIKEL, RIBA_IREN);
+		bindKill(ORFEN);
+		bindSpawn(ORFEN, RIBA_IREN);
+		bindExitZone(ZONE);
+		bindSkillSee(ORFEN);
+		bindTeleport(ORFEN);
+		bindAttack(ORFEN, RAIKEL_LEOS, RAIKEL, RIBA_IREN);
 		_zone = GrandBossManager.getInstance().getZone(43728, 17220, -4342);
 		StatsSet info = GrandBossManager.getInstance().getStatsSet(ORFEN);
 		if (GrandBossManager.getInstance().getBossStatus(ORFEN) == DEAD) {

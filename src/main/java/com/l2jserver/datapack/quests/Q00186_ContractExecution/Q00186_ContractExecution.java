@@ -58,9 +58,9 @@ public final class Q00186_ContractExecution extends Quest {
 	
 	public Q00186_ContractExecution() {
 		super(186, Q00186_ContractExecution.class.getSimpleName(), "Contract Execution");
-		addStartNpc(RESEARCHER_LORAIN);
-		addTalkId(RESEARCHER_LORAIN, BLUEPRINT_SELLER_LUKA, MAESTRO_NIKOLA);
-		addKillId(MONSTERS.keySet());
+		bindStartNpc(RESEARCHER_LORAIN);
+		bindTalk(RESEARCHER_LORAIN, BLUEPRINT_SELLER_LUKA, MAESTRO_NIKOLA);
+		bindKill(MONSTERS.keySet());
 		registerQuestItems(METALLOGRAPH_RESEARCH_REPORT, LETO_LIZARDMAN_ACCESSORY);
 	}
 	

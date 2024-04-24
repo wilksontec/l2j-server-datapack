@@ -73,11 +73,11 @@ public final class AnomicFoundry extends AbstractNpcAI {
 	
 	public AnomicFoundry() {
 		super(AnomicFoundry.class.getSimpleName(), "hellbound/AI/Zones");
-		addAggroRangeEnterId(LABORER);
-		addAttackId(LABORER);
-		addKillId(LABORER, LESSER_EVIL, GREATER_EVIL);
-		addSpawnId(LABORER, LESSER_EVIL, GREATER_EVIL);
-		addTeleportId(LABORER, LESSER_EVIL, GREATER_EVIL);
+		bindAggroRangeEnter(LABORER);
+		bindAttack(LABORER);
+		bindKill(LABORER, LESSER_EVIL, GREATER_EVIL);
+		bindSpawn(LABORER, LESSER_EVIL, GREATER_EVIL);
+		bindTeleport(LABORER, LESSER_EVIL, GREATER_EVIL);
 		startQuestTimer("make_spawn_1", respawnTime, null, null);
 	}
 	

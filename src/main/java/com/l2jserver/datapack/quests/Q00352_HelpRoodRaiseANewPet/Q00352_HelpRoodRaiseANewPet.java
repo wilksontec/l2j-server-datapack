@@ -55,9 +55,9 @@ public final class Q00352_HelpRoodRaiseANewPet extends Quest {
 	
 	public Q00352_HelpRoodRaiseANewPet() {
 		super(352, Q00352_HelpRoodRaiseANewPet.class.getSimpleName(), "Help Rood Raise A New Pet!");
-		addStartNpc(ROOD);
-		addTalkId(ROOD);
-		addKillId(DROPLIST.getNpcIds());
+		bindStartNpc(ROOD);
+		bindTalk(ROOD);
+		bindKill(DROPLIST.getNpcIds());
 		registerQuestItems(LIENRIK_EGG1, LIENRIK_EGG2);
 	}
 	

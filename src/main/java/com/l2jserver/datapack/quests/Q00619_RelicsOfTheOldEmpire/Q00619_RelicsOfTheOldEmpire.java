@@ -228,10 +228,10 @@ public final class Q00619_RelicsOfTheOldEmpire extends Quest {
 	
 	public Q00619_RelicsOfTheOldEmpire() {
 		super(619, Q00619_RelicsOfTheOldEmpire.class.getSimpleName(), "Relics of the Old Empire");
-		addStartNpc(GHOST_OF_ADVENTURER);
-		addTalkId(GHOST_OF_ADVENTURER);
-		addKillId(DROPLIST.getNpcIds());
-		addKillId(ARCHON_OF_HALISHA);
+		bindStartNpc(GHOST_OF_ADVENTURER);
+		bindTalk(GHOST_OF_ADVENTURER);
+		bindKill(DROPLIST.getNpcIds());
+		bindKill(ARCHON_OF_HALISHA);
 		registerQuestItems(BROKEN_RELIC_PART.getId());
 	}
 	

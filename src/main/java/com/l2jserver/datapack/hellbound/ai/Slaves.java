@@ -48,8 +48,8 @@ public final class Slaves extends AbstractNpcAI {
 	
 	public Slaves() {
 		super(Slaves.class.getSimpleName(), "hellbound/AI");
-		addSpawnId(MASTERS);
-		addKillId(MASTERS);
+		bindSpawn(MASTERS);
+		bindKill(MASTERS);
 	}
 	
 	@Override

@@ -134,9 +134,9 @@ public class Q00605_AllianceWithKetraOrcs extends Quest {
 	
 	public Q00605_AllianceWithKetraOrcs() {
 		super(605, Q00605_AllianceWithKetraOrcs.class.getSimpleName(), "Alliance with Ketra Orcs");
-		addStartNpc(WAHKAN);
-		addTalkId(WAHKAN);
-		addKillId(MOBS.keySet());
+		bindStartNpc(WAHKAN);
+		bindTalk(WAHKAN);
+		bindKill(MOBS.keySet());
 		registerQuestItems(VARKA_BADGE_SOLDIER, VARKA_BADGE_OFFICER, VARKA_BADGE_CAPTAIN);
 	}
 	

@@ -62,9 +62,9 @@ public class Q10272_LightFragment extends Quest {
 	
 	public Q10272_LightFragment() {
 		super(10272, Q10272_LightFragment.class.getSimpleName(), "Light Fragment");
-		addStartNpc(ORBYU);
-		addTalkId(ORBYU, ARTIUS, GINBY, LELRIKIA, LEKON);
-		addKillId(MOBS);
+		bindStartNpc(ORBYU);
+		bindTalk(ORBYU, ARTIUS, GINBY, LELRIKIA, LEKON);
+		bindKill(MOBS);
 		registerQuestItems(FRAGMENT_POWDER.getId(), LIGHT_FRAGMENT_POWDER);
 	}
 	

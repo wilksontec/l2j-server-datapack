@@ -199,9 +199,9 @@ public final class WarriorsMountedTroop extends AbstractInstance {
 	
 	public WarriorsMountedTroop() {
 		super(WarriorsMountedTroop.class.getSimpleName(), "gracia/instances");
-		addStartNpc(EDRIC);
-		addTalkId(EDRIC);
-		addKillId(DOORMAN, REMNANT_MACHINE);
+		bindStartNpc(EDRIC);
+		bindTalk(EDRIC);
+		bindKill(DOORMAN, REMNANT_MACHINE);
 		for (int[] coord : HALL_ZONE_1_COORDINATES) {
 			_hallZone1.add(coord[0], coord[1], coord[2], coord[3], 0);
 		}

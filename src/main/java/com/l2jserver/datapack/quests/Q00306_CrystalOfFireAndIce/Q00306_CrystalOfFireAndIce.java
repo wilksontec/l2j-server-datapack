@@ -52,9 +52,9 @@ public final class Q00306_CrystalOfFireAndIce extends Quest {
 	
 	public Q00306_CrystalOfFireAndIce() {
 		super(306, Q00306_CrystalOfFireAndIce.class.getSimpleName(), "Crystals of Fire and Ice");
-		addStartNpc(KATERINA);
-		addTalkId(KATERINA);
-		addKillId(DROPLIST.getNpcIds());
+		bindStartNpc(KATERINA);
+		bindTalk(KATERINA);
+		bindKill(DROPLIST.getNpcIds());
 		registerQuestItems(FLAME_SHARD, ICE_SHARD);
 	}
 	

@@ -197,13 +197,13 @@ public final class DarkCloudMansion extends AbstractInstance {
 	
 	public DarkCloudMansion() {
 		super(DarkCloudMansion.class.getSimpleName());
-		addFirstTalkId(BSM, SOTruth);
-		addStartNpc(YIYEN);
-		addTalkId(YIYEN, SOTruth);
-		addAttackId(SC);
-		addAttackId(BS);
-		addAttackId(CCG);
-		addKillId(TOKILL);
+		bindFirstTalk(BSM, SOTruth);
+		bindStartNpc(YIYEN);
+		bindTalk(YIYEN, SOTruth);
+		bindAttack(SC);
+		bindAttack(BS);
+		bindAttack(CCG);
+		bindKill(TOKILL);
 	}
 	
 	protected static class DMCNpc {

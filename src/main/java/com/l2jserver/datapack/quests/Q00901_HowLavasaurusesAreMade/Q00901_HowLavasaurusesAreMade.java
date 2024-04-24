@@ -51,9 +51,9 @@ public class Q00901_HowLavasaurusesAreMade extends Quest {
 	
 	public Q00901_HowLavasaurusesAreMade() {
 		super(901, Q00901_HowLavasaurusesAreMade.class.getSimpleName(), "How Lavasauruses Are Made");
-		addStartNpc(ROONEY);
-		addTalkId(ROONEY);
-		addKillId(LAVASAURUS_NEWBORN, LAVASAURUS_FLEDGIING, LAVASAURUS_ADULT, LAVASAURUS_ELDERLY);
+		bindStartNpc(ROONEY);
+		bindTalk(ROONEY);
+		bindKill(LAVASAURUS_NEWBORN, LAVASAURUS_FLEDGIING, LAVASAURUS_ADULT, LAVASAURUS_ELDERLY);
 		registerQuestItems(FRAGMENT_STONE, FRAGMENT_HORN, FRAGMENT_HEAD, FRAGMENT_BODY);
 	}
 	

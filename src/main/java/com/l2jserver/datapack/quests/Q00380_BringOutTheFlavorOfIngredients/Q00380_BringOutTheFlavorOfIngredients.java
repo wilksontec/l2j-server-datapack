@@ -54,9 +54,9 @@ public final class Q00380_BringOutTheFlavorOfIngredients extends Quest {
 	
 	public Q00380_BringOutTheFlavorOfIngredients() {
 		super(380, Q00380_BringOutTheFlavorOfIngredients.class.getSimpleName(), "Bring Out the Flavor of Ingredients!");
-		addStartNpc(ROLLAND);
-		addTalkId(ROLLAND);
-		addKillId(DROPLIST.getNpcIds());
+		bindStartNpc(ROLLAND);
+		bindTalk(ROLLAND);
+		bindKill(DROPLIST.getNpcIds());
 		registerQuestItems(RITRON_FRUIT.getId(), MOON_FLOWER.getId(), LEECH_FLUIDS.getId());
 	}
 	

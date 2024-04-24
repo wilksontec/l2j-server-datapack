@@ -42,9 +42,9 @@ public class Q00338_AlligatorHunter extends Quest {
 	
 	public Q00338_AlligatorHunter() {
 		super(338, Q00338_AlligatorHunter.class.getSimpleName(), "Alligator Hunter");
-		addStartNpc(ENVERUN);
-		addTalkId(ENVERUN);
-		addKillId(ALLIGATOR);
+		bindStartNpc(ENVERUN);
+		bindTalk(ENVERUN);
+		bindKill(ALLIGATOR);
 		registerQuestItems(ALLIGATOR_LEATHER);
 	}
 	

@@ -61,10 +61,10 @@ public class Q00134_TempleMissionary extends Quest {
 	
 	public Q00134_TempleMissionary() {
 		super(134, Q00134_TempleMissionary.class.getSimpleName(), "Temple Missionary");
-		addStartNpc(GLYVKA);
-		addTalkId(GLYVKA, ROUKE);
-		addKillId(CRUMA_MARSHLANDS_TRAITOR);
-		addKillId(DROPLIST.getNpcIds());
+		bindStartNpc(GLYVKA);
+		bindTalk(GLYVKA, ROUKE);
+		bindKill(CRUMA_MARSHLANDS_TRAITOR);
+		bindKill(DROPLIST.getNpcIds());
 		registerQuestItems(GIANTS_EXPERIMENTAL_TOOL_FRAGMENT, GIANTS_EXPERIMENTAL_TOOL, GIANTS_TECHNOLOGY_REPORT, ROUKES_REPOT);
 	}
 	

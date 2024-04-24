@@ -52,9 +52,9 @@ public final class Q00329_CuriosityOfADwarf extends Quest {
 	
 	public Q00329_CuriosityOfADwarf() {
 		super(329, Q00329_CuriosityOfADwarf.class.getSimpleName(), "Curiosity Of A Dwarf");
-		addStartNpc(TRADER_ROLENTO);
-		addTalkId(TRADER_ROLENTO);
-		addKillId(DROPLIST.getNpcIds());
+		bindStartNpc(TRADER_ROLENTO);
+		bindTalk(TRADER_ROLENTO);
+		bindKill(DROPLIST.getNpcIds());
 		registerQuestItems(GOLEM_HEARTSTONE, BROKEN_HEARTSTONE);
 	}
 	

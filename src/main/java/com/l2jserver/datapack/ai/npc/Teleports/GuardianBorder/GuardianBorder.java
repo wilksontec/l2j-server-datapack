@@ -334,9 +334,9 @@ public final class GuardianBorder extends AbstractNpcAI {
 	public GuardianBorder() {
 		super(GuardianBorder.class.getSimpleName(), "ai/npc/Teleports");
 		
-		addSpawnId(NPCS);
-		addStartNpc(NPCS);
-		addFirstTalkId(NPCS);
+		bindSpawn(NPCS);
+		bindStartNpc(NPCS);
+		bindFirstTalk(NPCS);
 		
 		for (int[] zone : ZONES) {
 			_zoneList.put(zone[0], zone[1]);

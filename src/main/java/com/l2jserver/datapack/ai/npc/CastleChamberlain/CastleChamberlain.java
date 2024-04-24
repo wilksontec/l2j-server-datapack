@@ -57,7 +57,7 @@ import com.l2jserver.gameserver.model.events.ListenerRegisterType;
 import com.l2jserver.gameserver.model.events.annotations.Id;
 import com.l2jserver.gameserver.model.events.annotations.RegisterEvent;
 import com.l2jserver.gameserver.model.events.annotations.RegisterType;
-import com.l2jserver.gameserver.model.events.impl.character.npc.OnNpcManorBypass;
+import com.l2jserver.gameserver.model.events.impl.character.npc.NpcManorBypass;
 import com.l2jserver.gameserver.model.holders.SkillHolder;
 import com.l2jserver.gameserver.model.itemcontainer.Inventory;
 import com.l2jserver.gameserver.network.SystemMessageId;
@@ -141,9 +141,9 @@ public final class CastleChamberlain extends AbstractNpcAI {
 	
 	public CastleChamberlain() {
 		super(CastleChamberlain.class.getSimpleName(), "ai/npc");
-		addStartNpc(NPC);
-		addTalkId(NPC);
-		addFirstTalkId(NPC);
+		bindStartNpc(NPC);
+		bindTalk(NPC);
+		bindFirstTalk(NPC);
 	}
 	
 	private NpcHtmlMessage getHtmlPacket(L2PcInstance player, L2Npc npc, String htmlFile) {
@@ -1000,13 +1000,13 @@ public final class CastleChamberlain extends AbstractNpcAI {
 	}
 	
 	// @formatter:off
-	@RegisterEvent(EventType.ON_NPC_MANOR_BYPASS)
+	@RegisterEvent(EventType.NPC_MANOR_BYPASS)
 	@RegisterType(ListenerRegisterType.NPC)
 	@Id({35100, 35142, 35184, 35226, 35274,	35316, 35363, 35509, 35555})
 	// @formatter:on
-	public void onNpcManorBypass(OnNpcManorBypass evt) {
-		final L2PcInstance player = evt.getActiveChar();
-		final L2Npc npc = evt.getTarget();
+	public void onNpcManorBypass(NpcManorBypass evt) {
+		final L2PcInstance player = evt.player();
+		final L2Npc npc = evt.target();
 		if (isOwner(player, npc)) {
 			final CastleManorManager manor = CastleManorManager.getInstance();
 			if (manor.isUnderMaintenance()) {
@@ -1014,13 +1014,13 @@ public final class CastleChamberlain extends AbstractNpcAI {
 				return;
 			}
 			
-			final int castleId = (evt.getManorId() == -1) ? npc.getCastle().getResidenceId() : evt.getManorId();
-			switch (evt.getRequest()) {
+			final int castleId = (evt.manorId() == -1) ? npc.getCastle().getResidenceId() : evt.manorId();
+			switch (evt.request()) {
 				case 3: // Seed info
-					player.sendPacket(new ExShowSeedInfo(castleId, evt.isNextPeriod(), true));
+					player.sendPacket(new ExShowSeedInfo(castleId, evt.nextPeriod(), true));
 					break;
 				case 4: // Crop info
-					player.sendPacket(new ExShowCropInfo(castleId, evt.isNextPeriod(), true));
+					player.sendPacket(new ExShowCropInfo(castleId, evt.nextPeriod(), true));
 					break;
 				case 5: // Basic info
 					player.sendPacket(new ExShowManorDefaultInfo(true));
@@ -1040,7 +1040,7 @@ public final class CastleChamberlain extends AbstractNpcAI {
 					player.sendPacket(new ExShowCropSetting(castleId));
 					break;
 				default:
-					LOG.warn("Player {} sent an unknown request Id {}!", player, evt.getRequest());
+					LOG.warn("Player {} sent an unknown request Id {}!", player, evt.request());
 			}
 		}
 	}

@@ -39,8 +39,8 @@ public class Q00119_LastImperialPrince extends Quest {
 	
 	public Q00119_LastImperialPrince() {
 		super(119, Q00119_LastImperialPrince.class.getSimpleName(), "Last Imperial Prince");
-		addStartNpc(NAMELESS_SPIRIT);
-		addTalkId(NAMELESS_SPIRIT, DEVORIN);
+		bindStartNpc(NAMELESS_SPIRIT);
+		bindTalk(NAMELESS_SPIRIT, DEVORIN);
 	}
 	
 	@Override

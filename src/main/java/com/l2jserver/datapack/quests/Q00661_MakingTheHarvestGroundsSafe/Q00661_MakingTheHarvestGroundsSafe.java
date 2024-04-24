@@ -47,9 +47,9 @@ public final class Q00661_MakingTheHarvestGroundsSafe extends Quest {
 	
 	public Q00661_MakingTheHarvestGroundsSafe() {
 		super(661, Q00661_MakingTheHarvestGroundsSafe.class.getSimpleName(), "Making the Harvest Grounds Safe");
-		addStartNpc(NORMAN);
-		addTalkId(NORMAN);
-		addKillId(DROPLIST.getNpcIds());
+		bindStartNpc(NORMAN);
+		bindTalk(NORMAN);
+		bindKill(DROPLIST.getNpcIds());
 		registerQuestItems(BIG_HORNET_STING, CLOUD_GEM, YOUNG_ARANEID_CLAW);
 	}
 	

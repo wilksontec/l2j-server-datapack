@@ -50,7 +50,7 @@ public class MuscleBomber extends AbstractNpcAI {
 	
 	public MuscleBomber() {
 		super(MuscleBomber.class.getSimpleName(), "ai/individual");
-		addAttackId(MUSCLE_BOMBER);
+		bindAttack(MUSCLE_BOMBER);
 	}
 	
 	@Override

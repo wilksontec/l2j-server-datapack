@@ -36,8 +36,8 @@ public class Q00249_PoisonedPlainsOfTheLizardmen extends Quest {
 	
 	public Q00249_PoisonedPlainsOfTheLizardmen() {
 		super(249, Q00249_PoisonedPlainsOfTheLizardmen.class.getSimpleName(), "Poisoned Plains of the Lizardmen");
-		addStartNpc(MOUEN);
-		addTalkId(MOUEN, JOHNNY);
+		bindStartNpc(MOUEN);
+		bindTalk(MOUEN, JOHNNY);
 	}
 	
 	@Override

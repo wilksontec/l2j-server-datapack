@@ -55,10 +55,10 @@ public class Q00701_ProofOfExistence extends Quest {
 	
 	public Q00701_ProofOfExistence() {
 		super(701, Q00701_ProofOfExistence.class.getSimpleName(), "Proof of Existence");
-		addStartNpc(ARTIUS);
-		addTalkId(ARTIUS);
-		addKillId(MOBS.keySet());
-		addKillId(ENIRA);
+		bindStartNpc(ARTIUS);
+		bindTalk(ARTIUS);
+		bindKill(MOBS.keySet());
+		bindKill(ENIRA);
 		registerQuestItems(DEADMANS_REMAINS, BANSHEE_QUEENS_EYE);
 	}
 	

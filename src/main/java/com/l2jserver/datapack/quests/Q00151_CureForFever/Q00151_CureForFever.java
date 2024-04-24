@@ -49,9 +49,9 @@ public class Q00151_CureForFever extends Quest {
 	
 	public Q00151_CureForFever() {
 		super(151, Q00151_CureForFever.class.getSimpleName(), "Cure for Fever");
-		addStartNpc(ELLIAS);
-		addTalkId(ELLIAS, YOHANES);
-		addKillId(MOBS);
+		bindStartNpc(ELLIAS);
+		bindTalk(ELLIAS, YOHANES);
+		bindKill(MOBS);
 		registerQuestItems(POISON_SAC, FEVER_MEDICINE);
 	}
 	

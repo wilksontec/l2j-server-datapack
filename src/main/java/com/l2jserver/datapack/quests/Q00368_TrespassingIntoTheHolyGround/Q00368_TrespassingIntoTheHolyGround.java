@@ -45,9 +45,9 @@ public final class Q00368_TrespassingIntoTheHolyGround extends Quest {
 	
 	public Q00368_TrespassingIntoTheHolyGround() {
 		super(368, Q00368_TrespassingIntoTheHolyGround.class.getSimpleName(), "Trespassing into the Holy Ground");
-		addStartNpc(RESTINA);
-		addTalkId(RESTINA);
-		addKillId(DROPLIST.getNpcIds());
+		bindStartNpc(RESTINA);
+		bindTalk(RESTINA);
+		bindKill(DROPLIST.getNpcIds());
 		registerQuestItems(BLADE_STAKATO_FANG);
 	}
 	

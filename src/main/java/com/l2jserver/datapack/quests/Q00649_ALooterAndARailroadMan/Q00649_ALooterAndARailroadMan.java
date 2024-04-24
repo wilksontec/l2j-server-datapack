@@ -56,9 +56,9 @@ public final class Q00649_ALooterAndARailroadMan extends Quest {
 	
 	public Q00649_ALooterAndARailroadMan() {
 		super(649, Q00649_ALooterAndARailroadMan.class.getSimpleName(), "A Looter and a Railroad Man");
-		addStartNpc(RAILMAN_OBI);
-		addTalkId(RAILMAN_OBI);
-		addKillId(MONSTERS.keySet());
+		bindStartNpc(RAILMAN_OBI);
+		bindTalk(RAILMAN_OBI);
+		bindKill(MONSTERS.keySet());
 		registerQuestItems(THIEF_GUILD_MARK);
 	}
 	

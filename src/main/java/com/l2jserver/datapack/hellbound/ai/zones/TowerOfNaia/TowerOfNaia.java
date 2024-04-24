@@ -329,27 +329,27 @@ public final class TowerOfNaia extends AbstractNpcAI {
 	
 	public TowerOfNaia() {
 		super(TowerOfNaia.class.getSimpleName(), "hellbound/AI/Zones");
-		addFirstTalkId(CONTROLLER);
-		addStartNpc(CONTROLLER, DWARVEN_GHOST);
-		addTalkId(CONTROLLER, DWARVEN_GHOST);
-		addAttackId(LOCK);
-		addKillId(LOCK, MUTATED_ELPY, SPORE_BASIC);
-		addSpawnId(MUTATED_ELPY, SPORE_BASIC);
+		bindFirstTalk(CONTROLLER);
+		bindStartNpc(CONTROLLER, DWARVEN_GHOST);
+		bindTalk(CONTROLLER, DWARVEN_GHOST);
+		bindAttack(LOCK);
+		bindKill(LOCK, MUTATED_ELPY, SPORE_BASIC);
+		bindSpawn(MUTATED_ELPY, SPORE_BASIC);
 		
 		for (int npcId = SPORE_FIRE; npcId <= SPORE_EARTH; npcId++) {
-			addKillId(npcId);
-			addSpawnId(npcId);
+			bindKill(npcId);
+			bindSpawn(npcId);
 		}
 		
 		for (int npcId = ROOM_MANAGER_FIRST; npcId <= ROOM_MANAGER_LAST; npcId++) {
-			addFirstTalkId(npcId);
-			addTalkId(npcId);
-			addStartNpc(npcId);
+			bindFirstTalk(npcId);
+			bindTalk(npcId);
+			bindStartNpc(npcId);
 			initRoom(npcId);
 		}
 		
 		for (int npcId : TOWER_MONSTERS) {
-			addKillId(npcId);
+			bindKill(npcId);
 		}
 		
 		_lock = (L2MonsterInstance) addSpawn(LOCK, 16409, 244438, 11620, -1048, false, 0, false);

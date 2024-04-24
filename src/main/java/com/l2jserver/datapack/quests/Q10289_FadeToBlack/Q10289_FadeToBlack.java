@@ -40,9 +40,9 @@ public class Q10289_FadeToBlack extends Quest {
 	
 	public Q10289_FadeToBlack() {
 		super(10289, Q10289_FadeToBlack.class.getSimpleName(), "Fade to Black");
-		addStartNpc(GREYMORE);
-		addTalkId(GREYMORE);
-		addKillId(ANAYS);
+		bindStartNpc(GREYMORE);
+		bindTalk(GREYMORE);
+		bindKill(ANAYS);
 		registerQuestItems(MARK_OF_SPLENDOR, MARK_OF_DARKNESS);
 	}
 	

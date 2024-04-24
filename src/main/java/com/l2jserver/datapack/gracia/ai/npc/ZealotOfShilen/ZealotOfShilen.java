@@ -39,9 +39,9 @@ public final class ZealotOfShilen extends AbstractNpcAI {
 	
 	public ZealotOfShilen() {
 		super(ZealotOfShilen.class.getSimpleName(), "gracia/AI/NPC");
-		addSpawnId(ZEALOT);
-		addSpawnId(GUARDS);
-		addFirstTalkId(GUARDS);
+		bindSpawn(ZEALOT);
+		bindSpawn(GUARDS);
+		bindFirstTalk(GUARDS);
 	}
 	
 	@Override

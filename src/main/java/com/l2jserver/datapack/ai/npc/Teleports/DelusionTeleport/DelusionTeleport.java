@@ -65,8 +65,8 @@ public final class DelusionTeleport extends AbstractNpcAI {
 	
 	public DelusionTeleport() {
 		super(DelusionTeleport.class.getSimpleName(), "ai/npc/Teleports");
-		addStartNpc(NPCS);
-		addTalkId(NPCS);
+		bindStartNpc(NPCS);
+		bindTalk(NPCS);
 	}
 	
 	@Override

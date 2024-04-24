@@ -194,18 +194,18 @@ public final class NornilsGarden extends AbstractInstance {
 	
 	public NornilsGarden() {
 		super(NornilsGarden.class.getSimpleName());
-		addStartNpc(_garden_guard);
-		addFirstTalkId(_garden_guard);
-		addTalkId(_garden_guard);
+		bindStartNpc(_garden_guard);
+		bindFirstTalk(_garden_guard);
+		bindTalk(_garden_guard);
 		for (int i[] : _gatekeepers) {
-			addKillId(i[0]);
+			bindKill(i[0]);
 		}
 		for (int i[] : _auto_gates) {
-			addEnterZoneId(i[0]);
+			bindEnterZone(i[0]);
 		}
-		addTalkId(_final_gates);
-		addAttackId(_herb_jar);
-		addAttackId(18362); // first garden guard
+		bindTalk(_final_gates);
+		bindAttack(_herb_jar);
+		bindAttack(18362); // first garden guard
 	}
 	
 	@Override

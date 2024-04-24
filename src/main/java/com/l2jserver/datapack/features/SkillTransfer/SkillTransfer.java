@@ -27,8 +27,8 @@ import com.l2jserver.gameserver.enums.IllegalActionPunishmentType;
 import com.l2jserver.gameserver.model.L2SkillLearn;
 import com.l2jserver.gameserver.model.PcCondOverride;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
-import com.l2jserver.gameserver.model.events.impl.character.player.OnPlayerProfessionCancel;
-import com.l2jserver.gameserver.model.events.impl.character.player.OnPlayerProfessionChange;
+import com.l2jserver.gameserver.model.events.impl.character.player.PlayerProfessionCancel;
+import com.l2jserver.gameserver.model.events.impl.character.player.PlayerProfessionChange;
 import com.l2jserver.gameserver.model.holders.ItemHolder;
 import com.l2jserver.gameserver.model.itemcontainer.PcInventory;
 import com.l2jserver.gameserver.model.items.instance.L2ItemInstance;
@@ -57,8 +57,8 @@ public final class SkillTransfer extends AbstractNpcAI {
 		setOnEnterWorld(general().skillCheckEnable());
 	}
 	
-	public void onProfessionChange(OnPlayerProfessionChange event) {
-		final L2PcInstance player = event.getActiveChar();
+	public void onProfessionChange(PlayerProfessionChange event) {
+		final L2PcInstance player = event.player();
 		final int index = getTransferClassIndex(player);
 		if (index < 0) {
 			return;
@@ -71,8 +71,8 @@ public final class SkillTransfer extends AbstractNpcAI {
 		}
 	}
 	
-	public void onProfessionCancel(OnPlayerProfessionCancel event) {
-		final L2PcInstance player = event.getActiveChar();
+	public void onProfessionCancel(PlayerProfessionCancel event) {
+		final L2PcInstance player = event.player();
 		final int index = getTransferClassIndex(player);
 		
 		// is a transfer class
@@ -87,7 +87,7 @@ public final class SkillTransfer extends AbstractNpcAI {
 			inv.destroyItem("[HolyPomander - remove]", itemI, player, null);
 		}
 		// remove holy pomander variable
-		final String name = HOLY_POMANDER + event.getClassId();
+		final String name = HOLY_POMANDER + event.classId();
 		player.getVariables().remove(name);
 	}
 	

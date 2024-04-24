@@ -62,9 +62,9 @@ public final class Q00235_MimirsElixir extends Quest {
 	
 	public Q00235_MimirsElixir() {
 		super(235, Q00235_MimirsElixir.class.getSimpleName(), "Mimir's Elixir");
-		addStartNpc(LADD);
-		addTalkId(LADD, JOAN, ALCHEMISTS_MIXING_URN);
-		addKillId(DROPLIST.getNpcIds());
+		bindStartNpc(LADD);
+		bindTalk(LADD, JOAN, ALCHEMISTS_MIXING_URN);
+		bindKill(DROPLIST.getNpcIds());
 		registerQuestItems(MAGISTERS_MIXING_STONE, BLOOD_FIRE.getId(), MIMIRS_ELIXIR, TRUE_GOLD, SAGES_STONE.getId());
 	}
 	

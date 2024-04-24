@@ -44,9 +44,9 @@ public class Q10502_FreyaEmbroideredSoulCloak extends Quest {
 	
 	public Q10502_FreyaEmbroideredSoulCloak() {
 		super(10502, Q10502_FreyaEmbroideredSoulCloak.class.getSimpleName(), "Freya Embroidered Soul Cloak");
-		addStartNpc(OLF_ADAMS);
-		addTalkId(OLF_ADAMS);
-		addKillId(FREYA);
+		bindStartNpc(OLF_ADAMS);
+		bindTalk(OLF_ADAMS);
+		bindKill(FREYA);
 		registerQuestItems(FREYAS_SOUL_FRAGMENT);
 	}
 	

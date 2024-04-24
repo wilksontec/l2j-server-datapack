@@ -83,11 +83,11 @@ public final class Rabbits extends Event {
 	
 	private Rabbits() {
 		super(Rabbits.class.getSimpleName(), "custom/events");
-		addFirstTalkId(NPC_MANAGER, CHEST);
-		addTalkId(NPC_MANAGER);
-		addStartNpc(NPC_MANAGER);
-		addSkillSeeId(CHEST);
-		addAttackId(CHEST);
+		bindFirstTalk(NPC_MANAGER, CHEST);
+		bindTalk(NPC_MANAGER);
+		bindStartNpc(NPC_MANAGER);
+		bindSkillSee(CHEST);
+		bindAttack(CHEST);
 	}
 	
 	@Override

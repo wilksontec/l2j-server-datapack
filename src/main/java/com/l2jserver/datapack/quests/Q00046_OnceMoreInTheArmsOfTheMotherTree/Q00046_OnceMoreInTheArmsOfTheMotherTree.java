@@ -61,9 +61,9 @@ public final class Q00046_OnceMoreInTheArmsOfTheMotherTree extends Quest {
 	
 	public Q00046_OnceMoreInTheArmsOfTheMotherTree() {
 		super(46, Q00046_OnceMoreInTheArmsOfTheMotherTree.class.getSimpleName(), "Once More In the Arms of the Mother Tree");
-		addStartNpc(GALLADUCCI);
-		addTalkId(GALLADUCCI);
-		addTalkId(NPC_ITEMS.keySet());
+		bindStartNpc(GALLADUCCI);
+		bindTalk(GALLADUCCI);
+		bindTalk(NPC_ITEMS.keySet());
 		registerQuestItems(GALLADUCCIS_ORDER_1, GALLADUCCIS_ORDER_2, GALLADUCCIS_ORDER_3, PURIFIED_MAGIC_NECKLACE, GEMSTONE_POWDER, MAGIC_SWORD_HILT);
 	}
 	

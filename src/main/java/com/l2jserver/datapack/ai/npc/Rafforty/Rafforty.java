@@ -36,9 +36,9 @@ public final class Rafforty extends AbstractNpcAI {
 	
 	public Rafforty() {
 		super(Rafforty.class.getSimpleName(), "ai/npc");
-		addStartNpc(RAFFORTY);
-		addFirstTalkId(RAFFORTY);
-		addTalkId(RAFFORTY);
+		bindStartNpc(RAFFORTY);
+		bindFirstTalk(RAFFORTY);
+		bindTalk(RAFFORTY);
 	}
 	
 	@Override

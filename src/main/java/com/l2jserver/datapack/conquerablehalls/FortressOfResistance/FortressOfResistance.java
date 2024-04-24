@@ -54,9 +54,9 @@ public final class FortressOfResistance extends ClanHallSiegeEngine {
 	
 	private FortressOfResistance() {
 		super(FortressOfResistance.class.getSimpleName(), "conquerablehalls", FORTRESS_RESSISTANCE);
-		addFirstTalkId(MESSENGER);
-		addKillId(BLOODY_LORD_NURKA);
-		addAttackId(BLOODY_LORD_NURKA);
+		bindFirstTalk(MESSENGER);
+		bindKill(BLOODY_LORD_NURKA);
+		bindAttack(BLOODY_LORD_NURKA);
 		buildMessengerMessage();
 		
 		try {

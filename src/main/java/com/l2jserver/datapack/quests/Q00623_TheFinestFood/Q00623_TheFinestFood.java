@@ -56,9 +56,9 @@ public final class Q00623_TheFinestFood extends Quest {
 	
 	public Q00623_TheFinestFood() {
 		super(623, Q00623_TheFinestFood.class.getSimpleName(), "The Finest Food");
-		addStartNpc(JEREMY);
-		addTalkId(JEREMY);
-		addKillId(THERMAL_BUFFALO, THERMAL_FLAVA, THERMAL_ANTELOPE);
+		bindStartNpc(JEREMY);
+		bindTalk(JEREMY);
+		bindKill(THERMAL_BUFFALO, THERMAL_FLAVA, THERMAL_ANTELOPE);
 		registerQuestItems(LEAF_OF_FLAVA.getId(), BUFFALO_MEAT.getId(), HORN_OF_ANTELOPE.getId());
 	}
 	

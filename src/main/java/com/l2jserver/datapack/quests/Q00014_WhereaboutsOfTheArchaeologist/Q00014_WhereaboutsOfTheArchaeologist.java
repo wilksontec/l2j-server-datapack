@@ -38,8 +38,8 @@ public class Q00014_WhereaboutsOfTheArchaeologist extends Quest {
 	
 	public Q00014_WhereaboutsOfTheArchaeologist() {
 		super(14, Q00014_WhereaboutsOfTheArchaeologist.class.getSimpleName(), "Whereabouts of the Archaeologist");
-		addStartNpc(LIESEL);
-		addTalkId(LIESEL, GHOST_OF_ADVENTURER);
+		bindStartNpc(LIESEL);
+		bindTalk(LIESEL, GHOST_OF_ADVENTURER);
 		registerQuestItems(LETTER);
 	}
 	

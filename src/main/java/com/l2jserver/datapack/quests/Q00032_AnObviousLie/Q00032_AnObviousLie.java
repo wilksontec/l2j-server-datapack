@@ -53,9 +53,9 @@ public final class Q00032_AnObviousLie extends Quest {
 	
 	public Q00032_AnObviousLie() {
 		super(32, Q00032_AnObviousLie.class.getSimpleName(), "An Obvious Lie");
-		addStartNpc(MAXIMILIAN);
-		addTalkId(MAXIMILIAN, GENTLER, MIKI_THE_CAT);
-		addKillId(ALLIGATOR);
+		bindStartNpc(MAXIMILIAN);
+		bindTalk(MAXIMILIAN, GENTLER, MIKI_THE_CAT);
+		bindKill(ALLIGATOR);
 		registerQuestItems(MAP_OF_GENTLER, MEDICINAL_HERB.getId());
 	}
 	

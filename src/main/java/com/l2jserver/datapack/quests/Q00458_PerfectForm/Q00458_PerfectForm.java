@@ -70,12 +70,12 @@ public class Q00458_PerfectForm extends Quest {
 	
 	public Q00458_PerfectForm() {
 		super(458, Q00458_PerfectForm.class.getSimpleName(), "Perfect Form");
-		addStartNpc(KELLEYIA);
-		addTalkId(KELLEYIA);
-		addKillId(KOOKABURRAS);
-		addKillId(COUGARS);
-		addKillId(BUFFALOS);
-		addKillId(GRENDELS);
+		bindStartNpc(KELLEYIA);
+		bindTalk(KELLEYIA);
+		bindKill(KOOKABURRAS);
+		bindKill(COUGARS);
+		bindKill(BUFFALOS);
+		bindKill(GRENDELS);
 	}
 	
 	@Override

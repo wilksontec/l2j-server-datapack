@@ -50,9 +50,9 @@ public class Q00003_WillTheSealBeBroken extends Quest {
 	
 	public Q00003_WillTheSealBeBroken() {
 		super(3, Q00003_WillTheSealBeBroken.class.getSimpleName(), "Will the Seal be Broken?");
-		addStartNpc(TALLOTH);
-		addTalkId(TALLOTH);
-		addKillId(OMEN_BEAST, TAINTED_ZOMBIE, STINK_ZOMBIE, LESSER_SUCCUBUS, LESSER_SUCCUBUS_TILFO, LESSER_SUCCUBUS_TUREN);
+		bindStartNpc(TALLOTH);
+		bindTalk(TALLOTH);
+		bindKill(OMEN_BEAST, TAINTED_ZOMBIE, STINK_ZOMBIE, LESSER_SUCCUBUS, LESSER_SUCCUBUS_TILFO, LESSER_SUCCUBUS_TUREN);
 		registerQuestItems(OMEN_BEAST_EYE, TAINT_STONE, SUCCUBUS_BLOOD);
 	}
 	

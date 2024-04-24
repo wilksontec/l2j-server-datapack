@@ -47,9 +47,9 @@ public final class ClanTrader extends AbstractNpcAI {
 	
 	public ClanTrader() {
 		super(ClanTrader.class.getSimpleName(), "ai/npc");
-		addStartNpc(CLAN_TRADER);
-		addTalkId(CLAN_TRADER);
-		addFirstTalkId(CLAN_TRADER);
+		bindStartNpc(CLAN_TRADER);
+		bindTalk(CLAN_TRADER);
+		bindFirstTalk(CLAN_TRADER);
 	}
 	
 	private String giveReputation(L2Npc npc, L2PcInstance player, int count, int itemId, int itemCount) {

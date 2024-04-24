@@ -129,12 +129,12 @@ public class Q00350_EnhanceYourWeapon extends Quest {
 	
 	public Q00350_EnhanceYourWeapon() {
 		super(350, Q00350_EnhanceYourWeapon.class.getSimpleName(), "Enhance Your Weapon");
-		addStartNpc(STARTING_NPCS);
-		addTalkId(STARTING_NPCS);
+		bindStartNpc(STARTING_NPCS);
+		bindTalk(STARTING_NPCS);
 		load();
 		for (int npcId : NPC_LEVELING_INFO.keySet()) {
-			addSkillSeeId(npcId);
-			addKillId(npcId);
+			bindSkillSee(npcId);
+			bindKill(npcId);
 		}
 	}
 	

@@ -45,9 +45,9 @@ public class Q00042_HelpTheUncle extends Quest {
 	
 	public Q00042_HelpTheUncle() {
 		super(42, Q00042_HelpTheUncle.class.getSimpleName(), "Help The Uncle!");
-		addStartNpc(WATERS);
-		addTalkId(WATERS, SOPHYA);
-		addKillId(MONSTER_EYE_DESTROYER, MONSTER_EYE_GAZER);
+		bindStartNpc(WATERS);
+		bindTalk(WATERS, SOPHYA);
+		bindKill(MONSTER_EYE_DESTROYER, MONSTER_EYE_GAZER);
 		registerQuestItems(MAP, MAP_PIECE);
 	}
 	

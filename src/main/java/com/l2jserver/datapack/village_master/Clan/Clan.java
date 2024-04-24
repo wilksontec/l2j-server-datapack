@@ -63,8 +63,8 @@ public final class Clan extends Quest {
 	
 	public Clan() {
 		super(-1, Clan.class.getSimpleName(), "village_master");
-		addStartNpc(NPCS);
-		addTalkId(NPCS);
+		bindStartNpc(NPCS);
+		bindTalk(NPCS);
 	}
 	
 	@Override

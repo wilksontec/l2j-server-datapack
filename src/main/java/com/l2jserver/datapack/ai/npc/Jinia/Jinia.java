@@ -39,9 +39,9 @@ public final class Jinia extends AbstractNpcAI {
 	
 	public Jinia() {
 		super(Jinia.class.getSimpleName(), "ai/npc");
-		addStartNpc(JINIA);
-		addFirstTalkId(JINIA);
-		addTalkId(JINIA);
+		bindStartNpc(JINIA);
+		bindFirstTalk(JINIA);
+		bindTalk(JINIA);
 	}
 	
 	@Override

@@ -54,9 +54,9 @@ public final class Q00603_DaimonTheWhiteEyedPart1 extends Quest {
 	
 	public Q00603_DaimonTheWhiteEyedPart1() {
 		super(603, Q00603_DaimonTheWhiteEyedPart1.class.getSimpleName(), "Daimon the White-Eyed - Part 1");
-		addStartNpc(EYE_OF_ARGOS);
-		addTalkId(EYE_OF_ARGOS, TABLET_1, TABLET_2, TABLET_3, TABLET_4, TABLET_5);
-		addKillId(DROPLIST.getNpcIds());
+		bindStartNpc(EYE_OF_ARGOS);
+		bindTalk(EYE_OF_ARGOS, TABLET_1, TABLET_2, TABLET_3, TABLET_4, TABLET_5);
+		bindKill(DROPLIST.getNpcIds());
 		registerQuestItems(SPIRIT_OF_DARKNESS.getId(), BROKEN_CRYSTAL);
 	}
 	

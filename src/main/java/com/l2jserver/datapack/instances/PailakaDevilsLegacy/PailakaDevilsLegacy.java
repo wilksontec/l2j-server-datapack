@@ -85,12 +85,12 @@ public final class PailakaDevilsLegacy extends AbstractInstance {
 	
 	public PailakaDevilsLegacy() {
 		super(PailakaDevilsLegacy.class.getSimpleName());
-		addTalkId(SURVIVOR);
-		addAttackId(POWDER_KEG, TREASURE_BOX, LEMATAN);
-		addKillId(LEMATAN);
-		addSpawnId(FOLLOWERS);
-		addEnterZoneId(ZONE);
-		addMoveFinishedId(LEMATAN);
+		bindTalk(SURVIVOR);
+		bindAttack(POWDER_KEG, TREASURE_BOX, LEMATAN);
+		bindKill(LEMATAN);
+		bindSpawn(FOLLOWERS);
+		bindEnterZone(ZONE);
+		bindMoveFinished(LEMATAN);
 	}
 	
 	@Override

@@ -41,8 +41,8 @@ public class Q00028_ChestCaughtWithABaitOfIcyAir extends Quest {
 	
 	public Q00028_ChestCaughtWithABaitOfIcyAir() {
 		super(28, Q00028_ChestCaughtWithABaitOfIcyAir.class.getSimpleName(), "Chest Caught With A Bait Of Icy Air");
-		addStartNpc(OFULLE);
-		addTalkId(OFULLE, KIKI);
+		bindStartNpc(OFULLE);
+		bindTalk(OFULLE, KIKI);
 		registerQuestItems(KIKIS_LETTER);
 	}
 	

@@ -94,9 +94,9 @@ public final class Q00385_YokeOfThePast extends Quest {
 	
 	public Q00385_YokeOfThePast() {
 		super(385, Q00385_YokeOfThePast.class.getSimpleName(), "Yoke of the Past");
-		addStartNpc(ZIGGURATS);
-		addTalkId(ZIGGURATS);
-		addKillId(DROPLIST.getNpcIds());
+		bindStartNpc(ZIGGURATS);
+		bindTalk(ZIGGURATS);
+		bindKill(DROPLIST.getNpcIds());
 		registerQuestItems(SCROLL_OF_ANCIENT_MAGIC);
 	}
 	

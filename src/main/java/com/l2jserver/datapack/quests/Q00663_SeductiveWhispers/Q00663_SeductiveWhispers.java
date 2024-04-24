@@ -123,10 +123,10 @@ public class Q00663_SeductiveWhispers extends Quest {
 	
 	public Q00663_SeductiveWhispers() {
 		super(663, Q00663_SeductiveWhispers.class.getSimpleName(), "Seductive Whispers");
-		addStartNpc(WILBERT);
-		addTalkId(WILBERT);
-		addKillId(MONSTERS.keySet());
-		addKillId(SPITEFUL_SOUL_LEADER);
+		bindStartNpc(WILBERT);
+		bindTalk(WILBERT);
+		bindKill(MONSTERS.keySet());
+		bindKill(SPITEFUL_SOUL_LEADER);
 	}
 	
 	@Override

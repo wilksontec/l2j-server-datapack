@@ -49,9 +49,9 @@ public final class Q00347_GoGetTheCalculator extends Quest {
 	
 	public Q00347_GoGetTheCalculator() {
 		super(347, Q00347_GoGetTheCalculator.class.getSimpleName(), "Go Get the Calculator");
-		addStartNpc(BRUNON);
-		addTalkId(BRUNON, SILVERA, SPIRON, BALANKI);
-		addKillId(GEMSTONE_BEAST);
+		bindStartNpc(BRUNON);
+		bindTalk(BRUNON, SILVERA, SPIRON, BALANKI);
+		bindKill(GEMSTONE_BEAST);
 		registerQuestItems(STOLEN_CALCULATOR, GEMSTONE.getId());
 	}
 	

@@ -232,15 +232,15 @@ public final class FinalEmperialTomb extends AbstractInstance {
 	public FinalEmperialTomb() {
 		super(FinalEmperialTomb.class.getSimpleName());
 		load();
-		addAttackId(SCARLET1, FRINTEZZA);
-		addAttackId(PORTRAITS);
-		addStartNpc(GUIDE, CUBE);
-		addTalkId(GUIDE, CUBE);
-		addKillId(HALL_ALARM, HALL_KEEPER_CAPTAIN, DARK_CHOIR_PLAYER, SCARLET2);
-		addKillId(PORTRAITS);
-		addKillId(DEMONS);
-		addKillId(_mustKillMobsId);
-		addSpellFinishedId(HALL_KEEPER_SUICIDAL_SOLDIER);
+		bindAttack(SCARLET1, FRINTEZZA);
+		bindAttack(PORTRAITS);
+		bindStartNpc(GUIDE, CUBE);
+		bindTalk(GUIDE, CUBE);
+		bindKill(HALL_ALARM, HALL_KEEPER_CAPTAIN, DARK_CHOIR_PLAYER, SCARLET2);
+		bindKill(PORTRAITS);
+		bindKill(DEMONS);
+		bindKill(_mustKillMobsId);
+		bindSpellFinished(HALL_KEEPER_SUICIDAL_SOLDIER);
 	}
 	
 	private void load() {

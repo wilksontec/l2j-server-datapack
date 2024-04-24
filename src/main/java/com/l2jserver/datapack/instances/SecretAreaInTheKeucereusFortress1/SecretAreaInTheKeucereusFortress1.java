@@ -45,8 +45,8 @@ public final class SecretAreaInTheKeucereusFortress1 extends AbstractInstance {
 	
 	public SecretAreaInTheKeucereusFortress1() {
 		super(SecretAreaInTheKeucereusFortress1.class.getSimpleName());
-		addStartNpc(GINBY);
-		addTalkId(GINBY);
+		bindStartNpc(GINBY);
+		bindTalk(GINBY);
 	}
 	
 	@Override

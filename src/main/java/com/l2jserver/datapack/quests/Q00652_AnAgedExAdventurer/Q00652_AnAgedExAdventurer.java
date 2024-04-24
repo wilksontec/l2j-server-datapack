@@ -38,8 +38,8 @@ public class Q00652_AnAgedExAdventurer extends Quest {
 	
 	public Q00652_AnAgedExAdventurer() {
 		super(652, Q00652_AnAgedExAdventurer.class.getSimpleName(), "An Aged Ex-Adventurer");
-		addStartNpc(TANTAN);
-		addTalkId(TANTAN, SARA);
+		bindStartNpc(TANTAN);
+		bindTalk(TANTAN, SARA);
 	}
 	
 	@Override

@@ -55,9 +55,9 @@ public final class Q00294_CovertBusiness extends Quest {
 	
 	public Q00294_CovertBusiness() {
 		super(294, Q00294_CovertBusiness.class.getSimpleName(), "Covert Business");
-		addStartNpc(KEEF);
-		addTalkId(KEEF);
-		addKillId(DROPLIST.getNpcIds());
+		bindStartNpc(KEEF);
+		bindTalk(KEEF);
+		bindKill(DROPLIST.getNpcIds());
 		registerQuestItems(BAT_FANG.getId());
 	}
 	

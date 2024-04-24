@@ -44,8 +44,8 @@ public final class Ranku extends AbstractNpcAI {
 	
 	public Ranku() {
 		super(Ranku.class.getSimpleName(), "hellbound/AI");
-		addAttackId(RANKU);
-		addKillId(RANKU, MINION);
+		bindAttack(RANKU);
+		bindKill(RANKU, MINION);
 	}
 	
 	@Override

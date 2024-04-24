@@ -36,8 +36,8 @@ public class Q00122_OminousNews extends Quest {
 	
 	public Q00122_OminousNews() {
 		super(122, Q00122_OminousNews.class.getSimpleName(), "Ominous News");
-		addStartNpc(MOIRA);
-		addTalkId(MOIRA, KARUDA);
+		bindStartNpc(MOIRA);
+		bindTalk(MOIRA, KARUDA);
 	}
 	
 	@Override

@@ -99,13 +99,13 @@ public final class Baium extends AbstractNpcAI {
 	
 	public Baium() {
 		super(Baium.class.getSimpleName(), "ai/individual");
-		addFirstTalkId(ANG_VORTEX);
-		addTalkId(ANG_VORTEX, TELE_CUBE, BAIUM_STONE);
-		addStartNpc(ANG_VORTEX, TELE_CUBE, BAIUM_STONE);
-		addAttackId(BAIUM, ARCHANGEL);
-		addKillId(BAIUM);
-		addSeeCreatureId(BAIUM);
-		addSpellFinishedId(BAIUM);
+		bindFirstTalk(ANG_VORTEX);
+		bindTalk(ANG_VORTEX, TELE_CUBE, BAIUM_STONE);
+		bindStartNpc(ANG_VORTEX, TELE_CUBE, BAIUM_STONE);
+		bindAttack(BAIUM, ARCHANGEL);
+		bindKill(BAIUM);
+		bindSeeCreature(BAIUM);
+		bindSpellFinished(BAIUM);
 		
 		final StatsSet info = GrandBossManager.getInstance().getStatsSet(BAIUM);
 		final int curr_hp = info.getInt("currentHP");

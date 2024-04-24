@@ -54,9 +54,9 @@ public final class Q10270_BirthOfTheSeed extends Quest {
 	
 	public Q10270_BirthOfTheSeed() {
 		super(10270, Q10270_BirthOfTheSeed.class.getSimpleName(), "Birth of the Seed");
-		addStartNpc(PLENOS);
-		addTalkId(PLENOS, GINBY, LELRIKIA, ARTIUS);
-		addKillId(COHEMENES, YEHAN_KLODEKUS, YEHAN_KLANIKUS);
+		bindStartNpc(PLENOS);
+		bindTalk(PLENOS, GINBY, LELRIKIA, ARTIUS);
+		bindKill(COHEMENES, YEHAN_KLODEKUS, YEHAN_KLANIKUS);
 		registerQuestItems(YEHAN_KLODEKUS_BADGE, YEHAN_KLANIKUS_BADGE, LICH_CRYSTAL);
 	}
 	

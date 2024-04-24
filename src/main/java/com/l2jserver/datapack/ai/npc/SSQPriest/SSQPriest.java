@@ -311,10 +311,10 @@ public final class SSQPriest extends AbstractNpcAI {
 	
 	public SSQPriest() {
 		super(SSQPriest.class.getSimpleName(), "ai/npc");
-		addStartNpc(DAWN_NPCS);
-		addStartNpc(DUSK_NPCS);
-		addFirstTalkId(DAWN_NPCS);
-		addFirstTalkId(DUSK_NPCS);
+		bindStartNpc(DAWN_NPCS);
+		bindStartNpc(DUSK_NPCS);
+		bindFirstTalk(DAWN_NPCS);
+		bindFirstTalk(DUSK_NPCS);
 	}
 	
 	private String[][] getPositionArray(int npcId) {

@@ -39,9 +39,9 @@ public final class Bernarde extends AbstractNpcAI {
 	
 	public Bernarde() {
 		super(Bernarde.class.getSimpleName(), "hellbound/AI/NPC");
-		addFirstTalkId(BERNARDE);
-		addStartNpc(BERNARDE);
-		addTalkId(BERNARDE);
+		bindFirstTalk(BERNARDE);
+		bindStartNpc(BERNARDE);
+		bindTalk(BERNARDE);
 	}
 	
 	@Override

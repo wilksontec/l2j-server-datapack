@@ -76,10 +76,10 @@ public final class Q00421_LittleWingsBigAdventure extends Quest {
 	
 	public Q00421_LittleWingsBigAdventure() {
 		super(421, Q00421_LittleWingsBigAdventure.class.getSimpleName(), "Little Wing's Big Adventure");
-		addStartNpc(CRONOS);
-		addTalkId(CRONOS, MIMYU);
-		addAttackId(NPC_DATA.keySet());
-		addKillId(NPC_DATA.keySet());
+		bindStartNpc(CRONOS);
+		bindTalk(CRONOS, MIMYU);
+		bindAttack(NPC_DATA.keySet());
+		bindKill(NPC_DATA.keySet());
 		registerQuestItems(FAIRY_LEAF);
 	}
 	

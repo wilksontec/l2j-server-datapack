@@ -43,9 +43,9 @@ public final class Hude extends AbstractNpcAI {
 	
 	public Hude() {
 		super(Hude.class.getSimpleName(), "hellbound/AI/NPC");
-		addFirstTalkId(HUDE);
-		addStartNpc(HUDE);
-		addTalkId(HUDE);
+		bindFirstTalk(HUDE);
+		bindStartNpc(HUDE);
+		bindTalk(HUDE);
 	}
 	
 	@Override

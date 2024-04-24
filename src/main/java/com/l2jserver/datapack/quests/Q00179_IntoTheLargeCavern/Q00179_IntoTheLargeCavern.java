@@ -41,8 +41,8 @@ public class Q00179_IntoTheLargeCavern extends Quest {
 	
 	public Q00179_IntoTheLargeCavern() {
 		super(179, Q00179_IntoTheLargeCavern.class.getSimpleName(), "Into The Large Cavern");
-		addStartNpc(KEKROPUS);
-		addTalkId(KEKROPUS, MENACING_MACHINE);
+		bindStartNpc(KEKROPUS);
+		bindTalk(KEKROPUS, MENACING_MACHINE);
 	}
 	
 	@Override

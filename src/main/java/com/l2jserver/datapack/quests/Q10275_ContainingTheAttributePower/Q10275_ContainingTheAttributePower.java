@@ -53,9 +53,9 @@ public class Q10275_ContainingTheAttributePower extends Quest {
 	
 	public Q10275_ContainingTheAttributePower() {
 		super(10275, Q10275_ContainingTheAttributePower.class.getSimpleName(), "Containing the Attribute Power");
-		addStartNpc(HOLLY, WEBER);
-		addTalkId(HOLLY, WEBER, YIN, YANG);
-		addKillId(AIR, WATER);
+		bindStartNpc(HOLLY, WEBER);
+		bindTalk(HOLLY, WEBER, YIN, YANG);
+		bindKill(AIR, WATER);
 		registerQuestItems(YINSWORD, YANGSWORD, SOULPIECEWATER, SOULPIECEAIR);
 	}
 	

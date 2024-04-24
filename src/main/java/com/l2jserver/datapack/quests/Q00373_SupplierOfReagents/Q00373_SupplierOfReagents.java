@@ -174,9 +174,9 @@ public final class Q00373_SupplierOfReagents extends Quest {
 	
 	public Q00373_SupplierOfReagents() {
 		super(373, Q00373_SupplierOfReagents.class.getSimpleName(), "Supplier of Reagents");
-		addStartNpc(WESLEY);
-		addKillId(HALLATE_GUARDIAN, HALLATE_MAID, HAMES_ORC_SHAMAN, LAVA_WYRM, CRENDION, PLATINUM_GUARDIAN_SHAMAN, PLATINUM_TRIBE_SHAMAN);
-		addTalkId(WESLEY, ALCHEMIST_MIXING_URN);
+		bindStartNpc(WESLEY);
+		bindKill(HALLATE_GUARDIAN, HALLATE_MAID, HAMES_ORC_SHAMAN, LAVA_WYRM, CRENDION, PLATINUM_GUARDIAN_SHAMAN, PLATINUM_TRIBE_SHAMAN);
+		bindTalk(WESLEY, ALCHEMIST_MIXING_URN);
 		registerQuestItems(WESLEYS_MIXING_STONE, MIXING_MANUAL);
 	}
 	

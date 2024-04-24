@@ -30,7 +30,7 @@ import com.l2jserver.gameserver.model.actor.instance.L2NpcInstance;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
 import com.l2jserver.gameserver.model.base.ClassId;
 import com.l2jserver.gameserver.model.events.EventDispatcher;
-import com.l2jserver.gameserver.model.events.impl.character.player.LearnSkillRequestedEvent;
+import com.l2jserver.gameserver.model.events.impl.character.player.PlayerLearnSkillRequested;
 import com.l2jserver.gameserver.network.serverpackets.ActionFailed;
 import com.l2jserver.gameserver.network.serverpackets.NpcHtmlMessage;
 
@@ -63,7 +63,7 @@ public class LearnSkill implements IBypassHandler {
 		if (command.equals(COMMANDS[0])) {
 			L2NpcInstance.showSkillList(activeChar, npc, activeChar.getClassId());
 		} else if (command.equals(COMMANDS[1])) {
-			EventDispatcher.getInstance().notifyEventAsync(new LearnSkillRequestedEvent(activeChar), target);
+			EventDispatcher.getInstance().notifyEventAsync(new PlayerLearnSkillRequested(activeChar), target);
 		}
 		return true;
 	}

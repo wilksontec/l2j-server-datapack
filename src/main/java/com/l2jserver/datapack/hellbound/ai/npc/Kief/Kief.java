@@ -40,9 +40,9 @@ public final class Kief extends AbstractNpcAI {
 	
 	public Kief() {
 		super(Kief.class.getSimpleName(), "hellbound/AI/NPC");
-		addFirstTalkId(KIEF);
-		addStartNpc(KIEF);
-		addTalkId(KIEF);
+		bindFirstTalk(KIEF);
+		bindStartNpc(KIEF);
+		bindTalk(KIEF);
 	}
 	
 	@Override

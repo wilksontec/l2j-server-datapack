@@ -57,9 +57,9 @@ public class Q00618_IntoTheFlame extends Quest {
 	
 	public Q00618_IntoTheFlame() {
 		super(618, Q00618_IntoTheFlame.class.getSimpleName(), "Into the Flame");
-		addStartNpc(KLEIN);
-		addTalkId(HILDA, KLEIN);
-		addKillId(MONSTERS.keySet());
+		bindStartNpc(KLEIN);
+		bindTalk(HILDA, KLEIN);
+		bindKill(MONSTERS.keySet());
 		registerQuestItems(VACUALITE_ORE, VACUALITE);
 	}
 	

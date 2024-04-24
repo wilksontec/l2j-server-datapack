@@ -115,12 +115,12 @@ public final class SelMahumDrill extends AbstractNpcAI {
 	public SelMahumDrill() {
 		super(SelMahumDrill.class.getSimpleName(), "ai/group_template");
 		
-		addAttackId(MAHUM_SOLDIERS);
-		addKillId(MAHUM_CHIEFS);
-		addEventReceivedId(MAHUM_CHIEFS);
-		addEventReceivedId(MAHUM_SOLDIERS);
-		addSpawnId(MAHUM_CHIEFS);
-		addSpawnId(MAHUM_SOLDIERS);
+		bindAttack(MAHUM_SOLDIERS);
+		bindKill(MAHUM_CHIEFS);
+		bindEventReceived(MAHUM_CHIEFS);
+		bindEventReceived(MAHUM_SOLDIERS);
+		bindSpawn(MAHUM_CHIEFS);
+		bindSpawn(MAHUM_SOLDIERS);
 		// Start global return home timer
 		startQuestTimer("return_home", 120000, null, null, true);
 	}

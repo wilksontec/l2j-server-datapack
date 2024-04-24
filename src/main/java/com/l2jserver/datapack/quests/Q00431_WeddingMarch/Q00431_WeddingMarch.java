@@ -47,9 +47,9 @@ public class Q00431_WeddingMarch extends Quest {
 	
 	public Q00431_WeddingMarch() {
 		super(431, Q00431_WeddingMarch.class.getSimpleName(), "Wedding March");
-		addStartNpc(KANTABILON);
-		addTalkId(KANTABILON);
-		addKillId(MOBS);
+		bindStartNpc(KANTABILON);
+		bindTalk(KANTABILON);
+		bindKill(MOBS);
 		registerQuestItems(SILVER_CRYSTAL);
 	}
 	

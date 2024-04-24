@@ -60,8 +60,8 @@ public final class CabaleBuffer extends AbstractNpcAI {
 	
 	public CabaleBuffer() {
 		super(CabaleBuffer.class.getSimpleName(), "ai/npc");
-		addFirstTalkId(SevenSigns.ORATOR_NPC_ID, SevenSigns.PREACHER_NPC_ID);
-		addSpawnId(SevenSigns.ORATOR_NPC_ID, SevenSigns.PREACHER_NPC_ID);
+		bindFirstTalk(SevenSigns.ORATOR_NPC_ID, SevenSigns.PREACHER_NPC_ID);
+		bindSpawn(SevenSigns.ORATOR_NPC_ID, SevenSigns.PREACHER_NPC_ID);
 	}
 	
 	@Override

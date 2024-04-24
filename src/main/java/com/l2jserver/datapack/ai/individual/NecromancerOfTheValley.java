@@ -45,9 +45,9 @@ public class NecromancerOfTheValley extends AbstractNpcAI {
 	
 	public NecromancerOfTheValley() {
 		super(NecromancerOfTheValley.class.getSimpleName(), "ai/individual");
-		addAttackId(NECROMANCER_OF_THE_VALLEY);
-		addSpawnId(EXPLODING_ORC_GHOST);
-		addSpellFinishedId(EXPLODING_ORC_GHOST);
+		bindAttack(NECROMANCER_OF_THE_VALLEY);
+		bindSpawn(EXPLODING_ORC_GHOST);
+		bindSpellFinished(EXPLODING_ORC_GHOST);
 	}
 	
 	@Override

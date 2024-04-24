@@ -39,8 +39,8 @@ public class Q00019_GoToThePastureland extends Quest {
 	
 	public Q00019_GoToThePastureland() {
 		super(19, Q00019_GoToThePastureland.class.getSimpleName(), "Go to the Pastureland");
-		addStartNpc(VLADIMIR);
-		addTalkId(VLADIMIR, TUNATUN);
+		bindStartNpc(VLADIMIR);
+		bindTalk(VLADIMIR, TUNATUN);
 		registerQuestItems(VEAL, YOUNG_WILD_BEAST_MEAT);
 	}
 	

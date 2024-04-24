@@ -45,9 +45,9 @@ public class Q10505_JewelOfValakas extends Quest {
 	
 	public Q10505_JewelOfValakas() {
 		super(10505, Q10505_JewelOfValakas.class.getSimpleName(), "Jewel of Valakas");
-		addStartNpc(KLEIN);
-		addTalkId(KLEIN);
-		addKillId(VALAKAS);
+		bindStartNpc(KLEIN);
+		bindTalk(KLEIN);
+		bindKill(VALAKAS);
 		registerQuestItems(EMPTY_CRYSTAL, FILLED_CRYSTAL_VALAKAS_ENERGY);
 	}
 	

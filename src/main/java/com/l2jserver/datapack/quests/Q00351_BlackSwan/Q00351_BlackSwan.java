@@ -58,9 +58,9 @@ public final class Q00351_BlackSwan extends Quest {
 	
 	public Q00351_BlackSwan() {
 		super(351, Q00351_BlackSwan.class.getSimpleName(), "Black Swan");
-		addStartNpc(GOSTA, ROMAN);
-		addTalkId(GOSTA, IASON_HEINE, ROMAN);
-		addKillId(TASABA_LIZARDMAN1, TASABA_LIZARDMAN_SHAMAN1, TASABA_LIZARDMAN2, TASABA_LIZARDMAN_SHAMAN2);
+		bindStartNpc(GOSTA, ROMAN);
+		bindTalk(GOSTA, IASON_HEINE, ROMAN);
+		bindKill(TASABA_LIZARDMAN1, TASABA_LIZARDMAN_SHAMAN1, TASABA_LIZARDMAN2, TASABA_LIZARDMAN_SHAMAN2);
 		registerQuestItems(ORDER_OF_GOSTA, LIZARD_FANG, BARREL_OF_LEAGUE);
 	}
 	

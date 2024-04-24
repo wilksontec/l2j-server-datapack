@@ -38,8 +38,8 @@ public class Q00695_DefendTheHallOfSuffering extends Quest {
 	
 	public Q00695_DefendTheHallOfSuffering() {
 		super(695, Q00695_DefendTheHallOfSuffering.class.getSimpleName(), "Defend the Hall of Suffering");
-		addStartNpc(TEPIOS);
-		addTalkId(TEPIOS);
+		bindStartNpc(TEPIOS);
+		bindTalk(TEPIOS);
 	}
 	
 	@Override

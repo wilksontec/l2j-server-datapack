@@ -62,9 +62,9 @@ public class Q00626_ADarkTwilight extends Quest {
 	
 	public Q00626_ADarkTwilight() {
 		super(626, Q00626_ADarkTwilight.class.getSimpleName(), "A Dark Twilight");
-		addStartNpc(HIERARCH);
-		addTalkId(HIERARCH);
-		addKillId(DROPLIST.getNpcIds());
+		bindStartNpc(HIERARCH);
+		bindTalk(HIERARCH);
+		bindKill(DROPLIST.getNpcIds());
 		registerQuestItems(BLOOD_OF_SAINT.getId());
 	}
 	

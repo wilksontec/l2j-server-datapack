@@ -44,8 +44,8 @@ public class Q00131_BirdInACage extends Quest {
 	
 	public Q00131_BirdInACage() {
 		super(131, Q00131_BirdInACage.class.getSimpleName(), "Bird in a Cage");
-		addStartNpc(KANIS);
-		addTalkId(KANIS, PARME);
+		bindStartNpc(KANIS);
+		bindTalk(KANIS, PARME);
 		registerQuestItems(ECHO_CRYSTAL_OF_FREE_THOUGHT, PARMES_LETTER);
 	}
 	

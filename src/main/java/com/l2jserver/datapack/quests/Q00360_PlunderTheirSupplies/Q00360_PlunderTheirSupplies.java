@@ -52,9 +52,9 @@ public final class Q00360_PlunderTheirSupplies extends Quest {
 	
 	public Q00360_PlunderTheirSupplies() {
 		super(360, Q00360_PlunderTheirSupplies.class.getSimpleName(), "Plunder Their Supplies");
-		addStartNpc(COLEMAN);
-		addTalkId(COLEMAN);
-		addKillId(MONSTER_DROP_CHANCES.keySet());
+		bindStartNpc(COLEMAN);
+		bindTalk(COLEMAN);
+		bindKill(MONSTER_DROP_CHANCES.keySet());
 		registerQuestItems(SUPPLY_ITEMS, SUSPICIOUS_DOCUMENT_PIECE, RECIPE_OF_SUPPLY);
 	}
 	

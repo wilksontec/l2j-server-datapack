@@ -40,9 +40,9 @@ public class Q00050_LanoscosSpecialBait extends Quest {
 	
 	public Q00050_LanoscosSpecialBait() {
 		super(50, Q00050_LanoscosSpecialBait.class.getSimpleName(), "Lanosco's Special Bait");
-		addStartNpc(LANOSCO);
-		addTalkId(LANOSCO);
-		addKillId(SINGING_WIND);
+		bindStartNpc(LANOSCO);
+		bindTalk(LANOSCO);
+		bindKill(SINGING_WIND);
 		registerQuestItems(ESSENCE_OF_WIND.getId());
 	}
 	

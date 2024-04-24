@@ -41,8 +41,8 @@ public class Q00030_ChestCaughtWithABaitOfFire extends Quest {
 	
 	public Q00030_ChestCaughtWithABaitOfFire() {
 		super(30, Q00030_ChestCaughtWithABaitOfFire.class.getSimpleName(), "Chest Caught With A Bait Of Fire");
-		addStartNpc(LINNAEUS);
-		addTalkId(LINNAEUS, RUKAL);
+		bindStartNpc(LINNAEUS);
+		bindTalk(LINNAEUS, RUKAL);
 		registerQuestItems(RUKAL_MUSICAL);
 	}
 	

@@ -47,11 +47,11 @@ public final class PrisonGuards extends AbstractNpcAI {
 	
 	public PrisonGuards() {
 		super(PrisonGuards.class.getSimpleName(), "ai/group_template");
-		addAttackId(GUARD_HEAD, GUARD);
-		addSpawnId(GUARD_HEAD, GUARD);
-		addNpcHateId(GUARD);
-		addSkillSeeId(GUARD);
-		addSpellFinishedId(GUARD_HEAD, GUARD);
+		bindAttack(GUARD_HEAD, GUARD);
+		bindSpawn(GUARD_HEAD, GUARD);
+		bindNpcHate(GUARD);
+		bindSkillSee(GUARD);
+		bindSpellFinished(GUARD_HEAD, GUARD);
 	}
 	
 	@Override

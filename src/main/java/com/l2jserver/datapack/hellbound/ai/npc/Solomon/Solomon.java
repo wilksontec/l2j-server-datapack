@@ -33,7 +33,7 @@ public final class Solomon extends AbstractNpcAI {
 	
 	public Solomon() {
 		super(Solomon.class.getSimpleName(), "hellbound/AI/NPC");
-		addFirstTalkId(SOLOMON);
+		bindFirstTalk(SOLOMON);
 	}
 	
 	@Override

@@ -49,9 +49,9 @@ public final class Q00381_LetsBecomeARoyalMember extends Quest {
 	
 	public Q00381_LetsBecomeARoyalMember() {
 		super(381, Q00381_LetsBecomeARoyalMember.class.getSimpleName(), "Let's Become a Royal Member!");
-		addStartNpc(SORINT);
-		addTalkId(SORINT, SANDRA);
-		addKillId(ANCIENT_GARGOYLE, FALLEN_CHIEF_VERGUS);
+		bindStartNpc(SORINT);
+		bindTalk(SORINT, SANDRA);
+		bindKill(ANCIENT_GARGOYLE, FALLEN_CHIEF_VERGUS);
 		registerQuestItems(KAILS_COIN.getId(), FOUR_LEAF_COIN);
 	}
 	

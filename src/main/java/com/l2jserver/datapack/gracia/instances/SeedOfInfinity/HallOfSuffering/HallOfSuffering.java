@@ -175,13 +175,13 @@ public final class HallOfSuffering extends AbstractInstance {
 	
 	public HallOfSuffering() {
 		super(HallOfSuffering.class.getSimpleName(), "gracia/instances/SeedOfInfinity");
-		addStartNpc(MOUTH_OF_EKIMUS, TEPIOS);
-		addTalkId(MOUTH_OF_EKIMUS, TEPIOS);
-		addFirstTalkId(TEPIOS);
-		addKillId(TUMOR_ALIVE, KLODEKUS, KLANIKUS);
-		addAttackId(KLODEKUS, KLANIKUS);
-		addSkillSeeId(TUMOR_MOBIDS);
-		addKillId(TUMOR_MOBIDS);
+		bindStartNpc(MOUTH_OF_EKIMUS, TEPIOS);
+		bindTalk(MOUTH_OF_EKIMUS, TEPIOS);
+		bindFirstTalk(TEPIOS);
+		bindKill(TUMOR_ALIVE, KLODEKUS, KLANIKUS);
+		bindAttack(KLODEKUS, KLANIKUS);
+		bindSkillSee(TUMOR_MOBIDS);
+		bindKill(TUMOR_MOBIDS);
 	}
 	
 	@Override

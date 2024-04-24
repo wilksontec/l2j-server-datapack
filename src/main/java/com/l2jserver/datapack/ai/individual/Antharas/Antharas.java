@@ -132,16 +132,16 @@ public final class Antharas extends AbstractNpcAI {
 	
 	public Antharas() {
 		super(Antharas.class.getSimpleName(), "ai/individual");
-		addStartNpc(HEART, CUBE);
-		addTalkId(HEART, CUBE);
-		addFirstTalkId(HEART);
-		addSpawnId(INVISIBLE_NPC.keySet());
-		addSpawnId(ANTHARAS);
-		addMoveFinishedId(BOMBER);
-		addAggroRangeEnterId(BOMBER);
-		addSpellFinishedId(ANTHARAS);
-		addAttackId(ANTHARAS, BOMBER, BEHEMOTH, TERASQUE);
-		addKillId(ANTHARAS, TERASQUE, BEHEMOTH);
+		bindStartNpc(HEART, CUBE);
+		bindTalk(HEART, CUBE);
+		bindFirstTalk(HEART);
+		bindSpawn(INVISIBLE_NPC.keySet());
+		bindSpawn(ANTHARAS);
+		bindMoveFinished(BOMBER);
+		bindAggroRangeEnter(BOMBER);
+		bindSpellFinished(ANTHARAS);
+		bindAttack(ANTHARAS, BOMBER, BEHEMOTH, TERASQUE);
+		bindKill(ANTHARAS, TERASQUE, BEHEMOTH);
 		
 		final StatsSet info = GrandBossManager.getInstance().getStatsSet(ANTHARAS);
 		final int curr_hp = info.getInt("currentHP");

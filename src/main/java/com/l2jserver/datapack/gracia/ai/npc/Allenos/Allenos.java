@@ -35,9 +35,9 @@ public class Allenos extends AbstractNpcAI {
 	
 	public Allenos() {
 		super(Allenos.class.getSimpleName(), "gracia/AI/NPC");
-		addStartNpc(ALLENOS);
-		addFirstTalkId(ALLENOS);
-		addTalkId(ALLENOS);
+		bindStartNpc(ALLENOS);
+		bindFirstTalk(ALLENOS);
+		bindTalk(ALLENOS);
 	}
 	
 	@Override

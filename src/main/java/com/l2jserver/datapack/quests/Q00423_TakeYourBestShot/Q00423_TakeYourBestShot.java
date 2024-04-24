@@ -42,9 +42,9 @@ public final class Q00423_TakeYourBestShot extends Quest {
 	
 	public Q00423_TakeYourBestShot() {
 		super(423, Q00423_TakeYourBestShot.class.getSimpleName(), "Take Your Best Shot!");
-		addStartNpc(JOHNNY, BATRACOS);
-		addTalkId(JOHNNY, BATRACOS);
-		addKillId(TANTA_GUARD);
+		bindStartNpc(JOHNNY, BATRACOS);
+		bindTalk(JOHNNY, BATRACOS);
+		bindKill(TANTA_GUARD);
 	}
 	
 	@Override

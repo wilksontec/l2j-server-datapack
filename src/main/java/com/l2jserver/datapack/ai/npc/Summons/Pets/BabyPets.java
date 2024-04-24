@@ -27,7 +27,7 @@ import com.l2jserver.gameserver.model.events.EventType;
 import com.l2jserver.gameserver.model.events.ListenerRegisterType;
 import com.l2jserver.gameserver.model.events.annotations.RegisterEvent;
 import com.l2jserver.gameserver.model.events.annotations.RegisterType;
-import com.l2jserver.gameserver.model.events.impl.character.player.OnPlayerLogout;
+import com.l2jserver.gameserver.model.events.impl.character.player.PlayerLogout;
 import com.l2jserver.gameserver.model.holders.SkillHolder;
 import com.l2jserver.gameserver.network.SystemMessageId;
 import com.l2jserver.gameserver.network.serverpackets.SystemMessage;
@@ -52,7 +52,7 @@ public final class BabyPets extends AbstractNpcAI {
 	
 	public BabyPets() {
 		super(BabyPets.class.getSimpleName(), "ai/npc/Summons/Pets");
-		addSummonSpawnId(BABY_PETS);
+		bindSummonSpawn(BABY_PETS);
 	}
 	
 	@Override
@@ -75,10 +75,10 @@ public final class BabyPets extends AbstractNpcAI {
 		return super.onAdvEvent(event, npc, player);
 	}
 	
-	@RegisterEvent(EventType.ON_PLAYER_LOGOUT)
+	@RegisterEvent(EventType.PLAYER_LOGOUT)
 	@RegisterType(ListenerRegisterType.GLOBAL)
-	public void OnPlayerLogout(OnPlayerLogout event) {
-		cancelQuestTimer("CAST_HEAL", null, event.getActiveChar());
+	public void OnPlayerLogout(PlayerLogout event) {
+		cancelQuestTimer("CAST_HEAL", null, event.player());
 	}
 	
 	@Override

@@ -52,9 +52,9 @@ public final class Q00273_InvadersOfTheHolyLand extends Quest {
 	
 	public Q00273_InvadersOfTheHolyLand() {
 		super(273, Q00273_InvadersOfTheHolyLand.class.getSimpleName(), "Invaders of the Holy Land");
-		addStartNpc(VARKEES);
-		addTalkId(VARKEES);
-		addKillId(MONSTERS.keySet());
+		bindStartNpc(VARKEES);
+		bindTalk(VARKEES);
+		bindKill(MONSTERS.keySet());
 		registerQuestItems(BLACK_SOULSTONE, RED_SOULSTONE);
 	}
 	

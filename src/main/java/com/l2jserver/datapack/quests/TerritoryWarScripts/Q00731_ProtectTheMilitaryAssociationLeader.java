@@ -36,7 +36,7 @@ public final class Q00731_ProtectTheMilitaryAssociationLeader extends TerritoryW
 			36550,
 			36556
 		};
-		addAttackId(NPC_IDS);
+		bindAttack(NPC_IDS);
 	}
 	
 	@Override

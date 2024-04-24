@@ -69,9 +69,9 @@ public final class Q00104_SpiritOfMirrors extends Quest {
 	
 	public Q00104_SpiritOfMirrors() {
 		super(104, Q00104_SpiritOfMirrors.class.getSimpleName(), "Spirit of Mirrors");
-		addStartNpc(GALLINT);
-		addTalkId(ARNOLD, GALLINT, JOHNSTONE, KENYOS);
-		addKillId(MONSTERS.keySet());
+		bindStartNpc(GALLINT);
+		bindTalk(ARNOLD, GALLINT, JOHNSTONE, KENYOS);
+		bindKill(MONSTERS.keySet());
 		registerQuestItems(GALLINTS_OAK_WAND, SPIRITBOUND_WAND1, SPIRITBOUND_WAND2, SPIRITBOUND_WAND3);
 	}
 	

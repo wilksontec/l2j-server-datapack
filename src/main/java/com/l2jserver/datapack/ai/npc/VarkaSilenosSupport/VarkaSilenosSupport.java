@@ -84,9 +84,9 @@ public final class VarkaSilenosSupport extends AbstractNpcAI {
 	
 	public VarkaSilenosSupport() {
 		super(VarkaSilenosSupport.class.getSimpleName(), "ai/npc");
-		addFirstTalkId(ASHAS, NARAN, UDAN, DIYABU, HAGOS, SHIKON, TERANU);
-		addTalkId(UDAN, HAGOS, TERANU);
-		addStartNpc(HAGOS, TERANU);
+		bindFirstTalk(ASHAS, NARAN, UDAN, DIYABU, HAGOS, SHIKON, TERANU);
+		bindTalk(UDAN, HAGOS, TERANU);
+		bindStartNpc(HAGOS, TERANU);
 	}
 	
 	private int getAllianceLevel(L2PcInstance player) {

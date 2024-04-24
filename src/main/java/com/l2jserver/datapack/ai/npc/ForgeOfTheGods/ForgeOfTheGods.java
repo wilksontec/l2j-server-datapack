@@ -80,8 +80,8 @@ public final class ForgeOfTheGods extends AbstractNpcAI {
 	
 	public ForgeOfTheGods() {
 		super(ForgeOfTheGods.class.getSimpleName(), "ai/npc");
-		addKillId(FOG_MOBS);
-		addSpawnId(LAVASAURUSES);
+		bindKill(FOG_MOBS);
+		bindSpawn(LAVASAURUSES);
 		startQuestTimer("refresh", REFRESH * 1000, null, null, true);
 	}
 	

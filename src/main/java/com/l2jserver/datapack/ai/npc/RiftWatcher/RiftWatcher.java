@@ -58,8 +58,8 @@ public final class RiftWatcher extends AbstractNpcAI {
 	public RiftWatcher() {
 		super(RiftWatcher.class.getSimpleName(), "ai/npc");
 		
-		addStartNpc(NPCS);
-		addFirstTalkId(NPCS);
+		bindStartNpc(NPCS);
+		bindFirstTalk(NPCS);
 	}
 	
 	private int getItemsNeeded(int npcId) {

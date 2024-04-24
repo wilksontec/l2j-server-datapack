@@ -50,9 +50,9 @@ public final class Q00369_CollectorOfJewels extends Quest {
 	
 	public Q00369_CollectorOfJewels() {
 		super(369, Q00369_CollectorOfJewels.class.getSimpleName(), "Collector of Jewels");
-		addStartNpc(NELL);
-		addTalkId(NELL);
-		addKillId(DROPLIST.getNpcIds());
+		bindStartNpc(NELL);
+		bindTalk(NELL);
+		bindKill(DROPLIST.getNpcIds());
 		registerQuestItems(FLARE_SHARD, FREEZING_SHARD);
 	}
 	

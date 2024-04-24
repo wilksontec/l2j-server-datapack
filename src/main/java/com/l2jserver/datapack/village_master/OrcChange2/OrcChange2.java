@@ -59,8 +59,8 @@ public final class OrcChange2 extends AbstractNpcAI {
 	
 	public OrcChange2() {
 		super(OrcChange2.class.getSimpleName(), "village_master");
-		addStartNpc(NPCS);
-		addTalkId(NPCS);
+		bindStartNpc(NPCS);
+		bindTalk(NPCS);
 	}
 	
 	@Override

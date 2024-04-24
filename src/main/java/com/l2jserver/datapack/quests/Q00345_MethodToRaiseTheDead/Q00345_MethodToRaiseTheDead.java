@@ -54,9 +54,9 @@ public final class Q00345_MethodToRaiseTheDead extends Quest {
 	
 	public Q00345_MethodToRaiseTheDead() {
 		super(345, Q00345_MethodToRaiseTheDead.class.getSimpleName(), "Method to Raise the Dead");
-		addStartNpc(DOROTHY);
-		addTalkId(DOROTHY, ORPHEUS, MEDIUM_JAR, XENOVIA);
-		addKillId(CROKIAN, CROKIAN_WARRIOR);
+		bindStartNpc(DOROTHY);
+		bindTalk(DOROTHY, ORPHEUS, MEDIUM_JAR, XENOVIA);
+		bindKill(CROKIAN, CROKIAN_WARRIOR);
 		registerQuestItems(VICTIMS_ARM_BONE, VICTIMS_THIGH_BONE, VICTIMS_SKULL, VICTIMS_RIB_BONE, VICTIMS_SPINE, USELESS_BONE_PIECES, POWDER_TO_SUMMON_DEAD_SOULS);
 	}
 	

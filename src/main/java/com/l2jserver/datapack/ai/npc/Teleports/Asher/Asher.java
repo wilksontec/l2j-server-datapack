@@ -39,8 +39,8 @@ public class Asher extends AbstractNpcAI {
 	
 	public Asher() {
 		super(Asher.class.getSimpleName(), "ai/npc/Teleports");
-		addFirstTalkId(ASHER);
-		addStartNpc(ASHER);
+		bindFirstTalk(ASHER);
+		bindStartNpc(ASHER);
 	}
 	
 	@Override

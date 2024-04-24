@@ -45,9 +45,9 @@ public class Q10503_FrintezzaEmbroideredSoulCloak extends Quest {
 	
 	public Q10503_FrintezzaEmbroideredSoulCloak() {
 		super(10503, Q10503_FrintezzaEmbroideredSoulCloak.class.getSimpleName(), "Frintezza Embroidered Soul Cloak");
-		addStartNpc(OLF_ADAMS);
-		addTalkId(OLF_ADAMS);
-		addKillId(SCARLET_VAN_HALISHA);
+		bindStartNpc(OLF_ADAMS);
+		bindTalk(OLF_ADAMS);
+		bindKill(SCARLET_VAN_HALISHA);
 		registerQuestItems(FRINTEZZAS_SOUL_FRAGMENT);
 	}
 	

@@ -74,9 +74,9 @@ public final class Q00128_PailakaSongOfIceAndFire extends Quest {
 	
 	public Q00128_PailakaSongOfIceAndFire() {
 		super(128, Q00128_PailakaSongOfIceAndFire.class.getSimpleName(), "Pailaka - Song of Ice and Fire");
-		addStartNpc(ADLER1);
-		addTalkId(ADLER1, ADLER2, SINAI, INSPECTOR);
-		addKillId(HILLAS, PAPION, KINSUS, GARGOS, ADIANTUM);
+		bindStartNpc(ADLER1);
+		bindTalk(ADLER1, ADLER2, SINAI, INSPECTOR);
+		bindKill(HILLAS, PAPION, KINSUS, GARGOS, ADIANTUM);
 		registerQuestItems(SWORD, ENH_SWORD1, ENH_SWORD2, BOOK1, BOOK2, BOOK3, BOOK4, BOOK5, BOOK6, BOOK7, WATER_ESSENCE, FIRE_ESSENCE, SHIELD_POTION, HEAL_POTION, FIRE_ENHANCER, WATER_ENHANCER);
 	}
 	

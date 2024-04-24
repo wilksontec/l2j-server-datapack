@@ -45,9 +45,9 @@ public final class Wedding extends AbstractNpcAI {
 	
 	public Wedding() {
 		super(Wedding.class.getSimpleName(), "custom/events");
-		addFirstTalkId(MANAGER_ID);
-		addTalkId(MANAGER_ID);
-		addStartNpc(MANAGER_ID);
+		bindFirstTalk(MANAGER_ID);
+		bindTalk(MANAGER_ID);
+		bindStartNpc(MANAGER_ID);
 	}
 	
 	@Override

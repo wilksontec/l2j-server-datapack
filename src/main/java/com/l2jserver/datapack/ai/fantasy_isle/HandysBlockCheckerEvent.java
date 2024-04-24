@@ -54,7 +54,7 @@ public class HandysBlockCheckerEvent extends Quest {
 			return;
 		}
 		
-		addFirstTalkId(A_MANAGER_1, A_MANAGER_2, A_MANAGER_3, A_MANAGER_4);
+		bindFirstTalk(A_MANAGER_1, A_MANAGER_2, A_MANAGER_3, A_MANAGER_4);
 		HandysBlockCheckerManager.getInstance().startUpParticipantsQueue();
 		LOG.info("Loaded Handy's Block Checker event.");
 	}

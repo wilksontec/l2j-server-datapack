@@ -82,10 +82,10 @@ public final class Q00708_PathToBecomingALordGludio extends Quest {
 	
 	public Q00708_PathToBecomingALordGludio() {
 		super(708, Q00708_PathToBecomingALordGludio.class.getSimpleName(), "Path To Becoming A Lord - Gludio");
-		addStartNpc(SAYRES);
-		addTalkId(SAYRES, PINTER, BATHIS);
+		bindStartNpc(SAYRES);
+		bindTalk(SAYRES, PINTER, BATHIS);
 		registerQuestItems(HEADLESS_ARMOR);
-		addKillId(CASTLE_RUINS);
+		bindKill(CASTLE_RUINS);
 	}
 	
 	@Override
