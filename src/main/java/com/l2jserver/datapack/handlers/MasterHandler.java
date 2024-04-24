@@ -126,6 +126,7 @@ import com.l2jserver.datapack.handlers.bypasshandlers.ItemAuctionLink;
 import com.l2jserver.datapack.handlers.bypasshandlers.LearnSkill;
 import com.l2jserver.datapack.handlers.bypasshandlers.Link;
 import com.l2jserver.datapack.handlers.bypasshandlers.Loto;
+import com.l2jserver.datapack.handlers.bypasshandlers.MenuSelect;
 import com.l2jserver.datapack.handlers.bypasshandlers.Multisell;
 import com.l2jserver.datapack.handlers.bypasshandlers.NpcViewMod;
 import com.l2jserver.datapack.handlers.bypasshandlers.Observation;
@@ -362,6 +363,7 @@ public class MasterHandler {
 		LearnSkill.class,
 		Link.class,
 		Loto.class,
+		MenuSelect.class,
 		Multisell.class,
 		NpcViewMod.class,
 		Observation.class,

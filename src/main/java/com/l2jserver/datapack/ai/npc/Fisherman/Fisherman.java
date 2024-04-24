@@ -25,11 +25,11 @@ import static com.l2jserver.gameserver.network.SystemMessageId.NO_MORE_SKILLS_TO
 
 import com.l2jserver.datapack.ai.npc.AbstractNpcAI;
 import com.l2jserver.gameserver.data.xml.impl.SkillTreesData;
-import com.l2jserver.gameserver.datatables.SkillData;
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2MerchantInstance;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
 import com.l2jserver.gameserver.model.events.impl.character.player.PlayerLearnSkillRequested;
+import com.l2jserver.gameserver.model.events.impl.character.player.PlayerSkillLearned;
 import com.l2jserver.gameserver.network.serverpackets.AcquireSkillList;
 import com.l2jserver.gameserver.network.serverpackets.SystemMessage;
 
@@ -71,7 +71,8 @@ public class Fisherman extends AbstractNpcAI {
 		bindStartNpc(FISHERMAN);
 		bindFirstTalk(FISHERMAN);
 		bindTalk(FISHERMAN);
-		bindPlayerLearnSkillRequested(FISHERMAN);
+		bindLearnSkillRequested(FISHERMAN);
+		bindSkillLearned(FISHERMAN);
 	}
 	
 	@Override
@@ -103,24 +104,19 @@ public class Fisherman extends AbstractNpcAI {
 		showFishSkillList(event.player());
 	}
 	
+	@Override
+	public void onSkillLearned(PlayerSkillLearned event) {
+		showFishSkillList(event.player());
+	}
+	
 	/**
 	 * Display the Fishing Skill list to the player.
 	 * @param player the player
 	 */
 	public static void showFishSkillList(L2PcInstance player) {
-		final var fishskills = SkillTreesData.getInstance().getAvailableFishingSkills(player);
-		final var asl = new AcquireSkillList(FISHING);
-		int count = 0;
-		
-		for (var s : fishskills) {
-			if (SkillData.getInstance().getSkill(s.getSkillId(), s.getSkillLevel()) != null) {
-				count++;
-				asl.addSkill(s.getSkillId(), s.getSkillLevel(), s.getSkillLevel(), s.getLevelUpSp(), 1);
-			}
-		}
-		
-		if (count > 0) {
-			player.sendPacket(asl);
+		final var skills = SkillTreesData.getInstance().getAvailableFishingSkills(player);
+		if (skills.size() > 0) {
+			player.sendPacket(new AcquireSkillList(FISHING, skills));
 		} else {
 			final int minlLevel = SkillTreesData.getInstance().getMinLevelForNewSkill(player, SkillTreesData.getInstance().getFishingSkillTree());
 			if (minlLevel > 0) {

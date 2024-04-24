@@ -184,12 +184,19 @@ import com.l2jserver.datapack.ai.npc.Teleports.ToIVortex.ToIVortex;
 import com.l2jserver.datapack.ai.npc.TerritoryManagers.TerritoryManagers;
 import com.l2jserver.datapack.ai.npc.Tolonis.Tolonis;
 import com.l2jserver.datapack.ai.npc.TownPets.TownPets;
-import com.l2jserver.datapack.ai.npc.Trainers.HealerTrainer.HealerTrainer;
 import com.l2jserver.datapack.ai.npc.Tunatun.Tunatun;
 import com.l2jserver.datapack.ai.npc.VarkaSilenosSupport.VarkaSilenosSupport;
 import com.l2jserver.datapack.ai.npc.VillageMasters.FirstClassTransferTalk.FirstClassTransferTalk;
 import com.l2jserver.datapack.ai.npc.WeaverOlf.WeaverOlf;
 import com.l2jserver.datapack.ai.npc.WyvernManager.WyvernManager;
+import com.l2jserver.datapack.ai.npc.coach.Blacksmith.Blacksmith;
+import com.l2jserver.datapack.ai.npc.coach.ClericCoach.ClericCoach;
+import com.l2jserver.datapack.ai.npc.coach.FighterCoach.FighterCoach;
+import com.l2jserver.datapack.ai.npc.coach.KamaelCoach.KamaelCoach;
+import com.l2jserver.datapack.ai.npc.coach.MageCoach.MageCoach;
+import com.l2jserver.datapack.ai.npc.coach.WarehouseKeeper.WarehouseKeeper;
+import com.l2jserver.datapack.ai.npc.coach.WarehouseKeeperForChaotic.WarehouseKeeperForChaotic;
+import com.l2jserver.datapack.ai.npc.coach.WizardCoach.WizardCoach;
 import com.l2jserver.datapack.village_master.Alliance.Alliance;
 import com.l2jserver.datapack.village_master.Clan.Clan;
 import com.l2jserver.datapack.village_master.DarkElfChange1.DarkElfChange1;
@@ -302,13 +309,21 @@ public class AILoader {
 		ToIVortex.class,
 		TerritoryManagers.class,
 		TownPets.class,
-		HealerTrainer.class,
 		Tunatun.class,
 		VarkaSilenosSupport.class,
 		FirstClassTransferTalk.class,
 		WeaverOlf.class,
 		WyvernManager.class,
+		// Coaches
+		Blacksmith.class,
+		ClericCoach.class,
+		FighterCoach.class,
+		KamaelCoach.class,
+		MageCoach.class,
 		Tolonis.class,
+		WarehouseKeeper.class,
+		WarehouseKeeperForChaotic.class,
+		WizardCoach.class,
 		// Fantasy Isle
 		MC_Show.class,
 		HandysBlockCheckerEvent.class,

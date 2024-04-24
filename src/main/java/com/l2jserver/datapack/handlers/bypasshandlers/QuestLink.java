@@ -51,24 +51,23 @@ public class QuestLink implements IBypassHandler {
 	private static final int TO_LEAD_AND_BE_LED = 118;
 	private static final int THE_LEADER_AND_THE_FOLLOWER = 123;
 	private static final String[] COMMANDS = {
-		"Quest"
+		"Quest",
+		"talk_select"
 	};
 	
 	@Override
 	public boolean useBypass(String command, L2PcInstance activeChar, L2Character target) {
-		String quest = "";
-		try {
-			quest = command.substring(5).trim();
-		} catch (IndexOutOfBoundsException ioobe) {
-		}
-		if (quest.length() == 0) {
-			showQuestWindow(activeChar, (L2Npc) target);
-		} else {
-			int questNameEnd = quest.indexOf(" ");
-			if (questNameEnd == -1) {
-				showQuestWindow(activeChar, (L2Npc) target, quest);
-			} else {
-				activeChar.processQuestEvent(quest.substring(0, questNameEnd), quest.substring(questNameEnd).trim());
+		switch (command) {
+			case "talk_select" -> showQuestWindow(activeChar, (L2Npc) target);
+			case "Quest" -> showQuestWindow(activeChar, (L2Npc) target);
+			default -> {
+				final var quest = command.substring(5).trim();
+				int questNameEnd = quest.indexOf(" ");
+				if (questNameEnd == -1) {
+					showQuestWindow(activeChar, (L2Npc) target, quest);
+				} else {
+					activeChar.processQuestEvent(quest.substring(0, questNameEnd), quest.substring(questNameEnd).trim());
+				}
 			}
 		}
 		return true;

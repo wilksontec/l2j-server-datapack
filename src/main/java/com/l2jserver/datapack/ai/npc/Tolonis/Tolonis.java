@@ -45,7 +45,7 @@ public class Tolonis extends AbstractNpcAI {
 	public Tolonis() {
 		super(Tolonis.class.getSimpleName(), "ai/npc");
 		bindFirstTalk(TOLONIS_ID);
-		bindPlayerLearnSkillRequested(TOLONIS_ID);
+		bindLearnSkillRequested(TOLONIS_ID);
 	}
 	
 	@Override
@@ -68,11 +68,6 @@ public class Tolonis extends AbstractNpcAI {
 	// TODO(Zoey76): Generalize this function and move it to L2Npc class.
 	private static void showEtcSkillList(L2PcInstance player) {
 		final var skills = SkillTreesData.getInstance().getAvailableCollectSkills(player);
-		final var asl = new AcquireSkillList(COLLECT);
-		for (var skill : skills) {
-			asl.addSkill(skill.getSkillId(), skill.getSkillLevel(), skill.getSkillLevel(), 0, 1);
-		}
-		
 		if (skills.size() == 0) {
 			final int minLevel = SkillTreesData.getInstance().getMinLevelForNewSkill(player, SkillTreesData.getInstance().getCollectSkillTree());
 			if (minLevel > 0) {
@@ -83,7 +78,7 @@ public class Tolonis extends AbstractNpcAI {
 				player.sendPacket(NO_MORE_SKILLS_TO_LEARN);
 			}
 		} else {
-			player.sendPacket(asl);
+			player.sendPacket(new AcquireSkillList(COLLECT, skills));
 		}
 	}
 }
