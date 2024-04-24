@@ -331,7 +331,7 @@ public class MC_Show extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onAdvEvent(String event, L2Npc npc, L2PcInstance player) {
+	public String onEvent(String event, L2Npc npc, L2PcInstance player) {
 		if ((event == null) || event.isEmpty()) {
 			LOG.warn("Null/Empty event for npc {} and player {}!", npc, player);
 			return null;

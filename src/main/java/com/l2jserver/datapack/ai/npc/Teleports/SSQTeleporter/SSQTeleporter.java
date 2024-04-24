@@ -108,7 +108,7 @@ public final class SSQTeleporter extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onAdvEvent(String event, L2Npc npc, L2PcInstance player) {
+	public String onEvent(String event, L2Npc npc, L2PcInstance player) {
 		final SevenSigns ss = SevenSigns.getInstance();
 		final int ssqPart = ss.getPlayerCabal(player.getObjectId());
 		
@@ -229,7 +229,7 @@ public final class SSQTeleporter extends AbstractNpcAI {
 			}
 		}
 		
-		return super.onAdvEvent(event, npc, player);
+		return super.onEvent(event, npc, player);
 	}
 	
 	@Override

@@ -299,7 +299,7 @@ public final class RainbowSpringsChateau extends ClanHallSiegeEngine {
 	}
 	
 	@Override
-	public String onAdvEvent(String event, L2Npc npc, L2PcInstance player) {
+	public String onEvent(String event, L2Npc npc, L2PcInstance player) {
 		String html = event;
 		final L2Clan clan = player.getClan();
 		switch (npc.getId()) {

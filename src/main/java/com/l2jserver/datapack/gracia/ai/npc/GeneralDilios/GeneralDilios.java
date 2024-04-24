@@ -49,7 +49,7 @@ public final class GeneralDilios extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onAdvEvent(String event, L2Npc npc, L2PcInstance player) {
+	public String onEvent(String event, L2Npc npc, L2PcInstance player) {
 		if (event.equalsIgnoreCase("SOD_STATE")) {
 			return switch (GraciaSeedsManager.getInstance().getSoDState()) {
 				case 1 -> "32549-2.html";
@@ -80,7 +80,7 @@ public final class GeneralDilios extends AbstractNpcAI {
 				startQuestTimer("guard_animation_" + (value + 1), 1500, null, null);
 			}
 		}
-		return super.onAdvEvent(event, npc, player);
+		return super.onEvent(event, npc, player);
 	}
 	
 	private NpcStringId getShoutMessage() {

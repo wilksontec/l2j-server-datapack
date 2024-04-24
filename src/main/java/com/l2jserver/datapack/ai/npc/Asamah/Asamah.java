@@ -39,7 +39,7 @@ public final class Asamah extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onAdvEvent(String event, L2Npc npc, L2PcInstance player) {
+	public String onEvent(String event, L2Npc npc, L2PcInstance player) {
 		String htmltext = null;
 		if (event.equals("32115-03.htm") || event.equals("32115-04.htm")) {
 			htmltext = event;

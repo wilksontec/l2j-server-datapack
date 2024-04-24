@@ -57,7 +57,7 @@ public class Lindvior extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onAdvEvent(String event, L2Npc npc, L2PcInstance player) {
+	public String onEvent(String event, L2Npc npc, L2PcInstance player) {
 		switch (event) {
 			case "tomaris_shout1":
 				broadcastNpcSay(npc, Say2.NPC_SHOUT, NpcStringId.HUH_THE_SKY_LOOKS_FUNNY_WHATS_THAT);
@@ -89,7 +89,7 @@ public class Lindvior extends AbstractNpcAI {
 				scheduleNextLindviorVisit();
 				break;
 		}
-		return super.onAdvEvent(event, npc, player);
+		return super.onEvent(event, npc, player);
 	}
 	
 	public void scheduleNextLindviorVisit() {

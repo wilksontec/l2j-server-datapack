@@ -109,7 +109,7 @@ public final class Q00060_GoodWorksReward extends Quest {
 	}
 	
 	@Override
-	public String onAdvEvent(String event, L2Npc npc, L2PcInstance player) {
+	public String onEvent(String event, L2Npc npc, L2PcInstance player) {
 		
 		if ("DESPAWN".equals(event)) {
 			npc.broadcastPacket(new NpcSay(npc, Say2.NPC_ALL, NpcStringId.YOU_HAVE_GOOD_LUCK_I_SHALL_RETURN));
@@ -118,7 +118,7 @@ public final class Q00060_GoodWorksReward extends Quest {
 				npc0.getVariables().set("SPAWNED", false);
 			}
 			npc.deleteMe();
-			return super.onAdvEvent(event, npc, player);
+			return super.onEvent(event, npc, player);
 		}
 		
 		final QuestState qs = getQuestState(player, false);

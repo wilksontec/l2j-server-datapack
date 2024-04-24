@@ -56,7 +56,7 @@ public final class BabyPets extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onAdvEvent(String event, L2Npc npc, L2PcInstance player) {
+	public String onEvent(String event, L2Npc npc, L2PcInstance player) {
 		if (event.equals("CAST_HEAL") && (player != null)) {
 			final L2PetInstance pet = (L2PetInstance) player.getSummon();
 			
@@ -72,7 +72,7 @@ public final class BabyPets extends AbstractNpcAI {
 				cancelQuestTimer("CAST_HEAL", null, player);
 			}
 		}
-		return super.onAdvEvent(event, npc, player);
+		return super.onEvent(event, npc, player);
 	}
 	
 	@RegisterEvent(EventType.PLAYER_LOGOUT)

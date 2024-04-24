@@ -80,7 +80,7 @@ public final class MonasteryOfSilence extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onAdvEvent(String event, L2Npc npc, L2PcInstance player) {
+	public String onEvent(String event, L2Npc npc, L2PcInstance player) {
 		switch (event) {
 			case "TRAINING": {
 				for (L2Character character : npc.getKnownList().getKnownCharactersInRadius(400)) {
@@ -116,7 +116,7 @@ public final class MonasteryOfSilence extends AbstractNpcAI {
 				break;
 			}
 		}
-		return super.onAdvEvent(event, npc, player);
+		return super.onEvent(event, npc, player);
 	}
 	
 	@Override

@@ -97,7 +97,7 @@ public final class PriestOfBlessing extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onAdvEvent(String event, L2Npc npc, L2PcInstance player) {
+	public String onEvent(String event, L2Npc npc, L2PcInstance player) {
 		String htmltext = event;
 		if (event.equalsIgnoreCase("buy_voice")) {
 			if (player.getAdena() >= PRICE_VOICE) {

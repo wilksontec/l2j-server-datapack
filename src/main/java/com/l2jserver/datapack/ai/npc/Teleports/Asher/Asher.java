@@ -44,7 +44,7 @@ public class Asher extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onAdvEvent(String event, L2Npc npc, L2PcInstance player) {
+	public String onEvent(String event, L2Npc npc, L2PcInstance player) {
 		if (event.equals("teleport")) {
 			if (player.getAdena() >= ADENA) {
 				player.teleToLocation(LOCATION);
@@ -55,6 +55,6 @@ public class Asher extends AbstractNpcAI {
 		} else if (event.equals("32714-01.html")) {
 			return event;
 		}
-		return super.onAdvEvent(event, npc, player);
+		return super.onEvent(event, npc, player);
 	}
 }

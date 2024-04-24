@@ -93,7 +93,7 @@ public final class PlainsOfLizardman extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onAdvEvent(String event, L2Npc npc, L2PcInstance player) {
+	public String onEvent(String event, L2Npc npc, L2PcInstance player) {
 		if (event.equals("fantasy_mushroom") && (npc != null) && (player != null)) {
 			npc.doCast(FANTASY_MUSHROOM_SKILL);
 			for (L2Character target : npc.getKnownList().getKnownCharactersInRadius(200)) {

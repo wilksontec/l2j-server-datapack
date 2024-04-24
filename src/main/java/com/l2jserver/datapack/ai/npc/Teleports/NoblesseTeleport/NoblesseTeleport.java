@@ -60,7 +60,7 @@ public final class NoblesseTeleport extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onAdvEvent(String event, L2Npc npc, L2PcInstance player) {
+	public String onEvent(String event, L2Npc npc, L2PcInstance player) {
 		if ("teleportWithToken".equals(event)) {
 			if (hasQuestItems(player, OLYMPIAD_TOKEN)) {
 				npc.showChatWindow(player, 3);
@@ -68,7 +68,7 @@ public final class NoblesseTeleport extends AbstractNpcAI {
 				return "noble-nopass.htm";
 			}
 		}
-		return super.onAdvEvent(event, npc, player);
+		return super.onEvent(event, npc, player);
 	}
 	
 	@Override

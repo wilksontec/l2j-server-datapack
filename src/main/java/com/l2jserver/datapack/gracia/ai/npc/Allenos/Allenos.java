@@ -55,7 +55,7 @@ public class Allenos extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onAdvEvent(String event, L2Npc npc, L2PcInstance player) {
+	public String onEvent(String event, L2Npc npc, L2PcInstance player) {
 		switch (event) {
 			case "ENTER_SOD": {
 				if (player.isFlyingMounted()) {
@@ -72,6 +72,6 @@ public class Allenos extends AbstractNpcAI {
 				return "32526-03.html";
 			}
 		}
-		return super.onAdvEvent(event, npc, player);
+		return super.onEvent(event, npc, player);
 	}
 }

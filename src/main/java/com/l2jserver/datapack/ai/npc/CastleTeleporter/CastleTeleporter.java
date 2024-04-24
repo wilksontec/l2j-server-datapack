@@ -54,7 +54,7 @@ public final class CastleTeleporter extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onAdvEvent(String event, L2Npc npc, L2PcInstance player) {
+	public String onEvent(String event, L2Npc npc, L2PcInstance player) {
 		if (event.equalsIgnoreCase("teleporter-03.html")) {
 			if (npc.isScriptValue(0)) {
 				final Siege siege = npc.getCastle().getSiege();

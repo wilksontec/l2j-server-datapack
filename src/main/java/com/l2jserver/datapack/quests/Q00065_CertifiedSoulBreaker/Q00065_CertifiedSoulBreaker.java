@@ -82,12 +82,12 @@ public final class Q00065_CertifiedSoulBreaker extends Quest {
 	}
 	
 	@Override
-	public String onAdvEvent(String event, L2Npc npc, L2PcInstance player) {
+	public String onEvent(String event, L2Npc npc, L2PcInstance player) {
 		if ("DESPAWN_5".equals(event)) {
 			if (npc != null) {
 				npc.deleteMe();
 			}
-			return super.onAdvEvent(event, npc, player);
+			return super.onEvent(event, npc, player);
 		} else if ("DESPAWN_70".equals(event)) {
 			final L2Npc npc0 = npc.getVariables().getObject("npc0", L2Npc.class);
 			final L2PcInstance c0 = npc.getVariables().getObject("player0", L2PcInstance.class);
@@ -100,7 +100,7 @@ public final class Q00065_CertifiedSoulBreaker extends Quest {
 				}
 			}
 			npc.deleteMe();
-			return super.onAdvEvent(event, npc, player);
+			return super.onEvent(event, npc, player);
 		}
 		
 		final QuestState qs = getQuestState(player, false);

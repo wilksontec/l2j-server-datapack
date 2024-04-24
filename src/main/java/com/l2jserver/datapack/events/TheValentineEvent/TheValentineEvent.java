@@ -43,7 +43,7 @@ public final class TheValentineEvent extends LongTimeEvent {
 	}
 	
 	@Override
-	public String onAdvEvent(String event, L2Npc npc, L2PcInstance player) {
+	public String onEvent(String event, L2Npc npc, L2PcInstance player) {
 		String htmltext = event;
 		if (event.equalsIgnoreCase("4301-3.htm")) {
 			if (player.getVariables().getBoolean(COMPLETED, false)) {

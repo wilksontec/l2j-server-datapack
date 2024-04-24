@@ -47,7 +47,7 @@ public final class StakatoNestTeleporter extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onAdvEvent(String event, L2Npc npc, L2PcInstance player) {
+	public String onEvent(String event, L2Npc npc, L2PcInstance player) {
 		int index = Integer.parseInt(event) - 1;
 		
 		if (LOCS.length > index) {
@@ -62,7 +62,7 @@ public final class StakatoNestTeleporter extends AbstractNpcAI {
 			}
 			player.teleToLocation(loc, false);
 		}
-		return super.onAdvEvent(event, npc, player);
+		return super.onEvent(event, npc, player);
 	}
 	
 	@Override

@@ -62,7 +62,7 @@ public final class MonumentOfHeroes extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onAdvEvent(String event, L2Npc npc, L2PcInstance player) {
+	public String onEvent(String event, L2Npc npc, L2PcInstance player) {
 		switch (event) {
 			case "HeroWeapon": {
 				if (player.isHero()) {
@@ -90,6 +90,6 @@ public final class MonumentOfHeroes extends AbstractNpcAI {
 				break;
 			}
 		}
-		return super.onAdvEvent(event, npc, player);
+		return super.onEvent(event, npc, player);
 	}
 }

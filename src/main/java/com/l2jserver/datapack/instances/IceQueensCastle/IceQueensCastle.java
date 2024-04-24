@@ -72,7 +72,7 @@ public final class IceQueensCastle extends AbstractInstance {
 	}
 	
 	@Override
-	public String onAdvEvent(String event, L2Npc npc, L2PcInstance player) {
+	public String onEvent(String event, L2Npc npc, L2PcInstance player) {
 		switch (event) {
 			case "ATTACK_KNIGHT": {
 				for (L2Character character : npc.getKnownList().getKnownCharacters()) {
@@ -119,7 +119,7 @@ public final class IceQueensCastle extends AbstractInstance {
 				break;
 			}
 		}
-		return super.onAdvEvent(event, npc, player);
+		return super.onEvent(event, npc, player);
 	}
 	
 	@Override

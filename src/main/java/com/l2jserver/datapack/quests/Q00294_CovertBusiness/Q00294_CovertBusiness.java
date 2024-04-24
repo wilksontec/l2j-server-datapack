@@ -62,7 +62,7 @@ public final class Q00294_CovertBusiness extends Quest {
 	}
 	
 	@Override
-	public String onAdvEvent(String event, L2Npc npc, L2PcInstance player) {
+	public String onEvent(String event, L2Npc npc, L2PcInstance player) {
 		final QuestState qs = getQuestState(player, false);
 		if ((qs != null) && qs.isCreated() && event.equals("30534-03.htm")) {
 			qs.startQuest();

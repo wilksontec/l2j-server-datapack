@@ -57,7 +57,7 @@ public final class DragonVortex extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onAdvEvent(String event, L2Npc npc, L2PcInstance player) {
+	public String onEvent(String event, L2Npc npc, L2PcInstance player) {
 		switch (event) {
 			case "RAIDBOSS": {
 				if (hasQuestItems(player, LARGE_DRAGON_BONE)) {
@@ -117,6 +117,6 @@ public final class DragonVortex extends AbstractNpcAI {
 				break;
 			}
 		}
-		return super.onAdvEvent(event, npc, player);
+		return super.onEvent(event, npc, player);
 	}
 }

@@ -126,7 +126,7 @@ public final class SelMahumDrill extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onAdvEvent(String event, L2Npc npc, L2PcInstance player) {
+	public String onEvent(String event, L2Npc npc, L2PcInstance player) {
 		switch (event) {
 			case "do_social_action": {
 				if ((npc != null) && !npc.isDead()) {
@@ -168,7 +168,7 @@ public final class SelMahumDrill extends AbstractNpcAI {
 				break;
 			}
 		}
-		return super.onAdvEvent(event, npc, player);
+		return super.onEvent(event, npc, player);
 	}
 	
 	@Override

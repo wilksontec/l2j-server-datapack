@@ -73,7 +73,7 @@ public final class FreyaCelebration extends LongTimeEvent {
 	}
 	
 	@Override
-	public String onAdvEvent(String event, L2Npc npc, L2PcInstance player) {
+	public String onEvent(String event, L2Npc npc, L2PcInstance player) {
 		if (event.equalsIgnoreCase("give_potion")) {
 			if (getQuestItemsCount(player, Inventory.ADENA_ID) > 1) {
 				long _curr_time = System.currentTimeMillis();

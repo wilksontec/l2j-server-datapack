@@ -88,7 +88,7 @@ public final class SanctumOftheLordsOfDawn extends AbstractInstance {
 	}
 	
 	@Override
-	public String onAdvEvent(String event, L2Npc npc, L2PcInstance player) {
+	public String onEvent(String event, L2Npc npc, L2PcInstance player) {
 		switch (event) {
 			case "spawn": {
 				final InstanceWorld tmpworld = InstanceManager.getInstance().getPlayerWorld(player);
@@ -125,7 +125,7 @@ public final class SanctumOftheLordsOfDawn extends AbstractInstance {
 				}
 			}
 		}
-		return super.onAdvEvent(event, npc, player);
+		return super.onEvent(event, npc, player);
 	}
 	
 	@Override

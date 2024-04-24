@@ -47,7 +47,7 @@ public class GhostChamberlainOfElmoreden extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onAdvEvent(String event, L2Npc npc, L2PcInstance player) {
+	public String onEvent(String event, L2Npc npc, L2PcInstance player) {
 		if (event.equals("FOUR_SEPULCHERS")) {
 			if (hasQuestItems(player, USED_GRAVE_PASS)) {
 				takeItems(player, USED_GRAVE_PASS, 1);
@@ -67,6 +67,6 @@ public class GhostChamberlainOfElmoreden extends AbstractNpcAI {
 				return npc.getId() + "-01.html";
 			}
 		}
-		return super.onAdvEvent(event, npc, player);
+		return super.onEvent(event, npc, player);
 	}
 }

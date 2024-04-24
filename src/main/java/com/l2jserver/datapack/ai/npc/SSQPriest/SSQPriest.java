@@ -352,7 +352,7 @@ public final class SSQPriest extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onAdvEvent(String event, L2Npc npc, L2PcInstance player) {
+	public String onEvent(String event, L2Npc npc, L2PcInstance player) {
 		if (event.endsWith(".htm")) {
 			return "ssq_npc_priest" + event;
 		}
@@ -386,7 +386,7 @@ public final class SSQPriest extends AbstractNpcAI {
 				return teleportList(player, npc, false);
 			}
 			
-			return super.onAdvEvent(event, npc, player);
+			return super.onEvent(event, npc, player);
 		}
 		
 		if (event.startsWith("Goto")) {
@@ -403,7 +403,7 @@ public final class SSQPriest extends AbstractNpcAI {
 				player.teleToLocation(x, y, z);
 			}
 			
-			return super.onAdvEvent(event, npc, player);
+			return super.onEvent(event, npc, player);
 		}
 		
 		int ask = Integer.parseInt(event.split(";")[0]);
@@ -2598,7 +2598,7 @@ public final class SSQPriest extends AbstractNpcAI {
 			}
 		}
 		
-		return super.onAdvEvent(event, npc, player);
+		return super.onEvent(event, npc, player);
 	}
 	
 	@Override

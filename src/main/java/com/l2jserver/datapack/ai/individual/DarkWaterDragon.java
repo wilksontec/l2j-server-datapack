@@ -70,7 +70,7 @@ public final class DarkWaterDragon extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onAdvEvent(String event, L2Npc npc, L2PcInstance player) {
+	public String onEvent(String event, L2Npc npc, L2PcInstance player) {
 		if (npc != null) {
 			if (event.equalsIgnoreCase("first_spawn")) { // timer to start timer "1"
 				startQuestTimer("1", 40000, npc, null, true); // spawns detractor every 40 seconds
@@ -120,7 +120,7 @@ public final class DarkWaterDragon extends AbstractNpcAI {
 				npc.reduceCurrentHp(500, npc, null); // poison kills Fafurion if he is not healed
 			}
 		}
-		return super.onAdvEvent(event, npc, player);
+		return super.onEvent(event, npc, player);
 	}
 	
 	@Override

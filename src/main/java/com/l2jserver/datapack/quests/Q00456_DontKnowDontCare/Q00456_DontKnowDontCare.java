@@ -207,7 +207,7 @@ public final class Q00456_DontKnowDontCare extends Quest {
 	}
 	
 	@Override
-	public String onAdvEvent(String event, L2Npc npc, L2PcInstance player) {
+	public String onEvent(String event, L2Npc npc, L2PcInstance player) {
 		final QuestState qs = player != null ? getQuestState(player, false) : null;
 		String htmltext = null;
 		switch (event) {

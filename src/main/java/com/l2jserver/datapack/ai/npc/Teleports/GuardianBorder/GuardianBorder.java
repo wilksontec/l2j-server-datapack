@@ -351,7 +351,7 @@ public final class GuardianBorder extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onAdvEvent(String event, L2Npc npc, L2PcInstance player) {
+	public String onEvent(String event, L2Npc npc, L2PcInstance player) {
 		if (event.endsWith(".htm")) {
 			return event;
 		}
@@ -442,7 +442,7 @@ public final class GuardianBorder extends AbstractNpcAI {
 			}
 		}
 		
-		return super.onAdvEvent(event, npc, player);
+		return super.onEvent(event, npc, player);
 	}
 	
 	@Override

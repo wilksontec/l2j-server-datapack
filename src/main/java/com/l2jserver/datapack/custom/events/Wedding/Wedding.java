@@ -51,7 +51,7 @@ public final class Wedding extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onAdvEvent(String event, L2Npc npc, L2PcInstance player) {
+	public String onEvent(String event, L2Npc npc, L2PcInstance player) {
 		if (player.getPartnerId() == 0) {
 			return "NoPartner.html";
 		}

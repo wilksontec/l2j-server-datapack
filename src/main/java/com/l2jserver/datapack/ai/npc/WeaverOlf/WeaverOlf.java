@@ -151,7 +151,7 @@ public final class WeaverOlf extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onAdvEvent(String event, L2Npc npc, L2PcInstance player) {
+	public String onEvent(String event, L2Npc npc, L2PcInstance player) {
 		if (event.contains("_grade_")) {
 			int grade = Integer.parseInt(event.substring(0, 1));
 			int price;
@@ -169,7 +169,7 @@ public final class WeaverOlf extends AbstractNpcAI {
 				price = UNSEAL_PRICE[grade];
 				itemIds = CLIPS_ORNAMENTS[grade];
 			} else {
-				return super.onAdvEvent(event, npc, player);
+				return super.onEvent(event, npc, player);
 			}
 			
 			if (hasQuestItems(player, itemIds[0])) {
@@ -194,7 +194,7 @@ public final class WeaverOlf extends AbstractNpcAI {
 			} else {
 				return npc.getId() + "-no.htm";
 			}
-			return super.onAdvEvent(event, npc, player);
+			return super.onEvent(event, npc, player);
 		}
 		return event;
 	}

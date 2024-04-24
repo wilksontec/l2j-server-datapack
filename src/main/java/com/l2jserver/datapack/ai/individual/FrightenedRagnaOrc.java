@@ -73,7 +73,7 @@ public final class FrightenedRagnaOrc extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onAdvEvent(String event, L2Npc npc, L2PcInstance player) {
+	public String onEvent(String event, L2Npc npc, L2PcInstance player) {
 		switch (event) {
 			case "say": {
 				if (npc.isDead() || !npc.isScriptValue(1)) {

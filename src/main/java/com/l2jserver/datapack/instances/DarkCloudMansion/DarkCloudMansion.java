@@ -772,7 +772,7 @@ public final class DarkCloudMansion extends AbstractInstance {
 	}
 	
 	@Override
-	public String onAdvEvent(String event, L2Npc npc, L2PcInstance player) {
+	public String onEvent(String event, L2Npc npc, L2PcInstance player) {
 		if (npc == null) {
 			return "";
 		}

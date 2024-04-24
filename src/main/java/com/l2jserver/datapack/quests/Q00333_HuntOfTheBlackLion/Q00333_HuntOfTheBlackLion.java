@@ -119,7 +119,7 @@ public final class Q00333_HuntOfTheBlackLion extends Quest {
 	}
 	
 	@Override
-	public String onAdvEvent(String event, L2Npc npc, L2PcInstance player) {
+	public String onEvent(String event, L2Npc npc, L2PcInstance player) {
 		final QuestState qs = getQuestState(player, false);
 		final int chance = getRandom(100);
 		final int chance1 = getRandom(100);

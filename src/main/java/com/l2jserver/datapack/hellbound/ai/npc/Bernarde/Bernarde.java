@@ -45,7 +45,7 @@ public final class Bernarde extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onAdvEvent(String event, L2Npc npc, L2PcInstance player) {
+	public String onEvent(String event, L2Npc npc, L2PcInstance player) {
 		switch (event) {
 			case "HolyWater": {
 				if (HellboundEngine.getInstance().getLevel() == 2) {

@@ -41,7 +41,7 @@ public final class Shadai extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onAdvEvent(String event, L2Npc npc, L2PcInstance player) {
+	public String onEvent(String event, L2Npc npc, L2PcInstance player) {
 		if (event.equals("VALIDATE_POS") && (npc != null)) {
 			Location coords = DAY_COORDS;
 			boolean mustRevalidate = false;
@@ -57,7 +57,7 @@ public final class Shadai extends AbstractNpcAI {
 				npc.teleToLocation(coords);
 			}
 		}
-		return super.onAdvEvent(event, npc, player);
+		return super.onEvent(event, npc, player);
 	}
 	
 	@Override

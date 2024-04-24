@@ -44,7 +44,7 @@ public final class Tunatun extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onAdvEvent(String event, L2Npc npc, L2PcInstance player) {
+	public String onEvent(String event, L2Npc npc, L2PcInstance player) {
 		if ("Whip".equals(event)) {
 			if (hasQuestItems(player, BEAST_HANDLERS_WHIP)) {
 				return "31537-01.html";

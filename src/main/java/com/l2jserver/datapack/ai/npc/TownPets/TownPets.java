@@ -56,7 +56,7 @@ public final class TownPets extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onAdvEvent(String event, L2Npc npc, L2PcInstance player) {
+	public String onEvent(String event, L2Npc npc, L2PcInstance player) {
 		if (event.equalsIgnoreCase("move")) {
 			final int locX = (npc.getSpawn().getX() - 50) + getRandom(100);
 			final int locY = (npc.getSpawn().getY() - 50) + getRandom(100);

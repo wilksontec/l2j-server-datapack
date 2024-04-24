@@ -74,7 +74,7 @@ public final class ElfHumanFighterChange2 extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onAdvEvent(String event, L2Npc npc, L2PcInstance player) {
+	public String onEvent(String event, L2Npc npc, L2PcInstance player) {
 		String htmltext = null;
 		switch (event) {
 			case "30109-02.htm": // master_lv3_hef003w

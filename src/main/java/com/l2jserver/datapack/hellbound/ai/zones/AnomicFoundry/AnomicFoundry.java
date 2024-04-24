@@ -82,7 +82,7 @@ public final class AnomicFoundry extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onAdvEvent(String event, L2Npc npc, L2PcInstance player) {
+	public String onEvent(String event, L2Npc npc, L2PcInstance player) {
 		if (event.equalsIgnoreCase("make_spawn_1")) {
 			if (HellboundEngine.getInstance().getLevel() >= 10) {
 				int idx = getRandom(3);
@@ -103,7 +103,7 @@ public final class AnomicFoundry extends AbstractNpcAI {
 		} else if (event.equalsIgnoreCase("reset_respawn_time")) {
 			respawnTime = 60000;
 		}
-		return super.onAdvEvent(event, npc, player);
+		return super.onEvent(event, npc, player);
 	}
 	
 	@Override

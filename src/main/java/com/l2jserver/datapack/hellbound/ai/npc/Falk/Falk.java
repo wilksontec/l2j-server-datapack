@@ -59,7 +59,7 @@ public final class Falk extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onAdvEvent(String event, L2Npc npc, L2PcInstance player) {
+	public String onEvent(String event, L2Npc npc, L2PcInstance player) {
 		if (event.equalsIgnoreCase("badges")) {
 			if (!hasAtLeastOneQuestItem(player, BASIC_CERT, STANDART_CERT, PREMIUM_CERT)) {
 				if (getQuestItemsCount(player, DARION_BADGE) >= 20) {
@@ -70,6 +70,6 @@ public final class Falk extends AbstractNpcAI {
 				return "32297-02b.htm";
 			}
 		}
-		return super.onAdvEvent(event, npc, player);
+		return super.onEvent(event, npc, player);
 	}
 }

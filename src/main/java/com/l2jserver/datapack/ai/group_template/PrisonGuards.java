@@ -55,7 +55,7 @@ public final class PrisonGuards extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onAdvEvent(String event, L2Npc npc, L2PcInstance player) {
+	public String onEvent(String event, L2Npc npc, L2PcInstance player) {
 		if (event.equals("CLEAR_STATUS")) {
 			npc.setScriptValue(0);
 		} else if (event.equals("CHECK_HOME")) {
@@ -64,7 +64,7 @@ public final class PrisonGuards extends AbstractNpcAI {
 			}
 			startQuestTimer("CHECK_HOME", 30000, npc, null);
 		}
-		return super.onAdvEvent(event, npc, player);
+		return super.onEvent(event, npc, player);
 	}
 	
 	@Override

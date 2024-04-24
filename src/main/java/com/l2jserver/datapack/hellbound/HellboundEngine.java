@@ -76,7 +76,7 @@ public final class HellboundEngine extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onAdvEvent(String event, L2Npc npc, L2PcInstance player) {
+	public String onEvent(String event, L2Npc npc, L2PcInstance player) {
 		if (event.equals(UPDATE_EVENT)) {
 			int level = getLevel();
 			if ((level > 0) && (level == getCachedLevel())) {
@@ -91,7 +91,7 @@ public final class HellboundEngine extends AbstractNpcAI {
 			}
 			startQuestTimer(UPDATE_EVENT, UPDATE_INTERVAL, null, null);
 		}
-		return super.onAdvEvent(event, npc, player);
+		return super.onEvent(event, npc, player);
 	}
 	
 	/**

@@ -48,7 +48,7 @@ public final class Alarm extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onAdvEvent(String event, L2Npc npc, L2PcInstance player) {
+	public String onEvent(String event, L2Npc npc, L2PcInstance player) {
 		String htmltext = null;
 		final L2PcInstance player0 = npc.getVariables().getObject("player0", L2PcInstance.class);
 		final L2Npc npc0 = npc.getVariables().getObject("npc0", L2Npc.class);

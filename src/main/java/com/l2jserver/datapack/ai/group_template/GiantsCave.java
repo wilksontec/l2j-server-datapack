@@ -43,7 +43,7 @@ public final class GiantsCave extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onAdvEvent(String event, L2Npc npc, L2PcInstance player) {
+	public String onEvent(String event, L2Npc npc, L2PcInstance player) {
 		if (event.equals("ATTACK") && (player != null) && (npc != null) && !npc.isDead()) {
 			if (npc.getId() == SCOUTS[0]) // Gamlin
 			{
@@ -60,7 +60,7 @@ public final class GiantsCave extends AbstractNpcAI {
 		} else if (event.equals("CLEAR") && (npc != null) && !npc.isDead()) {
 			npc.setScriptValue(0);
 		}
-		return super.onAdvEvent(event, npc, player);
+		return super.onEvent(event, npc, player);
 	}
 	
 	@Override

@@ -94,7 +94,7 @@ public class EmeraldHorn extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onAdvEvent(String event, L2Npc npc, L2PcInstance player) {
+	public String onEvent(String event, L2Npc npc, L2PcInstance player) {
 		if (DAMAGE_TIMER_15S.equals(event)) {
 			if (!npc.getVariables().getBoolean(HIGH_DAMAGE_FLAG, false)) {
 				final L2Character mostHated = ((L2Attackable) npc).getMostHated();
@@ -108,6 +108,6 @@ public class EmeraldHorn extends AbstractNpcAI {
 			}
 			npc.getVariables().set(CAST_FLAG, false);
 		}
-		return super.onAdvEvent(event, npc, player);
+		return super.onEvent(event, npc, player);
 	}
 }

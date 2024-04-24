@@ -1468,7 +1468,7 @@ public final class Kamaloka extends AbstractInstance {
 	 * Handles only player's enter, single parameter - integer kamaloka index
 	 */
 	@Override
-	public String onAdvEvent(String event, L2Npc npc, L2PcInstance player) {
+	public String onEvent(String event, L2Npc npc, L2PcInstance player) {
 		if (npc == null) {
 			return "";
 		}

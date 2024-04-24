@@ -99,7 +99,7 @@ public final class VarkaSilenosSupport extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onAdvEvent(String event, L2Npc npc, L2PcInstance player) {
+	public String onEvent(String event, L2Npc npc, L2PcInstance player) {
 		String htmltext = null;
 		if (Util.isDigit(event) && BUFF.containsKey(Integer.parseInt(event))) {
 			final BuffsData buff = BUFF.get(Integer.parseInt(event));

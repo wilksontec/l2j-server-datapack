@@ -82,7 +82,7 @@ public class Q00616_MagicalPowerOfFirePart2 extends Quest {
 	}
 	
 	@Override
-	public String onAdvEvent(String event, L2Npc npc, L2PcInstance player) {
+	public String onEvent(String event, L2Npc npc, L2PcInstance player) {
 		String htmltext = null;
 		if (player != null) {
 			final QuestState st = getQuestState(player, false);

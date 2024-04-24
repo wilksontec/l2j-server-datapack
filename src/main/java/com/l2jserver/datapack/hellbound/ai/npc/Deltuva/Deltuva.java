@@ -42,7 +42,7 @@ public final class Deltuva extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onAdvEvent(String event, L2Npc npc, L2PcInstance player) {
+	public String onEvent(String event, L2Npc npc, L2PcInstance player) {
 		if (event.equalsIgnoreCase("teleport")) {
 			final QuestState hostQuest = player.getQuestState(Q00132_MatrasCuriosity.class.getSimpleName());
 			if ((hostQuest == null) || !hostQuest.isCompleted()) {
@@ -50,6 +50,6 @@ public final class Deltuva extends AbstractNpcAI {
 			}
 			player.teleToLocation(TELEPORT);
 		}
-		return super.onAdvEvent(event, npc, player);
+		return super.onEvent(event, npc, player);
 	}
 }

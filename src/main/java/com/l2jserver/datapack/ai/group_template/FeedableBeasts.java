@@ -447,7 +447,7 @@ public final class FeedableBeasts extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onAdvEvent(String event, L2Npc npc, L2PcInstance player) {
+	public String onEvent(String event, L2Npc npc, L2PcInstance player) {
 		if (event.equalsIgnoreCase("polymorph Mad Cow") && (npc != null) && (player != null)) {
 			if (MAD_COW_POLYMORPH.containsKey(npc.getId())) {
 				// remove the feed info from the previous mob
@@ -466,7 +466,7 @@ public final class FeedableBeasts extends AbstractNpcAI {
 				nextNpc.getAI().setIntention(CtrlIntention.AI_INTENTION_ATTACK, player);
 			}
 		}
-		return super.onAdvEvent(event, npc, player);
+		return super.onEvent(event, npc, player);
 	}
 	
 	@Override

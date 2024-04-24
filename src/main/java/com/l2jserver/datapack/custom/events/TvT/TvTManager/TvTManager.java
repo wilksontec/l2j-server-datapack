@@ -54,9 +54,9 @@ public final class TvTManager extends AbstractNpcAI implements IVoicedCommandHan
 	}
 	
 	@Override
-	public String onAdvEvent(String event, L2Npc npc, L2PcInstance player) {
+	public String onEvent(String event, L2Npc npc, L2PcInstance player) {
 		if ((player == null) || !TvTEvent.isParticipating()) {
-			return super.onAdvEvent(event, npc, player);
+			return super.onEvent(event, npc, player);
 		}
 		
 		String htmltext = null;
@@ -140,11 +140,11 @@ public final class TvTManager extends AbstractNpcAI implements IVoicedCommandHan
 				break;
 			}
 			case "tvtjoin": {
-				html = onAdvEvent("join", null, activeChar);
+				html = onEvent("join", null, activeChar);
 				break;
 			}
 			case "tvtleave": {
-				html = onAdvEvent("remove", null, activeChar);
+				html = onEvent("remove", null, activeChar);
 				break;
 			}
 		}

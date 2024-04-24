@@ -84,7 +84,7 @@ public final class TerritoryManagers extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onAdvEvent(String event, L2Npc npc, L2PcInstance player) {
+	public String onEvent(String event, L2Npc npc, L2PcInstance player) {
 		String htmltext = null;
 		final int npcId = npc.getId();
 		final int itemId = 13757 + (npcId - 36490);

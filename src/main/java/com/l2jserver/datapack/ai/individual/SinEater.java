@@ -48,7 +48,7 @@ public final class SinEater extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onAdvEvent(String event, L2Npc npc, L2PcInstance player) {
+	public String onEvent(String event, L2Npc npc, L2PcInstance player) {
 		if (event.equals("TALK") && (player != null) && (player.getSummon() != null)) {
 			if (getRandom(100) < 30) {
 				final int random = getRandom(100);
@@ -68,7 +68,7 @@ public final class SinEater extends AbstractNpcAI {
 			}
 			startQuestTimer("TALK", 60000, null, player);
 		}
-		return super.onAdvEvent(event, npc, player);
+		return super.onEvent(event, npc, player);
 	}
 	
 	@RegisterEvent(EventType.CREATURE_KILL)

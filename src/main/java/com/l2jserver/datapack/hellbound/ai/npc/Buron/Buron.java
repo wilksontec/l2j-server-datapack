@@ -42,7 +42,7 @@ public final class Buron extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onAdvEvent(String event, L2Npc npc, L2PcInstance player) {
+	public String onEvent(String event, L2Npc npc, L2PcInstance player) {
 		String htmltext = event;
 		if ("Rumor".equalsIgnoreCase(event)) {
 			htmltext = "32345-" + HellboundEngine.getInstance().getLevel() + "r.htm";

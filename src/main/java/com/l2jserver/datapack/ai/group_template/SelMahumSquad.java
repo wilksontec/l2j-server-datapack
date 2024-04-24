@@ -90,7 +90,7 @@ public final class SelMahumSquad extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onAdvEvent(String event, L2Npc npc, L2PcInstance player) {
+	public String onEvent(String event, L2Npc npc, L2PcInstance player) {
 		switch (event) {
 			case "chef_disable_reward": {
 				npc.getVariables().set("REWARD_TIME_GONE", 1);
@@ -168,7 +168,7 @@ public final class SelMahumSquad extends AbstractNpcAI {
 				break;
 			}
 		}
-		return super.onAdvEvent(event, npc, player);
+		return super.onEvent(event, npc, player);
 	}
 	
 	@Override

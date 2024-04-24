@@ -147,7 +147,7 @@ public final class NewbieGuide extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onAdvEvent(String event, L2Npc npc, L2PcInstance talker) {
+	public String onEvent(String event, L2Npc npc, L2PcInstance talker) {
 		if (event.endsWith(".htm")) {
 			return event;
 		}
@@ -158,7 +158,7 @@ public final class NewbieGuide extends AbstractNpcAI {
 			} else {
 				teleportRequest(talker, npc, Integer.parseInt(tel[1]));
 			}
-			return super.onAdvEvent(event, npc, talker);
+			return super.onEvent(event, npc, talker);
 		}
 		
 		final QuestState qs = getQuestState(talker, true);

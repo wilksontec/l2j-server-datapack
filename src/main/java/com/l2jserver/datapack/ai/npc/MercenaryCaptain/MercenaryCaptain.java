@@ -90,7 +90,7 @@ public final class MercenaryCaptain extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onAdvEvent(String event, L2Npc npc, L2PcInstance player) {
+	public String onEvent(String event, L2Npc npc, L2PcInstance player) {
 		String htmltext = null;
 		if (player != null) {
 			final StringTokenizer st = new StringTokenizer(event, " ");

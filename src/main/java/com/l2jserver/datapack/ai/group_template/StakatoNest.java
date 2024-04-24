@@ -172,7 +172,7 @@ public final class StakatoNest extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onAdvEvent(String event, L2Npc npc, L2PcInstance player) {
+	public String onEvent(String event, L2Npc npc, L2PcInstance player) {
 		if ((npc == null) || (player == null) || npc.isDead()) {
 			return null;
 		}
@@ -192,7 +192,7 @@ public final class StakatoNest extends AbstractNpcAI {
 			final L2Npc spawned = addSpawn(npcId, npc.getX(), npc.getY(), npc.getZ(), npc.getHeading(), false, 0, true);
 			addAttackDesire(spawned, player);
 		}
-		return super.onAdvEvent(event, npc, player);
+		return super.onEvent(event, npc, player);
 	}
 	
 	private static L2MonsterInstance checkMinion(L2Npc npc) {

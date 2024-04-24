@@ -69,7 +69,7 @@ public final class SilentValley extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onAdvEvent(String event, L2Npc npc, L2PcInstance player) {
+	public String onEvent(String event, L2Npc npc, L2PcInstance player) {
 		if ((npc != null) && !npc.isDead()) {
 			switch (event) {
 				case "CLEAR":

@@ -81,7 +81,7 @@ public final class Q00236_SeedsOfChaos extends Quest {
 	}
 	
 	@Override
-	public String onAdvEvent(String event, L2Npc npc, L2PcInstance player) {
+	public String onEvent(String event, L2Npc npc, L2PcInstance player) {
 		if ("KATENAR_120".equals(event)) {
 			final L2PcInstance c0 = npc.getVariables().getObject("player0", L2PcInstance.class);
 			final L2Npc npc0 = npc.getVariables().getObject("npc0", L2Npc.class);
@@ -94,7 +94,7 @@ public final class Q00236_SeedsOfChaos extends Quest {
 				}
 			}
 			npc.deleteMe();
-			return super.onAdvEvent(event, npc, player);
+			return super.onEvent(event, npc, player);
 		} else if ("HARKILGAMED_120".equals(event)) {
 			final L2Npc npc0 = npc.getVariables().getObject("npc0", L2Npc.class);
 			if (npc0 != null) {
@@ -104,7 +104,7 @@ public final class Q00236_SeedsOfChaos extends Quest {
 				}
 			}
 			npc.deleteMe();
-			return super.onAdvEvent(event, npc, player);
+			return super.onEvent(event, npc, player);
 		} else if ("KATENAR_A_120".equals(event)) {
 			final L2PcInstance c0 = npc.getVariables().getObject("player0", L2PcInstance.class);
 			final L2Npc npc0 = npc.getVariables().getObject("npc0", L2Npc.class);
@@ -117,7 +117,7 @@ public final class Q00236_SeedsOfChaos extends Quest {
 				}
 			}
 			npc.deleteMe();
-			return super.onAdvEvent(event, npc, player);
+			return super.onEvent(event, npc, player);
 		} else if ("KATENAR_B_120".equals(event)) {
 			final L2PcInstance c0 = npc.getVariables().getObject("player0", L2PcInstance.class);
 			final L2Npc npc0 = npc.getVariables().getObject("npc0", L2Npc.class);
@@ -130,7 +130,7 @@ public final class Q00236_SeedsOfChaos extends Quest {
 				}
 			}
 			npc.deleteMe();
-			return super.onAdvEvent(event, npc, player);
+			return super.onEvent(event, npc, player);
 		} else if ("HARKILGAMED_A_120".equals(event)) {
 			final L2Npc npc0 = npc.getVariables().getObject("npc0", L2Npc.class);
 			if (npc0 != null) {
@@ -140,7 +140,7 @@ public final class Q00236_SeedsOfChaos extends Quest {
 				}
 			}
 			npc.deleteMe();
-			return super.onAdvEvent(event, npc, player);
+			return super.onEvent(event, npc, player);
 		}
 		
 		final QuestState qs = getQuestState(player, false);

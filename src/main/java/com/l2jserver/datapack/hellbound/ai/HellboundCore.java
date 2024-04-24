@@ -42,7 +42,7 @@ public final class HellboundCore extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onAdvEvent(String event, L2Npc npc, L2PcInstance player) {
+	public String onEvent(String event, L2Npc npc, L2PcInstance player) {
 		if (event.equalsIgnoreCase("cast") && (HellboundEngine.getInstance().getLevel() <= 6)) {
 			for (L2Character naia : npc.getKnownList().getKnownCharactersInRadius(900)) {
 				if ((naia != null) && naia.isMonster() && (naia.getId() == NAIA) && !naia.isDead() && !naia.isChanneling()) {
@@ -52,7 +52,7 @@ public final class HellboundCore extends AbstractNpcAI {
 			}
 			startQuestTimer("cast", 10000, npc, null);
 		}
-		return super.onAdvEvent(event, npc, player);
+		return super.onEvent(event, npc, player);
 	}
 	
 	@Override

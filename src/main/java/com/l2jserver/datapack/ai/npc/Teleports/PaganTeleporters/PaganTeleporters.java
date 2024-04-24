@@ -60,7 +60,7 @@ public final class PaganTeleporters extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onAdvEvent(String event, L2Npc npc, L2PcInstance player) {
+	public String onEvent(String event, L2Npc npc, L2PcInstance player) {
 		switch (event) {
 			case "Close_Door1": {
 				closeDoor(19160001, 0);

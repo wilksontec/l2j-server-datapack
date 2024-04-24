@@ -50,7 +50,7 @@ public final class DwarfBlacksmithChange1 extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onAdvEvent(String event, L2Npc npc, L2PcInstance player) {
+	public String onEvent(String event, L2Npc npc, L2PcInstance player) {
 		String htmltext = null;
 		switch (event) {
 			case "30499-01.htm": // head_blacksmith_tapoy003f

@@ -303,16 +303,16 @@ public class Q00255_Tutorial extends Quest {
 	}
 	
 	@Override
-	public String onAdvEvent(String event, L2Npc npc, L2PcInstance talker) {
+	public String onEvent(String event, L2Npc npc, L2PcInstance talker) {
 		final int eventId = Integer.parseInt(event);
 		
 		if (eventId > 1000000) {
 			fireEvent(eventId, talker);
-			return super.onAdvEvent(event, npc, talker);
+			return super.onEvent(event, npc, talker);
 		}
 		
 		if (talker.isDead()) {
-			return super.onAdvEvent(event, npc, talker);
+			return super.onEvent(event, npc, talker);
 		}
 		
 		final QuestState qs = getQuestState(talker, true);

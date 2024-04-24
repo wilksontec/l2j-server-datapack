@@ -150,7 +150,7 @@ public class Defence extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onAdvEvent(String event, L2Npc npc, L2PcInstance player) {
+	public String onEvent(String event, L2Npc npc, L2PcInstance player) {
 		if ((event != "start") && (event != "check_for_fail") && (event != "defence_successful" //
 		)
 			&& (((leftDevice != null) && (rightDevice != null) && leftDevice.isDead() && rightDevice.isDead()) //

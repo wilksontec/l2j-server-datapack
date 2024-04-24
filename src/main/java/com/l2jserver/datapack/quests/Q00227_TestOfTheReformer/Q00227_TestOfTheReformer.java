@@ -114,7 +114,7 @@ public final class Q00227_TestOfTheReformer extends Quest {
 	}
 	
 	@Override
-	public String onAdvEvent(String event, L2Npc npc, L2PcInstance player) {
+	public String onEvent(String event, L2Npc npc, L2PcInstance player) {
 		if ("DESPAWN".equals(event)) {
 			final int SPAWNED = npc.getVariables().getInt("SPAWNED", 0);
 			if (SPAWNED < 60) {
@@ -122,7 +122,7 @@ public final class Q00227_TestOfTheReformer extends Quest {
 			} else {
 				npc.deleteMe();
 			}
-			return super.onAdvEvent(event, npc, player);
+			return super.onEvent(event, npc, player);
 		}
 		
 		final QuestState qs = getQuestState(player, false);

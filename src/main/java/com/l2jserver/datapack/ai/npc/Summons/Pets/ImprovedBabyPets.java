@@ -59,7 +59,7 @@ public final class ImprovedBabyPets extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onAdvEvent(String event, L2Npc npc, L2PcInstance player) {
+	public String onEvent(String event, L2Npc npc, L2PcInstance player) {
 		if (player != null) {
 			final L2PetInstance pet = (L2PetInstance) player.getSummon();
 			if (pet == null) {
@@ -94,7 +94,7 @@ public final class ImprovedBabyPets extends AbstractNpcAI {
 				}
 			}
 		}
-		return super.onAdvEvent(event, npc, player);
+		return super.onEvent(event, npc, player);
 	}
 	
 	@RegisterEvent(EventType.PLAYER_LOGOUT)

@@ -51,7 +51,7 @@ public final class CastleWarehouse extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onAdvEvent(String event, L2Npc npc, L2PcInstance player) {
+	public String onEvent(String event, L2Npc npc, L2PcInstance player) {
 		String htmltext = event;
 		switch (event) {
 			case "warehouse-01.html":

@@ -48,13 +48,13 @@ public final class MithrilMinesTeleporter extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onAdvEvent(String event, L2Npc npc, L2PcInstance player) {
+	public String onEvent(String event, L2Npc npc, L2PcInstance player) {
 		int index = Integer.parseInt(event) - 1;
 		if (LOCS.length > index) {
 			Location loc = LOCS[index];
 			player.teleToLocation(loc, false);
 		}
-		return super.onAdvEvent(event, npc, player);
+		return super.onEvent(event, npc, player);
 	}
 	
 	@Override

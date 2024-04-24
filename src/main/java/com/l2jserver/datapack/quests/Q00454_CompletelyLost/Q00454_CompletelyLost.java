@@ -64,7 +64,7 @@ public final class Q00454_CompletelyLost extends Quest {
 	}
 	
 	@Override
-	public String onAdvEvent(String event, L2Npc npc, L2PcInstance player) {
+	public String onEvent(String event, L2Npc npc, L2PcInstance player) {
 		switch (event) {
 			case "QUEST_TIMER": {
 				npc.broadcastEvent("SCE_IM_ERMIAN", 300, null);

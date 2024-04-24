@@ -71,7 +71,7 @@ public final class WarriorFishingBlock extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onAdvEvent(String event, L2Npc npc, L2PcInstance player) {
+	public String onEvent(String event, L2Npc npc, L2PcInstance player) {
 		switch (event) {
 			case "SPAWN": {
 				final L2Object obj = npc.getTarget();
@@ -93,7 +93,7 @@ public final class WarriorFishingBlock extends AbstractNpcAI {
 				break;
 			}
 		}
-		return super.onAdvEvent(event, npc, player);
+		return super.onEvent(event, npc, player);
 	}
 	
 	@Override

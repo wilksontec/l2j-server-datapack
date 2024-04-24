@@ -67,12 +67,12 @@ public final class Selina extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onAdvEvent(String event, L2Npc npc, L2PcInstance player) {
+	public String onEvent(String event, L2Npc npc, L2PcInstance player) {
 		final BuffHolder buff = BUFFS.get(event);
 		if (buff != null) {
 			if ((getQuestItemsCount(player, GOLDEN_RAM_COIN) >= buff.getCost())) {
 				castSkill(npc, player, buff);
-				return super.onAdvEvent(event, npc, player);
+				return super.onEvent(event, npc, player);
 			}
 		} else {
 			LOG.warn("Player {} sent invalid bypass: {}!", player, event);

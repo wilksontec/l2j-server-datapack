@@ -91,7 +91,7 @@ public final class TowerOfInfinitum extends AbstractNpcAI {
 	private static final Location ENTER_LOCATION = new Location(-22204, 277056, -15023);
 	
 	@Override
-	public String onAdvEvent(String event, L2Npc npc, L2PcInstance player) {
+	public String onEvent(String event, L2Npc npc, L2PcInstance player) {
 		String htmltext = event;
 		final int npcId = npc.getId();
 		

@@ -420,12 +420,12 @@ public final class Q00234_FatesWhisper extends Quest {
 	}
 	
 	@Override
-	public String onAdvEvent(String event, L2Npc npc, L2PcInstance player) {
+	public String onEvent(String event, L2Npc npc, L2PcInstance player) {
 		if (player == null) {
 			if (event.equals("23401") || event.equals("23402") || event.equals("23403") || event.equals("23404")) {
 				npc.decayMe();
 			}
-			return super.onAdvEvent(event, npc, player);
+			return super.onEvent(event, npc, player);
 		}
 		
 		final QuestState qs = getQuestState(player, false);

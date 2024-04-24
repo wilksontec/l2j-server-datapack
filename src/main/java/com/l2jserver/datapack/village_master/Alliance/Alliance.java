@@ -51,7 +51,7 @@ public final class Alliance extends Quest {
 	}
 	
 	@Override
-	public String onAdvEvent(String event, L2Npc npc, L2PcInstance player) {
+	public String onEvent(String event, L2Npc npc, L2PcInstance player) {
 		if (!"9001-01.htm".equals(event) && (player.getClan() == null)) {
 			return "9001-04.htm";
 		}

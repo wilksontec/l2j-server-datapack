@@ -84,7 +84,7 @@ public class GiganticGolem extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onAdvEvent(String event, L2Npc npc, L2PcInstance player) {
+	public String onEvent(String event, L2Npc npc, L2PcInstance player) {
 		switch (event) {
 			case "ATTACK_MACHINE": {
 				for (L2Spawn spawn : SpawnTable.getInstance().getSpawns(STRANGE_MACHINE)) {
@@ -186,7 +186,7 @@ public class GiganticGolem extends AbstractNpcAI {
 				break;
 			}
 		}
-		return super.onAdvEvent(event, npc, player);
+		return super.onEvent(event, npc, player);
 	}
 	
 	@Override

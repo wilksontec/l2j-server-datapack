@@ -142,7 +142,7 @@ public final class Keltas extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onAdvEvent(String event, L2Npc npc, L2PcInstance player) {
+	public String onEvent(String event, L2Npc npc, L2PcInstance player) {
 		if (event.equalsIgnoreCase("despawn")) {
 			final L2Npc keltas = _spawnedKeltas;
 			if ((keltas != null) && !keltas.isDead()) {
@@ -152,7 +152,7 @@ public final class Keltas extends AbstractNpcAI {
 				despawnMinions();
 			}
 		}
-		return super.onAdvEvent(event, npc, player);
+		return super.onEvent(event, npc, player);
 	}
 	
 	@Override

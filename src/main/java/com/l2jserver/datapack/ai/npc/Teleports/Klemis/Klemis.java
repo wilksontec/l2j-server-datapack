@@ -43,7 +43,7 @@ public class Klemis extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onAdvEvent(String event, L2Npc npc, L2PcInstance player) {
+	public String onEvent(String event, L2Npc npc, L2PcInstance player) {
 		if (event.equals("portInside")) {
 			if (player.getLevel() >= MIN_LV) {
 				player.teleToLocation(LOCATION);
@@ -51,6 +51,6 @@ public class Klemis extends AbstractNpcAI {
 				return "32734-01.html";
 			}
 		}
-		return super.onAdvEvent(event, npc, player);
+		return super.onEvent(event, npc, player);
 	}
 }

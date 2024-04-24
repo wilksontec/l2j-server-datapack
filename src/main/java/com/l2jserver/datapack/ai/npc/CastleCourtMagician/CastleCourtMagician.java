@@ -119,7 +119,7 @@ public final class CastleCourtMagician extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onAdvEvent(String event, L2Npc npc, L2PcInstance player) {
+	public String onEvent(String event, L2Npc npc, L2PcInstance player) {
 		if ((player.getClan() == null) && (player.getClanId() != npc.getCastle().getOwnerId())) {
 			return "courtmagician-01.html";
 		}

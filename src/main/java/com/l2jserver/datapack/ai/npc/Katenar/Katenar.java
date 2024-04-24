@@ -45,7 +45,7 @@ public final class Katenar extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onAdvEvent(String event, L2Npc npc, L2PcInstance player) {
+	public String onEvent(String event, L2Npc npc, L2PcInstance player) {
 		final L2Npc npc0 = npc.getVariables().getObject("npc0", L2Npc.class);
 		String htmltext = null;
 		

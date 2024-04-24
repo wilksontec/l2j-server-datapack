@@ -321,7 +321,7 @@ public class EnergySeeds extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onAdvEvent(String event, L2Npc npc, L2PcInstance player) {
+	public String onEvent(String event, L2Npc npc, L2PcInstance player) {
 		if (event.equalsIgnoreCase("StartSoDAi")) {
 			for (int doorId : SEED_OF_DESTRUCTION_DOORS) {
 				L2DoorInstance doorInstance = DoorData.getInstance().getDoor(doorId);

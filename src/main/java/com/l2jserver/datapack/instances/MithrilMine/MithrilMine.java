@@ -73,7 +73,7 @@ public final class MithrilMine extends AbstractInstance {
 	}
 	
 	@Override
-	public String onAdvEvent(String event, L2Npc npc, L2PcInstance player) {
+	public String onEvent(String event, L2Npc npc, L2PcInstance player) {
 		final InstanceWorld world = InstanceManager.getInstance().getWorld(npc.getInstanceId());
 		
 		switch (event) {
@@ -112,7 +112,7 @@ public final class MithrilMine extends AbstractInstance {
 				break;
 			}
 		}
-		return super.onAdvEvent(event, npc, player);
+		return super.onEvent(event, npc, player);
 	}
 	
 	@Override

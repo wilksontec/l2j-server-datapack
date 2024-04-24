@@ -66,7 +66,7 @@ public final class QueenShyeed extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onAdvEvent(String event, L2Npc npc, L2PcInstance player) {
+	public String onEvent(String event, L2Npc npc, L2PcInstance player) {
 		if (event.equalsIgnoreCase("SHYEED_DEAD")) {
 			if (RaidBossSpawnManager.getInstance().getRaidBossStatusId(SHYEED) == StatusEnum.DEAD) {
 				// Buffs
@@ -96,7 +96,7 @@ public final class QueenShyeed extends AbstractNpcAI {
 				_minions.add(_mob);
 			}
 		}
-		return super.onAdvEvent(event, npc, player);
+		return super.onEvent(event, npc, player);
 	}
 	
 	@Override
