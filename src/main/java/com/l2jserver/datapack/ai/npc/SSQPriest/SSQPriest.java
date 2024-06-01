@@ -19,6 +19,16 @@
 package com.l2jserver.datapack.ai.npc.SSQPriest;
 
 import static com.l2jserver.gameserver.config.Configuration.sevenSigns;
+import static com.l2jserver.gameserver.network.SystemMessageId.CONTRIB_SCORE_EXCEEDED;
+import static com.l2jserver.gameserver.network.SystemMessageId.CONTRIB_SCORE_INCREASED_S1;
+import static com.l2jserver.gameserver.network.SystemMessageId.FIGHT_FOR_AVARICE;
+import static com.l2jserver.gameserver.network.SystemMessageId.FIGHT_FOR_GNOSIS;
+import static com.l2jserver.gameserver.network.SystemMessageId.FIGHT_FOR_STRIFE;
+import static com.l2jserver.gameserver.network.SystemMessageId.INVENTORY_LESS_THAN_80_PERCENT;
+import static com.l2jserver.gameserver.network.SystemMessageId.SEAL_STONES_ONLY_WHILE_QUEST;
+import static com.l2jserver.gameserver.network.SystemMessageId.SETTLE_ACCOUNT_ONLY_IN_SEAL_VALIDATION;
+import static com.l2jserver.gameserver.network.SystemMessageId.SEVENSIGNS_PARTECIPATION_DAWN;
+import static com.l2jserver.gameserver.network.SystemMessageId.SEVENSIGNS_PARTECIPATION_DUSK;
 
 import java.util.StringTokenizer;
 
@@ -26,11 +36,11 @@ import com.l2jserver.datapack.ai.npc.AbstractNpcAI;
 import com.l2jserver.gameserver.SevenSigns;
 import com.l2jserver.gameserver.data.xml.impl.MultisellData;
 import com.l2jserver.gameserver.enums.CategoryType;
+import com.l2jserver.gameserver.enums.audio.Sound;
 import com.l2jserver.gameserver.instancemanager.QuestManager;
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
 import com.l2jserver.gameserver.model.itemcontainer.Inventory;
-import com.l2jserver.gameserver.network.SystemMessageId;
 import com.l2jserver.gameserver.network.serverpackets.SystemMessage;
 import com.l2jserver.gameserver.util.Util;
 
@@ -55,7 +65,7 @@ public final class SSQPriest extends AbstractNpcAI {
 		31997
 	};
 	
-	private final static int[] DUSK_NPCS = {
+	private static final int[] DUSK_NPCS = {
 		31085,
 		31086,
 		31087,
@@ -71,10 +81,14 @@ public final class SSQPriest extends AbstractNpcAI {
 	
 	private static final String QUEST_ID = "q0506";
 	
+	private static final int Q00255_TUTORIAL = 255;
+	private static final int Q00505_BLOODOFFERING = 505;
+	
 	private static final double WEIGHT_LIMIT = 0.80;
 	
 	private static final int THE_LORD_OF_MANORS_AGREEMENT = 5708;
 	private static final int THE_LORD_OF_MANORS_AGREEMENT_NEW = 6388;
+	private static final int BLOOD_OF_OFFERING = 5901;
 	
 	private static final String[][] GLUDIN_POSITION = {
 		{
@@ -317,49 +331,15 @@ public final class SSQPriest extends AbstractNpcAI {
 		bindFirstTalk(DUSK_NPCS);
 	}
 	
-	private String[][] getPositionArray(int npcId) {
-		return switch (npcId) {
-			case 31078, 31085 -> GLUDIN_POSITION;
-			case 31079, 31086 -> GLUDIO_POSITION;
-			case 31080, 31087 -> DION_POSITION;
-			case 31081, 31088 -> GIRAN_POSITION;
-			case 31082, 31089 -> HEINE_POSITION;
-			case 31083, 31090 -> OREN_POSITION;
-			case 31084, 31091 -> ADEN_POSITION;
-			case 31168, 31169 -> HUNTERS_POSITION;
-			case 31692, 31693 -> GODDARD_POSITION;
-			case 31694, 31695 -> RUNE_POSITION;
-			case 31997, 31998 -> SCHUTT_POSITION;
-			default -> new String[0][0];
-		};
-	}
-	
-	private String teleportList(L2PcInstance player, L2Npc npc, boolean comp) {
-		final StringBuilder html = new StringBuilder("<html><body>&$556;<br><br>");
-		String[][] positions = getPositionArray(npc.getId());
-		
-		for (String[] s : positions) {
-			String name = s[0];
-			String location = s[1];
-			String[] price = s[2].split(";");
-			String pr = comp ? price[1].trim() : price[0].trim();
-			
-			html.append("<a action=\"bypass -h Quest SSQPriest Goto " + location + " " + pr + "\" msg=\"811;" + name + "\">" + name + " - " + pr + " Ancient Adena</a><br1>");
-		}
-		html.append("</body></html>");
-		
-		return html.toString();
-	}
-	
 	@Override
 	public String onEvent(String event, L2Npc npc, L2PcInstance player) {
 		if (event.endsWith(".htm")) {
 			return "ssq_npc_priest" + event;
 		}
 		
-		final SevenSigns ss = SevenSigns.getInstance();
-		final int ssqPart = ss.getPlayerCabal(player.getObjectId());
-		final int ssqWinner = ss.getCabalHighestScore();
+		final var ss = SevenSigns.getInstance();
+		final var ssqPart = ss.getPlayerCabal(player.getObjectId());
+		final var ssqWinner = ss.getCabalHighestScore();
 		
 		if (event.equalsIgnoreCase("Teleport")) {
 			if (!ss.isSealValidationPeriod()) {
@@ -409,7 +389,7 @@ public final class SSQPriest extends AbstractNpcAI {
 		int ask = Integer.parseInt(event.split(";")[0]);
 		switch (ask) {
 			case 506 -> {
-				int reply = Integer.parseInt(event.split(";")[1]);
+				final var reply = Integer.parseInt(event.split(";")[1]);
 				
 				switch (reply) {
 					case 0, 38 -> { // participation request
@@ -643,17 +623,17 @@ public final class SSQPriest extends AbstractNpcAI {
 						return html;
 					}
 					case 23, 57 -> { // fight for avarice
-						final int seal = SevenSigns.SEAL_AVARICE;
+						final var seal = SevenSigns.SEAL_AVARICE;
 						
 						if (Util.contains(DAWN_NPCS, npc.getId())) {
 							if ((player.getInventory().getSize(false) >= (player.getInventoryLimit() * WEIGHT_LIMIT)) || (player.getCurrentLoad() >= (player.getMaxLoad() * WEIGHT_LIMIT))) {
-								player.sendPacket(SystemMessageId.INVENTORY_LESS_THAN_80_PERCENT);
+								player.sendPacket(INVENTORY_LESS_THAN_80_PERCENT);
 								return null;
 							}
 							
 							if (ss.getSSQPrevWinner() == SevenSigns.CABAL_DAWN) {
 								if (!ss.isCompetitionPeriod()) {
-									player.sendPacket(SystemMessageId.SETTLE_ACCOUNT_ONLY_IN_SEAL_VALIDATION);
+									player.sendPacket(SETTLE_ACCOUNT_ONLY_IN_SEAL_VALIDATION);
 									return null;
 								}
 								
@@ -750,33 +730,33 @@ public final class SSQPriest extends AbstractNpcAI {
 							}
 							
 							if (Util.contains(DAWN_NPCS, npc.getId())) {
-								player.sendPacket(SystemMessageId.SEVENSIGNS_PARTECIPATION_DAWN);
+								player.sendPacket(SEVENSIGNS_PARTECIPATION_DAWN);
 							} else {
-								player.sendPacket(SystemMessageId.SEVENSIGNS_PARTECIPATION_DUSK);
+								player.sendPacket(SEVENSIGNS_PARTECIPATION_DUSK);
 							}
 							
 							switch (seal) {
 								case SevenSigns.SEAL_AVARICE -> {
-									player.sendPacket(SystemMessageId.FIGHT_FOR_AVARICE);
+									player.sendPacket(FIGHT_FOR_AVARICE);
 								}
 								case SevenSigns.SEAL_GNOSIS -> {
-									player.sendPacket(SystemMessageId.FIGHT_FOR_GNOSIS);
+									player.sendPacket(FIGHT_FOR_GNOSIS);
 								}
 								case SevenSigns.SEAL_STRIFE -> {
-									player.sendPacket(SystemMessageId.FIGHT_FOR_STRIFE);
+									player.sendPacket(FIGHT_FOR_STRIFE);
 								}
 							}
 							
 							return "ssq_npc_priest_" + QUEST_ID + "_13.htm";
 						}
 						if ((player.getInventory().getSize(false) >= (player.getInventoryLimit() * WEIGHT_LIMIT)) || (player.getCurrentLoad() >= (player.getMaxLoad() * WEIGHT_LIMIT))) {
-							player.sendPacket(SystemMessageId.INVENTORY_LESS_THAN_80_PERCENT);
+							player.sendPacket(INVENTORY_LESS_THAN_80_PERCENT);
 							return null;
 						}
 						
 						if (ss.getSSQPrevWinner() == SevenSigns.CABAL_DUSK) {
 							if (!ss.isCompetitionPeriod()) {
-								player.sendPacket(SystemMessageId.SETTLE_ACCOUNT_ONLY_IN_SEAL_VALIDATION);
+								player.sendPacket(SETTLE_ACCOUNT_ONLY_IN_SEAL_VALIDATION);
 								return null;
 							}
 							
@@ -874,37 +854,37 @@ public final class SSQPriest extends AbstractNpcAI {
 						}
 						
 						if (Util.contains(DAWN_NPCS, npc.getId())) {
-							player.sendPacket(SystemMessageId.SEVENSIGNS_PARTECIPATION_DAWN);
+							player.sendPacket(SEVENSIGNS_PARTECIPATION_DAWN);
 						} else {
-							player.sendPacket(SystemMessageId.SEVENSIGNS_PARTECIPATION_DUSK);
+							player.sendPacket(SEVENSIGNS_PARTECIPATION_DUSK);
 						}
 						
 						switch (seal) {
 							case SevenSigns.SEAL_AVARICE -> {
-								player.sendPacket(SystemMessageId.FIGHT_FOR_AVARICE);
+								player.sendPacket(FIGHT_FOR_AVARICE);
 							}
 							case SevenSigns.SEAL_GNOSIS -> {
-								player.sendPacket(SystemMessageId.FIGHT_FOR_GNOSIS);
+								player.sendPacket(FIGHT_FOR_GNOSIS);
 							}
 							case SevenSigns.SEAL_STRIFE -> {
-								player.sendPacket(SystemMessageId.FIGHT_FOR_STRIFE);
+								player.sendPacket(FIGHT_FOR_STRIFE);
 							}
 						}
 						
 						return "ssq_npc_priest_" + QUEST_ID + "_46.htm";
 					}
 					case 24, 58 -> { // fight for gnosis
-						final int seal = SevenSigns.SEAL_GNOSIS;
+						final var seal = SevenSigns.SEAL_GNOSIS;
 						
 						if (Util.contains(DAWN_NPCS, npc.getId())) {
 							if ((player.getInventory().getSize(false) >= (player.getInventoryLimit() * WEIGHT_LIMIT)) || (player.getCurrentLoad() >= (player.getMaxLoad() * WEIGHT_LIMIT))) {
-								player.sendPacket(SystemMessageId.INVENTORY_LESS_THAN_80_PERCENT);
+								player.sendPacket(INVENTORY_LESS_THAN_80_PERCENT);
 								return null;
 							}
 							
 							if (ss.getSSQPrevWinner() == SevenSigns.CABAL_DAWN) {
 								if (!ss.isCompetitionPeriod()) {
-									player.sendPacket(SystemMessageId.SETTLE_ACCOUNT_ONLY_IN_SEAL_VALIDATION);
+									player.sendPacket(SETTLE_ACCOUNT_ONLY_IN_SEAL_VALIDATION);
 									return null;
 								}
 								
@@ -1001,20 +981,20 @@ public final class SSQPriest extends AbstractNpcAI {
 							}
 							
 							if (Util.contains(DAWN_NPCS, npc.getId())) {
-								player.sendPacket(SystemMessageId.SEVENSIGNS_PARTECIPATION_DAWN);
+								player.sendPacket(SEVENSIGNS_PARTECIPATION_DAWN);
 							} else {
-								player.sendPacket(SystemMessageId.SEVENSIGNS_PARTECIPATION_DUSK);
+								player.sendPacket(SEVENSIGNS_PARTECIPATION_DUSK);
 							}
 							
 							switch (seal) {
 								case SevenSigns.SEAL_AVARICE -> {
-									player.sendPacket(SystemMessageId.FIGHT_FOR_AVARICE);
+									player.sendPacket(FIGHT_FOR_AVARICE);
 								}
 								case SevenSigns.SEAL_GNOSIS -> {
-									player.sendPacket(SystemMessageId.FIGHT_FOR_GNOSIS);
+									player.sendPacket(FIGHT_FOR_GNOSIS);
 								}
 								case SevenSigns.SEAL_STRIFE -> {
-									player.sendPacket(SystemMessageId.FIGHT_FOR_STRIFE);
+									player.sendPacket(FIGHT_FOR_STRIFE);
 								}
 							}
 							
@@ -1022,13 +1002,13 @@ public final class SSQPriest extends AbstractNpcAI {
 						}
 						
 						if ((player.getInventory().getSize(false) >= (player.getInventoryLimit() * WEIGHT_LIMIT)) || (player.getCurrentLoad() >= (player.getMaxLoad() * WEIGHT_LIMIT))) {
-							player.sendPacket(SystemMessageId.INVENTORY_LESS_THAN_80_PERCENT);
+							player.sendPacket(INVENTORY_LESS_THAN_80_PERCENT);
 							return null;
 						}
 						
 						if (ss.getSSQPrevWinner() == SevenSigns.CABAL_DUSK) {
 							if (!ss.isCompetitionPeriod()) {
-								player.sendPacket(SystemMessageId.SETTLE_ACCOUNT_ONLY_IN_SEAL_VALIDATION);
+								player.sendPacket(SETTLE_ACCOUNT_ONLY_IN_SEAL_VALIDATION);
 								return null;
 							}
 							
@@ -1126,37 +1106,37 @@ public final class SSQPriest extends AbstractNpcAI {
 						}
 						
 						if (Util.contains(DAWN_NPCS, npc.getId())) {
-							player.sendPacket(SystemMessageId.SEVENSIGNS_PARTECIPATION_DAWN);
+							player.sendPacket(SEVENSIGNS_PARTECIPATION_DAWN);
 						} else {
-							player.sendPacket(SystemMessageId.SEVENSIGNS_PARTECIPATION_DUSK);
+							player.sendPacket(SEVENSIGNS_PARTECIPATION_DUSK);
 						}
 						
 						switch (seal) {
 							case SevenSigns.SEAL_AVARICE -> {
-								player.sendPacket(SystemMessageId.FIGHT_FOR_AVARICE);
+								player.sendPacket(FIGHT_FOR_AVARICE);
 							}
 							case SevenSigns.SEAL_GNOSIS -> {
-								player.sendPacket(SystemMessageId.FIGHT_FOR_GNOSIS);
+								player.sendPacket(FIGHT_FOR_GNOSIS);
 							}
 							case SevenSigns.SEAL_STRIFE -> {
-								player.sendPacket(SystemMessageId.FIGHT_FOR_STRIFE);
+								player.sendPacket(FIGHT_FOR_STRIFE);
 							}
 						}
 						
 						return "ssq_npc_priest_" + QUEST_ID + "_46.htm";
 					}
 					case 25, 59 -> { // fight for strife
-						final int seal = SevenSigns.SEAL_STRIFE;
+						final var seal = SevenSigns.SEAL_STRIFE;
 						
 						if (Util.contains(DAWN_NPCS, npc.getId())) {
 							if ((player.getInventory().getSize(false) >= (player.getInventoryLimit() * WEIGHT_LIMIT)) || (player.getCurrentLoad() >= (player.getMaxLoad() * WEIGHT_LIMIT))) {
-								player.sendPacket(SystemMessageId.INVENTORY_LESS_THAN_80_PERCENT);
+								player.sendPacket(INVENTORY_LESS_THAN_80_PERCENT);
 								return null;
 							}
 							
 							if (ss.getSSQPrevWinner() == SevenSigns.CABAL_DAWN) {
 								if (!ss.isCompetitionPeriod()) {
-									player.sendPacket(SystemMessageId.SETTLE_ACCOUNT_ONLY_IN_SEAL_VALIDATION);
+									player.sendPacket(SETTLE_ACCOUNT_ONLY_IN_SEAL_VALIDATION);
 									return null;
 								}
 								
@@ -1253,20 +1233,20 @@ public final class SSQPriest extends AbstractNpcAI {
 							}
 							
 							if (Util.contains(DAWN_NPCS, npc.getId())) {
-								player.sendPacket(SystemMessageId.SEVENSIGNS_PARTECIPATION_DAWN);
+								player.sendPacket(SEVENSIGNS_PARTECIPATION_DAWN);
 							} else {
-								player.sendPacket(SystemMessageId.SEVENSIGNS_PARTECIPATION_DUSK);
+								player.sendPacket(SEVENSIGNS_PARTECIPATION_DUSK);
 							}
 							
 							switch (seal) {
 								case SevenSigns.SEAL_AVARICE -> {
-									player.sendPacket(SystemMessageId.FIGHT_FOR_AVARICE);
+									player.sendPacket(FIGHT_FOR_AVARICE);
 								}
 								case SevenSigns.SEAL_GNOSIS -> {
-									player.sendPacket(SystemMessageId.FIGHT_FOR_GNOSIS);
+									player.sendPacket(FIGHT_FOR_GNOSIS);
 								}
 								case SevenSigns.SEAL_STRIFE -> {
-									player.sendPacket(SystemMessageId.FIGHT_FOR_STRIFE);
+									player.sendPacket(FIGHT_FOR_STRIFE);
 								}
 							}
 							
@@ -1274,13 +1254,13 @@ public final class SSQPriest extends AbstractNpcAI {
 						}
 						
 						if ((player.getInventory().getSize(false) >= (player.getInventoryLimit() * WEIGHT_LIMIT)) || (player.getCurrentLoad() >= (player.getMaxLoad() * WEIGHT_LIMIT))) {
-							player.sendPacket(SystemMessageId.INVENTORY_LESS_THAN_80_PERCENT);
+							player.sendPacket(INVENTORY_LESS_THAN_80_PERCENT);
 							return null;
 						}
 						
 						if (ss.getSSQPrevWinner() == SevenSigns.CABAL_DUSK) {
 							if (!ss.isCompetitionPeriod()) {
-								player.sendPacket(SystemMessageId.SETTLE_ACCOUNT_ONLY_IN_SEAL_VALIDATION);
+								player.sendPacket(SETTLE_ACCOUNT_ONLY_IN_SEAL_VALIDATION);
 								return null;
 							}
 							
@@ -1378,20 +1358,20 @@ public final class SSQPriest extends AbstractNpcAI {
 						}
 						
 						if (Util.contains(DAWN_NPCS, npc.getId())) {
-							player.sendPacket(SystemMessageId.SEVENSIGNS_PARTECIPATION_DAWN);
+							player.sendPacket(SEVENSIGNS_PARTECIPATION_DAWN);
 						} else {
-							player.sendPacket(SystemMessageId.SEVENSIGNS_PARTECIPATION_DUSK);
+							player.sendPacket(SEVENSIGNS_PARTECIPATION_DUSK);
 						}
 						
 						switch (seal) {
 							case SevenSigns.SEAL_AVARICE -> {
-								player.sendPacket(SystemMessageId.FIGHT_FOR_AVARICE);
+								player.sendPacket(FIGHT_FOR_AVARICE);
 							}
 							case SevenSigns.SEAL_GNOSIS -> {
-								player.sendPacket(SystemMessageId.FIGHT_FOR_GNOSIS);
+								player.sendPacket(FIGHT_FOR_GNOSIS);
 							}
 							case SevenSigns.SEAL_STRIFE -> {
-								player.sendPacket(SystemMessageId.FIGHT_FOR_STRIFE);
+								player.sendPacket(FIGHT_FOR_STRIFE);
 							}
 						}
 						
@@ -1417,7 +1397,7 @@ public final class SSQPriest extends AbstractNpcAI {
 					}
 					case 27 -> { // dawn blue seal stones contribute request
 						if (!ss.isCompetitionPeriod()) {
-							player.sendPacket(SystemMessageId.SEAL_STONES_ONLY_WHILE_QUEST);
+							player.sendPacket(SEAL_STONES_ONLY_WHILE_QUEST);
 							return null;
 						}
 						
@@ -1427,7 +1407,7 @@ public final class SSQPriest extends AbstractNpcAI {
 					}
 					case 28 -> { // dawn green seal stones contribute request
 						if (!ss.isCompetitionPeriod()) {
-							player.sendPacket(SystemMessageId.SEAL_STONES_ONLY_WHILE_QUEST);
+							player.sendPacket(SEAL_STONES_ONLY_WHILE_QUEST);
 							return null;
 						}
 						
@@ -1437,7 +1417,7 @@ public final class SSQPriest extends AbstractNpcAI {
 					}
 					case 29 -> { // dawn red seal stones contribute request
 						if (!ss.isCompetitionPeriod()) {
-							player.sendPacket(SystemMessageId.SEAL_STONES_ONLY_WHILE_QUEST);
+							player.sendPacket(SEAL_STONES_ONLY_WHILE_QUEST);
 							return null;
 						}
 						
@@ -1447,7 +1427,7 @@ public final class SSQPriest extends AbstractNpcAI {
 					}
 					case 61 -> { // dusk blue seal stones contribute request
 						if (!ss.isCompetitionPeriod()) {
-							player.sendPacket(SystemMessageId.SEAL_STONES_ONLY_WHILE_QUEST);
+							player.sendPacket(SEAL_STONES_ONLY_WHILE_QUEST);
 							return null;
 						}
 						
@@ -1457,7 +1437,7 @@ public final class SSQPriest extends AbstractNpcAI {
 					}
 					case 62 -> { // dusk green seal stones contribute request
 						if (!ss.isCompetitionPeriod()) {
-							player.sendPacket(SystemMessageId.SEAL_STONES_ONLY_WHILE_QUEST);
+							player.sendPacket(SEAL_STONES_ONLY_WHILE_QUEST);
 							return null;
 						}
 						
@@ -1467,7 +1447,7 @@ public final class SSQPriest extends AbstractNpcAI {
 					}
 					case 63 -> { // dusk red seal stones contribute request
 						if (!ss.isCompetitionPeriod()) {
-							player.sendPacket(SystemMessageId.SEAL_STONES_ONLY_WHILE_QUEST);
+							player.sendPacket(SEAL_STONES_ONLY_WHILE_QUEST);
 							return null;
 						}
 						
@@ -1478,12 +1458,12 @@ public final class SSQPriest extends AbstractNpcAI {
 					case 32, 36 -> { // dawn receive reward
 						if ((ssqPart == SevenSigns.CABAL_DAWN) && (ssqWinner == SevenSigns.CABAL_DAWN)) {
 							if ((player.getInventory().getSize(false) >= (player.getInventoryLimit() * WEIGHT_LIMIT)) || (player.getCurrentLoad() >= (player.getMaxLoad() * WEIGHT_LIMIT))) {
-								player.sendPacket(SystemMessageId.INVENTORY_LESS_THAN_80_PERCENT);
+								player.sendPacket(INVENTORY_LESS_THAN_80_PERCENT);
 								return null;
 							}
 							
 							if (!ss.isSealValidationPeriod()) {
-								player.sendPacket(SystemMessageId.SETTLE_ACCOUNT_ONLY_IN_SEAL_VALIDATION);
+								player.sendPacket(SETTLE_ACCOUNT_ONLY_IN_SEAL_VALIDATION);
 								return null;
 							}
 							
@@ -1519,12 +1499,12 @@ public final class SSQPriest extends AbstractNpcAI {
 					case 66, 70 -> { // dusk receive reward
 						if ((ssqPart == SevenSigns.CABAL_DUSK) && (ssqWinner == SevenSigns.CABAL_DUSK)) {
 							if ((player.getInventory().getSize(false) >= (player.getInventoryLimit() * WEIGHT_LIMIT)) || (player.getCurrentLoad() >= (player.getMaxLoad() * WEIGHT_LIMIT))) {
-								player.sendPacket(SystemMessageId.INVENTORY_LESS_THAN_80_PERCENT);
+								player.sendPacket(INVENTORY_LESS_THAN_80_PERCENT);
 								return null;
 							}
 							
 							if (!ss.isSealValidationPeriod()) {
-								player.sendPacket(SystemMessageId.SETTLE_ACCOUNT_ONLY_IN_SEAL_VALIDATION);
+								player.sendPacket(SETTLE_ACCOUNT_ONLY_IN_SEAL_VALIDATION);
 								return null;
 							}
 							
@@ -1568,7 +1548,7 @@ public final class SSQPriest extends AbstractNpcAI {
 					}
 					case 74 -> { // dawn contribute all seal stones
 						if (!ss.isCompetitionPeriod()) {
-							player.sendPacket(SystemMessageId.SEAL_STONES_ONLY_WHILE_QUEST);
+							player.sendPacket(SEAL_STONES_ONLY_WHILE_QUEST);
 							return null;
 						}
 						
@@ -1588,7 +1568,7 @@ public final class SSQPriest extends AbstractNpcAI {
 									takeItems(player, SevenSigns.SEAL_STONE_RED_ID, i2);
 								}
 								
-								SystemMessage sm = SystemMessage.getSystemMessage(SystemMessageId.CONTRIB_SCORE_INCREASED_S1);
+								SystemMessage sm = SystemMessage.getSystemMessage(CONTRIB_SCORE_INCREASED_S1);
 								sm.addLong(contribution);
 								player.sendPacket(sm);
 								
@@ -1599,7 +1579,7 @@ public final class SSQPriest extends AbstractNpcAI {
 								return "ssq_npc_priest_" + QUEST_ID + "_74.htm";
 							}
 							
-							player.sendPacket(SystemMessageId.CONTRIB_SCORE_EXCEEDED);
+							player.sendPacket(CONTRIB_SCORE_EXCEEDED);
 							return null;
 						}
 						
@@ -1607,7 +1587,7 @@ public final class SSQPriest extends AbstractNpcAI {
 					}
 					case 72 -> { // dusk contribute all seal stones
 						if (!ss.isCompetitionPeriod()) {
-							player.sendPacket(SystemMessageId.SEAL_STONES_ONLY_WHILE_QUEST);
+							player.sendPacket(SEAL_STONES_ONLY_WHILE_QUEST);
 							return null;
 						}
 						
@@ -1627,7 +1607,7 @@ public final class SSQPriest extends AbstractNpcAI {
 									takeItems(player, SevenSigns.SEAL_STONE_RED_ID, i2);
 								}
 								
-								SystemMessage sm = SystemMessage.getSystemMessage(SystemMessageId.CONTRIB_SCORE_INCREASED_S1);
+								SystemMessage sm = SystemMessage.getSystemMessage(CONTRIB_SCORE_INCREASED_S1);
 								sm.addLong(contribution);
 								player.sendPacket(sm);
 								
@@ -1638,7 +1618,7 @@ public final class SSQPriest extends AbstractNpcAI {
 								return "ssq_npc_priest_" + QUEST_ID + "_74.htm";
 							}
 							
-							player.sendPacket(SystemMessageId.CONTRIB_SCORE_EXCEEDED);
+							player.sendPacket(CONTRIB_SCORE_EXCEEDED);
 							return null;
 						}
 						
@@ -1666,7 +1646,7 @@ public final class SSQPriest extends AbstractNpcAI {
 					}
 					case 85 -> { // dawn all seal stones exchange
 						if ((player.getInventory().getSize(false) >= (player.getInventoryLimit() * WEIGHT_LIMIT)) || (player.getCurrentLoad() >= (player.getMaxLoad() * WEIGHT_LIMIT))) {
-							player.sendPacket(SystemMessageId.INVENTORY_LESS_THAN_80_PERCENT);
+							player.sendPacket(INVENTORY_LESS_THAN_80_PERCENT);
 							return null;
 						}
 						
@@ -1726,7 +1706,7 @@ public final class SSQPriest extends AbstractNpcAI {
 					}
 					case 90 -> { // dusk all seal stones exchange request
 						if ((player.getInventory().getSize(false) >= (player.getInventoryLimit() * WEIGHT_LIMIT)) || (player.getCurrentLoad() >= (player.getMaxLoad() * WEIGHT_LIMIT))) {
-							player.sendPacket(SystemMessageId.INVENTORY_LESS_THAN_80_PERCENT);
+							player.sendPacket(INVENTORY_LESS_THAN_80_PERCENT);
 							return null;
 						}
 						
@@ -1810,7 +1790,7 @@ public final class SSQPriest extends AbstractNpcAI {
 				}
 			}
 			case -201 -> { // dawn blue seal stones contribute
-				int itemType = SevenSigns.SEAL_STONE_BLUE_ID;
+				final var itemType = SevenSigns.SEAL_STONE_BLUE_ID;
 				int reply = 0;
 				
 				try {
@@ -1819,7 +1799,7 @@ public final class SSQPriest extends AbstractNpcAI {
 				}
 				
 				if (!ss.isCompetitionPeriod()) {
-					player.sendPacket(SystemMessageId.SEAL_STONES_ONLY_WHILE_QUEST);
+					player.sendPacket(SEAL_STONES_ONLY_WHILE_QUEST);
 					return null;
 				}
 				
@@ -1834,7 +1814,7 @@ public final class SSQPriest extends AbstractNpcAI {
 							if (contribution != -1) {
 								takeItems(player, SevenSigns.SEAL_STONE_BLUE_ID, reply);
 								
-								SystemMessage sm = SystemMessage.getSystemMessage(SystemMessageId.CONTRIB_SCORE_INCREASED_S1);
+								SystemMessage sm = SystemMessage.getSystemMessage(CONTRIB_SCORE_INCREASED_S1);
 								sm.addLong(contribution);
 								player.sendPacket(sm);
 								
@@ -1845,7 +1825,7 @@ public final class SSQPriest extends AbstractNpcAI {
 								return "ssq_npc_priest_" + QUEST_ID + "_58.htm";
 							}
 							
-							player.sendPacket(SystemMessageId.CONTRIB_SCORE_EXCEEDED);
+							player.sendPacket(CONTRIB_SCORE_EXCEEDED);
 							return null;
 						}
 						case SevenSigns.SEAL_STONE_GREEN_ID -> {
@@ -1853,7 +1833,7 @@ public final class SSQPriest extends AbstractNpcAI {
 							if (contribution != -1) {
 								takeItems(player, SevenSigns.SEAL_STONE_BLUE_ID, reply);
 								
-								SystemMessage sm = SystemMessage.getSystemMessage(SystemMessageId.CONTRIB_SCORE_INCREASED_S1);
+								SystemMessage sm = SystemMessage.getSystemMessage(CONTRIB_SCORE_INCREASED_S1);
 								sm.addLong(contribution);
 								player.sendPacket(sm);
 								
@@ -1864,7 +1844,7 @@ public final class SSQPriest extends AbstractNpcAI {
 								return "ssq_npc_priest_" + QUEST_ID + "_58.htm";
 							}
 							
-							player.sendPacket(SystemMessageId.CONTRIB_SCORE_EXCEEDED);
+							player.sendPacket(CONTRIB_SCORE_EXCEEDED);
 							return null;
 						}
 						case SevenSigns.SEAL_STONE_RED_ID -> {
@@ -1872,7 +1852,7 @@ public final class SSQPriest extends AbstractNpcAI {
 							if (contribution != -1) {
 								takeItems(player, SevenSigns.SEAL_STONE_BLUE_ID, reply);
 								
-								SystemMessage sm = SystemMessage.getSystemMessage(SystemMessageId.CONTRIB_SCORE_INCREASED_S1);
+								SystemMessage sm = SystemMessage.getSystemMessage(CONTRIB_SCORE_INCREASED_S1);
 								sm.addLong(contribution);
 								player.sendPacket(sm);
 								
@@ -1883,7 +1863,7 @@ public final class SSQPriest extends AbstractNpcAI {
 								return "ssq_npc_priest_" + QUEST_ID + "_58.htm";
 							}
 							
-							player.sendPacket(SystemMessageId.CONTRIB_SCORE_EXCEEDED);
+							player.sendPacket(CONTRIB_SCORE_EXCEEDED);
 							return null;
 						}
 					}
@@ -1892,7 +1872,7 @@ public final class SSQPriest extends AbstractNpcAI {
 				}
 			}
 			case -202 -> { // dawn green seal stones contribute
-				int itemType = SevenSigns.SEAL_STONE_GREEN_ID;
+				final var itemType = SevenSigns.SEAL_STONE_GREEN_ID;
 				int reply = 0;
 				
 				try {
@@ -1901,7 +1881,7 @@ public final class SSQPriest extends AbstractNpcAI {
 				}
 				
 				if (!ss.isCompetitionPeriod()) {
-					player.sendPacket(SystemMessageId.SEAL_STONES_ONLY_WHILE_QUEST);
+					player.sendPacket(SEAL_STONES_ONLY_WHILE_QUEST);
 					return null;
 				}
 				
@@ -1916,7 +1896,7 @@ public final class SSQPriest extends AbstractNpcAI {
 							if (contribution != -1) {
 								takeItems(player, SevenSigns.SEAL_STONE_GREEN_ID, reply);
 								
-								SystemMessage sm = SystemMessage.getSystemMessage(SystemMessageId.CONTRIB_SCORE_INCREASED_S1);
+								SystemMessage sm = SystemMessage.getSystemMessage(CONTRIB_SCORE_INCREASED_S1);
 								sm.addLong(contribution);
 								player.sendPacket(sm);
 								
@@ -1927,7 +1907,7 @@ public final class SSQPriest extends AbstractNpcAI {
 								return "ssq_npc_priest_" + QUEST_ID + "_58.htm";
 							}
 							
-							player.sendPacket(SystemMessageId.CONTRIB_SCORE_EXCEEDED);
+							player.sendPacket(CONTRIB_SCORE_EXCEEDED);
 							return null;
 						}
 						case SevenSigns.SEAL_STONE_GREEN_ID -> {
@@ -1935,7 +1915,7 @@ public final class SSQPriest extends AbstractNpcAI {
 							if (contribution != -1) {
 								takeItems(player, SevenSigns.SEAL_STONE_GREEN_ID, reply);
 								
-								SystemMessage sm = SystemMessage.getSystemMessage(SystemMessageId.CONTRIB_SCORE_INCREASED_S1);
+								SystemMessage sm = SystemMessage.getSystemMessage(CONTRIB_SCORE_INCREASED_S1);
 								sm.addLong(contribution);
 								player.sendPacket(sm);
 								
@@ -1946,7 +1926,7 @@ public final class SSQPriest extends AbstractNpcAI {
 								return "ssq_npc_priest_" + QUEST_ID + "_58.htm";
 							}
 							
-							player.sendPacket(SystemMessageId.CONTRIB_SCORE_EXCEEDED);
+							player.sendPacket(CONTRIB_SCORE_EXCEEDED);
 							return null;
 						}
 						case SevenSigns.SEAL_STONE_RED_ID -> {
@@ -1954,7 +1934,7 @@ public final class SSQPriest extends AbstractNpcAI {
 							if (contribution != -1) {
 								takeItems(player, SevenSigns.SEAL_STONE_GREEN_ID, reply);
 								
-								SystemMessage sm = SystemMessage.getSystemMessage(SystemMessageId.CONTRIB_SCORE_INCREASED_S1);
+								SystemMessage sm = SystemMessage.getSystemMessage(CONTRIB_SCORE_INCREASED_S1);
 								sm.addLong(contribution);
 								player.sendPacket(sm);
 								
@@ -1965,7 +1945,7 @@ public final class SSQPriest extends AbstractNpcAI {
 								return "ssq_npc_priest_" + QUEST_ID + "_58.htm";
 							}
 							
-							player.sendPacket(SystemMessageId.CONTRIB_SCORE_EXCEEDED);
+							player.sendPacket(CONTRIB_SCORE_EXCEEDED);
 							return null;
 						}
 					}
@@ -1974,7 +1954,7 @@ public final class SSQPriest extends AbstractNpcAI {
 				}
 			}
 			case -203 -> { // dawn red seal stones contribute
-				int itemType = SevenSigns.SEAL_STONE_RED_ID;
+				final var itemType = SevenSigns.SEAL_STONE_RED_ID;
 				int reply = 0;
 				
 				try {
@@ -1983,7 +1963,7 @@ public final class SSQPriest extends AbstractNpcAI {
 				}
 				
 				if (!ss.isCompetitionPeriod()) {
-					player.sendPacket(SystemMessageId.SEAL_STONES_ONLY_WHILE_QUEST);
+					player.sendPacket(SEAL_STONES_ONLY_WHILE_QUEST);
 					return null;
 				}
 				
@@ -1998,7 +1978,7 @@ public final class SSQPriest extends AbstractNpcAI {
 							if (contribution != -1) {
 								takeItems(player, SevenSigns.SEAL_STONE_RED_ID, reply);
 								
-								SystemMessage sm = SystemMessage.getSystemMessage(SystemMessageId.CONTRIB_SCORE_INCREASED_S1);
+								SystemMessage sm = SystemMessage.getSystemMessage(CONTRIB_SCORE_INCREASED_S1);
 								sm.addLong(contribution);
 								player.sendPacket(sm);
 								
@@ -2009,7 +1989,7 @@ public final class SSQPriest extends AbstractNpcAI {
 								return "ssq_npc_priest_" + QUEST_ID + "_58.htm";
 							}
 							
-							player.sendPacket(SystemMessageId.CONTRIB_SCORE_EXCEEDED);
+							player.sendPacket(CONTRIB_SCORE_EXCEEDED);
 							return null;
 						}
 						case SevenSigns.SEAL_STONE_GREEN_ID -> {
@@ -2017,7 +1997,7 @@ public final class SSQPriest extends AbstractNpcAI {
 							if (contribution != -1) {
 								takeItems(player, SevenSigns.SEAL_STONE_RED_ID, reply);
 								
-								SystemMessage sm = SystemMessage.getSystemMessage(SystemMessageId.CONTRIB_SCORE_INCREASED_S1);
+								SystemMessage sm = SystemMessage.getSystemMessage(CONTRIB_SCORE_INCREASED_S1);
 								sm.addLong(contribution);
 								player.sendPacket(sm);
 								
@@ -2028,7 +2008,7 @@ public final class SSQPriest extends AbstractNpcAI {
 								return "ssq_npc_priest_" + QUEST_ID + "_58.htm";
 							}
 							
-							player.sendPacket(SystemMessageId.CONTRIB_SCORE_EXCEEDED);
+							player.sendPacket(CONTRIB_SCORE_EXCEEDED);
 							return null;
 						}
 						case SevenSigns.SEAL_STONE_RED_ID -> {
@@ -2036,7 +2016,7 @@ public final class SSQPriest extends AbstractNpcAI {
 							if (contribution != -1) {
 								takeItems(player, SevenSigns.SEAL_STONE_RED_ID, reply);
 								
-								SystemMessage sm = SystemMessage.getSystemMessage(SystemMessageId.CONTRIB_SCORE_INCREASED_S1);
+								SystemMessage sm = SystemMessage.getSystemMessage(CONTRIB_SCORE_INCREASED_S1);
 								sm.addLong(contribution);
 								player.sendPacket(sm);
 								
@@ -2047,7 +2027,7 @@ public final class SSQPriest extends AbstractNpcAI {
 								return "ssq_npc_priest_" + QUEST_ID + "_58.htm";
 							}
 							
-							player.sendPacket(SystemMessageId.CONTRIB_SCORE_EXCEEDED);
+							player.sendPacket(CONTRIB_SCORE_EXCEEDED);
 							return null;
 						}
 					}
@@ -2056,7 +2036,7 @@ public final class SSQPriest extends AbstractNpcAI {
 				}
 			}
 			case -204 -> { // dusk blue seal stones contribute
-				int itemType = SevenSigns.SEAL_STONE_BLUE_ID;
+				final var itemType = SevenSigns.SEAL_STONE_BLUE_ID;
 				int reply = 0;
 				
 				try {
@@ -2065,7 +2045,7 @@ public final class SSQPriest extends AbstractNpcAI {
 				}
 				
 				if (!ss.isCompetitionPeriod()) {
-					player.sendPacket(SystemMessageId.SEAL_STONES_ONLY_WHILE_QUEST);
+					player.sendPacket(SEAL_STONES_ONLY_WHILE_QUEST);
 					return null;
 				}
 				
@@ -2080,7 +2060,7 @@ public final class SSQPriest extends AbstractNpcAI {
 							if (contribution != -1) {
 								takeItems(player, SevenSigns.SEAL_STONE_BLUE_ID, reply);
 								
-								SystemMessage sm = SystemMessage.getSystemMessage(SystemMessageId.CONTRIB_SCORE_INCREASED_S1);
+								SystemMessage sm = SystemMessage.getSystemMessage(CONTRIB_SCORE_INCREASED_S1);
 								sm.addLong(contribution);
 								player.sendPacket(sm);
 								
@@ -2091,7 +2071,7 @@ public final class SSQPriest extends AbstractNpcAI {
 								return "ssq_npc_priest_" + QUEST_ID + "_58.htm";
 							}
 							
-							player.sendPacket(SystemMessageId.CONTRIB_SCORE_EXCEEDED);
+							player.sendPacket(CONTRIB_SCORE_EXCEEDED);
 							return null;
 						}
 						case SevenSigns.SEAL_STONE_GREEN_ID -> {
@@ -2099,7 +2079,7 @@ public final class SSQPriest extends AbstractNpcAI {
 							if (contribution != -1) {
 								takeItems(player, SevenSigns.SEAL_STONE_BLUE_ID, reply);
 								
-								SystemMessage sm = SystemMessage.getSystemMessage(SystemMessageId.CONTRIB_SCORE_INCREASED_S1);
+								SystemMessage sm = SystemMessage.getSystemMessage(CONTRIB_SCORE_INCREASED_S1);
 								sm.addLong(contribution);
 								player.sendPacket(sm);
 								
@@ -2110,7 +2090,7 @@ public final class SSQPriest extends AbstractNpcAI {
 								return "ssq_npc_priest_" + QUEST_ID + "_58.htm";
 							}
 							
-							player.sendPacket(SystemMessageId.CONTRIB_SCORE_EXCEEDED);
+							player.sendPacket(CONTRIB_SCORE_EXCEEDED);
 							return null;
 						}
 						case SevenSigns.SEAL_STONE_RED_ID -> {
@@ -2118,7 +2098,7 @@ public final class SSQPriest extends AbstractNpcAI {
 							if (contribution != -1) {
 								takeItems(player, SevenSigns.SEAL_STONE_BLUE_ID, reply);
 								
-								SystemMessage sm = SystemMessage.getSystemMessage(SystemMessageId.CONTRIB_SCORE_INCREASED_S1);
+								SystemMessage sm = SystemMessage.getSystemMessage(CONTRIB_SCORE_INCREASED_S1);
 								sm.addLong(contribution);
 								player.sendPacket(sm);
 								
@@ -2129,7 +2109,7 @@ public final class SSQPriest extends AbstractNpcAI {
 								return "ssq_npc_priest_" + QUEST_ID + "_58.htm";
 							}
 							
-							player.sendPacket(SystemMessageId.CONTRIB_SCORE_EXCEEDED);
+							player.sendPacket(CONTRIB_SCORE_EXCEEDED);
 							return null;
 						}
 					}
@@ -2138,7 +2118,7 @@ public final class SSQPriest extends AbstractNpcAI {
 				}
 			}
 			case -205 -> { // dusk green seal stones contribute
-				int itemType = SevenSigns.SEAL_STONE_GREEN_ID;
+				final var itemType = SevenSigns.SEAL_STONE_GREEN_ID;
 				int reply = 0;
 				
 				try {
@@ -2147,7 +2127,7 @@ public final class SSQPriest extends AbstractNpcAI {
 				}
 				
 				if (!ss.isCompetitionPeriod()) {
-					player.sendPacket(SystemMessageId.SEAL_STONES_ONLY_WHILE_QUEST);
+					player.sendPacket(SEAL_STONES_ONLY_WHILE_QUEST);
 					return null;
 				}
 				
@@ -2162,7 +2142,7 @@ public final class SSQPriest extends AbstractNpcAI {
 							if (contribution != -1) {
 								takeItems(player, SevenSigns.SEAL_STONE_GREEN_ID, reply);
 								
-								SystemMessage sm = SystemMessage.getSystemMessage(SystemMessageId.CONTRIB_SCORE_INCREASED_S1);
+								SystemMessage sm = SystemMessage.getSystemMessage(CONTRIB_SCORE_INCREASED_S1);
 								sm.addLong(contribution);
 								player.sendPacket(sm);
 								
@@ -2173,7 +2153,7 @@ public final class SSQPriest extends AbstractNpcAI {
 								return "ssq_npc_priest_" + QUEST_ID + "_58.htm";
 							}
 							
-							player.sendPacket(SystemMessageId.CONTRIB_SCORE_EXCEEDED);
+							player.sendPacket(CONTRIB_SCORE_EXCEEDED);
 							return null;
 						}
 						case SevenSigns.SEAL_STONE_GREEN_ID -> {
@@ -2181,7 +2161,7 @@ public final class SSQPriest extends AbstractNpcAI {
 							if (contribution != -1) {
 								takeItems(player, SevenSigns.SEAL_STONE_GREEN_ID, reply);
 								
-								SystemMessage sm = SystemMessage.getSystemMessage(SystemMessageId.CONTRIB_SCORE_INCREASED_S1);
+								SystemMessage sm = SystemMessage.getSystemMessage(CONTRIB_SCORE_INCREASED_S1);
 								sm.addLong(contribution);
 								player.sendPacket(sm);
 								
@@ -2192,7 +2172,7 @@ public final class SSQPriest extends AbstractNpcAI {
 								return "ssq_npc_priest_" + QUEST_ID + "_58.htm";
 							}
 							
-							player.sendPacket(SystemMessageId.CONTRIB_SCORE_EXCEEDED);
+							player.sendPacket(CONTRIB_SCORE_EXCEEDED);
 							return null;
 						}
 						case SevenSigns.SEAL_STONE_RED_ID -> {
@@ -2200,7 +2180,7 @@ public final class SSQPriest extends AbstractNpcAI {
 							if (contribution != -1) {
 								takeItems(player, SevenSigns.SEAL_STONE_GREEN_ID, reply);
 								
-								SystemMessage sm = SystemMessage.getSystemMessage(SystemMessageId.CONTRIB_SCORE_INCREASED_S1);
+								SystemMessage sm = SystemMessage.getSystemMessage(CONTRIB_SCORE_INCREASED_S1);
 								sm.addLong(contribution);
 								player.sendPacket(sm);
 								
@@ -2211,7 +2191,7 @@ public final class SSQPriest extends AbstractNpcAI {
 								return "ssq_npc_priest_" + QUEST_ID + "_58.htm";
 							}
 							
-							player.sendPacket(SystemMessageId.CONTRIB_SCORE_EXCEEDED);
+							player.sendPacket(CONTRIB_SCORE_EXCEEDED);
 							return null;
 						}
 					}
@@ -2220,7 +2200,7 @@ public final class SSQPriest extends AbstractNpcAI {
 				}
 			}
 			case -206 -> { // dusk red seal stones contribute
-				int itemType = SevenSigns.SEAL_STONE_RED_ID;
+				final var itemType = SevenSigns.SEAL_STONE_RED_ID;
 				int reply = 0;
 				
 				try {
@@ -2229,7 +2209,7 @@ public final class SSQPriest extends AbstractNpcAI {
 				}
 				
 				if (!ss.isCompetitionPeriod()) {
-					player.sendPacket(SystemMessageId.SEAL_STONES_ONLY_WHILE_QUEST);
+					player.sendPacket(SEAL_STONES_ONLY_WHILE_QUEST);
 					return null;
 				}
 				
@@ -2244,7 +2224,7 @@ public final class SSQPriest extends AbstractNpcAI {
 							if (contribution != -1) {
 								takeItems(player, SevenSigns.SEAL_STONE_RED_ID, reply);
 								
-								SystemMessage sm = SystemMessage.getSystemMessage(SystemMessageId.CONTRIB_SCORE_INCREASED_S1);
+								SystemMessage sm = SystemMessage.getSystemMessage(CONTRIB_SCORE_INCREASED_S1);
 								sm.addLong(contribution);
 								player.sendPacket(sm);
 								
@@ -2255,7 +2235,7 @@ public final class SSQPriest extends AbstractNpcAI {
 								return "ssq_npc_priest_" + QUEST_ID + "_58.htm";
 							}
 							
-							player.sendPacket(SystemMessageId.CONTRIB_SCORE_EXCEEDED);
+							player.sendPacket(CONTRIB_SCORE_EXCEEDED);
 							return null;
 						}
 						case SevenSigns.SEAL_STONE_GREEN_ID -> {
@@ -2263,7 +2243,7 @@ public final class SSQPriest extends AbstractNpcAI {
 							if (contribution != -1) {
 								takeItems(player, SevenSigns.SEAL_STONE_RED_ID, reply);
 								
-								SystemMessage sm = SystemMessage.getSystemMessage(SystemMessageId.CONTRIB_SCORE_INCREASED_S1);
+								SystemMessage sm = SystemMessage.getSystemMessage(CONTRIB_SCORE_INCREASED_S1);
 								sm.addLong(contribution);
 								player.sendPacket(sm);
 								
@@ -2274,7 +2254,7 @@ public final class SSQPriest extends AbstractNpcAI {
 								return "ssq_npc_priest_" + QUEST_ID + "_58.htm";
 							}
 							
-							player.sendPacket(SystemMessageId.CONTRIB_SCORE_EXCEEDED);
+							player.sendPacket(CONTRIB_SCORE_EXCEEDED);
 							return null;
 						}
 						case SevenSigns.SEAL_STONE_RED_ID -> {
@@ -2282,7 +2262,7 @@ public final class SSQPriest extends AbstractNpcAI {
 							if (contribution != -1) {
 								takeItems(player, SevenSigns.SEAL_STONE_RED_ID, reply);
 								
-								SystemMessage sm = SystemMessage.getSystemMessage(SystemMessageId.CONTRIB_SCORE_INCREASED_S1);
+								SystemMessage sm = SystemMessage.getSystemMessage(CONTRIB_SCORE_INCREASED_S1);
 								sm.addLong(contribution);
 								player.sendPacket(sm);
 								
@@ -2293,7 +2273,7 @@ public final class SSQPriest extends AbstractNpcAI {
 								return "ssq_npc_priest_" + QUEST_ID + "_58.htm";
 							}
 							
-							player.sendPacket(SystemMessageId.CONTRIB_SCORE_EXCEEDED);
+							player.sendPacket(CONTRIB_SCORE_EXCEEDED);
 							return null;
 						}
 					}
@@ -2310,12 +2290,12 @@ public final class SSQPriest extends AbstractNpcAI {
 				}
 				
 				if (!ss.isSealValidationPeriod()) {
-					player.sendPacket(SystemMessageId.SETTLE_ACCOUNT_ONLY_IN_SEAL_VALIDATION);
+					player.sendPacket(SETTLE_ACCOUNT_ONLY_IN_SEAL_VALIDATION);
 					return null;
 				}
 				
 				if ((player.getInventory().getSize(false) >= (player.getInventoryLimit() * WEIGHT_LIMIT)) || (player.getCurrentLoad() >= (player.getMaxLoad() * WEIGHT_LIMIT))) {
-					player.sendPacket(SystemMessageId.INVENTORY_LESS_THAN_80_PERCENT);
+					player.sendPacket(INVENTORY_LESS_THAN_80_PERCENT);
 					return null;
 				}
 				
@@ -2356,12 +2336,12 @@ public final class SSQPriest extends AbstractNpcAI {
 				}
 				
 				if (!ss.isSealValidationPeriod()) {
-					player.sendPacket(SystemMessageId.SETTLE_ACCOUNT_ONLY_IN_SEAL_VALIDATION);
+					player.sendPacket(SETTLE_ACCOUNT_ONLY_IN_SEAL_VALIDATION);
 					return null;
 				}
 				
 				if ((player.getInventory().getSize(false) >= (player.getInventoryLimit() * WEIGHT_LIMIT)) || (player.getCurrentLoad() >= (player.getMaxLoad() * WEIGHT_LIMIT))) {
-					player.sendPacket(SystemMessageId.INVENTORY_LESS_THAN_80_PERCENT);
+					player.sendPacket(INVENTORY_LESS_THAN_80_PERCENT);
 					return null;
 				}
 				
@@ -2402,12 +2382,12 @@ public final class SSQPriest extends AbstractNpcAI {
 				}
 				
 				if (!ss.isSealValidationPeriod()) {
-					player.sendPacket(SystemMessageId.SETTLE_ACCOUNT_ONLY_IN_SEAL_VALIDATION);
+					player.sendPacket(SETTLE_ACCOUNT_ONLY_IN_SEAL_VALIDATION);
 					return null;
 				}
 				
 				if ((player.getInventory().getSize(false) >= (player.getInventoryLimit() * WEIGHT_LIMIT)) || (player.getCurrentLoad() >= (player.getMaxLoad() * WEIGHT_LIMIT))) {
-					player.sendPacket(SystemMessageId.INVENTORY_LESS_THAN_80_PERCENT);
+					player.sendPacket(INVENTORY_LESS_THAN_80_PERCENT);
 					return null;
 				}
 				
@@ -2448,12 +2428,12 @@ public final class SSQPriest extends AbstractNpcAI {
 				}
 				
 				if (!ss.isSealValidationPeriod()) {
-					player.sendPacket(SystemMessageId.SETTLE_ACCOUNT_ONLY_IN_SEAL_VALIDATION);
+					player.sendPacket(SETTLE_ACCOUNT_ONLY_IN_SEAL_VALIDATION);
 					return null;
 				}
 				
 				if ((player.getInventory().getSize(false) >= (player.getInventoryLimit() * WEIGHT_LIMIT)) || (player.getCurrentLoad() >= (player.getMaxLoad() * WEIGHT_LIMIT))) {
-					player.sendPacket(SystemMessageId.INVENTORY_LESS_THAN_80_PERCENT);
+					player.sendPacket(INVENTORY_LESS_THAN_80_PERCENT);
 					return null;
 				}
 				
@@ -2494,12 +2474,12 @@ public final class SSQPriest extends AbstractNpcAI {
 				}
 				
 				if (!ss.isSealValidationPeriod()) {
-					player.sendPacket(SystemMessageId.SETTLE_ACCOUNT_ONLY_IN_SEAL_VALIDATION);
+					player.sendPacket(SETTLE_ACCOUNT_ONLY_IN_SEAL_VALIDATION);
 					return null;
 				}
 				
 				if ((player.getInventory().getSize(false) >= (player.getInventoryLimit() * WEIGHT_LIMIT)) || (player.getCurrentLoad() >= (player.getMaxLoad() * WEIGHT_LIMIT))) {
-					player.sendPacket(SystemMessageId.INVENTORY_LESS_THAN_80_PERCENT);
+					player.sendPacket(INVENTORY_LESS_THAN_80_PERCENT);
 					return null;
 				}
 				
@@ -2540,12 +2520,12 @@ public final class SSQPriest extends AbstractNpcAI {
 				}
 				
 				if (!ss.isSealValidationPeriod()) {
-					player.sendPacket(SystemMessageId.SETTLE_ACCOUNT_ONLY_IN_SEAL_VALIDATION);
+					player.sendPacket(SETTLE_ACCOUNT_ONLY_IN_SEAL_VALIDATION);
 					return null;
 				}
 				
 				if ((player.getInventory().getSize(false) >= (player.getInventoryLimit() * WEIGHT_LIMIT)) || (player.getCurrentLoad() >= (player.getMaxLoad() * WEIGHT_LIMIT))) {
-					player.sendPacket(SystemMessageId.INVENTORY_LESS_THAN_80_PERCENT);
+					player.sendPacket(INVENTORY_LESS_THAN_80_PERCENT);
 					return null;
 				}
 				
@@ -2578,11 +2558,11 @@ public final class SSQPriest extends AbstractNpcAI {
 				return "ssq_npc_priest_" + QUEST_ID + "_81i.htm";
 			}
 			case -303 -> {
-				int reply = Integer.parseInt(event.split(";")[1]);
+				final var reply = Integer.parseInt(event.split(";")[1]);
 				MultisellData.getInstance().separateAndSend(reply, player, npc, false);
 			}
 			case 507 -> { // Festival of Darkness
-				int reply = Integer.parseInt(event.split(";")[1]);
+				final var reply = Integer.parseInt(event.split(";")[1]);
 				switch (reply) {
 					case 1 -> {
 						if (Util.contains(DAWN_NPCS, npc.getId())) {
@@ -2592,7 +2572,52 @@ public final class SSQPriest extends AbstractNpcAI {
 						return "ssq_npc_priest_q507_02.htm";
 					}
 					case 2 -> {
-						QuestManager.getInstance().getQuest("OracleTeleport").onTalk(npc, player);
+						final var q255 = QuestManager.getInstance().getQuest(Q00255_TUTORIAL);
+						final var qs255 = q255.getQuestState(player, true);
+						
+						int i0 = qs255.getMemoStateEx(1);
+						i0 = i0 % 100;
+						if (i0 >= 95 || i0 < 0) {
+							i0 = 0;
+						}
+						
+						qs255.setMemoStateEx(1, i0 + getMemoStateId(npc.getId()));
+						
+						if (haveMemo(player, Q00505_BLOODOFFERING)) {
+							final var q505 = QuestManager.getInstance().getQuest(Q00505_BLOODOFFERING);
+							final var qs505 = q505.getQuestState(player, true);
+							qs505.exitQuest(true, false);
+						}
+						
+						takeItems(player, BLOOD_OF_OFFERING, getQuestItemsCount(player, BLOOD_OF_OFFERING));
+						
+						if (Util.contains(DAWN_NPCS, npc.getId())) {
+							switch (getRandom(2)) {
+								case 0 -> {
+									player.teleToLocation(-80316, 111356, -4896);
+								}
+								case 1 -> {
+									player.teleToLocation(-80226, 111290, -4896);
+								}
+								case 2 -> {
+									player.teleToLocation(-80217, 111435, -4896);
+								}
+							}
+						} else {
+							switch (getRandom(2)) {
+								case 0 -> {
+									player.teleToLocation(-81328, 86536, -5152);
+								}
+								case 1 -> {
+									player.teleToLocation(-81262, 86468, -5152);
+								}
+								case 2 -> {
+									player.teleToLocation(-81248, 86582, -5152);
+								}
+							}
+						}
+						
+						playSound(player, Sound.ITEMSOUND_QUEST_ACCEPT);
 					}
 				}
 			}
@@ -2603,9 +2628,9 @@ public final class SSQPriest extends AbstractNpcAI {
 	
 	@Override
 	public String onFirstTalk(L2Npc npc, L2PcInstance player) {
-		final SevenSigns ss = SevenSigns.getInstance();
-		final int ssqPart = ss.getPlayerCabal(player.getObjectId());
-		final int ssqWinner = ss.getCabalHighestScore();
+		final var ss = SevenSigns.getInstance();
+		final var ssqPart = ss.getPlayerCabal(player.getObjectId());
+		final var ssqWinner = ss.getCabalHighestScore();
 		
 		if (Util.contains(DAWN_NPCS, npc.getId())) {
 			if (ss.isCompetitionPeriod() && ((ssqPart == SevenSigns.CABAL_DAWN) || (ssqPart == SevenSigns.CABAL_NULL))) {
@@ -2682,5 +2707,56 @@ public final class SSQPriest extends AbstractNpcAI {
 		}
 		
 		return super.onFirstTalk(npc, player);
+	}
+	
+	private static final int getMemoStateId(int npcId) {
+		return switch (npcId) {
+			case 31078, 31085 -> 100;
+			case 31079, 31086 -> 200;
+			case 31080, 31087 -> 300;
+			case 31081, 31088 -> 400;
+			case 31082, 31089 -> 500;
+			case 31083, 31090 -> 600;
+			case 31084, 31091 -> 700;
+			case 31168, 31169 -> 800;
+			case 31692, 31693 -> 1000;
+			case 31694, 31695 -> 1100;
+			case 31997, 31998 -> 1200;
+			default -> 0;
+		};
+	}
+	
+	private static final String[][] getPositionArray(int npcId) {
+		return switch (npcId) {
+			case 31078, 31085 -> GLUDIN_POSITION;
+			case 31079, 31086 -> GLUDIO_POSITION;
+			case 31080, 31087 -> DION_POSITION;
+			case 31081, 31088 -> GIRAN_POSITION;
+			case 31082, 31089 -> HEINE_POSITION;
+			case 31083, 31090 -> OREN_POSITION;
+			case 31084, 31091 -> ADEN_POSITION;
+			case 31168, 31169 -> HUNTERS_POSITION;
+			case 31692, 31693 -> GODDARD_POSITION;
+			case 31694, 31695 -> RUNE_POSITION;
+			case 31997, 31998 -> SCHUTT_POSITION;
+			default -> new String[0][0];
+		};
+	}
+	
+	private static final String teleportList(L2PcInstance player, L2Npc npc, boolean comp) {
+		final var html = new StringBuilder("<html><body>&$556;<br><br>");
+		String[][] positions = getPositionArray(npc.getId());
+		
+		for (String[] s : positions) {
+			String name = s[0];
+			String location = s[1];
+			String[] price = s[2].split(";");
+			String pr = comp ? price[1].trim() : price[0].trim();
+			
+			html.append("<a action=\"bypass -h Quest SSQPriest Goto " + location + " " + pr + "\" msg=\"811;" + name + "\">" + name + " - " + pr + " Ancient Adena</a><br1>");
+		}
+		html.append("</body></html>");
+		
+		return html.toString();
 	}
 }

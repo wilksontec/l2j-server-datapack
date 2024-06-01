@@ -119,6 +119,7 @@ import com.l2jserver.datapack.ai.npc.CastleTeleporter.CastleTeleporter;
 import com.l2jserver.datapack.ai.npc.CastleWarehouse.CastleWarehouse;
 import com.l2jserver.datapack.ai.npc.ClanTrader.ClanTrader;
 import com.l2jserver.datapack.ai.npc.ClassMaster.ClassMaster;
+import com.l2jserver.datapack.ai.npc.DimensionKeeper.DimensionKeeper;
 import com.l2jserver.datapack.ai.npc.Dorian.Dorian;
 import com.l2jserver.datapack.ai.npc.DragonVortex.DragonVortex;
 import com.l2jserver.datapack.ai.npc.EchoCrystals.EchoCrystals;
@@ -245,6 +246,7 @@ public class AILoader {
 		CastleWarehouse.class,
 		ClanTrader.class,
 		ClassMaster.class,
+		DimensionKeeper.class,
 		Dorian.class,
 		DragonVortex.class,
 		EchoCrystals.class,

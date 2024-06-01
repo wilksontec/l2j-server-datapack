@@ -134,6 +134,7 @@ import com.l2jserver.datapack.handlers.bypasshandlers.OlympiadManagerLink;
 import com.l2jserver.datapack.handlers.bypasshandlers.OlympiadObservation;
 import com.l2jserver.datapack.handlers.bypasshandlers.PlayerHelp;
 import com.l2jserver.datapack.handlers.bypasshandlers.PrivateWarehouse;
+import com.l2jserver.datapack.handlers.bypasshandlers.QuestAccept;
 import com.l2jserver.datapack.handlers.bypasshandlers.QuestLink;
 import com.l2jserver.datapack.handlers.bypasshandlers.QuestList;
 import com.l2jserver.datapack.handlers.bypasshandlers.ReceivePremium;
@@ -369,9 +370,10 @@ public class MasterHandler {
 		Observation.class,
 		OlympiadObservation.class,
 		OlympiadManagerLink.class,
-		QuestLink.class,
 		PlayerHelp.class,
 		PrivateWarehouse.class,
+		QuestAccept.class,
+		QuestLink.class,
 		QuestList.class,
 		ReceivePremium.class,
 		ReleaseAttribute.class,
