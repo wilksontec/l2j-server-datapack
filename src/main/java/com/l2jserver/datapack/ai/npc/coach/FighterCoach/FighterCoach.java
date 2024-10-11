@@ -50,7 +50,11 @@ public class FighterCoach extends GuildCoach {
 	};
 	
 	public FighterCoach() {
-		this(FighterCoach.class.getSimpleName(), COACHES);
+		super(FighterCoach.class.getSimpleName(), COACHES, CONDITIONS);
+	}
+	
+	public FighterCoach(String name, int[] coaches, Condition[] conditions) {
+		super(name, coaches, conditions);
 	}
 	
 	public FighterCoach(String name, int[] coaches) {

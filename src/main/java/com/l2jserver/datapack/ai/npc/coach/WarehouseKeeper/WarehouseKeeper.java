@@ -19,6 +19,8 @@
 package com.l2jserver.datapack.ai.npc.coach.WarehouseKeeper;
 
 import com.l2jserver.datapack.ai.npc.coach.FighterCoach.FighterCoach;
+import com.l2jserver.gameserver.enums.CategoryType;
+import com.l2jserver.gameserver.enums.Race;
 
 /**
  * Warehouse Keeper.
@@ -37,11 +39,15 @@ public class WarehouseKeeper extends FighterCoach {
 	};
 	// @formatter:on
 	
+	private static final Condition[] CONDITIONS = new Condition[] {
+		new Condition(Race.DWARF, CategoryType.DWARF_BOUNTY_CLASS)
+	};
+	
 	public WarehouseKeeper() {
-		this(WarehouseKeeper.class.getSimpleName(), COACHES);
+		super(WarehouseKeeper.class.getSimpleName(), COACHES, CONDITIONS);
 	}
 	
 	public WarehouseKeeper(String name, int[] coaches) {
-		super(name, coaches);
+		super(name, coaches, CONDITIONS);
 	}
 }
