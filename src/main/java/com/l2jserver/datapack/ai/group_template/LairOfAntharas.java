@@ -18,9 +18,11 @@
  */
 package com.l2jserver.datapack.ai.group_template;
 
+import com.l2jserver.commons.util.Rnd;
 import com.l2jserver.datapack.ai.npc.AbstractNpcAI;
 import com.l2jserver.gameserver.model.actor.L2Attackable;
 import com.l2jserver.gameserver.model.actor.L2Npc;
+import com.l2jserver.gameserver.model.actor.instance.L2MonsterInstance;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
 import com.l2jserver.gameserver.network.NpcStringId;
 import com.l2jserver.gameserver.network.clientpackets.Say2;
@@ -38,13 +40,19 @@ public final class LairOfAntharas extends AbstractNpcAI {
 	
 	final private static int DRAGON_GUARD = 22852;
 	final private static int DRAGON_MAGE = 22853;
+	
+	private static final int DRAKE_LEADER = 22848;
+	private static final int DRAKE_WARRIOR = 22849;
+	private static final int DRAKE_SCOUT = 22850;
+	private static final int DRAKE_MAGE = 22851;
+	
 	// Misc
 	final private static int KNIGHT_CHANCE = 30;
 	
 	public LairOfAntharas() {
 		super(LairOfAntharas.class.getSimpleName(), "ai/group_template");
 		bindKill(DRAGON_KNIGHT, DRAGON_KNIGHT2, DRAGON_GUARD, DRAGON_MAGE);
-		bindSpawn(DRAGON_KNIGHT, DRAGON_KNIGHT2, DRAGON_GUARD, DRAGON_MAGE);
+		bindSpawn(DRAGON_KNIGHT, DRAGON_KNIGHT2, DRAGON_GUARD, DRAGON_MAGE, DRAKE_LEADER);
 		bindMoveFinished(DRAGON_GUARD, DRAGON_MAGE);
 	}
 	
@@ -98,6 +106,15 @@ public final class LairOfAntharas extends AbstractNpcAI {
 		if ((npc.getId() == DRAGON_GUARD) || (npc.getId() == DRAGON_MAGE)) {
 			mob.setIsNoRndWalk(true);
 			startQuestTimer("CHECK_HOME", 10000, npc, null, true);
+		} else if (npc.getId() == DRAKE_LEADER && npc instanceof L2MonsterInstance master) {
+			for (int i = 0; i < 4; i++) {
+				final var minionType = Rnd.get(3);
+				switch (minionType) {
+					case 0 -> addMinion(master, DRAKE_WARRIOR);
+					case 1 -> addMinion(master, DRAKE_SCOUT);
+					case 2 -> addMinion(master, DRAKE_MAGE);
+				}
+			}
 		}
 		return super.onSpawn(npc);
 	}
