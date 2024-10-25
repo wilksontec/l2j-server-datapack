@@ -26,7 +26,6 @@ import org.slf4j.LoggerFactory;
 
 import com.l2jserver.gameserver.handler.IBypassHandler;
 import com.l2jserver.gameserver.model.actor.L2Character;
-import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
 import com.l2jserver.gameserver.network.SystemMessageId;
 import com.l2jserver.gameserver.network.serverpackets.ActionFailed;
@@ -60,9 +59,9 @@ public class PrivateWarehouse implements IBypassHandler {
 			if (command.toLowerCase().startsWith(COMMANDS[0])) // WithdrawP
 			{
 				if (customs().enableWarehouseSortingPrivate()) {
-					final NpcHtmlMessage msg = new NpcHtmlMessage(((L2Npc) target).getObjectId());
+					final NpcHtmlMessage msg = new NpcHtmlMessage(target.getObjectId());
 					msg.setFile(activeChar.getHtmlPrefix(), "data/html/mods/WhSortedP.htm");
-					msg.replace("%objectId%", String.valueOf(((L2Npc) target).getObjectId()));
+					msg.replace("%objectId%", String.valueOf(target.getObjectId()));
 					activeChar.sendPacket(msg);
 				} else {
 					showWithdrawWindow(activeChar, null, (byte) 0);

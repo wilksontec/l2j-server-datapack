@@ -72,7 +72,7 @@ public final class Amaskari extends AbstractNpcAI {
 		if (event.equalsIgnoreCase("stop_toggle")) {
 			broadcastNpcSay(npc, Say2.NPC_ALL, AMASKARI_NPCSTRING_ID[2]);
 			((L2MonsterInstance) npc).clearAggroList();
-			((L2MonsterInstance) npc).getAI().setIntention(CtrlIntention.AI_INTENTION_ACTIVE);
+			npc.getAI().setIntention(CtrlIntention.AI_INTENTION_ACTIVE);
 			npc.setIsInvul(false);
 			// npc.doCast(INVINCIBILITY)
 		} else if (event.equalsIgnoreCase("onspawn_msg") && (npc != null) && !npc.isDead()) {

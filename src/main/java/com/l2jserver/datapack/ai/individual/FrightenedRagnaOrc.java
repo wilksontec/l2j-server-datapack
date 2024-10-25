@@ -21,7 +21,6 @@ package com.l2jserver.datapack.ai.individual;
 import com.l2jserver.datapack.ai.npc.AbstractNpcAI;
 import com.l2jserver.gameserver.ai.CtrlIntention;
 import com.l2jserver.gameserver.model.Location;
-import com.l2jserver.gameserver.model.actor.L2Attackable;
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
 import com.l2jserver.gameserver.model.holders.SkillHolder;
@@ -100,7 +99,7 @@ public final class FrightenedRagnaOrc extends AbstractNpcAI {
 						npc.setScriptValue(3);
 						npc.doCast(SKILL);
 						for (int i = 0; i < 10; i++) {
-							((L2Attackable) npc).dropItem(player, Inventory.ADENA_ID, ADENA);
+							npc.dropItem(player, Inventory.ADENA_ID, ADENA);
 						}
 					} else {
 						final NpcStringId msg = getRandomBoolean() ? NpcStringId.THANKS_BUT_THAT_THING_ABOUT_10000000_ADENA_WAS_A_LIE_SEE_YA : NpcStringId.YOURE_PRETTY_DUMB_TO_BELIEVE_ME;

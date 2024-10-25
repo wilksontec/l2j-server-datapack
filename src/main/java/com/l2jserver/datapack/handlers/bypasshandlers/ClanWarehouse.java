@@ -27,7 +27,6 @@ import org.slf4j.LoggerFactory;
 import com.l2jserver.gameserver.handler.IBypassHandler;
 import com.l2jserver.gameserver.model.ClanPrivilege;
 import com.l2jserver.gameserver.model.actor.L2Character;
-import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2ClanHallManagerInstance;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
 import com.l2jserver.gameserver.model.actor.instance.L2WarehouseInstance;
@@ -73,9 +72,9 @@ public class ClanWarehouse implements IBypassHandler {
 		try {
 			if (command.toLowerCase().startsWith(COMMANDS[0])) { // WithdrawC
 				if (customs().enableWarehouseSortingClan()) {
-					final NpcHtmlMessage msg = new NpcHtmlMessage(((L2Npc) target).getObjectId());
+					final NpcHtmlMessage msg = new NpcHtmlMessage(target.getObjectId());
 					msg.setFile(activeChar.getHtmlPrefix(), "data/html/mods/WhSortedC.htm");
-					msg.replace("%objectId%", String.valueOf(((L2Npc) target).getObjectId()));
+					msg.replace("%objectId%", String.valueOf(target.getObjectId()));
 					activeChar.sendPacket(msg);
 				} else {
 					showWithdrawWindow(activeChar, null, (byte) 0);
