@@ -54,7 +54,7 @@ public final class TrapRemove extends AbstractEffect {
 	@Override
 	public void onStart(BuffInfo info) {
 		final L2Character target = info.getEffected();
-		if (!target.isTrap()) {
+		if (!(target instanceof L2TrapInstance trap)) {
 			return;
 		}
 		
@@ -62,8 +62,7 @@ public final class TrapRemove extends AbstractEffect {
 			return;
 		}
 		
-		final L2TrapInstance trap = (L2TrapInstance) target;
-		if (!trap.canBeSeen(info.getEffector())) {
+		if (!trap.isVisibleFor(info.getEffector())) {
 			if (info.getEffector().isPlayer()) {
 				info.getEffector().sendPacket(SystemMessageId.INCORRECT_TARGET);
 			}

@@ -81,7 +81,6 @@ public final class SummonTrap extends AbstractEffect {
 		final var trap = new L2TrapInstance(npcTemplate, player, _despawnTime);
 		trap.setCurrentHp(trap.getMaxHp());
 		trap.setCurrentMp(trap.getMaxMp());
-		trap.setIsInvul(true);
 		trap.setHeading(player.getHeading());
 		trap.spawnMe(player.getX(), player.getY(), player.getZ());
 		player.setTrap(trap);
