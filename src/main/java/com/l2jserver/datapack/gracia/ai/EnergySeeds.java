@@ -45,6 +45,7 @@ import com.l2jserver.gameserver.ai.CtrlIntention;
 import com.l2jserver.gameserver.data.xml.impl.DoorData;
 import com.l2jserver.gameserver.data.xml.impl.NpcData;
 import com.l2jserver.gameserver.enums.audio.Sound;
+import com.l2jserver.gameserver.idfactory.IdFactory;
 import com.l2jserver.gameserver.instancemanager.GraciaSeedsManager;
 import com.l2jserver.gameserver.instancemanager.ZoneManager;
 import com.l2jserver.gameserver.model.L2Object;
@@ -55,7 +56,6 @@ import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2DoorInstance;
 import com.l2jserver.gameserver.model.actor.instance.L2MonsterInstance;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
-import com.l2jserver.gameserver.model.actor.templates.L2NpcTemplate;
 import com.l2jserver.gameserver.model.quest.QuestState;
 import com.l2jserver.gameserver.model.skills.Skill;
 import com.l2jserver.gameserver.model.zone.L2ZoneType;
@@ -495,8 +495,9 @@ public class EnergySeeds extends AbstractNpcAI {
 	}
 	
 	private L2MonsterInstance spawnSupriseMob(L2Npc energy, int npcId) {
-		L2NpcTemplate surpriseMobTemplate = NpcData.getInstance().getTemplate(npcId);
-		L2MonsterInstance monster = new L2MonsterInstance(surpriseMobTemplate);
+		final var objectId = IdFactory.getInstance().getNextId();
+		final var template = NpcData.getInstance().getTemplate(npcId);
+		final var monster = new L2MonsterInstance(objectId, template);
 		monster.setCurrentHpMp(monster.getMaxHp(), monster.getMaxMp());
 		monster.setHeading(energy.getHeading());
 		monster.setInstanceId(energy.getInstanceId());

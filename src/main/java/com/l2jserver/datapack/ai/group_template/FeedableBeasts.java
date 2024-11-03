@@ -27,6 +27,7 @@ import com.l2jserver.datapack.ai.npc.AbstractNpcAI;
 import com.l2jserver.datapack.quests.Q00020_BringUpWithLove.Q00020_BringUpWithLove;
 import com.l2jserver.datapack.quests.Q00655_AGrandPlanForTamingWildBeasts.Q00655_AGrandPlanForTamingWildBeasts;
 import com.l2jserver.gameserver.ai.CtrlIntention;
+import com.l2jserver.gameserver.idfactory.IdFactory;
 import com.l2jserver.gameserver.model.L2Object;
 import com.l2jserver.gameserver.model.actor.L2Attackable;
 import com.l2jserver.gameserver.model.actor.L2Npc;
@@ -394,11 +395,12 @@ public final class FeedableBeasts extends AbstractNpcAI {
 		// if this is finally a trained mob, then despawn any other trained mobs that the
 		// player might have and initialize the Tamed Beast.
 		if (Util.contains(TAMED_BEASTS, nextNpcId)) {
-			for (L2TamedBeastInstance oldTrained : player.getTamedBeasts()) {
+			for (var oldTrained : player.getTamedBeasts()) {
 				oldTrained.deleteMe();
 			}
 			
-			final L2TamedBeastInstance nextNpc = new L2TamedBeastInstance(nextNpcId, player, food - FOODSKILLDIFF, npc.getX(), npc.getY(), npc.getZ());
+			final var objectId = IdFactory.getInstance().getNextId();
+			final var nextNpc = new L2TamedBeastInstance(objectId, nextNpcId, player, food - FOODSKILLDIFF, npc.getX(), npc.getY(), npc.getZ());
 			nextNpc.setRunning();
 			Q00020_BringUpWithLove.checkJewelOfInnocence(player);
 			
