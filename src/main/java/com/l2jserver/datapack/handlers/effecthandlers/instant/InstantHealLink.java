@@ -40,7 +40,7 @@ public final class InstantHealLink extends AbstractEffect {
 	private final EffectCalculationType mode;
 	private final double step;
 	
-	protected InstantHealLink(Condition attachCond, Condition applyCond, StatsSet set, StatsSet params) {
+	public InstantHealLink(Condition attachCond, Condition applyCond, StatsSet set, StatsSet params) {
 		super(attachCond, applyCond, set, params);
 		amount = params.getDouble("amount", 0);
 		mode = params.getEnum("mode", EffectCalculationType.class, PER);
