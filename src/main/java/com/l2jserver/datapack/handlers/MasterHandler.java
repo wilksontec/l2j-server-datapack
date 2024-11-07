@@ -136,7 +136,6 @@ import com.l2jserver.datapack.handlers.bypasshandlers.PlayerHelp;
 import com.l2jserver.datapack.handlers.bypasshandlers.PrivateWarehouse;
 import com.l2jserver.datapack.handlers.bypasshandlers.QuestAccept;
 import com.l2jserver.datapack.handlers.bypasshandlers.QuestLink;
-import com.l2jserver.datapack.handlers.bypasshandlers.QuestList;
 import com.l2jserver.datapack.handlers.bypasshandlers.ReceivePremium;
 import com.l2jserver.datapack.handlers.bypasshandlers.ReleaseAttribute;
 import com.l2jserver.datapack.handlers.bypasshandlers.RentPet;
@@ -374,7 +373,6 @@ public class MasterHandler {
 		PrivateWarehouse.class,
 		QuestAccept.class,
 		QuestLink.class,
-		QuestList.class,
 		ReceivePremium.class,
 		ReleaseAttribute.class,
 		RentPet.class,

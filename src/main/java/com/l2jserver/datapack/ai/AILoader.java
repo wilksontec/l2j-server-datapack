@@ -101,6 +101,7 @@ import com.l2jserver.datapack.ai.individual.Baium.Baium;
 import com.l2jserver.datapack.ai.individual.Sailren.Sailren;
 import com.l2jserver.datapack.ai.individual.Venom.Venom;
 import com.l2jserver.datapack.ai.npc.Abercrombie.Abercrombie;
+import com.l2jserver.datapack.ai.npc.AdventureGuildsman.AdventureGuildsman;
 import com.l2jserver.datapack.ai.npc.Alarm.Alarm;
 import com.l2jserver.datapack.ai.npc.Alexandria.Alexandria;
 import com.l2jserver.datapack.ai.npc.ArenaManager.ArenaManager;
@@ -228,6 +229,7 @@ public class AILoader {
 	private static final Class<?>[] SCRIPTS = {
 		// NPC
 		Abercrombie.class,
+		AdventureGuildsman.class,
 		Alarm.class,
 		Alexandria.class,
 		ArenaManager.class,
