@@ -8,7 +8,7 @@ pipelines:
             - maven
             script:
             - microdnf install -y git
-            - git clone --depth=1 https://bitbucket.org/l2jserver/l2j-server-game.git
+            - git clone --depth=50 -b develop https://bitbucket.org/l2jserver/l2j-server-game.git
             - cd l2j-server-game
             - /bin/sh mvnw clean install -DskipTests -Ddependency-check.skip=true
             - cd ..
@@ -22,7 +22,7 @@ pipelines:
       -  step:
             deployment: Production
             script:
-            -  pipe: atlassian/ftp-deploy:0.6.0
+            -  pipe: atlassian/ftp-deploy:0.7.1
                variables:
                   USER: $FTP_USER
                   PASSWORD: $FTP_PASSWORD
