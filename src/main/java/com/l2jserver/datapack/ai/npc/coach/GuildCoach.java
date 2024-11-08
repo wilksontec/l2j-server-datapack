@@ -71,7 +71,7 @@ public abstract class GuildCoach extends AbstractNpcAI {
 	
 	@Override
 	public void onLearnSkillRequested(PlayerLearnSkillRequested event) {
-		if (character().skillLearn()) {
+		if (character().skillLearn() && event.classId() == null) {
 			showCustomLearnSkill(event.player(), event.npc(), conditions);
 			return;
 		}
@@ -81,12 +81,12 @@ public abstract class GuildCoach extends AbstractNpcAI {
 			return;
 		}
 		
-		showSkillList(event.player(), event.player().getClassId());
+		showSkillList(event.player(), character().skillLearn() ? event.classId() : event.player().getLearningClass());
 	}
 	
 	@Override
 	public void onSkillLearned(PlayerSkillLearned event) {
-		showSkillList(event.player(), event.player().getClassId());
+		showSkillList(event.player(), event.player().getLearningClass());
 	}
 	
 	@Override
