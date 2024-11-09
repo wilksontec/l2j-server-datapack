@@ -21,7 +21,9 @@ package com.l2jserver.datapack.handlers.admincommandhandlers;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.util.logging.Logger;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.l2jserver.commons.database.ConnectionFactory;
 import com.l2jserver.gameserver.handler.IAdminCommandHandler;
@@ -41,7 +43,7 @@ import com.l2jserver.gameserver.network.serverpackets.QuestList;
  * @author Korvin, Zoey76
  */
 public class AdminShowQuests implements IAdminCommandHandler {
-	private static final Logger _log = Logger.getLogger(AdminShowQuests.class.getName());
+	private static final Logger LOG = LoggerFactory.getLogger(AdminShowQuests.class);
 	
 	private static final String[] ADMIN_COMMANDS = {
 		"admin_charquestmenu",
@@ -266,7 +268,7 @@ public class AdminShowQuests implements IAdminCommandHandler {
 			actor.sendPacket(adminReply);
 		} catch (Exception e) {
 			actor.sendMessage("There was an error.");
-			_log.warning(AdminShowQuests.class.getSimpleName() + ": " + e.getMessage());
+			LOG.warn(e.getMessage(), e);
 		}
 	}
 	

@@ -23,8 +23,9 @@ import static com.l2jserver.gameserver.config.Configuration.customs;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.l2jserver.commons.database.ConnectionFactory;
 import com.l2jserver.gameserver.GameTimeController;
@@ -56,7 +57,8 @@ import com.l2jserver.gameserver.util.Broadcast;
  * @author evill33t
  */
 public class Wedding implements IVoicedCommandHandler {
-	static final Logger _log = Logger.getLogger(Wedding.class.getName());
+	private static final Logger LOG = LoggerFactory.getLogger(Wedding.class);
+	
 	private static final String[] _voicedCommands = {
 		"divorce",
 		"engage",
@@ -188,7 +190,7 @@ public class Wedding implements IVoicedCommandHandler {
 				}
 			}
 		} catch (Exception e) {
-			_log.warning("could not read friend data:" + e);
+			LOG.warn("Could not read friend data:{}", String.valueOf(e));
 		}
 		
 		if (!foundOnFriendList) {
@@ -213,7 +215,7 @@ public class Wedding implements IVoicedCommandHandler {
 		
 		if (activeChar.getPartnerId() == 0) {
 			activeChar.sendMessage("Couldn't find your fiance in the Database - Inform a Gamemaster.");
-			_log.severe("Married but couldn't find parter for " + activeChar.getName());
+			LOG.error("Married but couldn't find partner for {}", activeChar.getName());
 			return false;
 		}
 		
@@ -429,7 +431,7 @@ public class Wedding implements IVoicedCommandHandler {
 			try {
 				_activeChar.teleToLocation(_partnerLoc);
 			} catch (Exception e) {
-				_log.log(Level.SEVERE, "", e);
+				LOG.error(e.getMessage(), e);
 			}
 		}
 	}

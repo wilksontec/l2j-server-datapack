@@ -34,7 +34,6 @@ import com.l2jserver.gameserver.util.Util;
  * @version $Revision: 1.5.2.1.2.4 $ $Date: 2005/04/11 10:06:06 $
  */
 public class AdminShutdown implements IAdminCommandHandler {
-	// private static Logger _log = Logger.getLogger(AdminShutdown.class.getName());
 	
 	private static final String[] ADMIN_COMMANDS = {
 		"admin_server_shutdown",
