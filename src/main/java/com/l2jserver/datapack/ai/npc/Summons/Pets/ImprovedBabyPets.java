@@ -69,7 +69,7 @@ public final class ImprovedBabyPets extends AbstractNpcAI {
 				final double hpPer = (player.getCurrentHp() / player.getMaxHp()) * 100;
 				final double mpPer = (player.getCurrentMp() / player.getMaxMp()) * 100;
 				final int healStep = (int) Math.floor((pet.getLevel() / 5.) - 11);
-				final int healType = pet.getTemplate().getParameters().getInt("heal_type", 0);
+				final int healType = pet.getTemplate().getParameters().getInt("heal_type", 1);
 				
 				switch (healType) {
 					case 0 -> {
