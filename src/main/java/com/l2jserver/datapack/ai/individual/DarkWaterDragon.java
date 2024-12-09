@@ -189,7 +189,7 @@ public final class DarkWaterDragon extends AbstractNpcAI {
 	private void calculateDrop(final L2Npc npc, final L2PcInstance killer, final int itemId, final double dropRate) {
 		final int finalRate = (int) ((dropRate * 100) * rates().getDeathDropChanceMultiplier());
 		if (Rnd.get(10000) <= finalRate) {
-			int finalAmount = rates().getDeathDropAmountMultiplier().intValue();
+			int finalAmount = (int) rates().getDeathDropAmountMultiplier();
 			if (finalRate > 10000) {
 				finalAmount *= (finalRate / 10000) + (Rnd.get(10000) <= (finalRate % 10000) ? 1 : 0);
 			}

@@ -1217,7 +1217,7 @@ public final class CrystalCaverns extends AbstractInstance {
 	}
 	
 	private void giveRewards(L2PcInstance player, int instanceId, int bossCry, boolean isBaylor) {
-		final int dropAmount = Math.max(rates().getDeathDropAmountMultiplier().intValue(), 1);
+		final int dropAmount = (int) Math.max(rates().getDeathDropAmountMultiplier(), 1);
 		Optional.ofNullable(player.getParty())
 			.map(L2Party::getMembers)
 			.orElseGet(() -> List.of(player))

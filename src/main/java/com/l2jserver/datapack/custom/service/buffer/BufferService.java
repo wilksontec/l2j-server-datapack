@@ -331,7 +331,7 @@ public final class BufferService extends CustomServiceScript {
 		Long lastPlayableHealTime = LAST_PLAYABLES_HEAL_TIME.get(target.getObjectId());
 		if (lastPlayableHealTime != null) {
 			long elapsedTime = System.currentTimeMillis() - lastPlayableHealTime;
-			Long healCooldown = Configuration.bufferService().getHealCooldown().longValue();
+			int healCooldown = Configuration.bufferService().getHealCooldown();
 			if (elapsedTime < healCooldown) {
 				long remainingTime = healCooldown - elapsedTime;
 				if (target == player) {

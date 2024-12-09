@@ -66,7 +66,6 @@ public class OlympiadManagerLink implements IBypassHandler {
 	
 	private static final String FEWER_THAN = "Fewer than " + String.valueOf(olympiad().getRegistrationDisplayNumber());
 	private static final String MORE_THAN = "More than " + String.valueOf(olympiad().getRegistrationDisplayNumber());
-	private static final int GATE_PASS = olympiad().getCompetitionRewardItem();
 	
 	private static final int[] BUFFS = {
 		4357, // Haste Lv2
@@ -198,7 +197,7 @@ public class OlympiadManagerLink implements IBypassHandler {
 					case 10: // give tokens to player
 						passes = Olympiad.getInstance().getNoblessePasses(activeChar, true);
 						if (passes > 0) {
-							L2ItemInstance item = activeChar.getInventory().addItem("Olympiad", GATE_PASS, passes, activeChar, target);
+							L2ItemInstance item = activeChar.getInventory().addItem("Olympiad", olympiad().getCompetitionRewardItem(), passes, activeChar, target);
 							
 							InventoryUpdate iu = new InventoryUpdate();
 							iu.addModifiedItem(item);
