@@ -359,7 +359,7 @@ public final class QueenAnt extends AbstractNpcAI {
 			cancelQuestTimers("ACTION");
 			npc.broadcastPacket(Music.BS02_D_10000.getPacket());
 			GrandBossManager.getInstance().setBossStatus(QUEEN, DEAD);
-			final long respawnTime = (grandBoss().getIntervalOfQueenAntSpawn() + getRandom(-grandBoss().getRandomOfQueenAntSpawn(), grandBoss().getRandomOfQueenAntSpawn())) * 3600000;
+			final long respawnTime = grandBoss().getIntervalOfQueenAntSpawn() + getRandom(-(int) grandBoss().getRandomOfQueenAntSpawn(), (int) grandBoss().getRandomOfQueenAntSpawn());
 			GrandBossManager.getInstance().getStatsSet(QUEEN).set("respawn_time", (System.currentTimeMillis() + respawnTime));
 			startQuestTimer("QUEEN_UNLOCK", respawnTime, null, null);
 			_nurses.clear();

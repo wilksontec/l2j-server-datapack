@@ -438,7 +438,7 @@ public final class Baium extends AbstractNpcAI {
 			setStatus(DEAD);
 			addSpawn(TELE_CUBE, TELEPORT_CUBIC_LOC, false, 900000);
 			zone.broadcastPacket(Music.BS01_D_10000.getPacket());
-			long respawnTime = (grandBoss().getIntervalOfBaiumSpawn() + getRandom(-grandBoss().getRandomOfBaiumSpawn(), grandBoss().getRandomOfBaiumSpawn())) * 3600000;
+			final long respawnTime = grandBoss().getIntervalOfBaiumSpawn() + getRandom(-(int) grandBoss().getRandomOfBaiumSpawn(), (int) grandBoss().getRandomOfBaiumSpawn());
 			setRespawn(respawnTime);
 			startQuestTimer("CLEAR_STATUS", respawnTime, null, null);
 			startQuestTimer("CLEAR_ZONE", 900000, null, null);

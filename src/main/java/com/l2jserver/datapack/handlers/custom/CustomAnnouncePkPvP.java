@@ -19,10 +19,10 @@
 package com.l2jserver.datapack.handlers.custom;
 
 import static com.l2jserver.gameserver.config.Configuration.customs;
+import static com.l2jserver.gameserver.model.events.EventType.PLAYER_PVP_KILL;
 
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
 import com.l2jserver.gameserver.model.events.Containers;
-import com.l2jserver.gameserver.model.events.EventType;
 import com.l2jserver.gameserver.model.events.impl.character.player.PlayerPvPKill;
 import com.l2jserver.gameserver.model.events.listeners.ConsumerEventListener;
 import com.l2jserver.gameserver.network.SystemMessageId;
@@ -30,17 +30,18 @@ import com.l2jserver.gameserver.network.serverpackets.SystemMessage;
 import com.l2jserver.gameserver.util.Broadcast;
 
 /**
+ * Custom Announce PK / PvP.
  * @author Zealar
  */
 public class CustomAnnouncePkPvP {
 	
 	public CustomAnnouncePkPvP() {
 		if (customs().announcePkPvP()) {
-			Containers.Players().addListener(new ConsumerEventListener(Containers.Players(), EventType.PLAYER_PVP_KILL, (PlayerPvPKill event) -> OnPlayerPvPKill(event), this));
+			Containers.Players().addListener(new ConsumerEventListener(Containers.Players(), PLAYER_PVP_KILL, (PlayerPvPKill event) -> onPlayerPvPKill(event), this));
 		}
 	}
 	
-	private Object OnPlayerPvPKill(PlayerPvPKill event) {
+	private Object onPlayerPvPKill(PlayerPvPKill event) {
 		L2PcInstance pk = event.player();
 		if (pk.isGM()) {
 			return null;

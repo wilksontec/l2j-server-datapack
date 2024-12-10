@@ -365,8 +365,7 @@ public final class Valakas extends AbstractNpcAI {
 		
 		GrandBossManager.getInstance().setBossStatus(VALAKAS, DEAD);
 		// Calculate Min and Max respawn times randomly.
-		long respawnTime = grandBoss().getIntervalOfValakasSpawn() + getRandom(-grandBoss().getRandomOfValakasSpawn(), grandBoss().getRandomOfValakasSpawn());
-		respawnTime *= 3600000;
+		final long respawnTime = grandBoss().getIntervalOfValakasSpawn() + getRandom(-(int) grandBoss().getRandomOfValakasSpawn(), (int) grandBoss().getRandomOfValakasSpawn());
 		
 		startQuestTimer("valakas_unlock", respawnTime, null, null);
 		// also save the respawn time so that the info is maintained past reboots

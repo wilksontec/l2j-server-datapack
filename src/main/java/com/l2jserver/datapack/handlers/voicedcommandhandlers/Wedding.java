@@ -19,6 +19,7 @@
 package com.l2jserver.datapack.handlers.voicedcommandhandlers;
 
 import static com.l2jserver.gameserver.config.Configuration.customs;
+import static java.util.concurrent.TimeUnit.MILLISECONDS;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -173,7 +174,7 @@ public class Wedding implements IVoicedCommandHandler {
 		}
 		
 		if ((ptarget.getAppearance().getSex() == activeChar.getAppearance().getSex()) && !customs().weddingAllowSameSex()) {
-			activeChar.sendMessage("Gay marriage is not allowed on this server!");
+			activeChar.sendMessage("Same-sex marriage is not available on this server.");
 			return false;
 		}
 		
@@ -379,8 +380,8 @@ public class Wedding implements IVoicedCommandHandler {
 			return false;
 		}
 		
-		final int teleportTimer = customs().getWeddingTeleportDuration();
-		activeChar.sendMessage("After " + (teleportTimer / 60000) + " min. you will be teleported to your partner.");
+		final int teleportTimer = (int) customs().getWeddingTeleportDuration();
+		activeChar.sendMessage("After " + MILLISECONDS.toMinutes(teleportTimer) + " min. you will be teleported to your partner.");
 		activeChar.getInventory().reduceAdena("Wedding", customs().getWeddingTeleportPrice(), activeChar, null);
 		
 		activeChar.getAI().setIntention(CtrlIntention.AI_INTENTION_IDLE);

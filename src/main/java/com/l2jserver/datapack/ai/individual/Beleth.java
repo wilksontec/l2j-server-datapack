@@ -657,7 +657,7 @@ public final class Beleth extends AbstractNpcAI {
 			
 			setBelethKiller(killer);
 			GrandBossManager.getInstance().setBossStatus(REAL_BELETH, DEAD);
-			final long respawnTime = (grandBoss().getIntervalOfBelethSpawn() + getRandom(-grandBoss().getRandomOfBelethSpawn(), grandBoss().getRandomOfBelethSpawn())) * 3600000;
+			final long respawnTime = grandBoss().getIntervalOfBelethSpawn() + getRandom(-(int) grandBoss().getRandomOfBelethSpawn(), (int) grandBoss().getRandomOfBelethSpawn());
 			StatsSet info = GrandBossManager.getInstance().getStatsSet(REAL_BELETH);
 			info.set("respawn_time", System.currentTimeMillis() + respawnTime);
 			GrandBossManager.getInstance().setStatsSet(REAL_BELETH, info);

@@ -56,8 +56,7 @@ public class PrivateWarehouse implements IBypassHandler {
 		}
 		
 		try {
-			if (command.toLowerCase().startsWith(COMMANDS[0])) // WithdrawP
-			{
+			if (command.toLowerCase().startsWith(COMMANDS[0])) { // WithdrawP
 				if (customs().enableWarehouseSortingPrivate()) {
 					final NpcHtmlMessage msg = new NpcHtmlMessage(target.getObjectId());
 					msg.setFile(activeChar.getHtmlPrefix(), "data/html/mods/WhSortedP.htm");
@@ -67,8 +66,7 @@ public class PrivateWarehouse implements IBypassHandler {
 					showWithdrawWindow(activeChar, null, (byte) 0);
 				}
 				return true;
-			} else if (command.toLowerCase().startsWith(COMMANDS[1])) // WithdrawSortedP
-			{
+			} else if (command.toLowerCase().startsWith(COMMANDS[1])) { // WithdrawSortedP
 				final String param[] = command.split(" ");
 				
 				if (param.length > 2) {
@@ -79,15 +77,13 @@ public class PrivateWarehouse implements IBypassHandler {
 					showWithdrawWindow(activeChar, WarehouseListType.ALL, SortedWareHouseWithdrawalList.A2Z);
 				}
 				return true;
-			} else if (command.toLowerCase().startsWith(COMMANDS[2])) // DepositP
-			{
+			} else if (command.toLowerCase().startsWith(COMMANDS[2])) { // DepositP
 				activeChar.sendPacket(ActionFailed.STATIC_PACKET);
 				activeChar.setActiveWarehouse(activeChar.getWarehouse());
 				activeChar.setInventoryBlockingStatus(true);
 				activeChar.sendPacket(new WareHouseDepositList(activeChar, WareHouseDepositList.PRIVATE));
 				return true;
 			}
-			
 			return false;
 		} catch (Exception ex) {
 			LOG.warn("Exception using bypass!", ex);

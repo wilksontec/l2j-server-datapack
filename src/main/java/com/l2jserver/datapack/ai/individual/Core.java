@@ -169,7 +169,7 @@ public final class Core extends AbstractNpcAI {
 			_firstAttacked = false;
 			GrandBossManager.getInstance().setBossStatus(CORE, DEAD);
 			// Calculate Min and Max respawn times randomly.
-			long respawnTime = (grandBoss().getIntervalOfCoreSpawn() + getRandom(-grandBoss().getRandomOfCoreSpawn(), grandBoss().getRandomOfCoreSpawn())) * 3600000;
+			final long respawnTime = grandBoss().getIntervalOfCoreSpawn() + getRandom(-(int) grandBoss().getRandomOfCoreSpawn(), (int) grandBoss().getRandomOfCoreSpawn());
 			startQuestTimer("core_unlock", respawnTime, null, null);
 			// also save the respawn time so that the info is maintained past reboots
 			StatsSet info = GrandBossManager.getInstance().getStatsSet(CORE);

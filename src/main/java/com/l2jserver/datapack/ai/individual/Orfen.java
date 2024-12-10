@@ -264,7 +264,7 @@ public final class Orfen extends AbstractNpcAI {
 			cancelQuestTimers("CHECK_ZONE");
 			npc.broadcastPacket(Music.BS02_D_7000.getPacket());
 			GrandBossManager.getInstance().setBossStatus(ORFEN, DEAD);
-			final long respawnTime = (grandBoss().getIntervalOfOrfenSpawn() + getRandom(-grandBoss().getRandomOfOrfenSpawn(), grandBoss().getRandomOfOrfenSpawn())) * 3600000;
+			final long respawnTime = grandBoss().getIntervalOfOrfenSpawn() + getRandom(-(int) grandBoss().getRandomOfOrfenSpawn(), (int) grandBoss().getRandomOfOrfenSpawn());
 			GrandBossManager.getInstance().getStatsSet(ORFEN).set("respawn_time", (System.currentTimeMillis() + respawnTime));
 			startQuestTimer("ORFEN_UNLOCK", respawnTime, null, null);
 			_orfen = null;
