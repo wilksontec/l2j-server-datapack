@@ -233,6 +233,7 @@ import com.l2jserver.datapack.handlers.voicedcommandhandlers.Lang;
 import com.l2jserver.datapack.handlers.voicedcommandhandlers.ClanHandler;
 import com.l2jserver.datapack.handlers.voicedcommandhandlers.StatsHandler;
 import com.l2jserver.datapack.handlers.voicedcommandhandlers.Wedding;
+import com.l2jserver.datapack.handlers.voicedcommandhandlers.XpHandler;
 import com.l2jserver.gameserver.handler.ActionHandler;
 import com.l2jserver.gameserver.handler.ActionShiftHandler;
 import com.l2jserver.gameserver.handler.AdminCommandHandler;
@@ -493,6 +494,7 @@ public class MasterHandler {
 		(customs().allowChangePassword() ? ChangePassword.class : null),
 		(customs().allowCastleHandler() ? CastleHandler.class : null),
 		(customs().allowClanHandler() ? ClanHandler.class : null),
+		(customs().allowXpHandler() ? XpHandler.class : null),
 	};
 	
 	// TODO(Zoey76): Add this handler.
