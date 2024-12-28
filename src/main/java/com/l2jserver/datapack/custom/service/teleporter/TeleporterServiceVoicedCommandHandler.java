@@ -36,8 +36,8 @@ public final class TeleporterServiceVoicedCommandHandler implements IVoicedComma
 	}
 	
 	@Override
-	public boolean useVoicedCommand(String command, L2PcInstance activeChar, String params) {
-		TeleporterService.getService().executeCommand(activeChar, null, params);
+	public boolean useVoicedCommand(String command, L2PcInstance player, String params) {
+		TeleporterService.getService().executeCommand(player, null, params);
 		return true;
 	}
 	

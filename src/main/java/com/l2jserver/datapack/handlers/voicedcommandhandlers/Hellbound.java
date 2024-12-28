@@ -32,14 +32,14 @@ public class Hellbound implements IVoicedCommandHandler {
 	};
 	
 	@Override
-	public boolean useVoicedCommand(String command, L2PcInstance activeChar, String params) {
+	public boolean useVoicedCommand(String command, L2PcInstance player, String params) {
 		if (HellboundEngine.getInstance().isLocked()) {
-			activeChar.sendMessage("Hellbound is currently locked.");
+			player.sendMessage("Hellbound is currently locked.");
 			return true;
 		}
 		
 		final int maxTrust = HellboundEngine.getInstance().getMaxTrust();
-		activeChar.sendMessage("Hellbound level: " + HellboundEngine.getInstance().getLevel() + " trust: " + HellboundEngine.getInstance().getTrust() + (maxTrust > 0 ? "/" + maxTrust : ""));
+		player.sendMessage("Hellbound level: " + HellboundEngine.getInstance().getLevel() + " trust: " + HellboundEngine.getInstance().getTrust() + (maxTrust > 0 ? "/" + maxTrust : ""));
 		return true;
 	}
 	

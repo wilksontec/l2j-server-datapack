@@ -21,7 +21,6 @@ package com.l2jserver.datapack.handlers.custom;
 import static com.l2jserver.gameserver.config.Configuration.customs;
 import static com.l2jserver.gameserver.model.events.EventType.PLAYER_PVP_KILL;
 
-import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
 import com.l2jserver.gameserver.model.events.Containers;
 import com.l2jserver.gameserver.model.events.impl.character.player.PlayerPvPKill;
 import com.l2jserver.gameserver.model.events.listeners.ConsumerEventListener;
@@ -41,14 +40,14 @@ public class CustomAnnouncePkPvP {
 		}
 	}
 	
-	private Object onPlayerPvPKill(PlayerPvPKill event) {
-		L2PcInstance pk = event.player();
+	private void onPlayerPvPKill(PlayerPvPKill event) {
+		final var pk = event.player();
 		if (pk.isGM()) {
-			return null;
+			return;
 		}
-		L2PcInstance player = event.target();
 		
-		String msg = customs().getAnnouncePvpMsg();
+		final var player = event.target();
+		var msg = customs().getAnnouncePvpMsg();
 		if (player.getPvpFlag() == 0) {
 			msg = customs().getAnnouncePkMsg();
 		}
@@ -60,6 +59,5 @@ public class CustomAnnouncePkPvP {
 		} else {
 			Broadcast.toAllOnlinePlayers(msg, false);
 		}
-		return null;
 	}
 }

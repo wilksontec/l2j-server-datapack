@@ -225,11 +225,13 @@ import com.l2jserver.datapack.handlers.usercommandhandlers.Time;
 import com.l2jserver.datapack.handlers.usercommandhandlers.Unstuck;
 import com.l2jserver.datapack.handlers.voicedcommandhandlers.AutoLoot;
 import com.l2jserver.datapack.handlers.voicedcommandhandlers.Banking;
+import com.l2jserver.datapack.handlers.voicedcommandhandlers.CastleHandler;
 import com.l2jserver.datapack.handlers.voicedcommandhandlers.ChangePassword;
 import com.l2jserver.datapack.handlers.voicedcommandhandlers.ChatAdmin;
 import com.l2jserver.datapack.handlers.voicedcommandhandlers.Debug;
 import com.l2jserver.datapack.handlers.voicedcommandhandlers.Lang;
-import com.l2jserver.datapack.handlers.voicedcommandhandlers.StatsVCmd;
+import com.l2jserver.datapack.handlers.voicedcommandhandlers.ClanHandler;
+import com.l2jserver.datapack.handlers.voicedcommandhandlers.StatsHandler;
 import com.l2jserver.datapack.handlers.voicedcommandhandlers.Wedding;
 import com.l2jserver.gameserver.handler.ActionHandler;
 import com.l2jserver.gameserver.handler.ActionShiftHandler;
@@ -481,22 +483,20 @@ public class MasterHandler {
 	};
 	
 	private static final Class<?>[] VOICED_COMMAND_HANDLERS = {
-		AutoLoot.class,
-		StatsVCmd.class,
-		// TODO: Add configuration options for this voiced commands:
-		// CastleVCmd.class,
-		// SetVCmd.class,
+		(customs().autoLootVoiceCommand() ? AutoLoot.class : null),
+		(customs().allowStatHandler() ? StatsHandler.class : null),
 		(customs().allowWedding() ? Wedding.class : null),
 		(customs().bankingEnabled() ? Banking.class : null),
 		(customs().chatAdmin() ? ChatAdmin.class : null),
-		(customs().multiLangEnable() && customs().multiLangVoiceCommand() ? Lang.class : null),
-		(customs().debugVoiceCommand() ? Debug.class : null),
+		(customs().multiLangEnable() && customs().multiLangHandler() ? Lang.class : null),
+		(customs().debugHandler() ? Debug.class : null),
 		(customs().allowChangePassword() ? ChangePassword.class : null),
+		(customs().allowCastleHandler() ? CastleHandler.class : null),
+		(customs().allowClanHandler() ? ClanHandler.class : null),
 	};
 	
 	// TODO(Zoey76): Add this handler.
-	// private static final Class<?>[] CUSTOM_HANDLERS =
-	// {
+	// private static final Class<?>[] CUSTOM_HANDLERS = {
 	// CustomAnnouncePkPvP.class
 	// };
 	
@@ -520,7 +520,7 @@ public class MasterHandler {
 	}
 	
 	private static void loadHandlers(IHandler<?, ?> handler, Class<?>[] classes) {
-		for (Class<?> c : classes) {
+		for (var c : classes) {
 			if (c == null) {
 				continue;
 			}

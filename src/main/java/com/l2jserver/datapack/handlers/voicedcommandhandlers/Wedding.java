@@ -60,23 +60,28 @@ import com.l2jserver.gameserver.util.Broadcast;
 public class Wedding implements IVoicedCommandHandler {
 	private static final Logger LOG = LoggerFactory.getLogger(Wedding.class);
 	
-	private static final String[] _voicedCommands = {
+	private static final String[] COMMANDS = {
 		"divorce",
 		"engage",
 		"gotolove"
 	};
 	
 	@Override
-	public boolean useVoicedCommand(String command, L2PcInstance activeChar, String params) {
-		if (activeChar == null) {
+	public boolean useVoicedCommand(String command, L2PcInstance player, String params) {
+		if (!customs().allowWedding()) {
 			return false;
 		}
+		
+		if (player == null) {
+			return false;
+		}
+		
 		if (command.startsWith("engage")) {
-			return engage(activeChar);
+			return engage(player);
 		} else if (command.startsWith("divorce")) {
-			return divorce(activeChar);
+			return divorce(player);
 		} else if (command.startsWith("gotolove")) {
-			return goToLove(activeChar);
+			return goToLove(player);
 		}
 		return false;
 	}
@@ -152,7 +157,7 @@ public class Wedding implements IVoicedCommandHandler {
 			return false;
 		}
 		final L2PcInstance ptarget = (L2PcInstance) activeChar.getTarget();
-		// check if player target himself
+		// check if player targets themselves
 		if (ptarget.getObjectId() == activeChar.getObjectId()) {
 			activeChar.sendMessage("Is there something wrong with you, are you trying to go out with youself?");
 			return false;
@@ -439,6 +444,6 @@ public class Wedding implements IVoicedCommandHandler {
 	
 	@Override
 	public String[] getVoicedCommandList() {
-		return _voicedCommands;
+		return COMMANDS;
 	}
 }

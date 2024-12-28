@@ -128,29 +128,29 @@ public final class TvTManager extends AbstractNpcAI implements IVoicedCommandHan
 	}
 	
 	@Override
-	public boolean useVoicedCommand(String command, L2PcInstance activeChar, String params) {
+	public boolean useVoicedCommand(String command, L2PcInstance player, String params) {
 		String html = null;
 		switch (command) {
 			case "tvt": {
 				if (TvTEvent.isStarting() || TvTEvent.isStarted()) {
-					html = getTvTStatus(activeChar);
+					html = getTvTStatus(player);
 				} else {
 					html = "The event has not started.";
 				}
 				break;
 			}
 			case "tvtjoin": {
-				html = onEvent("join", null, activeChar);
+				html = onEvent("join", null, player);
 				break;
 			}
 			case "tvtleave": {
-				html = onEvent("remove", null, activeChar);
+				html = onEvent("remove", null, player);
 				break;
 			}
 		}
 		
 		if (html != null) {
-			activeChar.sendPacket(new NpcHtmlMessage(html));
+			player.sendPacket(new NpcHtmlMessage(html));
 		}
 		return true;
 	}
