@@ -19,11 +19,11 @@
 package com.l2jserver.datapack.ai.group_template;
 
 import com.l2jserver.datapack.ai.npc.AbstractNpcAI;
-import com.l2jserver.gameserver.model.L2Object;
 import com.l2jserver.gameserver.model.actor.L2Character;
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.L2Summon;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
+import com.l2jserver.gameserver.model.events.impl.character.npc.NpcEventReceived;
 import com.l2jserver.gameserver.model.holders.SkillHolder;
 import com.l2jserver.gameserver.network.NpcStringId;
 import com.l2jserver.gameserver.network.clientpackets.Say2;
@@ -76,7 +76,7 @@ public final class SilentValley extends AbstractNpcAI {
 					npc.doDie(null);
 					break;
 				case "CLEAR_EVENT":
-					npc.broadcastEvent("CLEAR_ALL_INSTANT", 2000, null);
+					npc.broadcastScriptEvent("CLEAR_ALL_INSTANT", 2000);
 					npc.doDie(null);
 					break;
 				case "SPAWN_CHEST":
@@ -98,7 +98,7 @@ public final class SilentValley extends AbstractNpcAI {
 					npc.doCast(BETRAYAL);
 				} else if (isSummon || (getRandom(100) < CHEST_DIE_CHANCE)) {
 					npc.dropItem(player, SACK, 1);
-					npc.broadcastEvent("CLEAR_ALL", 2000, null);
+					npc.broadcastScriptEvent("CLEAR_ALL", 2000);
 					npc.doDie(null);
 					cancelQuestTimer("CLEAR_EVENT", npc, null);
 				}
@@ -159,9 +159,10 @@ public final class SilentValley extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onEventReceived(String eventName, L2Npc sender, L2Npc receiver, L2Object reference) {
+	public void onEventReceived(NpcEventReceived event) {
+		final var receiver = event.receiver();
 		if ((receiver != null) && !receiver.isDead()) {
-			switch (eventName) {
+			switch (event.eventName()) {
 				case "CLEAR_ALL":
 					startQuestTimer("CLEAR", 60000, receiver, null);
 					break;
@@ -170,6 +171,5 @@ public final class SilentValley extends AbstractNpcAI {
 					break;
 			}
 		}
-		return super.onEventReceived(eventName, sender, receiver, reference);
 	}
 }

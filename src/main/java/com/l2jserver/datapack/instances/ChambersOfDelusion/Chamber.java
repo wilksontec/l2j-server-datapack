@@ -30,13 +30,13 @@ import com.l2jserver.datapack.instances.AbstractInstance;
 import com.l2jserver.gameserver.ThreadPoolManager;
 import com.l2jserver.gameserver.ai.CtrlIntention;
 import com.l2jserver.gameserver.instancemanager.InstanceManager;
-import com.l2jserver.gameserver.model.L2Object;
 import com.l2jserver.gameserver.model.L2Party;
 import com.l2jserver.gameserver.model.L2World;
 import com.l2jserver.gameserver.model.Location;
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
 import com.l2jserver.gameserver.model.entity.Instance;
+import com.l2jserver.gameserver.model.events.impl.character.npc.NpcEventReceived;
 import com.l2jserver.gameserver.model.holders.SkillHolder;
 import com.l2jserver.gameserver.model.instancezone.InstanceWorld;
 import com.l2jserver.gameserver.model.quest.QuestState;
@@ -456,10 +456,10 @@ public abstract class Chamber extends AbstractInstance {
 					npc.dropItem(attacker, LEONARD, (int) (2 * rates().getQuestDropAmountMultiplier()));
 				}
 				
-				npc.broadcastEvent("SCE_LUCKY", 2000, null);
+				npc.broadcastScriptEvent("SCE_LUCKY", 2000);
 				npc.doCast(SUCCESS_SKILL);
 			} else {
-				npc.broadcastEvent("SCE_DREAM_FIRE_IN_THE_HOLE", 2000, null);
+				npc.broadcastScriptEvent("SCE_DREAM_FIRE_IN_THE_HOLE", 2000);
 			}
 		}
 		
@@ -467,19 +467,17 @@ public abstract class Chamber extends AbstractInstance {
 	}
 	
 	@Override
-	public String onEventReceived(String eventName, L2Npc sender, L2Npc receiver, L2Object reference) {
-		switch (eventName) {
+	public void onEventReceived(NpcEventReceived event) {
+		switch (event.eventName()) {
 			case "SCE_LUCKY":
-				receiver.setBusy(true);
-				receiver.doCast(SUCCESS_SKILL);
+				event.receiver().setBusy(true);
+				event.receiver().doCast(SUCCESS_SKILL);
 				break;
 			case "SCE_DREAM_FIRE_IN_THE_HOLE":
-				receiver.setBusy(true);
-				receiver.doCast(FAIL_SKILL);
+				event.receiver().setBusy(true);
+				event.receiver().doCast(FAIL_SKILL);
 				break;
 		}
-		
-		return null;
 	}
 	
 	@Override

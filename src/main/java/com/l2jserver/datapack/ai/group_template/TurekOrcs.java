@@ -18,14 +18,16 @@
  */
 package com.l2jserver.datapack.ai.group_template;
 
+import static com.l2jserver.gameserver.ai.CtrlIntention.AI_INTENTION_ATTACK;
+
 import com.l2jserver.datapack.ai.npc.AbstractNpcAI;
 import com.l2jserver.gameserver.ai.CtrlIntention;
-import com.l2jserver.gameserver.model.L2Object;
 import com.l2jserver.gameserver.model.L2World;
 import com.l2jserver.gameserver.model.Location;
 import com.l2jserver.gameserver.model.actor.L2Attackable;
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
+import com.l2jserver.gameserver.model.events.impl.character.npc.NpcEventReceived;
 import com.l2jserver.gameserver.network.NpcStringId;
 
 /**
@@ -81,14 +83,15 @@ public final class TurekOrcs extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onEventReceived(String eventName, L2Npc sender, L2Npc receiver, L2Object reference) {
-		if (eventName.equals("WARNING") && !receiver.isDead() && (receiver.getAI().getIntention() != CtrlIntention.AI_INTENTION_ATTACK) && (reference != null) && (reference.getActingPlayer() != null) && !reference.getActingPlayer().isDead()) {
+	public void onEventReceived(NpcEventReceived event) {
+		final var receiver = event.receiver();
+		if (event.eventName().equals("WARNING") && !receiver.isDead() && (receiver.getAI().getIntention() != AI_INTENTION_ATTACK) && //
+			(event.reference() != null) && (event.reference().getActingPlayer() != null) && !event.reference().getActingPlayer().isDead()) {
 			receiver.getVariables().set("state", 3);
 			receiver.setIsRunning(true);
-			((L2Attackable) receiver).addDamageHate(reference.getActingPlayer(), 0, 99999);
-			receiver.getAI().setIntention(CtrlIntention.AI_INTENTION_ATTACK, reference.getActingPlayer());
+			((L2Attackable) receiver).addDamageHate(event.reference().getActingPlayer(), 0, 99999);
+			receiver.getAI().setIntention(AI_INTENTION_ATTACK, event.reference().getActingPlayer());
 		}
-		return super.onEventReceived(eventName, sender, receiver, reference);
 	}
 	
 	@Override
@@ -99,7 +102,7 @@ public final class TurekOrcs extends AbstractNpcAI {
 				npc.disableCoreAI(false);
 				startQuestTimer("checkState", 15000, npc, null);
 				npc.getVariables().set("state", 2);
-				npc.broadcastEvent("WARNING", 400, L2World.getInstance().getPlayer(npc.getVariables().getInt("attacker")));
+				npc.broadcastScriptEvent("WARNING", 400, L2World.getInstance().getPlayer(npc.getVariables().getInt("attacker")));
 			} else {
 				npc.getAI().setIntention(CtrlIntention.AI_INTENTION_MOVE_TO, new Location(npc.getAIValue("fleeX"), npc.getAIValue("fleeY"), npc.getAIValue("fleeZ")));
 			}

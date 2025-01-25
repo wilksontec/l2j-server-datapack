@@ -19,11 +19,11 @@
 package com.l2jserver.datapack.ai.npc.CastleAmbassador;
 
 import com.l2jserver.datapack.ai.npc.AbstractNpcAI;
-import com.l2jserver.gameserver.model.L2Object;
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
 import com.l2jserver.gameserver.model.entity.Castle;
 import com.l2jserver.gameserver.model.entity.Fort;
+import com.l2jserver.gameserver.model.events.impl.character.npc.NpcEventReceived;
 import com.l2jserver.gameserver.network.serverpackets.NpcHtmlMessage;
 
 /**
@@ -90,7 +90,7 @@ public final class CastleAmbassador extends AbstractNpcAI {
 						fortresss.setFortState(1, fortresss.getCastleIdByAmbassador(npc.getId()));
 					}
 					cancelQuestTimer("DESPAWN", npc, null);
-					npc.broadcastEvent("DESPAWN", 1000, null);
+					npc.broadcastScriptEvent("DESPAWN", 1000);
 					npc.deleteMe();
 					break;
 				}
@@ -107,11 +107,10 @@ public final class CastleAmbassador extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onEventReceived(String eventName, L2Npc sender, L2Npc receiver, L2Object reference) {
-		if (receiver != null) {
-			receiver.deleteMe();
+	public void onEventReceived(NpcEventReceived event) {
+		if (event.receiver() != null) {
+			event.receiver().deleteMe();
 		}
-		return super.onEventReceived(eventName, sender, receiver, reference);
 	}
 	
 	@Override
