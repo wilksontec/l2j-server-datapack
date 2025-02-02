@@ -215,7 +215,7 @@ public final class Q00334_TheWishingPotion extends Quest {
 							}
 						}
 						html = "30743-03.html";
-					} else if ((random >= 50) && (random < 100)) {
+					} else if ((random >= 50) && (random < 85)) {
 						switch (getRandom(2)) {
 							case 0: {
 								qs.giveItems(Q_MUSICNOTE_LOVE, 1);
