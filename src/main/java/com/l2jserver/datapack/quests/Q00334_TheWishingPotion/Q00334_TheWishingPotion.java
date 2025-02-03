@@ -100,7 +100,7 @@ public final class Q00334_TheWishingPotion extends Quest {
 	// Misc
 	private static final String FLAG = "flag";
 	private static final String I_QUEST0 = "i_quest0";
-	private static final String EXCHANGE = "Exchange";
+	private static final String EXCHANGING = "exchanging_q334";
 	
 	// Reward
 	public Q00334_TheWishingPotion() {
@@ -423,8 +423,8 @@ public final class Q00334_TheWishingPotion extends Quest {
 					}
 					case 7: {
 						if (qs.hasQuestItems(Q_WISH_POTION)) {
-							if (qs.getInt(EXCHANGE) == 0) {
-								
+							if (!npc.getVariables().getBoolean(EXCHANGING, false)) {
+								npc.getVariables().set(EXCHANGING, true);
 								qs.takeItems(Q_WISH_POTION, 1);
 								qs.set(I_QUEST0, 1);
 								qs.set(FLAG, 1);
@@ -437,8 +437,8 @@ public final class Q00334_TheWishingPotion extends Quest {
 					}
 					case 8: {
 						if (qs.hasQuestItems(Q_WISH_POTION)) {
-							if (qs.getInt(EXCHANGE) == 0) {
-								
+							if (!npc.getVariables().getBoolean(EXCHANGING, false)) {
+								npc.getVariables().set(EXCHANGING, true);
 								qs.takeItems(Q_WISH_POTION, 1);
 								qs.set(I_QUEST0, 2);
 								qs.set(FLAG, 2);
@@ -451,8 +451,8 @@ public final class Q00334_TheWishingPotion extends Quest {
 					}
 					case 9: {
 						if (qs.hasQuestItems(Q_WISH_POTION)) {
-							if (qs.getInt(EXCHANGE) == 0) {
-								
+							if (!npc.getVariables().getBoolean(EXCHANGING, false)) {
+								npc.getVariables().set(EXCHANGING, true);
 								qs.takeItems(Q_WISH_POTION, 1);
 								qs.set(I_QUEST0, 3);
 								qs.set(FLAG, 3);
@@ -465,8 +465,8 @@ public final class Q00334_TheWishingPotion extends Quest {
 					}
 					case 10: {
 						if (qs.hasQuestItems(Q_WISH_POTION)) {
-							if (qs.getInt(EXCHANGE) == 0) {
-								
+							if (!npc.getVariables().getBoolean(EXCHANGING, false)) {
+								npc.getVariables().set(EXCHANGING, true);
 								qs.takeItems(Q_WISH_POTION, 1);
 								qs.set(I_QUEST0, 4);
 								qs.set(FLAG, 4);
@@ -505,24 +505,24 @@ public final class Q00334_TheWishingPotion extends Quest {
 								switch (qs.getInt(I_QUEST0)) {
 									case 1: {
 										addSpawn(FAIRY_RUPINA, npc, true, 0, false);
-										qs.set(EXCHANGE, 0);
+										npc.getVariables().set(EXCHANGING, false);
 										break;
 									}
 									case 2: {
 										addSpawn(GRIMA, npc, true, 0, false);
 										addSpawn(GRIMA, npc, true, 0, false);
 										addSpawn(GRIMA, npc, true, 0, false);
-										qs.set(EXCHANGE, 0);
+										npc.getVariables().set(EXCHANGING, false);
 										break;
 									}
 									case 3: {
 										qs.giveItems(Q_CERTIFICATE_OF_ROYALTY, 1);
-										qs.set(EXCHANGE, 0);
+										npc.getVariables().set(EXCHANGING, false);
 										break;
 									}
 									case 4: {
 										addSpawn(WISDOM_CHEST, npc, true, 0, false);
-										qs.set(EXCHANGE, 0);
+										npc.getVariables().set(EXCHANGING, false);
 										break;
 									}
 								}
@@ -535,22 +535,22 @@ public final class Q00334_TheWishingPotion extends Quest {
 										addSpawn(SUCCUBUS_OF_SEDUCTION, npc, true, 0, false);
 										addSpawn(SUCCUBUS_OF_SEDUCTION, npc, true, 0, false);
 										addSpawn(SUCCUBUS_OF_SEDUCTION, npc, true, 0, false);
-										qs.set(EXCHANGE, 0);
+										npc.getVariables().set(EXCHANGING, false);
 										break;
 									}
 									case 2: {
 										qs.giveAdena(10000, true);
-										qs.set(EXCHANGE, 0);
+										npc.getVariables().set(EXCHANGING, false);
 										break;
 									}
 									case 3: {
 										addSpawn(DLORD_ALEXANDROSANCHES, npc, true, 0, false);
-										qs.set(EXCHANGE, 0);
+										npc.getVariables().set(EXCHANGING, false);
 										break;
 									}
 									case 4: {
 										addSpawn(WISDOM_CHEST, npc, true, 0, false);
-										qs.set(EXCHANGE, 0);
+										npc.getVariables().set(EXCHANGING, false);
 										break;
 									}
 								}
@@ -560,17 +560,17 @@ public final class Q00334_TheWishingPotion extends Quest {
 								switch (qs.getInt(I_QUEST0)) {
 									case 2: {
 										qs.giveAdena(10000, true);
-										qs.set(EXCHANGE, 0);
+										npc.getVariables().set(EXCHANGING, false);
 										break;
 									}
 									case 3: {
 										qs.giveItems(Q_ANCIENT_CROWN, 1);
-										qs.set(EXCHANGE, 0);
+										npc.getVariables().set(EXCHANGING, false);
 										break;
 									}
 									case 4: {
 										addSpawn(WISDOM_CHEST, npc, true, 0, false);
-										qs.set(EXCHANGE, 0);
+										npc.getVariables().set(EXCHANGING, false);
 										break;
 									}
 								}
