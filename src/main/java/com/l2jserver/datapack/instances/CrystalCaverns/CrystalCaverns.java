@@ -35,7 +35,6 @@ import com.l2jserver.datapack.instances.AbstractInstance;
 import com.l2jserver.datapack.quests.Q00131_BirdInACage.Q00131_BirdInACage;
 import com.l2jserver.gameserver.GeoData;
 import com.l2jserver.gameserver.ai.CtrlIntention;
-import com.l2jserver.gameserver.enums.TrapAction;
 import com.l2jserver.gameserver.instancemanager.InstanceManager;
 import com.l2jserver.gameserver.model.L2Object;
 import com.l2jserver.gameserver.model.L2Party;
@@ -48,9 +47,9 @@ import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.L2Summon;
 import com.l2jserver.gameserver.model.actor.instance.L2DoorInstance;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
-import com.l2jserver.gameserver.model.actor.instance.L2TrapInstance;
 import com.l2jserver.gameserver.model.entity.Instance;
 import com.l2jserver.gameserver.model.events.impl.character.npc.NpcSkillFinished;
+import com.l2jserver.gameserver.model.events.impl.character.trap.OnTrapAction;
 import com.l2jserver.gameserver.model.holders.SkillHolder;
 import com.l2jserver.gameserver.model.instancezone.InstanceWorld;
 import com.l2jserver.gameserver.model.items.instance.L2ItemInstance;
@@ -1532,23 +1531,22 @@ public final class CrystalCaverns extends AbstractInstance {
 				teleportPlayer(player, new Location(153522, 144212, -9747), npc.getInstanceId());
 			}
 		}
-		return "";
+		return null;
 	}
 	
 	@Override
-	public String onTrapAction(L2TrapInstance trap, L2Character trigger, TrapAction action) {
-		InstanceWorld tmpworld = InstanceManager.getInstance().getWorld(trap.getInstanceId());
+	public void onTrapAction(OnTrapAction event) {
+		final var tmpworld = InstanceManager.getInstance().getWorld(event.trap().getInstanceId());
 		if (tmpworld instanceof CCWorld world) {
-			switch (action) {
-				case TRAP_DISARMED:
-					if (trap.getId() == DOOR_OPENING_TRAP[0]) {
+			switch (event.action()) {
+				case TRAP_DISARMED -> {
+					if (event.trap().getId() == DOOR_OPENING_TRAP[0]) {
 						openDoor(24220001, world.getInstanceId());
 						runEmeraldRooms(world, ROOM1_SPAWNS, 1);
 					}
-					break;
+				}
 			}
 		}
-		return null;
 	}
 	
 	@Override

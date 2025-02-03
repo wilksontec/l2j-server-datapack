@@ -41,7 +41,6 @@ import com.l2jserver.datapack.instances.AbstractInstance;
 import com.l2jserver.gameserver.GeoData;
 import com.l2jserver.gameserver.ai.CtrlIntention;
 import com.l2jserver.gameserver.enums.InstanceType;
-import com.l2jserver.gameserver.enums.TrapAction;
 import com.l2jserver.gameserver.instancemanager.GraciaSeedsManager;
 import com.l2jserver.gameserver.instancemanager.InstanceManager;
 import com.l2jserver.gameserver.model.L2CommandChannel;
@@ -56,7 +55,7 @@ import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2DoorInstance;
 import com.l2jserver.gameserver.model.actor.instance.L2MonsterInstance;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
-import com.l2jserver.gameserver.model.actor.instance.L2TrapInstance;
+import com.l2jserver.gameserver.model.events.impl.character.trap.OnTrapAction;
 import com.l2jserver.gameserver.model.holders.SkillHolder;
 import com.l2jserver.gameserver.model.instancezone.InstanceWorld;
 import com.l2jserver.gameserver.model.skills.Skill;
@@ -702,14 +701,14 @@ public final class Stage1 extends AbstractInstance {
 				}
 			}
 		}
-		return "";
+		return null;
 	}
 	
 	@Override
 	public String onKill(L2Npc npc, L2PcInstance player, boolean isSummon) {
 		if (npc.getId() == SPAWN_DEVICE) {
 			cancelQuestTimer("Spawn", npc, null);
-			return "";
+			return null;
 		}
 		InstanceWorld tmpworld = InstanceManager.getInstance().getWorld(npc.getInstanceId());
 		if (tmpworld instanceof SOD1World world) {
@@ -751,7 +750,7 @@ public final class Stage1 extends AbstractInstance {
 				}
 			}
 		}
-		return "";
+		return null;
 	}
 	
 	@Override
@@ -768,15 +767,16 @@ public final class Stage1 extends AbstractInstance {
 		} else if (npcId == TELEPORT) {
 			teleportPlayer(player, CENTER_TELEPORT, player.getInstanceId(), false);
 		}
-		return "";
+		return null;
 	}
 	
 	@Override
-	public String onTrapAction(L2TrapInstance trap, L2Character trigger, TrapAction action) {
-		InstanceWorld tmpworld = InstanceManager.getInstance().getWorld(trap.getInstanceId());
-		if (tmpworld instanceof SOD1World world) {
-			switch (action) {
-				case TRAP_TRIGGERED:
+	public void onTrapAction(OnTrapAction event) {
+		final var trap = event.trap();
+		final var world = InstanceManager.getInstance().getWorld(trap.getInstanceId());
+		if (world instanceof SOD1World) {
+			switch (event.action()) {
+				case TRAP_TRIGGERED -> {
 					if (trap.getId() == 18771) {
 						for (int npcId : TRAP_18771_NPCS) {
 							addSpawn(npcId, trap.getX(), trap.getY(), trap.getZ(), trap.getHeading(), true, 0, true, world.getInstanceId());
@@ -786,9 +786,8 @@ public final class Stage1 extends AbstractInstance {
 							addSpawn(npcId, trap.getX(), trap.getY(), trap.getZ(), trap.getHeading(), true, 0, true, world.getInstanceId());
 						}
 					}
-					break;
+				}
 			}
 		}
-		return null;
 	}
 }
