@@ -30,10 +30,10 @@ import com.l2jserver.gameserver.model.TeleportWhereType;
 import com.l2jserver.gameserver.model.actor.L2Attackable;
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
+import com.l2jserver.gameserver.model.events.impl.character.npc.NpcSkillFinished;
 import com.l2jserver.gameserver.model.events.impl.sieges.castle.CastleSiegeFinish;
 import com.l2jserver.gameserver.model.events.impl.sieges.castle.CastleSiegeStart;
 import com.l2jserver.gameserver.model.holders.SkillHolder;
-import com.l2jserver.gameserver.model.skills.Skill;
 import com.l2jserver.gameserver.model.zone.ZoneId;
 import com.l2jserver.gameserver.network.NpcStringId;
 import com.l2jserver.gameserver.network.clientpackets.Say2;
@@ -198,8 +198,10 @@ public final class Venom extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onSpellFinished(L2Npc npc, L2PcInstance player, Skill skill) {
-		switch (skill.getId()) {
+	public void onSpellFinished(NpcSkillFinished event) {
+		final var player = event.player();
+		final var npc = event.npc();
+		switch (event.skill().getId()) {
 			case 4222:
 				npc.teleToLocation(_loc);
 				break;
@@ -225,7 +227,6 @@ public final class Venom extends AbstractNpcAI {
 				}
 				break;
 		}
-		return super.onSpellFinished(npc, player, skill);
 	}
 	
 	@Override

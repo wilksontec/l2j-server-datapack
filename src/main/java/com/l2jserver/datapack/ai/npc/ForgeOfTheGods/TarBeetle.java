@@ -21,6 +21,7 @@ package com.l2jserver.datapack.ai.npc.ForgeOfTheGods;
 import com.l2jserver.datapack.ai.npc.AbstractNpcAI;
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
+import com.l2jserver.gameserver.model.events.impl.character.npc.NpcSkillFinished;
 import com.l2jserver.gameserver.model.holders.SkillHolder;
 import com.l2jserver.gameserver.model.skills.BuffInfo;
 import com.l2jserver.gameserver.model.skills.Skill;
@@ -65,16 +66,15 @@ public final class TarBeetle extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onSpellFinished(L2Npc npc, L2PcInstance player, Skill skill) {
-		if ((skill != null) && (skill.getId() == TAR_SPITE)) {
-			final int val = npc.getScriptValue() - 1;
-			if ((val <= 0) || (SKILLS[0].getSkill().getMpConsume2() > npc.getCurrentMp())) {
-				spawn.removeBeetle(npc);
+	public void onSpellFinished(NpcSkillFinished event) {
+		if ((event.skill() != null) && (event.skill().getId() == TAR_SPITE)) {
+			final int val = event.npc().getScriptValue() - 1;
+			if ((val <= 0) || (SKILLS[0].getSkill().getMpConsume2() > event.npc().getCurrentMp())) {
+				spawn.removeBeetle(event.npc());
 			} else {
-				npc.setScriptValue(val);
+				event.npc().setScriptValue(val);
 			}
 		}
-		return super.onSpellFinished(npc, player, skill);
 	}
 	
 	@Override

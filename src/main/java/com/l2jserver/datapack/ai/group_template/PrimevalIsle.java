@@ -29,9 +29,9 @@ import com.l2jserver.gameserver.model.actor.L2Character;
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.L2Playable;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
+import com.l2jserver.gameserver.model.events.impl.character.npc.NpcSkillFinished;
 import com.l2jserver.gameserver.model.holders.SkillHolder;
 import com.l2jserver.gameserver.model.items.instance.L2ItemInstance;
-import com.l2jserver.gameserver.model.skills.Skill;
 import com.l2jserver.gameserver.network.NpcStringId;
 import com.l2jserver.gameserver.network.clientpackets.Say2;
 import com.l2jserver.gameserver.util.Util;
@@ -114,7 +114,9 @@ public final class PrimevalIsle extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onSpellFinished(L2Npc npc, L2PcInstance player, Skill skill) {
+	public void onSpellFinished(NpcSkillFinished event) {
+		final var npc = event.npc();
+		final var skill = event.skill();
 		if (skill.getId() == CREW_SKILL.getSkillId()) {
 			startQuestTimer("START_INVUL", 4000, npc, null);
 			final L2Npc target = (L2Npc) npc.getTarget();
@@ -155,7 +157,6 @@ public final class PrimevalIsle extends AbstractNpcAI {
 				}
 			}
 		}
-		return super.onSpellFinished(npc, player, skill);
 	}
 	
 	@Override

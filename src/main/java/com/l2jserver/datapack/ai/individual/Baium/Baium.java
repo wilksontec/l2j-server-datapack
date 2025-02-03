@@ -34,6 +34,7 @@ import com.l2jserver.gameserver.model.actor.L2Character;
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2GrandBossInstance;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
+import com.l2jserver.gameserver.model.events.impl.character.npc.NpcSkillFinished;
 import com.l2jserver.gameserver.model.holders.SkillHolder;
 import com.l2jserver.gameserver.model.skills.Skill;
 import com.l2jserver.gameserver.model.variables.NpcVariables;
@@ -472,13 +473,12 @@ public final class Baium extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onSpellFinished(L2Npc npc, L2PcInstance player, Skill skill) {
-		startQuestTimer("MANAGE_SKILLS", 1000, npc, null);
+	public void onSpellFinished(NpcSkillFinished event) {
+		startQuestTimer("MANAGE_SKILLS", 1000, event.npc(), null);
 		
-		if (!zone.isCharacterInZone(npc) && (_baium != null)) {
+		if (!zone.isCharacterInZone(event.npc()) && (_baium != null)) {
 			_baium.teleToLocation(BAIUM_LOC);
 		}
-		return super.onSpellFinished(npc, player, skill);
 	}
 	
 	@Override

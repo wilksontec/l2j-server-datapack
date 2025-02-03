@@ -25,6 +25,7 @@ import com.l2jserver.gameserver.model.L2Object;
 import com.l2jserver.gameserver.model.actor.L2Attackable;
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
+import com.l2jserver.gameserver.model.events.impl.character.npc.NpcSkillFinished;
 import com.l2jserver.gameserver.model.holders.SkillHolder;
 import com.l2jserver.gameserver.model.skills.Skill;
 import com.l2jserver.gameserver.network.NpcStringId;
@@ -103,12 +104,11 @@ public final class PrisonGuards extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onSpellFinished(L2Npc npc, L2PcInstance player, Skill skill) {
-		if ((skill == SILENCE.getSkill()) || (skill == STONE.getSkill())) {
-			((L2Attackable) npc).clearAggroList();
-			npc.setTarget(npc);
+	public void onSpellFinished(NpcSkillFinished event) {
+		if ((event.skill() == SILENCE.getSkill()) || (event.skill() == STONE.getSkill())) {
+			((L2Attackable) event.npc()).clearAggroList();
+			event.npc().setTarget(event.npc());
 		}
-		return super.onSpellFinished(npc, player, skill);
 	}
 	
 	@Override

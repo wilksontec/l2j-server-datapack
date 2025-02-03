@@ -25,8 +25,8 @@ import com.l2jserver.gameserver.model.actor.L2Attackable;
 import com.l2jserver.gameserver.model.actor.L2Character;
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
+import com.l2jserver.gameserver.model.events.impl.character.npc.NpcSkillFinished;
 import com.l2jserver.gameserver.model.holders.SkillHolder;
-import com.l2jserver.gameserver.model.skills.Skill;
 import com.l2jserver.gameserver.util.Util;
 
 /**
@@ -83,15 +83,15 @@ public class BlackdaggerWing extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onSpellFinished(L2Npc npc, L2PcInstance player, Skill skill) {
-		if (skill.getId() == POWER_STRIKE.getSkillId()) {
+	public void onSpellFinished(NpcSkillFinished event) {
+		if (event.skill().getId() == POWER_STRIKE.getSkillId()) {
+			final var npc = event.npc();
 			npc.getVariables().set(POWER_STRIKE_CAST_COUNT, npc.getVariables().getInt(POWER_STRIKE_CAST_COUNT) + 1);
 			if (npc.getVariables().getInt(POWER_STRIKE_CAST_COUNT) > 3) {
-				addSkillCastDesire(npc, player, RANGE_MAGIC_ATTACK, 9999900000000000L);
+				addSkillCastDesire(npc, event.player(), RANGE_MAGIC_ATTACK, 9999900000000000L);
 				npc.getVariables().set(POWER_STRIKE_CAST_COUNT, 0);
 			}
 		}
-		return super.onSpellFinished(npc, player, skill);
 	}
 	
 	@Override

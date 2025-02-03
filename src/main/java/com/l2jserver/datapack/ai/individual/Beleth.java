@@ -41,6 +41,7 @@ import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2DoorInstance;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
 import com.l2jserver.gameserver.model.effects.L2EffectType;
+import com.l2jserver.gameserver.model.events.impl.character.npc.NpcSkillFinished;
 import com.l2jserver.gameserver.model.holders.ItemHolder;
 import com.l2jserver.gameserver.model.holders.SkillHolder;
 import com.l2jserver.gameserver.model.skills.Skill;
@@ -555,8 +556,10 @@ public final class Beleth extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onSpellFinished(L2Npc npc, L2PcInstance player, Skill skill) {
+	public void onSpellFinished(NpcSkillFinished event) {
+		final var npc = event.npc();
 		if (!npc.isDead() && !npc.isCastingNow()) {
+			final var player = event.player();
 			if (!player.isDead()) {
 				final double distance2 = npc.calculateDistance(player, false, false);
 				if ((distance2 > 890) && !npc.isMovementDisabled()) {
@@ -569,22 +572,24 @@ public final class Beleth extends AbstractNpcAI {
 					npc.setTarget(player);
 					npc.doCast(FIREBALL);
 				}
-				return null;
+				return;
 			}
+			
 			if (getRandom(100) < 40) {
 				if (!npc.getKnownList().getKnownPlayersInRadius(200).isEmpty()) {
 					npc.doCast(LIGHTENING);
-					return null;
+					return;
 				}
 			}
+			
 			for (L2PcInstance plr : npc.getKnownList().getKnownPlayersInRadius(950)) {
 				npc.setTarget(plr);
 				npc.doCast(FIREBALL);
-				return null;
+				return;
 			}
+			
 			((L2Attackable) npc).clearAggroList();
 		}
-		return null;
 	}
 	
 	@Override

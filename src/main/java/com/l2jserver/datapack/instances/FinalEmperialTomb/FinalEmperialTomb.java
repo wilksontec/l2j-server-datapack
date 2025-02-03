@@ -60,6 +60,7 @@ import com.l2jserver.gameserver.model.actor.instance.L2GrandBossInstance;
 import com.l2jserver.gameserver.model.actor.instance.L2MonsterInstance;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
 import com.l2jserver.gameserver.model.effects.L2EffectType;
+import com.l2jserver.gameserver.model.events.impl.character.npc.NpcSkillFinished;
 import com.l2jserver.gameserver.model.holders.SkillHolder;
 import com.l2jserver.gameserver.model.instancezone.InstanceWorld;
 import com.l2jserver.gameserver.model.skills.Skill;
@@ -1165,11 +1166,10 @@ public final class FinalEmperialTomb extends AbstractInstance {
 	}
 	
 	@Override
-	public String onSpellFinished(L2Npc npc, L2PcInstance player, Skill skill) {
-		if (skill.isSuicideAttack()) {
-			return onKill(npc, null, false);
+	public void onSpellFinished(NpcSkillFinished event) {
+		if (event.skill().isSuicideAttack()) {
+			onKill(event.npc(), null, false);
 		}
-		return super.onSpellFinished(npc, player, skill);
 	}
 	
 	@Override
@@ -1207,7 +1207,7 @@ public final class FinalEmperialTomb extends AbstractInstance {
 				world.portraits.remove(npc);
 			}
 		}
-		return "";
+		return null;
 	}
 	
 	@Override
@@ -1222,6 +1222,6 @@ public final class FinalEmperialTomb extends AbstractInstance {
 			player.teleToLocation(x, y, -9165);
 			return null;
 		}
-		return "";
+		return null;
 	}
 }

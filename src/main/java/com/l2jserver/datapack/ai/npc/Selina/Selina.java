@@ -27,8 +27,8 @@ import org.slf4j.LoggerFactory;
 import com.l2jserver.datapack.ai.npc.AbstractNpcAI;
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
+import com.l2jserver.gameserver.model.events.impl.character.npc.NpcSkillFinished;
 import com.l2jserver.gameserver.model.holders.SkillHolder;
-import com.l2jserver.gameserver.model.skills.Skill;
 
 /**
  * Mercenary Medic Selina AI.
@@ -68,7 +68,7 @@ public final class Selina extends AbstractNpcAI {
 	
 	@Override
 	public String onEvent(String event, L2Npc npc, L2PcInstance player) {
-		final BuffHolder buff = BUFFS.get(event);
+		final var buff = BUFFS.get(event);
 		if (buff != null) {
 			if ((getQuestItemsCount(player, GOLDEN_RAM_COIN) >= buff.getCost())) {
 				castSkill(npc, player, buff);
@@ -94,12 +94,11 @@ public final class Selina extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onSpellFinished(L2Npc npc, L2PcInstance player, Skill skill) {
-		final BuffHolder buff = BUFFS.get(Integer.toString(skill.getId()));
+	public void onSpellFinished(NpcSkillFinished event) {
+		final var buff = BUFFS.get(Integer.toString(event.skill().getId()));
 		if (buff != null) {
-			takeItems(player, GOLDEN_RAM_COIN, buff.getCost());
+			takeItems(event.player(), GOLDEN_RAM_COIN, buff.getCost());
 		}
-		return super.onSpellFinished(npc, player, skill);
 	}
 	
 	private static class BuffHolder extends SkillHolder {

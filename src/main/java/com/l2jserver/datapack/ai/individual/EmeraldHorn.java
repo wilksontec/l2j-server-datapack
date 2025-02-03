@@ -23,8 +23,8 @@ import com.l2jserver.gameserver.model.actor.L2Attackable;
 import com.l2jserver.gameserver.model.actor.L2Character;
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
+import com.l2jserver.gameserver.model.events.impl.character.npc.NpcSkillFinished;
 import com.l2jserver.gameserver.model.holders.SkillHolder;
-import com.l2jserver.gameserver.model.skills.Skill;
 import com.l2jserver.gameserver.util.Util;
 
 /**
@@ -83,14 +83,14 @@ public class EmeraldHorn extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onSpellFinished(L2Npc npc, L2PcInstance player, Skill skill) {
+	public void onSpellFinished(NpcSkillFinished event) {
 		if (getRandom(5) < 1) {
+			final var npc = event.npc();
 			npc.getVariables().set(TOTAL_DAMAGE_COUNT, 0);
 			npc.getVariables().set(CAST_FLAG, true);
 			addSkillCastDesire(npc, npc, REFLECT_ATTACK, 99999000000000000L);
-			startQuestTimer(DAMAGE_TIMER_15S, 15 * 1000, npc, player);
+			startQuestTimer(DAMAGE_TIMER_15S, 15 * 1000, npc, event.player());
 		}
-		return super.onSpellFinished(npc, player, skill);
 	}
 	
 	@Override

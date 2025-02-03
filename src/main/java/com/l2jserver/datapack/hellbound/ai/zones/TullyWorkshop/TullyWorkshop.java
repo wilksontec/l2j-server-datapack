@@ -43,6 +43,7 @@ import com.l2jserver.gameserver.model.actor.instance.L2DoorInstance;
 import com.l2jserver.gameserver.model.actor.instance.L2MonsterInstance;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
 import com.l2jserver.gameserver.model.base.ClassId;
+import com.l2jserver.gameserver.model.events.impl.character.npc.NpcSkillFinished;
 import com.l2jserver.gameserver.model.holders.SkillHolder;
 import com.l2jserver.gameserver.model.skills.Skill;
 import com.l2jserver.gameserver.model.zone.L2ZoneType;
@@ -1169,10 +1170,11 @@ public final class TullyWorkshop extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onSpellFinished(L2Npc npc, L2PcInstance player, Skill skill) {
+	public void onSpellFinished(NpcSkillFinished event) {
+		final var npc = event.npc();
 		final int npcId = npc.getId();
-		final int skillId = skill.getId();
-		
+		final int skillId = event.skill().getId();
+		final var player = event.player();
 		if ((npcId == AGENT) && (skillId == 5526)) {
 			player.teleToLocation(21935, 243923, 11088, true); // to the roof
 		} else if ((npcId == TEMENIR) && (skillId == 5331)) {
@@ -1185,7 +1187,6 @@ public final class TullyWorkshop extends AbstractNpcAI {
 			player.reduceCurrentHp(dmg, null, null);
 			npc.setCurrentHp((npc.getCurrentHp() + 10) - (npc.getId() - 22404));
 		}
-		return super.onSpellFinished(npc, player, skill);
 	}
 	
 	private int[] getRoomData(L2Npc npc) {

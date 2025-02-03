@@ -46,6 +46,7 @@ import com.l2jserver.gameserver.model.actor.instance.L2QuestGuardInstance;
 import com.l2jserver.gameserver.model.actor.instance.L2RaidBossInstance;
 import com.l2jserver.gameserver.model.events.annotations.RegisterEvent;
 import com.l2jserver.gameserver.model.events.annotations.RegisterType;
+import com.l2jserver.gameserver.model.events.impl.character.npc.NpcSkillFinished;
 import com.l2jserver.gameserver.model.events.impl.character.player.PlayerLogout;
 import com.l2jserver.gameserver.model.holders.SkillHolder;
 import com.l2jserver.gameserver.model.instancezone.InstanceWorld;
@@ -874,19 +875,20 @@ public final class IceQueensCastleNormalBattle extends AbstractInstance {
 	}
 	
 	@Override
-	public String onSpellFinished(L2Npc npc, L2PcInstance player, Skill skill) {
-		final InstanceWorld tmpworld = InstanceManager.getInstance().getWorld(npc.getInstanceId());
-		
+	public void onSpellFinished(NpcSkillFinished event) {
+		final var npc = event.npc();
+		final var skill = event.skill();
+		final var tmpworld = InstanceManager.getInstance().getWorld(npc.getInstanceId());
 		if (tmpworld instanceof IQCNBWorld world) {
 			switch (npc.getId()) {
 				case GLACIER: {
 					if (skill == COLD_MANAS_FRAGMENT.getSkill()) {
 						if (getRandom(100) < 75) {
 							final L2Attackable breath = (L2Attackable) addSpawn(BREATH, npc.getLocation(), false, 0, false, world.getInstanceId());
-							if (player != null) {
+							if (event.player() != null) {
 								breath.setIsRunning(true);
-								breath.addDamageHate(player, 0, 999);
-								breath.getAI().setIntention(CtrlIntention.AI_INTENTION_ATTACK, player);
+								breath.addDamageHate(event.player(), 0, 999);
+								breath.getAI().setIntention(CtrlIntention.AI_INTENTION_ATTACK, event.player());
 							} else {
 								manageRandomAttack(world, breath);
 							}
@@ -905,7 +907,6 @@ public final class IceQueensCastleNormalBattle extends AbstractInstance {
 				}
 			}
 		}
-		return super.onSpellFinished(npc, player, skill);
 	}
 	
 	@Override

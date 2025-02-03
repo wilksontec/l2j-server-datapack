@@ -22,8 +22,8 @@ import com.l2jserver.datapack.ai.npc.AbstractNpcAI;
 import com.l2jserver.gameserver.model.actor.L2Attackable;
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
+import com.l2jserver.gameserver.model.events.impl.character.npc.NpcSkillFinished;
 import com.l2jserver.gameserver.model.holders.SkillHolder;
-import com.l2jserver.gameserver.model.skills.Skill;
 
 /**
  * Summon Pc AI.<br>
@@ -71,15 +71,15 @@ public final class SummonPc extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onSpellFinished(L2Npc npc, L2PcInstance player, Skill skill) {
-		if ((skill.getId() == SUMMON_PC.getSkillId()) && !npc.isDead() && npc.getVariables().getBoolean("attacked", false)) {
-			player.teleToLocation(npc);
+	public void onSpellFinished(NpcSkillFinished event) {
+		final var npc = event.npc();
+		if ((event.skill().getId() == SUMMON_PC.getSkillId()) && !npc.isDead() && npc.getVariables().getBoolean("attacked", false)) {
+			event.player().teleToLocation(npc);
 			npc.getVariables().set("attacked", false);
 			
 			// TODO(Zoey76): Teleport removes the player from all known lists, affecting aggro lists.
-			addAttackDesire(npc, player);
+			addAttackDesire(npc, event.player());
 		}
-		return super.onSpellFinished(npc, player, skill);
 	}
 	
 	private static void doSummonPc(L2Npc npc, L2PcInstance attacker) {

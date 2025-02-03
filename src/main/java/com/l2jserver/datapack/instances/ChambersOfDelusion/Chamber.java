@@ -37,6 +37,7 @@ import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
 import com.l2jserver.gameserver.model.entity.Instance;
 import com.l2jserver.gameserver.model.events.impl.character.npc.NpcEventReceived;
+import com.l2jserver.gameserver.model.events.impl.character.npc.NpcSkillFinished;
 import com.l2jserver.gameserver.model.holders.SkillHolder;
 import com.l2jserver.gameserver.model.instancezone.InstanceWorld;
 import com.l2jserver.gameserver.model.quest.QuestState;
@@ -503,11 +504,10 @@ public abstract class Chamber extends AbstractInstance {
 	}
 	
 	@Override
-	public String onSpellFinished(L2Npc npc, L2PcInstance player, Skill skill) {
-		if ((npc.getId() == BOX) && ((skill.getId() == 5376) || (skill.getId() == 5758)) && !npc.isDead()) {
-			npc.doDie(player);
+	public void onSpellFinished(NpcSkillFinished event) {
+		if ((event.npc().getId() == BOX) && ((event.skill().getId() == 5376) || (event.skill().getId() == 5758)) && !event.npc().isDead()) {
+			event.npc().doDie(event.player());
 		}
-		return super.onSpellFinished(npc, player, skill);
 	}
 	
 	@Override

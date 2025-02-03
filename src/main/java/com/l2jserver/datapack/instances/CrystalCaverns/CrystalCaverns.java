@@ -50,6 +50,7 @@ import com.l2jserver.gameserver.model.actor.instance.L2DoorInstance;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
 import com.l2jserver.gameserver.model.actor.instance.L2TrapInstance;
 import com.l2jserver.gameserver.model.entity.Instance;
+import com.l2jserver.gameserver.model.events.impl.character.npc.NpcSkillFinished;
 import com.l2jserver.gameserver.model.holders.SkillHolder;
 import com.l2jserver.gameserver.model.instancezone.InstanceWorld;
 import com.l2jserver.gameserver.model.items.instance.L2ItemInstance;
@@ -969,14 +970,13 @@ public final class CrystalCaverns extends AbstractInstance {
 	}
 	
 	@Override
-	public String onSpellFinished(L2Npc npc, L2PcInstance player, Skill skill) {
-		if ((npc.getId() == BAYLOR) && (skill.getId() == 5225)) {
-			InstanceWorld tmpworld = InstanceManager.getInstance().getWorld(npc.getInstanceId());
+	public void onSpellFinished(NpcSkillFinished event) {
+		if ((event.npc().getId() == BAYLOR) && (event.skill().getId() == 5225)) {
+			InstanceWorld tmpworld = InstanceManager.getInstance().getWorld(event.npc().getInstanceId());
 			if (tmpworld instanceof CCWorld) {
 				((CCWorld) tmpworld)._raidStatus++;
 			}
 		}
-		return super.onSpellFinished(npc, player, skill);
 	}
 	
 	@Override

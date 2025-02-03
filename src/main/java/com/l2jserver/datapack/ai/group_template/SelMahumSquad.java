@@ -28,6 +28,7 @@ import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2MonsterInstance;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
 import com.l2jserver.gameserver.model.events.impl.character.npc.NpcEventReceived;
+import com.l2jserver.gameserver.model.events.impl.character.npc.NpcSkillFinished;
 import com.l2jserver.gameserver.model.holders.SkillHolder;
 import com.l2jserver.gameserver.model.skills.Skill;
 import com.l2jserver.gameserver.network.NpcStringId;
@@ -310,11 +311,10 @@ public final class SelMahumSquad extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onSpellFinished(L2Npc npc, L2PcInstance player, Skill skill) {
-		if ((skill != null) && (skill.getId() == 6330)) {
-			healPlayer(npc, player);
+	public void onSpellFinished(NpcSkillFinished event) {
+		if ((event.skill() != null) && (event.skill().getId() == 6330)) {
+			healPlayer(event.npc(), event.player());
 		}
-		return super.onSpellFinished(npc, player, skill);
 	}
 	
 	private void healPlayer(L2Npc npc, L2PcInstance player) {

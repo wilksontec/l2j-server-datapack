@@ -27,10 +27,10 @@ import com.l2jserver.gameserver.model.actor.L2Attackable;
 import com.l2jserver.gameserver.model.actor.L2Character;
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
+import com.l2jserver.gameserver.model.events.impl.character.npc.NpcSkillFinished;
 import com.l2jserver.gameserver.model.holders.SkillHolder;
 import com.l2jserver.gameserver.model.instancezone.InstanceWorld;
 import com.l2jserver.gameserver.model.quest.QuestState;
-import com.l2jserver.gameserver.model.skills.Skill;
 import com.l2jserver.gameserver.network.NpcStringId;
 import com.l2jserver.gameserver.network.SystemMessageId;
 import com.l2jserver.gameserver.network.clientpackets.Say2;
@@ -147,15 +147,13 @@ public final class IceQueensCastle extends AbstractInstance {
 	}
 	
 	@Override
-	public String onSpellFinished(L2Npc npc, L2PcInstance player, Skill skill) {
-		final InstanceWorld tmpworld = InstanceManager.getInstance().getWorld(npc.getInstanceId());
-		
+	public void onSpellFinished(NpcSkillFinished event) {
+		final InstanceWorld tmpworld = InstanceManager.getInstance().getWorld(event.npc().getInstanceId());
 		if ((tmpworld != null) && (tmpworld instanceof IQCWorld world)) {
-			if ((skill == ETHERNAL_BLIZZARD.getSkill()) && (world.player != null)) {
-				startQuestTimer("TIMER_SCENE_21", 1000, npc, world.player);
+			if ((event.skill() == ETHERNAL_BLIZZARD.getSkill()) && (world.player != null)) {
+				startQuestTimer("TIMER_SCENE_21", 1000, event.npc(), world.player);
 			}
 		}
-		return super.onSpellFinished(npc, player, skill);
 	}
 	
 	@Override

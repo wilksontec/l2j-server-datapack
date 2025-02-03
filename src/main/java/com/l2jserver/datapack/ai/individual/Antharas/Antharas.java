@@ -41,6 +41,7 @@ import com.l2jserver.gameserver.model.actor.L2Character;
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2GrandBossInstance;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
+import com.l2jserver.gameserver.model.events.impl.character.npc.NpcSkillFinished;
 import com.l2jserver.gameserver.model.holders.SkillHolder;
 import com.l2jserver.gameserver.model.skills.Skill;
 import com.l2jserver.gameserver.model.zone.type.L2NoRestartZone;
@@ -582,12 +583,11 @@ public final class Antharas extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onSpellFinished(L2Npc npc, L2PcInstance player, Skill skill) {
-		if ((skill.getId() == ANTH_FEAR.getSkillId()) || (skill.getId() == ANTH_FEAR_SHORT.getSkillId())) {
-			startQuestTimer("TID_USED_FEAR", 7000, npc, null);
+	public void onSpellFinished(NpcSkillFinished event) {
+		if ((event.skill().getId() == ANTH_FEAR.getSkillId()) || (event.skill().getId() == ANTH_FEAR_SHORT.getSkillId())) {
+			startQuestTimer("TID_USED_FEAR", 7000, event.npc(), null);
 		}
-		startQuestTimer("MANAGE_SKILL", 1000, npc, null);
-		return super.onSpellFinished(npc, player, skill);
+		startQuestTimer("MANAGE_SKILL", 1000, event.npc(), null);
 	}
 	
 	@Override

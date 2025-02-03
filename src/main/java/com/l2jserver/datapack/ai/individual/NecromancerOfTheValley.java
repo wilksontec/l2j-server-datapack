@@ -22,8 +22,8 @@ import com.l2jserver.datapack.ai.npc.AbstractNpcAI;
 import com.l2jserver.gameserver.model.actor.L2Character;
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
+import com.l2jserver.gameserver.model.events.impl.character.npc.NpcSkillFinished;
 import com.l2jserver.gameserver.model.holders.SkillHolder;
-import com.l2jserver.gameserver.model.skills.Skill;
 
 /**
  * Necromancer of the Valley AI.
@@ -72,10 +72,9 @@ public class NecromancerOfTheValley extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onSpellFinished(L2Npc npc, L2PcInstance player, Skill skill) {
-		if ((skill == SELF_DESTRUCTION.getSkill()) && (npc != null) && !npc.isDead()) {
-			npc.doDie(player);
+	public void onSpellFinished(NpcSkillFinished event) {
+		if ((event.skill() == SELF_DESTRUCTION.getSkill()) && (event.npc() != null) && !event.npc().isDead()) {
+			event.npc().doDie(event.player());
 		}
-		return super.onSpellFinished(npc, player, skill);
 	}
 }
