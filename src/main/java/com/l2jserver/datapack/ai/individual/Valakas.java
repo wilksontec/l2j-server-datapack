@@ -373,11 +373,6 @@ public final class Valakas extends AbstractNpcAI {
 		return super.onKill(npc, killer, isSummon);
 	}
 	
-	@Override
-	public String onAggroRangeEnter(L2Npc npc, L2PcInstance player, boolean isSummon) {
-		return null;
-	}
-	
 	private void callSkillAI(L2Npc npc) {
 		if (npc.isInvul() || npc.isCastingNow()) {
 			return;

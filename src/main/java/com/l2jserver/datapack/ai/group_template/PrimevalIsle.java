@@ -30,6 +30,7 @@ import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.L2Playable;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
 import com.l2jserver.gameserver.model.events.impl.character.npc.NpcSkillFinished;
+import com.l2jserver.gameserver.model.events.impl.character.npc.attackable.AttackableAggroRangeEnter;
 import com.l2jserver.gameserver.model.holders.SkillHolder;
 import com.l2jserver.gameserver.model.items.instance.L2ItemInstance;
 import com.l2jserver.gameserver.network.NpcStringId;
@@ -257,14 +258,14 @@ public final class PrimevalIsle extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onAggroRangeEnter(L2Npc npc, L2PcInstance player, boolean isSummon) {
+	public void onAggroRangeEnter(AttackableAggroRangeEnter event) {
+		final var npc = event.npc();
 		if (npc.isScriptValue(0)) {
 			npc.setScriptValue(1);
 			broadcastNpcSay(npc, Say2.NPC_ALL, "?");
 			((L2Attackable) npc).clearAggroList();
-			startQuestTimer("TREX_ATTACK", 6000, npc, player);
+			startQuestTimer("TREX_ATTACK", 6000, npc, event.player());
 		}
-		return super.onAggroRangeEnter(npc, player, isSummon);
 	}
 	
 	@Override

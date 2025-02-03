@@ -26,6 +26,7 @@ import com.l2jserver.gameserver.data.xml.impl.DoorData;
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
 import com.l2jserver.gameserver.model.base.ClassId;
+import com.l2jserver.gameserver.model.events.impl.character.npc.attackable.AttackableAggroRangeEnter;
 import com.l2jserver.gameserver.model.holders.SkillHolder;
 
 /**
@@ -68,13 +69,13 @@ public final class BaseTower extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onAggroRangeEnter(L2Npc npc, L2PcInstance player, boolean isSummon) {
+	public void onAggroRangeEnter(AttackableAggroRangeEnter event) {
+		final var npc = event.npc();
 		if (!BODY_DESTROYER_TARGET_LIST.containsKey(npc.getObjectId())) {
-			BODY_DESTROYER_TARGET_LIST.put(npc.getObjectId(), player);
-			npc.setTarget(player);
+			BODY_DESTROYER_TARGET_LIST.put(npc.getObjectId(), event.player());
+			npc.setTarget(event.player());
 			npc.doSimultaneousCast(DEATH_WORD);
 		}
-		return super.onAggroRangeEnter(npc, player, isSummon);
 	}
 	
 	@Override

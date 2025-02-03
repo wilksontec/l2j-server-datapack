@@ -28,6 +28,7 @@ import com.l2jserver.gameserver.model.actor.L2Character;
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
 import com.l2jserver.gameserver.model.effects.L2EffectType;
+import com.l2jserver.gameserver.model.events.impl.character.npc.attackable.AttackableAggroRangeEnter;
 import com.l2jserver.gameserver.model.holders.SkillHolder;
 import com.l2jserver.gameserver.model.skills.Skill;
 import com.l2jserver.gameserver.network.NpcStringId;
@@ -172,8 +173,10 @@ public final class MonasteryOfSilence extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onAggroRangeEnter(L2Npc npc, L2PcInstance player, boolean isSummon) {
+	public void onAggroRangeEnter(AttackableAggroRangeEnter event) {
+		final var player = event.player();
 		if (player.getActiveWeaponInstance() != null) {
+			final var npc = event.npc();
 			SkillHolder skill = null;
 			switch (npc.getId()) {
 				case GUIDE: {
@@ -214,7 +217,6 @@ public final class MonasteryOfSilence extends AbstractNpcAI {
 			
 			addAttackDesire(npc, player);
 		}
-		return super.onAggroRangeEnter(npc, player, isSummon);
 	}
 	
 	@Override

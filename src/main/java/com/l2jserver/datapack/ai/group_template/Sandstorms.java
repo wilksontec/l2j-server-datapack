@@ -19,8 +19,7 @@
 package com.l2jserver.datapack.ai.group_template;
 
 import com.l2jserver.datapack.ai.npc.AbstractNpcAI;
-import com.l2jserver.gameserver.model.actor.L2Npc;
-import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
+import com.l2jserver.gameserver.model.events.impl.character.npc.attackable.AttackableAggroRangeEnter;
 import com.l2jserver.gameserver.model.holders.SkillHolder;
 
 /**
@@ -39,9 +38,9 @@ public class Sandstorms extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onAggroRangeEnter(L2Npc npc, L2PcInstance player, boolean isSummon) {
-		npc.setTarget(player);
+	public void onAggroRangeEnter(AttackableAggroRangeEnter event) {
+		final var npc = event.npc();
+		npc.setTarget(event.player());
 		npc.doCast(GUST);
-		return super.onAggroRangeEnter(npc, player, isSummon);
 	}
 }

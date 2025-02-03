@@ -30,6 +30,7 @@ import com.l2jserver.gameserver.model.L2World;
 import com.l2jserver.gameserver.model.Location;
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
+import com.l2jserver.gameserver.model.events.impl.character.npc.attackable.AttackableAggroRangeEnter;
 import com.l2jserver.gameserver.model.holders.SkillHolder;
 import com.l2jserver.gameserver.model.instancezone.InstanceWorld;
 import com.l2jserver.gameserver.model.quest.QuestState;
@@ -203,13 +204,12 @@ public final class SanctumOftheLordsOfDawn extends AbstractInstance {
 				return "32580-01.html";
 			}
 		}
-		return "";
+		return null;
 	}
 	
 	@Override
-	public String onAggroRangeEnter(L2Npc npc, L2PcInstance player, boolean isSummon) {
-		npc.broadcastPacket(new MagicSkillUse(npc, player, GUARD_SKILL.getSkillId(), 1, 2000, 1));
-		startQuestTimer("teleportPlayer", 2000, npc, player);
-		return super.onAggroRangeEnter(npc, player, isSummon);
+	public void onAggroRangeEnter(AttackableAggroRangeEnter event) {
+		event.npc().broadcastPacket(new MagicSkillUse(event.npc(), event.player(), GUARD_SKILL.getSkillId(), 1, 2000, 1));
+		startQuestTimer("teleportPlayer", 2000, event.npc(), event.player());
 	}
 }

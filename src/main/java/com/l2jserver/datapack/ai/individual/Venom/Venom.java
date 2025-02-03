@@ -31,6 +31,7 @@ import com.l2jserver.gameserver.model.actor.L2Attackable;
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
 import com.l2jserver.gameserver.model.events.impl.character.npc.NpcSkillFinished;
+import com.l2jserver.gameserver.model.events.impl.character.npc.attackable.AttackableAggroRangeEnter;
 import com.l2jserver.gameserver.model.events.impl.sieges.castle.CastleSiegeFinish;
 import com.l2jserver.gameserver.model.events.impl.sieges.castle.CastleSiegeStart;
 import com.l2jserver.gameserver.model.holders.SkillHolder;
@@ -162,15 +163,14 @@ public final class Venom extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onAggroRangeEnter(L2Npc npc, L2PcInstance player, boolean isSummon) {
-		if (isSummon) {
-			return super.onAggroRangeEnter(npc, player, isSummon);
+	public void onAggroRangeEnter(AttackableAggroRangeEnter event) {
+		if (event.isSummon()) {
+			return;
 		}
 		
-		if (_aggroMode && (_targets.size() < 10) && (getRandom(3) < 1) && !player.isDead()) {
-			_targets.add(player);
+		if (_aggroMode && (_targets.size() < 10) && (getRandom(3) < 1) && !event.player().isDead()) {
+			_targets.add(event.player());
 		}
-		return super.onAggroRangeEnter(npc, player, isSummon);
 	}
 	
 	public void onSiegeStart(CastleSiegeStart event) {

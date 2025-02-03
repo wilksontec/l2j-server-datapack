@@ -55,6 +55,7 @@ import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2DoorInstance;
 import com.l2jserver.gameserver.model.actor.instance.L2MonsterInstance;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
+import com.l2jserver.gameserver.model.events.impl.character.npc.attackable.AttackableAggroRangeEnter;
 import com.l2jserver.gameserver.model.events.impl.character.trap.OnTrapAction;
 import com.l2jserver.gameserver.model.holders.SkillHolder;
 import com.l2jserver.gameserver.model.instancezone.InstanceWorld;
@@ -615,9 +616,9 @@ public final class Stage1 extends AbstractInstance {
 	}
 	
 	@Override
-	public String onAggroRangeEnter(L2Npc npc, L2PcInstance player, boolean isSummon) {
-		if (!isSummon && (player != null)) {
-			InstanceWorld tmpworld = InstanceManager.getInstance().getWorld(player.getInstanceId());
+	public void onAggroRangeEnter(AttackableAggroRangeEnter event) {
+		if (!event.isSummon() && (event.player() != null)) {
+			InstanceWorld tmpworld = InstanceManager.getInstance().getWorld(event.player().getInstanceId());
 			if (tmpworld instanceof SOD1World world) {
 				if (world.getStatus() == 7) {
 					if (spawnState(world)) {
@@ -627,12 +628,11 @@ public final class Stage1 extends AbstractInstance {
 								pl.showQuestMovie(5);
 							}
 						}
-						npc.deleteMe();
+						event.npc().deleteMe();
 					}
 				}
 			}
 		}
-		return null;
 	}
 	
 	@Override

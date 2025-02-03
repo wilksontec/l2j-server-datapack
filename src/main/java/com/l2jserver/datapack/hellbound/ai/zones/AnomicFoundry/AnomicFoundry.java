@@ -31,6 +31,7 @@ import com.l2jserver.gameserver.model.actor.L2Attackable;
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2MonsterInstance;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
+import com.l2jserver.gameserver.model.events.impl.character.npc.attackable.AttackableAggroRangeEnter;
 import com.l2jserver.gameserver.model.skills.Skill;
 import com.l2jserver.gameserver.network.NpcStringId;
 import com.l2jserver.gameserver.network.clientpackets.Say2;
@@ -107,14 +108,12 @@ public final class AnomicFoundry extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onAggroRangeEnter(L2Npc npc, L2PcInstance player, boolean isSummon) {
+	public void onAggroRangeEnter(AttackableAggroRangeEnter event) {
 		if (getRandom(10000) < 2000) {
-			requestHelp(npc, player, 500, FOREMAN);
-			requestHelp(npc, player, 500, LESSER_EVIL);
-			requestHelp(npc, player, 500, GREATER_EVIL);
+			requestHelp(event.npc(), event.player(), 500, FOREMAN);
+			requestHelp(event.npc(), event.player(), 500, LESSER_EVIL);
+			requestHelp(event.npc(), event.player(), 500, GREATER_EVIL);
 		}
-		
-		return super.onAggroRangeEnter(npc, player, isSummon);
 	}
 	
 	@Override

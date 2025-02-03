@@ -32,6 +32,7 @@ import com.l2jserver.gameserver.model.actor.instance.L2MonsterInstance;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
 import com.l2jserver.gameserver.model.actor.instance.L2QuestGuardInstance;
 import com.l2jserver.gameserver.model.entity.Instance;
+import com.l2jserver.gameserver.model.events.impl.character.npc.attackable.AttackableAggroRangeEnter;
 import com.l2jserver.gameserver.model.holders.SkillHolder;
 import com.l2jserver.gameserver.model.instancezone.InstanceWorld;
 import com.l2jserver.gameserver.model.skills.Skill;
@@ -203,9 +204,10 @@ public final class UrbanArea extends AbstractInstance {
 	}
 	
 	@Override
-	public String onAggroRangeEnter(L2Npc npc, L2PcInstance player, boolean isSummon) {
-		final InstanceWorld tmpworld = InstanceManager.getInstance().getWorld(npc.getInstanceId());
-		if ((tmpworld != null) && (tmpworld instanceof UrbanAreaWorld world)) {
+	public void onAggroRangeEnter(AttackableAggroRangeEnter event) {
+		final var npc = event.npc();
+		final var tmpworld = InstanceManager.getInstance().getWorld(npc.getInstanceId());
+		if (tmpworld instanceof UrbanAreaWorld world) {
 			if (!npc.isBusy()) {
 				broadcastNpcSay(npc, Say2.NPC_ALL, NPCSTRING_ID[0]);
 				npc.setBusy(true);
@@ -218,7 +220,6 @@ public final class UrbanArea extends AbstractInstance {
 				}
 			}
 		}
-		return super.onAggroRangeEnter(npc, player, isSummon);
 	}
 	
 	@Override
