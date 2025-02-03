@@ -168,9 +168,8 @@ public final class PailakaSongOfIceAndFire extends AbstractInstance {
 	}
 	
 	@Override
-	public String onSpawn(L2Npc npc) {
+	public void onSpawn(L2Npc npc) {
 		npc.setInvisible(true);
 		startQuestTimer("BLOOM_TIMER", 1000, npc, null);
-		return super.onSpawn(npc);
 	}
 }

@@ -606,13 +606,12 @@ public final class Stage1 extends AbstractInstance {
 	}
 	
 	@Override
-	public String onSpawn(L2Npc npc) {
+	public void onSpawn(L2Npc npc) {
 		if (npc.getId() == TIAT_GUARD) {
 			startQuestTimer("GuardThink", 2500 + getRandom(-200, 200), npc, null, true);
 		} else {
 			npc.disableCoreAI(true);
 		}
-		return super.onSpawn(npc);
 	}
 	
 	@Override

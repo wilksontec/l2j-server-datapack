@@ -458,8 +458,7 @@ public final class Q00171_ActsOfEvil extends Quest {
 	}
 	
 	@Override
-	public String onSpawn(L2Npc npc) {
+	public void onSpawn(L2Npc npc) {
 		startQuestTimer("DESPAWN", 200000, npc, null);
-		return super.onSpawn(npc);
 	}
 }

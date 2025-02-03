@@ -293,7 +293,7 @@ public class MC_Show extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onSpawn(L2Npc npc) {
+	public void onSpawn(L2Npc npc) {
 		if (IS_STARTED) {
 			switch (npc.getId()) {
 				case 32433:
@@ -327,7 +327,6 @@ public class MC_Show extends AbstractNpcAI {
 					break;
 			}
 		}
-		return super.onSpawn(npc);
 	}
 	
 	@Override

@@ -101,13 +101,12 @@ public final class GeneralDilios extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onSpawn(L2Npc npc) {
+	public void onSpawn(L2Npc npc) {
 		if (npc.getId() == GENERAL_ID) {
 			startQuestTimer("command_0", 60000, null, null);
 			_general = npc;
 		} else if (npc.getId() == GUARD_ID) {
 			_guards.add(npc.getSpawn());
 		}
-		return super.onSpawn(npc);
 	}
 }

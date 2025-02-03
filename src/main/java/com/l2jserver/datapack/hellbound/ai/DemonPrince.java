@@ -87,11 +87,10 @@ public final class DemonPrince extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onSpawn(L2Npc npc) {
+	public void onSpawn(L2Npc npc) {
 		if (npc.getId() == FIEND) {
 			startQuestTimer("cast", 15000, npc, null);
 		}
-		return super.onSpawn(npc);
 	}
 	
 	private void spawnMinions(L2Npc master) {

@@ -190,7 +190,7 @@ public final class UrbanArea extends AbstractInstance {
 	}
 	
 	@Override
-	public String onSpawn(L2Npc npc) {
+	public void onSpawn(L2Npc npc) {
 		if (npc.getId() == DOWNTOWN_NATIVE) {
 			((L2QuestGuardInstance) npc).setPassive(true);
 			((L2QuestGuardInstance) npc).setAutoAttackable(false);
@@ -200,7 +200,6 @@ public final class UrbanArea extends AbstractInstance {
 			npc.setBusy(false);
 			npc.setBusyMessage("");
 		}
-		return super.onSpawn(npc);
 	}
 	
 	@Override

@@ -412,14 +412,13 @@ public final class MinionSpawnManager extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onSpawn(L2Npc npc) {
+	public void onSpawn(L2Npc npc) {
 		if (npc.getTemplate().getParameters().getSet().get("SummonPrivateRate") == null) {
 			((L2MonsterInstance) npc).getMinionList().spawnMinions(npc.getTemplate().getParameters().getMinionList("Privates"));
 			npc.setScriptValue(1);
 		} else {
 			npc.setScriptValue(0);
 		}
-		return super.onSpawn(npc);
 	}
 	
 	@Override

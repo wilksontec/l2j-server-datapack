@@ -353,9 +353,8 @@ public final class Q00454_CompletelyLost extends Quest {
 	}
 	
 	@Override
-	public String onSpawn(L2Npc npc) {
+	public void onSpawn(L2Npc npc) {
 		startQuestTimer("QUEST_TIMER", 1000, npc, null);
-		return super.onSpawn(npc);
 	}
 	
 	@Override

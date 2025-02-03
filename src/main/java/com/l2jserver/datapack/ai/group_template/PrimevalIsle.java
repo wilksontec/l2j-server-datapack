@@ -390,7 +390,7 @@ public final class PrimevalIsle extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onSpawn(L2Npc npc) {
+	public void onSpawn(L2Npc npc) {
 		if (Util.contains(SPRIGNANT, npc.getId())) {
 			startQuestTimer("USE_SKILL", 15000, npc, null);
 		} else if (Util.contains(TREX, npc.getId())) {
@@ -404,6 +404,5 @@ public final class PrimevalIsle extends AbstractNpcAI {
 			npc.getVariables().set("SELFBUFF_USED", 0);
 			npc.getVariables().set("SKILL_MULTIPLER", 1);
 		}
-		return super.onSpawn(npc);
 	}
 }

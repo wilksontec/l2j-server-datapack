@@ -184,9 +184,8 @@ public final class Q10292_SevenSignsGirlOfDoubt extends Quest {
 	}
 	
 	@Override
-	public String onSpawn(L2Npc npc) {
+	public void onSpawn(L2Npc npc) {
 		npc.getVariables().set(I_QUEST1, false);
-		return super.onSpawn(npc);
 	}
 	
 	@Override

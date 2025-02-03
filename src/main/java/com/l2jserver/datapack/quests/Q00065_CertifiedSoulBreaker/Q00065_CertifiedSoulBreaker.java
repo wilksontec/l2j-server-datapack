@@ -535,7 +535,7 @@ public final class Q00065_CertifiedSoulBreaker extends Quest {
 	}
 	
 	@Override
-	public String onSpawn(L2Npc npc) {
+	public void onSpawn(L2Npc npc) {
 		if (npc.getId() == SUSPICIOUS_MAN) {
 			startQuestTimer("DESPAWN_5", 5000, npc, null);
 			npc.broadcastPacket(new NpcSay(npc, Say2.NPC_ALL, NpcStringId.DRATS_HOW_COULD_I_BE_SO_WRONG));
@@ -548,6 +548,5 @@ public final class Q00065_CertifiedSoulBreaker extends Quest {
 				npc.broadcastPacket(new NpcSay(npc, Say2.NPC_ALL, NpcStringId.S1_STEP_BACK_FROM_THE_CONFOUNDED_BOX_I_WILL_TAKE_IT_MYSELF).addStringParameter(c0.getAppearance().getVisibleName()));
 			}
 		}
-		return super.onSpawn(npc);
 	}
 }

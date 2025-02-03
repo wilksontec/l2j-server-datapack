@@ -1150,7 +1150,7 @@ public final class TullyWorkshop extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onSpawn(L2Npc npc) {
+	public void onSpawn(L2Npc npc) {
 		if ((npc.getId() == TULLY) && npc.isInsideRadius(-12557, 273901, -9000, 1000, true, false)) {
 			for (L2Npc spawnedNpc : postMortemSpawn) {
 				if (spawnedNpc != null) {
@@ -1166,7 +1166,6 @@ public final class TullyWorkshop extends AbstractNpcAI {
 		} else if (npc.getId() == PILLAR) {
 			npc.setIsInvul(RaidBossSpawnManager.getInstance().getRaidBossStatusId(DARION) == StatusEnum.ALIVE);
 		}
-		return super.onSpawn(npc);
 	}
 	
 	@Override

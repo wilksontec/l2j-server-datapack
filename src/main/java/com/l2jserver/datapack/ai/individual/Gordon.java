@@ -46,8 +46,7 @@ public final class Gordon extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onSpawn(L2Npc npc) {
+	public void onSpawn(L2Npc npc) {
 		((L2Attackable) npc).setCanReturnToSpawnPoint(false);
-		return super.onSpawn(npc);
 	}
 }

@@ -311,9 +311,8 @@ public final class Valakas extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onSpawn(L2Npc npc) {
+	public void onSpawn(L2Npc npc) {
 		npc.disableCoreAI(true);
-		return super.onSpawn(npc);
 	}
 	
 	@Override

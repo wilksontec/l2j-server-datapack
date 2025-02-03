@@ -630,9 +630,8 @@ public final class IceQueensCastleNormalBattle extends AbstractInstance {
 	}
 	
 	@Override
-	public String onSpawn(L2Npc npc) {
+	public void onSpawn(L2Npc npc) {
 		((L2Attackable) npc).setOnKillDelay(0);
-		return super.onSpawn(npc);
 	}
 	
 	@Override

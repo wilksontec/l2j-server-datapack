@@ -851,11 +851,10 @@ public final class TreasureChest extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onSpawn(L2Npc npc) {
+	public void onSpawn(L2Npc npc) {
 		// TODO(Zoey76): Disable Core AI.
 		npc.getVariables().set("MAESTRO_SKILL_USED", 0);
 		startQuestTimer(TIMER_2, MAX_SPAWN_TIME, npc, null);
-		return super.onSpawn(npc);
 	}
 	
 	@Override

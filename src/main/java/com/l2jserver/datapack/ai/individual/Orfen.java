@@ -242,7 +242,7 @@ public final class Orfen extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onSpawn(L2Npc npc) {
+	public void onSpawn(L2Npc npc) {
 		switch (npc.getId()) {
 			case ORFEN: {
 				notifyEvent("CHECK_ZONE", npc, null);
@@ -253,8 +253,6 @@ public final class Orfen extends AbstractNpcAI {
 				break;
 			}
 		}
-		
-		return super.onSpawn(npc);
 	}
 	
 	@Override

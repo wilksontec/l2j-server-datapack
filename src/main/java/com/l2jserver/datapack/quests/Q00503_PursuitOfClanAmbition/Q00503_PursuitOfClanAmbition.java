@@ -590,7 +590,7 @@ public final class Q00503_PursuitOfClanAmbition extends Quest {
 	}
 	
 	@Override
-	public String onSpawn(L2Npc npc) {
+	public void onSpawn(L2Npc npc) {
 		switch (npc.getId()) {
 			case WITCH_ATHREA: {
 				if (npc.isScriptValue(50301)) {
@@ -616,7 +616,6 @@ public final class Q00503_PursuitOfClanAmbition extends Quest {
 				break;
 			}
 		}
-		return super.onSpawn(npc);
 	}
 	
 	private static QuestState getLeaderQuestState(L2PcInstance player, String quest) {

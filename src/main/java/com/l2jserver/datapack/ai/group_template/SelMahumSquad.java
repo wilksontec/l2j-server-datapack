@@ -297,7 +297,7 @@ public final class SelMahumSquad extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onSpawn(L2Npc npc) {
+	public void onSpawn(L2Npc npc) {
 		if (npc.getId() == CHEF) {
 			npc.setIsInvul(false);
 		} else if (npc.getId() == FIRE) {
@@ -306,7 +306,6 @@ public final class SelMahumSquad extends AbstractNpcAI {
 			npc.setDisplayEffect(3);
 			npc.setIsNoRndWalk(false);
 		}
-		return super.onSpawn(npc);
 	}
 	
 	@Override

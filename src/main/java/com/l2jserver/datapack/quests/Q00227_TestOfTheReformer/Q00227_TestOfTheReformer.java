@@ -531,7 +531,7 @@ public final class Q00227_TestOfTheReformer extends Quest {
 	}
 	
 	@Override
-	public String onSpawn(L2Npc npc) {
+	public void onSpawn(L2Npc npc) {
 		switch (npc.getId()) {
 			case OL_MAHUM_INSPECTOR:
 			case CRIMSON_WEREWOLF:
@@ -549,6 +549,5 @@ public final class Q00227_TestOfTheReformer extends Quest {
 				break;
 			}
 		}
-		return super.onSpawn(npc);
 	}
 }

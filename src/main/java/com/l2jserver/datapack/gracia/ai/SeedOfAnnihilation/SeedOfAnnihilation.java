@@ -259,13 +259,12 @@ public class SeedOfAnnihilation extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onSpawn(L2Npc npc) {
+	public void onSpawn(L2Npc npc) {
 		for (SeedRegion element : _regionsData) {
 			if (Util.contains(element.elite_mob_ids, npc.getId())) {
 				spawnGroupOfMinion((L2MonsterInstance) npc, element.minion_lists[getRandom(element.minion_lists.length)]);
 			}
 		}
-		return super.onSpawn(npc);
 	}
 	
 	@Override

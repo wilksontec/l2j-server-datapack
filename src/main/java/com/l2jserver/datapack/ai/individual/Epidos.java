@@ -107,11 +107,9 @@ public final class Epidos extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onSpawn(L2Npc npc) {
+	public void onSpawn(L2Npc npc) {
 		startQuestTimer("check_minions", 10000, npc, null);
 		startQuestTimer("check_idle", 600000, npc, null);
 		_lastHp.put(npc.getObjectId(), (double) npc.getMaxHp());
-		
-		return super.onSpawn(npc);
 	}
 }

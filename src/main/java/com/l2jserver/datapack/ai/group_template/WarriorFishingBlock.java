@@ -112,8 +112,7 @@ public final class WarriorFishingBlock extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onSpawn(L2Npc npc) {
+	public void onSpawn(L2Npc npc) {
 		startQuestTimer("SPAWN", 2000, npc, null);
-		return super.onSpawn(npc);
 	}
 }

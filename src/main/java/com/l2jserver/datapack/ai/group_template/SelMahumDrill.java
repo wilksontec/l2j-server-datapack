@@ -225,7 +225,7 @@ public final class SelMahumDrill extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onSpawn(L2Npc npc) {
+	public void onSpawn(L2Npc npc) {
 		if (Util.contains(MAHUM_CHIEFS, npc.getId())) {
 			startQuestTimer("do_social_action", 15000, npc, null);
 		}
@@ -236,7 +236,6 @@ public final class SelMahumDrill extends AbstractNpcAI {
 		
 		// Restore AI handling by core
 		npc.disableCoreAI(false);
-		return super.onSpawn(npc);
 	}
 	
 	private void handleSocialAction(L2Npc npc, Actions action, boolean firstCall) {

@@ -154,7 +154,7 @@ public final class Q00234_FatesWhisper extends Quest {
 	}
 	
 	@Override
-	public String onSpawn(L2Npc npc) {
+	public void onSpawn(L2Npc npc) {
 		switch (npc.getId()) {
 			case COFFER_OF_THE_DEAD: {
 				startQuestTimer("23401", 1000 * 120, npc, null);
@@ -173,7 +173,6 @@ public final class Q00234_FatesWhisper extends Quest {
 				break;
 			}
 		}
-		return super.onSpawn(npc);
 	}
 	
 	@Override

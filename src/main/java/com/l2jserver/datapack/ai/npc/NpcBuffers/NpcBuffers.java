@@ -46,11 +46,10 @@ public final class NpcBuffers extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onSpawn(L2Npc npc) {
+	public void onSpawn(L2Npc npc) {
 		final NpcBufferData data = _npcBuffers.getNpcBuffer(npc.getId());
 		for (NpcBufferSkillData skill : data.getSkills()) {
 			ThreadPoolManager.getInstance().scheduleAi(new NpcBufferAI(npc, skill), skill.getInitialDelay());
 		}
-		return super.onSpawn(npc);
 	}
 }

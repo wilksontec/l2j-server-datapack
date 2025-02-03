@@ -58,8 +58,7 @@ public final class NonTalkingNpcs extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onSpawn(L2Npc npc) {
+	public void onSpawn(L2Npc npc) {
 		npc.setTalking(false);
-		return super.onSpawn(npc);
 	}
 }

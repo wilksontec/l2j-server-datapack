@@ -391,9 +391,8 @@ public final class Q00023_LidiasHeart extends Quest {
 	}
 	
 	@Override
-	public String onSpawn(L2Npc npc) {
+	public void onSpawn(L2Npc npc) {
 		startQuestTimer("DESPAWN", 300000, npc, null);
 		npc.broadcastPacket(new NpcSay(npc, Say2.NPC_ALL, NpcStringId.WHO_AWOKE_ME));
-		return super.onSpawn(npc);
 	}
 }

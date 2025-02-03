@@ -116,7 +116,7 @@ public final class PrisonGuards extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onSpawn(L2Npc npc) {
+	public void onSpawn(L2Npc npc) {
 		if (npc.getId() == GUARD_HEAD) {
 			npc.setIsImmobilized(true);
 			npc.setIsInvul(true);
@@ -125,6 +125,5 @@ public final class PrisonGuards extends AbstractNpcAI {
 			cancelQuestTimer("CHECK_HOME", npc, null);
 			startQuestTimer("CHECK_HOME", 30000, npc, null);
 		}
-		return super.onSpawn(npc);
 	}
 }

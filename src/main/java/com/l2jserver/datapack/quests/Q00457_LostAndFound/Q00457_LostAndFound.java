@@ -197,9 +197,8 @@ public final class Q00457_LostAndFound extends Quest {
 	}
 	
 	@Override
-	public String onSpawn(L2Npc npc) {
+	public void onSpawn(L2Npc npc) {
 		_escortCheckers = SpawnTable.getInstance().getSpawns(ESCORT_CHECKER);
-		return super.onSpawn(npc);
 	}
 	
 	public void broadcastNpcSay(L2Npc npc, L2PcInstance player, NpcStringId stringId, boolean whisper) {

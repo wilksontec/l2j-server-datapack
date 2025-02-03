@@ -233,10 +233,9 @@ public final class MonasteryOfSilence extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onSpawn(L2Npc npc) {
+	public void onSpawn(L2Npc npc) {
 		npc.setIsInvul(true);
 		npc.disableCoreAI(true);
 		startQuestTimer("TRAINING", 30000, npc, null, true);
-		return super.onSpawn(npc);
 	}
 }

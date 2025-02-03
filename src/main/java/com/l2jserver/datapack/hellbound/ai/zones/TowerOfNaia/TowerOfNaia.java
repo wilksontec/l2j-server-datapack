@@ -626,9 +626,8 @@ public final class TowerOfNaia extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onSpawn(L2Npc npc) {
+	public void onSpawn(L2Npc npc) {
 		final int npcId = npc.getId();
-		
 		if (npcId == MUTATED_ELPY) {
 			DoorData.getInstance().getDoor(18250025).openMe();
 			ZoneManager.getInstance().getZoneById(200100).setEnabled(false);
@@ -644,7 +643,6 @@ public final class TowerOfNaia extends AbstractNpcAI {
 			npc.getAI().setIntention(CtrlIntention.AI_INTENTION_MOVE_TO, new Location(coord[0], coord[1], coord[2], 0));
 			startQuestTimer("despawn_spore", 60000, npc, null);
 		}
-		return super.onSpawn(npc);
 	}
 	
 	private int getSporeGroup(int sporeId) {

@@ -70,10 +70,9 @@ public final class CabaleBuffer extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onSpawn(L2Npc npc) {
+	public void onSpawn(L2Npc npc) {
 		ThreadPoolManager.getInstance().scheduleGeneral(new CabaleAI(npc), 3000);
 		ThreadPoolManager.getInstance().scheduleGeneral(new Talk(npc), 60000);
-		return super.onSpawn(npc);
 	}
 	
 	protected class Talk implements Runnable {

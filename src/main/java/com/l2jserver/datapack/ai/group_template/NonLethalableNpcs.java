@@ -39,8 +39,7 @@ public final class NonLethalableNpcs extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onSpawn(L2Npc npc) {
+	public void onSpawn(L2Npc npc) {
 		npc.setLethalable(false);
-		return super.onSpawn(npc);
 	}
 }

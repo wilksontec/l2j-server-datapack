@@ -896,7 +896,7 @@ public final class Q00236_SeedsOfChaos extends Quest {
 	}
 	
 	@Override
-	public String onSpawn(L2Npc npc) {
+	public void onSpawn(L2Npc npc) {
 		switch (npc.getId()) {
 			case KATENAR: {
 				final L2PcInstance c0 = npc.getVariables().getObject("player0", L2PcInstance.class);
@@ -936,6 +936,5 @@ public final class Q00236_SeedsOfChaos extends Quest {
 				break;
 			}
 		}
-		return super.onSpawn(npc);
 	}
 }

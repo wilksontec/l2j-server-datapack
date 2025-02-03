@@ -340,9 +340,8 @@ public abstract class FlagWar extends ClanHallSiegeEngine {
 	}
 	
 	@Override
-	public String onSpawn(L2Npc npc) {
+	public void onSpawn(L2Npc npc) {
 		npc.getAI().setIntention(CtrlIntention.AI_INTENTION_MOVE_TO, CENTER);
-		return null;
 	}
 	
 	@Override

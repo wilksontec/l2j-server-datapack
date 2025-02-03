@@ -61,8 +61,7 @@ public final class Shadai extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onSpawn(L2Npc npc) {
+	public void onSpawn(L2Npc npc) {
 		startQuestTimer("VALIDATE_POS", 60000, npc, null, true);
-		return super.onSpawn(npc);
 	}
 }

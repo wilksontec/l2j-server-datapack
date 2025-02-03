@@ -159,10 +159,9 @@ public final class Elpies extends Event {
 	}
 	
 	@Override
-	public String onSpawn(L2Npc npc) {
+	public void onSpawn(L2Npc npc) {
 		((L2EventMonsterInstance) npc).eventSetDropOnGround(true);
 		((L2EventMonsterInstance) npc).eventSetBlockOffensiveSkills(true);
-		return super.onSpawn(npc);
 	}
 	
 	private enum EventLocation {

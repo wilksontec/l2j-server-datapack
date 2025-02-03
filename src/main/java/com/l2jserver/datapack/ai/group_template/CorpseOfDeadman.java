@@ -22,19 +22,19 @@ import com.l2jserver.datapack.ai.npc.AbstractNpcAI;
 import com.l2jserver.gameserver.model.actor.L2Npc;
 
 /**
+ * Corpse of Deadman AI.
  * @author Noé Caratini aka Kita
  */
-public final class Corpse extends AbstractNpcAI {
+public final class CorpseOfDeadman extends AbstractNpcAI {
 	private static final int CORPSE_OF_DEADMAN = 18119;
 	
-	public Corpse() {
-		super(Corpse.class.getSimpleName(), "ai/group_template");
+	public CorpseOfDeadman() {
+		super(CorpseOfDeadman.class.getSimpleName(), "ai/group_template");
 		bindSpawn(CORPSE_OF_DEADMAN);
 	}
 	
 	@Override
-	public String onSpawn(final L2Npc npc) {
+	public void onSpawn(final L2Npc npc) {
 		npc.doDie(npc);
-		return super.onSpawn(npc);
 	}
 }

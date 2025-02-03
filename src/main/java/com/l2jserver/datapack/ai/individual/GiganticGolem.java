@@ -262,7 +262,7 @@ public class GiganticGolem extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onSpawn(L2Npc npc) {
+	public void onSpawn(L2Npc npc) {
 		if (npc.getId() == GIGANTIC_BOOM_GOLEM) {
 			npc.setIsRunning(true);
 			npc.scheduleDespawn(360000);
@@ -275,6 +275,5 @@ public class GiganticGolem extends AbstractNpcAI {
 			startQuestTimer("CHECK_ATTACK", 300000, npc, null);
 			broadcastNpcSay(npc, Say2.NPC_SHOUT, NpcStringId.BWAH_HA_HA_YOUR_DOOM_IS_AT_HAND_BEHOLD_THE_ULTRA_SECRET_SUPER_WEAPON);
 		}
-		return super.onSpawn(npc);
 	}
 }

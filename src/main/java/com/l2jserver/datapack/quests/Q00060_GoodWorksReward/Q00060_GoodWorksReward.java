@@ -1001,7 +1001,7 @@ public final class Q00060_GoodWorksReward extends Quest {
 	}
 	
 	@Override
-	public String onSpawn(L2Npc npc) {
+	public void onSpawn(L2Npc npc) {
 		startQuestTimer("DESPAWN", 60000, npc, null);
 		final L2PcInstance player = npc.getVariables().getObject("player0", L2PcInstance.class);
 		if (player != null) {
@@ -1009,6 +1009,5 @@ public final class Q00060_GoodWorksReward extends Quest {
 				npc.broadcastPacket(new NpcSay(npc, Say2.NPC_ALL, NpcStringId.S1_I_MUST_KILL_YOU_BLAME_YOUR_OWN_CURIOSITY).addStringParameter(player.getAppearance().getVisibleName()));
 			}
 		}
-		return super.onSpawn(npc);
 	}
 }

@@ -591,7 +591,7 @@ public final class Beleth extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onSpawn(L2Npc npc) {
+	public void onSpawn(L2Npc npc) {
 		npc.setRunning();
 		if (!npc.getKnownList().getKnownPlayersInRadius(300).isEmpty() && (getRandom(100) < 60)) {
 			npc.doCast(BLEED);
@@ -599,8 +599,6 @@ public final class Beleth extends AbstractNpcAI {
 		if (npc.getId() == REAL_BELETH) {
 			npc.getSpawn().setRespawnDelay(0);
 		}
-		
-		return null;
 	}
 	
 	@Override

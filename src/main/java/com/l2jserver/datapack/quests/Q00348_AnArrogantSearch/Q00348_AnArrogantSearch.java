@@ -497,7 +497,7 @@ public class Q00348_AnArrogantSearch extends Quest {
 	}
 	
 	@Override
-	public String onSpawn(L2Npc npc) {
+	public void onSpawn(L2Npc npc) {
 		switch (npc.getId()) {
 			case ARK_GUARDIAN_ELBEROTH: {
 				npc.getVariables().set(I_QUEST0, false);
@@ -516,7 +516,6 @@ public class Q00348_AnArrogantSearch extends Quest {
 				startQuestTimer("DESPAWN", 600000, npc, null);
 			}
 		}
-		return super.onSpawn(npc);
 	}
 	
 	@Override

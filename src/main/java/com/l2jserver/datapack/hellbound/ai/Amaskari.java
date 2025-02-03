@@ -139,8 +139,7 @@ public final class Amaskari extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onSpawn(L2Npc npc) {
+	public void onSpawn(L2Npc npc) {
 		startQuestTimer("onspawn_msg", (getRandom(3) + 1) * 30000, npc, null);
-		return super.onSpawn(npc);
 	}
 }

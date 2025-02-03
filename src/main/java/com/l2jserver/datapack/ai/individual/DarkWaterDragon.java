@@ -198,12 +198,10 @@ public final class DarkWaterDragon extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onSpawn(L2Npc npc) {
-		int npcId = npc.getId();
-		int npcObjId = npc.getObjectId();
-		if (npcId == FAFURION) {
-			if (!MY_TRACKING_SET.contains(npcObjId)) {
-				MY_TRACKING_SET.add(npcObjId);
+	public void onSpawn(L2Npc npc) {
+		if (npc.getId() == FAFURION) {
+			if (!MY_TRACKING_SET.contains(npc.getObjectId())) {
+				MY_TRACKING_SET.add(npc.getObjectId());
 				// Spawn 4 Detractors on spawn of Fafurion
 				int x = npc.getX();
 				int y = npc.getY();
@@ -219,7 +217,6 @@ public final class DarkWaterDragon extends AbstractNpcAI {
 				startQuestTimer("fafurion_despawn", 120000, npc, null); // Fafurion Kindred disappears after two minutes
 			}
 		}
-		return super.onSpawn(npc);
 	}
 	
 	private void spawnShade(L2Character attacker, int npcId, int x, int y, int z) {

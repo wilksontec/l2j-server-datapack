@@ -57,7 +57,7 @@ public final class FortressOfTheDead extends ClanHallSiegeEngine {
 	}
 	
 	@Override
-	public String onSpawn(L2Npc npc) {
+	public void onSpawn(L2Npc npc) {
 		if (npc.getId() == LIDIA) {
 			broadcastNpcSay(npc, Say2.NPC_SHOUT, NpcStringId.HMM_THOSE_WHO_ARE_NOT_OF_THE_BLOODLINE_ARE_COMING_THIS_WAY_TO_TAKE_OVER_THE_CASTLE_HUMPH_THE_BITTER_GRUDGES_OF_THE_DEAD_YOU_MUST_NOT_MAKE_LIGHT_OF_THEIR_POWER);
 		} else if (npc.getId() == ALFRED) {
@@ -65,7 +65,6 @@ public final class FortressOfTheDead extends ClanHallSiegeEngine {
 		} else if (npc.getId() == GISELLE) {
 			broadcastNpcSay(npc, Say2.NPC_SHOUT, NpcStringId.ARISE_MY_FAITHFUL_SERVANTS_YOU_MY_PEOPLE_WHO_HAVE_INHERITED_THE_BLOOD_IT_IS_THE_CALLING_OF_MY_DAUGHTER_THE_FEAST_OF_BLOOD_WILL_NOW_BEGIN);
 		}
-		return null;
 	}
 	
 	@Override

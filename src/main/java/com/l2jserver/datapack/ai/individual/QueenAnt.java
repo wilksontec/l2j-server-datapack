@@ -311,7 +311,7 @@ public final class QueenAnt extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onSpawn(L2Npc npc) {
+	public void onSpawn(L2Npc npc) {
 		final L2MonsterInstance mob = (L2MonsterInstance) npc;
 		switch (npc.getId()) {
 			case QUEEN: {
@@ -337,8 +337,6 @@ public final class QueenAnt extends AbstractNpcAI {
 				break;
 			}
 		}
-		
-		return super.onSpawn(npc);
 	}
 	
 	@Override

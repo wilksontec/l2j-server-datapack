@@ -100,7 +100,7 @@ public final class QueenShyeed extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onSpawn(L2Npc npc) {
+	public void onSpawn(L2Npc npc) {
 		if (npc.getId() == SHYEED) {
 			if (RaidBossSpawnManager.getInstance().getRaidBossStatusId(SHYEED) == StatusEnum.ALIVE) {
 				PC_BUFF_ZONE.setEnabled(false);
@@ -119,7 +119,6 @@ public final class QueenShyeed extends AbstractNpcAI {
 				spawn.startRespawn();
 			}
 		}
-		return super.onSpawn(npc);
 	}
 	
 	@Override

@@ -114,13 +114,13 @@ public final class DenOfEvil extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onSpawn(L2Npc npc) {
+	public void onSpawn(L2Npc npc) {
 		npc.disableCoreAI(true);
 		npc.setIsImmobilized(true);
 		L2EffectZone zone = ZoneManager.getInstance().getZone(npc, L2EffectZone.class);
 		if (zone == null) {
 			LOG.warn("NPC {} spawned outside of L2EffectZone, check your zone coords! {}", npc, npc.getLocation());
-			return null;
+			return;
 		}
 		int skillId = getSkillIdByNpcId(npc.getId());
 		int skillLevel = zone.getSkillLevel(skillId);
@@ -132,7 +132,6 @@ public final class DenOfEvil extends AbstractNpcAI {
 		} else if (skillLevel == 2) {
 			zone.broadcastPacket(SystemMessage.getSystemMessage(SystemMessageId.I_CAN_FEEL_ENERGY_KASHA_EYE_GETTING_STRONGER_RAPIDLY));
 		}
-		return super.onSpawn(npc);
 	}
 	
 	@Override

@@ -104,12 +104,11 @@ public final class Katenar extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onSpawn(L2Npc npc) {
+	public void onSpawn(L2Npc npc) {
 		startQuestTimer("CREATED_50", 50000, npc, null);
 		final L2PcInstance player = npc.getVariables().getObject("player0", L2PcInstance.class);
 		if (player != null) {
 			broadcastNpcSay(npc, Say2.NPC_ALL, NpcStringId.I_AM_LATE);
 		}
-		return super.onSpawn(npc);
 	}
 }

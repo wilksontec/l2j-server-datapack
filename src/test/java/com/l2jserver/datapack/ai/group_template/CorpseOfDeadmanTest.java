@@ -28,20 +28,20 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import com.l2jserver.gameserver.model.actor.L2Npc;
 
 /**
- * Corpse test.
+ * Corpse Of Deadman AI test.
  * @author Noé Caratini aka Kita
  */
 @ExtendWith(MockitoExtension.class)
-public class CorpseTest {
+public class CorpseOfDeadmanTest {
 	
 	@Mock
 	private L2Npc npc;
 	
 	@Test
 	void testShouldDieOnSpawn() {
-		final var corpseAi = new Corpse();
+		final var corpseOfDeadmanAi = new CorpseOfDeadman();
 		
-		corpseAi.onSpawn(npc);
+		corpseOfDeadmanAi.onSpawn(npc);
 		
 		verify(npc).doDie(npc);
 	}

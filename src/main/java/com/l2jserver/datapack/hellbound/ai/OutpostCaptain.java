@@ -63,7 +63,7 @@ public final class OutpostCaptain extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onSpawn(L2Npc npc) {
+	public void onSpawn(L2Npc npc) {
 		npc.setIsNoRndWalk(true);
 		
 		if (npc.getId() == CAPTAIN) {
@@ -74,6 +74,5 @@ public final class OutpostCaptain extends AbstractNpcAI {
 		} else if (npc.getId() == DOORKEEPER) {
 			startQuestTimer("LEVEL_UP", 3000, npc, null);
 		}
-		return super.onSpawn(npc);
 	}
 }

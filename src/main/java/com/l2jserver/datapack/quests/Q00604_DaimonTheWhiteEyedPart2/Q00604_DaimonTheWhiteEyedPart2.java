@@ -161,10 +161,9 @@ public final class Q00604_DaimonTheWhiteEyedPart2 extends Quest {
 	}
 	
 	@Override
-	public String onSpawn(L2Npc npc) {
+	public void onSpawn(L2Npc npc) {
 		startQuestTimer("DESPAWN", 1200000, npc, null);
 		npc.broadcastPacket(new NpcSay(npc.getObjectId(), Say2.NPC_ALL, npc.getTemplate().getDisplayId(), NpcStringId.WHO_IS_CALLING_ME));
-		return super.onSpawn(npc);
 	}
 	
 	@Override

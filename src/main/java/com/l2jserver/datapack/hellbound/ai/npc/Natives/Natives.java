@@ -141,10 +141,9 @@ public final class Natives extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onSpawn(L2Npc npc) {
+	public void onSpawn(L2Npc npc) {
 		if ((npc.getId() == NATIVE) && (HellboundEngine.getInstance().getLevel() < 6)) {
 			startQuestTimer("hungry_death", 600000, npc, null);
 		}
-		return super.onSpawn(npc);
 	}
 }

@@ -148,14 +148,13 @@ public final class SilentValley extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onSpawn(L2Npc npc) {
+	public void onSpawn(L2Npc npc) {
 		if (npc.getId() == CHEST) {
 			npc.setIsInvul(true);
 			startQuestTimer("CLEAR_EVENT", 300000, npc, null);
 		} else {
 			startQuestTimer("SPAWN_CHEST", 10000, npc, null);
 		}
-		return super.onSpawn(npc);
 	}
 	
 	@Override

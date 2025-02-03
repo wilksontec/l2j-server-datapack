@@ -21,7 +21,6 @@ package com.l2jserver.datapack.ai.npc.CastleAmbassador;
 import com.l2jserver.datapack.ai.npc.AbstractNpcAI;
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
-import com.l2jserver.gameserver.model.entity.Castle;
 import com.l2jserver.gameserver.model.entity.Fort;
 import com.l2jserver.gameserver.model.events.impl.character.npc.NpcEventReceived;
 import com.l2jserver.gameserver.network.serverpackets.NpcHtmlMessage;
@@ -133,13 +132,12 @@ public final class CastleAmbassador extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onSpawn(L2Npc npc) {
-		final Castle castle = npc.getFort().getCastleByAmbassador(npc.getId());
+	public void onSpawn(L2Npc npc) {
+		final var castle = npc.getFort().getCastleByAmbassador(npc.getId());
 		if (castle.getOwnerId() == 0) {
 			npc.deleteMe();
 		} else {
 			startQuestTimer("DESPAWN", 3600000, npc, null);
 		}
-		return super.onSpawn(npc);
 	}
 }

@@ -147,11 +147,10 @@ public final class DragonValley extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onSpawn(L2Npc npc) {
+	public void onSpawn(L2Npc npc) {
 		if (Util.contains(SPAWN_ANIMATION, npc.getId())) {
 			npc.setShowSummonAnimation(true);
 		}
-		return super.onSpawn(npc);
 	}
 	
 	private void manageMoraleBoost(L2PcInstance player, L2Npc npc) {

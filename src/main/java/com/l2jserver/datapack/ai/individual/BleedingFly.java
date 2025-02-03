@@ -56,10 +56,9 @@ public class BleedingFly extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onSpawn(L2Npc npc) {
+	public void onSpawn(L2Npc npc) {
 		npc.getVariables().set(MID_HP_MINION_COUNT, 5);
 		npc.getVariables().set(LOW_HP_MINION_COUNT, 10);
-		return super.onSpawn(npc);
 	}
 	
 	@Override

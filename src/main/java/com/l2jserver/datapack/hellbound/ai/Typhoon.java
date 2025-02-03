@@ -55,8 +55,7 @@ public final class Typhoon extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onSpawn(L2Npc npc) {
+	public void onSpawn(L2Npc npc) {
 		startQuestTimer("CAST", 5000, npc, null);
-		return super.onSpawn(npc);
 	}
 }

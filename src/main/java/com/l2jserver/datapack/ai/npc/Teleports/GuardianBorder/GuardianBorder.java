@@ -344,10 +344,8 @@ public final class GuardianBorder extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onSpawn(L2Npc npc) {
+	public void onSpawn(L2Npc npc) {
 		startQuestTimer("2001", 1000, npc, null);
-		
-		return super.onSpawn(npc);
 	}
 	
 	@Override

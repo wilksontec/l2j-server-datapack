@@ -270,7 +270,7 @@ public final class Q00334_TheWishingPotion extends Quest {
 	}
 	
 	@Override
-	public String onSpawn(L2Npc npc) {
+	public void onSpawn(L2Npc npc) {
 		switch (npc.getId()) {
 			case GRIMA: {
 				startQuestTimer("2336002", 1000 * 200, npc, null);
@@ -313,7 +313,6 @@ public final class Q00334_TheWishingPotion extends Quest {
 				break;
 			}
 		}
-		return super.onSpawn(npc);
 	}
 	
 	@Override

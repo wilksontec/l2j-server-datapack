@@ -278,7 +278,7 @@ public final class Q00708_PathToBecomingALordGludio extends Quest {
 	}
 	
 	@Override
-	public String onSpawn(L2Npc npc) {
+	public void onSpawn(L2Npc npc) {
 		if (npc.getId() == HEADLESS_KNIGHT) {
 			final var target = L2World.getInstance().getPlayer(npc.getScriptValue());
 			if (target != null) {
@@ -287,7 +287,6 @@ public final class Q00708_PathToBecomingALordGludio extends Quest {
 				npc.broadcastPacket(message);
 			}
 		}
-		return super.onSpawn(npc);
 	}
 	
 	@Override

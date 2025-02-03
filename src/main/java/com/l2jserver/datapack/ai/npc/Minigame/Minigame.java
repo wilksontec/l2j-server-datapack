@@ -198,7 +198,7 @@ public final class Minigame extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onSpawn(L2Npc npc) {
+	public void onSpawn(L2Npc npc) {
 		switch (npc.getId()) {
 			case SUMIEL: {
 				_rooms.add(initRoom(npc));
@@ -210,7 +210,6 @@ public final class Minigame extends AbstractNpcAI {
 				break;
 			}
 		}
-		return super.onSpawn(npc);
 	}
 	
 	public void onSkillUse(CreatureSkillUse event) {

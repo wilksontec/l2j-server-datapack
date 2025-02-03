@@ -451,7 +451,7 @@ public final class MonasteryOfSilence1 extends AbstractInstance {
 	}
 	
 	@Override
-	public String onSpawn(L2Npc npc) {
+	public void onSpawn(L2Npc npc) {
 		switch (npc.getId()) {
 			case ERIS_EVIL_THOUGHTS: {
 				startQuestTimer("OPEN_DOORS", 1000, npc, null);
@@ -462,7 +462,6 @@ public final class MonasteryOfSilence1 extends AbstractInstance {
 				break;
 			}
 		}
-		return super.onSpawn(npc);
 	}
 	
 	@Override

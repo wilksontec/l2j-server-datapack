@@ -23,7 +23,6 @@ import java.util.List;
 import com.l2jserver.datapack.ai.npc.AbstractNpcAI;
 import com.l2jserver.gameserver.instancemanager.WalkingManager;
 import com.l2jserver.gameserver.model.L2Object;
-import com.l2jserver.gameserver.model.L2Spawn;
 import com.l2jserver.gameserver.model.actor.L2Attackable;
 import com.l2jserver.gameserver.model.actor.L2Character;
 import com.l2jserver.gameserver.model.actor.L2Npc;
@@ -121,12 +120,11 @@ public class Knoriks extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onSpawn(L2Npc npc) {
-		final L2Spawn spawn = npc.getSpawn();
+	public void onSpawn(L2Npc npc) {
+		final var spawn = npc.getSpawn();
 		spawn.setAmount(1);
 		spawn.setRespawnDelay(1800);
 		spawn.startRespawn();
-		return super.onSpawn(npc);
 	}
 	
 	@Override

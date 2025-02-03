@@ -62,13 +62,12 @@ public class NecromancerOfTheValley extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onSpawn(L2Npc npc) {
+	public void onSpawn(L2Npc npc) {
 		for (L2Character obj : npc.getKnownList().getKnownCharactersInRadius(200)) {
 			if (obj.isPlayer() && !obj.isDead()) {
 				addSkillCastDesire(npc, obj, SELF_DESTRUCTION, 1000000L);
 			}
 		}
-		return super.onSpawn(npc);
 	}
 	
 	@Override

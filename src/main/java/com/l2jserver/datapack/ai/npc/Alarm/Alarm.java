@@ -181,14 +181,13 @@ public final class Alarm extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onSpawn(L2Npc npc) {
+	public void onSpawn(L2Npc npc) {
 		startQuestTimer("SELF_DESTRUCT_IN_60", 60000, npc, null);
 		broadcastNpcSay(npc, Say2.NPC_ALL, NpcStringId.INTRUDER_ALERT_THE_ALARM_WILL_SELF_DESTRUCT_IN_2_MINUTES);
 		final L2PcInstance player = npc.getVariables().getObject("player0", L2PcInstance.class);
 		if (player != null) {
 			playSound(player, Sound.ITEMSOUND_SIREN);
 		}
-		return super.onSpawn(npc);
 	}
 	
 	/**

@@ -140,10 +140,9 @@ public final class IceQueensCastle extends AbstractInstance {
 	}
 	
 	@Override
-	public String onSpawn(L2Npc npc) {
+	public void onSpawn(L2Npc npc) {
 		startQuestTimer("TIMER_MOVING", 60000, npc, null);
 		startQuestTimer("TIMER_BLIZZARD", 180000, npc, null);
-		return super.onSpawn(npc);
 	}
 	
 	@Override

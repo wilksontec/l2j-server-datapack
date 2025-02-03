@@ -565,7 +565,7 @@ public final class Antharas extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onSpawn(L2Npc npc) {
+	public void onSpawn(L2Npc npc) {
 		if (npc.getId() == ANTHARAS) {
 			cancelQuestTimer("SET_REGEN", npc, null);
 			startQuestTimer("SET_REGEN", 60000, npc, null);
@@ -579,7 +579,6 @@ public final class Antharas extends AbstractNpcAI {
 			}
 			npc.deleteMe();
 		}
-		return super.onSpawn(npc);
 	}
 	
 	@Override

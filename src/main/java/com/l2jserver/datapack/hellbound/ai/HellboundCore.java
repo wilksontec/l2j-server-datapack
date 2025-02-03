@@ -56,13 +56,11 @@ public final class HellboundCore extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onSpawn(L2Npc npc) {
+	public void onSpawn(L2Npc npc) {
 		if (npc.getId() == NAIA) {
 			npc.setIsNoRndWalk(true);
 		} else {
 			startQuestTimer("cast", 10000, npc, null);
 		}
-		
-		return super.onSpawn(npc);
 	}
 }

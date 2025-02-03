@@ -69,7 +69,7 @@ public final class ZealotOfShilen extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onSpawn(L2Npc npc) {
+	public void onSpawn(L2Npc npc) {
 		if (npc.getId() == ZEALOT) {
 			npc.setIsNoRndWalk(true);
 		} else {
@@ -77,6 +77,5 @@ public final class ZealotOfShilen extends AbstractNpcAI {
 			((L2Attackable) npc).setCanReturnToSpawnPoint(false);
 			startQuestTimer("WATCHING", 10000, npc, null, true);
 		}
-		return super.onSpawn(npc);
 	}
 }

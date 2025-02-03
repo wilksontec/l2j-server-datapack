@@ -230,7 +230,7 @@ public final class Venom extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onSpawn(L2Npc npc) {
+	public void onSpawn(L2Npc npc) {
 		switch (npc.getId()) {
 			case DUNGEON_KEEPER: {
 				_massymore = npc;
@@ -257,7 +257,6 @@ public final class Venom extends AbstractNpcAI {
 			npc.doRevive();
 			
 		}
-		return super.onSpawn(npc);
 	}
 	
 	@Override

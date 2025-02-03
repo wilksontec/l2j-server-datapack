@@ -166,7 +166,7 @@ public final class AnomicFoundry extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onSpawn(L2Npc npc) {
+	public void onSpawn(L2Npc npc) {
 		SpawnTable.getInstance().addNewSpawn(npc.getSpawn(), false);
 		if (getSpawnGroup(npc) >= 0) {
 			_spawned[getSpawnGroup(npc)]++;
@@ -175,7 +175,6 @@ public final class AnomicFoundry extends AbstractNpcAI {
 		if (npc.getId() == LABORER) {
 			npc.setIsNoRndWalk(true);
 		}
-		return super.onSpawn(npc);
 	}
 	
 	@Override

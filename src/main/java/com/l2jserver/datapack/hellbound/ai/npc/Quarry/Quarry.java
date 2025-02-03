@@ -119,12 +119,11 @@ public final class Quarry extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onSpawn(L2Npc npc) {
+	public void onSpawn(L2Npc npc) {
 		npc.setAutoAttackable(false);
 		if (npc instanceof L2QuestGuardInstance) {
 			((L2QuestGuardInstance) npc).setPassive(true);
 		}
-		return super.onSpawn(npc);
 	}
 	
 	@Override
