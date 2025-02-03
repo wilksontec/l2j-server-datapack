@@ -71,7 +71,7 @@ public final class Ballista extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onSkillSee(L2Npc npc, L2PcInstance caster, Skill skill, List<L2Object> targets, boolean isSummon) {
+	public void onSkillSee(L2Npc npc, L2PcInstance caster, Skill skill, List<L2Object> targets, boolean isSummon) {
 		if ((skill != null) && (caster.getTarget() == npc) && (getRandom(100) < 40) && (skill == BOMB.getSkill())) {
 			if (npc.getFort().getSiege().isInProgress()) {
 				if ((caster.getClan() != null) && (caster.getClan().getLevel() >= MIN_CLAN_LV)) {
@@ -81,7 +81,6 @@ public final class Ballista extends AbstractNpcAI {
 			}
 			npc.doDie(caster);
 		}
-		return super.onSkillSee(npc, caster, skill, targets, isSummon);
 	}
 	
 	@Override

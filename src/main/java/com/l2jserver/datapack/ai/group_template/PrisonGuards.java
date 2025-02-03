@@ -95,12 +95,11 @@ public final class PrisonGuards extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onSkillSee(L2Npc npc, L2PcInstance caster, Skill skill, List<L2Object> targets, boolean isSummon) {
+	public void onSkillSee(L2Npc npc, L2PcInstance caster, Skill skill, List<L2Object> targets, boolean isSummon) {
 		if (!caster.isAffectedBySkill(TIMER)) {
 			npc.setTarget(caster);
 			npc.doCast(SILENCE);
 		}
-		return super.onSkillSee(npc, caster, skill, targets, isSummon);
 	}
 	
 	@Override

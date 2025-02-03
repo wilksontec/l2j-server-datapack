@@ -47,33 +47,14 @@ public class StarStones extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onSkillSee(L2Npc npc, L2PcInstance caster, Skill skill, List<L2Object> targets, boolean isSummon) {
+	public void onSkillSee(L2Npc npc, L2PcInstance caster, Skill skill, List<L2Object> targets, boolean isSummon) {
 		if (skill.getId() == 932) {
-			int itemId = 0;
-			
-			switch (npc.getId()) {
-				case 18684:
-				case 18685:
-				case 18686:
-					// give Red item
-					itemId = 14009;
-					break;
-				case 18687:
-				case 18688:
-				case 18689:
-					// give Blue item
-					itemId = 14010;
-					break;
-				case 18690:
-				case 18691:
-				case 18692:
-					// give Green item
-					itemId = 14011;
-					break;
-				default:
-					// unknown npc!
-					return super.onSkillSee(npc, caster, skill, targets, isSummon);
-			}
+			final int itemId = switch (npc.getId()) {
+				case 18684, 18685, 18686 -> 14009; // Red item
+				case 18687, 18688, 18689 -> 14010; // Blue item
+				case 18690, 18691, 18692 -> 14011; // Green item
+				default -> throw new IllegalArgumentException("Unexpected value: " + npc.getId());
+			};
 			if (getRandom(100) < 33) {
 				caster.sendPacket(SystemMessageId.THE_COLLECTION_HAS_SUCCEEDED);
 				caster.addItem("StarStone", itemId, getRandom(COLLECTION_RATE + 1, 2 * COLLECTION_RATE), null, true);
@@ -85,6 +66,5 @@ public class StarStones extends AbstractNpcAI {
 			}
 			npc.deleteMe();
 		}
-		return super.onSkillSee(npc, caster, skill, targets, isSummon);
 	}
 }

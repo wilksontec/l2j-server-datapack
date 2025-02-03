@@ -269,21 +269,21 @@ public class TerritoryWarSuperClass extends Quest {
 	}
 	
 	@Override
-	public String onSkillSee(L2Npc npc, L2PcInstance caster, Skill skill, List<L2Object> targets, boolean isSummon) {
+	public void onSkillSee(L2Npc npc, L2PcInstance caster, Skill skill, List<L2Object> targets, boolean isSummon) {
 		if (targets.contains(npc)) {
 			if (skill.getId() == 845) {
 				if (TerritoryWarManager.getInstance().getHQForClan(caster.getClan()) != npc) {
-					return super.onSkillSee(npc, caster, skill, targets, isSummon);
+					return;
 				}
 				npc.deleteMe();
 				TerritoryWarManager.getInstance().setHQForClan(caster.getClan(), null);
 			} else if (skill.getId() == 847) {
 				if (TerritoryWarManager.getInstance().getHQForTerritory(caster.getSiegeSide()) != npc) {
-					return super.onSkillSee(npc, caster, skill, targets, isSummon);
+					return;
 				}
 				TerritoryWard ward = TerritoryWarManager.getInstance().getTerritoryWard(caster);
 				if (ward == null) {
-					return super.onSkillSee(npc, caster, skill, targets, isSummon);
+					return;
 				}
 				if ((caster.getSiegeSide() - 80) == ward.getOwnerCastleId()) {
 					for (TerritoryNPCSpawn wardSpawn : TerritoryWarManager.getInstance().getTerritory(ward.getOwnerCastleId()).getOwnedWard()) {
@@ -301,7 +301,6 @@ public class TerritoryWarSuperClass extends Quest {
 				}
 			}
 		}
-		return super.onSkillSee(npc, caster, skill, targets, isSummon);
 	}
 	
 	// Used to register NPCs "For the Sake of the Territory ..." quests

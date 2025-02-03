@@ -920,14 +920,13 @@ public final class Q00120_PavelsLastResearch extends Quest {
 	}
 	
 	@Override
-	public String onSkillSee(L2Npc npc, L2PcInstance player, Skill skill, List<L2Object> targets, boolean isSummon) {
+	public void onSkillSee(L2Npc npc, L2PcInstance player, Skill skill, List<L2Object> targets, boolean isSummon) {
 		final QuestState qs = getQuestState(player, false);
 		if ((qs != null) && qs.isStarted()) {
 			final Skill npcDefault = NPC_DEFAULT.getSkill();
 			castSkill(npc, player, npcDefault);
 			castSkill(npc, player, npcDefault);
 		}
-		return null;
 	}
 	
 	@Override

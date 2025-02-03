@@ -302,13 +302,12 @@ public final class QueenAnt extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onSkillSee(L2Npc npc, L2PcInstance player, Skill skill, List<L2Object> targets, boolean isSummon) {
+	public void onSkillSee(L2Npc npc, L2PcInstance player, Skill skill, List<L2Object> targets, boolean isSummon) {
 		if ((skill.getEffectPoint() > 0) && (getRandom(100) < 15)) {
 			if ((_zone.isInsideZone(npc)) && (npc != null) && (!npc.isCastingNow()) && (!npc.isCoreAIDisabled())) {
 				addSkillCastDesire(npc, player, DECREASE_SPEED_1, 1000000L);
 			}
 		}
-		return super.onSkillSee(npc, player, skill, targets, isSummon);
 	}
 	
 	@Override

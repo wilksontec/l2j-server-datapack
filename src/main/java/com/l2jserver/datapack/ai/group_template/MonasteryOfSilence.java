@@ -220,7 +220,7 @@ public final class MonasteryOfSilence extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onSkillSee(L2Npc npc, L2PcInstance caster, Skill skill, List<L2Object> targets, boolean isSummon) {
+	public void onSkillSee(L2Npc npc, L2PcInstance caster, Skill skill, List<L2Object> targets, boolean isSummon) {
 		if (skill.hasEffectType(L2EffectType.AGGRESSION)) {
 			for (var obj : targets) {
 				if (obj.equals(npc)) {
@@ -230,7 +230,6 @@ public final class MonasteryOfSilence extends AbstractNpcAI {
 				}
 			}
 		}
-		return super.onSkillSee(npc, caster, skill, targets, isSummon);
 	}
 	
 	@Override

@@ -119,11 +119,10 @@ public final class RaidBossCancel extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onSkillSee(L2Npc npc, L2PcInstance player, Skill skill, List<L2Object> targets, boolean isSummon) {
+	public void onSkillSee(L2Npc npc, L2PcInstance player, Skill skill, List<L2Object> targets, boolean isSummon) {
 		final SkillHolder selfRangeCancel = npc.getTemplate().getParameters().getObject("SelfRangeCancel_a", SkillHolder.class);
 		if (Util.checkIfInRange(150, npc, player, true) && (getRandom(750) < 1)) {
 			addSkillCastDesire(npc, player, selfRangeCancel, 1000000L);
 		}
-		return super.onSkillSee(npc, player, skill, targets, isSummon);
 	}
 }

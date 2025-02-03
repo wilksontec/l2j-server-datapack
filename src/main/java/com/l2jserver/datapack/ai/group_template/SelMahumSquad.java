@@ -289,12 +289,11 @@ public final class SelMahumSquad extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onSkillSee(L2Npc npc, L2PcInstance caster, Skill skill, List<L2Object> targets, boolean isSummon) {
+	public void onSkillSee(L2Npc npc, L2PcInstance caster, Skill skill, List<L2Object> targets, boolean isSummon) {
 		if ((npc.getId() == STOVE) && (skill.getId() == 9075) && targets.contains(npc)) {
 			npc.doCast(SOUP_OF_FAILURE);
 			npc.broadcastScriptEvent("SCE_SOUP_FAILURE", 600, caster);
 		}
-		return super.onSkillSee(npc, caster, skill, targets, isSummon);
 	}
 	
 	@Override

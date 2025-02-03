@@ -588,18 +588,18 @@ public abstract class AbstractSagaQuest extends Quest {
 	}
 	
 	@Override
-	public String onSkillSee(L2Npc npc, L2PcInstance player, Skill skill, List<L2Object> targets, boolean isSummon) {
+	public void onSkillSee(L2Npc npc, L2PcInstance player, Skill skill, List<L2Object> targets, boolean isSummon) {
 		if (SPAWN_LIST.containsKey(npc) && (SPAWN_LIST.get(npc) != player.getObjectId())) {
 			L2PcInstance quest_player = (L2PcInstance) L2World.getInstance().findObject(SPAWN_LIST.get(npc));
 			if (quest_player == null) {
-				return null;
+				return;
 			}
 			
 			for (L2Object obj : targets) {
 				if ((obj == quest_player) || (obj == npc)) {
 					QuestState st2 = findRightState(npc);
 					if (st2 == null) {
-						return null;
+						return;
 					}
 					autoChat(npc, _text[5].replace("PLAYERNAME", player.getName()));
 					cancelQuestTimer("Archon Hellisha has despawned", npc, st2.getPlayer());
@@ -608,7 +608,6 @@ public abstract class AbstractSagaQuest extends Quest {
 				}
 			}
 		}
-		return super.onSkillSee(npc, player, skill, targets, isSummon);
 	}
 	
 	@Override

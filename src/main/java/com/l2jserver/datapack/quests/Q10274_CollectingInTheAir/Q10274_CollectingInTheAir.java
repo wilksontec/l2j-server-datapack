@@ -79,10 +79,10 @@ public class Q10274_CollectingInTheAir extends Quest {
 	}
 	
 	@Override
-	public String onSkillSee(L2Npc npc, L2PcInstance caster, Skill skill, List<L2Object> targets, boolean isSummon) {
+	public void onSkillSee(L2Npc npc, L2PcInstance caster, Skill skill, List<L2Object> targets, boolean isSummon) {
 		final QuestState st = getQuestState(caster, false);
 		if ((st == null) || !st.isStarted()) {
-			return null;
+			return;
 		}
 		
 		if (st.isCond(1) && (skill.getId() == 2630)) {
@@ -106,7 +106,6 @@ public class Q10274_CollectingInTheAir extends Quest {
 			st.playSound(Sound.ITEMSOUND_QUEST_ITEMGET);
 			npc.doDie(caster);
 		}
-		return super.onSkillSee(npc, caster, skill, targets, isSummon);
 	}
 	
 	@Override

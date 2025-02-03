@@ -268,9 +268,9 @@ public class EnergySeeds extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onSkillSee(L2Npc npc, L2PcInstance caster, Skill skill, List<L2Object> targets, boolean isSummon) {
+	public void onSkillSee(L2Npc npc, L2PcInstance caster, Skill skill, List<L2Object> targets, boolean isSummon) {
 		if (!targets.contains(npc) || (skill.getId() != 5780)) {
-			return super.onSkillSee(npc, caster, skill, targets, isSummon);
+			return;
 		}
 		
 		npc.deleteMe();
@@ -280,30 +280,16 @@ public class EnergySeeds extends AbstractNpcAI {
 			spawn.scheduleRespawn(false);
 			_spawnedNpcs.remove(npc);
 			if (isSeedActive(spawn._seedId)) {
-				int itemId = 0;
+				final int itemId = switch (npc.getId()) {
+				    case 18678 -> 14016; // Water
+				    case 18679 -> 14015; // Fire
+				    case 18680 -> 14017; // Wind
+				    case 18681 -> 14018; // Earth
+				    case 18682 -> 14020; // Divinity
+				    case 18683 -> 14019; // Darkness
+					default -> throw new IllegalArgumentException("Unexpected value: " + npc.getId());
+				};
 				
-				switch (npc.getId()) {
-					case 18678: // Water
-						itemId = 14016;
-						break;
-					case 18679: // Fire
-						itemId = 14015;
-						break;
-					case 18680: // Wind
-						itemId = 14017;
-						break;
-					case 18681: // Earth
-						itemId = 14018;
-						break;
-					case 18682: // Divinity
-						itemId = 14020;
-						break;
-					case 18683: // Darkness
-						itemId = 14019;
-						break;
-					default:
-						return super.onSkillSee(npc, caster, skill, targets, isSummon);
-				}
 				if (getRandom(100) < 33) {
 					caster.sendPacket(SystemMessageId.THE_COLLECTION_HAS_SUCCEEDED);
 					caster.addItem("EnergySeed", itemId, getRandom(RATE + 1, 2 * RATE), null, true);
@@ -316,8 +302,6 @@ public class EnergySeeds extends AbstractNpcAI {
 				seedCollectEvent(caster, npc, spawn._seedId);
 			}
 		}
-		
-		return super.onSkillSee(npc, caster, skill, targets, isSummon);
 	}
 	
 	@Override

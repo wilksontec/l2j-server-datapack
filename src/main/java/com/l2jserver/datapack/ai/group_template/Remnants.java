@@ -55,7 +55,7 @@ public final class Remnants extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onSkillSee(L2Npc npc, L2PcInstance caster, Skill skill, List<L2Object> targets, boolean isSummon) {
+	public void onSkillSee(L2Npc npc, L2PcInstance caster, Skill skill, List<L2Object> targets, boolean isSummon) {
 		if (skill.getId() == SKILL_HOLY_WATER) {
 			if (!npc.isDead()) {
 				if (!targets.isEmpty() && (targets.get(0) == npc)) {
@@ -76,6 +76,5 @@ public final class Remnants extends AbstractNpcAI {
 				}
 			}
 		}
-		return super.onSkillSee(npc, caster, skill, targets, isSummon);
 	}
 }

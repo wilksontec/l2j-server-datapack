@@ -842,12 +842,11 @@ public final class CrystalCaverns extends AbstractInstance {
 		} else if (npc.getId() == CRYSTALLINE_GOLEM) {
 			player.sendPacket(ActionFailed.STATIC_PACKET);
 		}
-		return "";
+		return null;
 	}
 	
 	@Override
-	public String onSkillSee(L2Npc npc, L2PcInstance caster, Skill skill, List<L2Object> targets, boolean isSummon) {
-		
+	public void onSkillSee(L2Npc npc, L2PcInstance caster, Skill skill, List<L2Object> targets, boolean isSummon) {
 		boolean doReturn = true;
 		for (L2Object obj : targets) {
 			if (obj == npc) {
@@ -855,7 +854,7 @@ public final class CrystalCaverns extends AbstractInstance {
 			}
 		}
 		if (doReturn) {
-			return super.onSkillSee(npc, caster, skill, targets, isSummon);
+			return;
 		}
 		
 		doReturn = switch (skill.getId()) {
@@ -863,7 +862,7 @@ public final class CrystalCaverns extends AbstractInstance {
 			default -> true;
 		};
 		if (doReturn) {
-			return super.onSkillSee(npc, caster, skill, targets, isSummon);
+			return;
 		}
 		
 		if ((npc.getId() >= 32275) && (npc.getId() <= 32277) && (skill.getId() != 2360) && (skill.getId() != 2369)) {
@@ -878,7 +877,7 @@ public final class CrystalCaverns extends AbstractInstance {
 			}
 		} else if (npc.isInvul() && (npc.getId() == BAYLOR) && (skill.getId() == 2360) && (caster != null)) {
 			if (caster.getParty() == null) {
-				return super.onSkillSee(npc, caster, skill, targets, isSummon);
+				return;
 			}
 			InstanceWorld tmpworld = InstanceManager.getInstance().getWorld(npc.getInstanceId());
 			if (tmpworld instanceof CCWorld world) {
@@ -900,8 +899,10 @@ public final class CrystalCaverns extends AbstractInstance {
 			InstanceWorld tmpworld = InstanceManager.getInstance().getWorld(npc.getInstanceId());
 			if (tmpworld instanceof CCWorld world) {
 				if (caster.getParty() == null) {
-					return super.onSkillSee(npc, caster, skill, targets, isSummon);
-				} else if (((world.dragonScaleStart + DRAGONSCALETIME) <= System.currentTimeMillis()) || (world.dragonScaleNeed <= 0)) {
+					return;
+				}
+				
+				if (((world.dragonScaleStart + DRAGONSCALETIME) <= System.currentTimeMillis()) || (world.dragonScaleNeed <= 0)) {
 					world.dragonScaleStart = System.currentTimeMillis();
 					world.dragonScaleNeed = caster.getParty().getMemberCount() - 1;
 				} else {
@@ -912,7 +913,6 @@ public final class CrystalCaverns extends AbstractInstance {
 				}
 			}
 		}
-		return super.onSkillSee(npc, caster, skill, targets, isSummon);
 	}
 	
 	@Override

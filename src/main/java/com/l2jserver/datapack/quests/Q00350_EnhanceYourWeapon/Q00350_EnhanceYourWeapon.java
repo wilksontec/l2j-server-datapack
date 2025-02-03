@@ -166,18 +166,19 @@ public class Q00350_EnhanceYourWeapon extends Quest {
 	}
 	
 	@Override
-	public String onSkillSee(L2Npc npc, L2PcInstance caster, Skill skill, List<L2Object> targets, boolean isSummon) {
+	public void onSkillSee(L2Npc npc, L2PcInstance caster, Skill skill, List<L2Object> targets, boolean isSummon) {
 		if ((skill == null) || (skill.getId() != 2096)) {
-			return null;
-		} else if ((caster == null) || caster.isDead()) {
-			return null;
-		}
-		if (!npc.isAttackable() || npc.isDead() || !NPC_LEVELING_INFO.containsKey(npc.getId())) {
-			return null;
+			return;
 		}
 		
+		if ((caster == null) || caster.isDead()) {
+			return;
+		}
+		
+		if (!npc.isAttackable() || npc.isDead() || !NPC_LEVELING_INFO.containsKey(npc.getId())) {
+			return;
+		}
 		((L2Attackable) npc).addAbsorber(caster);
-		return super.onSkillSee(npc, caster, skill, targets, isSummon);
 	}
 	
 	@Override

@@ -189,7 +189,7 @@ public final class Rabbits extends Event {
 	}
 	
 	@Override
-	public String onSkillSee(L2Npc npc, L2PcInstance caster, Skill skill, List<L2Object> targets, boolean isSummon) {
+	public void onSkillSee(L2Npc npc, L2PcInstance caster, Skill skill, List<L2Object> targets, boolean isSummon) {
 		if (skill.getId() == RABBIT_TORNADO.getSkillId()) {
 			if (!npc.isInvisible() && targets.contains(npc)) {
 				dropItem(npc, caster, DROPLIST);
@@ -206,7 +206,6 @@ public final class Rabbits extends Event {
 				npc.setInvisible(false);
 			}
 		}
-		return super.onSkillSee(npc, caster, skill, targets, isSummon);
 	}
 	
 	@Override

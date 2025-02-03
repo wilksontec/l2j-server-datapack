@@ -114,11 +114,10 @@ public class Knoriks extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onSkillSee(L2Npc npc, L2PcInstance player, Skill skill, List<L2Object> targets, boolean isSummon) {
+	public void onSkillSee(L2Npc npc, L2PcInstance player, Skill skill, List<L2Object> targets, boolean isSummon) {
 		if ((getRandom(100) < 10) && (!npc.isCastingNow()) && (!npc.isInsideRadius(player, 250, false, false))) {
 			addSkillCastDesire(npc, player, DARK_WIND, 1000000L);
 		}
-		return super.onSkillSee(npc, player, skill, targets, isSummon);
 	}
 	
 	@Override

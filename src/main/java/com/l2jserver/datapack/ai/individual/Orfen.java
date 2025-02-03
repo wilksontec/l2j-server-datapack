@@ -221,7 +221,7 @@ public final class Orfen extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onSkillSee(L2Npc npc, L2PcInstance caster, Skill skill, List<L2Object> targets, boolean isSummon) {
+	public void onSkillSee(L2Npc npc, L2PcInstance caster, Skill skill, List<L2Object> targets, boolean isSummon) {
 		if (npc.getId() == ORFEN) {
 			final L2Character originalCaster = isSummon ? caster.getSummon() : caster;
 			if ((skill.getEffectPoint() > 0) && (getRandom(100) < 20) && (npc.calculateDistance(originalCaster, false, false) < 1000)) {
@@ -239,7 +239,6 @@ public final class Orfen extends AbstractNpcAI {
 				addSkillCastDesire(npc, caster, ORFEN_DISPEL, 1000000L);
 			}
 		}
-		return super.onSkillSee(npc, caster, skill, targets, isSummon);
 	}
 	
 	@Override

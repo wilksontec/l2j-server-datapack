@@ -105,9 +105,9 @@ public final class FreyaCelebration extends LongTimeEvent {
 	}
 	
 	@Override
-	public String onSkillSee(L2Npc npc, L2PcInstance caster, Skill skill, List<L2Object> targets, boolean isSummon) {
+	public void onSkillSee(L2Npc npc, L2PcInstance caster, Skill skill, List<L2Object> targets, boolean isSummon) {
 		if ((caster == null) || (npc == null)) {
-			return null;
+			return;
 		}
 		
 		if ((npc.getId() == FREYA) && targets.contains(npc) && Util.contains(SKILLS, skill.getId())) {
@@ -124,7 +124,6 @@ public final class FreyaCelebration extends LongTimeEvent {
 				}
 			}
 		}
-		return super.onSkillSee(npc, caster, skill, targets, isSummon);
 	}
 	
 	@Override

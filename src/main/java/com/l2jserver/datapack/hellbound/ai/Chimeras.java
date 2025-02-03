@@ -77,7 +77,7 @@ public final class Chimeras extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onSkillSee(L2Npc npc, L2PcInstance caster, Skill skill, List<L2Object> targets, boolean isSummon) {
+	public void onSkillSee(L2Npc npc, L2PcInstance caster, Skill skill, List<L2Object> targets, boolean isSummon) {
 		if ((skill.getId() == BOTTLE) && !npc.isDead()) {
 			if (!targets.isEmpty() && (targets.get(0) == npc)) {
 				if (npc.getCurrentHp() < (npc.getMaxHp() * 0.1)) {
@@ -99,7 +99,6 @@ public final class Chimeras extends AbstractNpcAI {
 				}
 			}
 		}
-		return super.onSkillSee(npc, caster, skill, targets, isSummon);
 	}
 	
 	private static class Teleport implements Runnable {
