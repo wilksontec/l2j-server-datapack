@@ -124,8 +124,8 @@ public class Q00609_MagicalPowerOfWaterPart1 extends Quest {
 	}
 	
 	@Override
-	public String onAttack(L2Npc npc, L2PcInstance attacker, int damage, boolean isSummon) {
-		final QuestState st = getQuestState(attacker, false);
+	public void onAttack(L2Npc npc, L2PcInstance attacker, int damage, boolean isSummon) {
+		final var st = getQuestState(attacker, false);
 		if ((st != null) && st.isCond(2) && !st.isSet("spawned")) {
 			st.set("spawned", "1");
 			npc.setTarget(attacker);
@@ -134,7 +134,6 @@ public class Q00609_MagicalPowerOfWaterPart1 extends Quest {
 			eye.broadcastPacket(new NpcSay(eye, Say2.NPC_ALL, NpcStringId.YOU_CANT_AVOID_THE_EYES_OF_UDAN));
 			startQuestTimer("eye_despawn", 10000, eye, attacker);
 		}
-		return super.onAttack(npc, attacker, damage, isSummon);
 	}
 	
 	@Override

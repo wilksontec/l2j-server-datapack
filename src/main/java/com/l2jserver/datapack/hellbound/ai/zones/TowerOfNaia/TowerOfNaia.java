@@ -503,7 +503,7 @@ public final class TowerOfNaia extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onAttack(L2Npc npc, L2PcInstance attacker, int damage, boolean isSummon, Skill skill) {
+	public void onAttack(L2Npc npc, L2PcInstance attacker, int damage, boolean isSummon, Skill skill) {
 		if ((_lock != null) && (npc.getObjectId() == _lock.getObjectId())) {
 			int remaindedHpPercent = (int) ((npc.getCurrentHp() * 100) / npc.getMaxHp());
 			
@@ -520,7 +520,6 @@ public final class TowerOfNaia extends AbstractNpcAI {
 				_counter -= 10;
 			}
 		}
-		return super.onAttack(npc, attacker, damage, isSummon, skill);
 	}
 	
 	@Override

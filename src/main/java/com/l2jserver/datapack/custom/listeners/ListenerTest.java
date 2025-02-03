@@ -18,6 +18,9 @@
  */
 package com.l2jserver.datapack.custom.listeners;
 
+import static com.l2jserver.gameserver.model.events.EventType.ATTACKABLE_ATTACK;
+import static com.l2jserver.gameserver.model.events.ListenerRegisterType.NPC;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -60,7 +63,7 @@ public class ListenerTest extends AbstractNpcAI {
 		
 		// Method preset listener registration
 		// An set function which is a Consumer it has one parameter and doesn't returns anything!
-		setAttackableAttackId(this::onAttackableAttack, ELPIES);
+		registerConsumer((AttackableAttack event) -> onAttackableAttack(event), ATTACKABLE_ATTACK, NPC, ELPIES);
 		
 		// Manual listener registration
 		Containers.Global().addListener(new ConsumerEventListener(Containers.Global(), EventType.PLAYER_DLG_ANSWER, (PlayerDlgAnswer event) -> {

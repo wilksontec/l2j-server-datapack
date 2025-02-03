@@ -81,7 +81,7 @@ public final class PolymorphingOnAttack extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onAttack(L2Npc npc, L2PcInstance attacker, int damage, boolean isSummon) {
+	public void onAttack(L2Npc npc, L2PcInstance attacker, int damage, boolean isSummon) {
 		if (npc.isVisible() && !npc.isDead()) {
 			final List<Integer> tmp = MOBSPAWNS.get(npc.getId());
 			if (tmp != null) {
@@ -100,6 +100,5 @@ public final class PolymorphingOnAttack extends AbstractNpcAI {
 				}
 			}
 		}
-		return super.onAttack(npc, attacker, damage, isSummon);
 	}
 }

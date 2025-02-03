@@ -61,7 +61,7 @@ public final class DemonPrince extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onAttack(L2Npc npc, L2PcInstance attacker, int damage, boolean isSummon, Skill skill) {
+	public void onAttack(L2Npc npc, L2PcInstance attacker, int damage, boolean isSummon, Skill skill) {
 		if (!npc.isDead()) {
 			if (!ATTACK_STATE.containsKey(npc.getObjectId()) && (npc.getCurrentHp() < (npc.getMaxHp() * 0.5))) {
 				npc.doCast(UD);
@@ -77,7 +77,6 @@ public final class DemonPrince extends AbstractNpcAI {
 				spawnMinions(npc);
 			}
 		}
-		return super.onAttack(npc, attacker, damage, isSummon, skill);
 	}
 	
 	@Override

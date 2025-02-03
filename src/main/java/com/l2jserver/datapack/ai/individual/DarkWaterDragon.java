@@ -124,7 +124,7 @@ public final class DarkWaterDragon extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onAttack(L2Npc npc, L2PcInstance attacker, int damage, boolean isSummon) {
+	public void onAttack(L2Npc npc, L2PcInstance attacker, int damage, boolean isSummon) {
 		int npcId = npc.getId();
 		int npcObjId = npc.getObjectId();
 		if (npcId == DRAGON) {
@@ -147,7 +147,6 @@ public final class DarkWaterDragon extends AbstractNpcAI {
 				spawnShade(originalAttacker, SHADE2, npc.getX() - 150, npc.getY() + 150, npc.getZ());
 			}
 		}
-		return super.onAttack(npc, attacker, damage, isSummon);
 	}
 	
 	@Override

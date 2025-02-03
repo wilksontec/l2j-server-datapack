@@ -260,7 +260,7 @@ public final class Venom extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onAttack(L2Npc npc, L2PcInstance attacker, int damage, boolean isSummon) {
+	public void onAttack(L2Npc npc, L2PcInstance attacker, int damage, boolean isSummon) {
 		final double distance = npc.calculateDistance(attacker, false, false);
 		if (_aggroMode && (getRandom(100) < 25)) {
 			npc.setTarget(attacker);
@@ -275,7 +275,6 @@ public final class Venom extends AbstractNpcAI {
 			npc.setTarget(attacker);
 			npc.doCast(SONIC_STORM);
 		}
-		return super.onAttack(npc, attacker, damage, isSummon);
 	}
 	
 	@Override

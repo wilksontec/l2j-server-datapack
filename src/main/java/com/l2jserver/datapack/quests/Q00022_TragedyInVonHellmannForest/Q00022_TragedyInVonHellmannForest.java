@@ -277,9 +277,8 @@ public final class Q00022_TragedyInVonHellmannForest extends Quest {
 	}
 	
 	@Override
-	public String onAttack(L2Npc npc, L2PcInstance attacker, int damage, boolean isSummon) {
-		final QuestState qs = getQuestState(attacker, false);
-		
+	public void onAttack(L2Npc npc, L2PcInstance attacker, int damage, boolean isSummon) {
+		final var qs = getQuestState(attacker, false);
 		if ((qs != null) && qs.isCond(10) && hasQuestItems(attacker, JEWEL_OF_ADVENTURER_1)) {
 			if (qs.isMemoState(10)) {
 				qs.setMemoState(11);
@@ -289,7 +288,6 @@ public final class Q00022_TragedyInVonHellmannForest extends Quest {
 				qs.setCond(11, true);
 			}
 		}
-		return super.onAttack(npc, attacker, damage, isSummon);
 	}
 	
 	@Override

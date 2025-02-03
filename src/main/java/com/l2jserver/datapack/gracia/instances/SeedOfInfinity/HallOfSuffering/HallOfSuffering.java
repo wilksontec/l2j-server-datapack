@@ -387,7 +387,7 @@ public final class HallOfSuffering extends AbstractInstance {
 			if (event.equalsIgnoreCase("spawnBossGuards")) {
 				if (!world.klanikus.isInCombat() && !world.klodekus.isInCombat()) {
 					world.isBossesAttacked = false;
-					return "";
+					return null;
 				}
 				L2Npc mob = addSpawn(TWIN_MOBIDS[getRandom(TWIN_MOBIDS.length)], KLODEKUS_SPAWN, false, 0, false, npc.getInstanceId());
 				((L2Attackable) mob).addDamageHate(((L2Attackable) npc).getMostHated(), 0, 1);
@@ -423,11 +423,11 @@ public final class HallOfSuffering extends AbstractInstance {
 				npc.setIsInvul(false);
 			}
 		}
-		return "";
+		return null;
 	}
 	
 	@Override
-	public String onAttack(L2Npc npc, L2PcInstance attacker, int damage, boolean isSummon, Skill skill) {
+	public void onAttack(L2Npc npc, L2PcInstance attacker, int damage, boolean isSummon, Skill skill) {
 		final InstanceWorld tmpworld = InstanceManager.getInstance().getWorld(npc.getInstanceId());
 		if (tmpworld instanceof HSWorld world) {
 			if (!world.isBossesAttacked) {
@@ -449,7 +449,6 @@ public final class HallOfSuffering extends AbstractInstance {
 				}
 			}
 		}
-		return null;
 	}
 	
 	@Override

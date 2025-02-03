@@ -285,7 +285,7 @@ public class Q00348_AnArrogantSearch extends Quest {
 	}
 	
 	@Override
-	public String onAttack(L2Npc npc, L2PcInstance attacker, int damage, boolean isSummon) {
+	public void onAttack(L2Npc npc, L2PcInstance attacker, int damage, boolean isSummon) {
 		switch (npc.getId()) {
 			case ARK_GUARDIAN_ELBEROTH: {
 				if (!npc.getVariables().getBoolean(I_QUEST0, false)) {
@@ -382,7 +382,6 @@ public class Q00348_AnArrogantSearch extends Quest {
 				break;
 			}
 		}
-		return super.onAttack(npc, attacker, damage, isSummon);
 	}
 	
 	@Override

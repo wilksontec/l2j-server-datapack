@@ -209,11 +209,10 @@ public final class Rabbits extends Event {
 	}
 	
 	@Override
-	public String onAttack(L2Npc npc, L2PcInstance attacker, int damage, boolean isSummon, Skill skill) {
+	public void onAttack(L2Npc npc, L2PcInstance attacker, int damage, boolean isSummon, Skill skill) {
 		if (_isActive && ((skill == null) || (skill.getId() != RABBIT_TORNADO.getSkillId()))) {
 			RAID_CURSE.getSkill().applyEffects(npc, attacker);
 		}
-		return super.onAttack(npc, attacker, damage, isSummon);
 	}
 	
 	private static void dropItem(L2Npc npc, L2PcInstance player, int[][] droplist) {

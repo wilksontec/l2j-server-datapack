@@ -101,9 +101,9 @@ public final class FortressOfResistance extends ClanHallSiegeEngine {
 	}
 	
 	@Override
-	public String onAttack(L2Npc npc, L2PcInstance player, int damage, boolean isSummon) {
+	public void onAttack(L2Npc npc, L2PcInstance player, int damage, boolean isSummon) {
 		if (!_hall.isInSiege()) {
-			return null;
+			return;
 		}
 		
 		int clanId = player.getClanId();
@@ -112,7 +112,6 @@ public final class FortressOfResistance extends ClanHallSiegeEngine {
 			_damageToNurka.put(clanId, clanDmg);
 			
 		}
-		return null;
 	}
 	
 	@Override

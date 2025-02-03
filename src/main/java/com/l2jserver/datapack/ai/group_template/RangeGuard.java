@@ -89,7 +89,7 @@ public final class RangeGuard extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onAttack(L2Npc npc, L2PcInstance attacker, int damage, boolean isSummon, Skill skill) {
+	public void onAttack(L2Npc npc, L2PcInstance attacker, int damage, boolean isSummon, Skill skill) {
 		final L2Playable playable = (isSummon) ? attacker.getSummon() : attacker;
 		final int longRangeGuardRate = npc.getTemplate().getParameters().getInt("LongRangeGuardRate");
 		final double distance = Util.calculateDistance(npc, playable, true, false);
@@ -102,6 +102,5 @@ public final class RangeGuard extends AbstractNpcAI {
 			npc.doCast(ULTIMATE_DEFENSE);
 			npc.setTarget(target);
 		}
-		return super.onAttack(npc, attacker, damage, isSummon, skill);
 	}
 }

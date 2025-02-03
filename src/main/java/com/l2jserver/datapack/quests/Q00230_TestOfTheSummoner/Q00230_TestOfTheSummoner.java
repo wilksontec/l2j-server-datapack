@@ -428,7 +428,7 @@ public final class Q00230_TestOfTheSummoner extends Quest {
 	}
 	
 	@Override
-	public String onAttack(L2Npc npc, L2PcInstance attacker, int damage, boolean isSummon) {
+	public void onAttack(L2Npc npc, L2PcInstance attacker, int damage, boolean isSummon) {
 		switch (npc.getId()) {
 			case PAKO_THE_CAT: {
 				switch (npc.getScriptValue()) {
@@ -642,7 +642,6 @@ public final class Q00230_TestOfTheSummoner extends Quest {
 				}
 			}
 		}
-		return super.onAttack(npc, attacker, damage, isSummon);
 	}
 	
 	@Override

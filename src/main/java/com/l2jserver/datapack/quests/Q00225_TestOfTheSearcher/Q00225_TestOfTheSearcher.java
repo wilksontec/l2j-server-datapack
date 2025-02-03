@@ -183,15 +183,14 @@ public final class Q00225_TestOfTheSearcher extends Quest {
 	}
 	
 	@Override
-	public String onAttack(L2Npc npc, L2PcInstance attacker, int damage, boolean isSummon) {
-		final QuestState qs = getQuestState(attacker, false);
+	public void onAttack(L2Npc npc, L2PcInstance attacker, int damage, boolean isSummon) {
+		final var qs = getQuestState(attacker, false);
 		if ((qs != null) && qs.isStarted()) {
 			if (npc.isScriptValue(0) && hasQuestItems(attacker, LEIRYNNS_1ST_ORDER)) {
 				npc.setScriptValue(1);
 				addAttackDesire(addSpawn(NEER_BODYGUARD, npc, true, 200000), attacker);
 			}
 		}
-		return super.onAttack(npc, attacker, damage, isSummon);
 	}
 	
 	@Override

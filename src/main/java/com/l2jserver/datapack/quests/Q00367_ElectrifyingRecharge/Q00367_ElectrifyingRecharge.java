@@ -84,14 +84,14 @@ public final class Q00367_ElectrifyingRecharge extends Quest {
 	}
 	
 	@Override
-	public String onAttack(L2Npc npc, L2PcInstance attacker, int damage, boolean isSummon) {
+	public void onAttack(L2Npc npc, L2PcInstance attacker, int damage, boolean isSummon) {
 		if (npc.isScriptValue(367)) {
-			return super.onAttack(npc, attacker, damage, isSummon);
+			return;
 		}
 		
 		QuestState qs = getQuestState(attacker, false);
 		if ((qs == null) || !qs.isStarted()) {
-			return super.onAttack(npc, attacker, damage, isSummon);
+			return;
 		}
 		
 		npc.setScriptValue(367);
@@ -106,7 +106,7 @@ public final class Q00367_ElectrifyingRecharge extends Quest {
 		
 		final L2PcInstance luckyPlayer = getRandomPartyMember(attacker, npc);
 		if (luckyPlayer == null) {
-			return super.onAttack(npc, attacker, damage, isSummon);
+			return;
 		}
 		qs = getQuestState(luckyPlayer, false);
 		
@@ -136,7 +136,6 @@ public final class Q00367_ElectrifyingRecharge extends Quest {
 				playSound(luckyPlayer, Sound.ITEMSOUND_QUEST_ITEMGET);
 			}
 		}
-		return super.onAttack(npc, attacker, damage, isSummon);
 	}
 	
 	@Override

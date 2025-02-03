@@ -109,7 +109,7 @@ public final class PailakaSongOfIceAndFire extends AbstractInstance {
 	}
 	
 	@Override
-	public String onAttack(L2Npc npc, L2PcInstance player, int damage, boolean isSummon) {
+	public void onAttack(L2Npc npc, L2PcInstance player, int damage, boolean isSummon) {
 		if ((damage > 0) && npc.isScriptValue(0)) {
 			switch (getRandom(6)) {
 				case 0: {
@@ -138,7 +138,6 @@ public final class PailakaSongOfIceAndFire extends AbstractInstance {
 			npc.setScriptValue(1);
 			startQuestTimer("DELETE", 3000, npc, null);
 		}
-		return super.onAttack(npc, player, damage, isSummon);
 	}
 	
 	@Override

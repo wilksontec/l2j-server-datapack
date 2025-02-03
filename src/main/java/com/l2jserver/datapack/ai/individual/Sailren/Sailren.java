@@ -216,11 +216,10 @@ public final class Sailren extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onAttack(L2Npc npc, L2PcInstance attacker, int damage, boolean isSummon) {
+	public void onAttack(L2Npc npc, L2PcInstance attacker, int damage, boolean isSummon) {
 		if (zone.isCharacterInZone(attacker)) {
 			_lastAttack = System.currentTimeMillis();
 		}
-		return super.onAttack(npc, attacker, damage, isSummon);
 	}
 	
 	@Override

@@ -131,7 +131,7 @@ public final class Q00409_PathOfTheElvenOracle extends Quest {
 	}
 	
 	@Override
-	public String onAttack(L2Npc npc, L2PcInstance attacker, int damage, boolean isSummon) {
+	public void onAttack(L2Npc npc, L2PcInstance attacker, int damage, boolean isSummon) {
 		if (getQuestState(attacker, false) != null) {
 			switch (npc.getScriptValue()) {
 				case 0: {
@@ -166,7 +166,6 @@ public final class Q00409_PathOfTheElvenOracle extends Quest {
 				}
 			}
 		}
-		return super.onAttack(npc, attacker, damage, isSummon);
 	}
 	
 	@Override

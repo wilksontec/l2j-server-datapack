@@ -439,7 +439,7 @@ public abstract class Chamber extends AbstractInstance {
 	}
 	
 	@Override
-	public String onAttack(final L2Npc npc, final L2PcInstance attacker, final int damage, final boolean isPet, final Skill skill) {
+	public void onAttack(final L2Npc npc, final L2PcInstance attacker, final int damage, final boolean isPet, final Skill skill) {
 		if (!npc.isBusy() && (npc.getCurrentHp() < (npc.getMaxHp() / 10))) {
 			npc.setBusy(true);
 			if (getRandom(100) < (25 * rates().getQuestDropChanceMultiplier())) // 25% chance to reward
@@ -463,8 +463,6 @@ public abstract class Chamber extends AbstractInstance {
 				npc.broadcastScriptEvent("SCE_DREAM_FIRE_IN_THE_HOLE", 2000);
 			}
 		}
-		
-		return super.onAttack(npc, attacker, damage, isPet, skill);
 	}
 	
 	@Override

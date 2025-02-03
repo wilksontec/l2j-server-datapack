@@ -657,7 +657,7 @@ public final class IceQueensCastleNormalBattle extends AbstractInstance {
 	}
 	
 	@Override
-	public String onAttack(L2Npc npc, L2PcInstance attacker, int damage, boolean isSummon, Skill skill) {
+	public void onAttack(L2Npc npc, L2PcInstance attacker, int damage, boolean isSummon, Skill skill) {
 		final InstanceWorld tmpworld = InstanceManager.getInstance().getWorld(npc.getInstanceId());
 		
 		if (tmpworld instanceof IQCNBWorld world) {
@@ -870,7 +870,6 @@ public final class IceQueensCastleNormalBattle extends AbstractInstance {
 				}
 			}
 		}
-		return super.onAttack(npc, attacker, damage, isSummon, skill);
 	}
 	
 	@Override

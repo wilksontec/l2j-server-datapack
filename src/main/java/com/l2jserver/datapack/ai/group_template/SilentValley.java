@@ -88,7 +88,7 @@ public final class SilentValley extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onAttack(L2Npc npc, L2PcInstance player, int damage, boolean isSummon) {
+	public void onAttack(L2Npc npc, L2PcInstance player, int damage, boolean isSummon) {
 		switch (npc.getId()) {
 			case CHEST: {
 				if (!isSummon && npc.isScriptValue(0)) {
@@ -117,7 +117,6 @@ public final class SilentValley extends AbstractNpcAI {
 				}
 			}
 		}
-		return super.onAttack(npc, player, damage, isSummon);
 	}
 	
 	@Override

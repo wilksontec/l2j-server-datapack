@@ -915,7 +915,7 @@ public final class CrystalCaverns extends AbstractInstance {
 	}
 	
 	@Override
-	public String onAttack(L2Npc npc, L2PcInstance attacker, int damage, boolean isSummon, Skill skill) {
+	public void onAttack(L2Npc npc, L2PcInstance attacker, int damage, boolean isSummon, Skill skill) {
 		if (npc.getId() == TEARS) {
 			InstanceWorld tmpworld = InstanceManager.getInstance().getWorld(npc.getInstanceId());
 			if (tmpworld instanceof CCWorld world) {
@@ -924,15 +924,17 @@ public final class CrystalCaverns extends AbstractInstance {
 					teleportPlayer(attacker, new Location(149361, 172327, -945), 0);
 					world.removeAllowed(attacker.getObjectId());
 				} else if (world.tears != npc) {
-					return "";
-				} else if (!world.copys.isEmpty()) {
+					return;
+				}
+				
+				if (!world.copys.isEmpty()) {
 					if ((skill == null) || !skill.isAOE()) {
 						for (L2Npc copy : world.copys) {
 							copy.onDecay();
 						}
 						world.copys.clear();
 					}
-					return "";
+					return;
 				}
 				
 				int maxHp = npc.getMaxHp();
@@ -965,7 +967,6 @@ public final class CrystalCaverns extends AbstractInstance {
 				}
 			}
 		}
-		return null;
 	}
 	
 	@Override

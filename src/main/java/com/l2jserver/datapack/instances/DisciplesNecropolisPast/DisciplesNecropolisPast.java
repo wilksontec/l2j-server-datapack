@@ -289,7 +289,7 @@ public final class DisciplesNecropolisPast extends AbstractInstance {
 	}
 	
 	@Override
-	public String onAttack(L2Npc npc, L2PcInstance player, int damage, boolean isSummon) {
+	public void onAttack(L2Npc npc, L2PcInstance player, int damage, boolean isSummon) {
 		InstanceWorld tmpworld = InstanceManager.getInstance().getPlayerWorld(player);
 		if (tmpworld instanceof DNPWorld) {
 			if (npc.isScriptValue(0)) {
@@ -305,7 +305,6 @@ public final class DisciplesNecropolisPast extends AbstractInstance {
 				npc.doCast(SEAL_ISOLATION);
 			}
 		}
-		return super.onAttack(npc, player, damage, isSummon);
 	}
 	
 	@Override

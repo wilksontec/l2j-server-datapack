@@ -491,7 +491,7 @@ public final class NornilsGarden extends AbstractInstance {
 	}
 	
 	@Override
-	public String onAttack(L2Npc npc, L2PcInstance attacker, int damage, boolean isSummon) {
+	public void onAttack(L2Npc npc, L2PcInstance attacker, int damage, boolean isSummon) {
 		if ((npc.getId() == _herb_jar) && !npc.isDead()) {
 			dropHerb(npc, attacker, HP_HERBS_DROPLIST);
 			dropHerb(npc, attacker, MP_HERBS_DROPLIST);
@@ -499,7 +499,6 @@ public final class NornilsGarden extends AbstractInstance {
 		} else if ((npc.getId() == 18362) && (npc.getInstanceId() > 0)) {
 			spawn1(npc);
 		}
-		return null;
 	}
 	
 	@Override

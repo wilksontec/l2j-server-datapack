@@ -636,7 +636,7 @@ public final class Stage1 extends AbstractInstance {
 	}
 	
 	@Override
-	public String onAttack(L2Npc npc, L2PcInstance attacker, int damage, boolean isSummon, Skill skill) {
+	public void onAttack(L2Npc npc, L2PcInstance attacker, int damage, boolean isSummon, Skill skill) {
 		InstanceWorld tmpworld = InstanceManager.getInstance().getWorld(npc.getInstanceId());
 		if (tmpworld instanceof SOD1World world) {
 			if ((world.getStatus() == 2) && (npc.getId() == OBELISK)) {
@@ -653,7 +653,6 @@ public final class Stage1 extends AbstractInstance {
 				}
 			}
 		}
-		return null;
 	}
 	
 	@Override

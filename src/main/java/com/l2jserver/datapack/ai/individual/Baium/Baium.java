@@ -388,7 +388,7 @@ public final class Baium extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onAttack(L2Npc npc, L2PcInstance attacker, int damage, boolean isSummon, Skill skill) {
+	public void onAttack(L2Npc npc, L2PcInstance attacker, int damage, boolean isSummon, Skill skill) {
 		_lastAttack = System.currentTimeMillis();
 		
 		if (npc.getId() == BAIUM) {
@@ -430,7 +430,6 @@ public final class Baium extends AbstractNpcAI {
 				npc.doCast(ANGEL_HEAL);
 			}
 		}
-		return super.onAttack(npc, attacker, damage, isSummon, skill);
 	}
 	
 	@Override

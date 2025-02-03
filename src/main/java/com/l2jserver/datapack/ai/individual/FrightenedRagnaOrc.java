@@ -50,7 +50,7 @@ public final class FrightenedRagnaOrc extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onAttack(L2Npc npc, L2PcInstance attacker, int damage, boolean isSummon) {
+	public void onAttack(L2Npc npc, L2PcInstance attacker, int damage, boolean isSummon) {
 		if (npc.isScriptValue(0)) {
 			npc.setScriptValue(1);
 			startQuestTimer("say", (getRandom(5) + 3) * 1000, npc, null, true);
@@ -59,7 +59,6 @@ public final class FrightenedRagnaOrc extends AbstractNpcAI {
 			broadcastNpcSay(npc, Say2.NPC_ALL, NpcStringId.WAIT_WAIT_STOP_SAVE_ME_AND_ILL_GIVE_YOU_10000000_ADENA);
 			npc.setScriptValue(2);
 		}
-		return super.onAttack(npc, attacker, damage, isSummon);
 	}
 	
 	@Override

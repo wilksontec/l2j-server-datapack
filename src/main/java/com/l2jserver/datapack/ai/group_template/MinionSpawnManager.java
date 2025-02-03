@@ -422,7 +422,7 @@ public final class MinionSpawnManager extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onAttack(L2Npc npc, L2PcInstance attacker, int damage, boolean isSummon) {
+	public void onAttack(L2Npc npc, L2PcInstance attacker, int damage, boolean isSummon) {
 		if (npc.isMonster()) {
 			final L2MonsterInstance monster = (L2MonsterInstance) npc;
 			if (!monster.isTeleporting()) {
@@ -435,6 +435,5 @@ public final class MinionSpawnManager extends AbstractNpcAI {
 				}
 			}
 		}
-		return super.onAttack(npc, attacker, damage, isSummon);
 	}
 }

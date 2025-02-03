@@ -68,9 +68,9 @@ public final class FortressOfTheDead extends ClanHallSiegeEngine {
 	}
 	
 	@Override
-	public String onAttack(L2Npc npc, L2PcInstance attacker, int damage, boolean isSummon) {
+	public void onAttack(L2Npc npc, L2PcInstance attacker, int damage, boolean isSummon) {
 		if (!_hall.isInSiege()) {
-			return null;
+			return;
 		}
 		
 		synchronized (this) {
@@ -87,7 +87,6 @@ public final class FortressOfTheDead extends ClanHallSiegeEngine {
 				}
 			}
 		}
-		return null;
 	}
 	
 	@Override

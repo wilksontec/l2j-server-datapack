@@ -174,7 +174,7 @@ public final class SelMahumSquad extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onAttack(L2Npc npc, L2PcInstance attacker, int damage, boolean isSummon, Skill skill) {
+	public void onAttack(L2Npc npc, L2PcInstance attacker, int damage, boolean isSummon, Skill skill) {
 		if ((npc.getId() == CHEF) && (npc.getVariables().getInt("BUSY_STATE") == 0)) {
 			if (npc.getVariables().getInt("INVUL_REMOVE_TIMER_STARTED") == 0) {
 				startQuestTimer("chef_remove_invul", 180000, npc, attacker);
@@ -187,7 +187,6 @@ public final class SelMahumSquad extends AbstractNpcAI {
 		} else if (Util.contains(SQUAD_LEADERS, npc.getId())) {
 			handlePreAttackMotion(npc);
 		}
-		return super.onAttack(npc, attacker, damage, isSummon, skill);
 	}
 	
 	@Override

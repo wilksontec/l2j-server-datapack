@@ -47,10 +47,10 @@ public final class SummonPc extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onAttack(L2Npc npc, L2PcInstance attacker, int damage, boolean isSummon) {
+	public void onAttack(L2Npc npc, L2PcInstance attacker, int damage, boolean isSummon) {
 		final boolean attacked = npc.getVariables().getBoolean("attacked", false);
 		if (attacked) {
-			return super.onAttack(npc, attacker, damage, isSummon);
+			return;
 		}
 		
 		final int chance = getRandom(100);
@@ -67,7 +67,6 @@ public final class SummonPc extends AbstractNpcAI {
 				}
 			}
 		}
-		return super.onAttack(npc, attacker, damage, isSummon);
 	}
 	
 	@Override

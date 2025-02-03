@@ -386,7 +386,7 @@ public abstract class AbstractSagaQuest extends Quest {
 	}
 	
 	@Override
-	public String onAttack(L2Npc npc, L2PcInstance player, int damage, boolean isSummon) {
+	public void onAttack(L2Npc npc, L2PcInstance player, int damage, boolean isSummon) {
 		QuestState st2 = findRightState(npc);
 		if (st2 != null) {
 			int cond = st2.getCond();
@@ -416,7 +416,6 @@ public abstract class AbstractSagaQuest extends Quest {
 				}
 			}
 		}
-		return super.onAttack(npc, player, damage, isSummon);
 	}
 	
 	@Override

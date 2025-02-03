@@ -89,7 +89,7 @@ public class Knoriks extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onAttack(L2Npc npc, L2PcInstance attacker, int damage, boolean isSummon) {
+	public void onAttack(L2Npc npc, L2PcInstance attacker, int damage, boolean isSummon) {
 		final L2Character mostHated = ((L2Attackable) npc).getMostHated();
 		if ((mostHated != null) && (npc.isInsideRadius(attacker, 250, false, false))) {
 			if ((getRandom(100) < 10) && (!npc.isCastingNow())) {
@@ -109,7 +109,6 @@ public class Knoriks extends AbstractNpcAI {
 			npc.disableCoreAI(true);
 			npc.teleToLocation(npc.getSpawn().getLocation());
 		}
-		return super.onAttack(npc, attacker, damage, isSummon);
 	}
 	
 	@Override

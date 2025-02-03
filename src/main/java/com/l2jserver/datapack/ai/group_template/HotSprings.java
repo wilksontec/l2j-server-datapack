@@ -52,7 +52,7 @@ public final class HotSprings extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onAttack(L2Npc npc, L2PcInstance attacker, int damage, boolean isSummon) {
+	public void onAttack(L2Npc npc, L2PcInstance attacker, int damage, boolean isSummon) {
 		if (getRandom(100) < DISEASE_CHANCE) {
 			tryToInfect(npc, attacker, MALARIA);
 		}
@@ -76,7 +76,6 @@ public final class HotSprings extends AbstractNpcAI {
 				}
 			}
 		}
-		return super.onAttack(npc, attacker, damage, isSummon);
 	}
 	
 	private void tryToInfect(L2Npc npc, L2Character player, int diseaseId) {

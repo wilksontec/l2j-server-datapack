@@ -110,7 +110,7 @@ public final class PlainsOfLizardman extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onAttack(L2Npc npc, L2PcInstance attacker, int damage, boolean isSummon) {
+	public void onAttack(L2Npc npc, L2PcInstance attacker, int damage, boolean isSummon) {
 		switch (npc.getId()) {
 			case TANTA_SUMMONER:
 				if ((npc.getCurrentHp() < (npc.getMaxHp() * HP_PERCENTAGE)) && npc.isScriptValue(0)) {
@@ -146,7 +146,6 @@ public final class PlainsOfLizardman extends AbstractNpcAI {
 				}
 				break;
 		}
-		return super.onAttack(npc, attacker, damage, isSummon);
 	}
 	
 	@Override

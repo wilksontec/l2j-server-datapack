@@ -299,7 +299,7 @@ public final class Q00421_LittleWingsBigAdventure extends Quest {
 	}
 	
 	@Override
-	public String onAttack(L2Npc npc, L2PcInstance attacker, int damage, boolean isSummon) {
+	public void onAttack(L2Npc npc, L2PcInstance attacker, int damage, boolean isSummon) {
 		final QuestState qs = getQuestState(attacker, false);
 		if ((qs != null) && qs.isCond(2)) {
 			if (isSummon) {
@@ -349,8 +349,6 @@ public final class Q00421_LittleWingsBigAdventure extends Quest {
 			npc.setTarget(attacker);
 			npc.doCast(VICIOUS_POISON);
 		}
-		
-		return super.onAttack(npc, attacker, damage, isSummon);
 	}
 	
 	@Override

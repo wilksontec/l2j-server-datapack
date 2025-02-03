@@ -57,7 +57,7 @@ public final class FleeMonsters extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onAttack(L2Npc npc, L2PcInstance attacker, int damage, boolean isSummon) {
+	public void onAttack(L2Npc npc, L2PcInstance attacker, int damage, boolean isSummon) {
 		npc.disableCoreAI(true);
 		npc.setRunning();
 		
@@ -70,6 +70,5 @@ public final class FleeMonsters extends AbstractNpcAI {
 		
 		final Location destination = GeoData.getInstance().moveCheck(npc.getX(), npc.getY(), npc.getZ(), posX, posY, posZ, attacker.getInstanceId());
 		npc.getAI().setIntention(CtrlIntention.AI_INTENTION_MOVE_TO, destination);
-		return super.onAttack(npc, attacker, damage, isSummon);
 	}
 }

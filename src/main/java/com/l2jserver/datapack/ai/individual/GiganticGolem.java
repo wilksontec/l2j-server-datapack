@@ -200,7 +200,7 @@ public class GiganticGolem extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onAttack(L2Npc npc, L2PcInstance attacker, int damage, boolean isSummon) {
+	public void onAttack(L2Npc npc, L2PcInstance attacker, int damage, boolean isSummon) {
 		if (npc.getId() == GIGANTIC_BOOM_GOLEM) {
 			npc.doCast(GOLEM_BOOM);
 		} else {
@@ -238,7 +238,6 @@ public class GiganticGolem extends AbstractNpcAI {
 				npc.teleToLocation(npc.getSpawn().getLocation());
 			}
 		}
-		return super.onAttack(npc, attacker, damage, isSummon);
 	}
 	
 	@Override

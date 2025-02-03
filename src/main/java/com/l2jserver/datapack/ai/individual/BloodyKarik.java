@@ -72,7 +72,7 @@ public class BloodyKarik extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onAttack(L2Npc npc, L2PcInstance attacker, int damage, boolean isSummon) {
+	public void onAttack(L2Npc npc, L2PcInstance attacker, int damage, boolean isSummon) {
 		switch (npc.getId()) {
 			case BLOODY_KARIK: {
 				final double DistSpawn = npc.calculateDistance(npc.getSpawn().getLocation(), false, false);
@@ -100,7 +100,6 @@ public class BloodyKarik extends AbstractNpcAI {
 				break;
 			}
 		}
-		return super.onAttack(npc, attacker, damage, isSummon);
 	}
 	
 	@Override

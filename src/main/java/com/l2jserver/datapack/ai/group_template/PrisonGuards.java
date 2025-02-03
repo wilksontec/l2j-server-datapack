@@ -69,7 +69,7 @@ public final class PrisonGuards extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onAttack(L2Npc npc, L2PcInstance player, int damage, boolean isSummon) {
+	public void onAttack(L2Npc npc, L2PcInstance player, int damage, boolean isSummon) {
 		if (npc.getId() == GUARD_HEAD) {
 			if (player.isAffectedBySkill(TIMER)) {
 				if ((getRandom(100) < 10) && (npc.calculateDistance(player, true, false) < 100)) {
@@ -91,7 +91,6 @@ public final class PrisonGuards extends AbstractNpcAI {
 				broadcastNpcSay(npc, Say2.ALL, NpcStringId.YOURE_OUT_OF_YOUR_MIND_COMING_HERE);
 			}
 		}
-		return super.onAttack(npc, player, damage, isSummon);
 	}
 	
 	@Override

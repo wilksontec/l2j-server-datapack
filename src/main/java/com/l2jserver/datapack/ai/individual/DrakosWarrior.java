@@ -41,7 +41,7 @@ public class DrakosWarrior extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onAttack(L2Npc npc, L2PcInstance attacker, int damage, boolean isSummon) {
+	public void onAttack(L2Npc npc, L2PcInstance attacker, int damage, boolean isSummon) {
 		if (getRandom(100) < 1) {
 			addSkillCastDesire(npc, npc, SUMMON, 99999999900000000L);
 			final int count = 2 + getRandom(3);
@@ -49,6 +49,5 @@ public class DrakosWarrior extends AbstractNpcAI {
 				addSpawn(DRAKOS_ASSASSIN, npc.getX() + getRandom(200), npc.getY() + getRandom(200), npc.getZ(), 0, false, 0, false);
 			}
 		}
-		return super.onAttack(npc, attacker, damage, isSummon);
 	}
 }

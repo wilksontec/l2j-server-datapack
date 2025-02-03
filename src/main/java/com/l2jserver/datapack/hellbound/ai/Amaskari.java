@@ -87,7 +87,7 @@ public final class Amaskari extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onAttack(L2Npc npc, L2PcInstance attacker, int damage, boolean isSummon, Skill skill) {
+	public void onAttack(L2Npc npc, L2PcInstance attacker, int damage, boolean isSummon, Skill skill) {
 		if ((npc.getId() == AMASKARI) && (getRandom(1000) < 25)) {
 			broadcastNpcSay(npc, Say2.NPC_ALL, AMASKARI_NPCSTRING_ID[0]);
 			for (L2MonsterInstance minion : ((L2MonsterInstance) npc).getMinionList().getSpawnedMinions()) {
@@ -97,7 +97,6 @@ public final class Amaskari extends AbstractNpcAI {
 				}
 			}
 		}
-		return super.onAttack(npc, attacker, damage, isSummon, skill);
 	}
 	
 	@Override

@@ -64,13 +64,12 @@ public final class GiantsCave extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onAttack(L2Npc npc, L2PcInstance attacker, int damage, boolean isSummon) {
+	public void onAttack(L2Npc npc, L2PcInstance attacker, int damage, boolean isSummon) {
 		if (npc.isScriptValue(0)) {
 			npc.setScriptValue(1);
 			startQuestTimer("ATTACK", 6000, npc, attacker);
 			startQuestTimer("CLEAR", 120000, npc, null);
 		}
-		return super.onAttack(npc, attacker, damage, isSummon);
 	}
 	
 	@Override

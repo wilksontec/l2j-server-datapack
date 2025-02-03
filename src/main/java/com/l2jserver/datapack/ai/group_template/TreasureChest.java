@@ -858,7 +858,7 @@ public final class TreasureChest extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onAttack(L2Npc npc, L2PcInstance attacker, int damage, boolean isSummon, Skill skill) {
+	public void onAttack(L2Npc npc, L2PcInstance attacker, int damage, boolean isSummon, Skill skill) {
 		if (attacker.getLevel() < PLAYER_LEVEL_THRESHOLD) {
 			npc.getVariables().set("MAX_LEVEL_DIFFERENCE", 6);
 		} else {
@@ -896,6 +896,5 @@ public final class TreasureChest extends AbstractNpcAI {
 				}
 			}
 		}
-		return super.onAttack(npc, attacker, damage, isSummon);
 	}
 }

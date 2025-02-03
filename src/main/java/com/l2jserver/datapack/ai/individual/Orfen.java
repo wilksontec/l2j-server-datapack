@@ -166,7 +166,7 @@ public final class Orfen extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onAttack(L2Npc npc, L2PcInstance attacker, int damage, boolean isSummon) {
+	public void onAttack(L2Npc npc, L2PcInstance attacker, int damage, boolean isSummon) {
 		if ((npc != null) && (!npc.isCastingNow()) && (!npc.isCoreAIDisabled())) {
 			switch (npc.getId()) {
 				case ORFEN: {
@@ -217,7 +217,6 @@ public final class Orfen extends AbstractNpcAI {
 				}
 			}
 		}
-		return super.onAttack(npc, attacker, damage, isSummon);
 	}
 	
 	@Override

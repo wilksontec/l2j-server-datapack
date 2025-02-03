@@ -364,13 +364,12 @@ public class Defence extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onAttack(L2Npc npc, L2PcInstance attacker, int damage, boolean isSummon) {
+	public void onAttack(L2Npc npc, L2PcInstance attacker, int damage, boolean isSummon) {
 		if (npc == tiatRet) {
 			if (getQuestTimer("tiat_cast_thunder_storm", npc, null) == null) {
 				startQuestTimer("tiat_cast_thunder_storm", (getRandom(60) + 60) * 1000, npc, null);
 			}
 		}
-		return super.onAttack(npc, attacker, damage, isSummon);
 	}
 	
 	public void initCycle(int cycleToStart) {

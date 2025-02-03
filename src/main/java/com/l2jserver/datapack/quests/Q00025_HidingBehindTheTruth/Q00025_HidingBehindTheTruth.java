@@ -357,7 +357,7 @@ public class Q00025_HidingBehindTheTruth extends Quest {
 	}
 	
 	@Override
-	public String onAttack(L2Npc npc, L2PcInstance attacker, int damage, boolean isSummon) {
+	public void onAttack(L2Npc npc, L2PcInstance attacker, int damage, boolean isSummon) {
 		if (npc.getCurrentHp() <= (0.30 * npc.getMaxHp())) {
 			final QuestState qs = getQuestState(attacker, false);
 			if (qs.isMemoState(8) && !hasQuestItems(attacker, TOTEM_DOLL3) && (attacker.getObjectId() == npc.getScriptValue())) {
@@ -372,7 +372,6 @@ public class Q00025_HidingBehindTheTruth extends Quest {
 				npc.deleteMe();
 			}
 		}
-		return super.onAttack(npc, attacker, damage, isSummon);
 	}
 	
 	@Override

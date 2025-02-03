@@ -51,14 +51,13 @@ public class NecromancerOfTheValley extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onAttack(L2Npc npc, L2PcInstance attacker, int damage, boolean isSummon) {
+	public void onAttack(L2Npc npc, L2PcInstance attacker, int damage, boolean isSummon) {
 		if (npc.getCurrentHp() < (npc.getMaxHp() * HP_PERCENTAGE)) {
 			if ((getRandom(100) < 10) && !npc.getVariables().getBoolean(MID_HP_FLAG, false)) {
 				npc.getVariables().set(MID_HP_FLAG, true);
 				addAttackDesire(addSpawn((getRandomBoolean() ? EXPLODING_ORC_GHOST : WRATHFUL_ORC_GHOST), npc, true), attacker);
 			}
 		}
-		return super.onAttack(npc, attacker, damage, isSummon);
 	}
 	
 	@Override

@@ -878,7 +878,7 @@ public final class DarkCloudMansion extends AbstractInstance {
 	}
 	
 	@Override
-	public String onAttack(L2Npc npc, L2PcInstance attacker, int damage, boolean isSummon, Skill skill) {
+	public void onAttack(L2Npc npc, L2PcInstance attacker, int damage, boolean isSummon, Skill skill) {
 		final InstanceWorld tmpworld = InstanceManager.getInstance().getWorld(npc.getInstanceId());
 		final DMCWorld world;
 		if (tmpworld instanceof DMCWorld) {
@@ -901,8 +901,6 @@ public final class DarkCloudMansion extends AbstractInstance {
 				checkBelethSample(world, npc, attacker);
 			}
 		}
-		
-		return super.onAttack(npc, attacker, damage, isSummon);
 	}
 	
 	@Override

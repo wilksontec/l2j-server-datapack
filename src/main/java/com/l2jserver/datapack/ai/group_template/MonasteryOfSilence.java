@@ -120,9 +120,8 @@ public final class MonasteryOfSilence extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onAttack(L2Npc npc, L2PcInstance player, int damage, boolean isSummon) {
+	public void onAttack(L2Npc npc, L2PcInstance player, int damage, boolean isSummon) {
 		final L2Attackable mob = (L2Attackable) npc;
-		
 		switch (npc.getId()) {
 			case KNIGHT: {
 				if ((getRandom(100) < 10) && (mob.getMostHated() == player) && mob.checkDoCastConditions(WARRIOR_THRUSTING.getSkill())) {
@@ -165,7 +164,6 @@ public final class MonasteryOfSilence extends AbstractNpcAI {
 				break;
 			}
 		}
-		return super.onAttack(npc, player, damage, isSummon);
 	}
 	
 	@Override

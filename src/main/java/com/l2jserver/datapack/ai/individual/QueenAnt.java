@@ -235,7 +235,7 @@ public final class QueenAnt extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onAttack(L2Npc npc, L2PcInstance attacker, int damage, boolean isSummon, Skill skill) {
+	public void onAttack(L2Npc npc, L2PcInstance attacker, int damage, boolean isSummon, Skill skill) {
 		if ((_zone.isInsideZone(npc)) && (npc != null) && (_queen != null) && (!npc.isCastingNow()) && (!npc.isCoreAIDisabled())) {
 			switch (npc.getId()) {
 				case QUEEN: {
@@ -298,7 +298,6 @@ public final class QueenAnt extends AbstractNpcAI {
 			npc.getVariables().set(ATTACK_FLAG, true);
 			startQuestTimer("CORE_MOVEMENT", 5000, npc, null);
 		}
-		return super.onAttack(npc, attacker, damage, isSummon, skill);
 	}
 	
 	@Override

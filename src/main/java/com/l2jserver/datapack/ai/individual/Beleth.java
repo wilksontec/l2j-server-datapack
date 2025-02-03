@@ -623,9 +623,9 @@ public final class Beleth extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onAttack(L2Npc npc, L2PcInstance attacker, int damage, boolean isSummon) {
+	public void onAttack(L2Npc npc, L2PcInstance attacker, int damage, boolean isSummon) {
 		if (getRandom(100) < 40) {
-			return null;
+			return;
 		}
 		
 		final double distance = npc.calculateDistance(attacker, false, false);
@@ -643,12 +643,10 @@ public final class Beleth extends AbstractNpcAI {
 		} else if (!npc.isDead() && !npc.isCastingNow()) {
 			if (!npc.getKnownList().getKnownPlayersInRadius(200).isEmpty()) {
 				npc.doCast(LIGHTENING);
-				return null;
+				return;
 			}
 			((L2Attackable) npc).clearAggroList();
 		}
-		
-		return null;
 	}
 	
 	@Override

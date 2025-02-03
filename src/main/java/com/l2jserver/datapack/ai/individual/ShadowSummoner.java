@@ -59,7 +59,7 @@ public class ShadowSummoner extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onAttack(L2Npc npc, L2PcInstance attacker, int damage, boolean isSummon) {
+	public void onAttack(L2Npc npc, L2PcInstance attacker, int damage, boolean isSummon) {
 		if (Util.calculateDistance(npc, npc.getSpawn(), false, false) > MAX_CHASE_DIST) {
 			npc.teleToLocation(npc.getSpawn().getX(), npc.getSpawn().getY(), npc.getSpawn().getZ());
 		}
@@ -70,7 +70,6 @@ public class ShadowSummoner extends AbstractNpcAI {
 			startQuestTimer(FEED_TIMER, 30000, npc, attacker);
 			startQuestTimer(LIMIT_TIMER, 600000, npc, attacker);
 		}
-		return super.onAttack(npc, attacker, damage, isSummon);
 	}
 	
 	@Override

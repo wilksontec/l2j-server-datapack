@@ -316,19 +316,19 @@ public final class Valakas extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onAttack(L2Npc npc, L2PcInstance attacker, int damage, boolean isSummon) {
+	public void onAttack(L2Npc npc, L2PcInstance attacker, int damage, boolean isSummon) {
 		if (!ZONE.isInsideZone(attacker)) {
 			attacker.doDie(attacker);
-			return null;
+			return;
 		}
 		
 		if (npc.isInvul()) {
-			return null;
+			return;
 		}
 		
 		if (GrandBossManager.getInstance().getBossStatus(VALAKAS) != FIGHTING) {
 			attacker.teleToLocation(ATTACKER_REMOVE);
-			return null;
+			return;
 		}
 		
 		// Debuff strider-mounted players.
@@ -339,8 +339,6 @@ public final class Valakas extends AbstractNpcAI {
 			}
 		}
 		_timeTracker = System.currentTimeMillis();
-		
-		return super.onAttack(npc, attacker, damage, isSummon);
 	}
 	
 	@Override

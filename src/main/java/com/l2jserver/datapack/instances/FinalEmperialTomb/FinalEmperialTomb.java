@@ -1143,7 +1143,7 @@ public final class FinalEmperialTomb extends AbstractInstance {
 	}
 	
 	@Override
-	public String onAttack(L2Npc npc, L2PcInstance attacker, int damage, boolean isSummon, Skill skill) {
+	public void onAttack(L2Npc npc, L2PcInstance attacker, int damage, boolean isSummon, Skill skill) {
 		final InstanceWorld tmpworld = InstanceManager.getInstance().getWorld(npc.getInstanceId());
 		if (tmpworld instanceof FETWorld world) {
 			if ((npc.getId() == SCARLET1) && (world.getStatus() == 3) && (npc.getCurrentHp() < (npc.getMaxHp() * 0.80))) {
@@ -1162,7 +1162,6 @@ public final class FinalEmperialTomb extends AbstractInstance {
 				}
 			}
 		}
-		return null;
 	}
 	
 	@Override

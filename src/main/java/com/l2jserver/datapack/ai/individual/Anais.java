@@ -126,7 +126,7 @@ public final class Anais extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onAttack(L2Npc npc, L2PcInstance attacker, int damage, boolean isSummon) {
+	public void onAttack(L2Npc npc, L2PcInstance attacker, int damage, boolean isSummon) {
 		if (_pot == 0) {
 			burnerOnAttack(0, npc);
 		} else if ((npc.getCurrentHp() <= (npc.getMaxRecoverableHp() * 0.75)) && (_pot == 1)) {
@@ -136,7 +136,6 @@ public final class Anais extends AbstractNpcAI {
 		} else if ((npc.getCurrentHp() <= (npc.getMaxRecoverableHp() * 0.25)) && (_pot == 3)) {
 			burnerOnAttack(3, npc);
 		}
-		return super.onAttack(npc, attacker, damage, isSummon);
 	}
 	
 	@Override

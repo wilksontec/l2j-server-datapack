@@ -67,7 +67,7 @@ public final class CrimsonHatuOtis extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onAttack(L2Npc npc, L2PcInstance attacker, int damage, boolean isSummon) {
+	public void onAttack(L2Npc npc, L2PcInstance attacker, int damage, boolean isSummon) {
 		if (npc.isScriptValue(0)) {
 			npc.setScriptValue(1);
 			startQuestTimer("SKILL", 5000, npc, null);
@@ -76,7 +76,6 @@ public final class CrimsonHatuOtis extends AbstractNpcAI {
 			npc.setScriptValue(2);
 			startQuestTimer("BUFF", 1000, npc, null);
 		}
-		return super.onAttack(npc, attacker, damage, isSummon);
 	}
 	
 	@Override

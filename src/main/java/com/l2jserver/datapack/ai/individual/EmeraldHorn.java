@@ -55,7 +55,7 @@ public class EmeraldHorn extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onAttack(L2Npc npc, L2PcInstance attacker, int damage, boolean isSummon) {
+	public void onAttack(L2Npc npc, L2PcInstance attacker, int damage, boolean isSummon) {
 		if (Util.calculateDistance(npc, npc.getSpawn(), false, false) > MAX_CHASE_DIST) {
 			npc.teleToLocation(npc.getSpawn().getX(), npc.getSpawn().getY(), npc.getSpawn().getZ());
 		}
@@ -79,7 +79,6 @@ public class EmeraldHorn extends AbstractNpcAI {
 			npc.getVariables().set(CAST_FLAG, false);
 			npc.getVariables().set(HIGH_DAMAGE_FLAG, true);
 		}
-		return super.onAttack(npc, attacker, damage, isSummon);
 	}
 	
 	@Override

@@ -365,14 +365,13 @@ public final class Q00420_LittleWing extends Quest {
 	}
 	
 	@Override
-	public String onAttack(L2Npc npc, L2PcInstance attacker, int damage, boolean isSummon) {
+	public void onAttack(L2Npc npc, L2PcInstance attacker, int damage, boolean isSummon) {
 		final QuestState qs = getQuestState(attacker, false);
 		if ((qs != null) && (getQuestItemsCount(attacker, DELUXE_FAIRY_STONE) > 0) && (getRandom(100) < 30)) {
 			takeItems(attacker, DELUXE_FAIRY_STONE, -1);
 			qs.playSound(Sound.ITEMSOUND_QUEST_MIDDLE);
 			npc.broadcastPacket(new NpcSay(npc, Say2.NPC_ALL, NpcStringId.THE_STONE_THE_ELVEN_STONE_BROKE));
 		}
-		return super.onAttack(npc, attacker, damage, isSummon);
 	}
 	
 	@Override

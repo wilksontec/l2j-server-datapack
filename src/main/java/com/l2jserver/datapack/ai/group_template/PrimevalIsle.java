@@ -268,7 +268,7 @@ public final class PrimevalIsle extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onAttack(L2Npc npc, L2PcInstance attacker, int damage, boolean isSummon) {
+	public void onAttack(L2Npc npc, L2PcInstance attacker, int damage, boolean isSummon) {
 		if (npc.getId() == EGG) {
 			if ((getRandom(100) <= 80) && npc.isScriptValue(0)) {
 				npc.setScriptValue(1);
@@ -364,7 +364,6 @@ public final class PrimevalIsle extends AbstractNpcAI {
 				}
 			}
 		}
-		return super.onAttack(npc, attacker, damage, isSummon);
 	}
 	
 	@Override

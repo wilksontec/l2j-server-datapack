@@ -914,7 +914,7 @@ public final class Q00234_FatesWhisper extends Quest {
 	}
 	
 	@Override
-	public String onAttack(L2Npc npc, L2PcInstance attacker, int damage, boolean isSummon) {
+	public void onAttack(L2Npc npc, L2PcInstance attacker, int damage, boolean isSummon) {
 		QuestState qs = getQuestState(attacker, false);
 		if ((qs != null) && (npc.getId() == BAIUM)) {
 			if ((attacker.getActiveWeaponItem() != null) && (attacker.getActiveWeaponItem().getId() == Q_PIPETTE_KNIFE)) {
@@ -924,7 +924,6 @@ public final class Q00234_FatesWhisper extends Quest {
 				npc.broadcastPacket(new NpcSay(npc.getObjectId(), Say2.ALL, npc.getId(), WHO_DARES_TO_TRY_AND_STEAL_MY_NOBLE_BLOOD));
 			}
 		}
-		return super.onAttack(npc, attacker, damage, isSummon);
 	}
 	
 	@Override

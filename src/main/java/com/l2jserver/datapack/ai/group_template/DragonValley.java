@@ -124,7 +124,7 @@ public final class DragonValley extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onAttack(L2Npc npc, L2PcInstance attacker, int damage, boolean isSummon) {
+	public void onAttack(L2Npc npc, L2PcInstance attacker, int damage, boolean isSummon) {
 		if ((npc.getCurrentHp() < (npc.getMaxHp() / 2)) && (getRandom(100) < 5) && npc.isScriptValue(0)) {
 			npc.setScriptValue(1);
 			final int rnd = getRandom(3, 5);
@@ -134,7 +134,6 @@ public final class DragonValley extends AbstractNpcAI {
 				addAttackDesire(minion, playable);
 			}
 		}
-		return super.onAttack(npc, attacker, damage, isSummon);
 	}
 	
 	@Override
