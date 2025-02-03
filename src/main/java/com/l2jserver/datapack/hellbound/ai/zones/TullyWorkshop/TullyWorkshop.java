@@ -44,6 +44,7 @@ import com.l2jserver.gameserver.model.actor.instance.L2MonsterInstance;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
 import com.l2jserver.gameserver.model.base.ClassId;
 import com.l2jserver.gameserver.model.events.impl.character.npc.NpcSkillFinished;
+import com.l2jserver.gameserver.model.events.impl.character.npc.attackable.FactionCall;
 import com.l2jserver.gameserver.model.holders.SkillHolder;
 import com.l2jserver.gameserver.model.skills.Skill;
 import com.l2jserver.gameserver.model.zone.L2ZoneType;
@@ -977,12 +978,13 @@ public final class TullyWorkshop extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onFactionCall(L2Npc npc, L2Npc caller, L2PcInstance attacker, boolean isSummon) {
-		int npcId = npc.getId();
+	public void onFactionCall(FactionCall event) {
+		int npcId = event.npc().getId();
 		if ((npcId == TEMENIR) || (npcId == DRAXIUS) || (npcId == KIRETCENAH)) {
-			if (!((L2MonsterInstance) npc).hasMinions()) {
-				MinionList.spawnMinion((L2MonsterInstance) npc, 25596);
-				MinionList.spawnMinion((L2MonsterInstance) npc, 25596);
+			final var monster = (L2MonsterInstance) event.npc();
+			if (!monster.hasMinions()) {
+				MinionList.spawnMinion(monster, 25596);
+				MinionList.spawnMinion(monster, 25596);
 			}
 			
 			if (!is7thFloorAttackBegan) {
@@ -996,7 +998,6 @@ public final class TullyWorkshop extends AbstractNpcAI {
 				}
 			}
 		}
-		return super.onFactionCall(npc, caller, attacker, isSummon);
 	}
 	
 	@Override
