@@ -339,13 +339,12 @@ public final class QueenAnt extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onEnterZone(L2Character character, L2ZoneType zone) {
+	public void onEnterZone(L2Character character, L2ZoneType zone) {
 		if (npc().raidCurse()) {
 			final var player = character.getActingPlayer();
 			notifyEvent("RAID_CURSE", _queen, player);
 			startQuestTimer("RAID_CURSE", 3000, _queen, player, true);
 		}
-		return super.onEnterZone(character, zone);
 	}
 	
 	@Override
@@ -383,13 +382,12 @@ public final class QueenAnt extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onExitZone(L2Character character, L2ZoneType zone) {
+	public void onExitZone(L2Character character, L2ZoneType zone) {
 		if ((character.isAttackable()) && (character.isRaid()) && (!_zone.isInsideZone(_queen)) && (_queen != null)) {
 			_queen.disableCoreAI(true);
 			_queen.setIsImmobilized(false);
 			startQuestTimer("CHECK_ZONE", 1000, _queen, null, true);
 		}
-		return super.onExitZone(character, zone);
 	}
 	
 	@Override

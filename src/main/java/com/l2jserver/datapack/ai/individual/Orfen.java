@@ -270,13 +270,12 @@ public final class Orfen extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onExitZone(L2Character character, L2ZoneType zone) {
+	public void onExitZone(L2Character character, L2ZoneType zone) {
 		if ((character.isAttackable()) && (character.isRaid()) && (!_zone.isInsideZone(_orfen)) && (_orfen != null)) {
 			_orfen.disableCoreAI(true);
 			_orfen.teleToLocation(_orfen.getSpawn().getLocation());
 			startQuestTimer("CORE_AI", 100, _orfen, null);
 		}
-		return super.onExitZone(character, zone);
 	}
 	
 	@Override

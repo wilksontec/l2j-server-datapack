@@ -362,9 +362,9 @@ public class EnergySeeds extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onEnterZone(L2Character character, L2ZoneType zone) {
+	public void onEnterZone(L2Character character, L2ZoneType zone) {
 		if (character.getInstanceId() != 0) {
-			return super.onEnterZone(character, zone);
+			return;
 		}
 		
 		if (character instanceof L2PcInstance) {
@@ -376,7 +376,6 @@ public class EnergySeeds extends AbstractNpcAI {
 					break;
 			}
 		}
-		return super.onEnterZone(character, zone);
 	}
 	
 	public void startAI() {

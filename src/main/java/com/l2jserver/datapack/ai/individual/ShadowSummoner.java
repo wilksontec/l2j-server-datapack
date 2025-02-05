@@ -73,14 +73,13 @@ public class ShadowSummoner extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onSeeCreature(L2Npc npc, L2Character creature, boolean isSummon) {
+	public void onSeeCreature(L2Npc npc, L2Character creature) {
 		if (!creature.isPlayer()) {
 			if (creature.getId() == DEMONS_BANQUET_2) {
 				((L2Attackable) npc).clearAggroList();
 				addAttackDesire(npc, creature, 9999999999999999L);
 			}
 		}
-		return super.onSeeCreature(npc, creature, isSummon);
 	}
 	
 	@Override

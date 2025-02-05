@@ -69,7 +69,7 @@ public class BlackdaggerWing extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onSeeCreature(L2Npc npc, L2Character creature, boolean isSummon) {
+	public void onSeeCreature(L2Npc npc, L2Character creature) {
 		if (npc.getVariables().getBoolean(MID_HP_FLAG, false)) {
 			final L2Character mostHated = ((L2Attackable) npc).getMostHated();
 			if ((mostHated != null) && mostHated.isPlayer() && (mostHated != creature)) {
@@ -78,7 +78,6 @@ public class BlackdaggerWing extends AbstractNpcAI {
 				}
 			}
 		}
-		return super.onSeeCreature(npc, creature, isSummon);
 	}
 	
 	@Override

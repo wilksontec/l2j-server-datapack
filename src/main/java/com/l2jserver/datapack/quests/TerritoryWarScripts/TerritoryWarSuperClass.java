@@ -192,9 +192,9 @@ public class TerritoryWarSuperClass extends Quest {
 	}
 	
 	@Override
-	public String onDeath(L2Character killer, L2Character victim, QuestState qs) {
+	public void onDeath(L2Character killer, L2Character victim, QuestState qs) {
 		if ((killer == victim) || !(victim instanceof L2PcInstance) || (victim.getLevel() < 61)) {
-			return "";
+			return;
 		}
 		L2PcInstance actingPlayer = killer.getActingPlayer();
 		if ((actingPlayer != null) && (qs.getPlayer() != null)) {
@@ -216,11 +216,10 @@ public class TerritoryWarSuperClass extends Quest {
 			}
 			TerritoryWarManager.getInstance().giveTWPoint(actingPlayer, qs.getPlayer().getSiegeSide(), 1);
 		}
-		return "";
 	}
 	
 	@Override
-	public String onEnterWorld(L2PcInstance player) {
+	public void onEnterWorld(L2PcInstance player) {
 		int territoryId = TerritoryWarManager.getInstance().getRegisteredTerritoryId(player);
 		if (territoryId > 0) {
 			// register Territory Quest
@@ -246,7 +245,6 @@ public class TerritoryWarSuperClass extends Quest {
 				}
 			}
 		}
-		return null;
 	}
 	
 	@Override

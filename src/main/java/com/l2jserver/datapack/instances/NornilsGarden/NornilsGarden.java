@@ -409,7 +409,7 @@ public final class NornilsGarden extends AbstractInstance {
 	}
 	
 	@Override
-	public String onEnterZone(L2Character character, L2ZoneType zone) {
+	public void onEnterZone(L2Character character, L2ZoneType zone) {
 		if ((character instanceof L2PcInstance) && !character.isDead() && !character.isTeleporting() && ((L2PcInstance) character).isOnline()) {
 			InstanceWorld tmpworld = InstanceManager.getInstance().getWorld(character.getInstanceId());
 			if (tmpworld instanceof NornilsWorld) {
@@ -426,7 +426,6 @@ public final class NornilsGarden extends AbstractInstance {
 				}
 			}
 		}
-		return super.onEnterZone(character, zone);
 	}
 	
 	@Override

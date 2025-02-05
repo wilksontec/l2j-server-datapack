@@ -341,11 +341,10 @@ public class Q00021_HiddenTruth extends Quest {
 	}
 	
 	@Override
-	public String onSeeCreature(L2Npc npc, L2Character creature, boolean isSummon) {
+	public void onSeeCreature(L2Npc npc, L2Character creature) {
 		if (creature.isPlayer()) {
 			playSound((L2PcInstance) creature, Sound.HORROR_01);
 		}
-		return super.onSeeCreature(npc, creature, isSummon);
 	}
 	
 	@Override

@@ -92,11 +92,11 @@ public final class SkillTransfer extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onEnterWorld(L2PcInstance player) {
+	public void onEnterWorld(L2PcInstance player) {
 		if (!player.canOverrideCond(PcCondOverride.SKILL_CONDITIONS) || general().skillCheckGM()) {
 			final int index = getTransferClassIndex(player);
 			if (index < 0) {
-				return super.onEnterWorld(player);
+				return;
 			}
 			long count = PORMANDERS[index].getCount() - player.getInventory().getInventoryItemCount(PORMANDERS[index].getId(), -1, false);
 			for (Skill sk : player.getAllSkills()) {
@@ -123,7 +123,6 @@ public final class SkillTransfer extends AbstractNpcAI {
 				player.getInventory().addItem("[HolyPomander- missing]", PORMANDERS[index].getId(), count, player, null);
 			}
 		}
-		return super.onEnterWorld(player);
 	}
 	
 	private static int getTransferClassIndex(L2PcInstance player) {

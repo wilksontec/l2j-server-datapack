@@ -317,7 +317,7 @@ public class Q00114_ResurrectionOfAnOldManager extends Quest {
 	}
 	
 	@Override
-	public String onSeeCreature(L2Npc npc, L2Character creature, boolean isSummon) {
+	public void onSeeCreature(L2Npc npc, L2Character creature) {
 		if (creature.isPlayer()) {
 			final QuestState st = getQuestState(creature.getActingPlayer(), false);
 			if ((st != null) && st.isCond(17)) {
@@ -327,7 +327,6 @@ public class Q00114_ResurrectionOfAnOldManager extends Quest {
 				showOnScreenMsg(creature.getActingPlayer(), NpcStringId.THE_RADIO_SIGNAL_DETECTOR_IS_RESPONDING_A_SUSPICIOUS_PILE_OF_STONES_CATCHES_YOUR_EYE, 2, 4500);
 			}
 		}
-		return super.onSeeCreature(npc, creature, isSummon);
 	}
 	
 	@Override

@@ -345,11 +345,10 @@ public final class Q00454_CompletelyLost extends Quest {
 	}
 	
 	@Override
-	public String onSeeCreature(L2Npc npc, L2Character creature, boolean isSummon) {
+	public void onSeeCreature(L2Npc npc, L2Character creature) {
 		if (creature.isPlayer() && (npc.getVariables().getInt("state", 0) == 0)) {
 			addAttackDesire(npc, creature.getActingPlayer(), 10);
 		}
-		return super.onSeeCreature(npc, creature, isSummon);
 	}
 	
 	@Override

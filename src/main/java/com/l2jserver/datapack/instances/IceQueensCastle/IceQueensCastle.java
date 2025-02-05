@@ -123,7 +123,7 @@ public final class IceQueensCastle extends AbstractInstance {
 	}
 	
 	@Override
-	public String onSeeCreature(L2Npc npc, L2Character creature, boolean isSummon) {
+	public void onSeeCreature(L2Npc npc, L2Character creature) {
 		if (creature.isPlayer() && npc.isScriptValue(0)) {
 			for (L2Character character : npc.getKnownList().getKnownCharacters()) {
 				if ((character.getId() == ARCHERY_KNIGHT) && !character.isDead() && !((L2Attackable) character).isDecayed()) {
@@ -136,7 +136,6 @@ public final class IceQueensCastle extends AbstractInstance {
 			}
 			broadcastNpcSay(npc, Say2.NPC_ALL, NpcStringId.S1_MAY_THE_PROTECTION_OF_THE_GODS_BE_UPON_YOU, creature.getName());
 		}
-		return super.onSeeCreature(npc, creature, isSummon);
 	}
 	
 	@Override

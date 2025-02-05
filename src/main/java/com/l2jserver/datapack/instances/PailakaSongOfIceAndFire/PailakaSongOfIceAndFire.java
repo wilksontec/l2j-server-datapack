@@ -147,23 +147,21 @@ public final class PailakaSongOfIceAndFire extends AbstractInstance {
 	}
 	
 	@Override
-	public String onExitZone(L2Character character, L2ZoneType zone) {
+	public void onExitZone(L2Character character, L2ZoneType zone) {
 		if ((character.isPlayer()) && !character.isDead() && !character.isTeleporting() && ((L2PcInstance) character).isOnline()) {
 			final InstanceWorld world = InstanceManager.getInstance().getWorld(character.getInstanceId());
 			if ((world != null) && (world.getTemplateId() == TEMPLATE_ID)) {
 				startQuestTimer("TELEPORT", 1000, null, (L2PcInstance) character);
 			}
 		}
-		return super.onExitZone(character, zone);
 	}
 	
 	@Override
-	public String onSeeCreature(L2Npc npc, L2Character creature, boolean isSummon) {
+	public void onSeeCreature(L2Npc npc, L2Character creature) {
 		if (npc.isScriptValue(0) && creature.isPlayer()) {
 			npc.setScriptValue(1);
 			startQuestTimer("GARGOS_LAUGH", 1000, npc, creature.getActingPlayer());
 		}
-		return super.onSeeCreature(npc, creature, isSummon);
 	}
 	
 	@Override

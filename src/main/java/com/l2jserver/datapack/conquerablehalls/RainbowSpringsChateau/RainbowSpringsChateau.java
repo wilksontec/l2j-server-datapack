@@ -502,25 +502,24 @@ public final class RainbowSpringsChateau extends ClanHallSiegeEngine {
 	}
 	
 	@Override
-	public String onItemUse(L2Item item, L2PcInstance player) {
+	public void onItemUse(L2Item item, L2PcInstance player) {
 		if (!_rainbow.isInSiege()) {
-			return null;
+			return;
 		}
 		
 		L2Object target = player.getTarget();
-		
 		if ((target == null) || !(target instanceof L2Npc)) {
-			return null;
+			return;
 		}
 		
 		int yeti = target.getId();
 		if (!isYetiTarget(yeti)) {
-			return null;
+			return;
 		}
 		
 		final L2Clan clan = player.getClan();
 		if ((clan == null) || !_acceptedClans.contains(clan)) {
-			return null;
+			return;
 		}
 		
 		// Nectar must spawn the enraged yeti. Dunno if it makes any other thing
@@ -541,7 +540,6 @@ public final class RainbowSpringsChateau extends ClanHallSiegeEngine {
 		} else if (itemId == RAINBOW_SULFUR) {
 			castDebuffsOnEnemies(_acceptedClans.indexOf(clan));
 		}
-		return null;
 	}
 	
 	private void portToArena(L2PcInstance leader, int arena) {

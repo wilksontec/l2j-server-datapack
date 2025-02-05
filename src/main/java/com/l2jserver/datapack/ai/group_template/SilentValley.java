@@ -21,7 +21,6 @@ package com.l2jserver.datapack.ai.group_template;
 import com.l2jserver.datapack.ai.npc.AbstractNpcAI;
 import com.l2jserver.gameserver.model.actor.L2Character;
 import com.l2jserver.gameserver.model.actor.L2Npc;
-import com.l2jserver.gameserver.model.actor.L2Summon;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
 import com.l2jserver.gameserver.model.events.impl.character.npc.NpcEventReceived;
 import com.l2jserver.gameserver.model.holders.SkillHolder;
@@ -132,9 +131,9 @@ public final class SilentValley extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onSeeCreature(L2Npc npc, L2Character creature, boolean isSummon) {
+	public void onSeeCreature(L2Npc npc, L2Character creature) {
 		if (creature.isPlayable()) {
-			final L2PcInstance player = (isSummon) ? ((L2Summon) creature).getOwner() : creature.getActingPlayer();
+			final var player = creature.getActingPlayer();
 			if ((npc.getId() == GUARD1) || (npc.getId() == GUARD2)) {
 				npc.setTarget(player);
 				npc.doCast(BLAZE);
@@ -143,7 +142,6 @@ public final class SilentValley extends AbstractNpcAI {
 				addAttackDesire(npc, player);
 			}
 		}
-		return super.onSeeCreature(npc, creature, isSummon);
 	}
 	
 	@Override

@@ -1551,7 +1551,7 @@ public final class CrystalCaverns extends AbstractInstance {
 	}
 	
 	@Override
-	public String onEnterZone(L2Character character, L2ZoneType zone) {
+	public void onEnterZone(L2Character character, L2ZoneType zone) {
 		if (character instanceof L2PcInstance) {
 			InstanceWorld tmpworld = InstanceManager.getInstance().getWorld(character.getInstanceId());
 			if (tmpworld instanceof CCWorld world) {
@@ -1572,20 +1572,22 @@ public final class CrystalCaverns extends AbstractInstance {
 							room = 4;
 							break;
 						default:
-							return super.onEnterZone(character, zone);
+							return;
 					}
 					for (L2DoorInstance door : InstanceManager.getInstance().getInstance(world.getInstanceId()).getDoors()) {
 						if (door.getId() == (room + 24220000)) {
 							if (door.getOpen()) {
-								return "";
+								break;
 							}
 							
 							if (!hasQuestItems((L2PcInstance) character, SECRET_KEY)) {
-								return "";
+								break;
 							}
+							
 							if (world.roomsStatus[zone.getId() - 20104] == 0) {
 								runEmeraldRooms(world, spawns, room);
 							}
+							
 							door.openMe();
 							takeItems((L2PcInstance) character, SECRET_KEY, 1);
 							world.openedDoors.put(door, (L2PcInstance) character);
@@ -1595,11 +1597,10 @@ public final class CrystalCaverns extends AbstractInstance {
 				}
 			}
 		}
-		return super.onEnterZone(character, zone);
 	}
 	
 	@Override
-	public String onExitZone(L2Character character, L2ZoneType zone) {
+	public void onExitZone(L2Character character, L2ZoneType zone) {
 		if (character instanceof L2PcInstance) {
 			InstanceWorld tmpworld = InstanceManager.getInstance().getWorld(character.getInstanceId());
 			if (tmpworld instanceof CCWorld world) {
@@ -1616,7 +1617,7 @@ public final class CrystalCaverns extends AbstractInstance {
 							doorId = 24220004;
 							break;
 						default:
-							return super.onExitZone(character, zone);
+							return;
 					}
 					for (L2DoorInstance door : InstanceManager.getInstance().getInstance(world.getInstanceId()).getDoors()) {
 						if (door.getId() == doorId) {
@@ -1631,6 +1632,5 @@ public final class CrystalCaverns extends AbstractInstance {
 				}
 			}
 		}
-		return super.onExitZone(character, zone);
 	}
 }

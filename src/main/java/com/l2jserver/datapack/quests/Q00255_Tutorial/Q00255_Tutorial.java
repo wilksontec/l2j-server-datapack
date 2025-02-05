@@ -19,6 +19,10 @@
 package com.l2jserver.datapack.quests.Q00255_Tutorial;
 
 import static com.l2jserver.gameserver.config.Configuration.character;
+import static com.l2jserver.gameserver.model.events.EventType.CREATURE_ATTACKED;
+import static com.l2jserver.gameserver.model.events.EventType.PLAYER_ITEM_PICKUP;
+import static com.l2jserver.gameserver.model.events.EventType.PLAYER_LEVEL_CHANGED;
+import static com.l2jserver.gameserver.model.events.EventType.PLAYER_SIT;
 
 import com.l2jserver.gameserver.enums.Race;
 import com.l2jserver.gameserver.enums.audio.Sound;
@@ -27,7 +31,6 @@ import com.l2jserver.gameserver.model.Location;
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
 import com.l2jserver.gameserver.model.base.ClassId;
-import com.l2jserver.gameserver.model.events.EventType;
 import com.l2jserver.gameserver.model.events.impl.character.CreatureAttacked;
 import com.l2jserver.gameserver.model.events.impl.character.player.PlayerLevelChanged;
 import com.l2jserver.gameserver.model.events.impl.character.player.PlayerSit;
@@ -185,33 +188,29 @@ public class Q00255_Tutorial extends Quest {
 	}
 	
 	@Override
-	public String onTutorialQuestionMark(L2PcInstance player, int number) {
+	public void onTutorialQuestionMark(L2PcInstance player, int number) {
 		questionMarkClicked(player, number);
-		return super.onTutorialQuestionMark(player, number);
 	}
 	
 	@Override
-	public String onTutorialCmd(L2PcInstance player, String command) {
+	public void onTutorialCmd(L2PcInstance player, String command) {
 		selectFromMenu(player, Integer.parseInt(command));
-		return super.onTutorialCmd(player, command);
 	}
 	
 	@Override
-	public String onEnterWorld(L2PcInstance player) {
+	public void onEnterWorld(L2PcInstance player) {
 		userConnected(player);
-		player.addListener(new ConsumerEventListener(player, EventType.PLAYER_LEVEL_CHANGED, (PlayerLevelChanged event) -> {
+		player.addListener(new ConsumerEventListener(player, PLAYER_LEVEL_CHANGED, (PlayerLevelChanged event) -> {
 			levelUp(event.player(), event.newLevel());
 		}, player));
-		
-		return super.onEnterWorld(player);
 	}
 	
 	private void enableTutorialEvent(QuestState qs, int eventStatus) {
 		L2PcInstance player = qs.getPlayer();
 		
 		if (((eventStatus & (1048576 | 2097152)) != 0)) {
-			if (!player.hasListener(EventType.PLAYER_ITEM_PICKUP)) {
-				player.addListener(new ConsumerEventListener(player, EventType.PLAYER_ITEM_PICKUP, (PlayerItemPickup event) -> {
+			if (!player.hasListener(PLAYER_ITEM_PICKUP)) {
+				player.addListener(new ConsumerEventListener(player, PLAYER_ITEM_PICKUP, (PlayerItemPickup event) -> {
 					if ((event.item().getId() == BLUE_GEMSTONE) && ((qs.getMemoState() & 1048576) != 0)) {
 						tutorialEvent(event.player(), 1048576);
 					}
@@ -221,23 +220,23 @@ public class Q00255_Tutorial extends Quest {
 					}
 				}, player));
 			}
-		} else if (player.hasListener(EventType.PLAYER_ITEM_PICKUP)) {
-			player.removeListenerIf(EventType.PLAYER_ITEM_PICKUP, listener -> listener.getOwner() == player);
+		} else if (player.hasListener(PLAYER_ITEM_PICKUP)) {
+			player.removeListenerIf(PLAYER_ITEM_PICKUP, listener -> listener.getOwner() == player);
 		}
 		
 		if ((eventStatus & 8388608) != 0) {
-			if (!player.hasListener(EventType.PLAYER_SIT)) {
-				player.addListener(new ConsumerEventListener(player, EventType.PLAYER_SIT, (PlayerSit event) -> {
+			if (!player.hasListener(PLAYER_SIT)) {
+				player.addListener(new ConsumerEventListener(player, PLAYER_SIT, (PlayerSit event) -> {
 					tutorialEvent(player, 8388608);
 				}, player));
 			}
-		} else if (player.hasListener(EventType.PLAYER_SIT)) {
-			player.removeListenerIf(EventType.PLAYER_SIT, listener -> listener.getOwner() == player);
+		} else if (player.hasListener(PLAYER_SIT)) {
+			player.removeListenerIf(PLAYER_SIT, listener -> listener.getOwner() == player);
 		}
 		
 		if ((eventStatus & 256) != 0) {
-			if (!player.hasListener(EventType.CREATURE_ATTACKED)) {
-				player.addListener(new ConsumerEventListener(player, EventType.CREATURE_ATTACKED, (CreatureAttacked event) -> {
+			if (!player.hasListener(CREATURE_ATTACKED)) {
+				player.addListener(new ConsumerEventListener(player, CREATURE_ATTACKED, (CreatureAttacked event) -> {
 					L2PcInstance pp = event.target().getActingPlayer();
 					if ((pp != null) && (pp.getCurrentHp() <= (pp.getStat().getMaxHp() * 0.3))) {
 						tutorialEvent(pp, 256);
@@ -245,7 +244,7 @@ public class Q00255_Tutorial extends Quest {
 				}, player));
 			}
 		} else {
-			player.removeListenerIf(EventType.CREATURE_ATTACKED, listener -> listener.getOwner() == player);
+			player.removeListenerIf(CREATURE_ATTACKED, listener -> listener.getOwner() == player);
 		}
 		qs.enableTutorialEvent(player, eventStatus);
 	}

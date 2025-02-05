@@ -141,7 +141,7 @@ public final class Quarry extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onEnterZone(L2Character character, L2ZoneType zone) {
+	public void onEnterZone(L2Character character, L2ZoneType zone) {
 		if (character.isAttackable()) {
 			final L2Attackable npc = (L2Attackable) character;
 			if (npc.getId() == SLAVE) {
@@ -157,6 +157,5 @@ public final class Quarry extends AbstractNpcAI {
 				}
 			}
 		}
-		return super.onEnterZone(character, zone);
 	}
 }

@@ -132,17 +132,14 @@ public final class ClassMaster extends AbstractNpcAI {
 		if (command.startsWith("CO")) {
 			onTutorialLink(player, command);
 		}
-		super.onTutorialEvent(player, command);
 	}
 	
 	@Override
-	public String onEnterWorld(L2PcInstance player) {
+	public void onEnterWorld(L2PcInstance player) {
 		showQuestionMark(player);
 		Containers.Players().addListener(new ConsumerEventListener(Containers.Players(), PLAYER_LEVEL_CHANGED, (PlayerLevelChanged event) -> {
 			showQuestionMark(event.player());
 		}, this));
-		
-		return super.onEnterWorld(player);
 	}
 	
 	@Override
@@ -210,13 +207,11 @@ public final class ClassMaster extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onTutorialQuestionMark(L2PcInstance player, int number) {
+	public void onTutorialQuestionMark(L2PcInstance player, int number) {
 		if (!character().alternateClassMaster() || (number != CUSTOM_EVENT_ID)) {
-			return "";
+			return;
 		}
-		
 		showTutorialHtml(player);
-		return "";
 	}
 	
 	private void showQuestionMark(L2PcInstance player) {

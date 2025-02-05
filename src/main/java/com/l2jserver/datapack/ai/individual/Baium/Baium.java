@@ -449,9 +449,9 @@ public final class Baium extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onSeeCreature(L2Npc npc, L2Character creature, boolean isSummon) {
+	public void onSeeCreature(L2Npc npc, L2Character creature) {
 		if (!zone.isInsideZone(creature) || (creature.isNpc() && (creature.getId() == BAIUM_STONE))) {
-			return super.onSeeCreature(npc, creature, isSummon);
+			return;
 		}
 		
 		if (creature.isInCategory(CategoryType.CLERIC_GROUP)) {
@@ -468,7 +468,6 @@ public final class Baium extends AbstractNpcAI {
 			refreshAiParams(creature, npc, 10000, 1000);
 		}
 		manageSkills(npc);
-		return super.onSeeCreature(npc, creature, isSummon);
 	}
 	
 	@Override

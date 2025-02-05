@@ -514,7 +514,7 @@ public final class Beleth extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onEnterZone(L2Character character, L2ZoneType zone) {
+	public void onEnterZone(L2Character character, L2ZoneType zone) {
 		if (character.isPlayer() && (GrandBossManager.getInstance().getBossStatus(REAL_BELETH) == INIT)) {
 			if (_priest != null) {
 				_priest.deleteMe();
@@ -526,8 +526,6 @@ public final class Beleth extends AbstractNpcAI {
 			GrandBossManager.getInstance().setBossStatus(REAL_BELETH, FIGHT);
 			startQuestTimer("SPAWN1", 300000, null, null);
 		}
-		
-		return super.onEnterZone(character, zone);
 	}
 	
 	@Override

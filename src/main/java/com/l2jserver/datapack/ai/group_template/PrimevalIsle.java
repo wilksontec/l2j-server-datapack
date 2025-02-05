@@ -209,7 +209,7 @@ public final class PrimevalIsle extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onSeeCreature(L2Npc npc, L2Character creature, boolean isSummon) {
+	public void onSeeCreature(L2Npc npc, L2Character creature) {
 		if (Util.contains(MONSTERS, npc.getId())) {
 			if (creature.isPlayer()) {
 				final L2Attackable mob = (L2Attackable) npc;
@@ -254,7 +254,6 @@ public final class PrimevalIsle extends AbstractNpcAI {
 			npc.setIsRunning(true);
 			npc.getAI().setIntention(CtrlIntention.AI_INTENTION_ATTACK, creature);
 		}
-		return super.onSeeCreature(npc, creature, isSummon);
 	}
 	
 	@Override

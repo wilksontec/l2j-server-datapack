@@ -228,10 +228,10 @@ public abstract class AirShipController extends Quest {
 	}
 	
 	@Override
-	public String onEnterZone(L2Character character, L2ZoneType zone) {
-		if (character instanceof L2ControllableAirShipInstance) {
+	public void onEnterZone(L2Character character, L2ZoneType zone) {
+		if (character instanceof L2ControllableAirShipInstance airship) {
 			if (_dockedShip == null) {
-				_dockedShip = (L2ControllableAirShipInstance) character;
+				_dockedShip = airship;
 				_dockedShip.setInDock(_dockZone);
 				_dockedShip.setOustLoc(_oustLoc);
 				
@@ -251,11 +251,10 @@ public abstract class AirShipController extends Quest {
 				}
 			}
 		}
-		return null;
 	}
 	
 	@Override
-	public String onExitZone(L2Character character, L2ZoneType zone) {
+	public void onExitZone(L2Character character, L2ZoneType zone) {
 		if (character instanceof L2ControllableAirShipInstance) {
 			if (character.equals(_dockedShip)) {
 				if (_departSchedule != null) {
@@ -268,7 +267,6 @@ public abstract class AirShipController extends Quest {
 				_isBusy = false;
 			}
 		}
-		return null;
 	}
 	
 	@Override

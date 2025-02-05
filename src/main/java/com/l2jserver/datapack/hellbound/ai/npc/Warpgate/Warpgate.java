@@ -81,7 +81,7 @@ public final class Warpgate extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onEnterZone(L2Character character, L2ZoneType zone) {
+	public void onEnterZone(L2Character character, L2ZoneType zone) {
 		if (character.isPlayer()) {
 			final L2PcInstance player = character.getActingPlayer();
 			
@@ -91,7 +91,6 @@ public final class Warpgate extends AbstractNpcAI {
 				player.setMinimapAllowed(true);
 			}
 		}
-		return super.onEnterZone(character, zone);
 	}
 	
 	private static boolean canEnter(L2PcInstance player) {

@@ -63,14 +63,13 @@ public final class Q00636_TruthBeyond extends Quest {
 	}
 	
 	@Override
-	public String onEnterZone(L2Character character, L2ZoneType zone) {
+	public void onEnterZone(L2Character character, L2ZoneType zone) {
 		// QuestState already null on enter because quest is finished
 		if (character.isPlayer()) {
 			if (character.getActingPlayer().destroyItemByItemId("Mark", VISITOR_MARK, 1, character, false)) {
 				character.getActingPlayer().addItem("Mark", FADED_MARK, 1, character, true);
 			}
 		}
-		return null;
 	}
 	
 	@Override

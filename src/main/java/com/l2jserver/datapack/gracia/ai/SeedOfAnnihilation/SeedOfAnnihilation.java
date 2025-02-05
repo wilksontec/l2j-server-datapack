@@ -300,12 +300,11 @@ public class SeedOfAnnihilation extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onEnterZone(L2Character character, L2ZoneType zone) {
+	public void onEnterZone(L2Character character, L2ZoneType zone) {
 		if (TELEPORT_ZONES.containsKey(zone.getId())) {
 			Location teleLoc = TELEPORT_ZONES.get(zone.getId());
 			character.teleToLocation(teleLoc, false);
 		}
-		return super.onEnterZone(character, zone);
 	}
 	
 	private static class SeedRegion {

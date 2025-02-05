@@ -44,7 +44,7 @@ public final class Dorian extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onSeeCreature(L2Npc npc, L2Character creature, boolean isSummon) {
+	public void onSeeCreature(L2Npc npc, L2Character creature) {
 		if (creature.isPlayer()) {
 			final L2PcInstance pl = creature.getActingPlayer();
 			final QuestState qs = pl.getQuestState(Q00024_InhabitantsOfTheForestOfTheDead.class.getSimpleName());
@@ -55,6 +55,5 @@ public final class Dorian extends AbstractNpcAI {
 				broadcastNpcSay(npc, Say2.NPC_ALL, NpcStringId.THAT_SIGN);
 			}
 		}
-		return super.onSeeCreature(npc, creature, isSummon);
 	}
 }
