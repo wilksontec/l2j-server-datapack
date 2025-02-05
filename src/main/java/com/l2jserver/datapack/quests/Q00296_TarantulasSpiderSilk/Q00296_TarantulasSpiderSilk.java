@@ -103,12 +103,11 @@ public final class Q00296_TarantulasSpiderSilk extends Quest {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
+	public void onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
 		final QuestState qs = getQuestState(killer, false);
 		if ((qs != null) && Util.checkIfInRange(1500, npc, qs.getPlayer(), true)) {
 			giveItemRandomly(qs.getPlayer(), npc, DROP_ITEM, 0, true);
 		}
-		return super.onKill(npc, killer, isSummon);
 	}
 	
 	@Override

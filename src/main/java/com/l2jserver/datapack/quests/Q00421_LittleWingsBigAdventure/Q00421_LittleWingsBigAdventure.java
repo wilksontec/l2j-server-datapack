@@ -352,7 +352,7 @@ public final class Q00421_LittleWingsBigAdventure extends Quest {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
+	public void onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
 		if (Util.checkIfInRange(1500, killer, npc, true)) {
 			for (int i = 0; i < 20; i++) {
 				L2Npc guardian = addSpawn(SOUL_OF_TREE_GUARDIAN, npc);
@@ -366,7 +366,6 @@ public final class Q00421_LittleWingsBigAdventure extends Quest {
 				npc.getAI().setIntention(CtrlIntention.AI_INTENTION_ATTACK, killer);
 			}
 		}
-		return super.onKill(npc, killer, isSummon);
 	}
 	
 	private static L2ItemInstance getFlute(L2PcInstance player) {

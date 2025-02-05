@@ -402,7 +402,7 @@ public final class MonasteryOfSilence1 extends AbstractInstance {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance player, boolean isSummon) {
+	public void onKill(L2Npc npc, L2PcInstance player, boolean isSummon) {
 		InstanceWorld tmpworld = InstanceManager.getInstance().getWorld(npc.getInstanceId());
 		if (tmpworld instanceof MoSWorld world) {
 			switch (npc.getId()) {
@@ -447,7 +447,6 @@ public final class MonasteryOfSilence1 extends AbstractInstance {
 			}
 			
 		}
-		return null;
 	}
 	
 	@Override

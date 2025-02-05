@@ -284,25 +284,25 @@ public final class Q00503_PursuitOfClanAmbition extends Quest {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
+	public void onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
 		final QuestState qs = getQuestState(killer, false);
 		if ((qs == null) || !qs.isStarted() || !Util.checkIfInRange(1500, npc, killer, true)) {
-			return super.onKill(npc, killer, isSummon);
+			return;
 		}
 		
 		final L2Clan clan = killer.getClan();
 		if (clan == null) {
-			return super.onKill(npc, killer, isSummon);
+			return;
 		}
 		
 		final L2PcInstance leader = clan.getLeader().getPlayerInstance();
 		if (!Util.checkIfInRange(1500, npc, leader, true)) {
-			return super.onKill(npc, killer, isSummon);
+			return;
 		}
 		
 		final QuestState leaderQS = getQuestState(leader, false);
 		if (leaderQS == null) {
-			return super.onKill(npc, killer, isSummon);
+			return;
 		}
 		
 		switch (npc.getId()) {
@@ -356,7 +356,6 @@ public final class Q00503_PursuitOfClanAmbition extends Quest {
 				}
 			}
 		}
-		return super.onKill(npc, killer, isSummon);
 	}
 	
 	@Override

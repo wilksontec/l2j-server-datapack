@@ -127,7 +127,7 @@ public final class Q00633_InTheForgottenVillage extends Quest {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
+	public void onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
 		final QuestState qs = getRandomPartyMemberState(killer, -1, 3, npc);
 		if (qs != null) {
 			QuestDropInfo dropInfo = DROPLIST.get(npc);
@@ -138,7 +138,6 @@ public final class Q00633_InTheForgottenVillage extends Quest {
 				giveItemRandomly(qs.getPlayer(), npc, dropInfo, true);
 			}
 		}
-		return super.onKill(npc, killer, isSummon);
 	}
 	
 	@Override

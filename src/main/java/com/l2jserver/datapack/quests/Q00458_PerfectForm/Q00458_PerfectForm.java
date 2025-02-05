@@ -173,7 +173,7 @@ public class Q00458_PerfectForm extends Quest {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance player, boolean isSummon) {
+	public void onKill(L2Npc npc, L2PcInstance player, boolean isSummon) {
 		final QuestState st = getQuestState(player, false);
 		if ((st != null) && st.isCond(1)) {
 			int npcId = npc.getId();
@@ -224,7 +224,6 @@ public class Q00458_PerfectForm extends Quest {
 				player.sendPacket(log);
 			}
 		}
-		return super.onKill(npc, player, isSummon);
 	}
 	
 	@Override

@@ -248,7 +248,7 @@ public final class Q00128_PailakaSongOfIceAndFire extends Quest {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance player, boolean isSummon) {
+	public void onKill(L2Npc npc, L2PcInstance player, boolean isSummon) {
 		final QuestState st = getQuestState(player, false);
 		if ((st != null) && st.isStarted()) {
 			switch (npc.getId()) {
@@ -305,6 +305,5 @@ public final class Q00128_PailakaSongOfIceAndFire extends Quest {
 				}
 			}
 		}
-		return super.onKill(npc, player, isSummon);
 	}
 }

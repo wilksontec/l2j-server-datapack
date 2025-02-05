@@ -197,17 +197,16 @@ public class Q00289_NoMoreSoupForYou extends Quest {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance player, boolean isSummon) {
+	public void onKill(L2Npc npc, L2PcInstance player, boolean isSummon) {
 		QuestState st = getQuestState(player, false);
 		int npcId = npc.getId();
 		if ((st == null) || (st.getState() != State.STARTED)) {
-			return null;
+			return;
 		}
 		if (Util.contains(MOBS, npcId)) {
 			st.giveItems(SOUP, 1 * RATE);
 			st.playSound(Sound.ITEMSOUND_QUEST_ITEMGET);
 		}
-		return super.onKill(npc, player, isSummon);
 	}
 	
 	@Override

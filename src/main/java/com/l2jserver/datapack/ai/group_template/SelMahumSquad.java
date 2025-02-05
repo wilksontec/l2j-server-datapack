@@ -262,7 +262,7 @@ public final class SelMahumSquad extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
+	public void onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
 		if (npc.isMonster() && (npc.getVariables().getInt("REWARD_TIME_GONE") == 0)) {
 			npc.dropItem(killer, 15492, 1);
 		}
@@ -270,7 +270,6 @@ public final class SelMahumSquad extends AbstractNpcAI {
 		cancelQuestTimer("chef_disable_reward", npc, null);
 		cancelQuestTimer("chef_heal_player", npc, null);
 		cancelQuestTimer("chef_set_invul", npc, null);
-		return super.onKill(npc, killer, isSummon);
 	}
 	
 	@Override

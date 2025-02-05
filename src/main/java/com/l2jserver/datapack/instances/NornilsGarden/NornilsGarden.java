@@ -501,10 +501,10 @@ public final class NornilsGarden extends AbstractInstance {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance player, boolean isSummon) {
+	public void onKill(L2Npc npc, L2PcInstance player, boolean isSummon) {
 		final QuestState st = getQuestState(player, false);
 		if (st == null) {
-			return null;
+			return;
 		}
 		
 		for (int _gk[] : _gatekeepers) {
@@ -524,7 +524,6 @@ public final class NornilsGarden extends AbstractInstance {
 				spawn2(npc);
 			}
 		}
-		return super.onKill(npc, player, isSummon);
 	}
 	
 	@Override

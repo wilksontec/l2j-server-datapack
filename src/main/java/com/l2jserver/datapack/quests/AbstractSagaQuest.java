@@ -467,7 +467,7 @@ public abstract class AbstractSagaQuest extends Quest {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance player, boolean isSummon) {
+	public void onKill(L2Npc npc, L2PcInstance player, boolean isSummon) {
 		int npcId = npc.getId();
 		QuestState st = getQuestState(player, false);
 		for (int Archon_Minion = 21646; Archon_Minion < 21652; Archon_Minion++) {
@@ -495,7 +495,7 @@ public abstract class AbstractSagaQuest extends Quest {
 						}
 					}
 				}
-				return super.onKill(npc, player, isSummon);
+				return;
 			}
 		}
 		
@@ -518,7 +518,7 @@ public abstract class AbstractSagaQuest extends Quest {
 						st1.setCond(16, true);
 					}
 				}
-				return super.onKill(npc, player, isSummon);
+				return;
 			}
 		}
 		
@@ -534,7 +534,7 @@ public abstract class AbstractSagaQuest extends Quest {
 						st.setCond(7, true);
 					}
 				}
-				return super.onKill(npc, player, isSummon);
+				return;
 			}
 		}
 		if ((st != null) && (npcId != _mob[2])) {
@@ -583,7 +583,6 @@ public abstract class AbstractSagaQuest extends Quest {
 				DeleteSpawn(st, npc);
 			}
 		}
-		return super.onKill(npc, player, isSummon);
 	}
 	
 	@Override

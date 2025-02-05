@@ -165,7 +165,7 @@ public final class Q10292_SevenSignsGirlOfDoubt extends Quest {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance player, boolean isSummon) {
+	public void onKill(L2Npc npc, L2PcInstance player, boolean isSummon) {
 		final QuestState st = getRandomPartyMemberState(player, -1, 3, npc);
 		if (st != null) {
 			QuestDropInfo markDropInfo = DROPLIST.get(npc);
@@ -180,7 +180,6 @@ public final class Q10292_SevenSignsGirlOfDoubt extends Quest {
 				}
 			}
 		}
-		return super.onKill(npc, player, isSummon);
 	}
 	
 	@Override

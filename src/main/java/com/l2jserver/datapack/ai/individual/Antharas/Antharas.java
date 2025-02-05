@@ -534,7 +534,7 @@ public final class Antharas extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
+	public void onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
 		if (zone.isCharacterInZone(killer)) {
 			if (npc.getId() == ANTHARAS) {
 				_antharas = null;
@@ -554,7 +554,6 @@ public final class Antharas extends AbstractNpcAI {
 				_minionCount--;
 			}
 		}
-		return super.onKill(npc, killer, isSummon);
 	}
 	
 	@Override

@@ -1529,7 +1529,7 @@ public final class Kamaloka extends AbstractInstance {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance player, boolean isSummon) {
+	public void onKill(L2Npc npc, L2PcInstance player, boolean isSummon) {
 		final InstanceWorld tmpWorld = InstanceManager.getInstance().getWorld(npc.getInstanceId());
 		if (tmpWorld instanceof KamaWorld world) {
 			final int objectId = npc.getObjectId();
@@ -1558,8 +1558,7 @@ public final class Kamaloka extends AbstractInstance {
 							}
 						}
 					}
-					
-					return super.onKill(npc, player, isSummon);
+					return;
 				}
 			}
 			
@@ -1590,8 +1589,7 @@ public final class Kamaloka extends AbstractInstance {
 							}
 						}
 					}
-					
-					return super.onKill(npc, player, isSummon);
+					return;
 				}
 			}
 			
@@ -1609,8 +1607,7 @@ public final class Kamaloka extends AbstractInstance {
 						}
 					}
 				}
-				
-				return super.onKill(npc, player, isSummon);
+				return;
 			}
 			
 			// boss was killed, finish instance
@@ -1619,7 +1616,6 @@ public final class Kamaloka extends AbstractInstance {
 				finishInstance(world);
 			}
 		}
-		return super.onKill(npc, player, isSummon);
 	}
 	
 	@Override

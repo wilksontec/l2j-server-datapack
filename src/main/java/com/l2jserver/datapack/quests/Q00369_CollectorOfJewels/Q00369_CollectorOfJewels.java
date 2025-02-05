@@ -99,7 +99,7 @@ public final class Q00369_CollectorOfJewels extends Quest {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
+	public void onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
 		L2PcInstance luckyPlayer = getRandomPartyMember(killer, npc);
 		if (luckyPlayer != null) {
 			final QuestState st = getQuestState(luckyPlayer, false);
@@ -109,7 +109,6 @@ public final class Q00369_CollectorOfJewels extends Quest {
 				st.setCond((st.isMemoState(1) ? 2 : 4));
 			}
 		}
-		return super.onKill(npc, killer, isSummon);
 	}
 	
 	@Override

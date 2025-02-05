@@ -117,7 +117,7 @@ public class Q00328_SenseForBusiness extends Quest {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance player, boolean isPet) {
+	public void onKill(L2Npc npc, L2PcInstance player, boolean isPet) {
 		final QuestState st = getQuestState(player, false);
 		if ((st != null) && st.isStarted()) {
 			final int chance = getRandom(100);
@@ -136,6 +136,5 @@ public class Q00328_SenseForBusiness extends Quest {
 				}
 			}
 		}
-		return super.onKill(npc, player, isPet);
 	}
 }

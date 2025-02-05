@@ -2445,7 +2445,7 @@ public class Q00255_Tutorial extends Quest {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
+	public void onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
 		final QuestState qs = getQuestState(killer, false);
 		if (npc.getId() == TUTORIAL_GREMLIN) {
 			if ((qs.getMemoStateEx(1) == 1) || (qs.getMemoStateEx(1) == 0)) {
@@ -2459,7 +2459,6 @@ public class Q00255_Tutorial extends Quest {
 				qs.playSound(Sound.ITEMSOUND_QUEST_TUTORIAL);
 			}
 		}
-		return super.onKill(npc, killer, isSummon);
 	}
 	
 	@Override

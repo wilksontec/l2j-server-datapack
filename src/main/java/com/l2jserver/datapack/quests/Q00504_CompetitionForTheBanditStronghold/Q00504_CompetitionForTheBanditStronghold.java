@@ -76,10 +76,10 @@ public final class Q00504_CompetitionForTheBanditStronghold extends Quest {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
+	public void onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
 		final QuestState st = getQuestState(killer, false);
 		if ((st == null) || !st.hasQuestItems(CONTEST_CERTIFICATE) || !st.isStarted()) {
-			return null;
+			return;
 		}
 		
 		if (getRandom(10) < MONSTERS.get(npc.getId())) {
@@ -90,7 +90,6 @@ public final class Q00504_CompetitionForTheBanditStronghold extends Quest {
 				st.playSound(Sound.ITEMSOUND_QUEST_MIDDLE);
 			}
 		}
-		return null;
 	}
 	
 	@Override

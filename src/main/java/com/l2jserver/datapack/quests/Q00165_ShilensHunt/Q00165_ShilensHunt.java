@@ -70,7 +70,7 @@ public class Q00165_ShilensHunt extends Quest {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
+	public void onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
 		final QuestState st = getQuestState(killer, false);
 		if ((st != null) && st.isCond(1) && (getRandom(3) < MONSTERS.get(npc.getId()))) {
 			st.giveItems(DARK_BEZOAR, 1);
@@ -80,7 +80,6 @@ public class Q00165_ShilensHunt extends Quest {
 				st.setCond(2, true);
 			}
 		}
-		return super.onKill(npc, killer, isSummon);
 	}
 	
 	@Override

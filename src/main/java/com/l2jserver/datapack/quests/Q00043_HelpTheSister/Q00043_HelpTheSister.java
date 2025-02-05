@@ -97,9 +97,8 @@ public class Q00043_HelpTheSister extends Quest {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance player, boolean isSummon) {
+	public void onKill(L2Npc npc, L2PcInstance player, boolean isSummon) {
 		QuestState st = getQuestState(player, false);
-		
 		if ((st != null) && st.isCond(2)) {
 			st.giveItems(MAP_PIECE, 1);
 			if (st.getQuestItemsCount(MAP_PIECE) == 30) {
@@ -108,7 +107,6 @@ public class Q00043_HelpTheSister extends Quest {
 				st.playSound(Sound.ITEMSOUND_QUEST_ITEMGET);
 			}
 		}
-		return super.onKill(npc, player, isSummon);
 	}
 	
 	@Override

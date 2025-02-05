@@ -52,7 +52,7 @@ public class FairyTrees extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
+	public void onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
 		if (npc.calculateDistance(killer, true, false) <= MIN_DISTANCE) {
 			for (int i = 0; i < 20; i++) {
 				final L2Npc guardian = addSpawn(SOUL_GUARDIAN, npc, false, 30000);
@@ -64,7 +64,6 @@ public class FairyTrees extends AbstractNpcAI {
 				}
 			}
 		}
-		return super.onKill(npc, killer, isSummon);
 	}
 	
 	@Override

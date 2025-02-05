@@ -79,7 +79,7 @@ public final class Q00368_TrespassingIntoTheHolyGround extends Quest {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
+	public void onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
 		final int i;
 		switch (npc.getId()) {
 			case 20795, 20797 -> i = 1;
@@ -90,7 +90,6 @@ public final class Q00368_TrespassingIntoTheHolyGround extends Quest {
 		if (st != null) {
 			giveItemRandomly(st.getPlayer(), npc, DROPLIST.get(npc), true);
 		}
-		return super.onKill(npc, killer, isSummon);
 	}
 	
 	@Override

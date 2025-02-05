@@ -279,7 +279,7 @@ public abstract class FlagWar extends ClanHallSiegeEngine {
 	}
 	
 	@Override
-	public synchronized String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
+	public synchronized void onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
 		if (_hall.isInSiege()) {
 			final int npcId = npc.getId();
 			for (int keys : _data.keySet()) {
@@ -336,7 +336,6 @@ public abstract class FlagWar extends ClanHallSiegeEngine {
 				}
 			}
 		}
-		return null;
 	}
 	
 	@Override

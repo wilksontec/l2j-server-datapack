@@ -231,7 +231,7 @@ public class Q00611_AllianceWithVarkaSilenos extends Quest {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
+	public void onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
 		final L2PcInstance member = getRandomPartyMemberState(killer, State.STARTED);
 		if (member != null) {
 			final QuestState st = getQuestState(member, false);
@@ -240,7 +240,6 @@ public class Q00611_AllianceWithVarkaSilenos extends Quest {
 				st.giveItems(info.getItemId(), 1);
 			}
 		}
-		return super.onKill(npc, killer, isSummon);
 	}
 	
 	@Override

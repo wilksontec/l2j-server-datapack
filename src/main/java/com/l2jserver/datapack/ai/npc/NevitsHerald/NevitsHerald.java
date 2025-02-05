@@ -102,7 +102,7 @@ public final class NevitsHerald extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance killer, boolean isPet) {
+	public void onKill(L2Npc npc, L2PcInstance killer, boolean isPet) {
 		ExShowScreenMessage message = null;
 		
 		if (npc.getId() == VALAKAS) {
@@ -132,7 +132,6 @@ public final class NevitsHerald extends AbstractNpcAI {
 			startQuestTimer("despawn", 14400000, npc, killer);
 			startQuestTimer("text_spam", 3000, npc, killer);
 		}
-		return null;
 	}
 	
 	private void despawnHeralds() {

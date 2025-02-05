@@ -291,7 +291,7 @@ public final class Q00022_TragedyInVonHellmannForest extends Quest {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
+	public void onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
 		if (Util.checkIfInRange(1500, killer, npc, true)) {
 			if (npc.getId() == SOUL_OF_WELL) {
 				_soulWellNpc = null;
@@ -303,8 +303,6 @@ public final class Q00022_TragedyInVonHellmannForest extends Quest {
 				}
 			}
 		}
-		
-		return super.onKill(npc, killer, isSummon);
 	}
 	
 	@Override

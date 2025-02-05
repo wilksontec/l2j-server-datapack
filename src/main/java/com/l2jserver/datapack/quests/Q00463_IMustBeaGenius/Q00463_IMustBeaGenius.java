@@ -145,10 +145,10 @@ public class Q00463_IMustBeaGenius extends Quest {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance player, boolean isSummon) {
+	public void onKill(L2Npc npc, L2PcInstance player, boolean isSummon) {
 		final QuestState st = getQuestState(player, false);
 		if (st == null) {
-			return super.onKill(npc, player, isSummon);
+			return;
 		}
 		
 		if (st.isCond(1)) {
@@ -181,7 +181,6 @@ public class Q00463_IMustBeaGenius extends Quest {
 				}
 			}
 		}
-		return super.onKill(npc, player, isSummon);
 	}
 	
 	@Override

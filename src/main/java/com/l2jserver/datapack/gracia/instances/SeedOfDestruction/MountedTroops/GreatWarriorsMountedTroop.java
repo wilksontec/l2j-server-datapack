@@ -325,7 +325,7 @@ public final class GreatWarriorsMountedTroop extends AbstractInstance {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
+	public void onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
 		final InstanceWorld tmpworld = InstanceManager.getInstance().getWorld(npc.getInstanceId());
 		if (tmpworld instanceof GreatWarriorsMountedTroopWorld) {
 			final GreatWarriorsMountedTroopWorld world = (GreatWarriorsMountedTroopWorld) InstanceManager.getInstance().getWorld(npc.getInstanceId());
@@ -352,6 +352,5 @@ public final class GreatWarriorsMountedTroop extends AbstractInstance {
 				finishInstance(world, EXIT_TIME * 60000);
 			}
 		}
-		return super.onKill(npc, killer, isSummon);
 	}
 }

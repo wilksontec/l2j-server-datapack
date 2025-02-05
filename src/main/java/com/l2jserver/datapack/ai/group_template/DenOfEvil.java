@@ -135,19 +135,18 @@ public final class DenOfEvil extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
+	public void onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
 		ThreadPoolManager.getInstance().scheduleAi(() -> {
 			addSpawn(EYE_IDS[getRandom(EYE_IDS.length)], npc.getLocation(), false, 0);
 		}, 15000);
 		L2EffectZone zone = ZoneManager.getInstance().getZone(npc, L2EffectZone.class);
 		if (zone == null) {
 			LOG.warn("NPC {} killed outside of L2EffectZone, check your zone coords! {}", npc, npc.getLocation());
-			return null;
+			return;
 		}
 		int skillId = getSkillIdByNpcId(npc.getId());
 		int skillLevel = zone.getSkillLevel(skillId);
 		zone.addSkill(skillId, skillLevel - 1);
-		return super.onKill(npc, killer, isSummon);
 	}
 	
 	private static class KashaDestruction implements Runnable {

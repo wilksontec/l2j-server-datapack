@@ -352,12 +352,11 @@ public final class BeastFarm extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
+	public void onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
 		// remove the feedinfo of the mob that got killed, if any
 		if (FEED_INFO.containsKey(npc.getObjectId())) {
 			FEED_INFO.remove(npc.getObjectId());
 		}
-		return super.onKill(npc, killer, isSummon);
 	}
 	
 	// all mobs that grow by eating

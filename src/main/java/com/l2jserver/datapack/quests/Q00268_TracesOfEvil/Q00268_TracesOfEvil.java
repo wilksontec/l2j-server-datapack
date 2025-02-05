@@ -62,7 +62,7 @@ public final class Q00268_TracesOfEvil extends Quest {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
+	public void onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
 		final QuestState st = getQuestState(killer, false);
 		if ((st != null) && st.isCond(1)) {
 			st.giveItems(CONTAMINATED_KASHA_SPIDER_VENOM, 1);
@@ -72,7 +72,6 @@ public final class Q00268_TracesOfEvil extends Quest {
 				st.playSound(Sound.ITEMSOUND_QUEST_ITEMGET);
 			}
 		}
-		return super.onKill(npc, killer, isSummon);
 	}
 	
 	@Override

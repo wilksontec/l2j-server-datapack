@@ -312,7 +312,7 @@ public final class Q00511_AwlUnderFoot extends Quest {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance player, boolean isSummon) {
+	public void onKill(L2Npc npc, L2PcInstance player, boolean isSummon) {
 		InstanceWorld tmpworld = InstanceManager.getInstance().getWorld(npc.getInstanceId());
 		if (tmpworld instanceof FAUWorld world) {
 			if (Util.contains(RAIDS3, npc.getId())) {
@@ -332,7 +332,6 @@ public final class Q00511_AwlUnderFoot extends Quest {
 				ThreadPoolManager.getInstance().scheduleGeneral(new spawnRaid(world), RAID_SPAWN_DELAY);
 			}
 		}
-		return null;
 	}
 	
 	@Override

@@ -523,9 +523,8 @@ public final class TowerOfNaia extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
+	public void onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
 		int npcId = npc.getId();
-		
 		if (npcId == LOCK) {
 			_lock = null;
 			cancelQuestTimers("spawn_lock");
@@ -621,7 +620,6 @@ public final class TowerOfNaia extends AbstractNpcAI {
 				}
 			}
 		}
-		return super.onKill(npc, killer, isSummon);
 	}
 	
 	@Override

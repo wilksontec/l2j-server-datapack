@@ -69,10 +69,10 @@ public class Q10281_MutatedKaneusRune extends Quest {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
+	public void onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
 		QuestState st = getQuestState(killer, false);
 		if (st == null) {
-			return null;
+			return;
 		}
 		
 		final int npcId = npc.getId();
@@ -91,7 +91,6 @@ public class Q10281_MutatedKaneusRune extends Quest {
 		} else if (st.isStarted() && !st.hasQuestItems(TISSUE_WA)) {
 			rewardItem(npcId, st);
 		}
-		return null;
 	}
 	
 	@Override

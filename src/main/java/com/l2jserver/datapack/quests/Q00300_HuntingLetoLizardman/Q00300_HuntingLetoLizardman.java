@@ -102,7 +102,7 @@ public final class Q00300_HuntingLetoLizardman extends Quest {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance player, boolean isSummon) {
+	public void onKill(L2Npc npc, L2PcInstance player, boolean isSummon) {
 		final L2PcInstance partyMember = getRandomPartyMember(player, 1);
 		if (partyMember != null) {
 			final QuestState st = getQuestState(partyMember, false);
@@ -115,7 +115,6 @@ public final class Q00300_HuntingLetoLizardman extends Quest {
 				}
 			}
 		}
-		return super.onKill(npc, player, isSummon);
 	}
 	
 	@Override

@@ -480,7 +480,7 @@ public abstract class Chamber extends AbstractInstance {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance player, boolean isPet) {
+	public void onKill(L2Npc npc, L2PcInstance player, boolean isPet) {
 		final InstanceWorld tmpworld = InstanceManager.getInstance().getPlayerWorld(player);
 		if ((tmpworld != null) && (tmpworld instanceof CDWorld world)) {
 			final Instance inst = InstanceManager.getInstance().getInstance(world.getInstanceId());
@@ -497,8 +497,6 @@ public abstract class Chamber extends AbstractInstance {
 			
 			inst.spawnGroup("boxes");
 		}
-		
-		return super.onKill(npc, player, isPet);
 	}
 	
 	@Override

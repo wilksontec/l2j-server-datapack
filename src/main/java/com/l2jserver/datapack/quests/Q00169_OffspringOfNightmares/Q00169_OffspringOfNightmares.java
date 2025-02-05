@@ -82,7 +82,7 @@ public class Q00169_OffspringOfNightmares extends Quest {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
+	public void onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
 		final QuestState st = getQuestState(killer, false);
 		if ((st != null) && st.isStarted()) {
 			if (!hasQuestItems(st.getPlayer(), PERFECT_SKULL.getId()) && giveItemRandomly(st.getPlayer(), npc, PERFECT_SKULL, true)) {
@@ -91,7 +91,6 @@ public class Q00169_OffspringOfNightmares extends Quest {
 				giveItemRandomly(st.getPlayer(), npc, singleDropItem(CRACKED_SKULL, 50.0), 0, true);
 			}
 		}
-		return super.onKill(npc, killer, isSummon);
 	}
 	
 	@Override

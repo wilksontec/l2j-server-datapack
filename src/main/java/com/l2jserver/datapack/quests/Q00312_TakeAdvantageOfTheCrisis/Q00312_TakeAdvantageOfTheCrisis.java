@@ -95,14 +95,13 @@ public class Q00312_TakeAdvantageOfTheCrisis extends Quest {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance player, boolean isSummon) {
+	public void onKill(L2Npc npc, L2PcInstance player, boolean isSummon) {
 		final L2PcInstance member = getRandomPartyMember(player, 1);
 		if ((member != null) && (getRandom(1000) < MOBS.get(npc.getId()))) {
 			final QuestState st = getQuestState(member, false);
 			st.giveItems(MINERAL_FRAGMENT, 1);
 			st.playSound(Sound.ITEMSOUND_QUEST_ITEMGET);
 		}
-		return super.onKill(npc, player, isSummon);
 	}
 	
 	@Override

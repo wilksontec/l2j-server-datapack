@@ -150,7 +150,7 @@ public final class DarkWaterDragon extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
+	public void onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
 		int npcId = npc.getId();
 		int npcObjId = npc.getObjectId();
 		switch (npcId) {
@@ -182,7 +182,6 @@ public final class DarkWaterDragon extends AbstractNpcAI {
 				calculateDrop(npc, killer, BLUE_SEED_OF_EVIL, 10.08);
 			}
 		}
-		return super.onKill(npc, killer, isSummon);
 	}
 	
 	private void calculateDrop(final L2Npc npc, final L2PcInstance killer, final int itemId, final double dropRate) {

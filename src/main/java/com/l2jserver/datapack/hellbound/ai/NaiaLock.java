@@ -38,8 +38,7 @@ public final class NaiaLock extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
+	public void onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
 		((L2MonsterInstance) npc).getMinionList().onMasterDie(true);
-		return super.onKill(npc, killer, isSummon);
 	}
 }

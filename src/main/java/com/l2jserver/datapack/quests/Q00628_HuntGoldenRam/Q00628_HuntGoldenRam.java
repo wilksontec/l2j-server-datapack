@@ -118,7 +118,7 @@ public final class Q00628_HuntGoldenRam extends Quest {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
+	public void onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
 		final QuestState qs = getRandomPartyMemberState(killer, -1, 1, npc);
 		if ((qs != null) && !qs.isCond(3)) {
 			if (qs.getCond() >= 1) {
@@ -128,7 +128,6 @@ public final class Q00628_HuntGoldenRam extends Quest {
 				}
 			}
 		}
-		return super.onKill(npc, killer, isSummon);
 	}
 	
 	@Override

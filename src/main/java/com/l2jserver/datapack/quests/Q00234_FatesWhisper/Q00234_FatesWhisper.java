@@ -874,23 +874,23 @@ public final class Q00234_FatesWhisper extends Quest {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
+	public void onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
 		switch (npc.getId()) {
 			case DOMB_DEATH_CABRIO: {
 				addSpawn(COFFER_OF_THE_DEAD, npc.getLocation());
-				return super.onKill(npc, killer, isSummon);
+				return;
 			}
 			case KERNON: {
 				addSpawn(CHEST_OF_KERNON, npc.getLocation());
-				return super.onKill(npc, killer, isSummon);
+				return;
 			}
 			case GOLKONDA_LONGHORN: {
 				addSpawn(CHEST_OF_GOLKONDA, npc.getLocation());
-				return super.onKill(npc, killer, isSummon);
+				return;
 			}
 			case HALLATE_THE_DEATH_LORD: {
 				addSpawn(CHEST_OF_HALLATE, npc.getLocation());
-				return super.onKill(npc, killer, isSummon);
+				return;
 			}
 		}
 		
@@ -910,7 +910,6 @@ public final class Q00234_FatesWhisper extends Quest {
 			}
 			
 		}
-		return super.onKill(npc, killer, isSummon);
 	}
 	
 	@Override

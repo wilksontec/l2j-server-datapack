@@ -93,10 +93,10 @@ public class Q00250_WatchWhatYouEat extends Quest {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance player, boolean isSummon) {
+	public void onKill(L2Npc npc, L2PcInstance player, boolean isSummon) {
 		final QuestState st = getQuestState(player, false);
 		if (st == null) {
-			return null;
+			return;
 		}
 		if (st.isStarted() && st.isCond(1)) {
 			for (int[] mob : MOBS) {
@@ -111,7 +111,6 @@ public class Q00250_WatchWhatYouEat extends Quest {
 				st.setCond(2, true);
 			}
 		}
-		return null;
 	}
 	
 	@Override

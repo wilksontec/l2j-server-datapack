@@ -97,7 +97,7 @@ public class Q00035_FindGlitteringJewelry extends Quest {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance player, boolean isSummon) {
+	public void onKill(L2Npc npc, L2PcInstance player, boolean isSummon) {
 		final L2PcInstance member = getRandomPartyMember(player, 2);
 		if (member != null) {
 			final QuestState st = getQuestState(member, false);
@@ -110,7 +110,6 @@ public class Q00035_FindGlitteringJewelry extends Quest {
 				}
 			}
 		}
-		return super.onKill(npc, player, isSummon);
 	}
 	
 	@Override

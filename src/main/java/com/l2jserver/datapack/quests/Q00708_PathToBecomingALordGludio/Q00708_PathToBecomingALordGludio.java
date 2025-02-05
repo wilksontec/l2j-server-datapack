@@ -239,7 +239,7 @@ public final class Q00708_PathToBecomingALordGludio extends Quest {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
+	public void onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
 		final var target = killer.isInParty() ? killer.getParty().getRandomPlayer() : killer;
 		final var qs = target.getQuestState(getName());
 		if ((qs != null) && Util.checkIfInRange(1500, npc, target, true)) {
@@ -274,7 +274,6 @@ public final class Q00708_PathToBecomingALordGludio extends Quest {
 				}
 			}
 		}
-		return super.onKill(npc, killer, isSummon);
 	}
 	
 	@Override

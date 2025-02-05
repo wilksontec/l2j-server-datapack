@@ -121,12 +121,11 @@ public class Q10272_LightFragment extends Quest {
 	}
 	
 	@Override
-	public final String onKill(L2Npc npc, L2PcInstance player, boolean isSummon) {
+	public final void onKill(L2Npc npc, L2PcInstance player, boolean isSummon) {
 		final QuestState st = getQuestState(player, false);
 		if ((st != null) && st.isCond(5)) {
 			giveItemRandomly(player, npc, FRAGMENT_POWDER, true);
 		}
-		return null;
 	}
 	
 	@Override

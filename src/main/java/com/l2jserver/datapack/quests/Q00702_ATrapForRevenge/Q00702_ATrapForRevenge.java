@@ -185,10 +185,10 @@ public class Q00702_ATrapForRevenge extends Quest {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance player, boolean isSummon) {
+	public void onKill(L2Npc npc, L2PcInstance player, boolean isSummon) {
 		final L2PcInstance partyMember = getRandomPartyMember(player, 2);
 		if (partyMember == null) {
-			return null;
+			return;
 		}
 		final QuestState st = getQuestState(partyMember, false);
 		final int chance = getRandom(1000);
@@ -250,7 +250,6 @@ public class Q00702_ATrapForRevenge extends Quest {
 				break;
 		}
 		st.playSound(Sound.ITEMSOUND_QUEST_ITEMGET);
-		return null;
 	}
 	
 	@Override

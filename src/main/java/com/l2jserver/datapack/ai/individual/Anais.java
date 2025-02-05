@@ -144,7 +144,7 @@ public final class Anais extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
+	public void onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
 		npc.doCast(DIVINE_NOVA.getSkill());
 		cancelQuestTimer("GUARD_ATTACK", npc, _nextTarget);
 		cancelQuestTimer("CHECK", npc, null);
@@ -153,6 +153,5 @@ public final class Anais extends AbstractNpcAI {
 			_current.setIsRunning(false);
 			_current = null;
 		}
-		return super.onKill(npc, killer, isSummon);
 	}
 }

@@ -87,7 +87,7 @@ public final class Q00306_CrystalOfFireAndIce extends Quest {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
+	public void onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
 		final QuestState qs;
 		if (npc.getId() == UNDINE_NOBLE) { // Undine Noble gives quest drops only for the killer
 			qs = getQuestState(killer, false);
@@ -100,7 +100,6 @@ public final class Q00306_CrystalOfFireAndIce extends Quest {
 				giveItemRandomly(qs.getPlayer(), npc, DROPLIST.get(npc), true);
 			}
 		}
-		return super.onKill(npc, killer, isSummon);
 	}
 	
 	@Override

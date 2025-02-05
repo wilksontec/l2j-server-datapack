@@ -90,9 +90,9 @@ public final class FortressOfTheDead extends ClanHallSiegeEngine {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
+	public void onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
 		if (!_hall.isInSiege()) {
-			return null;
+			return;
 		}
 		
 		final int npcId = npc.getId();
@@ -108,8 +108,6 @@ public final class FortressOfTheDead extends ClanHallSiegeEngine {
 				endSiege();
 			}
 		}
-		
-		return null;
 	}
 	
 	@Override

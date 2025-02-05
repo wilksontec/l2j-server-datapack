@@ -819,7 +819,7 @@ public final class DarkCloudMansion extends AbstractInstance {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance player, boolean isSummon) {
+	public void onKill(L2Npc npc, L2PcInstance player, boolean isSummon) {
 		final InstanceWorld tmpworld = InstanceManager.getInstance().getWorld(npc.getInstanceId());
 		final DMCWorld world;
 		if (tmpworld instanceof DMCWorld) {
@@ -874,7 +874,6 @@ public final class DarkCloudMansion extends AbstractInstance {
 				killedBelethSample(world, npc);
 			}
 		}
-		return "";
 	}
 	
 	@Override

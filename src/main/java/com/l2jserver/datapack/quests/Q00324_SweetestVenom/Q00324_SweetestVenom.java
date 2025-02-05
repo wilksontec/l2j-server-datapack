@@ -94,7 +94,7 @@ public class Q00324_SweetestVenom extends Quest {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance player, boolean isPet) {
+	public void onKill(L2Npc npc, L2PcInstance player, boolean isPet) {
 		final QuestState st = getQuestState(player, false);
 		if ((st != null) && st.isCond(1)) {
 			long sacs = st.getQuestItemsCount(VENOM_SAC);
@@ -109,6 +109,5 @@ public class Q00324_SweetestVenom extends Quest {
 				}
 			}
 		}
-		return super.onKill(npc, player, isPet);
 	}
 }

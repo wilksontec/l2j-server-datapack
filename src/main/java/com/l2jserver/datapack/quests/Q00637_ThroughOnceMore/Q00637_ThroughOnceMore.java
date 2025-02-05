@@ -69,12 +69,11 @@ public final class Q00637_ThroughOnceMore extends Quest {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance player, boolean isSummon) {
+	public void onKill(L2Npc npc, L2PcInstance player, boolean isSummon) {
 		final QuestState st = getQuestState(player, false);
 		if ((st != null) && st.isStarted() && giveItemRandomly(st.getPlayer(), npc, NECRO_HEART, true)) {
 			st.setCond(2);
 		}
-		return null;
 	}
 	
 	@Override

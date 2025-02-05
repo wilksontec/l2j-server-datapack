@@ -99,7 +99,7 @@ public class Q00044_HelpTheSon extends Quest {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance player, boolean isSummon) {
+	public void onKill(L2Npc npc, L2PcInstance player, boolean isSummon) {
 		final QuestState st = getQuestState(player, false);
 		if ((st != null) && st.isCond(2)) {
 			st.giveItems(GEMSTONE_FRAGMENT, 1);
@@ -109,7 +109,6 @@ public class Q00044_HelpTheSon extends Quest {
 				st.playSound(Sound.ITEMSOUND_QUEST_ITEMGET);
 			}
 		}
-		return super.onKill(npc, player, isSummon);
 	}
 	
 	@Override

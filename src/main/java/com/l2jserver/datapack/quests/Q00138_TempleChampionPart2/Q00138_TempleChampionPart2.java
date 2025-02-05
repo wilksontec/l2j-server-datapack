@@ -108,12 +108,11 @@ public class Q00138_TempleChampionPart2 extends Quest {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance player, boolean isSummon) {
+	public void onKill(L2Npc npc, L2PcInstance player, boolean isSummon) {
 		final QuestState st = getQuestState(player, false);
 		if ((st != null) && st.isStarted() && st.isCond(4)) {
 			giveItemRandomly(st.getPlayer(), npc, RELICS_OF_THE_DARK_ELF_TRAINEE, true);
 		}
-		return super.onKill(npc, player, isSummon);
 	}
 	
 	@Override

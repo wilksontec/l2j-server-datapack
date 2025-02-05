@@ -214,7 +214,7 @@ public class Q00270_TheOneWhoEndsSilence extends Quest {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
+	public void onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
 		switch (npc.getId()) {
 			case SEEKER_SOLINA: {
 				giveItem(getRandomPartyMember(killer, 1), npc, 57, false);
@@ -257,7 +257,6 @@ public class Q00270_TheOneWhoEndsSilence extends Quest {
 				break;
 			}
 		}
-		return super.onKill(npc, killer, isSummon);
 	}
 	
 	@Override

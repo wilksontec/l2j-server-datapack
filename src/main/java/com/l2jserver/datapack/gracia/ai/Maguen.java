@@ -303,7 +303,7 @@ public final class Maguen extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
+	public void onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
 		if (killer.isInParty()) {
 			final L2PcInstance partyMember = getRandomPartyMember(killer);
 			final int i0 = 10 + (10 * killer.getParty().getMemberCount());
@@ -312,7 +312,6 @@ public final class Maguen extends AbstractNpcAI {
 				notifyEvent("SPAWN_MAGUEN", npc, partyMember);
 			}
 		}
-		return super.onKill(npc, killer, isSummon);
 	}
 	
 	private void maguenPetChance(L2PcInstance player) {

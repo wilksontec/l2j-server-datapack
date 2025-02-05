@@ -162,7 +162,7 @@ public final class Q00638_SeekersOfTheHolyGrail extends Quest {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
+	public void onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
 		final QuestState qs = getRandomPartyMemberState(killer, -1, 3, npc);
 		if (qs != null) {
 			if (giveItemRandomly(qs.getPlayer(), npc, DROPLIST.get(npc), true)) {
@@ -173,7 +173,6 @@ public final class Q00638_SeekersOfTheHolyGrail extends Quest {
 				}
 			}
 		}
-		return super.onKill(npc, killer, isSummon);
 	}
 	
 	@Override

@@ -86,12 +86,11 @@ public final class Q00654_JourneyToASettlement extends Quest {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance player, boolean isSummon) {
+	public void onKill(L2Npc npc, L2PcInstance player, boolean isSummon) {
 		final QuestState st = getRandomPartyMemberState(player, 2, 3, npc);
 		if ((st != null) && giveItemRandomly(st.getPlayer(), npc, DROPLIST.get(npc), true)) {
 			st.setCond(3);
 		}
-		return super.onKill(npc, player, isSummon);
 	}
 	
 	@Override

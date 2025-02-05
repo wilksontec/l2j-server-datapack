@@ -135,13 +135,12 @@ public final class Q00623_TheFinestFood extends Quest {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
+	public void onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
 		final QuestState qs = getRandomPartyMemberState(killer, 1, 3, npc);
 		if ((qs != null) && giveItemRandomly(qs.getPlayer(), npc, DROPLIST.get(npc), true)) {
 			if (hasItemsAtLimit(qs.getPlayer(), BUFFALO_MEAT, HORN_OF_ANTELOPE, LEAF_OF_FLAVA)) {
 				qs.setCond(2);
 			}
 		}
-		return super.onKill(npc, killer, isSummon);
 	}
 }

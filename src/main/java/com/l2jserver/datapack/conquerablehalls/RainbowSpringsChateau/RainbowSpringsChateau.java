@@ -474,14 +474,14 @@ public final class RainbowSpringsChateau extends ClanHallSiegeEngine {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
+	public void onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
 		if (!_rainbow.isInSiege()) {
-			return null;
+			return;
 		}
 		
 		final L2Clan clan = killer.getClan();
 		if ((clan == null) || !_acceptedClans.contains(clan)) {
-			return null;
+			return;
 		}
 		
 		final int npcId = npc.getId();
@@ -497,8 +497,6 @@ public final class RainbowSpringsChateau extends ClanHallSiegeEngine {
 				ThreadPoolManager.getInstance().executeGeneral(new SiegeEnd(clan));
 			}
 		}
-		
-		return null;
 	}
 	
 	@Override

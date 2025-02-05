@@ -102,7 +102,7 @@ public class Q00341_HuntingForWildBeasts extends Quest {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance player, boolean isPet) {
+	public void onKill(L2Npc npc, L2PcInstance player, boolean isPet) {
 		final QuestState st = getQuestState(player, false);
 		if ((st != null) && st.isCond(1)) {
 			long skins = st.getQuestItemsCount(BEAR_SKIN);
@@ -117,6 +117,5 @@ public class Q00341_HuntingForWildBeasts extends Quest {
 				}
 			}
 		}
-		return super.onKill(npc, player, isPet);
 	}
 }

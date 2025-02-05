@@ -214,10 +214,10 @@ public final class Q00501_ProofOfClanAlliance extends Quest {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
+	public void onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
 		final QuestState qs = getRandomPartyMemberState(killer, -1, 3, npc);
 		if (qs == null) {
-			return super.onKill(npc, killer, isSummon);
+			return;
 		}
 		
 		final L2PcInstance player = qs.getPlayer();
@@ -256,7 +256,6 @@ public final class Q00501_ProofOfClanAlliance extends Quest {
 				}
 			}
 		}
-		return super.onKill(npc, killer, isSummon);
 	}
 	
 	@Override

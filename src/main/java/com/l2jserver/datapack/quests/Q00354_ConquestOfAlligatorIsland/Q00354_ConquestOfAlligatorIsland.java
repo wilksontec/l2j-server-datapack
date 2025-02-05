@@ -112,13 +112,12 @@ public final class Q00354_ConquestOfAlligatorIsland extends Quest {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
+	public void onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
 		final QuestState st = getRandomPartyMemberState(killer, -1, 3, npc);
 		if (st != null) {
 			giveItemRandomly(st.getPlayer(), npc, DROPLIST.get(npc), true);
 			giveItemRandomly(st.getPlayer(), npc, MYSTERIOUS_MAP_PIECE, false);
 		}
-		return super.onKill(npc, killer, isSummon);
 	}
 	
 	@Override

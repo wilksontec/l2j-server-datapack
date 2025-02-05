@@ -311,9 +311,8 @@ public final class CavernOfThePirateCaptain extends AbstractInstance {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
+	public void onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
 		final InstanceWorld tmpworld = InstanceManager.getInstance().getWorld(npc.getInstanceId());
-		
 		if ((tmpworld != null) && (tmpworld instanceof CavernOfThePirateCaptainWorld world)) {
 			if (npc.getId() == ZAKEN_83) {
 				for (L2PcInstance playersInside : world.playersInside) {
@@ -340,7 +339,6 @@ public final class CavernOfThePirateCaptain extends AbstractInstance {
 			}
 			finishInstance(world);
 		}
-		return super.onKill(npc, killer, isSummon);
 	}
 	
 	@Override

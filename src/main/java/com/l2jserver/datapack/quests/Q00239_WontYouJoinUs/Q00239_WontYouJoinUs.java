@@ -84,7 +84,7 @@ public class Q00239_WontYouJoinUs extends Quest {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
+	public void onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
 		if (npc.getId() == WASTE_LANDFILL_MACHINE) {
 			final L2PcInstance partyMember = getRandomPartyMember(killer, 1);
 			if (partyMember != null) {
@@ -112,7 +112,6 @@ public class Q00239_WontYouJoinUs extends Quest {
 				}
 			}
 		}
-		return super.onKill(npc, killer, isSummon);
 	}
 	
 	@Override

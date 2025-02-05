@@ -205,20 +205,17 @@ public final class Q00325_GrimCollector extends Quest {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
+	public void onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
 		final QuestState qs = getQuestState(killer, false);
-		
 		if ((qs == null) || !qs.isStarted()) {
-			return super.onKill(npc, killer, isSummon);
+			return;
 		}
 		
 		if (!Util.checkIfInRange(1500, killer, npc, true) || !qs.hasQuestItems(ANATOMY_DIAGRAM)) {
-			return super.onKill(npc, killer, isSummon);
+			return;
 		}
 		
 		giveItemRandomly(qs.getPlayer(), npc, DROPLIST.get(npc), true);
-		
-		return super.onKill(npc, killer, isSummon);
 	}
 	
 	@Override

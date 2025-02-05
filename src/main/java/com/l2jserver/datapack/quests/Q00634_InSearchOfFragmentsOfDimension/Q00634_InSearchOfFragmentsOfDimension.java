@@ -145,13 +145,12 @@ public final class Q00634_InSearchOfFragmentsOfDimension extends Quest {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance player, boolean isSummon) {
+	public void onKill(L2Npc npc, L2PcInstance player, boolean isSummon) {
 		final QuestState qs = getRandomPartyMemberState(player, -1, 3, npc);
 		if (qs != null) {
 			final long amount = (long) ((0.15 * npc.getLevel()) + 1.6);
 			giveItemRandomly(qs.getPlayer(), npc, singleDropItem(DIMENSIONAL_FRAGMENT, amount), 0L, true);
 		}
-		return super.onKill(npc, player, isSummon);
 	}
 	
 	@Override

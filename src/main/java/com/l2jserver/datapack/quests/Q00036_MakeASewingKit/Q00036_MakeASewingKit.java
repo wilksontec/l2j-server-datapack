@@ -89,7 +89,7 @@ public class Q00036_MakeASewingKit extends Quest {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance player, boolean isSummon) {
+	public void onKill(L2Npc npc, L2PcInstance player, boolean isSummon) {
 		final L2PcInstance member = getRandomPartyMember(player, 1);
 		if (member != null) {
 			final QuestState st = getQuestState(member, false);
@@ -102,7 +102,6 @@ public class Q00036_MakeASewingKit extends Quest {
 				}
 			}
 		}
-		return super.onKill(npc, player, isSummon);
 	}
 	
 	@Override

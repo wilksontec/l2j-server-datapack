@@ -367,9 +367,9 @@ public final class PrimevalIsle extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
+	public void onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
 		if ((npc.getId() == DEINO) || ((npc.getId() == ORNIT) && !npc.isScriptValue(1))) {
-			return super.onKill(npc, killer, isSummon);
+			return;
 		}
 		if ((npc.getId() == SAILREN) || (getRandom(100) < 3)) {
 			final L2PcInstance player = npc.getId() == SAILREN ? getRandomPartyMember(killer) : killer;
@@ -385,7 +385,6 @@ public final class PrimevalIsle extends AbstractNpcAI {
 				showOnScreenMsg(player, NpcStringId.WHEN_INVENTORY_WEIGHT_NUMBER_ARE_MORE_THAN_80_THE_LIFE_STONE_FROM_THE_BEGINNING_CANNOT_BE_ACQUIRED, 2, 6000);
 			}
 		}
-		return super.onKill(npc, killer, isSummon);
 	}
 	
 	@Override

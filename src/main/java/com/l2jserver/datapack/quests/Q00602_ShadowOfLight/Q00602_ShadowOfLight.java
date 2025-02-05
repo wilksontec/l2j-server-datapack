@@ -111,11 +111,10 @@ public class Q00602_ShadowOfLight extends Quest {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance player, boolean isSummon) {
+	public void onKill(L2Npc npc, L2PcInstance player, boolean isSummon) {
 		final QuestState st = getQuestState(player, false);
-		
 		if (st == null) {
-			return super.onKill(npc, player, isSummon);
+			return;
 		}
 		
 		int chance = (npc.getId() == MOBS[0]) ? 560 : 800;
@@ -128,7 +127,6 @@ public class Q00602_ShadowOfLight extends Quest {
 				st.playSound(Sound.ITEMSOUND_QUEST_ITEMGET);
 			}
 		}
-		return super.onKill(npc, player, isSummon);
 	}
 	
 	@Override

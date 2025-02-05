@@ -211,7 +211,7 @@ public final class Q00648_AnIceMerchantsDream extends Quest {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
+	public void onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
 		final QuestState st = getRandomPartyMemberState(killer, -1, 3, npc);
 		if (st != null) {
 			if (st.getCond() >= 1) {
@@ -224,7 +224,6 @@ public final class Q00648_AnIceMerchantsDream extends Quest {
 				giveItemRandomly(st.getPlayer(), npc, hemocyteDropInfo, true);
 			}
 		}
-		return super.onKill(npc, killer, isSummon);
 	}
 	
 	@Override

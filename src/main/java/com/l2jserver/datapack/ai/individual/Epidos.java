@@ -97,13 +97,12 @@ public final class Epidos extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
+	public void onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
 		if (npc.isInsideRadius(-45474, 247450, -13994, 2000, true, false)) {
 			addSpawn(32376, -45482, 246277, -14184, 0, false, 0, false);
 		}
 		
 		_lastHp.remove(npc.getObjectId());
-		return super.onKill(npc, killer, isSummon);
 	}
 	
 	@Override

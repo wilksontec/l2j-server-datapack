@@ -74,11 +74,10 @@ public class DraconianTroops extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
+	public void onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
 		if (getRandom(10000) < 300) {
 			L2Attackable spawn = (L2Attackable) addSpawn(DRACONIAN_SHADOW_WIFE, npc.getLocation(), false, 0, false, killer.getInstanceId());
 			addAttackDesire(spawn, killer, 10000);
 		}
-		return super.onKill(npc, killer, isSummon);
 	}
 }

@@ -142,7 +142,7 @@ public final class Elpies extends Event {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
+	public void onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
 		if (EVENT_ACTIVE) {
 			_elpies.remove(npc);
 			
@@ -154,8 +154,6 @@ public final class Elpies extends Event {
 				eventStop();
 			}
 		}
-		
-		return super.onKill(npc, killer, isSummon);
 	}
 	
 	@Override

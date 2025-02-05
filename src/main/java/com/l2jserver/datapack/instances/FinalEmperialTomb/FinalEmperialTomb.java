@@ -1172,7 +1172,7 @@ public final class FinalEmperialTomb extends AbstractInstance {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance player, boolean isSummon) {
+	public void onKill(L2Npc npc, L2PcInstance player, boolean isSummon) {
 		InstanceWorld tmpworld = InstanceManager.getInstance().getWorld(npc.getInstanceId());
 		if (tmpworld instanceof FETWorld world) {
 			if (npc.getId() == HALL_ALARM) {
@@ -1206,7 +1206,6 @@ public final class FinalEmperialTomb extends AbstractInstance {
 				world.portraits.remove(npc);
 			}
 		}
-		return null;
 	}
 	
 	@Override

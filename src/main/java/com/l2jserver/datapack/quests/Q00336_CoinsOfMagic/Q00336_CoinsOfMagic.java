@@ -941,7 +941,7 @@ public final class Q00336_CoinsOfMagic extends Quest {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
+	public void onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
 		switch (npc.getId()) {
 			case HARIT_LIZARDMAN_SHAMAN, HARIT_LIZARDM_MATRIARCH -> {
 				QuestState qs = getRandomPlayerFromPartyCoin(killer, npc, 2);
@@ -949,7 +949,7 @@ public final class Q00336_CoinsOfMagic extends Quest {
 					qs.setCond(3);
 					qs.showQuestionMark(336);
 				}
-				return super.onKill(npc, killer, isSummon);
+				return;
 			}
 		}
 		
@@ -957,12 +957,8 @@ public final class Q00336_CoinsOfMagic extends Quest {
 		if (qs != null) {
 			giveItemRandomly(qs.getPlayer(), npc, DROPLIST.get(npc), true);
 		}
-		return super.onKill(npc, killer, isSummon);
 	}
 	
-	/**
-	 * @param qs
-	 */
 	private void resetParams(QuestState qs) {
 		qs.set(WEIGHT_POINT, 0);
 		qs.set(PARAM_1, 0);

@@ -259,12 +259,11 @@ public final class UrbanArea extends AbstractInstance {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
+	public void onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
 		final InstanceWorld tmpworld = InstanceManager.getInstance().getWorld(npc.getInstanceId());
 		if ((tmpworld != null) && (tmpworld instanceof UrbanAreaWorld world)) {
 			world.isAmaskariDead = true;
 		}
-		return super.onKill(npc, killer, isSummon);
 	}
 	
 	@Override

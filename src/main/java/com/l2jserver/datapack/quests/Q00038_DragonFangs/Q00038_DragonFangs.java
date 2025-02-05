@@ -228,7 +228,7 @@ public final class Q00038_DragonFangs extends Quest {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
+	public void onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
 		switch (npc.getId()) {
 			case LIZARDMAN_SUB_LEADER, LIZARDMAN_SENTINEL -> {
 				final QuestState qs = getRandomPartyMemberState(killer, 1, 3, npc);
@@ -243,6 +243,5 @@ public final class Q00038_DragonFangs extends Quest {
 				}
 			}
 		}
-		return super.onKill(npc, killer, isSummon);
 	}
 }

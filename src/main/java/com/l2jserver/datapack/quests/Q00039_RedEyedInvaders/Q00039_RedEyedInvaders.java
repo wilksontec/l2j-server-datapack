@@ -158,7 +158,7 @@ public final class Q00039_RedEyedInvaders extends Quest {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
+	public void onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
 		switch (npc.getId()) {
 			case MALE_LIZARDMAN -> {
 				final QuestState qs = getRandomPartyMemberState(killer, 2, 3, npc);
@@ -211,6 +211,5 @@ public final class Q00039_RedEyedInvaders extends Quest {
 				}
 			}
 		}
-		return super.onKill(npc, killer, isSummon);
 	}
 }

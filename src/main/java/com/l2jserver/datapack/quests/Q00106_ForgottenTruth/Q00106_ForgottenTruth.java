@@ -81,7 +81,7 @@ public final class Q00106_ForgottenTruth extends Quest {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
+	public void onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
 		final QuestState st = getQuestState(killer, false);
 		if ((st != null) && st.isCond(2) && Util.checkIfInRange(1500, npc, killer, true)) {
 			if (st.hasQuestItems(ONYX_TALISMAN2)) {
@@ -92,7 +92,6 @@ public final class Q00106_ForgottenTruth extends Quest {
 				}
 			}
 		}
-		return super.onKill(npc, killer, isSummon);
 	}
 	
 	@Override

@@ -121,7 +121,7 @@ public class Q00616_MagicalPowerOfFirePart2 extends Quest {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
+	public void onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
 		final int respawnMinDelay = (int) (43200000 * npc().getRaidMinRespawnMultiplier());
 		final int respawnMaxDelay = (int) (129600000 * npc().getRaidMaxRespawnMultiplier());
 		final int respawnDelay = getRandom(respawnMinDelay, respawnMaxDelay);
@@ -129,7 +129,6 @@ public class Q00616_MagicalPowerOfFirePart2 extends Quest {
 		saveGlobalQuestVar("Q00616_respawn", String.valueOf(System.currentTimeMillis() + respawnDelay));
 		startQuestTimer("spawn_npc", respawnDelay, null, null);
 		executeForEachPlayer(killer, npc, isSummon, true, false);
-		return super.onKill(npc, killer, isSummon);
 	}
 	
 	@Override

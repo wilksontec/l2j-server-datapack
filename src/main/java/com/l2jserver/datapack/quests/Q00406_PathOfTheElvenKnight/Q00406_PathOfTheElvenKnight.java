@@ -114,7 +114,7 @@ public final class Q00406_PathOfTheElvenKnight extends Quest {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
+	public void onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
 		final QuestState qs = getQuestState(killer, false);
 		final ItemChanceHolder reward = MONSTER_DROPS.get(npc.getId());
 		int requiredItemId = KLUTO_BOX;
@@ -136,7 +136,6 @@ public final class Q00406_PathOfTheElvenKnight extends Quest {
 				}
 			}
 		}
-		return super.onKill(npc, killer, isSummon);
 	}
 	
 	@Override

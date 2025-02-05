@@ -206,7 +206,7 @@ public final class Q00625_TheFinestIngredientsPart2 extends Quest {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
+	public void onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
 		final QuestState qs = getRandomPartyMemberState(killer, 1, 2, npc);
 		if ((qs != null) && Util.checkIfInRange(1500, npc, killer, true)) {
 			if (npc.getSummoner() == killer) {
@@ -214,7 +214,6 @@ public final class Q00625_TheFinestIngredientsPart2 extends Quest {
 				giveItems(qs.getPlayer(), SPECIAL_YETI_MEAT);
 			}
 		}
-		return super.onKill(npc, killer, isSummon);
 	}
 	
 	private static boolean isBumbalumpSpawned() {

@@ -200,7 +200,7 @@ public final class HellboundEngine extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
+	public void onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
 		final int npcId = npc.getId();
 		final HellboundPointData hellboundPointData = HellboundPointData.getInstance();
 		if (hellboundPointData.getPointsInfo().containsKey(npcId)) {
@@ -212,7 +212,6 @@ public final class HellboundEngine extends AbstractNpcAI {
 				setLevel(5);
 			}
 		}
-		return super.onKill(npc, killer, isSummon);
 	}
 	
 	/**

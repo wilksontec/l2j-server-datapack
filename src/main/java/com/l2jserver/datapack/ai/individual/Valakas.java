@@ -342,7 +342,7 @@ public final class Valakas extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
+	public void onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
 		// Cancel skill_task and regen_task.
 		cancelQuestTimer("regen_task", npc, null);
 		cancelQuestTimer("skill_task", npc, null);
@@ -369,8 +369,6 @@ public final class Valakas extends AbstractNpcAI {
 		StatsSet info = GrandBossManager.getInstance().getStatsSet(VALAKAS);
 		info.set("respawn_time", (System.currentTimeMillis() + respawnTime));
 		GrandBossManager.getInstance().setStatsSet(VALAKAS, info);
-		
-		return super.onKill(npc, killer, isSummon);
 	}
 	
 	private void callSkillAI(L2Npc npc) {

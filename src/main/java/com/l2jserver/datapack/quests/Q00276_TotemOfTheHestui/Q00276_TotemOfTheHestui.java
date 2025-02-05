@@ -72,7 +72,7 @@ public final class Q00276_TotemOfTheHestui extends Quest {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
+	public void onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
 		final QuestState st = getQuestState(killer, false);
 		if ((st != null) && st.isCond(1) && Util.checkIfInRange(1500, killer, npc, true)) {
 			switch (npc.getId()) {
@@ -99,7 +99,6 @@ public final class Q00276_TotemOfTheHestui extends Quest {
 				}
 			}
 		}
-		return super.onKill(npc, killer, isSummon);
 	}
 	
 	@Override

@@ -44,7 +44,7 @@ public final class EvasGiftBox extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
+	public void onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
 		if (killer.isAffectedBySkill(BUFF)) {
 			if (getRandomBoolean()) {
 				npc.dropItem(killer, CRYSTAL);
@@ -54,7 +54,6 @@ public final class EvasGiftBox extends AbstractNpcAI {
 				npc.dropItem(killer, CORAL);
 			}
 		}
-		return super.onKill(npc, killer, isSummon);
 	}
 	
 	@Override

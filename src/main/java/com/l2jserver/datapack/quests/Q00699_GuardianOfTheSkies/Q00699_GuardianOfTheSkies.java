@@ -88,7 +88,7 @@ public class Q00699_GuardianOfTheSkies extends Quest {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
+	public void onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
 		final QuestState st = getQuestState(killer, false);
 		if (st != null) {
 			if (npc.getId() == VALDSTONE) {
@@ -111,7 +111,6 @@ public class Q00699_GuardianOfTheSkies extends Quest {
 				}
 			}
 		}
-		return super.onKill(npc, killer, isSummon);
 	}
 	
 	@Override

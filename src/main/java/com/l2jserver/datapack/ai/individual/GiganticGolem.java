@@ -241,12 +241,11 @@ public class GiganticGolem extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
+	public void onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
 		final long respawnTime = RESPAWN * 3600000;
 		GlobalVariablesManager.getInstance().set("GolemRespawn", System.currentTimeMillis() + respawnTime);
 		startQuestTimer("CLEAR_STATUS", respawnTime, null, null);
 		cancelQuestTimer("CHECK_ATTACK", npc, null);
-		return super.onKill(npc, killer, isSummon);
 	}
 	
 	@Override

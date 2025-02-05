@@ -123,7 +123,7 @@ public class Q00246_PossessorOfAPreciousSoul3 extends Quest {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance player, boolean isSummon) {
+	public void onKill(L2Npc npc, L2PcInstance player, boolean isSummon) {
 		final L2PcInstance partyMember;
 		final QuestState st;
 		switch (npc.getId()) {
@@ -189,7 +189,7 @@ public class Q00246_PossessorOfAPreciousSoul3 extends Quest {
 			default:
 				st = getQuestState(player, false);
 				if ((st == null)) {
-					return super.onKill(npc, player, isSummon);
+					return;
 				}
 				
 				if (Util.contains(MOBS, npc.getId()) && (st.getQuestItemsCount(FRAGMENTS) < 100) && (st.isCond(4))) {
@@ -204,7 +204,6 @@ public class Q00246_PossessorOfAPreciousSoul3 extends Quest {
 				}
 				break;
 		}
-		return super.onKill(npc, player, isSummon);
 	}
 	
 	@Override

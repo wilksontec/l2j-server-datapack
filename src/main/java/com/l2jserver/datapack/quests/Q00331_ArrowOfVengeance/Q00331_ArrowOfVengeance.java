@@ -114,7 +114,7 @@ public class Q00331_ArrowOfVengeance extends Quest {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance player, boolean isPet) {
+	public void onKill(L2Npc npc, L2PcInstance player, boolean isPet) {
 		final QuestState st = getQuestState(player, false);
 		if (st != null) {
 			if (getRandom(100) < MONSTERS.get(npc.getId())) {
@@ -135,6 +135,5 @@ public class Q00331_ArrowOfVengeance extends Quest {
 				st.playSound(Sound.ITEMSOUND_QUEST_ITEMGET);
 			}
 		}
-		return super.onKill(npc, player, isPet);
 	}
 }

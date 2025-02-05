@@ -122,7 +122,7 @@ public final class QueenShyeed extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
+	public void onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
 		if (npc.getId() == SHYEED) {
 			broadcastNpcSay(npc, Say2.NPC_ALL, NpcStringId.SHYEEDS_CRY_IS_STEADILY_DYING_DOWN);
 			startQuestTimer("SHYEED_DEAD", 7000, null, null);
@@ -130,6 +130,5 @@ public final class QueenShyeed extends AbstractNpcAI {
 			MOB_BUFF_ZONE.setEnabled(false);
 			MOB_BUFF_DISPLAY_ZONE.setEnabled(false);
 		}
-		return super.onKill(npc, killer, isSummon);
 	}
 }

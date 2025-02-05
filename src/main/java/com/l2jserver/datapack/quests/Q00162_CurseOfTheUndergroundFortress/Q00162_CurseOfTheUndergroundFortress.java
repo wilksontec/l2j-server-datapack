@@ -85,7 +85,7 @@ public class Q00162_CurseOfTheUndergroundFortress extends Quest {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
+	public void onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
 		final QuestState st = getQuestState(killer, false);
 		if ((st != null) && st.isCond(1)) {
 			if (MONSTERS_SKULLS.containsKey(npc.getId())) {
@@ -114,7 +114,6 @@ public class Q00162_CurseOfTheUndergroundFortress extends Quest {
 				}
 			}
 		}
-		return super.onKill(npc, killer, isSummon);
 	}
 	
 	@Override

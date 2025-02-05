@@ -113,13 +113,12 @@ public class Q00139_ShadowFoxPart1 extends Quest {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance player, boolean isSummon) {
+	public void onKill(L2Npc npc, L2PcInstance player, boolean isSummon) {
 		QuestState st = getRandomPartyMemberState(player, 2, 1, npc);
 		if ((st != null) && !st.isSet("talk")) {
 			int itemId = (getRandom(11) == 0) ? CHEST : FRAGMENT;
 			giveItemRandomly(st.getPlayer(), npc, singleDropItem(itemId, 68.0), 0, true);
 		}
-		return super.onKill(npc, player, isSummon);
 	}
 	
 	@Override

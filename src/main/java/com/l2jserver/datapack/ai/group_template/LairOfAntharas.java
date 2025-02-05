@@ -70,7 +70,7 @@ public final class LairOfAntharas extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
+	public void onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
 		switch (npc.getId()) {
 			case DRAGON_KNIGHT: {
 				if (getRandom(100) > KNIGHT_CHANCE) {
@@ -96,7 +96,6 @@ public final class LairOfAntharas extends AbstractNpcAI {
 				break;
 			}
 		}
-		return super.onKill(npc, killer, isSummon);
 	}
 	
 	@Override

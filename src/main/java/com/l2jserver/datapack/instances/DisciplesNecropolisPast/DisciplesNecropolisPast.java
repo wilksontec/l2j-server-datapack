@@ -314,7 +314,7 @@ public final class DisciplesNecropolisPast extends AbstractInstance {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance player, boolean isSummon) {
+	public void onKill(L2Npc npc, L2PcInstance player, boolean isSummon) {
 		final InstanceWorld tmpworld = InstanceManager.getInstance().getPlayerWorld(player);
 		if (tmpworld instanceof DNPWorld world) {
 			checkDoors(npc, world);
@@ -337,7 +337,6 @@ public final class DisciplesNecropolisPast extends AbstractInstance {
 				break;
 			}
 		}
-		return super.onKill(npc, player, isSummon);
 	}
 	
 	@Override

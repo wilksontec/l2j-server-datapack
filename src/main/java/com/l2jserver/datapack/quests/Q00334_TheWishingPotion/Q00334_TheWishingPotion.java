@@ -586,7 +586,7 @@ public final class Q00334_TheWishingPotion extends Quest {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
+	public void onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
 		final QuestState qs = getRandomPlayerFromParty(killer, npc);
 		if (qs != null) {
 			switch (npc.getId()) {
@@ -840,7 +840,6 @@ public final class Q00334_TheWishingPotion extends Quest {
 			}
 			
 		}
-		return super.onKill(npc, killer, isSummon);
 	}
 	
 	private QuestState getRandomPlayerFromParty(L2PcInstance player, L2Npc npc) {

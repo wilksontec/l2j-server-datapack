@@ -70,12 +70,11 @@ public class Q00052_WilliesSpecialBait extends Quest {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance player, boolean isSummon) {
+	public void onKill(L2Npc npc, L2PcInstance player, boolean isSummon) {
 		QuestState st = getRandomPartyMemberState(player, 1, 1, npc);
 		if ((st != null) && giveItemRandomly(st.getPlayer(), npc, TARLK_EYE, true)) {
 			st.setCond(2);
 		}
-		return super.onKill(npc, player, isSummon);
 	}
 	
 	@Override

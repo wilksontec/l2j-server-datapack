@@ -76,7 +76,7 @@ public class Q00163_LegacyOfThePoet extends Quest {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
+	public void onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
 		final QuestState st = getQuestState(killer, false);
 		if ((st != null) && st.isCond(1)) {
 			if ((getRandom(10) == 0) && !st.hasQuestItems(RUMIELS_1ST_POEM)) {
@@ -112,7 +112,6 @@ public class Q00163_LegacyOfThePoet extends Quest {
 				}
 			}
 		}
-		return super.onKill(npc, killer, isSummon);
 	}
 	
 	@Override

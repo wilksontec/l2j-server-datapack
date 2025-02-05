@@ -304,16 +304,14 @@ public class Q00114_ResurrectionOfAnOldManager extends Quest {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance player, boolean isSummon) {
+	public void onKill(L2Npc npc, L2PcInstance player, boolean isSummon) {
 		final QuestState st = getQuestState(player, false);
-		
 		if ((st != null) && st.isCond(10) && (st.getInt("spawned") == 1)) {
 			npc.broadcastPacket(new NpcSay(npc.getObjectId(), Say2.NPC_ALL, npc.getId(), NpcStringId.THIS_ENEMY_IS_FAR_TOO_POWERFUL_FOR_ME_TO_FIGHT_I_MUST_WITHDRAW));
 			st.setCond(11, true);
 			st.unset("spawned");
 			cancelQuestTimers("golem_despawn");
 		}
-		return super.onKill(npc, player, isSummon);
 	}
 	
 	@Override

@@ -187,7 +187,7 @@ public final class Q00118_ToLeadAndBeLed extends Quest {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
+	public void onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
 		final QuestState qs = getQuestState(killer, false);
 		if ((qs != null) && qs.isStarted()) {
 			switch (npc.getId()) {
@@ -208,7 +208,6 @@ public final class Q00118_ToLeadAndBeLed extends Quest {
 				}
 			}
 		}
-		return super.onKill(npc, killer, isSummon);
 	}
 	
 	@Override

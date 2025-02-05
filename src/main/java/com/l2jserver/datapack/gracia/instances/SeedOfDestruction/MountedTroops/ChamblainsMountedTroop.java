@@ -318,7 +318,7 @@ public final class ChamblainsMountedTroop extends AbstractInstance {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
+	public void onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
 		final InstanceWorld tmpworld = InstanceManager.getInstance().getWorld(npc.getInstanceId());
 		if (tmpworld instanceof ChamblainsMountedTroopWorld) {
 			final ChamblainsMountedTroopWorld world = (ChamblainsMountedTroopWorld) InstanceManager.getInstance().getWorld(npc.getInstanceId());
@@ -345,6 +345,5 @@ public final class ChamblainsMountedTroop extends AbstractInstance {
 				finishInstance(world, EXIT_TIME * 60000);
 			}
 		}
-		return super.onKill(npc, killer, isSummon);
 	}
 }

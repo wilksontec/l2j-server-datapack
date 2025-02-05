@@ -1083,7 +1083,7 @@ public class Q00335_TheSongOfTheHunter extends Quest {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
+	public void onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
 		final QuestState qs = getRandomPartyMemberState(killer, -1, 3, npc);
 		if (qs != null) {
 			for (int i = DROPLIST.length - 1; i >= 0; i--) {
@@ -1293,7 +1293,6 @@ public class Q00335_TheSongOfTheHunter extends Quest {
 				}
 			}
 		}
-		return super.onKill(npc, killer, isSummon);
 	}
 	
 	private String reward(L2PcInstance player, QuestState qs, int[][] rewards) {

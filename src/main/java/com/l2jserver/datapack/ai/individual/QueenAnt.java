@@ -348,7 +348,7 @@ public final class QueenAnt extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
+	public void onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
 		if (npc.getId() == QUEEN) {
 			cancelQuestTimers("HEAL");
 			cancelQuestTimers("ACTION");
@@ -377,8 +377,6 @@ public final class QueenAnt extends AbstractNpcAI {
 				}
 			}
 		}
-		
-		return super.onKill(npc, killer, isSummon);
 	}
 	
 	@Override

@@ -79,7 +79,7 @@ public final class BaseTower extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
+	public void onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
 		switch (npc.getId()) {
 			case GUZEN: {
 				// Should Kendal be despawned before Guzen's spawn? Or it will be crowd of Kendal's
@@ -100,6 +100,5 @@ public final class BaseTower extends AbstractNpcAI {
 				break;
 			}
 		}
-		return super.onKill(npc, killer, isSummon);
 	}
 }

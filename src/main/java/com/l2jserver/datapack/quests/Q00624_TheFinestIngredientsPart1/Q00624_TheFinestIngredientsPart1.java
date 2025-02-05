@@ -88,7 +88,7 @@ public final class Q00624_TheFinestIngredientsPart1 extends Quest {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
+	public void onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
 		final L2PcInstance partyMember = getRandomPartyMember(killer, 1);
 		if ((partyMember != null) && partyMember.isInsideRadius(npc, 1500, true, false)) {
 			final int item = MONSTER_DROPS.get(npc.getId());
@@ -106,7 +106,6 @@ public final class Q00624_TheFinestIngredientsPart1 extends Quest {
 				playSound(partyMember, Sound.ITEMSOUND_QUEST_ITEMGET);
 			}
 		}
-		return super.onKill(npc, killer, isSummon);
 	}
 	
 	@Override

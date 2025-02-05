@@ -61,7 +61,7 @@ public final class Slaves extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
+	public void onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
 		if (((L2MonsterInstance) npc).getMinionList() != null) {
 			final List<L2MonsterInstance> slaves = ((L2MonsterInstance) npc).getMinionList().getSpawnedMinions();
 			if ((slaves != null) && !slaves.isEmpty()) {
@@ -82,6 +82,5 @@ public final class Slaves extends AbstractNpcAI {
 				}
 			}
 		}
-		return super.onKill(npc, killer, isSummon);
 	}
 }

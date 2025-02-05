@@ -70,14 +70,13 @@ public class Q00158_SeedOfEvil extends Quest {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
+	public void onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
 		final QuestState st = getQuestState(killer, false);
 		if ((st != null) && !st.hasQuestItems(CLAY_TABLET)) {
 			st.giveItems(CLAY_TABLET, 1);
 			st.setCond(2, true);
 		}
 		npc.broadcastPacket(new NpcSay(npc, Say2.NPC_ALL, NpcStringId.THE_POWER_OF_LORD_BELETH_RULES_THE_WHOLE_WORLD));
-		return super.onKill(npc, killer, isSummon);
 	}
 	
 	@Override

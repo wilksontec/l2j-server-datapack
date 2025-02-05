@@ -191,14 +191,12 @@ public class Q00024_InhabitantsOfTheForestOfTheDead extends Quest {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance player, boolean isSummon) {
+	public void onKill(L2Npc npc, L2PcInstance player, boolean isSummon) {
 		final QuestState st = getQuestState(player, false);
-		
 		if ((st != null) && st.isCond(9) && (getRandom(100) < 10)) {
 			st.giveItems(SUSPICIOUS_TOTEM_DOLL, 1);
 			st.setCond(10, true);
 		}
-		return super.onKill(npc, player, isSummon);
 	}
 	
 	@Override

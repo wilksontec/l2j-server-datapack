@@ -95,7 +95,7 @@ public class Q00102_SeaOfSporesFever extends Quest {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
+	public void onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
 		final QuestState st = getQuestState(killer, false);
 		if ((st != null) && st.isCond(2) && (getRandom(10) < 3)) {
 			st.giveItems(DRYADS_TEAR, 1);
@@ -105,7 +105,6 @@ public class Q00102_SeaOfSporesFever extends Quest {
 				st.setCond(3, true);
 			}
 		}
-		return super.onKill(npc, killer, isSummon);
 	}
 	
 	@Override

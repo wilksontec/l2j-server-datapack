@@ -72,7 +72,7 @@ public class Q00251_NoSecrets extends Quest {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance player, boolean isSummon) {
+	public void onKill(L2Npc npc, L2PcInstance player, boolean isSummon) {
 		final QuestState st = getQuestState(player, false);
 		if ((st != null) && st.isStarted() && st.isCond(1)) {
 			final int npcId = npc.getId();
@@ -93,7 +93,6 @@ public class Q00251_NoSecrets extends Quest {
 				}
 			}
 		}
-		return super.onKill(npc, player, isSummon);
 	}
 	
 	@Override

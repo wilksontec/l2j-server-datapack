@@ -407,7 +407,7 @@ public final class Q00108_JumbleTumbleDiamondFuss extends Quest {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
+	public void onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
 		final QuestState st = getQuestState(killer, false);
 		if ((st != null) && Util.checkIfInRange(1500, npc, st.getPlayer(), true)) {
 			switch (npc.getId()) {
@@ -446,6 +446,5 @@ public final class Q00108_JumbleTumbleDiamondFuss extends Quest {
 				}
 			}
 		}
-		return super.onKill(npc, killer, isSummon);
 	}
 }

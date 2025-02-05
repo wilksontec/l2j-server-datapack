@@ -101,14 +101,13 @@ public class Q00612_BattleAgainstKetraOrcs extends Quest {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
+	public void onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
 		final L2PcInstance member = getRandomPartyMember(killer, 1);
 		if ((member != null) && (getRandom(1000) < MOBS.get(npc.getId()))) {
 			final QuestState st = getQuestState(member, false);
 			st.giveItems(MOLAR, 1);
 			st.playSound(Sound.ITEMSOUND_QUEST_ITEMGET);
 		}
-		return super.onKill(npc, killer, isSummon);
 	}
 	
 	@Override

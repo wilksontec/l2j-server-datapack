@@ -365,7 +365,7 @@ public class Q00426_QuestForFishingShot extends Quest {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
+	public void onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
 		final QuestState qs = getRandomPartyMemberState(killer, -1, 2, npc);
 		if (qs != null) {
 			if (MOBS_SPECIAL.containsKey(npc.getId())) {
@@ -382,7 +382,6 @@ public class Q00426_QuestForFishingShot extends Quest {
 				}
 			}
 		}
-		return super.onKill(npc, killer, isSummon);
 	}
 	
 	@Override

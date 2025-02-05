@@ -90,9 +90,9 @@ public final class DevastatedCastle extends ClanHallSiegeEngine {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
+	public void onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
 		if (!_hall.isInSiege()) {
-			return null;
+			return;
 		}
 		
 		_missionAccomplished = true;
@@ -103,8 +103,6 @@ public final class DevastatedCastle extends ClanHallSiegeEngine {
 				endSiege();
 			}
 		}
-		
-		return super.onKill(npc, killer, isSummon);
 	}
 	
 	@Override

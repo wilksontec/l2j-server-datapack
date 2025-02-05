@@ -88,10 +88,10 @@ public class Q10273_GoodDayToFly extends Quest {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
+	public void onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
 		final QuestState st = getQuestState(killer, false);
 		if ((st == null) || !st.isStarted()) {
-			return null;
+			return;
 		}
 		
 		final long count = st.getQuestItemsCount(MARK);
@@ -103,7 +103,6 @@ public class Q10273_GoodDayToFly extends Quest {
 				st.playSound(Sound.ITEMSOUND_QUEST_ITEMGET);
 			}
 		}
-		return null;
 	}
 	
 	@Override

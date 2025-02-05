@@ -106,7 +106,7 @@ public class Q00278_HomeSecurity extends Quest {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
+	public void onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
 		final QuestState st = getRandomPartyMemberState(killer, 1, 3, npc);
 		if (st != null) {
 			switch (npc.getId()) {
@@ -123,7 +123,6 @@ public class Q00278_HomeSecurity extends Quest {
 				}
 			}
 		}
-		return null;
 	}
 	
 	@Override

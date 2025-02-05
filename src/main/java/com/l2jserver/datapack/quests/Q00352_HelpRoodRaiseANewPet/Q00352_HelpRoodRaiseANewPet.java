@@ -93,16 +93,13 @@ public final class Q00352_HelpRoodRaiseANewPet extends Quest {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
+	public void onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
 		final QuestState qs = getQuestState(killer, false);
-		
 		if ((qs == null) || !Util.checkIfInRange(1500, npc, killer, true)) {
-			return null;
+			return;
 		}
 		
 		giveItemRandomly(qs.getPlayer(), npc, DROPLIST.get(npc), true);
-		
-		return super.onKill(npc, killer, isSummon);
 	}
 	
 	@Override

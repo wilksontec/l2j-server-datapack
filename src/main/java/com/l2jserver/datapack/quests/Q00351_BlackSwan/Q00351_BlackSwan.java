@@ -125,11 +125,10 @@ public final class Q00351_BlackSwan extends Quest {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
+	public void onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
 		final QuestState qs = getRandomPartyMemberState(killer, -1, 3, npc);
-		
 		if (qs == null) {
-			return null;
+			return;
 		}
 		
 		final int random = getRandom(20);
@@ -148,8 +147,6 @@ public final class Q00351_BlackSwan extends Quest {
 		} else {
 			giveItemRandomly(qs.getPlayer(), npc, DROPLIST.get(npc), true);
 		}
-		
-		return super.onKill(npc, killer, isSummon);
 	}
 	
 	@Override

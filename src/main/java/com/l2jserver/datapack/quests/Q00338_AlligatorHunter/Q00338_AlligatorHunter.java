@@ -84,7 +84,7 @@ public class Q00338_AlligatorHunter extends Quest {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance player, boolean isSummon) {
+	public void onKill(L2Npc npc, L2PcInstance player, boolean isSummon) {
 		final QuestState st = getQuestState(player, false);
 		if (st != null) {
 			st.giveItems(ALLIGATOR_LEATHER, 1);
@@ -93,7 +93,6 @@ public class Q00338_AlligatorHunter extends Quest {
 			}
 			st.playSound(Sound.ITEMSOUND_QUEST_ITEMGET);
 		}
-		return super.onKill(npc, player, isSummon);
 	}
 	
 	@Override

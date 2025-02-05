@@ -71,12 +71,11 @@ public class Q00050_LanoscosSpecialBait extends Quest {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance player, boolean isSummon) {
+	public void onKill(L2Npc npc, L2PcInstance player, boolean isSummon) {
 		QuestState st = getRandomPartyMemberState(player, 1, 1, npc);
 		if ((st != null) && giveItemRandomly(st.getPlayer(), npc, ESSENCE_OF_WIND, true)) {
 			st.setCond(2);
 		}
-		return super.onKill(npc, player, isSummon);
 	}
 	
 	@Override

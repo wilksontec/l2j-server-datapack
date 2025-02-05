@@ -126,7 +126,7 @@ public final class Q00186_ContractExecution extends Quest {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
+	public void onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
 		final QuestState qs = getQuestState(killer, false);
 		if ((qs != null) && qs.isMemoState(2) && Util.checkIfInRange(1500, npc, killer, false) && (getRandom(100) < MONSTERS.get(npc.getId()))) {
 			if (!hasQuestItems(killer, LETO_LIZARDMAN_ACCESSORY)) {
@@ -134,7 +134,6 @@ public final class Q00186_ContractExecution extends Quest {
 				playSound(killer, Sound.ITEMSOUND_QUEST_ITEMGET);
 			}
 		}
-		return super.onKill(npc, killer, isSummon);
 	}
 	
 	@Override

@@ -79,10 +79,10 @@ public class Q00461_RumbleInTheBase extends Quest {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance player, boolean isSummon) {
+	public void onKill(L2Npc npc, L2PcInstance player, boolean isSummon) {
 		QuestState st = null;
 		if (getRandom(1000) >= MONSTERS.get(npc.getId())) {
-			return super.onKill(npc, player, isSummon);
+			return;
 		}
 		
 		if (npc.getId() == 18908) {
@@ -97,7 +97,7 @@ public class Q00461_RumbleInTheBase extends Quest {
 		} else {
 			final L2PcInstance member = getRandomPartyMember(player, 1);
 			if (member == null) {
-				return super.onKill(npc, player, isSummon);
+				return;
 			}
 			
 			st = getQuestState(member, false);
@@ -109,7 +109,6 @@ public class Q00461_RumbleInTheBase extends Quest {
 				}
 			}
 		}
-		return super.onKill(npc, player, isSummon);
 	}
 	
 	@Override

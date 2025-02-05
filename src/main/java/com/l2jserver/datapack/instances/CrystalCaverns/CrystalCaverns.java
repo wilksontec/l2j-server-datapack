@@ -1237,14 +1237,14 @@ public final class CrystalCaverns extends AbstractInstance {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance player, boolean isSummon) {
+	public void onKill(L2Npc npc, L2PcInstance player, boolean isSummon) {
 		InstanceWorld tmpworld = InstanceManager.getInstance().getWorld(npc.getInstanceId());
 		if (tmpworld instanceof CCWorld world) {
 			if ((world.getStatus() == 2) && world.npcList1.containsKey(npc)) {
 				world.npcList1.put(npc, true);
 				for (boolean isDead : world.npcList1.values()) {
 					if (!isDead) {
-						return "";
+						return;
 					}
 				}
 				world.setStatus(3);
@@ -1288,7 +1288,7 @@ public final class CrystalCaverns extends AbstractInstance {
 					world.setStatus(4);
 					addSpawn(TOURMALINE, 148202, 144791, -12235, 0, false, 0, false, world.getInstanceId());
 				} else {
-					return "";
+					return;
 				}
 			} else if (world.getStatus() == 4) {
 				if (npc.getId() == TOURMALINE) {
@@ -1358,10 +1358,10 @@ public final class CrystalCaverns extends AbstractInstance {
 							openDoor(DOOR4, npc.getInstanceId());
 							L2Npc kechi = addSpawn(KECHI, 154069, 149525, -12158, 51165, false, 0, false, world.getInstanceId());
 							startQuestTimer("checkKechiAttack", 1000, kechi, null);
-							return "";
+							return ;
 						default:
 							LOG.warn("CrystalCavern-SteamCorridor: status {} error. OracleOrder not found in {}", world.getStatus(), world.getInstanceId());
-							return "";
+							return;
 					}
 					runSteamOracles(world, oracleOrder);
 				}
@@ -1377,7 +1377,7 @@ public final class CrystalCaverns extends AbstractInstance {
 					addSpawn(32280, 152761, 145950, -12588, 0, false, 0, false, world.getInstanceId());
 				} else {
 					// something is wrong
-					return "";
+					return;
 				}
 				giveRewards(player, npc.getInstanceId(), bossCry, false);
 			}
@@ -1397,7 +1397,6 @@ public final class CrystalCaverns extends AbstractInstance {
 				giveRewards(player, npc.getInstanceId(), -1, true);
 			}
 		}
-		return "";
 	}
 	
 	@Override

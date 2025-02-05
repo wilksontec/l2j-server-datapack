@@ -332,7 +332,7 @@ public class Defence extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
+	public void onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
 		if (npc == tiatRet) {
 			cancelQuestTimer("defence_successful", null, null);
 			startQuestTimer("defence_successful", 2000, null, null);
@@ -360,7 +360,6 @@ public class Defence extends AbstractNpcAI {
 				startQuestTimer("defence_successful", 2000, null, null);
 			}
 		}
-		return super.onKill(npc, killer, isSummon);
 	}
 	
 	@Override

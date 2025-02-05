@@ -180,7 +180,7 @@ public class Q00254_LegendaryTales extends Quest {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance player, boolean isPet) {
+	public void onKill(L2Npc npc, L2PcInstance player, boolean isPet) {
 		if (player.isInParty()) {
 			for (L2PcInstance partyMember : player.getParty().getMembers()) {
 				actionForEachPlayer(partyMember, npc, false);
@@ -188,7 +188,6 @@ public class Q00254_LegendaryTales extends Quest {
 		} else {
 			actionForEachPlayer(player, npc, false);
 		}
-		return super.onKill(npc, player, isPet);
 	}
 	
 	@Override

@@ -380,7 +380,7 @@ public final class Q00214_TrialOfTheScholar extends Quest {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
+	public void onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
 		final QuestState qs = getQuestState(killer, false);
 		if ((qs != null) && qs.isStarted() && Util.checkIfInRange(1500, npc, killer, true)) {
 			if ((DROPLIST_JUREK.get(npc) != null) && hasQuestItems(qs.getPlayer(), MIRIENS_2ND_SIGIL, GRAND_MAGISTER_SIGIL, JUREKS_LIST)) {
@@ -410,7 +410,6 @@ public final class Q00214_TrialOfTheScholar extends Quest {
 				}
 			}
 		}
-		return super.onKill(npc, killer, isSummon);
 	}
 	
 	@Override

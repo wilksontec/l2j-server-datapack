@@ -140,7 +140,7 @@ public final class Q00381_LetsBecomeARoyalMember extends Quest {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
+	public void onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
 		final QuestState qs = getQuestState(killer, false);
 		if ((qs != null) && qs.isStarted() && Util.checkIfInRange(1500, npc, qs.getPlayer(), true)) {
 			if (npc.getId() == ANCIENT_GARGOYLE) {
@@ -150,6 +150,5 @@ public final class Q00381_LetsBecomeARoyalMember extends Quest {
 				playSound(killer, Sound.ITEMSOUND_QUEST_MIDDLE);
 			}
 		}
-		return super.onKill(npc, killer, isSummon);
 	}
 }

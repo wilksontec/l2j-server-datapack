@@ -191,7 +191,7 @@ public final class Q00222_TestOfTheDuelist extends Quest {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
+	public void onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
 		final QuestState qs = getQuestState(killer, false);
 		if ((qs != null) && qs.isStarted() && Util.checkIfInRange(1500, npc, killer, true)) {
 			switch (npc.getId()) {
@@ -203,7 +203,6 @@ public final class Q00222_TestOfTheDuelist extends Quest {
 				case EXCURO, KRATOR, GRANDIS, TIMAK_ORC_OVERLORD, LAKIN -> handleDropsAndQuestStateUpdate(qs, npc, 2, FINAL_ORDER, hasAllFinalOrderDrops(qs.getPlayer()), 5, 5);
 			}
 		}
-		return super.onKill(npc, killer, isSummon);
 	}
 	
 	private void handleDropsAndQuestStateUpdate(QuestState qs, L2Npc npc, int requiredMemoState, int requiredItemId, boolean hasAllDrops, int memoStateForUpdate, int condToSet) {

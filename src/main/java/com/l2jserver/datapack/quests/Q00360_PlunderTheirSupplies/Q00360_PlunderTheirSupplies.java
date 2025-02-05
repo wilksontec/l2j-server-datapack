@@ -87,10 +87,10 @@ public final class Q00360_PlunderTheirSupplies extends Quest {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance killer, boolean isPet) {
+	public void onKill(L2Npc npc, L2PcInstance killer, boolean isPet) {
 		final QuestState st = getQuestState(killer, false);
 		if ((st == null) || !Util.checkIfInRange(1500, npc, killer, false)) {
-			return super.onKill(npc, killer, isPet);
+			return;
 		}
 		
 		if (getRandom(100) < MONSTER_DROP_CHANCES.get(npc.getId())) {
@@ -107,7 +107,6 @@ public final class Q00360_PlunderTheirSupplies extends Quest {
 			}
 			st.playSound(Sound.ITEMSOUND_QUEST_ITEMGET);
 		}
-		return super.onKill(npc, killer, isPet);
 	}
 	
 	@Override

@@ -271,7 +271,7 @@ public final class Q00619_RelicsOfTheOldEmpire extends Quest {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance player, boolean isSummon) {
+	public void onKill(L2Npc npc, L2PcInstance player, boolean isSummon) {
 		final QuestState st = getRandomPartyMemberState(player, -1, 3, npc);
 		if (st != null) {
 			giveItemRandomly(st.getPlayer(), npc, DROPLIST.get(npc), true);
@@ -281,7 +281,6 @@ public final class Q00619_RelicsOfTheOldEmpire extends Quest {
 				giveItemRandomly(st.getPlayer(), npc, ENTRANCE_PASS_TO_THE_SEPULCHER, false);
 			}
 		}
-		return super.onKill(npc, player, isSummon);
 	}
 	
 	@Override

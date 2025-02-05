@@ -194,7 +194,7 @@ public final class Q00111_ElrokianHuntersProof extends Quest {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
+	public void onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
 		final QuestState qs = getRandomPartyMemberState(killer, -1, 3, npc);
 		if (qs != null) {
 			if (qs.isMemoState(4) && qs.isCond(4)
@@ -207,7 +207,6 @@ public final class Q00111_ElrokianHuntersProof extends Quest {
 				}
 			}
 		}
-		return super.onKill(npc, killer, isSummon);
 	}
 	
 	@Override

@@ -130,7 +130,7 @@ public final class Q00902_ReclaimOurEra extends Quest {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
+	public void onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
 		if (killer.isInParty()) {
 			for (L2PcInstance member : killer.getParty().getMembers()) {
 				giveItem(npc, member);
@@ -138,7 +138,6 @@ public final class Q00902_ReclaimOurEra extends Quest {
 		} else {
 			giveItem(npc, killer);
 		}
-		return super.onKill(npc, killer, isSummon);
 	}
 	
 	@Override

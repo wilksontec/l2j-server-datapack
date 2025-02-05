@@ -204,7 +204,7 @@ public class Q00453_NotStrongEnoughAlone extends Quest {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance player, boolean isSummon) {
+	public void onKill(L2Npc npc, L2PcInstance player, boolean isSummon) {
 		if (player.getParty() != null) {
 			for (L2PcInstance member : player.getParty().getMembers()) {
 				increaseKill(member, npc);
@@ -212,7 +212,6 @@ public class Q00453_NotStrongEnoughAlone extends Quest {
 		} else {
 			increaseKill(player, npc);
 		}
-		return null;
 	}
 	
 	@Override

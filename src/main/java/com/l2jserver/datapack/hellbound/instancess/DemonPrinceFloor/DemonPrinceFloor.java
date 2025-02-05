@@ -86,7 +86,7 @@ public final class DemonPrinceFloor extends AbstractInstance {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
+	public void onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
 		final int instanceId = npc.getInstanceId();
 		if (instanceId > 0) {
 			final Instance inst = InstanceManager.getInstance().getInstance(instanceId);
@@ -96,7 +96,6 @@ public final class DemonPrinceFloor extends AbstractInstance {
 			finishInstance(world);
 			addSpawn(CUBE, -22144, 278744, -8239, 0, false, 0, false, instanceId);
 		}
-		return super.onKill(npc, killer, isSummon);
 	}
 	
 	@Override

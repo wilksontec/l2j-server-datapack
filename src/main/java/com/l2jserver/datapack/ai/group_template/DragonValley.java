@@ -137,12 +137,11 @@ public final class DragonValley extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
+	public void onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
 		if (((L2Attackable) npc).isSpoiled()) {
 			npc.dropItem(killer, getRandom(GREATER_HERB_OF_MANA, SUPERIOR_HERB_OF_MANA), 1);
 			manageMoraleBoost(killer, npc);
 		}
-		return super.onKill(npc, killer, isSummon);
 	}
 	
 	@Override

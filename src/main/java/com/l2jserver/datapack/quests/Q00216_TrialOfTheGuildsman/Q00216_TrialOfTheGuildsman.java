@@ -239,7 +239,7 @@ public final class Q00216_TrialOfTheGuildsman extends Quest {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
+	public void onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
 		switch (npc.getId()) {
 			case ANT, ANT_CAPTAIN, ANT_OVERSEER -> {
 				final QuestState qs = getRandomPartyMemberState(killer, -1, 2, npc);
@@ -292,7 +292,6 @@ public final class Q00216_TrialOfTheGuildsman extends Quest {
 				}
 			}
 		}
-		return super.onKill(npc, killer, isSummon);
 	}
 	
 	@Override

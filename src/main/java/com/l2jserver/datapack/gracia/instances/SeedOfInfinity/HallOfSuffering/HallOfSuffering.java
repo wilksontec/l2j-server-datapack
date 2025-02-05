@@ -452,7 +452,7 @@ public final class HallOfSuffering extends AbstractInstance {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
+	public void onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
 		InstanceWorld tmpworld = InstanceManager.getInstance().getWorld(npc.getInstanceId());
 		if (tmpworld instanceof HSWorld world) {
 			if (npc.getId() == TUMOR_ALIVE) {
@@ -481,7 +481,6 @@ public final class HallOfSuffering extends AbstractInstance {
 				}
 			}
 		}
-		return super.onKill(npc, killer, isSummon);
 	}
 	
 	@Override

@@ -69,9 +69,8 @@ public final class Q00275_DarkWingedSpies extends Quest {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
+	public void onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
 		final QuestState st = getQuestState(killer, false);
-		
 		if ((st != null) && st.isCond(1) && Util.checkIfInRange(1500, npc, killer, true)) {
 			final long count = st.getQuestItemsCount(DARKWING_BAT_FANG.getId());
 			
@@ -94,8 +93,6 @@ public final class Q00275_DarkWingedSpies extends Quest {
 				}
 			}
 		}
-		
-		return super.onKill(npc, killer, isSummon);
 	}
 	
 	@Override

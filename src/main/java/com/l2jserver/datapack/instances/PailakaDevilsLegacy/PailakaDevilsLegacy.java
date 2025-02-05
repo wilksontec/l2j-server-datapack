@@ -217,9 +217,8 @@ public final class PailakaDevilsLegacy extends AbstractInstance {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance player, boolean isSummon) {
+	public void onKill(L2Npc npc, L2PcInstance player, boolean isSummon) {
 		final InstanceWorld tmpworld = InstanceManager.getInstance().getWorld(npc.getInstanceId());
-		
 		if ((tmpworld != null) && (tmpworld instanceof DIWorld world)) {
 			if (world._followerslist != null) {
 				for (L2Npc _follower : world._followerslist) {
@@ -229,7 +228,6 @@ public final class PailakaDevilsLegacy extends AbstractInstance {
 			}
 			addSpawn(ADVENTURER2, ADVENTURER_LOC, false, 0, false, npc.getInstanceId());
 		}
-		return super.onKill(npc, player, isSummon);
 	}
 	
 	@Override

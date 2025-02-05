@@ -84,12 +84,11 @@ public final class Q00366_SilverHairedShaman extends Quest {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
+	public void onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
 		L2PcInstance luckyPlayer = getRandomPartyMember(killer, npc);
 		if (luckyPlayer != null) {
 			giveItemRandomly(luckyPlayer, npc, DROPLIST.get(npc), true);
 		}
-		return super.onKill(npc, killer, isSummon);
 	}
 	
 	@Override

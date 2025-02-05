@@ -353,12 +353,11 @@ public class EnergySeeds extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance player, boolean isSummon) {
+	public void onKill(L2Npc npc, L2PcInstance player, boolean isSummon) {
 		if (_spawnedNpcs.containsKey(npc) && SEED_SPAWNS.containsKey(_spawnedNpcs.get(npc))) {
 			SEED_SPAWNS.get(_spawnedNpcs.get(npc)).scheduleRespawn(false);
 			_spawnedNpcs.remove(npc);
 		}
-		return super.onKill(npc, player, isSummon);
 	}
 	
 	@Override

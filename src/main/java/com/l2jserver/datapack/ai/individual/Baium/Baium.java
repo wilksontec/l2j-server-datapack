@@ -433,7 +433,7 @@ public final class Baium extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
+	public void onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
 		if (zone.isCharacterInZone(killer)) {
 			setStatus(DEAD);
 			addSpawn(TELE_CUBE, TELEPORT_CUBIC_LOC, false, 900000);
@@ -445,7 +445,6 @@ public final class Baium extends AbstractNpcAI {
 			cancelQuestTimer("CHECK_ATTACK", npc, null);
 			cancelQuestTimers("SELECT_TARGET");
 		}
-		return super.onKill(npc, killer, isSummon);
 	}
 	
 	@Override

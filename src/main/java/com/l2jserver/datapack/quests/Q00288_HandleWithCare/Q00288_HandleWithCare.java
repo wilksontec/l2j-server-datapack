@@ -129,7 +129,7 @@ public class Q00288_HandleWithCare extends Quest {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
+	public void onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
 		final QuestState st = getQuestState(killer, false);
 		if ((st != null) && st.isCond(1) && Util.checkIfInRange(1500, npc, killer, false)) {
 			if (!st.hasQuestItems(MIDDLE_GRADE_LIZARD_SCALE)) {
@@ -142,7 +142,6 @@ public class Q00288_HandleWithCare extends Quest {
 				st.setCond(3, true);
 			}
 		}
-		return super.onKill(npc, killer, isSummon);
 	}
 	
 	@Override

@@ -144,7 +144,7 @@ public final class AnomicFoundry extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
+	public void onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
 		if (getSpawnGroup(npc) >= 0) {
 			_spawned[getSpawnGroup(npc)]--;
 			SpawnTable.getInstance().deleteSpawn(npc.getSpawn(), false);
@@ -160,7 +160,6 @@ public final class AnomicFoundry extends AbstractNpcAI {
 			_atkIndex.remove(npc.getObjectId());
 		}
 		
-		return super.onKill(npc, killer, isSummon);
 	}
 	
 	@Override

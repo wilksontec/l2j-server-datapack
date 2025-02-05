@@ -62,14 +62,13 @@ public final class Q00295_DreamingOfTheSkies extends Quest {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
+	public void onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
 		final QuestState qs = getQuestState(killer, false);
 		if ((qs != null) && qs.isCond(1) && Util.checkIfInRange(1500, npc, killer, true)) {
 			if (giveItemRandomly(qs.getPlayer(), npc, singleDropItem(FLOATING_STONE, getRandom(100) > 25 ? 1L : 2L), FLOATING_STONE.getLimit(), true)) {
 				qs.setCond(2);
 			}
 		}
-		return super.onKill(npc, killer, isSummon);
 	}
 	
 	@Override

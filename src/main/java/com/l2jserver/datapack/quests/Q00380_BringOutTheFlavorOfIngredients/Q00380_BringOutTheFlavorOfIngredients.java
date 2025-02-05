@@ -159,7 +159,7 @@ public final class Q00380_BringOutTheFlavorOfIngredients extends Quest {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
+	public void onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
 		final QuestState qs = getRandomPartyMemberState(killer, -1, 3, npc);
 		if ((qs != null) && (qs.getCond() < 4)) {
 			if (giveItemRandomly(qs.getPlayer(), npc, DROPLIST.get(npc), false)) {
@@ -170,6 +170,5 @@ public final class Q00380_BringOutTheFlavorOfIngredients extends Quest {
 				}
 			}
 		}
-		return super.onKill(npc, killer, isSummon);
 	}
 }

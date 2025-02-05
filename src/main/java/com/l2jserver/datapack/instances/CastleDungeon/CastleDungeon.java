@@ -131,7 +131,7 @@ public final class CastleDungeon extends AbstractInstance {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance player, boolean isSummon) {
+	public void onKill(L2Npc npc, L2PcInstance player, boolean isSummon) {
 		InstanceWorld tmpworld = InstanceManager.getInstance().getWorld(npc.getInstanceId());
 		if (tmpworld instanceof CDWorld world) {
 			if (Util.contains(RAIDS3, npc.getId())) {
@@ -141,7 +141,6 @@ public final class CastleDungeon extends AbstractInstance {
 				spawnRaid(world);
 			}
 		}
-		return null;
 	}
 	
 	@Override

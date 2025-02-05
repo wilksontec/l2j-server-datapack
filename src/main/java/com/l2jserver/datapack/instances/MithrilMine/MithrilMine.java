@@ -136,7 +136,7 @@ public final class MithrilMine extends AbstractInstance {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance player, boolean isSummon) {
+	public void onKill(L2Npc npc, L2PcInstance player, boolean isSummon) {
 		final InstanceWorld world = InstanceManager.getInstance().getWorld(npc.getInstanceId());
 		final MMWorld _world = ((MMWorld) world);
 		
@@ -158,7 +158,6 @@ public final class MithrilMine extends AbstractInstance {
 				}
 			}
 		}
-		return super.onKill(npc, player, isSummon);
 	}
 	
 	@Override

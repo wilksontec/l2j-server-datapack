@@ -103,7 +103,7 @@ public class BloodyBerserker extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
+	public void onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
 		switch (npc.getId()) {
 			case BLOODY_BERSERKER: {
 				if (getRandom(100) < 5) {
@@ -117,7 +117,6 @@ public class BloodyBerserker extends AbstractNpcAI {
 				break;
 			}
 		}
-		return super.onKill(npc, killer, isSummon);
 	}
 	
 	@Override

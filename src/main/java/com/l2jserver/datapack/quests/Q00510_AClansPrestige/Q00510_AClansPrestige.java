@@ -71,9 +71,9 @@ public class Q00510_AClansPrestige extends Quest {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance player, boolean isSummon) {
+	public void onKill(L2Npc npc, L2PcInstance player, boolean isSummon) {
 		if (player.getClan() == null) {
-			return null;
+			return;
 		}
 		
 		QuestState st = null;
@@ -90,7 +90,6 @@ public class Q00510_AClansPrestige extends Quest {
 			st.rewardItems(TYRANNOSAURUS_CLAW, 1);
 			st.playSound(Sound.ITEMSOUND_QUEST_ITEMGET);
 		}
-		return null;
 	}
 	
 	@Override

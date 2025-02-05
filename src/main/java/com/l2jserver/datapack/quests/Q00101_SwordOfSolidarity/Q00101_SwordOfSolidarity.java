@@ -114,7 +114,7 @@ public class Q00101_SwordOfSolidarity extends Quest {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
+	public void onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
 		final QuestState st = getQuestState(killer, false);
 		if ((st != null) && st.isCond(2) && (getRandom(5) == 0)) {
 			if (!st.hasQuestItems(BROKEN_BLADE_TOP)) {
@@ -133,7 +133,6 @@ public class Q00101_SwordOfSolidarity extends Quest {
 				}
 			}
 		}
-		return super.onKill(npc, killer, isSummon);
 	}
 	
 	@Override

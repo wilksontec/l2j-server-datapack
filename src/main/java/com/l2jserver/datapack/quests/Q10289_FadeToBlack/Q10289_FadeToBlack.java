@@ -188,7 +188,7 @@ public class Q10289_FadeToBlack extends Quest {
 	}
 	
 	@Override
-	public String onKill(L2Npc anays, L2PcInstance killer, boolean isSummon) {
+	public void onKill(L2Npc anays, L2PcInstance killer, boolean isSummon) {
 		final QuestState qs = getRandomPartyMemberState(killer, -1, 3, anays);
 		if (qs != null) {
 			if (qs.getPlayer().isInParty()) {
@@ -207,7 +207,6 @@ public class Q10289_FadeToBlack extends Quest {
 				rewardPlayer(qs, true);
 			}
 		}
-		return super.onKill(anays, killer, isSummon);
 	}
 	
 	@Override

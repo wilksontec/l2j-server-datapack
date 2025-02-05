@@ -77,7 +77,7 @@ public final class Q00279_TargetOfOpportunity extends Quest {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance player, boolean isSummon) {
+	public void onKill(L2Npc npc, L2PcInstance player, boolean isSummon) {
 		L2PcInstance pl = getRandomPartyMember(player, "progress", "1");
 		if (pl != null) {
 			final QuestState st = getQuestState(pl, false);
@@ -89,7 +89,6 @@ public final class Q00279_TargetOfOpportunity extends Quest {
 				}
 			}
 		}
-		return null;
 	}
 	
 	@Override

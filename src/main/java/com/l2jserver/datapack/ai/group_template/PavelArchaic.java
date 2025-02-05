@@ -39,7 +39,7 @@ public final class PavelArchaic extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
+	public void onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
 		if (getRandom(100) < 70) {
 			final L2Npc golem1 = addSpawn(PINCER_GOLEM2, npc.getX(), npc.getY(), npc.getZ() + 10, npc.getHeading(), false, 0, false);
 			addAttackDesire(golem1, killer);
@@ -47,6 +47,5 @@ public final class PavelArchaic extends AbstractNpcAI {
 			final L2Npc golem2 = addSpawn(PINCER_GOLEM3, npc.getX(), npc.getY(), npc.getZ() + 10, npc.getHeading(), false, 0, false);
 			addAttackDesire(golem2, killer);
 		}
-		return super.onKill(npc, killer, isSummon);
 	}
 }

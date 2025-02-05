@@ -111,7 +111,7 @@ public final class StakatoNest extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
+	public void onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
 		final L2MonsterInstance monster;
 		switch (npc.getId()) {
 			case STAKATO_NURSE:
@@ -157,7 +157,6 @@ public final class StakatoNest extends AbstractNpcAI {
 				}
 				break;
 		}
-		return super.onKill(npc, killer, isSummon);
 	}
 	
 	@Override

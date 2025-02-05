@@ -86,7 +86,7 @@ public final class GatekeeperSpirit extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
+	public void onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
 		switch (npc.getId()) {
 			case ANAKIM: {
 				startQuestTimer("ANAKIM", 10000, npc, killer);
@@ -97,6 +97,5 @@ public final class GatekeeperSpirit extends AbstractNpcAI {
 				break;
 			}
 		}
-		return super.onKill(npc, killer, isSummon);
 	}
 }

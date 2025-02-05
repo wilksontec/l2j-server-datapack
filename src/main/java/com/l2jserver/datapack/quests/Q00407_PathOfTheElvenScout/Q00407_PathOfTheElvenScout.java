@@ -121,11 +121,11 @@ public final class Q00407_PathOfTheElvenScout extends Quest {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
+	public void onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
 		if (npc.isScriptValue(killer.getObjectId()) && Util.checkIfInRange(1500, npc, killer, false)) {
 			final QuestState qs = getQuestState(killer, false);
 			if (qs == null) {
-				return null;
+				return;
 			}
 			
 			if (npc.getId() == OL_MAHUM_SENTRY) {
@@ -154,7 +154,6 @@ public final class Q00407_PathOfTheElvenScout extends Quest {
 				}
 			}
 		}
-		return super.onKill(npc, killer, isSummon);
 	}
 	
 	private void giveLetterAndCheckState(int letterId, QuestState qs) {

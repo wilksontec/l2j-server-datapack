@@ -129,7 +129,7 @@ public class Q00700_CursedLife extends Quest {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance player, boolean isSummon) {
+	public void onKill(L2Npc npc, L2PcInstance player, boolean isSummon) {
 		final QuestState st = getQuestState(player, false);
 		if (st != null) {
 			if (npc.getId() == ROK) {
@@ -198,6 +198,5 @@ public class Q00700_CursedLife extends Quest {
 				}
 			}
 		}
-		return super.onKill(npc, player, isSummon);
 	}
 }

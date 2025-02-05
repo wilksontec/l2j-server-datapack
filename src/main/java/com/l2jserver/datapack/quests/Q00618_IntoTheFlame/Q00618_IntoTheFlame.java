@@ -105,7 +105,7 @@ public class Q00618_IntoTheFlame extends Quest {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance player, boolean isPet) {
+	public void onKill(L2Npc npc, L2PcInstance player, boolean isPet) {
 		final L2PcInstance member = getRandomPartyMember(player, 2);
 		if (member != null) {
 			final QuestState qs = getQuestState(member, false);
@@ -118,7 +118,6 @@ public class Q00618_IntoTheFlame extends Quest {
 				}
 			}
 		}
-		return super.onKill(npc, player, isPet);
 	}
 	
 	@Override

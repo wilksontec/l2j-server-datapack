@@ -158,7 +158,7 @@ public final class Core extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
+	public void onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
 		if (npc.getId() == CORE) {
 			int objId = npc.getObjectId();
 			npc.broadcastPacket(Music.BS02_D_10000.getPacket());
@@ -180,7 +180,6 @@ public final class Core extends AbstractNpcAI {
 			_minions.remove(npc);
 			startQuestTimer("spawn_minion", 60000, npc, null);
 		}
-		return super.onKill(npc, killer, isSummon);
 	}
 	
 	@Override

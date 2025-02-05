@@ -115,7 +115,7 @@ public final class Q00650_ABrokenDream extends Quest {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
+	public void onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
 		final List<L2PcInstance> randomList = new ArrayList<>();
 		final QuestState st = getQuestState(killer, false);
 		if ((st != null) && st.isStarted()) {
@@ -140,6 +140,5 @@ public final class Q00650_ABrokenDream extends Quest {
 				playSound(player, Sound.ITEMSOUND_QUEST_ITEMGET);
 			}
 		}
-		return super.onKill(npc, killer, isSummon);
 	}
 }

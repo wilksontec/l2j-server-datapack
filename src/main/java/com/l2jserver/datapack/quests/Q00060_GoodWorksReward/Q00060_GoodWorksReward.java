@@ -873,7 +873,7 @@ public final class Q00060_GoodWorksReward extends Quest {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
+	public void onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
 		final QuestState qs = getQuestState(killer, false);
 		if ((qs != null) && qs.isStarted() && Util.checkIfInRange(1500, npc, killer, true)) {
 			if (qs.isMemoState(1)) {
@@ -892,7 +892,6 @@ public final class Q00060_GoodWorksReward extends Quest {
 				npc0.getVariables().set("SPAWNED", false);
 			}
 		}
-		return super.onKill(npc, killer, isSummon);
 	}
 	
 	@Override

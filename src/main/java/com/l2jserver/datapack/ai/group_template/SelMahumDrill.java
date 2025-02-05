@@ -218,9 +218,8 @@ public final class SelMahumDrill extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
+	public void onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
 		npc.broadcastScriptEvent("CHIEF_DIED", TRAINING_RANGE);
-		return null;
 	}
 	
 	@Override

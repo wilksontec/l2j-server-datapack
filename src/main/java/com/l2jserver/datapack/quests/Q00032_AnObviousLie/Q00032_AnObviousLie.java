@@ -142,12 +142,11 @@ public final class Q00032_AnObviousLie extends Quest {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
+	public void onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
 		final QuestState qs = getRandomPartyMemberState(killer, 3, 3, npc);
 		if ((qs != null) && giveItemRandomly(qs.getPlayer(), npc, MEDICINAL_HERB, true)) {
 			qs.setCond(4);
 		}
-		return super.onKill(npc, killer, isSummon);
 	}
 	
 	@Override

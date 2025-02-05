@@ -107,7 +107,7 @@ public class Q00034_InSearchOfCloth extends Quest {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance player, boolean isSummon) {
+	public void onKill(L2Npc npc, L2PcInstance player, boolean isSummon) {
 		final L2PcInstance member = getRandomPartyMember(player, 4);
 		if ((member != null) && getRandomBoolean()) {
 			final QuestState st = getQuestState(member, false);
@@ -118,7 +118,6 @@ public class Q00034_InSearchOfCloth extends Quest {
 				st.playSound(Sound.ITEMSOUND_QUEST_ITEMGET);
 			}
 		}
-		return super.onKill(npc, player, isSummon);
 	}
 	
 	@Override

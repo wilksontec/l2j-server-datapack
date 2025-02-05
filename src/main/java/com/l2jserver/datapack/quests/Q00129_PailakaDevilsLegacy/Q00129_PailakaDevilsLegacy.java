@@ -217,9 +217,8 @@ public final class Q00129_PailakaDevilsLegacy extends Quest {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance player, boolean isSummon) {
+	public void onKill(L2Npc npc, L2PcInstance player, boolean isSummon) {
 		final QuestState qs = getQuestState(player, false);
-		
 		if ((qs != null) && qs.isStarted()) {
 			switch (npc.getId()) {
 				case KAMS: {
@@ -244,6 +243,5 @@ public final class Q00129_PailakaDevilsLegacy extends Quest {
 				}
 			}
 		}
-		return super.onKill(npc, player, isSummon);
 	}
 }

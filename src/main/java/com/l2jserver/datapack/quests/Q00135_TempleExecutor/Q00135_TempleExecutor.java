@@ -118,10 +118,10 @@ public class Q00135_TempleExecutor extends Quest {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance player, boolean isSummon) {
+	public void onKill(L2Npc npc, L2PcInstance player, boolean isSummon) {
 		final L2PcInstance member = getRandomPartyMember(player, 3);
 		if (member == null) {
-			return super.onKill(npc, player, isSummon);
+			return;
 		}
 		final QuestState st = getQuestState(member, false);
 		if (!hasItemsAtLimit(st.getPlayer(), STOLEN_CARGO)) {
@@ -137,7 +137,6 @@ public class Q00135_TempleExecutor extends Quest {
 		} else {
 			playSound(st.getPlayer(), Sound.ITEMSOUND_QUEST_ITEMGET);
 		}
-		return super.onKill(npc, player, isSummon);
 	}
 	
 	@Override

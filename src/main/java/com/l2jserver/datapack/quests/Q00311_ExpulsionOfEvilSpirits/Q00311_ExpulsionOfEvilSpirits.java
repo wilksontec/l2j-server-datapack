@@ -111,7 +111,7 @@ public final class Q00311_ExpulsionOfEvilSpirits extends Quest {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
+	public void onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
 		final QuestState qs = getRandomPartyMemberState(killer, 1, 2, npc);
 		if (qs != null) {
 			final int count = qs.getMemoStateEx(1) + 1;
@@ -125,7 +125,6 @@ public final class Q00311_ExpulsionOfEvilSpirits extends Quest {
 			
 			giveItemRandomly(qs.getPlayer(), npc, DROPLIST.get(npc), true);
 		}
-		return super.onKill(npc, killer, isSummon);
 	}
 	
 	@Override

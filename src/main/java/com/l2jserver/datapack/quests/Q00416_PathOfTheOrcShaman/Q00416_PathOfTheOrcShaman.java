@@ -235,10 +235,10 @@ public final class Q00416_PathOfTheOrcShaman extends Quest {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance player, boolean isSummon) {
+	public void onKill(L2Npc npc, L2PcInstance player, boolean isSummon) {
 		final QuestState st = getRandomPartyMemberState(player, -1, 3, npc);
 		if (st == null) {
-			return super.onKill(npc, player, isSummon);
+			return;
 		}
 		
 		if (npc.getId() == BLACK_LEOPARD) {
@@ -263,7 +263,7 @@ public final class Q00416_PathOfTheOrcShaman extends Quest {
 					st.setCond(19, true);
 				}
 			}
-			return super.onKill(npc, player, isSummon);
+			return;
 		}
 		
 		final int mobCond = MOBS_CONDITIONS.get(npc.getId());
@@ -300,7 +300,6 @@ public final class Q00416_PathOfTheOrcShaman extends Quest {
 				}
 			}
 		}
-		return super.onKill(npc, player, isSummon);
 	}
 	
 	@Override

@@ -123,10 +123,10 @@ public class Q10275_ContainingTheAttributePower extends Quest {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance player, boolean isSummon) {
+	public void onKill(L2Npc npc, L2PcInstance player, boolean isSummon) {
 		final QuestState st = getQuestState(player, false);
 		if (st == null) {
-			return null;
+			return;
 		}
 		
 		switch (npc.getId()) {
@@ -151,8 +151,6 @@ public class Q10275_ContainingTheAttributePower extends Quest {
 				}
 				break;
 		}
-		return null;
-		
 	}
 	
 	@Override

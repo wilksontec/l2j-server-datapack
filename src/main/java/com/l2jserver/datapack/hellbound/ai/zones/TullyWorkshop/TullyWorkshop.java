@@ -1000,7 +1000,7 @@ public final class TullyWorkshop extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
+	public void onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
 		final int npcId = npc.getId();
 		
 		if ((npcId == TULLY) && npc.isInsideRadius(-12557, 273901, -9000, 1000, false, false)) {
@@ -1146,7 +1146,6 @@ public final class TullyWorkshop extends AbstractNpcAI {
 		} else if (npcId == PILLAR) {
 			addSpawn(DWARVEN_GHOST, npc.getX() + 30, npc.getY() - 30, npc.getZ(), 0, false, 900000, false);
 		}
-		return super.onKill(npc, killer, isSummon);
 	}
 	
 	@Override

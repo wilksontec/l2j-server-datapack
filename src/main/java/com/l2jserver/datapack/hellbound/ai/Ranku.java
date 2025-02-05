@@ -77,7 +77,7 @@ public final class Ranku extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
+	public void onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
 		if (npc.getId() == MINION) {
 			if (MY_TRACKING_SET.contains(npc.getObjectId())) {
 				MY_TRACKING_SET.remove(npc.getObjectId());
@@ -95,6 +95,5 @@ public final class Ranku extends AbstractNpcAI {
 				}
 			}
 		}
-		return super.onKill(npc, killer, isSummon);
 	}
 }

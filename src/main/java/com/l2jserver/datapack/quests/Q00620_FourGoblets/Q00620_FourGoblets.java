@@ -377,7 +377,7 @@ public class Q00620_FourGoblets extends Quest {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance player, boolean isSummon) {
+	public void onKill(L2Npc npc, L2PcInstance player, boolean isSummon) {
 		switch (npc.getId()) {
 			case HALISHA_ALECTIA, HALISHA_TISHAS, HALISHA_MEKARA, HALISHA_MORIGUL -> executeForEachPlayer(player, npc, isSummon, true, false);
 			default -> {
@@ -387,7 +387,6 @@ public class Q00620_FourGoblets extends Quest {
 				}
 			}
 		}
-		return super.onKill(npc, player, isSummon);
 	}
 	
 	@Override

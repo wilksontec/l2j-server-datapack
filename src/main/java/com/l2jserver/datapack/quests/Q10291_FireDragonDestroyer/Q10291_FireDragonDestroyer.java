@@ -67,9 +67,9 @@ public class Q10291_FireDragonDestroyer extends Quest {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance player, boolean isSummon) {
+	public void onKill(L2Npc npc, L2PcInstance player, boolean isSummon) {
 		if (!player.isInParty()) {
-			return super.onKill(npc, player, isSummon);
+			return;
 		}
 		
 		Function<L2PcInstance, Boolean> rewardCheck = p -> {
@@ -91,7 +91,6 @@ public class Q10291_FireDragonDestroyer extends Quest {
 		} else {
 			player.getParty().forEachMember(rewardCheck);
 		}
-		return super.onKill(npc, player, isSummon);
 	}
 	
 	@Override

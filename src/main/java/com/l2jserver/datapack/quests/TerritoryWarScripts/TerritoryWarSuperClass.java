@@ -248,7 +248,7 @@ public class TerritoryWarSuperClass extends Quest {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
+	public void onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
 		TerritoryWarManager manager = TerritoryWarManager.getInstance();
 		if (npc.getId() == CATAPULT_ID) {
 			manager.territoryCatapultDestroyed(TERRITORY_ID - 80);
@@ -262,7 +262,6 @@ public class TerritoryWarSuperClass extends Quest {
 		if ((killer.getSiegeSide() != TERRITORY_ID) && (TerritoryWarManager.getInstance().getTerritory(killer.getSiegeSide() - 80) != null)) {
 			manager.getTerritory(killer.getSiegeSide() - 80).getQuestDone()[0]++;
 		}
-		return super.onKill(npc, killer, isSummon);
 	}
 	
 	@Override

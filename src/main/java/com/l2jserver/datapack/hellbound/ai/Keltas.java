@@ -156,10 +156,9 @@ public final class Keltas extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
+	public void onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
 		cancelQuestTimers("despawn");
 		despawnMinions();
-		return super.onKill(npc, killer, isSummon);
 	}
 	
 	@Override

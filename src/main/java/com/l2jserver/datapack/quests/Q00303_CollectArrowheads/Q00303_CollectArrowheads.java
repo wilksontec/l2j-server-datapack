@@ -58,14 +58,13 @@ public final class Q00303_CollectArrowheads extends Quest {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
+	public void onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
 		QuestState st = getRandomPartyMemberState(killer, 1, 1, npc);
 		if (st != null) {
 			if (giveItemRandomly(st.getPlayer(), npc, ORCISH_ARROWHEAD, true)) {
 				st.setCond(2);
 			}
 		}
-		return super.onKill(npc, killer, isSummon);
 	}
 	
 	@Override

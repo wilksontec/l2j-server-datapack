@@ -198,7 +198,7 @@ public final class Q00235_MimirsElixir extends Quest {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
+	public void onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
 		if (getRandom(5) == 0) {
 			L2PcInstance luckyPlayer = getRandomPartyMember(killer, npc);
 			if (luckyPlayer != null) {
@@ -210,7 +210,6 @@ public final class Q00235_MimirsElixir extends Quest {
 				}
 			}
 		}
-		return super.onKill(npc, killer, isSummon);
 	}
 	
 	@Override

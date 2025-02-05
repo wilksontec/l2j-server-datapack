@@ -255,7 +255,7 @@ public final class Orfen extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
+	public void onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
 		if (npc.getId() == ORFEN) {
 			cancelQuestTimers("CHECK_ZONE");
 			npc.broadcastPacket(Music.BS02_D_7000.getPacket());
@@ -266,7 +266,6 @@ public final class Orfen extends AbstractNpcAI {
 			_orfen = null;
 			_riba = null;
 		}
-		return super.onKill(npc, killer, isSummon);
 	}
 	
 	@Override

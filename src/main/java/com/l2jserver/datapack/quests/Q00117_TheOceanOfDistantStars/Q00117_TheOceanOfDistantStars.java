@@ -162,17 +162,15 @@ public final class Q00117_TheOceanOfDistantStars extends Quest {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
+	public void onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
 		final QuestState qs = getRandomPartyMemberState(killer, 7, 3, npc);
-		
 		if ((qs == null) || !Util.checkIfInRange(1500, npc, qs.getPlayer(), true)) {
-			return null;
+			return;
 		}
 		
 		if (giveItemRandomly(qs.getPlayer(), npc, DROPLIST.get(npc), true)) {
 			qs.setCond(8);
 		}
-		return super.onKill(npc, killer, isSummon);
 	}
 	
 	@Override

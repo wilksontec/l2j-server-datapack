@@ -99,7 +99,7 @@ public class Q00901_HowLavasaurusesAreMade extends Quest {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance player, boolean isSummon) {
+	public void onKill(L2Npc npc, L2PcInstance player, boolean isSummon) {
 		final QuestState st = getQuestState(player, false);
 		if ((st != null) && st.isCond(1)) {
 			switch (npc.getId()) {
@@ -117,7 +117,6 @@ public class Q00901_HowLavasaurusesAreMade extends Quest {
 					break;
 			}
 		}
-		return super.onKill(npc, player, isSummon);
 	}
 	
 	@Override

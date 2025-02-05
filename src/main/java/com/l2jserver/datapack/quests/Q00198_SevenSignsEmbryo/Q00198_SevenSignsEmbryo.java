@@ -142,10 +142,10 @@ public final class Q00198_SevenSignsEmbryo extends Quest {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance player, boolean isSummon) {
+	public void onKill(L2Npc npc, L2PcInstance player, boolean isSummon) {
 		final L2PcInstance partyMember = getRandomPartyMember(player, 1);
 		if (partyMember == null) {
-			return null;
+			return;
 		}
 		
 		final QuestState st = getQuestState(partyMember, false);
@@ -160,7 +160,6 @@ public final class Q00198_SevenSignsEmbryo extends Quest {
 		npc.broadcastPacket(new NpcSay(npc.getObjectId(), Say2.NPC_ALL, npc.getId(), NpcStringId.S1_YOU_MAY_HAVE_WON_THIS_TIME_BUT_NEXT_TIME_I_WILL_SURELY_CAPTURE_YOU).addStringParameter(partyMember.getName()));
 		npc.deleteMe();
 		partyMember.showQuestMovie(14);
-		return super.onKill(npc, player, isSummon);
 	}
 	
 	@Override

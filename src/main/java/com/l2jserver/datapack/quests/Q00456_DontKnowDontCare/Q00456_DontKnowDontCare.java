@@ -237,16 +237,15 @@ public final class Q00456_DontKnowDontCare extends Quest {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
+	public void onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
 		if (!killer.isInParty() || !killer.getParty().isInCommandChannel()) {
 			// only the killing cc gets the quest
-			return super.onKill(npc, killer, isSummon);
+			return;
 		}
 		
 		final L2CommandChannel cc = killer.getParty().getCommandChannel();
-		
 		if (cc.getMemberCount() < MIN_PLAYERS) {
-			return super.onKill(npc, killer, isSummon);
+			return;
 		}
 		
 		Set<Integer> allowedPlayers = new HashSet<>();
@@ -272,8 +271,6 @@ public final class Q00456_DontKnowDontCare extends Quest {
 			allowedPlayerMap.put(spawned.getObjectId(), allowedPlayers);
 			startQuestTimer(TIMER_UNSPAWN_RAID_CORPSE, 300000, npc, null);
 		}
-		
-		return super.onKill(npc, killer, isSummon);
 	}
 	
 	private static void rewardPlayer(L2PcInstance player, L2Npc npc) {

@@ -83,7 +83,7 @@ public final class Q00132_MatrasCuriosity extends Quest {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance player, boolean isSummon) {
+	public void onKill(L2Npc npc, L2PcInstance player, boolean isSummon) {
 		L2PcInstance pl = null;
 		switch (npc.getId()) {
 			case DEMON_PRINCE:
@@ -115,7 +115,6 @@ public final class Q00132_MatrasCuriosity extends Quest {
 				}
 				break;
 		}
-		return null;
 	}
 	
 	@Override

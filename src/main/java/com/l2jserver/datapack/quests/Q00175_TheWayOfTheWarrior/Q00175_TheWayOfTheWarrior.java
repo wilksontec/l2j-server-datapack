@@ -135,7 +135,7 @@ public final class Q00175_TheWayOfTheWarrior extends Quest {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
+	public void onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
 		if (npc.getId() == MOUNTAIN_WEREWOLF) {
 			final QuestState qs = getRandomPartyMemberState(killer, 2, 3, npc);
 			if ((qs != null) && giveItemRandomly(qs.getPlayer(), npc, WOLF_TAIL, true)) {
@@ -147,7 +147,6 @@ public final class Q00175_TheWayOfTheWarrior extends Quest {
 				qs.setCond(8);
 			}
 		}
-		return super.onKill(npc, killer, isSummon);
 	}
 	
 	@Override

@@ -535,7 +535,7 @@ public class Q00663_SeductiveWhispers extends Quest {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
+	public void onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
 		final List<L2PcInstance> players = new LinkedList<>();
 		final QuestState qs = getQuestState(killer, false);
 		if ((qs != null) && qs.isStarted() && (qs.getMemoState() >= 1) && (qs.getMemoState() <= 4)) {
@@ -569,7 +569,6 @@ public class Q00663_SeductiveWhispers extends Quest {
 				}
 			}
 		}
-		return super.onKill(npc, killer, isSummon);
 	}
 	
 	private String getHtml(L2PcInstance player, String htmlName, int card1pic, int card2pic, int winCount, int card1) {

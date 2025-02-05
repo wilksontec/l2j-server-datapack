@@ -114,9 +114,9 @@ public class Q00508_AClansReputation extends Quest {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance player, boolean isSummon) {
+	public void onKill(L2Npc npc, L2PcInstance player, boolean isSummon) {
 		if (player.getClan() == null) {
-			return null;
+			return;
 		}
 		
 		QuestState st = null;
@@ -138,7 +138,6 @@ public class Q00508_AClansReputation extends Quest {
 				}
 			}
 		}
-		return null;
 	}
 	
 	@Override

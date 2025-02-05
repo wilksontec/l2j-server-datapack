@@ -654,7 +654,7 @@ public final class Q00420_LittleWing extends Quest {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
+	public void onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
 		final QuestState qs = getRandomPartyMemberState(killer, -1, 3, npc);
 		if (qs != null) {
 			if (qs.isCond(2) && (npc.getId() == TOAD_LORD)) {
@@ -667,7 +667,6 @@ public final class Q00420_LittleWing extends Quest {
 				giveItemRandomly(qs.getPlayer(), npc, EGG_DROPS.get(npc.getId()), 1, 20, 0.5, true);
 			}
 		}
-		return super.onKill(npc, killer, isSummon);
 	}
 	
 	/**

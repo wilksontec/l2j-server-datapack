@@ -89,14 +89,13 @@ public class Q00137_TempleChampionPart1 extends Quest {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance player, boolean isSummon) {
+	public void onKill(L2Npc npc, L2PcInstance player, boolean isSummon) {
 		final QuestState st = getQuestState(player, false);
 		if ((st != null) && st.isStarted() && st.isCond(2)) {
 			if (giveItemRandomly(st.getPlayer(), npc, FRAGMENT, true)) {
 				st.setCond(3);
 			}
 		}
-		return super.onKill(npc, player, isSummon);
 	}
 	
 	@Override

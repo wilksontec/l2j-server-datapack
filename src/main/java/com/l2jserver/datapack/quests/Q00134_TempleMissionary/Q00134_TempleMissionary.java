@@ -111,10 +111,10 @@ public class Q00134_TempleMissionary extends Quest {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance player, boolean isSummon) {
+	public void onKill(L2Npc npc, L2PcInstance player, boolean isSummon) {
 		final L2PcInstance member = getRandomPartyMember(player, 3);
 		if (member == null) {
-			return super.onKill(npc, player, isSummon);
+			return;
 		}
 		final QuestState st = getQuestState(member, false);
 		if (npc.getId() == CRUMA_MARSHLANDS_TRAITOR) {
@@ -134,7 +134,6 @@ public class Q00134_TempleMissionary extends Quest {
 				giveItemRandomly(st.getPlayer(), npc, DROPLIST.get(npc), true);
 			}
 		}
-		return super.onKill(npc, player, isSummon);
 	}
 	
 	@Override

@@ -703,10 +703,10 @@ public final class Stage1 extends AbstractInstance {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance player, boolean isSummon) {
+	public void onKill(L2Npc npc, L2PcInstance player, boolean isSummon) {
 		if (npc.getId() == SPAWN_DEVICE) {
 			cancelQuestTimer("Spawn", npc, null);
-			return null;
+			return;
 		}
 		InstanceWorld tmpworld = InstanceManager.getInstance().getWorld(npc.getInstanceId());
 		if (tmpworld instanceof SOD1World world) {
@@ -748,7 +748,6 @@ public final class Stage1 extends AbstractInstance {
 				}
 			}
 		}
-		return null;
 	}
 	
 	@Override

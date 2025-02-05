@@ -385,7 +385,7 @@ public class Q00348_AnArrogantSearch extends Quest {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance player, boolean isSummon) {
+	public void onKill(L2Npc npc, L2PcInstance player, boolean isSummon) {
 		final QuestState st = getRandomPartyMemberState(player, -1, 3, npc);
 		if ((st != null) && npc.isInsideRadius(player, 1500, true, false)) {
 			switch (npc.getId()) {
@@ -492,7 +492,6 @@ public class Q00348_AnArrogantSearch extends Quest {
 				}
 			}
 		}
-		return super.onKill(npc, player, isSummon);
 	}
 	
 	@Override

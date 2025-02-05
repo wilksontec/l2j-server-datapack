@@ -648,7 +648,7 @@ public final class Beleth extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
+	public void onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
 		if (npc.getId() == REAL_BELETH) {
 			cancelQuestTimer("CHECK_ATTACK", null, null);
 			
@@ -691,8 +691,6 @@ public final class Beleth extends AbstractNpcAI {
 				startQuestTimer("SPAWN25", 60000, null, null);
 			}
 		}
-		
-		return null;
 	}
 	
 	private void setBelethKiller(L2PcInstance killer) {

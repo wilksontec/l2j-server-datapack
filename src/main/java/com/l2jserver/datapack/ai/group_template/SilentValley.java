@@ -119,7 +119,7 @@ public final class SilentValley extends AbstractNpcAI {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
+	public void onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
 		if (getRandom(1000) < SPAWN_CHANCE) {
 			final int newZ = npc.getZ() + 100;
 			addSpawn(GUARD2, npc.getX() + 100, npc.getY(), newZ, 0, false, 0);
@@ -127,7 +127,6 @@ public final class SilentValley extends AbstractNpcAI {
 			addSpawn(GUARD1, npc.getX(), npc.getY() + 100, newZ, 0, false, 0);
 			addSpawn(GUARD1, npc.getX(), npc.getY() - 100, newZ, 0, false, 0);
 		}
-		return super.onKill(npc, killer, isSummon);
 	}
 	
 	@Override

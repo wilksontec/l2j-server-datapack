@@ -71,10 +71,10 @@ public class Q10279_MutatedKaneusOren extends Quest {
 	}
 	
 	@Override
-	public String onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
+	public void onKill(L2Npc npc, L2PcInstance killer, boolean isSummon) {
 		QuestState st = getQuestState(killer, false);
 		if (st == null) {
-			return null;
+			return;
 		}
 		
 		final int npcId = npc.getId();
@@ -93,7 +93,6 @@ public class Q10279_MutatedKaneusOren extends Quest {
 		} else if (st.isStarted()) {
 			rewardItem(npcId, st);
 		}
-		return null;
 	}
 	
 	@Override
