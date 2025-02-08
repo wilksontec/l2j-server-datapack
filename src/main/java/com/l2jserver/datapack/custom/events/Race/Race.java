@@ -168,7 +168,7 @@ public final class Race extends Event {
 				if (player.isInsideRadius(_npc, 500, false, false)) {
 					sendMessage(player, "Race started! Go find Finish NPC as fast as you can... He is located near " + LOCATIONS[location]);
 					transformPlayer(player);
-					player.getRadar().addMarker(_randspawn[0], _randspawn[1], _randspawn[2]);
+					showRadar(player, _randspawn[0], _randspawn[1], _randspawn[2], 1);
 				} else {
 					sendMessage(player, "I told you stay near me right? Distance was too high, you are excluded from race");
 					_players.remove(player);
@@ -258,7 +258,7 @@ public final class Race extends Event {
 			player.untransform();
 			return null;
 		} else if (event.equalsIgnoreCase("showfinish")) {
-			player.getRadar().addMarker(_randspawn[0], _randspawn[1], _randspawn[2]);
+			showRadar(player, _randspawn[0], _randspawn[1], _randspawn[2], 1);
 			return null;
 		} else if (event.equalsIgnoreCase("signup")) {
 			if (_players.contains(player)) {

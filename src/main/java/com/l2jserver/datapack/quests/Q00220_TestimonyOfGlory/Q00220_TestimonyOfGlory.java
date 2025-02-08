@@ -160,10 +160,10 @@ public final class Q00220_TestimonyOfGlory extends Quest {
 					htmltext = event;
 				} else if (!hasAtLeastOneQuestItem(player, SCEPTER_OF_VUKU, KASMANS_1ST_LETTER)) {
 					giveItems(player, KASMANS_1ST_LETTER, 1);
-					player.getRadar().addMarker(-2150, 124443, -3724);
+					showRadar(player, -2150, 124443, -3724, 1);
 					htmltext = "30501-03.html";
 				} else if (!hasQuestItems(player, SCEPTER_OF_VUKU) && hasAtLeastOneQuestItem(player, KASMANS_1ST_LETTER, DRIKOS_CONTRACT)) {
-					player.getRadar().addMarker(-2150, 124443, -3724);
+					showRadar(player, -2150, 124443, -3724, 1);
 					htmltext = "30501-04.html";
 				}
 				break;
@@ -173,10 +173,10 @@ public final class Q00220_TestimonyOfGlory extends Quest {
 					htmltext = event;
 				} else if (!hasAtLeastOneQuestItem(player, SCEPTER_OF_TUREK, KASMANS_2ND_LETTER)) {
 					giveItems(player, KASMANS_2ND_LETTER, 1);
-					player.getRadar().addMarker(-94294, 110818, -3563);
+					showRadar(player, -94294, 110818, -3563, 1);
 					htmltext = "30501-06.html";
 				} else if (!hasQuestItems(player, SCEPTER_OF_TUREK) && hasQuestItems(player, KASMANS_2ND_LETTER)) {
-					player.getRadar().addMarker(-94294, 110818, -3563);
+					showRadar(player, -94294, 110818, -3563, 1);
 					htmltext = "30501-07.html";
 				}
 				break;
@@ -186,23 +186,23 @@ public final class Q00220_TestimonyOfGlory extends Quest {
 					htmltext = event;
 				} else if (!hasAtLeastOneQuestItem(player, SCEPTER_OF_TUNATH, KASMANS_3RD_LETTER)) {
 					giveItems(player, KASMANS_3RD_LETTER, 1);
-					player.getRadar().addMarker(-55217, 200628, -3724);
+					showRadar(player, -55217, 200628, -3724, 1);
 					htmltext = "30501-09.html";
 				} else if (!hasQuestItems(player, SCEPTER_OF_TUNATH) && hasQuestItems(player, KASMANS_3RD_LETTER)) {
-					player.getRadar().addMarker(-55217, 200628, -3724);
+					showRadar(player, -55217, 200628, -3724, 1);
 					htmltext = "30501-10.html";
 				}
 				break;
 			}
 			case "30515-04.html": {
 				if (!hasQuestItems(player, SCEPTER_OF_BREKA) && hasQuestItems(player, MANAKIA_1ST_LETTER)) {
-					player.getRadar().addMarker(80100, 119991, -2264);
+					showRadar(player, 80100, 119991, -2264, 1);
 					htmltext = event;
 				} else if (hasQuestItems(player, SCEPTER_OF_BREKA)) {
 					htmltext = "30515-02.html";
 				} else if (!hasAtLeastOneQuestItem(player, SCEPTER_OF_BREKA, MANAKIA_1ST_LETTER)) {
 					giveItems(player, MANAKIA_1ST_LETTER, 1);
-					player.getRadar().addMarker(80100, 119991, -2264);
+					showRadar(player, 80100, 119991, -2264, 1);
 					htmltext = "30515-03.html";
 				}
 				break;
@@ -212,10 +212,10 @@ public final class Q00220_TestimonyOfGlory extends Quest {
 					htmltext = event;
 				} else if (!hasAtLeastOneQuestItem(player, SCEPTER_OF_ENKU, MANAKIA_2ND_LETTER)) {
 					giveItems(player, MANAKIA_2ND_LETTER, 1);
-					player.getRadar().addMarker(12805, 189249, -3616);
+					showRadar(player, 12805, 189249, -3616, 1);
 					htmltext = "30515-06.html";
 				} else if (!hasQuestItems(player, SCEPTER_OF_ENKU) && hasQuestItems(player, MANAKIA_2ND_LETTER)) {
-					player.getRadar().addMarker(12805, 189249, -3616);
+					showRadar(player, 12805, 189249, -3616, 1);
 					htmltext = "30515-07.html";
 				}
 				break;
@@ -622,7 +622,7 @@ public final class Q00220_TestimonyOfGlory extends Quest {
 							htmltext = "30615-01.html";
 						} else if (hasQuestItems(player, MANAKIA_1ST_LETTER)) {
 							htmltext = "30615-02.html";
-							player.getRadar().removeMarker(80100, 119991, -2264);
+							deleteRadar(player, 80100, 119991, -2264, 1);
 						} else if (!hasQuestItems(player, SCEPTER_OF_BREKA) && hasQuestItems(player, GLOVE_OF_VOLTAR) && ((getQuestItemsCount(player, PASHIKAS_HEAD) + getQuestItemsCount(player, VULTUS_HEAD)) < 2)) {
 							if (npc.getSummonedNpcCount() < 2) {
 								addAttackDesire(addSpawn(npc, PASHIKA_SON_OF_VOLTAR, npc, true, 200000), player);
@@ -650,7 +650,7 @@ public final class Q00220_TestimonyOfGlory extends Quest {
 						if (!hasAtLeastOneQuestItem(player, SCEPTER_OF_ENKU, MANAKIA_2ND_LETTER, GLOVE_OF_KEPRA) && ((getQuestItemsCount(player, ENKU_OVERLORD_HEAD)) < 4)) {
 							htmltext = "30616-01.html";
 						} else if (hasQuestItems(player, MANAKIA_2ND_LETTER)) {
-							player.getRadar().removeMarker(12805, 189249, -3616);
+							deleteRadar(player, 12805, 189249, -3616, 1);
 							htmltext = "30616-02.html";
 						} else if (hasQuestItems(player, GLOVE_OF_KEPRA) && ((getQuestItemsCount(player, ENKU_OVERLORD_HEAD)) < 4)) {
 							if (npc.getSummonedNpcCount() < 5) {
@@ -677,7 +677,7 @@ public final class Q00220_TestimonyOfGlory extends Quest {
 						if (!hasAtLeastOneQuestItem(player, SCEPTER_OF_TUREK, KASMANS_2ND_LETTER, GLOVE_OF_BURAI, MAKUM_BUGBEAR_HEAD)) {
 							htmltext = "30617-01.html";
 						} else if (hasQuestItems(player, KASMANS_2ND_LETTER)) {
-							player.getRadar().removeMarker(-94294, 110818, -3563);
+							deleteRadar(player, -94294, 110818, -3563, 1);
 							htmltext = "30617-02.html";
 						} else if (hasQuestItems(player, GLOVE_OF_BURAI)) {
 							if (npc.getSummonedNpcCount() < 3) {
@@ -705,7 +705,7 @@ public final class Q00220_TestimonyOfGlory extends Quest {
 						if (!hasAtLeastOneQuestItem(player, SCEPTER_OF_TUNATH, KASMANS_3RD_LETTER)) {
 							htmltext = "30618-01.html";
 						} else if (!hasQuestItems(player, SCEPTER_OF_TUNATH) && hasQuestItems(player, KASMANS_3RD_LETTER)) {
-							player.getRadar().removeMarker(-55217, 200628, -3724);
+							deleteRadar(player, -55217, 200628, -3724, 1);
 							htmltext = "30618-02.html";
 						} else if (hasQuestItems(player, SCEPTER_OF_TUNATH)) {
 							htmltext = "30618-04.html";
@@ -720,7 +720,7 @@ public final class Q00220_TestimonyOfGlory extends Quest {
 						if (!hasAtLeastOneQuestItem(player, SCEPTER_OF_VUKU, KASMANS_1ST_LETTER, DRIKOS_CONTRACT)) {
 							htmltext = "30619-01.html";
 						} else if (!hasQuestItems(player, SCEPTER_OF_VUKU) && hasQuestItems(player, KASMANS_1ST_LETTER)) {
-							player.getRadar().removeMarker(-2150, 124443, -3724);
+							deleteRadar(player, -2150, 124443, -3724, 1);
 							htmltext = "30619-02.html";
 						} else if (!hasQuestItems(player, SCEPTER_OF_VUKU) && hasQuestItems(player, DRIKOS_CONTRACT)) {
 							if (getQuestItemsCount(player, STAKATO_DRONE_HUSK) < 30) {

@@ -26,7 +26,6 @@ import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
 import com.l2jserver.gameserver.model.quest.Quest;
 import com.l2jserver.gameserver.model.quest.QuestDroplist;
 import com.l2jserver.gameserver.model.quest.QuestState;
-import com.l2jserver.gameserver.network.serverpackets.RadarControl;
 import com.l2jserver.gameserver.util.Util;
 
 /**
@@ -128,7 +127,7 @@ public class Q00309_ForAGoodCause extends Quest {
 				break;
 			case "32647-05.html":
 				st.startQuest();
-				player.sendPacket(new RadarControl(0, 2, 77325, 205773, -3432));
+				showRadar(player, 77325, 205773, -3432, 2); // TODO(Zoey76): Seems custom.
 				htmltext = event;
 				break;
 			case "claimreward":

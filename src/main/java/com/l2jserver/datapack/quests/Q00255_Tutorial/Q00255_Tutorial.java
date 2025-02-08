@@ -654,29 +654,29 @@ public class Q00255_Tutorial extends Quest {
 					qs.playSound(Sound.ITEMSOUND_QUEST_TUTORIAL);
 					switch (talker.getClassId()) {
 						case fighter:
-							qs.addRadar(-71424, 258336, -3109);
+							showRadar(talker, -71424, 258336, -3109, 2);
 							break;
 						case mage:
-							qs.addRadar(-91036, 248044, -3568);
+							showRadar(talker, -91036, 248044, -3568, 2);
 							break;
 						case elvenFighter:
 						case elvenMage:
-							qs.addRadar(46112, 41200, -3504);
+							showRadar(talker, 46112, 41200, -3504, 2);
 							break;
 						case darkFighter:
 						case darkMage:
-							qs.addRadar(28384, 11056, -4233);
+							showRadar(talker, 28384, 11056, -4233, 2);
 							break;
 						case orcFighter:
 						case orcMage:
-							qs.addRadar(-56736, -113680, -672);
+							showRadar(talker, -56736, -113680, -672, 2);
 							break;
 						case dwarvenFighter:
-							qs.addRadar(108567, -173994, -406);
+							showRadar(talker, 108567, -173994, -406, 2);
 							break;
 						case maleSoldier:
 						case femaleSoldier:
-							qs.addRadar(-125872, 38016, 1251);
+							showRadar(talker, -125872, 38016, 1251, 2);
 							break;
 					}
 					qs.playSound(Voice.TUTORIAL_VOICE_007_3500);
@@ -705,23 +705,23 @@ public class Q00255_Tutorial extends Quest {
 				qs.setMemoState(memoState & ~1024);
 				switch (talker.getClassId()) {
 					case fighter:
-						qs.addRadar(-83020, 242553, -3718);
+						showRadar(talker, -83020, 242553, -3718, 2);
 						break;
 					case elvenFighter:
-						qs.addRadar(45061, 52468, -2796);
+						showRadar(talker, 45061, 52468, -2796, 2);
 						break;
 					case darkFighter:
-						qs.addRadar(10447, 14620, -4242);
+						showRadar(talker, 10447, 14620, -4242, 2);
 						break;
 					case orcFighter:
-						qs.addRadar(-46389, -113905, -21);
+						showRadar(talker, -46389, -113905, -21, 2);
 						break;
 					case dwarvenFighter:
-						qs.addRadar(115271, -182692, -1445);
+						showRadar(talker, 115271, -182692, -1445, 2);
 						break;
 					case maleSoldier:
 					case femaleSoldier:
-						qs.addRadar(-118132, 42788, 723);
+						showRadar(talker, -118132, 42788, 723, 2);
 						break;
 				}
 				if (!talker.isMageClass()) {
@@ -747,16 +747,16 @@ public class Q00255_Tutorial extends Quest {
 					qs.playSound(Sound.ITEMSOUND_QUEST_TUTORIAL);
 					switch (talker.getClassId()) {
 						case mage:
-							qs.addRadar(-84981, 244764, -3726);
+							showRadar(talker, -84981, 244764, -3726, 2);
 							break;
 						case elvenMage:
-							qs.addRadar(45701, 52459, -2796);
+							showRadar(talker, 45701, 52459, -2796, 2);
 							break;
 						case darkMage:
-							qs.addRadar(10344, 14445, -4242);
+							showRadar(talker, 45701, 52459, -2796, 2);
 							break;
 						case orcMage:
-							qs.addRadar(-46225, -113312, -21);
+							showRadar(talker, -46225, -113312, -21, 2);
 							break;
 					}
 					qs.setMemoState(memoState & ~2048);
@@ -1203,35 +1203,35 @@ public class Q00255_Tutorial extends Quest {
 				switch (talker.getClassId()) {
 					case fighter:
 						showTutorialHTML(talker, "tutorial-human-fighter-007.htm");
-						qs.addRadar(-71424, 258336, -3109);
+						showRadar(talker, -71424, 258336, -3109, 2);
 						break;
 					case mage:
 						showTutorialHTML(talker, "tutorial-human-fighter-007.htm");
-						qs.addRadar(-91036, 248044, -3568);
+						showRadar(talker, -91036, 248044, -3568, 2);
 						break;
 					case elvenFighter:
 					case elvenMage:
 						showTutorialHTML(talker, "tutorial-human-fighter-007.htm");
-						qs.addRadar(-91036, 248044, -3568);
+						showRadar(talker, 46112, 41200, -3504, 2);
 						break;
 					case darkFighter:
 					case darkMage:
 						showTutorialHTML(talker, "tutorial-human-fighter-007.htm");
-						qs.addRadar(28384, 11056, -4233);
+						showRadar(talker, 28384, 11056, -4233, 2);
 						break;
 					case orcFighter:
 					case orcMage:
 						showTutorialHTML(talker, "tutorial-human-fighter-007.htm");
-						qs.addRadar(-56736, -113680, -672);
+						showRadar(talker, -56736, -113680, -672, 2);
 						break;
 					case dwarvenFighter:
 						showTutorialHTML(talker, "tutorial-human-fighter-007.htm");
-						qs.addRadar(108567, -173994, -406);
+						showRadar(talker, 108567, -173994, -406, 2);
 						break;
 					case maleSoldier:
 					case femaleSoldier:
 						showTutorialHTML(talker, "tutorial-human-fighter-007.htm");
-						qs.addRadar(-125872, 38016, 1251);
+						showRadar(talker, -125872, 38016, 1251, 2);
 						break;
 				}
 				qs.setMemoState(memoFlag | 2);
@@ -1277,29 +1277,29 @@ public class Q00255_Tutorial extends Quest {
 			case 5:
 				switch (talker.getClassId()) {
 					case fighter:
-						qs.addRadar(-71424, 258336, -3109);
+						showRadar(talker, -71424, 258336, -3109, 2);
 						break;
 					case mage:
-						qs.addRadar(-91036, 248044, -3568);
+						showRadar(talker, -91036, 248044, -3568, 2);
 						break;
 					case elvenFighter:
 					case elvenMage:
-						qs.addRadar(46112, 41200, -3504);
+						showRadar(talker, 46112, 41200, -3504, 2);
 						break;
 					case darkFighter:
 					case darkMage:
-						qs.addRadar(28384, 11056, -4233);
+						showRadar(talker, 28384, 11056, -4233, 2);
 						break;
 					case orcFighter:
 					case orcMage:
-						qs.addRadar(-56736, -113680, -672);
+						showRadar(talker, -56736, -113680, -672, 2);
 						break;
 					case dwarvenFighter:
-						qs.addRadar(108567, -173994, -406);
+						showRadar(talker, 108567, -173994, -406, 2);
 						break;
 					case maleSoldier:
 					case femaleSoldier:
-						qs.addRadar(-125872, 38016, 1251);
+						showRadar(talker, -125872, 38016, 1251, 2);
 						break;
 				}
 				showTutorialHTML(talker, "tutorial-11.htm");
@@ -1855,8 +1855,9 @@ public class Q00255_Tutorial extends Quest {
 				showPage(talker, "30008-005.htm");
 				break;
 			case 42:
-				qs.addRadar(-84081, 243277, -3723);
+				showRadar(talker, -84081, 243277, -3723, 1);
 				showPage(talker, "30008-006.htm");
+				break;
 		}
 	}
 	
@@ -1889,12 +1890,13 @@ public class Q00255_Tutorial extends Quest {
 				break;
 			case 41:
 				teleportPlayer(talker, new Location(-120050, 44500, 360), 0);
-				qs.addRadar(-119692, 44504, 380);
+				showRadar(talker, -119692, 44504, 380, 1);
 				showPage(talker, "30017-005.htm");
 				break;
 			case 42:
-				qs.addRadar(-84081, 243277, -3723);
+				showRadar(talker, -84081, 243277, -3723, 1);
 				showPage(talker, "30017-006.htm");
+				break;
 		}
 	}
 	
@@ -1927,12 +1929,13 @@ public class Q00255_Tutorial extends Quest {
 				break;
 			case 41:
 				teleportPlayer(talker, new Location(-120050, 44500, 360), 0);
-				qs.addRadar(-119692, 44504, 380);
+				showRadar(talker, -119692, 44504, 380, 1);
 				showPage(talker, "30129-005.htm");
 				break;
 			case 42:
-				qs.addRadar(17024, 13296, -3744);
+				showRadar(talker, 17024, 13296, -3744, 1);
 				showPage(talker, "30129-006.htm");
+				break;
 		}
 	}
 	
@@ -1961,11 +1964,11 @@ public class Q00255_Tutorial extends Quest {
 				break;
 			case 41:
 				teleportPlayer(talker, new Location(-120050, 44500, 360), 0);
-				qs.addRadar(-119692, 44504, 380);
+				showRadar(talker, -119692, 44504, 380, 1);
 				showPage(talker, "30370-005.htm");
 				break;
 			case 42:
-				qs.addRadar(45475, 48359, -3060);
+				showRadar(talker, 45475, 48359, -3060, 1);
 				showPage(talker, "30370-006.htm");
 				break;
 		}
@@ -1996,11 +1999,11 @@ public class Q00255_Tutorial extends Quest {
 				break;
 			case 41:
 				teleportPlayer(talker, new Location(-120050, 44500, 360), 0);
-				qs.addRadar(-119692, 44504, 380);
+				showRadar(talker, -119692, 44504, 380, 1);
 				showPage(talker, "30528-005.htm");
 				break;
 			case 42:
-				qs.addRadar(115632, -177996, -905);
+				showRadar(talker, 115632, -177996, -905, 1);
 				showPage(talker, "30528-006.htm");
 				break;
 		}
@@ -2025,11 +2028,13 @@ public class Q00255_Tutorial extends Quest {
 				break;
 			case 41:
 				teleportPlayer(talker, new Location(-120050, 44500, 360), 0);
-				qs.addRadar(-119692, 44504, 380);
+				showRadar(talker, -119692, 44504, 380, 1);
 				showPage(talker, "30573-005.htm");
+				break;
 			case 42:
-				qs.addRadar(-45032, -113598, -192);
+				showRadar(talker, -45032, -113598, -192, 1);
 				showPage(talker, "30573-006.htm");
+				break;
 		}
 	}
 	
@@ -2043,7 +2048,7 @@ public class Q00255_Tutorial extends Quest {
 			}
 			qs.takeItems(DIPLOMA, -1);
 			startQuestTimer(npc.getId() + "", 60000, npc, talker);
-			qs.addRadar(-119692, 44504, 380);
+			showRadar(talker, -119692, 44504, 380, 1);
 			showPage(talker, "32133-002.htm");
 		}
 	}
@@ -2065,7 +2070,7 @@ public class Q00255_Tutorial extends Quest {
 	private void talkCarl(L2Npc npc, L2PcInstance talker, QuestState qs) {
 		if (qs.getMemoStateEx(1) < 0) {
 			if ((talker.getClassId() == ClassId.fighter) && (talker.getRace() == Race.HUMAN)) {
-				qs.removeRadar(-71424, 258336, -3109);
+				deleteRadar(talker, -71424, 258336, -3109, 2);
 				startQuestTimer(npc.getId() + "", 30000, npc, talker);
 				qs.setMemoStateEx(1, 0);
 				enableTutorialEvent(qs, (qs.getMemoState() & 2147483392) | 1048576);
@@ -2117,7 +2122,7 @@ public class Q00255_Tutorial extends Quest {
 	private void talkDoff(L2Npc npc, L2PcInstance talker, QuestState qs) {
 		if (qs.getMemoStateEx(1) < 0) {
 			if ((talker.getClassId() == ClassId.mage) && (talker.getRace() == Race.HUMAN)) {
-				qs.removeRadar(-91036, 248044, -3568);
+				deleteRadar(talker, -91036, 248044, -3568, 2);
 				startQuestTimer(npc.getId() + "", 30000, npc, talker);
 				qs.setMemoStateEx(1, 0);
 				enableTutorialEvent(qs, (qs.getMemoState() & 2147483392) | 1048576);
@@ -2170,7 +2175,7 @@ public class Q00255_Tutorial extends Quest {
 	private void talkPoeny(L2Npc npc, L2PcInstance talker, QuestState qs) {
 		if (qs.getMemoStateEx(1) < 0) {
 			if (talker.getRace() == Race.DARK_ELF) {
-				qs.removeRadar(28384, 11056, -4233);
+				deleteRadar(talker, 28384, 11056, -4233, 2);
 				startQuestTimer(npc.getId() + "", 30000, npc, talker);
 				
 				if (!talker.isMageClass()) {
@@ -2239,7 +2244,7 @@ public class Q00255_Tutorial extends Quest {
 	private void talkMotherTemp(L2Npc npc, L2PcInstance talker, QuestState qs) {
 		if (qs.getMemoStateEx(1) < 0) {
 			if (talker.getRace() == Race.ELF) {
-				qs.removeRadar(46112, 41200, -3504);
+				deleteRadar(talker, 46112, 41200, -3504, 2);
 				startQuestTimer(npc.getId() + "", 30000, npc, talker);
 				qs.setMemoStateEx(1, 0);
 				enableTutorialEvent(qs, (qs.getMemoState() & 2147483392) | 1048576);
@@ -2302,7 +2307,7 @@ public class Q00255_Tutorial extends Quest {
 	private void talkMinerMai(L2Npc npc, L2PcInstance talker, QuestState qs) {
 		if (qs.getMemoStateEx(1) < 0) {
 			if (talker.getRace() == Race.DWARF) {
-				qs.removeRadar(108567, -173994, -406);
+				deleteRadar(talker, 108567, -173994, -406, 2);
 				startQuestTimer(npc.getId() + "", 30000, npc, talker);
 				
 				qs.setMemoStateEx(1, 0);
@@ -2360,7 +2365,7 @@ public class Q00255_Tutorial extends Quest {
 	private void talkShelaPriestess(L2Npc npc, L2PcInstance talker, QuestState qs) {
 		if (qs.getMemoStateEx(1) < 0) {
 			if (talker.getRace() == Race.ORC) {
-				qs.removeRadar(-56736, -113680, -672);
+				deleteRadar(talker, -56736, -113680, -672, 2);
 				startQuestTimer(npc.getId() + "", 30000, npc, talker);
 				qs.setMemoStateEx(1, 0);
 				enableTutorialEvent(qs, (qs.getMemoState() & 2147483392) | 1048576);
@@ -2416,7 +2421,7 @@ public class Q00255_Tutorial extends Quest {
 	private void talkHelperKrenisk(L2Npc npc, L2PcInstance talker, QuestState qs) {
 		if (qs.getMemoStateEx(1) < 0) {
 			if (talker.getRace() == Race.KAMAEL) {
-				qs.removeRadar(-125872, 38016, 1251);
+				deleteRadar(talker, -125872, 38016, 1251, 2);
 				qs.setMemoStateEx(1, 0);
 				startQuestTimer(npc.getId() + "", 30000, npc, talker);
 				enableTutorialEvent(qs, (qs.getMemoState() & 2147483392) | 1048576);

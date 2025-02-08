@@ -32,7 +32,6 @@ import com.l2jserver.gameserver.model.quest.QuestState;
 import com.l2jserver.gameserver.model.quest.State;
 import com.l2jserver.gameserver.network.SystemMessageId;
 import com.l2jserver.gameserver.network.serverpackets.PledgeShowInfoUpdate;
-import com.l2jserver.gameserver.network.serverpackets.RadarControl;
 import com.l2jserver.gameserver.network.serverpackets.SystemMessage;
 
 /**
@@ -84,27 +83,27 @@ public class Q00508_AClansReputation extends Quest {
 				break;
 			case "30868-1.html":
 				st.set("raid", "1");
-				player.sendPacket(new RadarControl(0, 2, 192376, 22087, -3608));
+				showRadar(player, 192376, 22087, -3608, 2);
 				break;
 			case "30868-2.html":
 				st.set("raid", "2");
-				player.sendPacket(new RadarControl(0, 2, 168288, 28368, -3632));
+				showRadar(player, 168288, 28368, -3632, 2);
 				break;
 			case "30868-3.html":
 				st.set("raid", "3");
-				player.sendPacket(new RadarControl(0, 2, 170048, -24896, -3440));
+				showRadar(player, 170048, -24896, -3440, 2);
 				break;
 			case "30868-4.html":
 				st.set("raid", "4");
-				player.sendPacket(new RadarControl(0, 2, 188809, 47780, -5968));
+				showRadar(player, 188809, 47780, -5968, 2);
 				break;
 			case "30868-5.html":
 				st.set("raid", "5");
-				player.sendPacket(new RadarControl(0, 2, 117760, -9072, -3264));
+				showRadar(player, 117760, -9072, -3264, 2);
 				break;
 			case "30868-6.html":
 				st.set("raid", "6");
-				player.sendPacket(new RadarControl(0, 2, 144600, -5500, -4100));
+				showRadar(player, 144600, -5500, -4100, 2);
 				break;
 			case "30868-7.html":
 				st.exitQuest(true, true);

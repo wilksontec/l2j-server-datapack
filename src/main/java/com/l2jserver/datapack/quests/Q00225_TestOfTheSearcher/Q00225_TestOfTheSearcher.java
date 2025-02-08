@@ -326,7 +326,7 @@ public final class Q00225_TestOfTheSearcher extends Quest {
 								takeItems(player, COMBINED_MAP, 1);
 								takeItems(player, GOLD_BAR, -1);
 								giveItems(player, ALEXS_RECOMMEND, 1);
-								player.getRadar().removeMarker(10133, 157155, -2383);
+								deleteRadar(player, 10133, 157155, -2383, 2);
 								qs.setCond(19, true);
 								htmltext = "30291-11.html";
 							} else {

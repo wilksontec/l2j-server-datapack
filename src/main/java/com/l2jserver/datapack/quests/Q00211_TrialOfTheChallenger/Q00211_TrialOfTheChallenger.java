@@ -27,7 +27,6 @@ import com.l2jserver.gameserver.model.holders.ItemHolder;
 import com.l2jserver.gameserver.model.quest.Quest;
 import com.l2jserver.gameserver.model.quest.QuestState;
 import com.l2jserver.gameserver.model.variables.PlayerVariables;
-import com.l2jserver.gameserver.network.serverpackets.RadarControl;
 import com.l2jserver.gameserver.network.serverpackets.SocialAction;
 import com.l2jserver.gameserver.util.Util;
 
@@ -291,7 +290,7 @@ public final class Q00211_TrialOfTheChallenger extends Quest {
 						break;
 					}
 					case 9: {
-						talker.sendPacket(new RadarControl(0, 2, 151589, -174823, -1776));
+						showRadar(talker, 151589, -174823, -1776, 2);
 						htmltext = "30535-02.html";
 						break;
 					}

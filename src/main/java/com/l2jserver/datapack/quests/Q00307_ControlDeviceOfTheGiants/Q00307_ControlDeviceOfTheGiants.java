@@ -24,7 +24,6 @@ import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
 import com.l2jserver.gameserver.model.quest.Quest;
 import com.l2jserver.gameserver.model.quest.QuestState;
 import com.l2jserver.gameserver.model.quest.State;
-import com.l2jserver.gameserver.network.serverpackets.RadarControl;
 
 /**
  * Control Device of the Giants (307)
@@ -70,13 +69,13 @@ public class Q00307_ControlDeviceOfTheGiants extends Quest {
 				}
 				break;
 			case "32711-05a.html":
-				player.sendPacket(new RadarControl(0, 2, 186214, 61591, -4152));
+				showRadar(player, 186214, 61591, -4152, 2);
 				break;
 			case "32711-05b.html":
-				player.sendPacket(new RadarControl(0, 2, 187554, 60800, -4984));
+				showRadar(player, 187554, 60800, -4984, 2);
 				break;
 			case "32711-05c.html":
-				player.sendPacket(new RadarControl(0, 2, 193432, 53922, -4368));
+				showRadar(player, 193432, 53922, -4368, 2);
 				break;
 			case "spawn":
 				if (!hasQuestItems(player, CET_1_SHEET, CET_2_SHEET, CET_3_SHEET)) {

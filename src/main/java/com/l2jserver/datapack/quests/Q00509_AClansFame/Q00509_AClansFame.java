@@ -32,7 +32,6 @@ import com.l2jserver.gameserver.model.quest.QuestState;
 import com.l2jserver.gameserver.model.quest.State;
 import com.l2jserver.gameserver.network.SystemMessageId;
 import com.l2jserver.gameserver.network.serverpackets.PledgeShowInfoUpdate;
-import com.l2jserver.gameserver.network.serverpackets.RadarControl;
 import com.l2jserver.gameserver.network.serverpackets.SystemMessage;
 
 /**
@@ -79,19 +78,19 @@ public class Q00509_AClansFame extends Quest {
 				break;
 			case "31331-1.html":
 				st.set("raid", "1");
-				player.sendPacket(new RadarControl(0, 2, 186304, -43744, -3193));
+				showRadar(player, 186304, -43744, -3193, 2);
 				break;
 			case "31331-2.html":
 				st.set("raid", "2");
-				player.sendPacket(new RadarControl(0, 2, 134672, -115600, -1216));
+				showRadar(player, 134672, -115600, -1216, 2);
 				break;
 			case "31331-3.html":
 				st.set("raid", "3");
-				player.sendPacket(new RadarControl(0, 2, 170000, -60000, -3500));
+				showRadar(player, 170000, -60000, -3500, 2);
 				break;
 			case "31331-4.html":
 				st.set("raid", "4");
-				player.sendPacket(new RadarControl(0, 2, 93296, -75104, -1824));
+				showRadar(player, 93296, -75104, -1824, 2);
 				break;
 			case "31331-5.html":
 				st.exitQuest(true, true);

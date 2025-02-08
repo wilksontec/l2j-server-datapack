@@ -277,8 +277,8 @@ public final class Q00064_CertifiedBerserker extends Quest {
 					if (memoState == 6) {
 						qs.setMemoState(7);
 						qs.setCond(9, true);
-						player.getRadar().addMarker(27956, 106003, -3831);
-						player.getRadar().addMarker(50568, 152408, -2656);
+						showRadar(player, 27956, 106003, -3831, 1);
+						showRadar(player, 50568, 152408, -2656, 1);
 						htmltext = "32200-01.html";
 					} else if (memoState == 7) {
 						if (!hasQuestItems(player, REPORT_EAST, REPORT_NORTH)) {
