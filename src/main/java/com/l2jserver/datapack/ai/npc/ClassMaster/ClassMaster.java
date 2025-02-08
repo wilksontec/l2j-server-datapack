@@ -157,7 +157,7 @@ public final class ClassMaster extends AbstractNpcAI {
 			int val = Integer.parseInt(event.substring(13));
 			if (checkAndChangeClass(player, val)) {
 				String msg = getHtm(player.getHtmlPrefix(), "ok.htm").replace("%name%", ClassListData.getInstance().getClass(val).getClientCode());
-				showResult(player, msg);
+				showResult(player, msg, null);
 				return "";
 			}
 		} else if (event.startsWith("become_noble")) {
@@ -234,7 +234,7 @@ public final class ClassMaster extends AbstractNpcAI {
 	private void showHtmlMenu(L2PcInstance player, int objectId, int level) {
 		if (!character().allowClassMasters()) {
 			String msg = getHtm(player.getHtmlPrefix(), "disabled.htm");
-			showResult(player, msg);
+			showResult(player, msg, null);
 			return;
 		}
 		if (!character().getClassMaster().isAllowed(level)) {
@@ -284,7 +284,7 @@ public final class ClassMaster extends AbstractNpcAI {
 		final ClassId currentClassId = player.getClassId();
 		if (currentClassId.level() >= level) {
 			String msg = getHtm(player.getHtmlPrefix(), "nomore.htm");
-			showResult(player, msg);
+			showResult(player, msg, null);
 			return;
 		}
 		
@@ -302,22 +302,22 @@ public final class ClassMaster extends AbstractNpcAI {
 			
 			if (menu.length() > 0) {
 				String msg = getHtm(player.getHtmlPrefix(), "template.htm").replace("%name%", ClassListData.getInstance().getClass(currentClassId).getClientCode()).replace("%menu%", menu.toString());
-				showResult(player, msg);
+				showResult(player, msg, null);
 				return;
 				
 			}
 			String msg = getHtm(player.getHtmlPrefix(), "comebacklater.htm").replace("%level%", String.valueOf(getMinLevel(level - 1)));
-			showResult(player, msg);
+			showResult(player, msg, null);
 			return;
 		}
 		
 		if (minLevel < Integer.MAX_VALUE) {
 			String msg = getHtm(player.getHtmlPrefix(), "comebacklater.htm").replace("%level%", String.valueOf(minLevel));
-			showResult(player, msg);
+			showResult(player, msg, null);
 			return;
 		}
 		
-		showResult(player, getHtm(player.getHtmlPrefix(), "nomore.htm"));
+		showResult(player, getHtm(player.getHtmlPrefix(), "nomore.htm"), null);
 	}
 	
 	private void showTutorialHtml(L2PcInstance player) {

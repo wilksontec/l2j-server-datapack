@@ -2057,12 +2057,12 @@ public class Q00255_Tutorial extends Quest {
 	
 	private void talkRoien(L2PcInstance talker, QuestState qs) {
 		if (qs.hasQuestItems(RECOMMENDATION_1)) {
-			showPage(talker, "30008-001.htm", true);
+			showPage(talker, "30008-001.htm");
 		} else {
 			if (qs.getMemoStateEx(1) > 3) {
-				showPage(talker, "30008-004.htm", true);
+				showPage(talker, "30008-004.htm");
 			} else if (qs.getMemoStateEx(1) <= 3) {
-				showPage(talker, "30008-003.htm", true);
+				showPage(talker, "30008-003.htm");
 			}
 		}
 	}
@@ -2111,11 +2111,11 @@ public class Q00255_Tutorial extends Quest {
 	
 	private void talkGallin(L2PcInstance talker, QuestState qs) {
 		if (qs.hasQuestItems(RECOMMENDATION_2)) {
-			showPage(talker, "30017-001.htm", true);
+			showPage(talker, "30017-001.htm");
 		} else if (!qs.hasQuestItems(RECOMMENDATION_2) && (qs.getMemoStateEx(1) > 3)) {
-			showPage(talker, "30017-004.htm", true);
+			showPage(talker, "30017-004.htm");
 		} else if (!qs.hasQuestItems(RECOMMENDATION_2) && (qs.getMemoStateEx(1) <= 3)) {
-			showPage(talker, "30017-003.htm", true);
+			showPage(talker, "30017-003.htm");
 		}
 	}
 	
@@ -2164,11 +2164,11 @@ public class Q00255_Tutorial extends Quest {
 	
 	private void talkJundin(L2PcInstance talker, QuestState qs) {
 		if (qs.hasQuestItems(BLOOD_OF_MITRAELL)) {
-			showPage(talker, "30129-001.htm", true);
+			showPage(talker, "30129-001.htm");
 		} else if (!qs.hasQuestItems(BLOOD_OF_MITRAELL) && (qs.getMemoStateEx(1) > 3)) {
-			showPage(talker, "30129-004.htm", true);
+			showPage(talker, "30129-004.htm");
 		} else if (!qs.hasQuestItems(BLOOD_OF_MITRAELL) && (qs.getMemoStateEx(1) <= 3)) {
-			showPage(talker, "30129-003.htm", true);
+			showPage(talker, "30129-003.htm");
 		}
 	}
 	
@@ -2233,11 +2233,11 @@ public class Q00255_Tutorial extends Quest {
 	
 	private void talkNerupa(L2PcInstance talker, QuestState qs) {
 		if (qs.hasQuestItems(LEAF_OF_THE_MOTHER_TREE)) {
-			showPage(talker, "30370-001.htm", true);
+			showPage(talker, "30370-001.htm");
 		} else if (!qs.hasQuestItems(LEAF_OF_THE_MOTHER_TREE) && (qs.getMemoStateEx(1) > 3)) {
-			showPage(talker, "30370-004.htm", true);
+			showPage(talker, "30370-004.htm");
 		} else if (!qs.hasQuestItems(LEAF_OF_THE_MOTHER_TREE) && (qs.getMemoStateEx(1) <= 3)) {
-			showPage(talker, "30370-003.htm", true);
+			showPage(talker, "30370-003.htm");
 		}
 	}
 	
@@ -2296,11 +2296,11 @@ public class Q00255_Tutorial extends Quest {
 	
 	private void talkForemanLaferon(L2PcInstance talker, QuestState qs) {
 		if (qs.hasQuestItems(LICENSE_OF_MINER)) {
-			showPage(talker, "30528-001.htm", true);
+			showPage(talker, "30528-001.htm");
 		} else if (!qs.hasQuestItems(LICENSE_OF_MINER) && (qs.getMemoStateEx(1) > 3)) {
-			showPage(talker, "30528-004.htm", true);
+			showPage(talker, "30528-004.htm");
 		} else if (!qs.hasQuestItems(LICENSE_OF_MINER) && (qs.getMemoStateEx(1) <= 3)) {
-			showPage(talker, "30528-003.htm", true);
+			showPage(talker, "30528-003.htm");
 		}
 	}
 	
@@ -2352,12 +2352,12 @@ public class Q00255_Tutorial extends Quest {
 	
 	private void talkGuardianVullkus(L2PcInstance talker, QuestState qs) {
 		if (qs.hasQuestItems(VOUCHER_OF_FLAME)) {
-			showPage(talker, "30573-001.htm", true);
+			showPage(talker, "30573-001.htm");
 		} else {
 			if (qs.getMemoStateEx(1) > 3) {
-				showPage(talker, "30573-004.htm", true);
+				showPage(talker, "30573-004.htm");
 			} else {
-				showPage(talker, "30573-003.htm", true);
+				showPage(talker, "30573-003.htm");
 			}
 		}
 	}
@@ -2408,12 +2408,12 @@ public class Q00255_Tutorial extends Quest {
 	
 	private void talkSubelderPerwan(L2PcInstance talker, QuestState qs) {
 		if (qs.hasQuestItems(DIPLOMA)) {
-			showPage(talker, "32133-001.htm", true);
+			showPage(talker, "32133-001.htm");
 		} else {
 			if ((qs.getMemoStateEx(1) > 3)) {
-				showPage(talker, "32133-004.htm", true);
+				showPage(talker, "32133-004.htm");
 			} else if (qs.getMemoStateEx(1) <= 3) {
-				showPage(talker, "32133-003.htm", true);
+				showPage(talker, "32133-003.htm");
 			}
 		}
 	}
