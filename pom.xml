@@ -15,7 +15,7 @@
 		<l2j-server-game.version>2.6.3.0-SNAPSHOT</l2j-server-game.version>
 		<!-- Test -->
 		<junit-jupiter.version>5.11.4</junit-jupiter.version>
-		<mockito.version>5.14.2</mockito.version>
+		<mockito.version>5.15.2</mockito.version>
 		<assertj-core.version>3.27.0</assertj-core.version>
 		<!-- Plugins -->
 		<maven-assembly-plugin.version>3.7.1</maven-assembly-plugin.version>
