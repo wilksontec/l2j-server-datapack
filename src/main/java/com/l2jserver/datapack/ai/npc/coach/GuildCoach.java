@@ -76,7 +76,7 @@ public abstract class GuildCoach extends AbstractNpcAI {
 			return;
 		}
 		
-		if (!checkConditions(event.player(), event.npc(), conditions)) {
+		if (!character().skillLearn() && !checkConditions(event.player(), event.npc(), conditions)) {
 			showPage(event.player(), event.npc().getId() + "-noteach.htm");
 			return;
 		}
