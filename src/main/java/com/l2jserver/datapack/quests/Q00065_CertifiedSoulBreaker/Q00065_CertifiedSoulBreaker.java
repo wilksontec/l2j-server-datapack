@@ -73,7 +73,7 @@ public final class Q00065_CertifiedSoulBreaker extends Quest {
 	private static final Location MOVE_TO = new Location(16490, 145839, -3080);
 	
 	public Q00065_CertifiedSoulBreaker() {
-		super(65, Q00065_CertifiedSoulBreaker.class.getSimpleName(), "Certified Soul Breaker");
+		super(65);
 		bindStartNpc(GRAND_MASTER_VITUS);
 		bindTalk(GRAND_MASTER_VITUS, CAPTAIN_LUCAS, JACOB, GUARD_HARLAN, GUARD_XABER, GUARD_LIAM, GUARD_VESA, GUARD_ZEROME, WHARF_MANAGER_FELTON, KEKROPUS, VICE_HIERARCH_CASCA, GRAND_MASTER_HOLST, GRAND_MASTER_MELDINA, KATENAR, CARGO_BOX, SUSPICIOUS_MAN);
 		bindKill(WYRM, GUARDIAN_ANGEL);

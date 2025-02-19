@@ -82,7 +82,7 @@ public class Q00308_ReedFieldMaintenance extends Quest {
 	private static final int MIN_LEVEL = 82;
 	
 	public Q00308_ReedFieldMaintenance() {
-		super(308, Q00308_ReedFieldMaintenance.class.getSimpleName(), "Reed Field Maintenance");
+		super(308);
 		bindStartNpc(KATENSA);
 		bindTalk(KATENSA);
 		bindKill(DROPLIST.getNpcIds());

@@ -115,7 +115,6 @@ public final class Valakas extends AbstractNpcAI {
 	private static L2BossZone ZONE;
 	
 	public Valakas() {
-		super(Valakas.class.getSimpleName(), "ai/individual");
 		registerMobs(VALAKAS);
 		
 		ZONE = GrandBossManager.getInstance().getZone(212852, -114842, -1632);

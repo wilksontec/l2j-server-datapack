@@ -63,7 +63,7 @@ public final class Q00129_PailakaDevilsLegacy extends Quest {
 	private static final int EXIT_TIME = 5;
 	
 	public Q00129_PailakaDevilsLegacy() {
-		super(129, Q00129_PailakaDevilsLegacy.class.getSimpleName(), "Pailaka - Devil's Legacy");
+		super(129);
 		bindStartNpc(SURVIVOR);
 		bindFirstTalk(SURVIVOR, SUPPORTER, ADVENTURER1, ADVENTURER2);
 		bindTalk(SURVIVOR, SUPPORTER, ADVENTURER1, ADVENTURER2);

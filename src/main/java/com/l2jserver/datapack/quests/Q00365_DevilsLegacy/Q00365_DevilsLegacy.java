@@ -61,7 +61,7 @@ public final class Q00365_DevilsLegacy extends Quest {
 	private static final SkillHolder POISON = new SkillHolder(4035, 2);
 	
 	public Q00365_DevilsLegacy() {
-		super(365, Q00365_DevilsLegacy.class.getSimpleName(), "Devil's Legacy");
+		super(365);
 		bindStartNpc(RANDOLF);
 		bindTalk(RANDOLF, COLLOB);
 		bindKill(DROPLIST.getNpcIds());

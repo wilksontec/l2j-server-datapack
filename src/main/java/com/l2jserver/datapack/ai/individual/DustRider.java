@@ -40,7 +40,6 @@ public class DustRider extends AbstractNpcAI {
 	private static final double MIN_HP_PERCENTAGE = 0.30;
 	
 	public DustRider() {
-		super(DustRider.class.getSimpleName(), "ai/individual");
 		bindAttack(DUST_RIDER);
 	}
 	

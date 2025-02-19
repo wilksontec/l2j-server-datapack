@@ -40,7 +40,6 @@ public class GhostChamberlainOfElmoreden extends AbstractNpcAI {
 	private static final Location IMPERIAL_TOMB_LOC = new Location(186699, -75915, -2826);
 	
 	public GhostChamberlainOfElmoreden() {
-		super(GhostChamberlainOfElmoreden.class.getSimpleName(), "ai/npc/Teleports");
 		bindStartNpc(GHOST_CHAMBERLAIN_OF_ELMOREDEN_1, GHOST_CHAMBERLAIN_OF_ELMOREDEN_2);
 		bindTalk(GHOST_CHAMBERLAIN_OF_ELMOREDEN_1, GHOST_CHAMBERLAIN_OF_ELMOREDEN_2);
 		bindFirstTalk(GHOST_CHAMBERLAIN_OF_ELMOREDEN_1, GHOST_CHAMBERLAIN_OF_ELMOREDEN_2);

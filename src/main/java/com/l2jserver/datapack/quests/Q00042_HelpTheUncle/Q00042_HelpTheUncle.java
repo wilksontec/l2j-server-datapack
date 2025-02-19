@@ -44,7 +44,7 @@ public class Q00042_HelpTheUncle extends Quest {
 	private static final int PET_TICKET = 7583;
 	
 	public Q00042_HelpTheUncle() {
-		super(42, Q00042_HelpTheUncle.class.getSimpleName(), "Help The Uncle!");
+		super(42);
 		bindStartNpc(WATERS);
 		bindTalk(WATERS, SOPHYA);
 		bindKill(MONSTER_EYE_DESTROYER, MONSTER_EYE_GAZER);

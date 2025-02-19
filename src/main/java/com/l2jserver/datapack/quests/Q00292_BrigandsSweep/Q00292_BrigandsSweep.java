@@ -55,7 +55,7 @@ public final class Q00292_BrigandsSweep extends Quest {
 	private static final int MIN_LVL = 5;
 	
 	public Q00292_BrigandsSweep() {
-		super(292, Q00292_BrigandsSweep.class.getSimpleName(), "Brigands Sweep");
+		super(292);
 		bindStartNpc(SPIRON);
 		bindTalk(SPIRON, BALANKI);
 		bindKill(DROPLIST.getNpcIds());

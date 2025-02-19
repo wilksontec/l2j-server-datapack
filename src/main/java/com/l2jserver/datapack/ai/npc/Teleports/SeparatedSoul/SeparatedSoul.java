@@ -64,7 +64,6 @@ public final class SeparatedSoul extends AbstractNpcAI {
 	}
 	
 	public SeparatedSoul() {
-		super(SeparatedSoul.class.getSimpleName(), "ai/npc/Teleports");
 		bindStartNpc(SEPARATED_SOULS);
 		bindTalk(SEPARATED_SOULS);
 		bindFirstTalk(SEPARATED_SOULS);

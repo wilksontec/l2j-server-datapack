@@ -57,7 +57,7 @@ public final class Q00413_PathOfTheShillienOracle extends Quest {
 	private static final int MIN_LEVEL = 18;
 	
 	public Q00413_PathOfTheShillienOracle() {
-		super(413, Q00413_PathOfTheShillienOracle.class.getSimpleName(), "Path of the Shillien Oracle");
+		super(413);
 		bindStartNpc(MAGISTER_SIDRA);
 		bindTalk(MAGISTER_SIDRA, PRIEST_ADONIUS, MAGISTER_TALBOT);
 		bindKill(ZOMBIE_SOLDIER, ZOMBIE_WARRIOR, SHIELD_SKELETON, SKELETON_INFANTRYMAN, DARK_SUCCUBUS);

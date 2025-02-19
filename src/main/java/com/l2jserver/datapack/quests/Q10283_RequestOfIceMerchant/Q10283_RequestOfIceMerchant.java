@@ -41,7 +41,7 @@ public class Q10283_RequestOfIceMerchant extends Quest {
 	private int talker = 0;
 	
 	public Q10283_RequestOfIceMerchant() {
-		super(10283, Q10283_RequestOfIceMerchant.class.getSimpleName(), "Request of Ice Merchant");
+		super(10283);
 		bindStartNpc(RAFFORTY);
 		bindTalk(RAFFORTY, KIER, JINIA);
 	}

@@ -37,7 +37,6 @@ public final class CrimsonHatuOtis extends AbstractNpcAI {
 	private static final SkillHolder BOSS_HASTE = new SkillHolder(4175);
 	
 	public CrimsonHatuOtis() {
-		super(CrimsonHatuOtis.class.getSimpleName(), "ai/individual");
 		bindAttack(CRIMSON_HATU_OTIS);
 		bindKill(CRIMSON_HATU_OTIS);
 	}

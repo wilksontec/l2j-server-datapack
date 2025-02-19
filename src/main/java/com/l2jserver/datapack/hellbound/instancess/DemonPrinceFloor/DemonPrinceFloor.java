@@ -54,7 +54,6 @@ public final class DemonPrinceFloor extends AbstractInstance {
 	private static final int MIN_LV = 78;
 	
 	public DemonPrinceFloor() {
-		super(DemonPrinceFloor.class.getSimpleName(), "hellbound/Instances");
 		bindStartNpc(GK_4, CUBE);
 		bindTalk(GK_4, CUBE);
 		bindKill(DEMON_PRINCE);

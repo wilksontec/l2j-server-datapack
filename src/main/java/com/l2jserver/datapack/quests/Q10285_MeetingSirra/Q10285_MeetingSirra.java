@@ -50,7 +50,7 @@ public final class Q10285_MeetingSirra extends Quest {
 	private static final Location FREYA_LOC = new Location(103045, -124361, -2768, 0);
 	
 	public Q10285_MeetingSirra() {
-		super(10285, Q10285_MeetingSirra.class.getSimpleName(), "Meeting Sirra");
+		super(10285);
 		bindStartNpc(RAFFORTY);
 		bindTalk(RAFFORTY, JINIA, KEGOR, SIRRA, JINIA2, FREYAS_STEWARD);
 	}

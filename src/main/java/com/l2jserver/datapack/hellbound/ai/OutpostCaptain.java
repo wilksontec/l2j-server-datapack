@@ -39,7 +39,6 @@ public final class OutpostCaptain extends AbstractNpcAI {
 	private static final int DOORKEEPER = 32351;
 	
 	public OutpostCaptain() {
-		super(OutpostCaptain.class.getSimpleName(), "hellbound/AI");
 		bindKill(CAPTAIN);
 		bindSpawn(CAPTAIN, DOORKEEPER);
 		bindSpawn(DEFENDERS);

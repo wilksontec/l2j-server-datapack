@@ -43,7 +43,7 @@ public final class Q00267_WrathOfVerdure extends Quest {
 	private static final int MIN_LVL = 4;
 	
 	public Q00267_WrathOfVerdure() {
-		super(267, Q00267_WrathOfVerdure.class.getSimpleName(), "Wrath of Verdure");
+		super(267);
 		bindStartNpc(TREANT_BREMEC);
 		bindTalk(TREANT_BREMEC);
 		bindKill(GOBLIN_RAIDER);

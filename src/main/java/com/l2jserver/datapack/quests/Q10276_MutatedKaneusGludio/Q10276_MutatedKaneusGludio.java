@@ -44,7 +44,7 @@ public class Q10276_MutatedKaneusGludio extends Quest {
 	private static final int TISSUE_OA = 13831;
 	
 	public Q10276_MutatedKaneusGludio() {
-		super(10276, Q10276_MutatedKaneusGludio.class.getSimpleName(), "Mutated Kaneus - Gludio");
+		super(10276);
 		bindStartNpc(BATHIS);
 		bindTalk(BATHIS, ROHMER);
 		bindKill(TOMLAN_KAMOS, OL_ARIOSH);

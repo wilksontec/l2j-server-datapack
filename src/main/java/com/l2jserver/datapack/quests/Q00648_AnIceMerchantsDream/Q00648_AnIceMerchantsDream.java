@@ -80,7 +80,7 @@ public final class Q00648_AnIceMerchantsDream extends Quest {
 	private static final int MIN_LVL = 53;
 	
 	public Q00648_AnIceMerchantsDream() {
-		super(648, Q00648_AnIceMerchantsDream.class.getSimpleName(), "An Ice Merchants Dream");
+		super(648);
 		bindStartNpc(RAFFORTY);
 		bindTalk(RAFFORTY, ICE_SHELF);
 		bindKill(DROPLIST.getNpcIds());

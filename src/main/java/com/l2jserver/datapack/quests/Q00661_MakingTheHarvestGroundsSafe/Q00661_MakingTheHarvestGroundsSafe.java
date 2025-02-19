@@ -46,7 +46,7 @@ public final class Q00661_MakingTheHarvestGroundsSafe extends Quest {
 	private static final int MIN_LVL = 21;
 	
 	public Q00661_MakingTheHarvestGroundsSafe() {
-		super(661, Q00661_MakingTheHarvestGroundsSafe.class.getSimpleName(), "Making the Harvest Grounds Safe");
+		super(661);
 		bindStartNpc(NORMAN);
 		bindTalk(NORMAN);
 		bindKill(DROPLIST.getNpcIds());

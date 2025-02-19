@@ -193,7 +193,7 @@ public class Q00620_FourGoblets extends Quest {
 	private static final Map<Integer, Integer> MOB3 = new HashMap<>();
 	
 	public Q00620_FourGoblets() {
-		super(620, Q00620_FourGoblets.class.getSimpleName(), "Four Goblets");
+		super(620);
 		bindStartNpc(NAMELESS_SPIRIT);
 		bindTalk(NAMELESS_SPIRIT, GHOST_OF_WIGOTH_1, GHOST_OF_WIGOTH_2, GHOST_CHAMBERLAIN_OF_ELMOREDEN_1, CONQUERORS_SEPULCHER_MANAGER, EMPERORS_SEPULCHER_MANAGER, GREAT_SAGES_SEPULCHER_MANAGER, JUDGES_SEPULCHER_MANAGER);
 		bindKill(HALISHA_ALECTIA, HALISHA_TISHAS, HALISHA_MEKARA, HALISHA_MORIGUL);

@@ -55,7 +55,7 @@ public class Q00331_ArrowOfVengeance extends Quest {
 	private static final int BONUS_COUNT = 10;
 	
 	public Q00331_ArrowOfVengeance() {
-		super(331, Q00331_ArrowOfVengeance.class.getSimpleName(), "Arrow for Vengeance");
+		super(331);
 		bindStartNpc(BELTON);
 		bindTalk(BELTON);
 		bindKill(MONSTERS.keySet());

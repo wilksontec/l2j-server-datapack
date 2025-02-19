@@ -39,7 +39,7 @@ public class Q00052_WilliesSpecialBait extends Quest {
 	private static final QuestItemChanceHolder TARLK_EYE = new QuestItemChanceHolder(7623, 33.0, 100L);
 	
 	public Q00052_WilliesSpecialBait() {
-		super(52, Q00052_WilliesSpecialBait.class.getSimpleName(), "Willie's Special Bait");
+		super(52);
 		bindStartNpc(WILLIE);
 		bindTalk(WILLIE);
 		bindKill(TARLK_BASILISK);

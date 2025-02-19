@@ -43,7 +43,6 @@ public final class Ranku extends AbstractNpcAI {
 	private static final Set<Integer> MY_TRACKING_SET = ConcurrentHashMap.newKeySet();
 	
 	public Ranku() {
-		super(Ranku.class.getSimpleName(), "hellbound/AI");
 		bindAttack(RANKU);
 		bindKill(RANKU, MINION);
 	}

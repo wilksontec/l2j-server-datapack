@@ -40,7 +40,7 @@ public class Q00693_DefeatingDragonkinRemnants extends Quest {
 	private static Location ENTER_TELEPORT_LOC = new Location(-242754, 219982, -10011);
 	
 	public Q00693_DefeatingDragonkinRemnants() {
-		super(693, Q00693_DefeatingDragonkinRemnants.class.getSimpleName(), "Defeating Dragonkin Remnants");
+		super(693);
 		bindStartNpc(EDRIC);
 		bindFirstTalk(EDRIC);
 		bindTalk(EDRIC);

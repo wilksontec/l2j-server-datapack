@@ -44,7 +44,7 @@ public final class Q00268_TracesOfEvil extends Quest {
 	private static final int MIN_LVL = 15;
 	
 	public Q00268_TracesOfEvil() {
-		super(268, Q00268_TracesOfEvil.class.getSimpleName(), "Traces of Evil");
+		super(268);
 		bindStartNpc(KUNAI);
 		bindTalk(KUNAI);
 		bindKill(MONSTERS);

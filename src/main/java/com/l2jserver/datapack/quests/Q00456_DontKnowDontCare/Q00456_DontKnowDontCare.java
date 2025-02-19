@@ -132,7 +132,7 @@ public final class Q00456_DontKnowDontCare extends Quest {
 	private final Map<Integer, Set<Integer>> allowedPlayerMap = new ConcurrentHashMap<>();
 	
 	public Q00456_DontKnowDontCare() {
-		super(456, Q00456_DontKnowDontCare.class.getSimpleName(), "Don't Know, Don't Care");
+		super(456);
 		bindStartNpc(SEPARATED_SOUL);
 		bindTalk(SEPARATED_SOUL);
 		bindFirstTalk(DRAKE_LORD_CORPSE, BEHEMOTH_LEADER_CORPSE, DRAGON_BEAST_CORPSE);

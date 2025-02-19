@@ -50,7 +50,7 @@ public final class Q00655_AGrandPlanForTamingWildBeasts extends Quest {
 	private static final String PATH_TO_HTML = "com/l2jserver/datapack/conquerablehalls/flagwar/WildBeastReserve/messenger_initial.htm";
 	
 	public Q00655_AGrandPlanForTamingWildBeasts() {
-		super(655, Q00655_AGrandPlanForTamingWildBeasts.class.getSimpleName(), "A Grand Plan for Taming Wild Beasts");
+		super(655);
 		bindStartNpc(MESSENGER);
 		bindTalk(MESSENGER);
 		registerQuestItems(CRYSTAL_OF_PURITY, TRAINER_LICENSE);

@@ -51,8 +51,8 @@ public abstract class SkillTransferCoach extends GuildCoach {
 	
 	private static final Set<Integer> TRANSFORM_IDS = Set.of(312, 313, 314, 315, 316, 317, 318);
 	
-	public SkillTransferCoach(String name, int[] coaches, Condition[] conditions) {
-		super(name, coaches, conditions);
+	public SkillTransferCoach(int[] coaches, Condition[] conditions) {
+		super(coaches, conditions);
 		bindMenuSelected(coaches);
 	}
 	

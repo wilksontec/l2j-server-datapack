@@ -51,7 +51,7 @@ public class Q00341_HuntingForWildBeasts extends Quest {
 	private static final int REQUIRED_COUNT = 20;
 	
 	public Q00341_HuntingForWildBeasts() {
-		super(341, Q00341_HuntingForWildBeasts.class.getSimpleName(), "Hunting for Wild Beasts");
+		super(341);
 		bindStartNpc(PANO);
 		bindTalk(PANO);
 		bindKill(MONSTERS.keySet());

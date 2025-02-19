@@ -40,8 +40,7 @@ public class Q00998_FallenAngelSelect extends Quest {
 	private static final int MIN_LEVEL = 38;
 	
 	public Q00998_FallenAngelSelect() {
-		super(998, Q00998_FallenAngelSelect.class.getSimpleName(), "Fallen Angel - Select");
-		setIsCustom(true);
+		super(998, "Fallen Angel Select");
 		bindStartNpc(NATOOLS);
 		bindTalk(NATOOLS);
 	}

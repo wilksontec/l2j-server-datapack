@@ -56,7 +56,7 @@ public class Q00240_ImTheOnlyOneYouCanTrust extends Quest {
 	private static final int STAKATO_FANG = 14879;
 	
 	public Q00240_ImTheOnlyOneYouCanTrust() {
-		super(240, Q00240_ImTheOnlyOneYouCanTrust.class.getSimpleName(), "I'm the Only One You Can Trust");
+		super(240);
 		bindStartNpc(KINTAIJIN);
 		bindTalk(KINTAIJIN);
 		bindKill(MOBS);

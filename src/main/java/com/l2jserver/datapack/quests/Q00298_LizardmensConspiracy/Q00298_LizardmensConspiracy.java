@@ -49,7 +49,7 @@ public final class Q00298_LizardmensConspiracy extends Quest {
 		.build();
 	
 	public Q00298_LizardmensConspiracy() {
-		super(298, Q00298_LizardmensConspiracy.class.getSimpleName(), "Lizardmen's Conspiracy");
+		super(298);
 		bindStartNpc(GUARD_PRAGA);
 		bindTalk(GUARD_PRAGA, MAGISTER_ROHMER);
 		bindKill(DROPLIST.getNpcIds());

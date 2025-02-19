@@ -53,8 +53,7 @@ public abstract class GuildCoach extends AbstractNpcAI {
 	
 	private final Condition[] conditions;
 	
-	public GuildCoach(String name, int[] coaches, Condition[] conditions) {
-		super(name, "ai/npc/coach");
+	public GuildCoach(int[] coaches, Condition[] conditions) {
 		this.conditions = conditions;
 		bindStartNpc(coaches);
 		bindTalk(coaches);

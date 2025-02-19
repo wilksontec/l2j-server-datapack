@@ -59,7 +59,6 @@ public final class Selina extends AbstractNpcAI {
 	}
 	
 	public Selina() {
-		super(Selina.class.getSimpleName(), "ai/npc");
 		bindStartNpc(SELINA);
 		bindTalk(SELINA);
 		bindFirstTalk(SELINA);

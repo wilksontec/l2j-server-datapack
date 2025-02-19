@@ -40,7 +40,7 @@ public class Q00161_FruitOfTheMotherTree extends Quest {
 	private static final int MIN_LEVEL = 3;
 	
 	public Q00161_FruitOfTheMotherTree() {
-		super(161, Q00161_FruitOfTheMotherTree.class.getSimpleName(), "Fruit of the Mother Tree");
+		super(161);
 		bindStartNpc(ANDELLIA);
 		bindTalk(ANDELLIA, THALIA);
 		registerQuestItems(ANDELLRIAS_LETTER, MOTHERTREE_FRUIT);

@@ -107,7 +107,7 @@ public class Q00348_AnArrogantSearch extends Quest {
 	private static final int SEAL_ANGEL_2 = 20860;
 	
 	public Q00348_AnArrogantSearch() {
-		super(348, Q00348_AnArrogantSearch.class.getSimpleName(), "An Arrogant Search");
+		super(348);
 		bindAttack(ARK_GUARDIAN_ELBEROTH, ARK_GUARDIAN_SHADOWFANG, ANGEL_KILLER, PLATINUM_TRIBE_SHAMAN, PLATINUM_TRIBE_OVERLORD);
 		bindSpawn(ARK_GUARDIAN_ELBEROTH, ARK_GUARDIAN_SHADOWFANG, ANGEL_KILLER);
 		bindStartNpc(HANELLIN);

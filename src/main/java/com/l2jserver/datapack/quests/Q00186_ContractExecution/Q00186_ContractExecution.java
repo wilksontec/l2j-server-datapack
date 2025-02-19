@@ -57,7 +57,7 @@ public final class Q00186_ContractExecution extends Quest {
 	}
 	
 	public Q00186_ContractExecution() {
-		super(186, Q00186_ContractExecution.class.getSimpleName(), "Contract Execution");
+		super(186);
 		bindStartNpc(RESEARCHER_LORAIN);
 		bindTalk(RESEARCHER_LORAIN, BLUEPRINT_SELLER_LUKA, MAESTRO_NIKOLA);
 		bindKill(MONSTERS.keySet());

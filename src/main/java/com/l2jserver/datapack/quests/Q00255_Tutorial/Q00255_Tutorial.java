@@ -131,7 +131,7 @@ public class Q00255_Tutorial extends Quest {
 	
 	// Quests
 	public Q00255_Tutorial() {
-		super(255, Q00255_Tutorial.class.getSimpleName(), "Tutorial");
+		super(255);
 		if (character().tutorial()) {
 			setOnEnterWorld(true);
 			bindTutorial();

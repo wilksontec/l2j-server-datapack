@@ -35,7 +35,6 @@ public class FortuneTelling extends AbstractNpcAI {
 	private static final int COST = 1000;
 	
 	public FortuneTelling() {
-		super(FortuneTelling.class.getSimpleName(), "gracia/AI/NPC");
 		bindStartNpc(MINE);
 		bindTalk(MINE);
 	}

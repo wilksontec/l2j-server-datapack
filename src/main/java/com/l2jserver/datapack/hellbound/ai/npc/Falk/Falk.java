@@ -36,7 +36,6 @@ public final class Falk extends AbstractNpcAI {
 	private static final int PREMIUM_CERT = 9852; // Premium Caravan Certificate
 	
 	public Falk() {
-		super(Falk.class.getSimpleName(), "hellbound/AI/NPC");
 		bindFirstTalk(FALK);
 		bindStartNpc(FALK);
 		bindTalk(FALK);

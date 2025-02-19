@@ -32,7 +32,6 @@ public final class GolemTrader extends AbstractNpcAI {
 	private static final long DESPAWN = 180000;
 	
 	public GolemTrader() {
-		super(GolemTrader.class.getSimpleName(), "ai/npc/Summons");
 		bindSpawn(GOLEM_TRADER);
 	}
 	

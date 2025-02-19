@@ -41,7 +41,6 @@ public class BlackJudge extends AbstractNpcAI {
 	// @formatter:on
 	
 	public BlackJudge() {
-		super(BlackJudge.class.getSimpleName(), "ai/npc");
 		bindStartNpc(BLACK_JUDGE);
 		bindTalk(BLACK_JUDGE);
 		bindFirstTalk(BLACK_JUDGE);

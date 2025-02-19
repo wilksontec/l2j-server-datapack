@@ -231,7 +231,6 @@ public final class FinalEmperialTomb extends AbstractInstance {
 	// @formatter:on
 	
 	public FinalEmperialTomb() {
-		super(FinalEmperialTomb.class.getSimpleName());
 		load();
 		bindAttack(SCARLET1, FRINTEZZA);
 		bindAttack(PORTRAITS);

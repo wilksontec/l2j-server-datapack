@@ -97,7 +97,6 @@ public final class QueenAnt extends AbstractNpcAI {
 	private static final int DEAD = 1;
 	
 	public QueenAnt() {
-		super(QueenAnt.class.getSimpleName(), "ai/individual");
 		bindKill(MOBS);
 		bindSpawn(MOBS);
 		bindExitZone(ZONE);

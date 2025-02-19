@@ -55,7 +55,7 @@ public class Q00290_ThreatRemoval extends Quest {
 	private static final int MIN_LEVEL = 82;
 	
 	public Q00290_ThreatRemoval() {
-		super(290, Q00290_ThreatRemoval.class.getSimpleName(), "Threat Removal");
+		super(290);
 		bindStartNpc(PINAPS);
 		bindTalk(PINAPS);
 		bindKill(DROPLIST.getNpcIds());

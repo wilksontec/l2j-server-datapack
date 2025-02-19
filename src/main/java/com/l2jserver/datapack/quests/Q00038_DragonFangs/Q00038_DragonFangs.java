@@ -53,7 +53,7 @@ public final class Q00038_DragonFangs extends Quest {
 	private static final int MIN_LVL = 19;
 	
 	public Q00038_DragonFangs() {
-		super(38, Q00038_DragonFangs.class.getSimpleName(), "Dragon Fangs");
+		super(38);
 		bindStartNpc(GUARD_LUIS);
 		bindTalk(GUARD_LUIS, IRIS, MAGISTER_ROHMER);
 		bindKill(LIZARDMAN_SENTINEL, LIZARDMAN_SHAMAN, LIZARDMAN_LEADER, LIZARDMAN_SUB_LEADER);

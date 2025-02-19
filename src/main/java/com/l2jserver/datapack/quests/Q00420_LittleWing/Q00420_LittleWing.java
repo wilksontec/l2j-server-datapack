@@ -123,7 +123,7 @@ public final class Q00420_LittleWing extends Quest {
 	private static final int MIN_LVL = 35;
 	
 	public Q00420_LittleWing() {
-		super(420, Q00420_LittleWing.class.getSimpleName(), "Little Wing");
+		super(420);
 		bindStartNpc(COOPER);
 		bindTalk(MARIA, CRONOS, BYRON, MIMYU, EXARION, ZWOV, KALIBRAN, SUZET, SHAMHAI, COOPER);
 		bindAttack(DELUXE_STONE_BREAKERS);

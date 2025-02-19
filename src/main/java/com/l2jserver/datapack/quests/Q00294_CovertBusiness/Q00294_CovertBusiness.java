@@ -54,7 +54,7 @@ public final class Q00294_CovertBusiness extends Quest {
 	private static final int MIN_LVL = 10;
 	
 	public Q00294_CovertBusiness() {
-		super(294, Q00294_CovertBusiness.class.getSimpleName(), "Covert Business");
+		super(294);
 		bindStartNpc(KEEF);
 		bindTalk(KEEF);
 		bindKill(DROPLIST.getNpcIds());

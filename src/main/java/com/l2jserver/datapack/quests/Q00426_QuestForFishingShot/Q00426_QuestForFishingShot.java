@@ -322,7 +322,7 @@ public class Q00426_QuestForFishingShot extends Quest {
 	private static final int SWEET_FLUID = 7586;
 	
 	public Q00426_QuestForFishingShot() {
-		super(426, Q00426_QuestForFishingShot.class.getSimpleName(), "Quest for Fishing Shot");
+		super(426);
 		bindStartNpc(NPC);
 		bindTalk(NPC);
 		bindKill(MOBS.keySet());

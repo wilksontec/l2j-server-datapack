@@ -39,7 +39,6 @@ public final class Kief extends AbstractNpcAI {
 	private static final int STINGER = 10012; // Scorpion Poison Stinger
 	
 	public Kief() {
-		super(Kief.class.getSimpleName(), "hellbound/AI/NPC");
 		bindFirstTalk(KIEF);
 		bindStartNpc(KIEF);
 		bindTalk(KIEF);

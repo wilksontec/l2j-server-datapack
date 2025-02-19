@@ -45,7 +45,7 @@ public class Q00044_HelpTheSon extends Quest {
 	private static final int PET_TICKET = 7585;
 	
 	public Q00044_HelpTheSon() {
-		super(44, Q00044_HelpTheSon.class.getSimpleName(), "Help The Son!");
+		super(44);
 		bindStartNpc(LUNDY);
 		bindTalk(LUNDY, DRIKUS);
 		bindKill(MAILLE_GUARD, MAILLE_LIZARDMAN, MAILLE_SCOUT);

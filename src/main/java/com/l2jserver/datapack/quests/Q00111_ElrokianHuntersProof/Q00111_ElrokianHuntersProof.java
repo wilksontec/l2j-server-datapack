@@ -76,7 +76,7 @@ public final class Q00111_ElrokianHuntersProof extends Quest {
 		.build();
 	
 	public Q00111_ElrokianHuntersProof() {
-		super(111, Q00111_ElrokianHuntersProof.class.getSimpleName(), "Elrokian Hunter's Proof");
+		super(111);
 		bindStartNpc(MARQUEZ);
 		bindTalk(MARQUEZ, MUSHIKA, ASAMAH, KIRIKACHIN);
 		bindKill(DROPLIST_DIARY.getNpcIds());

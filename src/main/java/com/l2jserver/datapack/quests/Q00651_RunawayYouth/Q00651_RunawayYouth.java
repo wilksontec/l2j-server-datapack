@@ -38,7 +38,7 @@ public class Q00651_RunawayYouth extends Quest {
 	private static final int MIN_LEVEL = 26;
 	
 	public Q00651_RunawayYouth() {
-		super(651, Q00651_RunawayYouth.class.getSimpleName(), "Runaway Youth");
+		super(651);
 		bindStartNpc(IVAN);
 		bindTalk(BATIDAE, IVAN);
 	}

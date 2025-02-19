@@ -193,7 +193,6 @@ public final class NornilsGarden extends AbstractInstance {
 	}
 	
 	public NornilsGarden() {
-		super(NornilsGarden.class.getSimpleName());
 		bindStartNpc(_garden_guard);
 		bindFirstTalk(_garden_guard);
 		bindTalk(_garden_guard);

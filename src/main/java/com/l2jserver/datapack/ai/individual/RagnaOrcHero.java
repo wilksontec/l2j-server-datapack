@@ -29,7 +29,6 @@ public final class RagnaOrcHero extends AbstractNpcAI {
 	private static final int RAGNA_ORC_HERO = 22693;
 	
 	public RagnaOrcHero() {
-		super(RagnaOrcHero.class.getSimpleName(), "ai/individual");
 		bindSpawn(RAGNA_ORC_HERO);
 	}
 	

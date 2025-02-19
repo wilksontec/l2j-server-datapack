@@ -47,7 +47,7 @@ public class Q10273_GoodDayToFly extends Quest {
 	private static final SkillHolder AURA_BIRD_OWL = new SkillHolder(5983, 1);
 	
 	public Q10273_GoodDayToFly() {
-		super(10273, Q10273_GoodDayToFly.class.getSimpleName(), "Good Day to Fly");
+		super(10273);
 		bindStartNpc(LEKON);
 		bindTalk(LEKON);
 		bindKill(MOBS);

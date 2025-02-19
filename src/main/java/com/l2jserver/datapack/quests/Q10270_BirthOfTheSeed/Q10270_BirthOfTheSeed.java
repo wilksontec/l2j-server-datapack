@@ -53,7 +53,7 @@ public final class Q10270_BirthOfTheSeed extends Quest {
 	private static final Location INSTANCE_EXIT = new Location(-185057, 242821, 1576);
 	
 	public Q10270_BirthOfTheSeed() {
-		super(10270, Q10270_BirthOfTheSeed.class.getSimpleName(), "Birth of the Seed");
+		super(10270);
 		bindStartNpc(PLENOS);
 		bindTalk(PLENOS, GINBY, LELRIKIA, ARTIUS);
 		bindKill(COHEMENES, YEHAN_KLODEKUS, YEHAN_KLANIKUS);

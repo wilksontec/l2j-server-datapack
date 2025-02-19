@@ -44,7 +44,7 @@ public final class FortressOfTheDead extends ClanHallSiegeEngine {
 	private static Map<Integer, Integer> _damageToLidia = new HashMap<>();
 	
 	public FortressOfTheDead() {
-		super(FortressOfTheDead.class.getSimpleName(), "conquerablehalls", FORTRESS_OF_DEAD);
+		super(FORTRESS_OF_DEAD);
 		bindKill(LIDIA);
 		bindKill(ALFRED);
 		bindKill(GISELLE);

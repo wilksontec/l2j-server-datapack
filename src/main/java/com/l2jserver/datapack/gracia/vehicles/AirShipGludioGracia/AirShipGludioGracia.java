@@ -104,7 +104,6 @@ public final class AirShipGludioGracia extends Quest implements Runnable {
 	private L2Npc _atcGracia = null;
 	
 	public AirShipGludioGracia() {
-		super(-1, AirShipGludioGracia.class.getSimpleName(), "gracia/vehicles");
 		bindStartNpc(CONTROLLERS);
 		bindFirstTalk(CONTROLLERS);
 		bindTalk(CONTROLLERS);

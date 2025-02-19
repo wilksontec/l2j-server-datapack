@@ -38,14 +38,13 @@ import com.l2jserver.gameserver.util.Util;
  * @author BiggBoss
  */
 public final class FortressOfResistance extends ClanHallSiegeEngine {
-	private final int MESSENGER = 35382;
-	private final int BLOODY_LORD_NURKA = 35375;
+	private static final int MESSENGER = 35382;
+	private static final int BLOODY_LORD_NURKA = 35375;
 	
-	private final Location[] NURKA_COORDS = {
+	private static final Location[] NURKA_COORDS = {
 		new Location(45109, 112124, -1900), // 30%
 		new Location(47653, 110816, -2110), // 40%
-		new Location(47247, 109396, -2000)
-		// 30%
+		new Location(47247, 109396, -2000)  // 30%
 	};
 	
 	private L2Spawn _nurka;
@@ -53,7 +52,7 @@ public final class FortressOfResistance extends ClanHallSiegeEngine {
 	private NpcHtmlMessage _messengerMsg;
 	
 	private FortressOfResistance() {
-		super(FortressOfResistance.class.getSimpleName(), "conquerablehalls", FORTRESS_RESSISTANCE);
+		super(FORTRESS_RESSISTANCE);
 		bindFirstTalk(MESSENGER);
 		bindKill(BLOODY_LORD_NURKA);
 		bindAttack(BLOODY_LORD_NURKA);

@@ -49,7 +49,7 @@ public final class Q00354_ConquestOfAlligatorIsland extends Quest {
 	private static final int MIN_LEVEL = 38;
 	
 	public Q00354_ConquestOfAlligatorIsland() {
-		super(354, Q00354_ConquestOfAlligatorIsland.class.getSimpleName(), "Conquest of Alligator Island");
+		super(354);
 		bindStartNpc(KLUCK);
 		bindTalk(KLUCK);
 		bindKill(DROPLIST.getNpcIds());

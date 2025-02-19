@@ -35,7 +35,6 @@ public final class MerchantOfMammon extends AbstractNpcAI {
 	private static final int MERCHANT_MAMMON = 31113;
 	
 	public MerchantOfMammon() {
-		super(MerchantOfMammon.class.getSimpleName(), "ai/npc");
 		bindStartNpc(MERCHANT_MAMMON);
 		bindFirstTalk(MERCHANT_MAMMON);
 	}

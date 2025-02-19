@@ -207,8 +207,6 @@ public final class AltarsOfSacrifice extends AbstractNpcAI {
 	// @formatter:on
 	
 	public AltarsOfSacrifice() {
-		super("AltarsOfSacrifice", "ai/group_template");
-		
 		for (int i = 0; i < _altars.length; ++i) {
 			if (_altars[i].hasBosses()) {
 				startQuestTimer(makeSpawnBossEvt(i), ALTAR_STATE_CHANGE_DELAY, null, null);

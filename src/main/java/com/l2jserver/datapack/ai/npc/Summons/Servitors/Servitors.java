@@ -80,10 +80,6 @@ public final class Servitors extends AbstractNpcAI {
 		MONSTERS.put(SILHOUETTE_TILFO, Arrays.asList(CRYSTAL_OF_STARTING_6TH, CRYSTAL_OF_INPROGRESS_6TH, CRYSTAL_OF_DEFEAT_6TH));
 	}
 	
-	public Servitors() {
-		super(Servitors.class.getSimpleName(), "ai/npc/Summons");
-	}
-	
 	@RegisterEvent(EventType.CREATURE_KILL)
 	@RegisterType(ListenerRegisterType.NPC)
 	// @formatter:off

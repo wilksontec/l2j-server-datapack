@@ -95,7 +95,6 @@ public final class WyvernManager extends AbstractNpcAI {
 	}
 	
 	public WyvernManager() {
-		super(WyvernManager.class.getSimpleName(), "ai/npc");
 		bindStartNpc(MANAGERS.keySet());
 		bindTalk(MANAGERS.keySet());
 		bindFirstTalk(MANAGERS.keySet());

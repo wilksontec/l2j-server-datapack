@@ -48,7 +48,7 @@ public class Q00450_GraveRobberRescue extends Quest {
 	private static final int MIN_LEVEL = 80;
 	
 	public Q00450_GraveRobberRescue() {
-		super(450, Q00450_GraveRobberRescue.class.getSimpleName(), "Grave Robber Rescue");
+		super(450);
 		bindStartNpc(KANEMIKA);
 		bindTalk(KANEMIKA, WARRIOR);
 		registerQuestItems(EVIDENCE_OF_MIGRATION);

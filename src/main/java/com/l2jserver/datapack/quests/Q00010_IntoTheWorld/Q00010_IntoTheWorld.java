@@ -42,7 +42,7 @@ public class Q00010_IntoTheWorld extends Quest {
 	private static final int MIN_LEVEL = 3;
 	
 	public Q00010_IntoTheWorld() {
-		super(10, Q00010_IntoTheWorld.class.getSimpleName(), "Into the World");
+		super(10);
 		bindStartNpc(BALANKI);
 		bindTalk(BALANKI, REED, GERALD);
 		registerQuestItems(VERY_EXPENSIVE_NECKLACE);

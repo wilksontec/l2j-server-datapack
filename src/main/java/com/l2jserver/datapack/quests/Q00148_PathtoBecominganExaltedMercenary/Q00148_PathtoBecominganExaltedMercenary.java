@@ -48,7 +48,7 @@ public class Q00148_PathtoBecominganExaltedMercenary extends Quest {
 	private static final int TOP_ELITE_CERTIFICATE = 13768;
 	
 	public Q00148_PathtoBecominganExaltedMercenary() {
-		super(148, Q00148_PathtoBecominganExaltedMercenary.class.getSimpleName(), "Path to Becoming an Exalted Mercenary");
+		super(148);
 		bindStartNpc(MERC);
 		bindTalk(MERC);
 	}

@@ -196,7 +196,6 @@ public final class GreatWarriorsMountedTroop extends AbstractInstance {
 	};
 	
 	public GreatWarriorsMountedTroop() {
-		super(GreatWarriorsMountedTroop.class.getSimpleName(), "gracia/instances");
 		bindStartNpc(EDRIC);
 		bindTalk(EDRIC);
 		bindKill(DOORMAN, REMNANT_MACHINE);

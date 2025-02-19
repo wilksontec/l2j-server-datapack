@@ -328,7 +328,6 @@ public final class TowerOfNaia extends AbstractNpcAI {
 	}
 	
 	public TowerOfNaia() {
-		super(TowerOfNaia.class.getSimpleName(), "hellbound/AI/Zones");
 		bindFirstTalk(CONTROLLER);
 		bindStartNpc(CONTROLLER, DWARVEN_GHOST);
 		bindTalk(CONTROLLER, DWARVEN_GHOST);

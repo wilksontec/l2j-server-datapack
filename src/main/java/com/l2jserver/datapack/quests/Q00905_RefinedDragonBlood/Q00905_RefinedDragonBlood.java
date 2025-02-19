@@ -70,7 +70,7 @@ public final class Q00905_RefinedDragonBlood extends Quest {
 	private static final int DRAGON_BLOOD_COUNT = 10;
 	
 	public Q00905_RefinedDragonBlood() {
-		super(905, Q00905_RefinedDragonBlood.class.getSimpleName(), "Refined Dragon Blood");
+		super(905);
 		bindStartNpc(SEPARATED_SOULS);
 		bindTalk(SEPARATED_SOULS);
 		bindKill(MONSTERS.keySet());

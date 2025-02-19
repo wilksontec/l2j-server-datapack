@@ -39,7 +39,6 @@ public final class Dorian extends AbstractNpcAI {
 	private static final int BROKEN_SILVER_CROSS = 7154;
 	
 	public Dorian() {
-		super(Dorian.class.getSimpleName(), "ai/npc");
 		bindSeeCreature(DORIAN);
 	}
 	

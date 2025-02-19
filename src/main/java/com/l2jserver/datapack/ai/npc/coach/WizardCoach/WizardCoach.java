@@ -27,7 +27,7 @@ import com.l2jserver.gameserver.enums.Race;
  * @author Zoey76
  * @version 2.6.3.0
  */
-public class WizardCoach extends GuildCoach {
+public final class WizardCoach extends GuildCoach {
 	
 	// @formatter:off
 	private static final int[] COACHES = {
@@ -45,6 +45,6 @@ public class WizardCoach extends GuildCoach {
 	};
 	
 	public WizardCoach() {
-		super(WizardCoach.class.getSimpleName(), COACHES, CONDITIONS);
+		super(COACHES, CONDITIONS);
 	}
 }

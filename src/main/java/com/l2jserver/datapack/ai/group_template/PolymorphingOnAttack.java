@@ -76,7 +76,6 @@ public final class PolymorphingOnAttack extends AbstractNpcAI {
 	};
 	
 	public PolymorphingOnAttack() {
-		super(PolymorphingOnAttack.class.getSimpleName(), "ai/group_template");
 		bindAttack(MOBSPAWNS.keySet());
 	}
 	

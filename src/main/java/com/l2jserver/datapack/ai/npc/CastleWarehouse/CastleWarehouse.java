@@ -44,7 +44,6 @@ public final class CastleWarehouse extends AbstractNpcAI {
 	private static final int BLOOD_ALLIANCE = 9911;
 	
 	public CastleWarehouse() {
-		super(CastleWarehouse.class.getSimpleName(), "ai/npc");
 		bindStartNpc(NPCS);
 		bindTalk(NPCS);
 		bindFirstTalk(NPCS);

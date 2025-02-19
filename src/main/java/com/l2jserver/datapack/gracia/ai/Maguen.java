@@ -75,7 +75,6 @@ public final class Maguen extends AbstractNpcAI {
 	private static final SkillHolder R_PLASMA3 = new SkillHolder(6369, 3); // Maguen Plasma - Reptilikon
 	
 	public Maguen() {
-		super(Maguen.class.getSimpleName(), "gracia/AI");
 		bindKill(ELITES);
 		bindSkillSee(MAGUEN);
 		bindSpellFinished(MAGUEN);

@@ -49,7 +49,7 @@ public final class Q00117_TheOceanOfDistantStars extends Quest {
 	private static final int MIN_LEVEL = 39;
 	
 	public Q00117_TheOceanOfDistantStars() {
-		super(117, Q00117_TheOceanOfDistantStars.class.getSimpleName(), "The Ocean of Distant Stars");
+		super(117);
 		bindStartNpc(ABEY);
 		bindTalk(ABEY, GHOST_OF_A_RAILROAD_ENGINEER, GHOST_OF_AN_ANCIENT_RAILROAD_ENGINEER, BOX, OBI);
 		bindKill(DROPLIST.getNpcIds());

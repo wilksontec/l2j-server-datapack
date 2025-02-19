@@ -50,7 +50,6 @@ public class BlackdaggerWing extends AbstractNpcAI {
 	private static final double MID_HP_PERCENTAGE = 0.50;
 	
 	public BlackdaggerWing() {
-		super(BlackdaggerWing.class.getSimpleName(), "ai/individual");
 		bindAttack(BLACKDAGGER_WING);
 		bindSeeCreature(BLACKDAGGER_WING);
 		bindSpellFinished(BLACKDAGGER_WING);

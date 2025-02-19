@@ -52,7 +52,7 @@ public class Q10275_ContainingTheAttributePower extends Quest {
 	private static final SkillHolder BLESSING_OF_EARTH = new SkillHolder(2636, 1);
 	
 	public Q10275_ContainingTheAttributePower() {
-		super(10275, Q10275_ContainingTheAttributePower.class.getSimpleName(), "Containing the Attribute Power");
+		super(10275);
 		bindStartNpc(HOLLY, WEBER);
 		bindTalk(HOLLY, WEBER, YIN, YANG);
 		bindKill(AIR, WATER);

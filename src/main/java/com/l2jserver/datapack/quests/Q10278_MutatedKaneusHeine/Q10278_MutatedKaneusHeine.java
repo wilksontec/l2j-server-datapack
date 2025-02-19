@@ -44,7 +44,7 @@ public class Q10278_MutatedKaneusHeine extends Quest {
 	private static final int TISSUE_WB = 13835;
 	
 	public Q10278_MutatedKaneusHeine() {
-		super(10278, Q10278_MutatedKaneusHeine.class.getSimpleName(), "Mutated Kaneus - Heine");
+		super(10278);
 		bindStartNpc(GOSTA);
 		bindTalk(GOSTA, MINEVIA);
 		bindKill(BLADE_OTIS, WEIRD_BUNEI);

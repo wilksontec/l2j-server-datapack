@@ -83,7 +83,6 @@ public final class PriestOfBlessing extends AbstractNpcAI {
 	};
 	
 	public PriestOfBlessing() {
-		super(PriestOfBlessing.class.getSimpleName(), "ai/npc");
 		bindStartNpc(PRIEST);
 		bindFirstTalk(PRIEST);
 		bindTalk(PRIEST);

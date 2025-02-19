@@ -51,7 +51,7 @@ public final class Q00198_SevenSignsEmbryo extends Quest {
 	private static final SkillHolder NPC_HEAL = new SkillHolder(4065, 8);
 	
 	public Q00198_SevenSignsEmbryo() {
-		super(198, Q00198_SevenSignsEmbryo.class.getSimpleName(), "Seven Signs, Embryo");
+		super(198);
 		bindStartNpc(WOOD);
 		bindTalk(WOOD, FRANZ);
 		bindKill(SHILENS_EVIL_THOUGHTS);

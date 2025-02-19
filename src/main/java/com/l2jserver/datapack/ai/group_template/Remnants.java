@@ -42,7 +42,6 @@ public final class Remnants extends AbstractNpcAI {
 	// private static final String MSG = "The holy water affects Remnants Ghost. You have freed his soul.";
 	// private static final String MSG_DEREK = "The holy water affects Derek. You have freed his soul.";
 	public Remnants() {
-		super(Remnants.class.getSimpleName(), "ai/group_template");
 		bindSpawn(NPCS);
 		bindSkillSee(NPCS);
 		// Do not override onKill for Derek here. Let's make global Hellbound manipulations in Engine where it is possible.

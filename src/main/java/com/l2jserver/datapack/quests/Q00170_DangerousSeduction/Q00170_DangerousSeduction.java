@@ -46,7 +46,7 @@ public class Q00170_DangerousSeduction extends Quest {
 	private static final int MIN_LEVEL = 21;
 	
 	public Q00170_DangerousSeduction() {
-		super(170, Q00170_DangerousSeduction.class.getSimpleName(), "Dangerous Seduction");
+		super(170);
 		bindStartNpc(VELLIOR);
 		bindTalk(VELLIOR);
 		bindKill(MERKENIS);

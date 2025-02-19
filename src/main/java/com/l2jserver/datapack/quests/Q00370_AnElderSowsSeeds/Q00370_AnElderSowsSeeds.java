@@ -50,7 +50,7 @@ public final class Q00370_AnElderSowsSeeds extends Quest {
 	private static final int MIN_LEVEL = 28;
 	
 	public Q00370_AnElderSowsSeeds() {
-		super(370, Q00370_AnElderSowsSeeds.class.getSimpleName(), "An Elder Sows Seeds");
+		super(370);
 		bindStartNpc(CASIAN);
 		bindTalk(CASIAN);
 		bindKill(DROPLIST.getNpcIds());

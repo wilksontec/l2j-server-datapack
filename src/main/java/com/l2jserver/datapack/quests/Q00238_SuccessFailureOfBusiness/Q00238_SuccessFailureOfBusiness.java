@@ -49,7 +49,7 @@ public class Q00238_SuccessFailureOfBusiness extends Quest {
 	private static final int MIN_LEVEL = 82;
 	
 	public Q00238_SuccessFailureOfBusiness() {
-		super(238, Q00238_SuccessFailureOfBusiness.class.getSimpleName(), "Success/Failure Of Business");
+		super(238);
 		bindStartNpc(HELVETICA);
 		bindTalk(HELVETICA);
 		bindKill(BRAZIER_OF_PURITY, EVIL_SPIRITS, GUARDIAN_SPIRITS);

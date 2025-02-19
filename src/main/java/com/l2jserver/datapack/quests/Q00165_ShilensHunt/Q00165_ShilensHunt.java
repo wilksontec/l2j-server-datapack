@@ -52,7 +52,7 @@ public class Q00165_ShilensHunt extends Quest {
 	private static final int REQUIRED_COUNT = 13;
 	
 	public Q00165_ShilensHunt() {
-		super(165, Q00165_ShilensHunt.class.getSimpleName(), "Shilen's Hunt");
+		super(165);
 		bindStartNpc(NELSYA);
 		bindTalk(NELSYA);
 		bindKill(MONSTERS.keySet());

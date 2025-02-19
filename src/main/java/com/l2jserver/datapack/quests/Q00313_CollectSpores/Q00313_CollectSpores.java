@@ -41,7 +41,7 @@ public final class Q00313_CollectSpores extends Quest {
 	private static final int SPORE_FUNGUS = 20509;
 	
 	public Q00313_CollectSpores() {
-		super(313, Q00313_CollectSpores.class.getSimpleName(), "Collect Spores");
+		super(313);
 		bindStartNpc(HERBIEL);
 		bindTalk(HERBIEL);
 		bindKill(SPORE_FUNGUS);

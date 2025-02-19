@@ -75,8 +75,6 @@ public final class SelMahumSquad extends AbstractNpcAI {
 	private static final int MAHUM_EFFECT_NONE = 3;
 	
 	public SelMahumSquad() {
-		super(SelMahumSquad.class.getSimpleName(), "ai/group_template");
-		
 		bindAttack(CHEF);
 		bindAttack(SQUAD_LEADERS);
 		bindEventReceived(CHEF, FIRE, STOVE);

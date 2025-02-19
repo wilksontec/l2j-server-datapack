@@ -49,7 +49,7 @@ public final class Q00369_CollectorOfJewels extends Quest {
 	private static final int SECOND_STEP_LIMIT = 200;
 	
 	public Q00369_CollectorOfJewels() {
-		super(369, Q00369_CollectorOfJewels.class.getSimpleName(), "Collector of Jewels");
+		super(369);
 		bindStartNpc(NELL);
 		bindTalk(NELL);
 		bindKill(DROPLIST.getNpcIds());

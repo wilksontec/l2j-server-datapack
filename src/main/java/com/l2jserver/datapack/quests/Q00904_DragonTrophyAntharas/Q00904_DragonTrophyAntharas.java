@@ -43,7 +43,7 @@ public final class Q00904_DragonTrophyAntharas extends Quest {
 	private static final int MIN_LEVEL = 84;
 	
 	public Q00904_DragonTrophyAntharas() {
-		super(904, Q00904_DragonTrophyAntharas.class.getSimpleName(), "Dragon Trophy - Antharas");
+		super(904);
 		bindStartNpc(THEODRIC);
 		bindTalk(THEODRIC);
 		bindKill(ANTHARAS);

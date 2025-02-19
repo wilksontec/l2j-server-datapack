@@ -40,7 +40,7 @@ public class Q00028_ChestCaughtWithABaitOfIcyAir extends Quest {
 	private static final int ELVEN_RING = 881;
 	
 	public Q00028_ChestCaughtWithABaitOfIcyAir() {
-		super(28, Q00028_ChestCaughtWithABaitOfIcyAir.class.getSimpleName(), "Chest Caught With A Bait Of Icy Air");
+		super(28);
 		bindStartNpc(OFULLE);
 		bindTalk(OFULLE, KIKI);
 		registerQuestItems(KIKIS_LETTER);

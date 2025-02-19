@@ -23,6 +23,7 @@ import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
 import com.l2jserver.gameserver.model.quest.Quest;
 
 /**
+ * Alliance.
  * @author UnAfraid
  */
 public final class Alliance extends Quest {
@@ -45,7 +46,6 @@ public final class Alliance extends Quest {
 	// @formatter:on
 	
 	public Alliance() {
-		super(-1, Alliance.class.getSimpleName(), "village_master");
 		bindStartNpc(NPCS);
 		bindTalk(NPCS);
 	}

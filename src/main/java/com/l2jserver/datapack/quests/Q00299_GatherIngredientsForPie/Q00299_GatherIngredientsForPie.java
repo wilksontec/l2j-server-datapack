@@ -58,7 +58,7 @@ public final class Q00299_GatherIngredientsForPie extends Quest {
 	private static final int MIN_LVL = 34;
 	
 	public Q00299_GatherIngredientsForPie() {
-		super(299, Q00299_GatherIngredientsForPie.class.getSimpleName(), "Gather Ingredients for Pie");
+		super(299);
 		bindStartNpc(EMILLY);
 		bindTalk(LARS, BRIGHT, EMILLY);
 		bindKill(DROPLIST.getNpcIds());

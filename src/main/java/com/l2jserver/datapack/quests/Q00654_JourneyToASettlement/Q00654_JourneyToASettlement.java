@@ -45,7 +45,7 @@ public final class Q00654_JourneyToASettlement extends Quest {
 	private static final int MIN_LEVEL = 74;
 	
 	public Q00654_JourneyToASettlement() {
-		super(654, Q00654_JourneyToASettlement.class.getSimpleName(), "Journey to a Settlement");
+		super(654);
 		bindStartNpc(NAMELESS_SPIRIT);
 		bindTalk(NAMELESS_SPIRIT);
 		bindKill(DROPLIST.getNpcIds());

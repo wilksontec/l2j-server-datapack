@@ -77,7 +77,7 @@ public class Q00631_DeliciousTopChoiceMeat extends Quest {
 	private static final int CRYSTAL_SPICE_COMPRESSED_PACK = 15483;
 	
 	public Q00631_DeliciousTopChoiceMeat() {
-		super(631, Q00631_DeliciousTopChoiceMeat.class.getSimpleName(), "Delicious Top Choice Meat");
+		super(631);
 		bindStartNpc(TUNATUN);
 		bindTalk(TUNATUN);
 		bindKill(DROPLIST.getNpcIds());

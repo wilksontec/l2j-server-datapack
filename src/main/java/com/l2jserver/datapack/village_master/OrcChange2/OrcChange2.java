@@ -30,7 +30,7 @@ import com.l2jserver.gameserver.model.base.ClassId;
  */
 public final class OrcChange2 extends AbstractNpcAI {
 	// NPCs
-	private static int[] NPCS = {
+	private static final int[] NPCS = {
 		30513, // Penatus
 		30681, // Karia
 		30704, // Garvarentz
@@ -58,7 +58,6 @@ public final class OrcChange2 extends AbstractNpcAI {
 	private static final int WARCRYER = 52;
 	
 	public OrcChange2() {
-		super(OrcChange2.class.getSimpleName(), "village_master");
 		bindStartNpc(NPCS);
 		bindTalk(NPCS);
 	}

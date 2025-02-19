@@ -43,7 +43,7 @@ public final class Q00283_TheFewTheProudTheBrave extends Quest {
 	private static final int MIN_LVL = 15;
 	
 	public Q00283_TheFewTheProudTheBrave() {
-		super(283, Q00283_TheFewTheProudTheBrave.class.getSimpleName(), "The Few, The Proud, The Brave");
+		super(283);
 		bindKill(CRIMSON_SPIDER);
 		bindStartNpc(PERWAN);
 		bindTalk(PERWAN);

@@ -61,7 +61,7 @@ public final class Q00408_PathOfTheElvenWizard extends Quest {
 	private static final int MIN_LEVEL = 18;
 	
 	public Q00408_PathOfTheElvenWizard() {
-		super(408, Q00408_PathOfTheElvenWizard.class.getSimpleName(), "Path Of The Elven Wizard");
+		super(408);
 		bindStartNpc(ROSSELA);
 		bindTalk(ROSSELA, GREENIS, THALIA, NORTHWIND);
 		bindKill(DRYAD_ELDER, SUKAR_WERERAT_LEADER, PINCER_SPIDER);

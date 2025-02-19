@@ -37,7 +37,6 @@ public final class CrumaTower extends AbstractNpcAI {
 	private static final int MAX_LEVEL = 55;
 	
 	public CrumaTower() {
-		super(CrumaTower.class.getSimpleName(), "ai/npc/Teleports");
 		bindFirstTalk(MOZELLA);
 		bindStartNpc(MOZELLA);
 		bindTalk(MOZELLA);

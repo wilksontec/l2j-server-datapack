@@ -60,7 +60,7 @@ public final class Q00326_VanquishRemnants extends Quest {
 	private static final int MIN_LVL = 21;
 	
 	public Q00326_VanquishRemnants() {
-		super(326, Q00326_VanquishRemnants.class.getSimpleName(), "Vanquish Remnants");
+		super(326);
 		bindStartNpc(LEOPOLD);
 		bindTalk(LEOPOLD);
 		bindKill(MONSTERS.keySet());

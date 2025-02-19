@@ -35,7 +35,6 @@ public final class Rafforty extends AbstractNpcAI {
 	private static final int BOTTLE = 16027;
 	
 	public Rafforty() {
-		super(Rafforty.class.getSimpleName(), "ai/npc");
 		bindStartNpc(RAFFORTY);
 		bindFirstTalk(RAFFORTY);
 		bindTalk(RAFFORTY);

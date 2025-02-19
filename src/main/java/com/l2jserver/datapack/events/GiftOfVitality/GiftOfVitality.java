@@ -76,7 +76,6 @@ public final class GiftOfVitality extends LongTimeEvent {
 	private static final String REUSE = GiftOfVitality.class.getSimpleName() + "_reuse";
 	
 	private GiftOfVitality() {
-		super(GiftOfVitality.class.getSimpleName(), "events");
 		bindStartNpc(STEVE_SHYAGEL);
 		bindFirstTalk(STEVE_SHYAGEL);
 		bindTalk(STEVE_SHYAGEL);

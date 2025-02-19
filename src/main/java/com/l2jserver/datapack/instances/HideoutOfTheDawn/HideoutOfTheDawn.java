@@ -43,7 +43,6 @@ public final class HideoutOfTheDawn extends AbstractInstance {
 	private static final int TEMPLATE_ID = 113;
 	
 	public HideoutOfTheDawn() {
-		super(HideoutOfTheDawn.class.getSimpleName());
 		bindFirstTalk(JAINA);
 		bindStartNpc(WOOD);
 		bindTalk(WOOD, JAINA);

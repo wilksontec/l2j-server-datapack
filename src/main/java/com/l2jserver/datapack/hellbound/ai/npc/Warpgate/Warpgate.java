@@ -54,7 +54,6 @@ public final class Warpgate extends AbstractNpcAI {
 	private static final int ZONE = 40101;
 	
 	public Warpgate() {
-		super(Warpgate.class.getSimpleName(), "hellbound/AI/NPC");
 		bindStartNpc(WARPGATES);
 		bindFirstTalk(WARPGATES);
 		bindTalk(WARPGATES);

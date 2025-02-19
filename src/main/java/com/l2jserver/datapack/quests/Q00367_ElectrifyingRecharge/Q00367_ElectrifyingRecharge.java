@@ -48,7 +48,7 @@ public final class Q00367_ElectrifyingRecharge extends Quest {
 	private static final Skill NPC_THUNDER_STORM = new SkillHolder(4072, 4).getSkill();
 	
 	public Q00367_ElectrifyingRecharge() {
-		super(367, Q00367_ElectrifyingRecharge.class.getSimpleName(), "Electrifying Recharge!");
+		super(367);
 		bindStartNpc(LORAIN);
 		bindTalk(LORAIN);
 		bindAttack(CATHEROK);

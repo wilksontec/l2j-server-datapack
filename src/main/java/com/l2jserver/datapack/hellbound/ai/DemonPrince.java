@@ -46,7 +46,6 @@ public final class DemonPrince extends AbstractNpcAI {
 	private static final Map<Integer, Boolean> ATTACK_STATE = new ConcurrentHashMap<>();
 	
 	public DemonPrince() {
-		super(DemonPrince.class.getSimpleName(), "hellbound/AI");
 		bindAttack(DEMON_PRINCE);
 		bindKill(DEMON_PRINCE);
 		bindSpawn(FIEND);

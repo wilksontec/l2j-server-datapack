@@ -85,7 +85,7 @@ public final class Q00108_JumbleTumbleDiamondFuss extends Quest {
 	private static final int SILVERSMITH_HAMMER = 1511;
 	
 	public Q00108_JumbleTumbleDiamondFuss() {
-		super(108, Q00108_JumbleTumbleDiamondFuss.class.getSimpleName(), "Jumble, Tumble, Diamond Fuss");
+		super(108);
 		bindStartNpc(COLLECTOR_GOUPH);
 		bindTalk(COLLECTOR_GOUPH, TRADER_REEP, CARRIER_TOROCCO, MINER_MARON, BLACKSMITH_BRUNON, WAREHOUSE_KEEPER_MURDOC, WAREHOUSE_KEEPER_AIRY);
 		bindKill(GOBLIN_BRIGAND_LEADER, GOBLIN_BRIGAND_LIEUTENANT, BLADE_BAT);

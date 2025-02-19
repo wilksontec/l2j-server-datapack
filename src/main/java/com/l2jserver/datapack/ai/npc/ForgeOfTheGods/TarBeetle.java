@@ -42,7 +42,6 @@ public final class TarBeetle extends AbstractNpcAI {
 	private static final TarBeetleSpawn spawn = new TarBeetleSpawn();
 	
 	public TarBeetle() {
-		super(TarBeetle.class.getSimpleName(), "ai/npc");
 		bindAggroRangeEnter(TAR_BEETLE);
 		bindSpellFinished(TAR_BEETLE);
 	}

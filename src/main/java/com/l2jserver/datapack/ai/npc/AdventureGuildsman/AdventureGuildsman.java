@@ -43,7 +43,6 @@ public class AdventureGuildsman extends AbstractNpcAI {
 	// @formatter:on
 	
 	public AdventureGuildsman() {
-		super(AdventureGuildsman.class.getSimpleName(), "ai/npc");
 		bindMenuSelected(ADVENTURE_GUILDSMAN);
 	}
 	

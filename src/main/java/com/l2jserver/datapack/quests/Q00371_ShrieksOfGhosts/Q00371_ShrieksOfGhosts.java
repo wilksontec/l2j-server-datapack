@@ -59,7 +59,7 @@ public final class Q00371_ShrieksOfGhosts extends Quest {
 	private static final int MIN_LEVEL = 59;
 	
 	public Q00371_ShrieksOfGhosts() {
-		super(371, Q00371_ShrieksOfGhosts.class.getSimpleName(), "Shrieks of Ghosts");
+		super(371);
 		bindStartNpc(REVA);
 		bindTalk(REVA, PATRIN);
 		bindKill(DROPLIST.getNpcIds());

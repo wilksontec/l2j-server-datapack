@@ -66,7 +66,7 @@ public final class Q00103_SpiritOfCraftsman extends Quest {
 	private static final int MIN_LVL = 10;
 	
 	public Q00103_SpiritOfCraftsman() {
-		super(103, Q00103_SpiritOfCraftsman.class.getSimpleName(), "Spirit of Craftsman");
+		super(103);
 		bindStartNpc(BLACKSMITH_KAROYD);
 		bindTalk(BLACKSMITH_KAROYD, CECON, HARNE);
 		bindKill(MARSH_ZOMBIE, DOOM_SOLDIER, SKELETON_HUNTER, SKELETON_HUNTER_ARCHER);

@@ -44,7 +44,7 @@ public class Q10291_FireDragonDestroyer extends Quest {
 	private static final int VALAKAS_SLAYER_CIRCLET = 8567;
 	
 	public Q10291_FireDragonDestroyer() {
-		super(10291, Q10291_FireDragonDestroyer.class.getSimpleName(), "Fire Dragon Destroyer");
+		super(10291);
 		bindStartNpc(KLEIN);
 		bindTalk(KLEIN);
 		bindKill(VALAKAS);

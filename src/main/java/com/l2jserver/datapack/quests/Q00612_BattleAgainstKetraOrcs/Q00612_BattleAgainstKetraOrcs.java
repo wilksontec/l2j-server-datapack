@@ -62,7 +62,7 @@ public class Q00612_BattleAgainstKetraOrcs extends Quest {
 	private static final int MOLAR_COUNT = 100;
 	
 	public Q00612_BattleAgainstKetraOrcs() {
-		super(612, Q00612_BattleAgainstKetraOrcs.class.getSimpleName(), "Battle against Ketra Orcs");
+		super(612);
 		bindStartNpc(ASHAS);
 		bindTalk(ASHAS);
 		bindKill(MOBS.keySet());

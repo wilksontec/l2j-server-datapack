@@ -60,7 +60,6 @@ public final class Minigame extends AbstractNpcAI {
 	private final List<MinigameRoom> _rooms = new ArrayList<>(2);
 	
 	public Minigame() {
-		super(Minigame.class.getSimpleName(), "ai/npc");
 		bindStartNpc(SUMIEL);
 		bindFirstTalk(SUMIEL);
 		bindTalk(SUMIEL);

@@ -44,7 +44,7 @@ public class Q10279_MutatedKaneusOren extends Quest {
 	private static final int TISSUE_KM = 13837;
 	
 	public Q10279_MutatedKaneusOren() {
-		super(10279, Q10279_MutatedKaneusOren.class.getSimpleName(), "Mutated Kaneus - Oren");
+		super(10279);
 		bindStartNpc(MOUEN);
 		bindTalk(MOUEN, ROVIA);
 		bindKill(KAIM_ABIGORE, KNIGHT_MONTAGNAR);

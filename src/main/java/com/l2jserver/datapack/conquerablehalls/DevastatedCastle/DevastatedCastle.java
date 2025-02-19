@@ -46,7 +46,7 @@ public final class DevastatedCastle extends ClanHallSiegeEngine {
 	private static Map<Integer, Integer> _damageToGustav = new HashMap<>();
 	
 	private DevastatedCastle() {
-		super(DevastatedCastle.class.getSimpleName(), "conquerablehalls", DEVASTATED_CASTLE);
+		super(DEVASTATED_CASTLE);
 		bindKill(GUSTAV);
 		bindSpawn(MIKHAIL);
 		bindSpawn(DIETRICH);

@@ -38,7 +38,7 @@ public class Q00146_TheZeroHour extends Quest {
 	private static final int FANG = 14859;
 	
 	public Q00146_TheZeroHour() {
-		super(146, Q00146_TheZeroHour.class.getSimpleName(), "The Zero Hour");
+		super(146);
 		bindStartNpc(KAHMAN);
 		bindTalk(KAHMAN);
 		bindKill(QUEEN_SHYEED);

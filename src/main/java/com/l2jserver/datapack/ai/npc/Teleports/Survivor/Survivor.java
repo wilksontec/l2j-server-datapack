@@ -39,7 +39,6 @@ public final class Survivor extends AbstractNpcAI {
 	private static final Location TELEPORT = new Location(-149406, 255247, -80);
 	
 	public Survivor() {
-		super(Survivor.class.getSimpleName(), "ai/npc/Teleports");
 		bindStartNpc(SURVIVOR);
 		bindTalk(SURVIVOR);
 	}

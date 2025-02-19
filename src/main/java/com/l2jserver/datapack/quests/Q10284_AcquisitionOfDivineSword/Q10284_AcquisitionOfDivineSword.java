@@ -46,7 +46,7 @@ public final class Q10284_AcquisitionOfDivineSword extends Quest {
 	private static final Location EXIT_LOC = new Location(113793, -109342, -845, 0);
 	
 	public Q10284_AcquisitionOfDivineSword() {
-		super(10284, Q10284_AcquisitionOfDivineSword.class.getSimpleName(), "Acquisition of Divine Sword");
+		super(10284);
 		bindStartNpc(RAFFORTY);
 		bindTalk(RAFFORTY, JINIA, TARUN, KRUN);
 		registerQuestItems(COLD_RESISTANCE_POTION);

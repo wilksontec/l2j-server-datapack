@@ -89,7 +89,6 @@ public final class SubClassSkills extends Quest {
 	};
 	
 	private SubClassSkills() {
-		super(-1, SubClassSkills.class.getSimpleName(), "custom");
 		setOnEnterWorld(true);
 	}
 	

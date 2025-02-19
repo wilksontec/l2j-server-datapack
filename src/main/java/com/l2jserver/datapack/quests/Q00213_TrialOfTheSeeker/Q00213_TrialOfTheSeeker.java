@@ -84,7 +84,7 @@ public final class Q00213_TrialOfTheSeeker extends Quest {
 	private static final int LEVEL = 36;
 	
 	public Q00213_TrialOfTheSeeker() {
-		super(213, Q00213_TrialOfTheSeeker.class.getSimpleName(), "Trial Of The Seeker");
+		super(213);
 		bindStartNpc(MASTER_DUFNER);
 		bindTalk(MASTER_DUFNER, MASTER_TERRY, BLACKSMITH_BRUNON, TRADER_VIKTOR, MAGISTER_MARINA);
 		bindKill(ANT_CAPTAIN, ANT_WARRIOR_CAPTAIN, MEDUSA, NEER_GHOUL_BERSERKER, OL_MAHUM_CAPTAIN, MARSH_STAKATO_DRONE, TURAK_BUGBEAR_WARRIOR, BREKA_ORC_OVERLORD, TUREK_ORC_WARLORD, LETO_LIZARDMAN_WARRIOR);

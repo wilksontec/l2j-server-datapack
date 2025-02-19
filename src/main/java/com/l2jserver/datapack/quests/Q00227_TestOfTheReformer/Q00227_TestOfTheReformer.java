@@ -104,7 +104,7 @@ public final class Q00227_TestOfTheReformer extends Quest {
 	private static final int MIN_LEVEL = 39;
 	
 	public Q00227_TestOfTheReformer() {
-		super(227, Q00227_TestOfTheReformer.class.getSimpleName(), "Test Of The Reformer");
+		super(227);
 		bindStartNpc(PRIESTESS_PUPINA);
 		bindTalk(PRIESTESS_PUPINA, PREACHER_SLA, RAMUS, KATARI, KAKAN, NYAKURI, OL_MAHUM_PILGRIM);
 		bindAttack(NAMELESS_REVENANT, CRIMSON_WEREWOLF);

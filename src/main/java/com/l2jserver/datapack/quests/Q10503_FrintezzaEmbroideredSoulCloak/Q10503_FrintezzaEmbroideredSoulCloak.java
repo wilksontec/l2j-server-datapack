@@ -44,7 +44,7 @@ public class Q10503_FrintezzaEmbroideredSoulCloak extends Quest {
 	private static final int FRAGMENT_COUNT = 20;
 	
 	public Q10503_FrintezzaEmbroideredSoulCloak() {
-		super(10503, Q10503_FrintezzaEmbroideredSoulCloak.class.getSimpleName(), "Frintezza Embroidered Soul Cloak");
+		super(10503);
 		bindStartNpc(OLF_ADAMS);
 		bindTalk(OLF_ADAMS);
 		bindKill(SCARLET_VAN_HALISHA);

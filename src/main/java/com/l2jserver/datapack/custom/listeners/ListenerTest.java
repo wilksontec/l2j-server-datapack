@@ -59,8 +59,6 @@ public class ListenerTest extends AbstractNpcAI {
 	};
 	
 	private ListenerTest() {
-		super(ListenerTest.class.getSimpleName(), "ai/npc");
-		
 		// Method preset listener registration
 		// An set function which is a Consumer it has one parameter and doesn't returns anything!
 		registerConsumer((AttackableAttack event) -> onAttackableAttack(event), ATTACKABLE_ATTACK, NPC, ELPIES);

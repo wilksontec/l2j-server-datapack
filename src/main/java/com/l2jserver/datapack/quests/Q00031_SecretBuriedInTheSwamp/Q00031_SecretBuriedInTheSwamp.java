@@ -47,7 +47,7 @@ public final class Q00031_SecretBuriedInTheSwamp extends Quest {
 	private static final List<Integer> MONUMENTS = Arrays.asList(FORGOTTEN_MONUMENT_1, FORGOTTEN_MONUMENT_2, FORGOTTEN_MONUMENT_3, FORGOTTEN_MONUMENT_4);
 	
 	public Q00031_SecretBuriedInTheSwamp() {
-		super(31, Q00031_SecretBuriedInTheSwamp.class.getSimpleName(), "Secret Buried in the Swamp");
+		super(31);
 		bindStartNpc(ABERCROMBIE);
 		bindTalk(ABERCROMBIE, CORPSE_OF_DWARF);
 		bindTalk(MONUMENTS);

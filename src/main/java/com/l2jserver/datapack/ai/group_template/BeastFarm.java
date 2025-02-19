@@ -106,14 +106,11 @@ public final class BeastFarm extends AbstractNpcAI {
 	private static List<TamedBeast> TAMED_BEAST_DATA = new ArrayList<>();
 	
 	public BeastFarm() {
-		super(BeastFarm.class.getSimpleName(), "ai/group_template");
 		bindSkillSee(FEEDABLE_BEASTS);
 		bindKill(FEEDABLE_BEASTS);
 		
-		GrowthCapableMob temp;
-		
 		// Kookabura
-		temp = new GrowthCapableMob(100, 0, 18869);
+		var temp = new GrowthCapableMob(100, 0, 18869);
 		temp.addNpcIdForSkillId(SKILL_GOLDEN_SPICE, 18874);
 		temp.addNpcIdForSkillId(SKILL_CRYSTAL_SPICE, 18875);
 		temp.addNpcIdForSkillId(SKILL_BLESSED_GOLDEN_SPICE, 18869);

@@ -47,7 +47,7 @@ public class Q00037_MakeFormalWear extends Quest {
 	private static final int MIN_LEVEL = 60;
 	
 	public Q00037_MakeFormalWear() {
-		super(37, Q00037_MakeFormalWear.class.getSimpleName(), "Make Formal Wear");
+		super(37);
 		bindStartNpc(ALEXIS);
 		bindTalk(ALEXIS, JEREMY, LEIKAR, MIST);
 		registerQuestItems(SIGNET_RING, ICE_WINE, BOX_OF_COOKIES);

@@ -37,7 +37,7 @@ public class Q10282_ToTheSeedOfAnnihilation extends Quest {
 	private static final int SOA_ORDERS = 15512;
 	
 	public Q10282_ToTheSeedOfAnnihilation() {
-		super(10282, Q10282_ToTheSeedOfAnnihilation.class.getSimpleName(), "To the Seed of Annihilation");
+		super(10282);
 		bindStartNpc(KBALDIR);
 		bindTalk(KBALDIR, KLEMIS);
 		registerQuestItems(SOA_ORDERS);

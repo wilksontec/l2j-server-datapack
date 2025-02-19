@@ -44,7 +44,7 @@ public final class Q00295_DreamingOfTheSkies extends Quest {
 	private static final int MIN_LVL = 11;
 	
 	public Q00295_DreamingOfTheSkies() {
-		super(295, Q00295_DreamingOfTheSkies.class.getSimpleName(), "Dreaming of the Skies");
+		super(295);
 		bindStartNpc(ARIN);
 		bindTalk(ARIN);
 		bindKill(MAGICAL_WEAVER);

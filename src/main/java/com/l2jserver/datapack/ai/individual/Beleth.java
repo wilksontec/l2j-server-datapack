@@ -100,7 +100,6 @@ public final class Beleth extends AbstractNpcAI {
 	private final List<L2Npc> _minions = new CopyOnWriteArrayList<>();
 	
 	public Beleth() {
-		super(Beleth.class.getSimpleName(), "ai/individual");
 		bindEnterZone(ZONE.getId());
 		registerMobs(REAL_BELETH, FAKE_BELETH);
 		bindStartNpc(STONE_COFFIN);

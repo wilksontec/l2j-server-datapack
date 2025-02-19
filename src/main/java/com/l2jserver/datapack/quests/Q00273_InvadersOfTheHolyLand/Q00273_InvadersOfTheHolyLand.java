@@ -51,7 +51,7 @@ public final class Q00273_InvadersOfTheHolyLand extends Quest {
 	private static final int MIN_LVL = 6;
 	
 	public Q00273_InvadersOfTheHolyLand() {
-		super(273, Q00273_InvadersOfTheHolyLand.class.getSimpleName(), "Invaders of the Holy Land");
+		super(273);
 		bindStartNpc(VARKEES);
 		bindTalk(VARKEES);
 		bindKill(MONSTERS.keySet());

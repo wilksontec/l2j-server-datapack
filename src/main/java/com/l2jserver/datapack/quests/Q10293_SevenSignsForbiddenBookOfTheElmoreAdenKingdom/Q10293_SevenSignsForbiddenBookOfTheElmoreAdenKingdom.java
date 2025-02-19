@@ -46,7 +46,7 @@ public final class Q10293_SevenSignsForbiddenBookOfTheElmoreAdenKingdom extends 
 	private static final int MIN_LEVEL = 81;
 	
 	public Q10293_SevenSignsForbiddenBookOfTheElmoreAdenKingdom() {
-		super(10293, Q10293_SevenSignsForbiddenBookOfTheElmoreAdenKingdom.class.getSimpleName(), "Seven Signs, Forbidden Book of the Elmore-Aden Kingdom");
+		super(10293);
 		bindFirstTalk(SOPHIA3);
 		bindStartNpc(ELCADIA);
 		bindTalk(ELCADIA, ELCADIA_INSTANCE, SOPHIA1, SOPHIA2, SOPHIA3, PILE_OF_BOOKS1, PILE_OF_BOOKS2, PILE_OF_BOOKS3, PILE_OF_BOOKS4, PILE_OF_BOOKS5);

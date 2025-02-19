@@ -104,7 +104,7 @@ public final class Q00334_TheWishingPotion extends Quest {
 	
 	// Reward
 	public Q00334_TheWishingPotion() {
-		super(334, Q00334_TheWishingPotion.class.getSimpleName(), "The Wishing Potion");
+		super(334);
 		bindStartNpc(ALCHEMIST_MATILD);
 		bindTalk(ALCHEMIST_MATILD, TORAI, FAIRY_RUPINA, WISDOM_CHEST);
 		bindKill(WHISPERING_WIND, ANT_SOLDIER, ANT_WARRIOR_CAPTAIN, SILENOS, TYRANT, TYRANT_KINGPIN, AMBER_BASILISK, MIST_HORROR_RIPPER);

@@ -79,7 +79,6 @@ public final class ForgeOfTheGods extends AbstractNpcAI {
 	// private static int _npcsAlive = 0; TODO: Require zone spawn support
 	
 	public ForgeOfTheGods() {
-		super(ForgeOfTheGods.class.getSimpleName(), "ai/npc");
 		bindKill(FOG_MOBS);
 		bindSpawn(LAVASAURUSES);
 		startQuestTimer("refresh", REFRESH * 1000, null, null, true);

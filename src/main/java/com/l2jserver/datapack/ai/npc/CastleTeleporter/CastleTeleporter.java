@@ -47,7 +47,6 @@ public final class CastleTeleporter extends AbstractNpcAI {
 	};
 	
 	public CastleTeleporter() {
-		super(CastleTeleporter.class.getSimpleName(), "ai/npc");
 		bindStartNpc(NPCS);
 		bindTalk(NPCS);
 		bindFirstTalk(NPCS);

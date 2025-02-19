@@ -48,7 +48,7 @@ public final class Q00269_InventionAmbition extends Quest {
 	private static final int MIN_LVL = 18;
 	
 	public Q00269_InventionAmbition() {
-		super(269, Q00269_InventionAmbition.class.getSimpleName(), "Invention Ambition");
+		super(269);
 		bindStartNpc(INVENTOR_MARU);
 		bindTalk(INVENTOR_MARU);
 		bindKill(DROPLIST.getNpcIds());

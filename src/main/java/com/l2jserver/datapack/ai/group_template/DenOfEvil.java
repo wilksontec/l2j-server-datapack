@@ -99,7 +99,6 @@ public final class DenOfEvil extends AbstractNpcAI {
 	};
 	
 	public DenOfEvil() {
-		super(DenOfEvil.class.getSimpleName(), "ai/group_template");
 		bindKill(EYE_IDS);
 		bindSpawn(EYE_IDS);
 		for (Location loc : EYE_SPAWNS) {

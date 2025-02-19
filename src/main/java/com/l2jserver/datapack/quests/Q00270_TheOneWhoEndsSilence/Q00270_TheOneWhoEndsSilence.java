@@ -51,7 +51,7 @@ public class Q00270_TheOneWhoEndsSilence extends Quest {
 	private static final int MIN_LEVEL = 82;
 	
 	public Q00270_TheOneWhoEndsSilence() {
-		super(270, Q00270_TheOneWhoEndsSilence.class.getSimpleName(), "The One Who Ends Silence");
+		super(270);
 		bindStartNpc(FAKE_GREYMORE);
 		bindTalk(FAKE_GREYMORE);
 		bindKill(SEEKER_SOLINA, SAVIOR_SOLINA, ASCETIC_SOLINA, DIVINITY_JUDGE, DIVINITY_MANAGER, DIVINITY_SUPERVISOR, DIVINITY_WORSHIPPER, DIVINITY_PROTECTOR, DIVINITY_FIGHTER, DIVINITY_MAGUS);

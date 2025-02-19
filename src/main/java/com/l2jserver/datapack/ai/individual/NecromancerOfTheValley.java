@@ -44,7 +44,6 @@ public class NecromancerOfTheValley extends AbstractNpcAI {
 	private static final double HP_PERCENTAGE = 0.60;
 	
 	public NecromancerOfTheValley() {
-		super(NecromancerOfTheValley.class.getSimpleName(), "ai/individual");
 		bindAttack(NECROMANCER_OF_THE_VALLEY);
 		bindSpawn(EXPLODING_ORC_GHOST);
 		bindSpellFinished(EXPLODING_ORC_GHOST);

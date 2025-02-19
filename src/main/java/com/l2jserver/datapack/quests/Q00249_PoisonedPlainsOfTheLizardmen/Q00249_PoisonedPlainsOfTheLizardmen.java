@@ -35,7 +35,7 @@ public class Q00249_PoisonedPlainsOfTheLizardmen extends Quest {
 	private static final int JOHNNY = 32744;
 	
 	public Q00249_PoisonedPlainsOfTheLizardmen() {
-		super(249, Q00249_PoisonedPlainsOfTheLizardmen.class.getSimpleName(), "Poisoned Plains of the Lizardmen");
+		super(249);
 		bindStartNpc(MOUEN);
 		bindTalk(MOUEN, JOHNNY);
 	}

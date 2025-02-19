@@ -42,7 +42,7 @@ public class Q10281_MutatedKaneusRune extends Quest {
 	private static final int TISSUE_WA = 13840;
 	
 	public Q10281_MutatedKaneusRune() {
-		super(10281, Q10281_MutatedKaneusRune.class.getSimpleName(), "Mutated Kaneus - Rune");
+		super(10281);
 		bindStartNpc(MATHIAS);
 		bindTalk(MATHIAS, KAYAN);
 		bindKill(WHITE_ALLOSCE);

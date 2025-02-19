@@ -64,7 +64,6 @@ public final class WarriorFishingBlock extends AbstractNpcAI {
 	private static final int DESPAWN_TIME = 50; // 50 seconds to despawn
 	
 	public WarriorFishingBlock() {
-		super(WarriorFishingBlock.class.getSimpleName(), "ai/group_template");
 		bindAttack(MONSTERS);
 		bindKill(MONSTERS);
 		bindSpawn(MONSTERS);

@@ -43,7 +43,7 @@ public final class Q00366_SilverHairedShaman extends Quest {
 	private static final int MIN_LEVEL = 48;
 	
 	public Q00366_SilverHairedShaman() {
-		super(366, Q00366_SilverHairedShaman.class.getSimpleName(), "Silver Haired Shaman");
+		super(366);
 		bindStartNpc(DIETER);
 		bindTalk(DIETER);
 		bindKill(DROPLIST.getNpcIds());

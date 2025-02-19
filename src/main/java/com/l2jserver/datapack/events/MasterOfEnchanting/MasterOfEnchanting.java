@@ -64,7 +64,6 @@ public final class MasterOfEnchanting extends LongTimeEvent {
 	private static final Date EVENT_START = new Date(2011, 7, 1);
 	
 	private MasterOfEnchanting() {
-		super(MasterOfEnchanting.class.getSimpleName(), "events");
 		bindStartNpc(MASTER_YOGI);
 		bindFirstTalk(MASTER_YOGI);
 		bindTalk(MASTER_YOGI);

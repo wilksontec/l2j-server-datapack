@@ -38,7 +38,6 @@ public final class Jinia extends AbstractNpcAI {
 	private static final int MIN_LEVEL = 82;
 	
 	public Jinia() {
-		super(Jinia.class.getSimpleName(), "ai/npc");
 		bindStartNpc(JINIA);
 		bindFirstTalk(JINIA);
 		bindTalk(JINIA);

@@ -38,7 +38,7 @@ public final class Q00013_ParcelDelivery extends Quest {
 	private static final int MIN_LEVEL = 74;
 	
 	public Q00013_ParcelDelivery() {
-		super(13, Q00013_ParcelDelivery.class.getSimpleName(), "Parcel Delivery");
+		super(13);
 		bindStartNpc(FUNDIN);
 		bindTalk(FUNDIN, VULCAN);
 		registerQuestItems(PACKAGE_TO_VULCAN);

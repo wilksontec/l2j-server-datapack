@@ -26,6 +26,7 @@ import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
 import com.l2jserver.gameserver.model.quest.Quest;
 
 /**
+ * Clan.
  * @author UnAfraid
  */
 public final class Clan extends Quest {
@@ -62,7 +63,6 @@ public final class Clan extends Quest {
 	}
 	
 	public Clan() {
-		super(-1, Clan.class.getSimpleName(), "village_master");
 		bindStartNpc(NPCS);
 		bindTalk(NPCS);
 	}

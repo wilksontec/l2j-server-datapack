@@ -39,7 +39,7 @@ public class Q00053_LinnaeusSpecialBait extends Quest {
 	private static final QuestItemChanceHolder CRIMSON_DRAKE_HEART = new QuestItemChanceHolder(7624, 33.0, 100L);
 	
 	public Q00053_LinnaeusSpecialBait() {
-		super(53, Q00053_LinnaeusSpecialBait.class.getSimpleName(), "Linnaeus Special Bait");
+		super(53);
 		bindStartNpc(LINNAEUS);
 		bindTalk(LINNAEUS);
 		bindKill(CRIMSON_DRAKE);

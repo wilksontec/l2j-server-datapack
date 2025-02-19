@@ -36,7 +36,6 @@ public final class TheValentineEvent extends LongTimeEvent {
 	private static final String COMPLETED = TheValentineEvent.class.getSimpleName() + "_completed";
 	
 	private TheValentineEvent() {
-		super(TheValentineEvent.class.getSimpleName(), "events");
 		bindStartNpc(NPC);
 		bindFirstTalk(NPC);
 		bindTalk(NPC);

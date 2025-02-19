@@ -43,7 +43,6 @@ public class Tolonis extends AbstractNpcAI {
 	private static final int MINIMUM_LEVEL = 75;
 	
 	public Tolonis() {
-		super(Tolonis.class.getSimpleName(), "ai/npc");
 		bindFirstTalk(TOLONIS_ID);
 		bindLearnSkillRequested(TOLONIS_ID);
 	}

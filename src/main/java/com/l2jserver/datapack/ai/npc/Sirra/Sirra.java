@@ -36,7 +36,6 @@ public final class Sirra extends AbstractNpcAI {
 	private static final int FREYA_HARD_INSTID = 144;
 	
 	public Sirra() {
-		super(Sirra.class.getSimpleName(), "ai/npc");
 		bindFirstTalk(SIRRA);
 	}
 	

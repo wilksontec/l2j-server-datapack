@@ -35,7 +35,6 @@ public final class Kier extends AbstractNpcAI {
 	private static final int KIER = 32022;
 	
 	public Kier() {
-		super(Kier.class.getSimpleName(), "ai/npc");
 		bindFirstTalk(KIER);
 	}
 	

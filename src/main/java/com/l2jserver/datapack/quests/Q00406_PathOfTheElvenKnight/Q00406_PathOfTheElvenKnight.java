@@ -63,7 +63,7 @@ public final class Q00406_PathOfTheElvenKnight extends Quest {
 	}
 	
 	public Q00406_PathOfTheElvenKnight() {
-		super(406, Q00406_PathOfTheElvenKnight.class.getSimpleName(), "Path Of The Elven Knight");
+		super(406);
 		bindStartNpc(MASTER_SORIUS);
 		bindTalk(MASTER_SORIUS, BLACKSMITH_KLUTO);
 		bindKill(MONSTER_DROPS.keySet());

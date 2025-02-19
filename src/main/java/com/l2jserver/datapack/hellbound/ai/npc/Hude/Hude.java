@@ -42,7 +42,6 @@ public final class Hude extends AbstractNpcAI {
 	private static final int STINGER = 10012;
 	
 	public Hude() {
-		super(Hude.class.getSimpleName(), "hellbound/AI/NPC");
 		bindFirstTalk(HUDE);
 		bindStartNpc(HUDE);
 		bindTalk(HUDE);

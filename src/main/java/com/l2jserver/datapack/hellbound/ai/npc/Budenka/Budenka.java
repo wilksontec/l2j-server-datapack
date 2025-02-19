@@ -34,7 +34,6 @@ public final class Budenka extends AbstractNpcAI {
 	private static final int PREMIUM_CERT = 9852;
 	
 	public Budenka() {
-		super(Budenka.class.getSimpleName(), "hellbound/AI/NPC");
 		bindStartNpc(BUDENKA);
 		bindFirstTalk(BUDENKA);
 		bindTalk(BUDENKA);

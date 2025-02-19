@@ -46,7 +46,7 @@ public final class Q10290_LandDragonConqueror extends Quest {
 	private static final int MIN_LEVEL = 83;
 	
 	public Q10290_LandDragonConqueror() {
-		super(10290, Q10290_LandDragonConqueror.class.getSimpleName(), "Land Dragon Conqueror");
+		super(10290);
 		bindStartNpc(THEODRIC);
 		bindTalk(THEODRIC);
 		bindKill(ANTHARAS);

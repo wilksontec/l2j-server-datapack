@@ -37,7 +37,7 @@ public class Q00109_InSearchOfTheNest extends Quest {
 	private static final int SCOUTS_NOTE = 14858;
 	
 	public Q00109_InSearchOfTheNest() {
-		super(109, Q00109_InSearchOfTheNest.class.getSimpleName(), "In Search of the Nest");
+		super(109);
 		bindStartNpc(PIERCE);
 		bindTalk(PIERCE, SCOUTS_CORPSE, KAHMAN);
 		registerQuestItems(SCOUTS_NOTE);

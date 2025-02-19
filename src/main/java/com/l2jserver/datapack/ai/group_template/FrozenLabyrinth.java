@@ -35,7 +35,6 @@ public final class FrozenLabyrinth extends AbstractNpcAI {
 	private static final int FROST_BUFFALO = 22094;
 	
 	public FrozenLabyrinth() {
-		super(FrozenLabyrinth.class.getSimpleName(), "ai/group_template");
 		bindAttack(PRONGHORN, FROST_BUFFALO);
 	}
 	

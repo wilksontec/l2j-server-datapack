@@ -40,7 +40,6 @@ public final class TeleportWithCharm extends AbstractNpcAI {
 	private final static Location DWARF_TELEPORT = new Location(-80826, 149775, -3043);
 	
 	public TeleportWithCharm() {
-		super(TeleportWithCharm.class.getSimpleName(), "ai/npc/Teleports");
 		bindStartNpc(WHIRPY, TAMIL);
 		bindTalk(WHIRPY, TAMIL);
 	}

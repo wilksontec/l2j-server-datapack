@@ -46,7 +46,6 @@ public final class TurekOrcs extends AbstractNpcAI {
 	};
 	
 	public TurekOrcs() {
-		super(TurekOrcs.class.getSimpleName(), "ai/group_template");
 		bindAttack(MOBS);
 		bindEventReceived(MOBS);
 		bindMoveFinished(MOBS);

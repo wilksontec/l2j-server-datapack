@@ -46,7 +46,7 @@ public class Q00143_FallenAngelRequestOfDusk extends Quest {
 	private boolean isAngelSpawned = false;
 	
 	public Q00143_FallenAngelRequestOfDusk() {
-		super(143, Q00143_FallenAngelRequestOfDusk.class.getSimpleName(), "Fallen Angel - Request of Dusk");
+		super(143);
 		bindTalk(NATOOLS, TOBIAS, CASIAN, ROCK, ANGEL);
 		registerQuestItems(SEALED_PROPHECY_PATH_OF_THE_GOD, PROPHECY_PATH_OF_THE_GOD, EMPTY_SOUND_CRYSTAL, ANGEL_MEDICINE, ANGELS_MESSAGE);
 	}

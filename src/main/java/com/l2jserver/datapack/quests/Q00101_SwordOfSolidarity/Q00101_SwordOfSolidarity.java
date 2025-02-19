@@ -62,7 +62,7 @@ public class Q00101_SwordOfSolidarity extends Quest {
 	private static final int MIN_LVL = 9;
 	
 	public Q00101_SwordOfSolidarity() {
-		super(101, Q00101_SwordOfSolidarity.class.getSimpleName(), "Sword of Solidarity");
+		super(101);
 		bindStartNpc(ROIEN);
 		bindKill(MONSTERS);
 		bindTalk(ROIEN, ALTRAN);

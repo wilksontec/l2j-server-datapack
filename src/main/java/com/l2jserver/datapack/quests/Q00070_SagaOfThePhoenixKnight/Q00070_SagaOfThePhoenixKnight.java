@@ -27,7 +27,7 @@ import com.l2jserver.gameserver.model.Location;
  */
 public class Q00070_SagaOfThePhoenixKnight extends AbstractSagaQuest {
 	public Q00070_SagaOfThePhoenixKnight() {
-		super(70, Q00070_SagaOfThePhoenixKnight.class.getSimpleName(), "Saga of the Phoenix Knight");
+		super(70);
 		_npc = new int[] {
 			30849,
 			31624,

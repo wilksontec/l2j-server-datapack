@@ -44,7 +44,7 @@ public final class Q00026_TiredOfWaiting extends Quest {
 	}
 	
 	public Q00026_TiredOfWaiting() {
-		super(26, Q00026_TiredOfWaiting.class.getSimpleName(), "Tired of Waiting");
+		super(26);
 		bindStartNpc(ISAEL_SILVERSHADOW);
 		bindTalk(ISAEL_SILVERSHADOW, KITZKA);
 		registerQuestItems(DELIVERY_BOX);

@@ -73,7 +73,6 @@ public final class RandomSpawn extends AbstractNpcAI {
 	}
 	
 	public RandomSpawn() {
-		super(RandomSpawn.class.getSimpleName(), "ai/group_template");
 		bindSpawn(SPAWN_POINTS.keySet());
 	}
 	

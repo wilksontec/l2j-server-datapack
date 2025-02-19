@@ -33,7 +33,6 @@ public final class DivineBeast extends AbstractNpcAI {
 	private static final int CHECK_TIME = 2 * 1000;
 	
 	public DivineBeast() {
-		super(DivineBeast.class.getSimpleName(), "ai");
 		bindSummonSpawn(DIVINE_BEAST);
 	}
 	

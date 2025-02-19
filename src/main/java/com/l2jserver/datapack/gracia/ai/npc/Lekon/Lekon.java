@@ -40,7 +40,6 @@ public final class Lekon extends AbstractNpcAI {
 	private static final int STONE_COUNT = 10;
 	
 	public Lekon() {
-		super(Lekon.class.getSimpleName(), "gracia/AI/NPC");
 		bindFirstTalk(LEKON);
 		bindTalk(LEKON);
 		bindStartNpc(LEKON);

@@ -40,7 +40,6 @@ public final class PolymorphingAngel extends AbstractNpcAI {
 	}
 	
 	public PolymorphingAngel() {
-		super(PolymorphingAngel.class.getSimpleName(), "ai/group_template");
 		bindKill(ANGELSPAWNS.keySet());
 	}
 	

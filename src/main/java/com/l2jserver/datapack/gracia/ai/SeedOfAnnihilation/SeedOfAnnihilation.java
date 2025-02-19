@@ -78,7 +78,6 @@ public class SeedOfAnnihilation extends AbstractNpcAI {
 	}
 	
 	public SeedOfAnnihilation() {
-		super(SeedOfAnnihilation.class.getSimpleName(), "gracia/AI");
 		loadSeedRegionData();
 		for (int i : TELEPORT_ZONES.keySet()) {
 			bindEnterZone(i);

@@ -81,7 +81,7 @@ public final class Q00662_AGameOfCards extends Quest {
 	private static final int REQUIRED_CHIP_COUNT = 50;
 	
 	public Q00662_AGameOfCards() {
-		super(662, Q00662_AGameOfCards.class.getSimpleName(), "A Game of Cards");
+		super(662);
 		bindStartNpc(KLUMP);
 		bindTalk(KLUMP);
 		bindKill(DROPLIST.getNpcIds());

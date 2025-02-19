@@ -83,7 +83,7 @@ public class Q00287_FiguringItOut extends Quest {
 	private static final int MIN_LEVEL = 82;
 	
 	public Q00287_FiguringItOut() {
-		super(287, Q00287_FiguringItOut.class.getSimpleName(), "Figuring It Out!");
+		super(287);
 		bindStartNpc(LAKI);
 		bindTalk(LAKI);
 		bindKill(MONSTERS.keySet());

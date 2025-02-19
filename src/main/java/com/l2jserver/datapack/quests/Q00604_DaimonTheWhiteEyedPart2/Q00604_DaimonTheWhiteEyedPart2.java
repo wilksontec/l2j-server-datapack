@@ -57,7 +57,7 @@ public final class Q00604_DaimonTheWhiteEyedPart2 extends Quest {
 	private static final int DYE_W2M2_C = 4600; // Greater Dye of WIT <Wit+2 Men-2>
 	
 	public Q00604_DaimonTheWhiteEyedPart2() {
-		super(604, Q00604_DaimonTheWhiteEyedPart2.class.getSimpleName(), "Daimon the White-Eyed - Part 2");
+		super(604);
 		bindStartNpc(EYE_OF_ARGOS);
 		bindTalk(EYE_OF_ARGOS, DAIMONS_ALTAR);
 		bindSpawn(DAIMON_THE_WHITE_EYED);

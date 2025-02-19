@@ -50,7 +50,7 @@ public final class Q00293_TheHiddenVeins extends Quest {
 	private static final int REQUIRED_TORN_MAP_FRAGMENT = 4;
 	
 	public Q00293_TheHiddenVeins() {
-		super(293, Q00293_TheHiddenVeins.class.getSimpleName(), "The Hidden Veins");
+		super(293);
 		bindStartNpc(FILAUR);
 		bindTalk(FILAUR, CHICHIRIN);
 		bindKill(MONSTERS);

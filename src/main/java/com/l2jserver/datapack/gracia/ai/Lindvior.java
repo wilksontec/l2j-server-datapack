@@ -52,7 +52,6 @@ public class Lindvior extends AbstractNpcAI {
 	private L2Npc _artius = null;
 	
 	public Lindvior() {
-		super(Lindvior.class.getSimpleName(), "gracia/AI");
 		scheduleNextLindviorVisit();
 	}
 	

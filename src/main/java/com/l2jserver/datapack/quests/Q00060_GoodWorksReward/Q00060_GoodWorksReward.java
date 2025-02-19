@@ -100,7 +100,7 @@ public final class Q00060_GoodWorksReward extends Quest {
 	private static final int THREE_MILLION = 3000000;
 	
 	public Q00060_GoodWorksReward() {
-		super(60, Q00060_GoodWorksReward.class.getSimpleName(), "Good Work's Reward");
+		super(60);
 		bindStartNpc(BLUEPRINT_SELLER_DAEGER);
 		bindTalk(BLUEPRINT_SELLER_DAEGER, GROCER_HELVERIA, BLACK_MARKETEER_OF_MAMMON, MARK);
 		bindKill(PURSUER);

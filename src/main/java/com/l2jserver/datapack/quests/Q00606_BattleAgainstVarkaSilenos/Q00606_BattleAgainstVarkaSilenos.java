@@ -62,7 +62,7 @@ public class Q00606_BattleAgainstVarkaSilenos extends Quest {
 	private static final int MANE_COUNT = 100;
 	
 	public Q00606_BattleAgainstVarkaSilenos() {
-		super(606, Q00606_BattleAgainstVarkaSilenos.class.getSimpleName(), "Battle against Varka Silenos");
+		super(606);
 		bindStartNpc(KADUN);
 		bindTalk(KADUN);
 		bindKill(MOBS.keySet());

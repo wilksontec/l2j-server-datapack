@@ -47,7 +47,7 @@ public class Q00307_ControlDeviceOfTheGiants extends Quest {
 	private static L2Npc hekaton;
 	
 	public Q00307_ControlDeviceOfTheGiants() {
-		super(307, Q00307_ControlDeviceOfTheGiants.class.getSimpleName(), "Control Device of the Giants");
+		super(307);
 		bindStartNpc(DROPH);
 		bindTalk(DROPH);
 		bindKill(GORGOLOS, LAST_TITAN_UTENUS, GIANT_MARPANAK, HEKATON_PRIME);

@@ -53,7 +53,7 @@ public final class Q00624_TheFinestIngredientsPart1 extends Quest {
 	}
 	
 	public Q00624_TheFinestIngredientsPart1() {
-		super(624, Q00624_TheFinestIngredientsPart1.class.getSimpleName(), "The Finest Ingredients - Part 1");
+		super(624);
 		bindStartNpc(JEREMY);
 		bindTalk(JEREMY);
 		bindKill(MONSTER_DROPS.keySet());

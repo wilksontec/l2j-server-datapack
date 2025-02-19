@@ -99,7 +99,6 @@ public final class Baium extends AbstractNpcAI {
 	private static long _lastAttack = 0;
 	
 	public Baium() {
-		super(Baium.class.getSimpleName(), "ai/individual");
 		bindFirstTalk(ANG_VORTEX);
 		bindTalk(ANG_VORTEX, TELE_CUBE, BAIUM_STONE);
 		bindStartNpc(ANG_VORTEX, TELE_CUBE, BAIUM_STONE);

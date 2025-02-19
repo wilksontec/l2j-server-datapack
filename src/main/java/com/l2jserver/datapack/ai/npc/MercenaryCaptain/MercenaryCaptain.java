@@ -73,7 +73,6 @@ public final class MercenaryCaptain extends AbstractNpcAI {
 	private static final int CLASS_LEVEL = 2;
 	
 	public MercenaryCaptain() {
-		super(MercenaryCaptain.class.getSimpleName(), "ai/npc");
 		for (int id : NPCS.keySet()) {
 			bindStartNpc(id);
 			bindFirstTalk(id);

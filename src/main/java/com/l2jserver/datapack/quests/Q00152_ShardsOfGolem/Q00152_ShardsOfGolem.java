@@ -45,7 +45,7 @@ public class Q00152_ShardsOfGolem extends Quest {
 	private static final int MIN_LVL = 10;
 	
 	public Q00152_ShardsOfGolem() {
-		super(152, Q00152_ShardsOfGolem.class.getSimpleName(), "Shards of Golem");
+		super(152);
 		bindStartNpc(HARRYS);
 		bindTalk(HARRYS, ALTRAN);
 		bindKill(STONE_GOLEM);

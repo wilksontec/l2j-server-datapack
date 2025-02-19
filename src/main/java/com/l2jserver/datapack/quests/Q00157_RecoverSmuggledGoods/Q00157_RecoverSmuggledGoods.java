@@ -41,7 +41,7 @@ public class Q00157_RecoverSmuggledGoods extends Quest {
 	private static final int MIN_LVL = 5;
 	
 	public Q00157_RecoverSmuggledGoods() {
-		super(157, Q00157_RecoverSmuggledGoods.class.getSimpleName(), "Recover Smuggled Goods");
+		super(157);
 		bindStartNpc(WILFORD);
 		bindTalk(WILFORD);
 		bindKill(GIANT_TOAD);

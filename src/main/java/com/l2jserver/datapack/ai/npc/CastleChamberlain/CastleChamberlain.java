@@ -140,7 +140,6 @@ public final class CastleChamberlain extends AbstractNpcAI {
 	};
 	
 	public CastleChamberlain() {
-		super(CastleChamberlain.class.getSimpleName(), "ai/npc");
 		bindStartNpc(NPC);
 		bindTalk(NPC);
 		bindFirstTalk(NPC);

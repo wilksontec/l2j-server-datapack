@@ -128,7 +128,7 @@ public class Q00350_EnhanceYourWeapon extends Quest {
 	private static final Map<Integer, Map<Integer, LevelingInfo>> NPC_LEVELING_INFO = new HashMap<>();
 	
 	public Q00350_EnhanceYourWeapon() {
-		super(350, Q00350_EnhanceYourWeapon.class.getSimpleName(), "Enhance Your Weapon");
+		super(350);
 		bindStartNpc(STARTING_NPCS);
 		bindTalk(STARTING_NPCS);
 		load();

@@ -54,7 +54,6 @@ public final class SinWardens extends AbstractNpcAI {
 	private final Map<Integer, Integer> killedMinionsCount = new ConcurrentHashMap<>();
 	
 	public SinWardens() {
-		super(SinWardens.class.getSimpleName(), "ai/individual");
 		bindKill(SIN_WARDEN_MINIONS);
 	}
 	

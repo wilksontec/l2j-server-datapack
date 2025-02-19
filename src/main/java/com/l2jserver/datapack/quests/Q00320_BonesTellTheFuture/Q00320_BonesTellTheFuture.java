@@ -44,7 +44,7 @@ public final class Q00320_BonesTellTheFuture extends Quest {
 	};
 	
 	public Q00320_BonesTellTheFuture() {
-		super(320, Q00320_BonesTellTheFuture.class.getSimpleName(), "Bones Tell The Future");
+		super(320);
 		bindStartNpc(TETRACH_KAITAR);
 		bindTalk(TETRACH_KAITAR);
 		bindKill(MONSTERS);

@@ -39,7 +39,7 @@ public class Q10289_FadeToBlack extends Quest {
 	private static final int ANAYS = 25701;
 	
 	public Q10289_FadeToBlack() {
-		super(10289, Q10289_FadeToBlack.class.getSimpleName(), "Fade to Black");
+		super(10289);
 		bindStartNpc(GREYMORE);
 		bindTalk(GREYMORE);
 		bindKill(ANAYS);

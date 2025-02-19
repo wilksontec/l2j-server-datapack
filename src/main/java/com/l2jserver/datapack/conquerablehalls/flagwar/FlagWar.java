@@ -93,8 +93,8 @@ public abstract class FlagWar extends ClanHallSiegeEngine {
 	protected L2Clan _winner;
 	private boolean _firstPhase;
 	
-	public FlagWar(String name, int hallId) {
-		super(name, "conquerablehalls/flagwar", hallId);
+	public FlagWar(int hallId) {
+		super(hallId);
 		bindStartNpc(MESSENGER);
 		bindFirstTalk(MESSENGER);
 		bindTalk(MESSENGER);

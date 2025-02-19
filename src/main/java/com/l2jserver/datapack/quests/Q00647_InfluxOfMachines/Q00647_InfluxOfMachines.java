@@ -70,7 +70,7 @@ public class Q00647_InfluxOfMachines extends Quest {
 	private static final int FRAGMENT_COUNT = 500;
 	
 	public Q00647_InfluxOfMachines() {
-		super(647, Q00647_InfluxOfMachines.class.getSimpleName(), "Influx of Machines");
+		super(647);
 		bindStartNpc(GUTENHAGEN);
 		bindTalk(GUTENHAGEN);
 		bindKill(MOBS.keySet());

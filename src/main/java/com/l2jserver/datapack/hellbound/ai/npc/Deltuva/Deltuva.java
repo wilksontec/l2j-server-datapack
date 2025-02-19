@@ -36,7 +36,6 @@ public final class Deltuva extends AbstractNpcAI {
 	private static final Location TELEPORT = new Location(17934, 283189, -9701);
 	
 	public Deltuva() {
-		super(Deltuva.class.getSimpleName(), "hellbound/AI/NPC");
 		bindStartNpc(DELTUVA);
 		bindTalk(DELTUVA);
 	}

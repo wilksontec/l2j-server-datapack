@@ -30,7 +30,7 @@ import com.l2jserver.gameserver.model.base.ClassId;
  */
 public final class ElfHumanClericChange2 extends AbstractNpcAI {
 	// NPCs
-	private static int[] NPCS = {
+	private static final int[] NPCS = {
 		30120, // Maximilian
 		30191, // Hollint
 		30857, // Orven
@@ -53,7 +53,6 @@ public final class ElfHumanClericChange2 extends AbstractNpcAI {
 	private static final int ELDER = 30;
 	
 	public ElfHumanClericChange2() {
-		super(ElfHumanClericChange2.class.getSimpleName(), "village_master");
 		bindStartNpc(NPCS);
 		bindTalk(NPCS);
 	}

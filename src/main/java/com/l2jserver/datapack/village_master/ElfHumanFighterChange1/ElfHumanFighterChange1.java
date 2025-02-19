@@ -31,7 +31,7 @@ import com.l2jserver.gameserver.model.base.ClassId;
  */
 public final class ElfHumanFighterChange1 extends AbstractNpcAI {
 	// NPCs
-	private static int[] NPCS = {
+	private static final int[] NPCS = {
 		30066, // Pabris
 		30288, // Rains
 		30373, // Ramos
@@ -53,7 +53,6 @@ public final class ElfHumanFighterChange1 extends AbstractNpcAI {
 	private static final int ELVEN_SCOUT = 22;
 	
 	public ElfHumanFighterChange1() {
-		super(ElfHumanFighterChange1.class.getSimpleName(), "village_master");
 		bindStartNpc(NPCS);
 		bindTalk(NPCS);
 	}

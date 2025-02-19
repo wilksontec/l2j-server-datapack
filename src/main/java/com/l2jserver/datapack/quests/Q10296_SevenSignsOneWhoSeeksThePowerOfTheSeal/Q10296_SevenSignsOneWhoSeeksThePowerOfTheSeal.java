@@ -44,7 +44,7 @@ public final class Q10296_SevenSignsOneWhoSeeksThePowerOfTheSeal extends Quest {
 	private static final int MIN_LEVEL = 81;
 	
 	public Q10296_SevenSignsOneWhoSeeksThePowerOfTheSeal() {
-		super(10296, Q10296_SevenSignsOneWhoSeeksThePowerOfTheSeal.class.getSimpleName(), "Seven Signs, One Who Seeks the Power of the Seal");
+		super(10296);
 		bindStartNpc(ERISS_EVIL_THOUGHTS, ODD_GLOBE);
 		bindTalk(ERISS_EVIL_THOUGHTS, ODD_GLOBE, HARDIN, WOOD, FRANZ, ELCADIA, ELCADIA_2);
 	}

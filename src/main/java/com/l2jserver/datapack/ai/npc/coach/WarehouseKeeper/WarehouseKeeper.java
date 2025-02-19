@@ -44,10 +44,10 @@ public class WarehouseKeeper extends FighterCoach {
 	};
 	
 	public WarehouseKeeper() {
-		super(WarehouseKeeper.class.getSimpleName(), COACHES, CONDITIONS);
+		super(COACHES, CONDITIONS);
 	}
 	
-	public WarehouseKeeper(String name, int[] coaches) {
-		super(name, coaches, CONDITIONS);
+	public WarehouseKeeper(int[] coaches) {
+		super(coaches, CONDITIONS);
 	}
 }

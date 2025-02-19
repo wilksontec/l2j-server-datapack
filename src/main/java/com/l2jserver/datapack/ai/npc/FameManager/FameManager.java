@@ -42,7 +42,6 @@ public final class FameManager extends AbstractNpcAI {
 	private static final int CLASS_LVL = 2;
 	
 	public FameManager() {
-		super(FameManager.class.getSimpleName(), "ai/npc");
 		bindStartNpc(FAME_MANAGER);
 		bindTalk(FAME_MANAGER);
 		bindFirstTalk(FAME_MANAGER);

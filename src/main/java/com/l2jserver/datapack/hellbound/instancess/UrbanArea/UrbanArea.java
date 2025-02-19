@@ -86,7 +86,6 @@ public final class UrbanArea extends AbstractInstance {
 	};
 	
 	public UrbanArea() {
-		super(UrbanArea.class.getSimpleName(), "hellbound/Instances");
 		bindFirstTalk(DOWNTOWN_NATIVE);
 		bindStartNpc(KANAF, DOWNTOWN_NATIVE);
 		bindTalk(KANAF, DOWNTOWN_NATIVE);

@@ -41,7 +41,6 @@ public final class StakatoNestTeleporter extends AbstractNpcAI {
 	private final static int KINTAIJIN = 32640;
 	
 	public StakatoNestTeleporter() {
-		super(StakatoNestTeleporter.class.getSimpleName(), "ai/npc/Teleports");
 		bindStartNpc(KINTAIJIN);
 		bindTalk(KINTAIJIN);
 	}

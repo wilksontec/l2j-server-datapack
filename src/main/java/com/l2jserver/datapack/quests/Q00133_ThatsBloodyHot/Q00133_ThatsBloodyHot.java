@@ -41,7 +41,7 @@ public class Q00133_ThatsBloodyHot extends Quest {
 	private static final int MIN_LEVEL = 78;
 	
 	public Q00133_ThatsBloodyHot() {
-		super(133, Q00133_ThatsBloodyHot.class.getSimpleName(), "That's Bloody Hot!");
+		super(133);
 		bindStartNpc(KANIS);
 		bindTalk(KANIS, GALATE);
 		registerQuestItems(REFINED_CRYSTAL_SAMPLE);

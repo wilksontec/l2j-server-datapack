@@ -82,7 +82,7 @@ public class Q00309_ForAGoodCause extends Quest {
 	private static final int MIN_LEVEL = 82;
 	
 	public Q00309_ForAGoodCause() {
-		super(309, Q00309_ForAGoodCause.class.getSimpleName(), "For A Good Cause");
+		super(309);
 		bindStartNpc(ATRA);
 		bindTalk(ATRA);
 		bindKill(DROPLIST.getNpcIds());

@@ -40,7 +40,7 @@ public class Q00179_IntoTheLargeCavern extends Quest {
 	private static final int MAX_LEVEL = 21;
 	
 	public Q00179_IntoTheLargeCavern() {
-		super(179, Q00179_IntoTheLargeCavern.class.getSimpleName(), "Into The Large Cavern");
+		super(179);
 		bindStartNpc(KEKROPUS);
 		bindTalk(KEKROPUS, MENACING_MACHINE);
 	}

@@ -35,7 +35,7 @@ public class Q00122_OminousNews extends Quest {
 	private static final int KARUDA = 32017;
 	
 	public Q00122_OminousNews() {
-		super(122, Q00122_OminousNews.class.getSimpleName(), "Ominous News");
+		super(122);
 		bindStartNpc(MOIRA);
 		bindTalk(MOIRA, KARUDA);
 	}

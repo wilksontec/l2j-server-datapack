@@ -33,7 +33,6 @@ public final class NaiaLock extends AbstractNpcAI {
 	private static final int LOCK = 18491;
 	
 	public NaiaLock() {
-		super(NaiaLock.class.getSimpleName(), "hellbound/AI");
 		bindKill(LOCK);
 	}
 	

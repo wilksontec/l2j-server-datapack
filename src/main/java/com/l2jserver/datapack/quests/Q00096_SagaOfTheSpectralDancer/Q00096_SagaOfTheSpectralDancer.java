@@ -27,7 +27,7 @@ import com.l2jserver.gameserver.model.Location;
  */
 public class Q00096_SagaOfTheSpectralDancer extends AbstractSagaQuest {
 	public Q00096_SagaOfTheSpectralDancer() {
-		super(96, Q00096_SagaOfTheSpectralDancer.class.getSimpleName(), "Saga of the Spectral Dancer");
+		super(96);
 		_npc = new int[] {
 			31582,
 			31623,

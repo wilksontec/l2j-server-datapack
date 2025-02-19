@@ -56,8 +56,6 @@ public final class RiftWatcher extends AbstractNpcAI {
 	private static final int MAX_DISTANCE = 1500;
 	
 	public RiftWatcher() {
-		super(RiftWatcher.class.getSimpleName(), "ai/npc");
-		
 		bindStartNpc(NPCS);
 		bindFirstTalk(NPCS);
 	}

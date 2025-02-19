@@ -39,7 +39,7 @@ public class Q00130_PathToHellbound extends Quest {
 	private static final int MIN_LEVEL = 78;
 	
 	public Q00130_PathToHellbound() {
-		super(130, Q00130_PathToHellbound.class.getSimpleName(), "Path To Hellbound");
+		super(130);
 		bindStartNpc(CASIAN);
 		bindTalk(CASIAN, GALATE);
 		registerQuestItems(CASIANS_BLUE_CRYSTAL);

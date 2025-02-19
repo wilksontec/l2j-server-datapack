@@ -50,7 +50,7 @@ public final class Q00275_DarkWingedSpies extends Quest {
 	private static final int FANG_PRICE = 60;
 	
 	public Q00275_DarkWingedSpies() {
-		super(275, Q00275_DarkWingedSpies.class.getSimpleName(), "Dark Winged Spies");
+		super(275);
 		bindStartNpc(NERUGA_CHIEF_TANTUS);
 		bindTalk(NERUGA_CHIEF_TANTUS);
 		bindKill(DARKWING_BAT, VARANGKAS_TRACKER);

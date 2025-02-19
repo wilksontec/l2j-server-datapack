@@ -36,7 +36,7 @@ public class Q00015_SweetWhispers extends Quest {
 	private static final int M_NECROMANCER = 31518;
 	
 	public Q00015_SweetWhispers() {
-		super(15, Q00015_SweetWhispers.class.getSimpleName(), "Sweet Whispers");
+		super(15);
 		bindStartNpc(VLADIMIR);
 		bindTalk(VLADIMIR, HIERARCH, M_NECROMANCER);
 	}

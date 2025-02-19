@@ -36,7 +36,7 @@ public class Q10271_TheEnvelopingDarkness extends Quest {
 	private static final int MEDIBAL_DOCUMENT = 13852;
 	
 	public Q10271_TheEnvelopingDarkness() {
-		super(10271, Q10271_TheEnvelopingDarkness.class.getSimpleName(), "The Enveloping Darkness");
+		super(10271);
 		bindStartNpc(ORBYU);
 		bindTalk(ORBYU, EL, MEDIBAL_CORPSE);
 		registerQuestItems(MEDIBAL_DOCUMENT);

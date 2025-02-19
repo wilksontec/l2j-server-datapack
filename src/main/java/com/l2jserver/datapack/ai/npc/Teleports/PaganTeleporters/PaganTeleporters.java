@@ -53,7 +53,6 @@ public final class PaganTeleporters extends AbstractNpcAI {
 	private static final int PAGANS_MARK = 8067;
 	
 	public PaganTeleporters() {
-		super(PaganTeleporters.class.getSimpleName(), "ai/npc/Teleports");
 		bindStartNpc(NPCS);
 		bindTalk(NPCS);
 		bindFirstTalk(TRIOLS_MIRROR_1, TRIOLS_MIRROR_2);

@@ -41,7 +41,7 @@ public final class Q00187_NikolasHeart extends Quest {
 	private static final int MAX_LEVEL_FOR_EXP_SP = 47;
 	
 	public Q00187_NikolasHeart() {
-		super(187, Q00187_NikolasHeart.class.getSimpleName(), "Nikola's Heart");
+		super(187);
 		bindStartNpc(RESEARCHER_LORAIN);
 		bindTalk(HEAD_BLACKSMITH_KUSTO, RESEARCHER_LORAIN, MAESTRO_NIKOLA);
 		registerQuestItems(METALLOGRAPH);

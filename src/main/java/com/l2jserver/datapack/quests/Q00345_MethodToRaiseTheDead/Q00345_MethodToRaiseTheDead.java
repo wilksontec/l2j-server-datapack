@@ -53,7 +53,7 @@ public final class Q00345_MethodToRaiseTheDead extends Quest {
 	private static final int CROKIAN_WARRIOR = 20791;
 	
 	public Q00345_MethodToRaiseTheDead() {
-		super(345, Q00345_MethodToRaiseTheDead.class.getSimpleName(), "Method to Raise the Dead");
+		super(345);
 		bindStartNpc(DOROTHY);
 		bindTalk(DOROTHY, ORPHEUS, MEDIUM_JAR, XENOVIA);
 		bindKill(CROKIAN, CROKIAN_WARRIOR);

@@ -42,7 +42,7 @@ public class Q00614_SlayTheEnemyCommanderVarka extends Quest {
 	private static final int MIN_LEVEL = 75;
 	
 	public Q00614_SlayTheEnemyCommanderVarka() {
-		super(614, Q00614_SlayTheEnemyCommanderVarka.class.getSimpleName(), "Slay the Enemy Commander! (Varka)");
+		super(614);
 		bindStartNpc(ASHAS);
 		bindTalk(ASHAS);
 		bindKill(TAYR);

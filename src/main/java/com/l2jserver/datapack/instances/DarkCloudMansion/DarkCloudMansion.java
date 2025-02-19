@@ -196,7 +196,6 @@ public final class DarkCloudMansion extends AbstractInstance {
 	// @formatter:on
 	
 	public DarkCloudMansion() {
-		super(DarkCloudMansion.class.getSimpleName());
 		bindFirstTalk(BSM, SOTruth);
 		bindStartNpc(YIYEN);
 		bindTalk(YIYEN, SOTruth);

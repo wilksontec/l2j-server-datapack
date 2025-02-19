@@ -39,7 +39,6 @@ public class Rignos extends AbstractNpcAI {
 	private static final int MIN_LV = 78;
 	
 	public Rignos() {
-		super(Rignos.class.getSimpleName(), "ai/npc");
 		bindStartNpc(RIGNOS);
 		bindTalk(RIGNOS);
 		bindFirstTalk(RIGNOS);

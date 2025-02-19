@@ -35,7 +35,6 @@ public final class BlacksmithOfMammon extends AbstractNpcAI {
 	private static final int BLACKSMITH_MAMMON = 31126;
 	
 	public BlacksmithOfMammon() {
-		super(BlacksmithOfMammon.class.getSimpleName(), "ai/npc");
 		bindStartNpc(BLACKSMITH_MAMMON);
 		bindFirstTalk(BLACKSMITH_MAMMON);
 	}

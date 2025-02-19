@@ -62,7 +62,7 @@ public final class Q00422_RepentYourSins extends Quest {
 	private static final int TRISALIM_TARANTULA = 20561;
 	
 	public Q00422_RepentYourSins() {
-		super(422, Q00422_RepentYourSins.class.getSimpleName(), "Repent Your Sins");
+		super(422);
 		bindStartNpc(BLACK_JUDGE);
 		bindTalk(BLACK_JUDGE, BLACKSMITH_PUSHKIN, PIOTUR, ELDER_CASIAN, KATARI, MAGISTER_JOAN);
 		bindKill(SCAVENGER_WERERAT, TYRANT_KINGPIN, TUREK_WAR_HOUND, TRISALIM_TARANTULA);

@@ -60,7 +60,7 @@ public final class Q00418_PathOfTheArtisan extends Quest {
 	private static final int MIN_LEVEL = 18;
 	
 	public Q00418_PathOfTheArtisan() {
-		super(418, Q00418_PathOfTheArtisan.class.getSimpleName(), "Path Of The Artisan");
+		super(418);
 		bindStartNpc(BLACKSMITH_SILVERA);
 		bindTalk(BLACKSMITH_SILVERA, BLACKSMITH_PINTER, BLACKSMITH_KLUTO, IRON_GATES_LOCKIRIN, WAREHOUSE_KEEPER_RYDEL, MINERAL_TRADER_HITCHI, RAILROAD_WORKER_OBI);
 		bindKill(VUKU_ORC_FIGHTER, BOOGLE_RATMAN, BOOGLE_RATMAN_LEADER);

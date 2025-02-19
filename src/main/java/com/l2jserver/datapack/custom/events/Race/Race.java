@@ -107,7 +107,6 @@ public final class Race extends Event {
 	// @formatter:on
 	
 	private Race() {
-		super(Race.class.getSimpleName(), "custom/events");
 		bindStartNpc(START_NPC);
 		bindFirstTalk(START_NPC);
 		bindTalk(START_NPC);

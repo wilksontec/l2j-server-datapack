@@ -37,7 +37,6 @@ public final class Katenar extends AbstractNpcAI {
 	private static final int SEALED_DOCUMENT = 9803;
 	
 	public Katenar() {
-		super(Katenar.class.getSimpleName(), "ai/npc");
 		bindStartNpc(KATENAR);
 		bindTalk(KATENAR);
 		bindFirstTalk(KATENAR);

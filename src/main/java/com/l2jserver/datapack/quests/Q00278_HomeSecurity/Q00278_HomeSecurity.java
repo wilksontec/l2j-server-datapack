@@ -42,7 +42,7 @@ public class Q00278_HomeSecurity extends Quest {
 	private static final QuestItemChanceHolder SEL_MAHUM_MANE = new QuestItemChanceHolder(15531, 300L);
 	
 	public Q00278_HomeSecurity() {
-		super(278, Q00278_HomeSecurity.class.getSimpleName(), "Home Security");
+		super(278);
 		bindStartNpc(TUNATUN);
 		bindTalk(TUNATUN);
 		bindKill(MONSTER);

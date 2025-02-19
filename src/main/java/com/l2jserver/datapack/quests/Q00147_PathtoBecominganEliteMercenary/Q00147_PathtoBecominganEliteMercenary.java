@@ -47,7 +47,7 @@ public class Q00147_PathtoBecominganEliteMercenary extends Quest {
 	private static final int ELITE_CERTIFICATE = 13767;
 	
 	public Q00147_PathtoBecominganEliteMercenary() {
-		super(147, Q00147_PathtoBecominganEliteMercenary.class.getSimpleName(), "Path to Becoming an Elite Mercenary");
+		super(147);
 		bindStartNpc(MERC);
 		bindTalk(MERC);
 	}

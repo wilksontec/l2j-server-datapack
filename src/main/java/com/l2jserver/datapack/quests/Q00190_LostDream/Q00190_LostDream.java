@@ -39,7 +39,7 @@ public final class Q00190_LostDream extends Quest {
 	private static final int MAX_LEVEL_FOR_EXP_SP = 48;
 	
 	public Q00190_LostDream() {
-		super(190, Q00190_LostDream.class.getSimpleName(), "Lost Dream");
+		super(190);
 		bindStartNpc(HEAD_BLACKSMITH_KUSTO);
 		bindTalk(HEAD_BLACKSMITH_KUSTO, RESEARCHER_LORAIN, MAESTRO_NIKOLA, JURIS);
 	}

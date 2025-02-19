@@ -41,7 +41,7 @@ public class Q00338_AlligatorHunter extends Quest {
 	private static final int SECOND_CHANCE = 19;
 	
 	public Q00338_AlligatorHunter() {
-		super(338, Q00338_AlligatorHunter.class.getSimpleName(), "Alligator Hunter");
+		super(338);
 		bindStartNpc(ENVERUN);
 		bindTalk(ENVERUN);
 		bindKill(ALLIGATOR);

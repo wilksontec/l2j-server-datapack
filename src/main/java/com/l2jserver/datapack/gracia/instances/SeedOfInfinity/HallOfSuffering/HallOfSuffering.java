@@ -174,7 +174,6 @@ public final class HallOfSuffering extends AbstractInstance {
 	private static final int MAX_LEVEL = 82;
 	
 	public HallOfSuffering() {
-		super(HallOfSuffering.class.getSimpleName(), "gracia/instances/SeedOfInfinity");
 		bindStartNpc(MOUTH_OF_EKIMUS, TEPIOS);
 		bindTalk(MOUTH_OF_EKIMUS, TEPIOS);
 		bindFirstTalk(TEPIOS);

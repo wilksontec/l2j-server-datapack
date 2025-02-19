@@ -52,7 +52,6 @@ public final class SoDController extends AirShipController {
 	};
 	
 	public SoDController() {
-		super(-1, SoDController.class.getSimpleName(), "gracia/vehicles");
 		bindStartNpc(CONTROLLER_ID);
 		bindFirstTalk(CONTROLLER_ID);
 		bindTalk(CONTROLLER_ID);

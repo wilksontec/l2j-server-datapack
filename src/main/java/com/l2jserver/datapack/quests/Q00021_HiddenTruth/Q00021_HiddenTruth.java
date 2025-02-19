@@ -63,7 +63,7 @@ public class Q00021_HiddenTruth extends Quest {
 	private boolean MOVE_ENDED = false;
 	
 	public Q00021_HiddenTruth() {
-		super(21, Q00021_HiddenTruth.class.getSimpleName(), "Hidden Truth");
+		super(21);
 		bindStartNpc(MYSTERIOUS_WIZARD);
 		bindTalk(MYSTERIOUS_WIZARD, TOMBSTONE, GHOST_OF_VON_HELLMAN, GHOST_OF_VON_HELLMANS_PAGE, BROKEN_BOOKSHELF, AGRIPEL, BENEDICT, DOMINIC, INNOCENTIN);
 		bindSeeCreature(GHOST_OF_VON_HELLMANS_PAGE);

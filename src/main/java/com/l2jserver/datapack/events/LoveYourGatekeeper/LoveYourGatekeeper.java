@@ -43,7 +43,6 @@ public final class LoveYourGatekeeper extends LongTimeEvent {
 	private static final String REUSE = LoveYourGatekeeper.class.getSimpleName() + "_reuse";
 	
 	private LoveYourGatekeeper() {
-		super(LoveYourGatekeeper.class.getSimpleName(), "events");
 		bindStartNpc(GATEKEEPER);
 		bindFirstTalk(GATEKEEPER);
 		bindTalk(GATEKEEPER);

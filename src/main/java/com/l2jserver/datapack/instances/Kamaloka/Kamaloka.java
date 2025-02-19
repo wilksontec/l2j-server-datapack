@@ -1171,7 +1171,6 @@ public final class Kamaloka extends AbstractInstance {
 	}
 	
 	public Kamaloka() {
-		super(Kamaloka.class.getSimpleName());
 		bindFirstTalk(TELEPORTER);
 		bindTalk(TELEPORTER);
 		bindStartNpc(CAPTAINS);

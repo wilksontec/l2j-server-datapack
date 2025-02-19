@@ -79,7 +79,6 @@ public final class ToIVortex extends AbstractNpcAI {
 	}
 	
 	public ToIVortex() {
-		super(ToIVortex.class.getSimpleName(), "ai/npc/Teleports");
 		bindStartNpc(KEPLON, EUCLIE, PITHGON, DIMENSION_VORTEX_1, DIMENSION_VORTEX_2, DIMENSION_VORTEX_3);
 		bindTalk(KEPLON, EUCLIE, PITHGON, DIMENSION_VORTEX_1, DIMENSION_VORTEX_2, DIMENSION_VORTEX_3);
 	}

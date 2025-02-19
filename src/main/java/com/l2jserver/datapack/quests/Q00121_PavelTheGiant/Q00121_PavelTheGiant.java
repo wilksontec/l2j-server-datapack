@@ -35,7 +35,7 @@ public class Q00121_PavelTheGiant extends Quest {
 	private static final int YUMI = 32041;
 	
 	public Q00121_PavelTheGiant() {
-		super(121, Q00121_PavelTheGiant.class.getSimpleName(), "Pavel the Giant");
+		super(121);
 		bindStartNpc(NEWYEAR);
 		bindTalk(NEWYEAR, YUMI);
 	}

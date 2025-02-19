@@ -70,7 +70,6 @@ public final class Alexandria extends AbstractNpcAI {
 	}
 	
 	public Alexandria() {
-		super(Alexandria.class.getSimpleName(), "ai/npc");
 		bindStartNpc(ALEXANDRIA);
 		bindTalk(ALEXANDRIA);
 		bindFirstTalk(ALEXANDRIA);

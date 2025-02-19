@@ -44,7 +44,7 @@ public class Q00252_ItSmellsDelicious extends Quest {
 	private static final int CHEF = 18908;
 	
 	public Q00252_ItSmellsDelicious() {
-		super(252, Q00252_ItSmellsDelicious.class.getSimpleName(), "It Smells Delicious!");
+		super(252);
 		bindStartNpc(STAN);
 		bindTalk(STAN);
 		bindKill(CHEF);

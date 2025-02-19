@@ -498,7 +498,6 @@ public final class CrystalCaverns extends AbstractInstance {
 	private static final int DRAGONCLAWTIME = 3000;
 	
 	public CrystalCaverns() {
-		super(CrystalCaverns.class.getSimpleName());
 		bindStartNpc(ORACLE_GUIDE_1, ORACLE_GUIDE_4);
 		bindTalk(ORACLE_GUIDE_1, ORACLE_GUIDE_3, ORACLE_GUIDE_4, 32275, 32276, 32277);
 		bindFirstTalk(ORACLE_GUIDE_1, ORACLE_GUIDE_2, ORACLE_GUIDE_4, CRYSTALLINE_GOLEM, 32274, 32275, 32276, 32277);

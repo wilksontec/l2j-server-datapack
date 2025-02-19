@@ -53,7 +53,6 @@ public class ArenaManager extends AbstractNpcAI {
 	private static final int BUFF_COST = 2000;
 	
 	public ArenaManager() {
-		super(ArenaManager.class.getSimpleName(), "ai/npc");
 		bindStartNpc(ARENA_MANAGER);
 		bindTalk(ARENA_MANAGER);
 		bindFirstTalk(ARENA_MANAGER);

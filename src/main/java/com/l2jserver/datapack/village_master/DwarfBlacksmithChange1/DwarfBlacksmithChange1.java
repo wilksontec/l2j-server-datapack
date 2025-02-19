@@ -30,7 +30,7 @@ import com.l2jserver.gameserver.model.base.ClassId;
  */
 public final class DwarfBlacksmithChange1 extends AbstractNpcAI {
 	// NPCs
-	private static int[] NPCS = {
+	private static final int[] NPCS = {
 		30499, // Tapoy
 		30504, // Mendio
 		30595, // Opix
@@ -44,7 +44,6 @@ public final class DwarfBlacksmithChange1 extends AbstractNpcAI {
 	private static final int ARTISAN = 56;
 	
 	public DwarfBlacksmithChange1() {
-		super(DwarfBlacksmithChange1.class.getSimpleName(), "village_master");
 		bindStartNpc(NPCS);
 		bindTalk(NPCS);
 	}

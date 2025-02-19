@@ -34,7 +34,6 @@ public final class Jude extends AbstractNpcAI {
 	private static final int RING_OF_WIND_MASTERY = 9677;
 	
 	public Jude() {
-		super(Jude.class.getSimpleName(), "hellbound/AI/NPC");
 		bindFirstTalk(JUDE);
 		bindStartNpc(JUDE);
 		bindTalk(JUDE);

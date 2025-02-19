@@ -44,7 +44,7 @@ public final class Q00132_MatrasCuriosity extends Quest {
 	private static final int BLUEPRINT_PRINCE = 9801;
 	
 	public Q00132_MatrasCuriosity() {
-		super(132, Q00132_MatrasCuriosity.class.getSimpleName(), "Matras' Curiosity");
+		super(132);
 		bindStartNpc(MATRAS);
 		bindTalk(MATRAS);
 		bindKill(RANKU, DEMON_PRINCE);

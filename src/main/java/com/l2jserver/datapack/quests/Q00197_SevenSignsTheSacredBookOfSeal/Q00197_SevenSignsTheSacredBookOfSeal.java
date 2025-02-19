@@ -51,7 +51,7 @@ public final class Q00197_SevenSignsTheSacredBookOfSeal extends Quest {
 	private boolean isBusy = false;
 	
 	public Q00197_SevenSignsTheSacredBookOfSeal() {
-		super(197, Q00197_SevenSignsTheSacredBookOfSeal.class.getSimpleName(), "Seven Signs, the Sacred Book of Seal");
+		super(197);
 		bindStartNpc(WOOD);
 		bindTalk(WOOD, ORVEN, LEOPARD, LAWRENCE, SOPHIA);
 		bindKill(SHILENS_EVIL_THOUGHTS);

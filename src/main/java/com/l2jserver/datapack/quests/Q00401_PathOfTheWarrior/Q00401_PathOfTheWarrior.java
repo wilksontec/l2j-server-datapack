@@ -55,7 +55,7 @@ public final class Q00401_PathOfTheWarrior extends Quest {
 	private static final int MIN_LEVEL = 18;
 	
 	public Q00401_PathOfTheWarrior() {
-		super(401, Q00401_PathOfTheWarrior.class.getSimpleName(), "Path Of The Warrior");
+		super(401);
 		bindStartNpc(MASTER_AURON);
 		bindTalk(MASTER_AURON, TRADER_SIMPLON);
 		bindAttack(VENOMOUS_SPIDERS, ARACHNID_TRACKER);

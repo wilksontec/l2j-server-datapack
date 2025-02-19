@@ -83,7 +83,6 @@ public final class KetraOrcSupport extends AbstractNpcAI {
 	}
 	
 	public KetraOrcSupport() {
-		super(KetraOrcSupport.class.getSimpleName(), "ai/npc");
 		bindFirstTalk(KADUN, WAHKAN, ASEFA, ATAN, JAFF, JUMARA, KURFA);
 		bindTalk(ASEFA, KURFA, JAFF);
 		bindStartNpc(KURFA, JAFF);

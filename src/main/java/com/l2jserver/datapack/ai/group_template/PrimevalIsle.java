@@ -100,7 +100,6 @@ public final class PrimevalIsle extends AbstractNpcAI {
 	private static final SkillHolder INVIN_BUFF_ON = new SkillHolder(5225, 1); // Invincible
 	
 	public PrimevalIsle() {
-		super(PrimevalIsle.class.getSimpleName(), "ai/group_template");
 		bindSpawn(TREX);
 		bindSpawn(SPRIGNANT);
 		bindSpawn(MONSTERS);

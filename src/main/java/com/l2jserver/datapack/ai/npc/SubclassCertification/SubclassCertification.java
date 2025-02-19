@@ -80,7 +80,6 @@ public final class SubclassCertification extends AbstractNpcAI {
 	private static final int MIN_LVL = 65;
 	
 	public SubclassCertification() {
-		super(SubclassCertification.class.getSimpleName(), "ai/npc");
 		bindStartNpc(NPCS);
 		bindTalk(NPCS);
 	}

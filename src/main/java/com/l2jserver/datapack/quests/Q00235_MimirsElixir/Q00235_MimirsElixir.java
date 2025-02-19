@@ -61,7 +61,7 @@ public final class Q00235_MimirsElixir extends Quest {
 	private static final SkillHolder QUEST_MIMIRS_ELIXIR = new SkillHolder(4339);
 	
 	public Q00235_MimirsElixir() {
-		super(235, Q00235_MimirsElixir.class.getSimpleName(), "Mimir's Elixir");
+		super(235);
 		bindStartNpc(LADD);
 		bindTalk(LADD, JOAN, ALCHEMISTS_MIXING_URN);
 		bindKill(DROPLIST.getNpcIds());

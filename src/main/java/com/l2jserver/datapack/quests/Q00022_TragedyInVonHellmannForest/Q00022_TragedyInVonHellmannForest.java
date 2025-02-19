@@ -68,7 +68,7 @@ public final class Q00022_TragedyInVonHellmannForest extends Quest {
 	private static L2Npc _soulWellNpc = null;
 	
 	public Q00022_TragedyInVonHellmannForest() {
-		super(22, Q00022_TragedyInVonHellmannForest.class.getSimpleName(), "Tragedy in Von Hellmann Forest");
+		super(22);
 		bindKill(MOBS);
 		bindKill(SOUL_OF_WELL);
 		bindAttack(SOUL_OF_WELL);

@@ -53,7 +53,6 @@ public final class FortressArcherCaptain extends AbstractNpcAI {
 	};
 	
 	public FortressArcherCaptain() {
-		super(FortressArcherCaptain.class.getSimpleName(), "ai/npc");
 		bindStartNpc(ARCHER_CAPTAIN);
 		bindFirstTalk(ARCHER_CAPTAIN);
 	}

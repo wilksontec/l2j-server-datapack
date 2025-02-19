@@ -25,7 +25,7 @@ import com.l2jserver.datapack.ai.npc.coach.FighterCoach.FighterCoach;
  * @author Zoey76
  * @version 2.6.3.0
  */
-public class Blacksmith extends FighterCoach {
+public final class Blacksmith extends FighterCoach {
 	
 	// @formatter:off
 	private static final int[] COACHES = {
@@ -35,6 +35,6 @@ public class Blacksmith extends FighterCoach {
 	// @formatter:on
 	
 	public Blacksmith() {
-		super(Blacksmith.class.getSimpleName(), COACHES);
+		super(COACHES);
 	}
 }

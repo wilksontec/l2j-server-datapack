@@ -50,7 +50,6 @@ public final class LairOfAntharas extends AbstractNpcAI {
 	final private static int KNIGHT_CHANCE = 30;
 	
 	public LairOfAntharas() {
-		super(LairOfAntharas.class.getSimpleName(), "ai/group_template");
 		bindKill(DRAGON_KNIGHT, DRAGON_KNIGHT2, DRAGON_GUARD, DRAGON_MAGE);
 		bindSpawn(DRAGON_KNIGHT, DRAGON_KNIGHT2, DRAGON_GUARD, DRAGON_MAGE, DRAKE_LEADER);
 		bindMoveFinished(DRAGON_GUARD, DRAGON_MAGE);

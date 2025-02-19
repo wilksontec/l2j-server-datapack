@@ -37,7 +37,7 @@ public class Q00695_DefendTheHallOfSuffering extends Quest {
 	private static final int MAX_LEVEL = 82;
 	
 	public Q00695_DefendTheHallOfSuffering() {
-		super(695, Q00695_DefendTheHallOfSuffering.class.getSimpleName(), "Defend the Hall of Suffering");
+		super(695);
 		bindStartNpc(TEPIOS);
 		bindTalk(TEPIOS);
 	}

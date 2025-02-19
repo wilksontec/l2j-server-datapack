@@ -405,8 +405,6 @@ public final class MinionSpawnManager extends AbstractNpcAI {
 	};
 	
 	public MinionSpawnManager() {
-		super(MinionSpawnManager.class.getSimpleName(), "ai/group_template");
-		
 		bindSpawn(NPC);
 		bindAttack(ON_ATTACK_NPC);
 	}

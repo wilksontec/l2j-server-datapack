@@ -49,7 +49,7 @@ public final class Q10286_ReunionWithSirra extends Quest {
 	private static final Location EXIT_LOC = new Location(113793, -109342, -845, 0);
 	
 	public Q10286_ReunionWithSirra() {
-		super(10286, Q10286_ReunionWithSirra.class.getSimpleName(), "Reunion with Sirra");
+		super(10286);
 		bindStartNpc(RAFFORTY);
 		bindTalk(RAFFORTY, JINIA, SIRRA, JINIA2);
 		registerQuestItems(BLACK_FROZEN_CORE);

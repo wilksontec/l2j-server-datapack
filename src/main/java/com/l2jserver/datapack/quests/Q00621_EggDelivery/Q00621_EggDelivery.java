@@ -54,7 +54,7 @@ public final class Q00621_EggDelivery extends Quest {
 	private static final List<Integer> TALKERS = Arrays.asList(NAFF, CROCUS, KUBER, BOELIN);
 	
 	public Q00621_EggDelivery() {
-		super(621, Q00621_EggDelivery.class.getSimpleName(), "Egg Delivery");
+		super(621);
 		bindStartNpc(JEREMY);
 		bindTalk(JEREMY, PULIN, VALENTINE);
 		bindTalk(TALKERS);

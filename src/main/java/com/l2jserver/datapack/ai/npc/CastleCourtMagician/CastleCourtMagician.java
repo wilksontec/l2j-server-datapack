@@ -112,7 +112,6 @@ public final class CastleCourtMagician extends AbstractNpcAI {
 	};
 	
 	public CastleCourtMagician() {
-		super(CastleCourtMagician.class.getSimpleName(), "ai/npc");
 		bindStartNpc(COURT_MAGICIAN);
 		bindTalk(COURT_MAGICIAN);
 		bindFirstTalk(COURT_MAGICIAN);

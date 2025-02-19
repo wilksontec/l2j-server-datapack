@@ -49,7 +49,6 @@ public class EmeraldHorn extends AbstractNpcAI {
 	private static final int MAX_CHASE_DIST = 2500;
 	
 	public EmeraldHorn() {
-		super(EmeraldHorn.class.getSimpleName(), "ai/individual");
 		bindAttack(EMERALD_HORN);
 		bindSpellFinished(EMERALD_HORN);
 	}

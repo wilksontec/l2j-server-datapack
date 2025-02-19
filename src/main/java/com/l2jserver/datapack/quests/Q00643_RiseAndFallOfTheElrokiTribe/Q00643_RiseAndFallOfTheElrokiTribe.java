@@ -69,7 +69,7 @@ public class Q00643_RiseAndFallOfTheElrokiTribe extends Quest {
 	};
 	
 	public Q00643_RiseAndFallOfTheElrokiTribe() {
-		super(643, Q00643_RiseAndFallOfTheElrokiTribe.class.getSimpleName(), "Rise and Fall of the Elroki Tribe");
+		super(643);
 		bindStartNpc(SINGSING);
 		bindTalk(SINGSING, KARAKAWEI);
 		bindKill(DROPLIST.getNpcIds());

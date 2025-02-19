@@ -42,7 +42,7 @@ public class Q00277_GatekeepersOffering extends Quest {
 	private static final int STARSTONE_COUT = 20;
 	
 	public Q00277_GatekeepersOffering() {
-		super(277, Q00277_GatekeepersOffering.class.getSimpleName(), "Gatekeeper's Offering");
+		super(277);
 		bindStartNpc(TAMIL);
 		bindTalk(TAMIL);
 		bindKill(GREYSTONE_GOLEM);

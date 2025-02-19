@@ -63,7 +63,6 @@ public final class IceQueensCastle extends AbstractInstance {
 	private static final int MIN_LV = 82;
 	
 	public IceQueensCastle() {
-		super(IceQueensCastle.class.getSimpleName());
 		bindStartNpc(JINIA);
 		bindTalk(JINIA);
 		bindSeeCreature(BATTALION_LEADER, LEGIONNAIRE, MERCENARY_ARCHER);

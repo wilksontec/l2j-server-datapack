@@ -37,7 +37,6 @@ public final class StrongholdsTeleports extends AbstractNpcAI {
 	};
 	
 	public StrongholdsTeleports() {
-		super(StrongholdsTeleports.class.getSimpleName(), "ai/npc/Teleports");
 		bindFirstTalk(NPCs);
 	}
 	

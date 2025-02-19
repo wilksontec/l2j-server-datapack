@@ -60,7 +60,7 @@ public final class Q00660_AidingTheFloranVillage extends Quest {
 	private static final int ADENA_REWARD_6 = 5000;
 	
 	public Q00660_AidingTheFloranVillage() {
-		super(660, Q00660_AidingTheFloranVillage.class.getSimpleName(), "Aiding the Floran Village");
+		super(660);
 		bindStartNpc(MARIA, ALEX);
 		bindTalk(MARIA, ALEX);
 		bindKill(DROPLIST.getNpcIds());

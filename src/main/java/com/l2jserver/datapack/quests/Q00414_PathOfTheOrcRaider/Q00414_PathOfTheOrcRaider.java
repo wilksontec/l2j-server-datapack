@@ -56,7 +56,7 @@ public final class Q00414_PathOfTheOrcRaider extends Quest {
 	private static final int MIN_LEVEL = 18;
 	
 	public Q00414_PathOfTheOrcRaider() {
-		super(414, Q00414_PathOfTheOrcRaider.class.getSimpleName(), "Path Of The Orc Raider");
+		super(414);
 		bindStartNpc(PREFECT_KARUKIA);
 		bindTalk(PREFECT_KARUKIA, PREFRCT_KASMAN, PREFRCT_TAZEER);
 		bindKill(KURUKA_RATMAN_LEADER, UMBAR_ORC, TIMORA_ORC, GOBLIN_TOMB_RAIDER_LEADER);

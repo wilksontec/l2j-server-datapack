@@ -113,7 +113,6 @@ public class EnergySeeds extends AbstractNpcAI {
 	}
 	
 	public EnergySeeds() {
-		super(EnergySeeds.class.getSimpleName(), "gracia/AI");
 		registerMobs(SEED_IDS);
 		bindFirstTalk(SEED_IDS);
 		bindEnterZone(SOD_ZONE);

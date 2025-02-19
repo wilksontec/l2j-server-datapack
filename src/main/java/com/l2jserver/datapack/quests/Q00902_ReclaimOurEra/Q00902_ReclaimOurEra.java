@@ -61,7 +61,7 @@ public final class Q00902_ReclaimOurEra extends Quest {
 	}
 	
 	public Q00902_ReclaimOurEra() {
-		super(902, Q00902_ReclaimOurEra.class.getSimpleName(), "Reclaim Our Era");
+		super(902);
 		bindStartNpc(MATHIAS);
 		bindTalk(MATHIAS);
 		bindKill(MONSTER_DROPS.keySet());

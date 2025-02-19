@@ -101,7 +101,6 @@ public final class Keltas extends AbstractNpcAI {
 	private final Set<L2Spawn> _spawnedMonsters = Collections.newSetFromMap(new ConcurrentHashMap<>());
 	
 	public Keltas() {
-		super(Keltas.class.getSimpleName(), "hellbound/AI");
 		bindKill(KELTAS);
 		bindSpawn(KELTAS);
 	}

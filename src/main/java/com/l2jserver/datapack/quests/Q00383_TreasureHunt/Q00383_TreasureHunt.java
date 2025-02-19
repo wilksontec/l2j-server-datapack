@@ -67,7 +67,7 @@ public final class Q00383_TreasureHunt extends Quest {
 	private static final ItemHolder DYE_W1M3_C = new ItemHolder(4492, 1); // Greater Dye of WIT <Wit+1 Men-3>
 	
 	public Q00383_TreasureHunt() {
-		super(383, Q00383_TreasureHunt.class.getSimpleName(), "Treasure Hunt");
+		super(383);
 		bindStartNpc(ESPEN);
 		bindTalk(ESPEN, PIRATES_CHEST);
 	}

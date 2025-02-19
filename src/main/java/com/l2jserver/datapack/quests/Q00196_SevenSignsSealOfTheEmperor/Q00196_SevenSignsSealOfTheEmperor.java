@@ -50,7 +50,7 @@ public final class Q00196_SevenSignsSealOfTheEmperor extends Quest {
 	private boolean isBusy = false;
 	
 	public Q00196_SevenSignsSealOfTheEmperor() {
-		super(196, Q00196_SevenSignsSealOfTheEmperor.class.getSimpleName(), "Seven Signs, Seal of the Emperor");
+		super(196);
 		bindFirstTalk(MERCHANT_OF_MAMMON);
 		bindStartNpc(IASON_HEINE);
 		bindTalk(IASON_HEINE, MERCHANT_OF_MAMMON, SHUNAIMAN, WOOD, COURT_MAGICIAN);

@@ -31,7 +31,7 @@ import com.l2jserver.gameserver.model.base.ClassId;
  */
 public final class ElfHumanWizardChange1 extends AbstractNpcAI {
 	// NPCs
-	private static int[] NPCS = {
+	private static final int[] NPCS = {
 		30037, // Levian
 		30070, // Sylvain
 		30289, // Raymond
@@ -52,7 +52,6 @@ public final class ElfHumanWizardChange1 extends AbstractNpcAI {
 	private static final int ORACLE = 29;
 	
 	public ElfHumanWizardChange1() {
-		super(ElfHumanWizardChange1.class.getSimpleName(), "village_master");
 		bindStartNpc(NPCS);
 		bindTalk(NPCS);
 	}

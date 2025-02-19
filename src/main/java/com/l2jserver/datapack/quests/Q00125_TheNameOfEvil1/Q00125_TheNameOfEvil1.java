@@ -62,7 +62,7 @@ public class Q00125_TheNameOfEvil1 extends Quest {
 	private static final int REPRESENTATION_ENTER_THE_SAILREN_NEST_QUEST_ID = 5089;
 	
 	public Q00125_TheNameOfEvil1() {
-		super(125, Q00125_TheNameOfEvil1.class.getSimpleName(), "The Name of Evil - 1");
+		super(125);
 		bindStartNpc(MUSHIKA);
 		bindTalk(MUSHIKA, KARAKAWEI, ULU_KAIMU, BALU_KAIMU, CHUTA_KAIMU);
 		bindKill(DROPLIST.getNpcIds());

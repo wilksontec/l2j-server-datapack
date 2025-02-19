@@ -63,7 +63,7 @@ public final class Q00404_PathOfTheHumanWizard extends Quest {
 	private static final int MIN_LEVEL = 18;
 	
 	public Q00404_PathOfTheHumanWizard() {
-		super(404, Q00404_PathOfTheHumanWizard.class.getSimpleName(), "Path Of The Human Wizard");
+		super(404);
 		bindStartNpc(PARINA);
 		bindTalk(PARINA, EARTH_SNAKE, WASTELAND_LIZARDMAN, FLAME_SALAMANDER, WIND_SYLPH, WATER_UNDINE);
 		bindKill(RED_BEAR, RATMAN_WARRIOR, WATER_SEER);

@@ -62,7 +62,7 @@ public class Q00700_CursedLife extends Quest {
 	private static final int BONUS = 16670;
 	
 	public Q00700_CursedLife() {
-		super(700, Q00700_CursedLife.class.getSimpleName(), "Cursed Life");
+		super(700);
 		bindStartNpc(ORBYU);
 		bindTalk(ORBYU);
 		bindKill(ROK);

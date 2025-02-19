@@ -46,7 +46,7 @@ public final class Q00286_FabulousFeathers extends Quest {
 	private static final int MIN_LVL = 17;
 	
 	public Q00286_FabulousFeathers() {
-		super(286, Q00286_FabulousFeathers.class.getSimpleName(), "Fabulous Feathers");
+		super(286);
 		bindStartNpc(ERINU);
 		bindTalk(ERINU);
 		bindKill(DROPLIST.getNpcIds());

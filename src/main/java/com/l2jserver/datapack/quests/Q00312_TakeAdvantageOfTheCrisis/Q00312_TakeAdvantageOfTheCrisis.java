@@ -58,7 +58,7 @@ public class Q00312_TakeAdvantageOfTheCrisis extends Quest {
 	private static final int MIN_LEVEL = 80;
 	
 	public Q00312_TakeAdvantageOfTheCrisis() {
-		super(312, Q00312_TakeAdvantageOfTheCrisis.class.getSimpleName(), "Take Advantage of the Crisis!");
+		super(312);
 		bindStartNpc(FILAUR);
 		bindTalk(FILAUR);
 		bindKill(MOBS.keySet());

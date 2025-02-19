@@ -59,7 +59,6 @@ public final class CabaleBuffer extends AbstractNpcAI {
 	private static final int PREACHER_MAGE = 4362;
 	
 	public CabaleBuffer() {
-		super(CabaleBuffer.class.getSimpleName(), "ai/npc");
 		bindFirstTalk(SevenSigns.ORATOR_NPC_ID, SevenSigns.PREACHER_NPC_ID);
 		bindSpawn(SevenSigns.ORATOR_NPC_ID, SevenSigns.PREACHER_NPC_ID);
 	}

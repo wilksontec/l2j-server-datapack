@@ -57,7 +57,7 @@ public class Q10274_CollectingInTheAir extends Quest {
 	};
 	
 	public Q10274_CollectingInTheAir() {
-		super(10274, Q10274_CollectingInTheAir.class.getSimpleName(), "Collecting in the Air");
+		super(10274);
 		bindStartNpc(LEKON);
 		bindTalk(LEKON);
 		bindSkillSee(MOBS);

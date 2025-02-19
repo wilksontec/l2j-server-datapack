@@ -70,7 +70,7 @@ public final class Q00633_InTheForgottenVillage extends Quest {
 	private static final int MIN_LVL = 65;
 	
 	public Q00633_InTheForgottenVillage() {
-		super(633, Q00633_InTheForgottenVillage.class.getSimpleName(), "In The Forgotten Village");
+		super(633);
 		bindStartNpc(MINA);
 		bindTalk(MINA);
 		bindKill(DROPLIST.getNpcIds());

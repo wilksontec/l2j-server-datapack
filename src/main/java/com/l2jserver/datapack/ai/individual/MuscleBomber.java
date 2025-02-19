@@ -49,7 +49,6 @@ public class MuscleBomber extends AbstractNpcAI {
 	private static final double MED_HP_PERCENTAGE = 0.50;
 	
 	public MuscleBomber() {
-		super(MuscleBomber.class.getSimpleName(), "ai/individual");
 		bindAttack(MUSCLE_BOMBER);
 	}
 	

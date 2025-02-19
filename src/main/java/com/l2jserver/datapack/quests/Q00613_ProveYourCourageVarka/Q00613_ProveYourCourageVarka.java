@@ -42,7 +42,7 @@ public class Q00613_ProveYourCourageVarka extends Quest {
 	private static final int MIN_LEVEL = 75;
 	
 	public Q00613_ProveYourCourageVarka() {
-		super(613, Q00613_ProveYourCourageVarka.class.getSimpleName(), "Prove Your Courage! (Varka)");
+		super(613);
 		bindStartNpc(ASHAS);
 		bindTalk(ASHAS);
 		bindKill(HEKATON);

@@ -64,7 +64,7 @@ public class Q00627_HeartInSearchOfPower extends Quest {
 	private static final int MOLD_HARDENER = 4041;
 	
 	public Q00627_HeartInSearchOfPower() {
-		super(627, Q00627_HeartInSearchOfPower.class.getSimpleName(), "Heart in Search of Power");
+		super(627);
 		bindStartNpc(MYSTERIOUS_NECROMANCER);
 		bindTalk(MYSTERIOUS_NECROMANCER, ENFEUX);
 		bindKill(DROPLIST.getNpcIds());

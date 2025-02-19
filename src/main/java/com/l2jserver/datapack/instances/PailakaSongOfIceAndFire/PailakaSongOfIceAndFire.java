@@ -56,7 +56,6 @@ public final class PailakaSongOfIceAndFire extends AbstractInstance {
 	private static final int ZONE = 20108;
 	
 	public PailakaSongOfIceAndFire() {
-		super(PailakaSongOfIceAndFire.class.getSimpleName());
 		bindStartNpc(ADLER1);
 		bindTalk(ADLER1);
 		bindAttack(BOTTLE, BRAZIER);

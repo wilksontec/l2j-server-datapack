@@ -52,7 +52,7 @@ public class Q00034_InSearchOfCloth extends Quest {
 	private static final int THREAD_COUNT = 5000;
 	
 	public Q00034_InSearchOfCloth() {
-		super(34, Q00034_InSearchOfCloth.class.getSimpleName(), "In Search of Cloth");
+		super(34);
 		bindStartNpc(RADIA);
 		bindTalk(RADIA, RALFORD, VARAN);
 		bindKill(MOBS);

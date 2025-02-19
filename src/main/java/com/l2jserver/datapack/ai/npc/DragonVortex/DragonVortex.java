@@ -50,7 +50,6 @@ public final class DragonVortex extends AbstractNpcAI {
 	private static final Location SPOT_4 = new Location(109346, 111849, -3040);
 	
 	public DragonVortex() {
-		super(DragonVortex.class.getSimpleName(), "ai/npc");
 		bindStartNpc(DRAGON_VORTEX);
 		bindFirstTalk(DRAGON_VORTEX);
 		bindTalk(DRAGON_VORTEX);

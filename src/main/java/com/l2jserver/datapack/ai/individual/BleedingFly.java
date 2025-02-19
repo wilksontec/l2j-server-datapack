@@ -50,7 +50,6 @@ public class BleedingFly extends AbstractNpcAI {
 	private static final double MIN_HP_PERCENTAGE = 0.25;
 	
 	public BleedingFly() {
-		super(BleedingFly.class.getSimpleName(), "ai/individual");
 		bindAttack(BLEEDING_FLY);
 		bindSpawn(BLEEDING_FLY);
 	}

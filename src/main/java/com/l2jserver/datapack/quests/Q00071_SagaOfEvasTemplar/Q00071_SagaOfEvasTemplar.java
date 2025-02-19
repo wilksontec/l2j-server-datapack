@@ -27,7 +27,7 @@ import com.l2jserver.gameserver.model.Location;
  */
 public class Q00071_SagaOfEvasTemplar extends AbstractSagaQuest {
 	public Q00071_SagaOfEvasTemplar() {
-		super(71, Q00071_SagaOfEvasTemplar.class.getSimpleName(), "Saga of Eva's Templar");
+		super(71);
 		_npc = new int[] {
 			30852,
 			31624,

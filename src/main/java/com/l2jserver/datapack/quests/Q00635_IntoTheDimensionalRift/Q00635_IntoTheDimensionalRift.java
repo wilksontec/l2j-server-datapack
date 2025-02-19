@@ -27,6 +27,6 @@ import com.l2jserver.gameserver.model.quest.Quest;
  */
 public class Q00635_IntoTheDimensionalRift extends Quest {
 	public Q00635_IntoTheDimensionalRift() {
-		super(635, Q00635_IntoTheDimensionalRift.class.getSimpleName(), "Into the Dimensional Rift");
+		super(635);
 	}
 }

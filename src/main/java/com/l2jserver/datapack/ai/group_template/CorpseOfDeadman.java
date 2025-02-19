@@ -29,7 +29,6 @@ public final class CorpseOfDeadman extends AbstractNpcAI {
 	private static final int CORPSE_OF_DEADMAN = 18119;
 	
 	public CorpseOfDeadman() {
-		super(CorpseOfDeadman.class.getSimpleName(), "ai/group_template");
 		bindSpawn(CORPSE_OF_DEADMAN);
 	}
 	

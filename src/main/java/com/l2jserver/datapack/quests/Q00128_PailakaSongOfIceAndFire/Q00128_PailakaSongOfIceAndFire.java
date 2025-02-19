@@ -73,7 +73,7 @@ public final class Q00128_PailakaSongOfIceAndFire extends Quest {
 	private static final int EXIT_TIME = 5;
 	
 	public Q00128_PailakaSongOfIceAndFire() {
-		super(128, Q00128_PailakaSongOfIceAndFire.class.getSimpleName(), "Pailaka - Song of Ice and Fire");
+		super(128);
 		bindStartNpc(ADLER1);
 		bindTalk(ADLER1, ADLER2, SINAI, INSPECTOR);
 		bindKill(HILLAS, PAPION, KINSUS, GARGOS, ADIANTUM);

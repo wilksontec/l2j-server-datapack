@@ -45,7 +45,7 @@ public class Q00036_MakeASewingKit extends Quest {
 	private static final int COUNT = 10;
 	
 	public Q00036_MakeASewingKit() {
-		super(36, Q00036_MakeASewingKit.class.getSimpleName(), "Make a Sewing Kit");
+		super(36);
 		bindStartNpc(FERRIS);
 		bindTalk(FERRIS);
 		bindKill(ENCHANTED_IRON_GOLEM);

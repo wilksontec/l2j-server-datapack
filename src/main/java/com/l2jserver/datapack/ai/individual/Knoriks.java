@@ -51,7 +51,6 @@ public class Knoriks extends AbstractNpcAI {
 	private static int SpawnCount = 0;
 	
 	public Knoriks() {
-		super(Knoriks.class.getSimpleName(), "ai/individual");
 		bindAggroRangeEnter(KNORIKS);
 		bindSkillSee(KNORIKS);
 		bindTeleport(KNORIKS);

@@ -34,7 +34,6 @@ public final class Abercrombie extends AbstractNpcAI {
 	private static final int GOLDEN_RAM_BADGE_SOLDIER = 7247;
 	
 	public Abercrombie() {
-		super(Abercrombie.class.getSimpleName(), "ai/npc");
 		bindFirstTalk(ABERCROMBIE);
 	}
 	

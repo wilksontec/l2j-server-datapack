@@ -46,7 +46,7 @@ public final class Q00291_RevengeOfTheRedbonnet extends Quest {
 	private static final int MIN_LVL = 4;
 	
 	public Q00291_RevengeOfTheRedbonnet() {
-		super(291, Q00291_RevengeOfTheRedbonnet.class.getSimpleName(), "Revenge of the Redbonnet");
+		super(291);
 		bindStartNpc(MARYSE_REDBONNET);
 		bindTalk(MARYSE_REDBONNET);
 		bindKill(BLACK_WOLF);

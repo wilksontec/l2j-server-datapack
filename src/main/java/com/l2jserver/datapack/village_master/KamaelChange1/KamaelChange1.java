@@ -35,7 +35,7 @@ import com.l2jserver.gameserver.model.quest.QuestState;
  */
 public final class KamaelChange1 extends AbstractNpcAI {
 	// NPCs
-	private static int[] NPCS = {
+	private static final int[] NPCS = {
 		32191, // Hanarin
 		32193, // Yeniche
 		32196, // Gershwin
@@ -49,7 +49,6 @@ public final class KamaelChange1 extends AbstractNpcAI {
 	private static final int STEELRAZOR_EVALUATION = 9772;
 	
 	public KamaelChange1() {
-		super(KamaelChange1.class.getSimpleName(), "village_master");
 		bindStartNpc(NPCS);
 		bindTalk(NPCS);
 	}

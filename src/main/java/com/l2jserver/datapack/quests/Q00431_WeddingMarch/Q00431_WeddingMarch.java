@@ -46,7 +46,7 @@ public class Q00431_WeddingMarch extends Quest {
 	private static final int CRYSTAL_COUNT = 50;
 	
 	public Q00431_WeddingMarch() {
-		super(431, Q00431_WeddingMarch.class.getSimpleName(), "Wedding March");
+		super(431);
 		bindStartNpc(KANTABILON);
 		bindTalk(KANTABILON);
 		bindKill(MOBS);

@@ -44,7 +44,7 @@ public class Q10277_MutatedKaneusDion extends Quest {
 	private static final int TISSUE_SF = 13833;
 	
 	public Q10277_MutatedKaneusDion() {
-		super(10277, Q10277_MutatedKaneusDion.class.getSimpleName(), "Mutated Kaneus - Dion");
+		super(10277);
 		bindStartNpc(LUKAS);
 		bindTalk(LUKAS, MIRIEN);
 		bindKill(CRIMSON_HATU, SEER_FLOUROS);

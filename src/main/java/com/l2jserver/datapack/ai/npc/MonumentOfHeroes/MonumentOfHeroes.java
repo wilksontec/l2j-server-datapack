@@ -56,7 +56,6 @@ public final class MonumentOfHeroes extends AbstractNpcAI {
 	};
 	
 	public MonumentOfHeroes() {
-		super(MonumentOfHeroes.class.getSimpleName(), "ai/npc");
 		bindStartNpc(MONUMENTS);
 		bindTalk(MONUMENTS);
 	}

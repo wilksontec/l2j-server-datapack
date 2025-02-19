@@ -81,7 +81,7 @@ public class Q00609_MagicalPowerOfWaterPart1 extends Quest {
 	private static final int MIN_LEVEL = 74;
 	
 	public Q00609_MagicalPowerOfWaterPart1() {
-		super(609, Q00609_MagicalPowerOfWaterPart1.class.getSimpleName(), "Magical Power of Water - Part 1");
+		super(609);
 		bindStartNpc(WAHKAN);
 		bindTalk(ASEFA, WAHKAN, UDANS_BOX);
 		bindAttack(VARKA_MOBS);

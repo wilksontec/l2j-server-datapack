@@ -62,7 +62,7 @@ public final class Q00063_PathOfTheWarder extends Quest {
 	private static final int MIN_LEVEL = 18;
 	
 	public Q00063_PathOfTheWarder() {
-		super(63, Q00063_PathOfTheWarder.class.getSimpleName(), "Path Of The Warder");
+		super(63);
 		bindStartNpc(MASTER_SIONE);
 		bindTalk(MASTER_SIONE, MASTER_GOBIE, MASTER_TOBIAS, CAPTAIN_BATHIS);
 		bindKill(OL_MAHUM_PATROL, OL_MAHUM_NOVICE, MAILLE_LIZARDMAN, MAILLE_LIZARDMAN_SCOUT, MAILLE_LIZARDMAN_GUARD, OL_MAHUM_OFFICER_TAK);

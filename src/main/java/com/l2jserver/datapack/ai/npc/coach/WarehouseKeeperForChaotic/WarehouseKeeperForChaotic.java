@@ -25,7 +25,7 @@ import com.l2jserver.datapack.ai.npc.coach.WarehouseKeeper.WarehouseKeeper;
  * @author Zoey76
  * @version 2.6.3.0
  */
-public class WarehouseKeeperForChaotic extends WarehouseKeeper {
+public final class WarehouseKeeperForChaotic extends WarehouseKeeper {
 	
 	private static final int[] COACHES = {
 		30079,
@@ -33,6 +33,6 @@ public class WarehouseKeeperForChaotic extends WarehouseKeeper {
 	};
 	
 	public WarehouseKeeperForChaotic() {
-		super(WarehouseKeeperForChaotic.class.getSimpleName(), COACHES);
+		super(COACHES);
 	}
 }

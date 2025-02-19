@@ -46,7 +46,7 @@ public class Q00319_ScentOfDeath extends Quest {
 	private static final int REQUIRED_ITEM_COUNT = 5;
 	
 	public Q00319_ScentOfDeath() {
-		super(319, Q00319_ScentOfDeath.class.getSimpleName(), "Scent of Death");
+		super(319);
 		bindStartNpc(MINALESS);
 		bindTalk(MINALESS);
 		bindKill(MARSH_ZOMBIE, MARSH_ZOMBIE_LORD);

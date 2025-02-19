@@ -34,7 +34,6 @@ public class Allenos extends AbstractNpcAI {
 	private static final Location TELEPORT_LOCATION = new Location(-245800, 220488, -12112);
 	
 	public Allenos() {
-		super(Allenos.class.getSimpleName(), "gracia/AI/NPC");
 		bindStartNpc(ALLENOS);
 		bindFirstTalk(ALLENOS);
 		bindTalk(ALLENOS);

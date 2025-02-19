@@ -83,7 +83,6 @@ public final class VarkaSilenosSupport extends AbstractNpcAI {
 	}
 	
 	public VarkaSilenosSupport() {
-		super(VarkaSilenosSupport.class.getSimpleName(), "ai/npc");
 		bindFirstTalk(ASHAS, NARAN, UDAN, DIYABU, HAGOS, SHIKON, TERANU);
 		bindTalk(UDAN, HAGOS, TERANU);
 		bindStartNpc(HAGOS, TERANU);

@@ -48,7 +48,7 @@ public final class Q00347_GoGetTheCalculator extends Quest {
 	private static final int MIN_LVL = 12;
 	
 	public Q00347_GoGetTheCalculator() {
-		super(347, Q00347_GoGetTheCalculator.class.getSimpleName(), "Go Get the Calculator");
+		super(347);
 		bindStartNpc(BRUNON);
 		bindTalk(BRUNON, SILVERA, SPIRON, BALANKI);
 		bindKill(GEMSTONE_BEAST);

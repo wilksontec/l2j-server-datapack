@@ -68,7 +68,7 @@ public final class Q00211_TrialOfTheChallenger extends Quest {
 	private static final int MIN_LVL = 35;
 	
 	public Q00211_TrialOfTheChallenger() {
-		super(211, Q00211_TrialOfTheChallenger.class.getSimpleName(), "Trial of the Challenger");
+		super(211);
 		bindStartNpc(KASH);
 		bindTalk(FILAUR, KASH, MARTIAN, RALDO, CHEST_OF_SHYSLASSYS, MARKETEER_OF_MAMMON);
 		bindKill(SHYSLASSYS, GORR, BARAHAM, QUEEN_OF_SUCCUBUS);

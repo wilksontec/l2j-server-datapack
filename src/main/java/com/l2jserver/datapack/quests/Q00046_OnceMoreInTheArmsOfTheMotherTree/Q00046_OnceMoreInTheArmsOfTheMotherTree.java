@@ -60,7 +60,7 @@ public final class Q00046_OnceMoreInTheArmsOfTheMotherTree extends Quest {
 	}
 	
 	public Q00046_OnceMoreInTheArmsOfTheMotherTree() {
-		super(46, Q00046_OnceMoreInTheArmsOfTheMotherTree.class.getSimpleName(), "Once More In the Arms of the Mother Tree");
+		super(46);
 		bindStartNpc(GALLADUCCI);
 		bindTalk(GALLADUCCI);
 		bindTalk(NPC_ITEMS.keySet());

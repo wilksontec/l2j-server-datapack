@@ -50,7 +50,7 @@ public final class Q00279_TargetOfOpportunity extends Quest {
 		.build();
 	
 	public Q00279_TargetOfOpportunity() {
-		super(279, Q00279_TargetOfOpportunity.class.getSimpleName(), "Target of Opportunity");
+		super(279);
 		bindStartNpc(JERIAN);
 		bindTalk(JERIAN);
 		bindKill(DROPLIST_SEAL_COMPONENTS.getNpcIds());

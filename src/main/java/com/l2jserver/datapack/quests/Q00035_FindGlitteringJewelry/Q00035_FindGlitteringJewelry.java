@@ -49,7 +49,7 @@ public class Q00035_FindGlitteringJewelry extends Quest {
 	private static final int THONS_COUNT = 150;
 	
 	public Q00035_FindGlitteringJewelry() {
-		super(35, Q00035_FindGlitteringJewelry.class.getSimpleName(), "Find Glittering Jewelry");
+		super(35);
 		bindStartNpc(ELLIE);
 		bindTalk(ELLIE, FELTON);
 		bindKill(ALLIGATOR);

@@ -32,7 +32,6 @@ public final class Solomon extends AbstractNpcAI {
 	private static final int SOLOMON = 32355;
 	
 	public Solomon() {
-		super(Solomon.class.getSimpleName(), "hellbound/AI/NPC");
 		bindFirstTalk(SOLOMON);
 	}
 	

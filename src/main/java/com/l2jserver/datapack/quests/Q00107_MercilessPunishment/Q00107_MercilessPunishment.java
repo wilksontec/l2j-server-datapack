@@ -61,7 +61,7 @@ public final class Q00107_MercilessPunishment extends Quest {
 	private static final int MIN_LVL = 10;
 	
 	public Q00107_MercilessPunishment() {
-		super(107, Q00107_MercilessPunishment.class.getSimpleName(), "Merciless Punishment");
+		super(107);
 		bindStartNpc(URUTU_CHIEF_HATOS);
 		bindTalk(URUTU_CHIEF_HATOS, CENTURION_PARUGON);
 		bindKill(BARANKA_MESSENGER);

@@ -38,7 +38,6 @@ public final class Bernarde extends AbstractNpcAI {
 	private static final int TREASURE = 9684;
 	
 	public Bernarde() {
-		super(Bernarde.class.getSimpleName(), "hellbound/AI/NPC");
 		bindFirstTalk(BERNARDE);
 		bindStartNpc(BERNARDE);
 		bindTalk(BERNARDE);

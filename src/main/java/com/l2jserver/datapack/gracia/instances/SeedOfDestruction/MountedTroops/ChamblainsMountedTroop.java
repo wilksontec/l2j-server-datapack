@@ -189,7 +189,6 @@ public final class ChamblainsMountedTroop extends AbstractInstance {
 	};
 	
 	public ChamblainsMountedTroop() {
-		super(ChamblainsMountedTroop.class.getSimpleName(), "gracia/instances");
 		bindStartNpc(EDRIC);
 		bindTalk(EDRIC);
 		bindKill(DOORMAN, REMNANT_MACHINE);

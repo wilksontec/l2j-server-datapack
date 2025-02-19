@@ -22,7 +22,6 @@ import com.l2jserver.gameserver.model.actor.L2Character;
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2MonsterInstance;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
-import com.l2jserver.gameserver.model.holders.MinionHolder;
 import com.l2jserver.gameserver.model.quest.Quest;
 import com.l2jserver.gameserver.network.NpcStringId;
 import com.l2jserver.gameserver.network.serverpackets.NpcSay;
@@ -34,10 +33,6 @@ import com.l2jserver.gameserver.util.Broadcast;
  * @author UnAfraid, Zoey76
  */
 public abstract class AbstractNpcAI extends Quest {
-	public AbstractNpcAI(String name, String descr) {
-		super(-1, name, descr);
-	}
-	
 	/**
 	 * Simple on first talk event handler.
 	 */
@@ -97,9 +92,9 @@ public abstract class AbstractNpcAI extends Quest {
 	 * @param parameters
 	 */
 	protected void broadcastNpcSay(L2Npc npc, int type, NpcStringId stringId, String... parameters) {
-		final NpcSay say = new NpcSay(npc.getObjectId(), type, npc.getTemplate().getDisplayId(), stringId);
+		final var say = new NpcSay(npc.getObjectId(), type, npc.getTemplate().getDisplayId(), stringId);
 		if (parameters != null) {
-			for (String parameter : parameters) {
+			for (var parameter : parameters) {
 				say.addStringParameter(parameter);
 			}
 		}
@@ -148,7 +143,7 @@ public abstract class AbstractNpcAI extends Quest {
 	}
 	
 	public void spawnMinions(final L2Npc npc, final String spawnName) {
-		for (MinionHolder is : npc.getTemplate().getParameters().getMinionList(spawnName)) {
+		for (var is : npc.getTemplate().getParameters().getMinionList(spawnName)) {
 			addMinion((L2MonsterInstance) npc, is.getId());
 		}
 	}

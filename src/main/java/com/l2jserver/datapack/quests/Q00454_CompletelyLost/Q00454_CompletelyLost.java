@@ -54,7 +54,7 @@ public final class Q00454_CompletelyLost extends Quest {
 	private static final Location MOVE_TO = new Location(-180219, 186341, -10600);
 	
 	public Q00454_CompletelyLost() {
-		super(454, Q00454_CompletelyLost.class.getSimpleName(), "Completely Lost");
+		super(454);
 		bindStartNpc(INJURED_SOLDIER);
 		bindTalk(INJURED_SOLDIER, ERMIAN);
 		bindSpawn(ERMIAN);

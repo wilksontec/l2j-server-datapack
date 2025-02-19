@@ -134,7 +134,6 @@ public class Defence extends AbstractNpcAI {
 	private static final int SOD_ZONE = 60009;
 	
 	public Defence() {
-		super(Defence.class.getSimpleName(), "gracia/AI");
 		bindKill(TIAT_RETURN, SPAWNER_PORTAL);
 		bindAttack(TIAT_RETURN);
 		bindRouteFinished(TIAT_RETURN);

@@ -64,7 +64,7 @@ public final class Q00355_FamilyHonor extends Quest {
 	private static final int MIN_LEVEL = 36;
 	
 	public Q00355_FamilyHonor() {
-		super(355, Q00355_FamilyHonor.class.getSimpleName(), "Family Honor");
+		super(355);
 		bindStartNpc(GALIBREDO);
 		bindTalk(GALIBREDO, PATRIN);
 		bindKill(DROPLIST.getNpcIds());

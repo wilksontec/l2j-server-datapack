@@ -30,7 +30,7 @@ import com.l2jserver.gameserver.model.base.ClassId;
  */
 public final class ElfHumanWizardChange2 extends AbstractNpcAI {
 	// NPCs
-	private static int[] NPCS = {
+	private static final int[] NPCS = {
 		30115, // Jurek
 		30174, // Arkenias
 		30176, // Valleria
@@ -57,7 +57,6 @@ public final class ElfHumanWizardChange2 extends AbstractNpcAI {
 	private static final int ELEMENTAL_SUMMONER = 28;
 	
 	public ElfHumanWizardChange2() {
-		super(ElfHumanWizardChange2.class.getSimpleName(), "village_master");
 		bindStartNpc(NPCS);
 		bindTalk(NPCS);
 	}

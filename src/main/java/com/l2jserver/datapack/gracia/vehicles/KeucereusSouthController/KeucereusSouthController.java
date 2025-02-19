@@ -62,7 +62,6 @@ public final class KeucereusSouthController extends AirShipController {
 	};
 	
 	public KeucereusSouthController() {
-		super(-1, KeucereusSouthController.class.getSimpleName(), "gracia/vehicles");
 		bindStartNpc(CONTROLLER_ID);
 		bindFirstTalk(CONTROLLER_ID);
 		bindTalk(CONTROLLER_ID);

@@ -69,7 +69,7 @@ public final class Q00215_TrialOfThePilgrim extends Quest {
 	private static final int MIN_LVL = 35;
 	
 	public Q00215_TrialOfThePilgrim() {
-		super(215, Q00215_TrialOfThePilgrim.class.getSimpleName(), "Trial Of The Pilgrim");
+		super(215);
 		bindStartNpc(HERMIT_SANTIAGO);
 		bindTalk(HERMIT_SANTIAGO, PRIEST_PETRON, PRIEST_PRIMOS, ANDELLIA, GAURI_TWINKLEROCK, SEER_TANAPI, ELDER_CASIAN, ANCESTOR_MARTANKUS, PRIEST_OF_THE_EARTH_GERALD, WANDERER_DORF, URUHA);
 		bindKill(LAVA_SALAMANDER, NAHIR, BLACK_WILLOW);

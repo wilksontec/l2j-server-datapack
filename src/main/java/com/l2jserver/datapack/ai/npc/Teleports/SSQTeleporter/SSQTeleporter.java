@@ -80,7 +80,6 @@ public final class SSQTeleporter extends AbstractNpcAI {
 	private static final int MAX_QUEST_COUNT = 40;
 	
 	public SSQTeleporter() {
-		super(SSQTeleporter.class.getSimpleName(), "ai/npc/Teleports");
 		bindStartNpc(NPCS);
 		bindTalk(NPCS);
 		bindFirstTalk(NPCS);

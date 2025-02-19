@@ -52,7 +52,7 @@ public final class Q00629_CleanUpTheSwampOfScreams extends Quest {
 	private static final int MIN_LVL = 66;
 	
 	public Q00629_CleanUpTheSwampOfScreams() {
-		super(629, Q00629_CleanUpTheSwampOfScreams.class.getSimpleName(), "Clean Up The Swamp Of Screams");
+		super(629);
 		bindStartNpc(PIERCE);
 		bindTalk(PIERCE);
 		bindKill(DROPLIST.getNpcIds());

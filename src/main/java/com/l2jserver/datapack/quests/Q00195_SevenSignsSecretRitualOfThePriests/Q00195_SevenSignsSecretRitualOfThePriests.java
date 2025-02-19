@@ -51,7 +51,7 @@ public final class Q00195_SevenSignsSecretRitualOfThePriests extends Quest {
 	private static final SkillHolder TRANSFORMATION = new SkillHolder(6204);
 	
 	public Q00195_SevenSignsSecretRitualOfThePriests() {
-		super(195, Q00195_SevenSignsSecretRitualOfThePriests.class.getSimpleName(), "Seven Signs, Secret Ritual of the Priests");
+		super(195);
 		bindFirstTalk(IDENTITY_CONFIRM_DEVICE, PASSWORD_ENTRY_DEVICE, DARKNESS_OF_DAWN, SHELF);
 		bindStartNpc(CLAUDIA_ATHEBALDT);
 		bindTalk(CLAUDIA_ATHEBALDT, JOHN, RAYMOND, IASON_HEINE, LIGHT_OF_DAWN, DARKNESS_OF_DAWN, IDENTITY_CONFIRM_DEVICE, PASSWORD_ENTRY_DEVICE, SHELF);

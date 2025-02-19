@@ -47,7 +47,6 @@ public final class PrisonGuards extends AbstractNpcAI {
 	private static final SkillHolder SILENCE = new SkillHolder(4098, 9); // Silence
 	
 	public PrisonGuards() {
-		super(PrisonGuards.class.getSimpleName(), "ai/group_template");
 		bindAttack(GUARD_HEAD, GUARD);
 		bindSpawn(GUARD_HEAD, GUARD);
 		bindNpcHate(GUARD);

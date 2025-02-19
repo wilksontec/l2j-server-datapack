@@ -140,7 +140,7 @@ public final class Q00234_FatesWhisper extends Quest {
 	private static final int HAMMER_OF_DESTROYER = 7899;
 	
 	public Q00234_FatesWhisper() {
-		super(234, Q00234_FatesWhisper.class.getSimpleName(), "Fate's Whisper");
+		super(234);
 		bindStartNpc(MAESTRO_LEORIN);
 		bindTalk(ZENKIN, CLIFF, MASTER_KASPAR, HEAD_BLACKSMITH_FERRIS, MAESTRO_LEORIN);
 		bindTalk(COFFER_OF_THE_DEAD, CHEST_OF_KERNON, CHEST_OF_HALLATE, CHEST_OF_GOLKONDA);

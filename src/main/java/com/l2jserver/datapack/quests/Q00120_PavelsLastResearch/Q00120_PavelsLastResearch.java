@@ -57,7 +57,7 @@ public final class Q00120_PavelsLastResearch extends Quest {
 	private static final int SEALED_PHOENIX_EARRING = 6324;
 	
 	public Q00120_PavelsLastResearch() {
-		super(120, Q00120_PavelsLastResearch.class.getSimpleName(), "Pavel's Last Research");
+		super(120);
 		bindStartNpc(SUSPICIOUS_LOOKING_PILE_OF_STONES);
 		bindTalk(SUSPICIOUS_LOOKING_PILE_OF_STONES, WENDY, YUMI, WEATHERMASTER_1, WEATHERMASTER_2, WEATHERMASTER_3, DOCTOR_CHAOS_SECRET_BOOKSHELF);
 		bindSkillSee(WEATHERMASTER_1, WEATHERMASTER_2, WEATHERMASTER_3);

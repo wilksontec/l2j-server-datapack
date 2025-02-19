@@ -49,7 +49,7 @@ public class Q00237_WindsOfChange extends Quest {
 	private static final int MIN_LEVEL = 82;
 	
 	public Q00237_WindsOfChange() {
-		super(237, Q00237_WindsOfChange.class.getSimpleName(), "Winds of Change");
+		super(237);
 		bindStartNpc(FLAUEN);
 		bindTalk(FLAUEN, IASON, ROMAN, MORELYN, HELVETICA, ATHENIA);
 		registerQuestItems(FLAUENS_LETTER, DOSKOZER_LETTER, ATHENIA_LETTER);

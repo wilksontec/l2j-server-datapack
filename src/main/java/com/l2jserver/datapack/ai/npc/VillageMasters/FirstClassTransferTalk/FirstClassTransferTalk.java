@@ -55,7 +55,6 @@ public final class FirstClassTransferTalk extends AbstractNpcAI {
 	}
 	
 	public FirstClassTransferTalk() {
-		super(FirstClassTransferTalk.class.getSimpleName(), "ai/npc/VillageMasters");
 		bindStartNpc(MASTERS.keySet());
 		bindTalk(MASTERS.keySet());
 	}

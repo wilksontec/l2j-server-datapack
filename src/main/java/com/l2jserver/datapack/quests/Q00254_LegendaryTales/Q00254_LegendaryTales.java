@@ -85,7 +85,7 @@ public class Q00254_LegendaryTales extends Quest {
 	private static final int MIN_LEVEL = 80;
 	
 	public Q00254_LegendaryTales() {
-		super(254, Q00254_LegendaryTales.class.getSimpleName(), "Legendary Tales");
+		super(254);
 		bindStartNpc(GILMORE);
 		bindTalk(GILMORE);
 		bindKill(MONSTERS);

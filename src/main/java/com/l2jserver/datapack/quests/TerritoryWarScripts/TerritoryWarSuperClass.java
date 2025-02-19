@@ -72,8 +72,8 @@ public class TerritoryWarSuperClass extends Quest {
 	public int RANDOM_MIN;
 	public int RANDOM_MAX;
 	
-	public TerritoryWarSuperClass(int questId, String name, String descr) {
-		super(questId, name, descr);
+	public TerritoryWarSuperClass(int questId) {
+		super(questId);
 		
 		if (questId < 0) {
 			// Outpost and Ward handled by the Super Class script
@@ -414,7 +414,7 @@ public class TerritoryWarSuperClass extends Quest {
 	
 	public static void main(String[] args) {
 		// initialize superclass
-		new TerritoryWarSuperClass(-1, TerritoryWarSuperClass.class.getSimpleName(), "Territory War Superclass");
+		new TerritoryWarSuperClass(-1);
 		
 		// initialize subclasses
 		// "For The Sake" quests

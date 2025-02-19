@@ -99,7 +99,7 @@ public class Q00463_IMustBeaGenius extends Quest {
 	private static final int MIN_LEVEL = 70;
 	
 	public Q00463_IMustBeaGenius() {
-		super(463, Q00463_IMustBeaGenius.class.getSimpleName(), "I Must Be a Genius");
+		super(463);
 		bindStartNpc(GUTENHAGEN);
 		bindTalk(GUTENHAGEN);
 		bindKill(MOBS.keySet());

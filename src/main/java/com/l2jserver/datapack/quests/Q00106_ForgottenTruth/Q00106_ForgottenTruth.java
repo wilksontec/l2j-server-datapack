@@ -49,7 +49,7 @@ public final class Q00106_ForgottenTruth extends Quest {
 	private static final int MIN_LVL = 10;
 	
 	public Q00106_ForgottenTruth() {
-		super(106, Q00106_ForgottenTruth.class.getSimpleName(), "Forgotten Truth");
+		super(106);
 		bindStartNpc(THIFIELL);
 		bindTalk(THIFIELL, KARTA);
 		bindKill(TUMRAN_ORC_BRIGAND);

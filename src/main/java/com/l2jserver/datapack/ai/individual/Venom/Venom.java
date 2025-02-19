@@ -98,7 +98,6 @@ public final class Venom extends AbstractNpcAI {
 	private static List<L2PcInstance> _targets = new ArrayList<>();
 	
 	public Venom() {
-		super(Venom.class.getSimpleName(), "ai/individual");
 		bindStartNpc(DUNGEON_KEEPER, TELEPORT_CUBE);
 		bindFirstTalk(DUNGEON_KEEPER, TELEPORT_CUBE);
 		bindTalk(DUNGEON_KEEPER, TELEPORT_CUBE);

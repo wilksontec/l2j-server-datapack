@@ -50,7 +50,7 @@ public final class Q00261_CollectorsDream extends Quest {
 	private static final ExShowScreenMessage MESSAGE = new ExShowScreenMessage(NpcStringId.LAST_DUTY_COMPLETE_N_GO_FIND_THE_NEWBIE_GUIDE, 2, 5000);
 	
 	public Q00261_CollectorsDream() {
-		super(261, Q00261_CollectorsDream.class.getSimpleName(), "Collector's Dream");
+		super(261);
 		bindStartNpc(ALSHUPES);
 		bindTalk(ALSHUPES);
 		bindKill(MONSTERS);

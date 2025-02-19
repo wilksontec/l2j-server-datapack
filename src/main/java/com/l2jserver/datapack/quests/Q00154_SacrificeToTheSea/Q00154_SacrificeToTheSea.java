@@ -47,7 +47,7 @@ public final class Q00154_SacrificeToTheSea extends Quest {
 	private static final int MIN_LVL = 2;
 	
 	public Q00154_SacrificeToTheSea() {
-		super(154, Q00154_SacrificeToTheSea.class.getSimpleName(), "Sacrifice to the Sea");
+		super(154);
 		bindStartNpc(ROCKSWELL);
 		bindTalk(ROCKSWELL, CRISTEL, ROLLFNAN);
 		bindKill(ELDER_KELTIR, YOUNG_KELTIR, KELTIR);

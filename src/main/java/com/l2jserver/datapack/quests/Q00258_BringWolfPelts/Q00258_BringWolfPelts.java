@@ -56,7 +56,7 @@ public final class Q00258_BringWolfPelts extends Quest {
 	private static final int WOLF_PELT_COUNT = 40;
 	
 	public Q00258_BringWolfPelts() {
-		super(258, Q00258_BringWolfPelts.class.getSimpleName(), "Bring Wolf Pelts");
+		super(258);
 		bindStartNpc(LECTOR);
 		bindTalk(LECTOR);
 		bindKill(MONSTERS);

@@ -44,7 +44,7 @@ public final class Q00368_TrespassingIntoTheHolyGround extends Quest {
 	private static final int MIN_LEVEL = 36;
 	
 	public Q00368_TrespassingIntoTheHolyGround() {
-		super(368, Q00368_TrespassingIntoTheHolyGround.class.getSimpleName(), "Trespassing into the Holy Ground");
+		super(368);
 		bindStartNpc(RESTINA);
 		bindTalk(RESTINA);
 		bindKill(DROPLIST.getNpcIds());

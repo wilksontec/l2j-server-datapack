@@ -34,7 +34,6 @@ public final class GraveRobbers extends AbstractNpcAI {
 	private static final int GRAVE_ROBBER_MEGICIAN = 22679;
 	
 	public GraveRobbers() {
-		super(GraveRobbers.class.getSimpleName(), "ai/individual");
 		bindSpawn(GRAVE_ROBBER_SUMMONER, GRAVE_ROBBER_MEGICIAN);
 	}
 	

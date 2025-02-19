@@ -70,7 +70,6 @@ public final class ManorManager extends AbstractNpcAI {
 	};
 	
 	public ManorManager() {
-		super(ManorManager.class.getSimpleName(), "ai/npc");
 		bindStartNpc(NPC);
 		bindFirstTalk(NPC);
 		bindTalk(NPC);

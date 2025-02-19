@@ -43,7 +43,6 @@ public final class GeneralDilios extends AbstractNpcAI {
 	private final Set<L2Spawn> _guards = Collections.newSetFromMap(new ConcurrentHashMap<>());
 	
 	public GeneralDilios() {
-		super(GeneralDilios.class.getSimpleName(), "gracia/AI/NPC");
 		bindTalk(GENERAL_ID);
 		bindSpawn(GENERAL_ID, GUARD_ID);
 	}

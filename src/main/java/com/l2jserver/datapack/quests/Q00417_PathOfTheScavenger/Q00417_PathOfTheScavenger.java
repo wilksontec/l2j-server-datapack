@@ -77,7 +77,7 @@ public final class Q00417_PathOfTheScavenger extends Quest {
 	private static final String FLAG = "FLAG";
 	
 	public Q00417_PathOfTheScavenger() {
-		super(417, Q00417_PathOfTheScavenger.class.getSimpleName(), "Path Of The Scavenger");
+		super(417);
 		bindStartNpc(COLLECTOR_PIPI);
 		bindTalk(COLLECTOR_PIPI, WAREHOUSE_KEEPER_RAUT, TRADER_MION, TRADER_SHARI, HEAD_BLACKSMITH_BRONK, PRIEST_OF_THE_EARTH_ZIMENF, MASTER_TOMA, TORAI, WAREHOUSE_CHIEF_YASENI);
 		bindAttack(HUNTER_TARANTULA, PLUNDER_TARANTULA, HUNTER_BEAR, HONEY_BEAR);

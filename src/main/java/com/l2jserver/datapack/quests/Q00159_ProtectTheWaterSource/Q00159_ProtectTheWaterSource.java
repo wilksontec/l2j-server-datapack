@@ -43,7 +43,7 @@ public class Q00159_ProtectTheWaterSource extends Quest {
 	private static final int MIN_LVL = 12;
 	
 	public Q00159_ProtectTheWaterSource() {
-		super(159, Q00159_ProtectTheWaterSource.class.getSimpleName(), "Protect the Water Source");
+		super(159);
 		bindStartNpc(ASTERIOS);
 		bindTalk(ASTERIOS);
 		bindKill(PLAGUE_ZOMBIE);

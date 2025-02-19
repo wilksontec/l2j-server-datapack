@@ -65,7 +65,6 @@ public final class Ballista extends AbstractNpcAI {
 	private static final int MIN_CLAN_LV = 5;
 	
 	public Ballista() {
-		super(Ballista.class.getSimpleName(), "ai/individual");
 		bindSkillSee(BALLISTA);
 		bindSpawn(BALLISTA);
 	}

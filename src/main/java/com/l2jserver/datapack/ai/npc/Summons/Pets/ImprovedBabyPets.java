@@ -54,7 +54,6 @@ public final class ImprovedBabyPets extends AbstractNpcAI {
 	private static final int BUFF_CONTROL = 5771;
 	
 	public ImprovedBabyPets() {
-		super(ImprovedBabyPets.class.getSimpleName(), "ai/npc/Summons/Pets");
 		bindSummonSpawn(IMPROVED_BABY_PETS);
 	}
 	

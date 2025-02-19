@@ -38,7 +38,6 @@ public final class EvasGiftBox extends AbstractNpcAI {
 	private static final ItemHolder CRYSTAL = new ItemHolder(9693, 1); // Crystal Fragment
 	
 	public EvasGiftBox() {
-		super(EvasGiftBox.class.getSimpleName(), "ai/individual");
 		bindKill(BOX);
 		bindSpawn(BOX);
 	}

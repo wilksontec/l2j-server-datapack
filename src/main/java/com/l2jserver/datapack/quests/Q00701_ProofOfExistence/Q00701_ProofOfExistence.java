@@ -54,7 +54,7 @@ public class Q00701_ProofOfExistence extends Quest {
 	private static final int MIN_LEVEL = 78;
 	
 	public Q00701_ProofOfExistence() {
-		super(701, Q00701_ProofOfExistence.class.getSimpleName(), "Proof of Existence");
+		super(701);
 		bindStartNpc(ARTIUS);
 		bindTalk(ARTIUS);
 		bindKill(MOBS.keySet());

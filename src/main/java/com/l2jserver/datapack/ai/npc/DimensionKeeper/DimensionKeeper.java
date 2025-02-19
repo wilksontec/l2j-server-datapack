@@ -63,7 +63,6 @@ public final class DimensionKeeper extends AbstractNpcAI {
 	private static final int MAX_QUEST_COUNT = 40;
 	
 	public DimensionKeeper() {
-		super(DimensionKeeper.class.getSimpleName(), "ai/npc");
 		bindStartNpc(NPCS);
 		bindFirstTalk(NPCS);
 		bindTalk(NPCS);

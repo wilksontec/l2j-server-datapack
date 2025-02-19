@@ -34,7 +34,6 @@ public final class PavelArchaic extends AbstractNpcAI {
 	private static final int JACKHAMMER_GOLEM = 22804; // Horrifying Jackhammer Golem
 	
 	public PavelArchaic() {
-		super(PavelArchaic.class.getSimpleName(), "ai/group_template");
 		bindKill(SAFETY_DEVICE, PINCER_GOLEM, JACKHAMMER_GOLEM);
 	}
 	

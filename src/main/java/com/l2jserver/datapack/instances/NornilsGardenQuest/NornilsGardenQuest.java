@@ -45,8 +45,6 @@ public final class NornilsGardenQuest extends AbstractInstance {
 	private static final int TEMPLATE_ID = 12;
 	
 	public NornilsGardenQuest() {
-		super(NornilsGardenQuest.class.getSimpleName());
-		
 		bindStartNpc(RODENPICULA, MOTHER_NORNIL);
 		bindTalk(RODENPICULA, MOTHER_NORNIL);
 		bindFirstTalk(RODENPICULA, MOTHER_NORNIL);

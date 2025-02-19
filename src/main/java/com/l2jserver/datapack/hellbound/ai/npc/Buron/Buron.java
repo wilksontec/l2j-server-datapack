@@ -35,7 +35,6 @@ public final class Buron extends AbstractNpcAI {
 	private static final int DARION_BADGE = 9674;
 	
 	public Buron() {
-		super(Buron.class.getSimpleName(), "hellbound/AI/NPC");
 		bindFirstTalk(BURON);
 		bindStartNpc(BURON);
 		bindTalk(BURON);

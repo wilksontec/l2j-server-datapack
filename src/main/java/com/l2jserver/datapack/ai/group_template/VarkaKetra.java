@@ -131,7 +131,6 @@ public class VarkaKetra extends AbstractNpcAI {
 	};
 	
 	public VarkaKetra() {
-		super(VarkaKetra.class.getSimpleName(), "ai/group_template");
 		bindKill(KETRA);
 		bindKill(VARKA);
 		bindNpcHate(KETRA);

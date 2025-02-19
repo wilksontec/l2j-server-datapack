@@ -57,7 +57,7 @@ public class Q00242_PossessorOfAPreciousSoul2 extends Quest {
 	private static final SkillHolder QUEST_COMMUNE_TO_SLATE = new SkillHolder(4546);
 	
 	public Q00242_PossessorOfAPreciousSoul2() {
-		super(242, Q00242_PossessorOfAPreciousSoul2.class.getSimpleName(), "Possessor Of A Precious Soul 2");
+		super(242);
 		bindStartNpc(VIRGIL);
 		bindTalk(VIRGIL, KASSANDRA, OGMAR, MYSTERIOUS_KNIGHT, ANGEL_CORPSE, KALIS, MATILD, FALLEN_UNICORN, CORNERSTONE, PURE_UNICORN);
 		bindKill(RESTRAINER_OF_GLORY);

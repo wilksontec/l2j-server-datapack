@@ -49,7 +49,7 @@ public class Q00005_MinersFavor extends Quest {
 	private static final int MIN_LEVEL = 2;
 	
 	public Q00005_MinersFavor() {
-		super(5, Q00005_MinersFavor.class.getSimpleName(), "Miner's Favor");
+		super(5);
 		bindStartNpc(BOLTER);
 		bindTalk(BOLTER, SHARI, GARITA, REED, BRUNON);
 		registerQuestItems(BOLTERS_LIST, MINING_BOOTS, MINERS_PICK, BOOMBOOM_POWDER, REDSTONE_BEER, BOLTERS_SMELLY_SOCKS);

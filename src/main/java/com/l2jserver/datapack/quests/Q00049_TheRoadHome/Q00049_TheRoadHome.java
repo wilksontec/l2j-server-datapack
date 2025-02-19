@@ -52,7 +52,7 @@ public final class Q00049_TheRoadHome extends Quest {
 	// Reward
 	private static final int SCROLL_OF_ESCAPE_DWARVEN_VILLAGE = 7558;
 	// Get condition for each npc
-	private static Map<Integer, ItemHolder> NPC_ITEMS = new HashMap<>();
+	private static final Map<Integer, ItemHolder> NPC_ITEMS = new HashMap<>();
 	static {
 		NPC_ITEMS.put(GENTLER, new ItemHolder(1, GALLADUCCIS_ORDER_1));
 		NPC_ITEMS.put(SANDRA, new ItemHolder(3, GALLADUCCIS_ORDER_2));
@@ -60,7 +60,7 @@ public final class Q00049_TheRoadHome extends Quest {
 	}
 	
 	public Q00049_TheRoadHome() {
-		super(49, Q00049_TheRoadHome.class.getSimpleName(), "The Road Home");
+		super(49);
 		bindStartNpc(GALLADUCCI);
 		bindTalk(GALLADUCCI);
 		bindTalk(NPC_ITEMS.keySet());

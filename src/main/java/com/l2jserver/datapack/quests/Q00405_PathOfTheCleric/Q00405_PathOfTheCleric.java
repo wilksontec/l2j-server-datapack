@@ -59,7 +59,7 @@ public final class Q00405_PathOfTheCleric extends Quest {
 	private static final int MIN_LEVEL = 18;
 	
 	public Q00405_PathOfTheCleric() {
-		super(405, Q00405_PathOfTheCleric.class.getSimpleName(), "Path Of The Cleric");
+		super(405);
 		bindStartNpc(ZIGAUNT);
 		bindTalk(ZIGAUNT, GALLINT, VIVYAN, TRADER_SIMPLON, GUARD_PRAGA, LIONEL);
 		bindKill(RUIN_ZOMBIE, RUIN_ZOMBIE_LEADER);

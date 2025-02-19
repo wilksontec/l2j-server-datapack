@@ -57,7 +57,7 @@ public final class Q00407_PathOfTheElvenScout extends Quest {
 	private static final int MIN_LEVEL = 18;
 	
 	public Q00407_PathOfTheElvenScout() {
-		super(407, Q00407_PathOfTheElvenScout.class.getSimpleName(), "Path of the Elven Scout");
+		super(407);
 		bindStartNpc(MASTER_REORIA);
 		bindTalk(MASTER_REORIA, GUARD_BABENCO, GUARD_MORETTI, PRIAS);
 		bindKill(OL_MAHUM_PATROL, OL_MAHUM_SENTRY);

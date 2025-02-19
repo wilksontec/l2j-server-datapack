@@ -43,7 +43,6 @@ public final class JiniaGuildHideout3 extends AbstractInstance {
 	private static final int TEMPLATE_ID = 145;
 	
 	public JiniaGuildHideout3() {
-		super(JiniaGuildHideout3.class.getSimpleName());
 		bindStartNpc(RAFFORTY);
 		bindTalk(RAFFORTY);
 	}

@@ -52,7 +52,7 @@ public final class Q00650_ABrokenDream extends Quest {
 	}
 	
 	public Q00650_ABrokenDream() {
-		super(650, Q00650_ABrokenDream.class.getSimpleName(), "A Broken Dream");
+		super(650);
 		bindStartNpc(GHOST_OF_A_RAILROAD_ENGINEER);
 		bindTalk(GHOST_OF_A_RAILROAD_ENGINEER);
 		bindKill(MONSTER_DROP_CHANCES.keySet());

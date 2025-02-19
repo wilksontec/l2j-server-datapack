@@ -52,7 +52,7 @@ public final class Q00194_SevenSignsMammonsContract extends Quest {
 	private static final SkillHolder TRANSFORMATION_NATIVE = new SkillHolder(6203);
 	
 	public Q00194_SevenSignsMammonsContract() {
-		super(194, Q00194_SevenSignsMammonsContract.class.getSimpleName(), "Seven Signs, Mammon's Contract");
+		super(194);
 		bindStartNpc(SIR_GUSTAV_ATHEBALDT);
 		bindTalk(SIR_GUSTAV_ATHEBALDT, COLIN, FROG, TESS, KUTA, CLAUDIA_ATHEBALDT);
 		registerQuestItems(ATHEBALDTS_INTRODUCTION, NATIVES_GLOVE, FROG_KINGS_BEAD, GRANDA_TESS_CANDY_POUCH);

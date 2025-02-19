@@ -37,7 +37,6 @@ public final class Tunatun extends AbstractNpcAI {
 	private static final int MIN_LEVEL = 82;
 	
 	public Tunatun() {
-		super(Tunatun.class.getSimpleName(), "ai/npc");
 		bindStartNpc(TUNATUN);
 		bindFirstTalk(TUNATUN);
 		bindTalk(TUNATUN);

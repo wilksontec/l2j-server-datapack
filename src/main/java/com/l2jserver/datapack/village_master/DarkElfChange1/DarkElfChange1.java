@@ -55,7 +55,6 @@ public final class DarkElfChange1 extends AbstractNpcAI {
 	private static final int MIN_LEVEL = 20;
 	
 	public DarkElfChange1() {
-		super(DarkElfChange1.class.getSimpleName(), "village_master");
 		bindStartNpc(NPCS);
 		bindTalk(NPCS);
 	}

@@ -40,7 +40,7 @@ public class Q10288_SecretMission extends Quest {
 	private static final Location TELEPORT = new Location(118833, -80589, -2688);
 	
 	public Q10288_SecretMission() {
-		super(10288, Q10288_SecretMission.class.getSimpleName(), "Secret Mission");
+		super(10288);
 		bindStartNpc(AQUILANI, DOMINIC);
 		bindFirstTalk(AQUILANI);
 		bindTalk(DOMINIC, GREYMORE, AQUILANI);

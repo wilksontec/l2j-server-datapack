@@ -81,7 +81,7 @@ public final class Q00708_PathToBecomingALordGludio extends Quest {
 	private static final int MIN_TIME = 60000;
 	
 	public Q00708_PathToBecomingALordGludio() {
-		super(708, Q00708_PathToBecomingALordGludio.class.getSimpleName(), "Path To Becoming A Lord - Gludio");
+		super(708);
 		bindStartNpc(SAYRES);
 		bindTalk(SAYRES, PINTER, BATHIS);
 		registerQuestItems(HEADLESS_ARMOR);

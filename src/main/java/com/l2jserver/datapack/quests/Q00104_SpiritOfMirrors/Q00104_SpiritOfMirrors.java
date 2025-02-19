@@ -68,7 +68,7 @@ public final class Q00104_SpiritOfMirrors extends Quest {
 	private static final int MIN_LVL = 10;
 	
 	public Q00104_SpiritOfMirrors() {
-		super(104, Q00104_SpiritOfMirrors.class.getSimpleName(), "Spirit of Mirrors");
+		super(104);
 		bindStartNpc(GALLINT);
 		bindTalk(ARNOLD, GALLINT, JOHNSTONE, KENYOS);
 		bindKill(MONSTERS.keySet());

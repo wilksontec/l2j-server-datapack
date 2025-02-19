@@ -24,7 +24,7 @@ package com.l2jserver.datapack.quests.TerritoryWarScripts;
  */
 public final class Q00732_ProtectTheReligiousAssociationLeader extends TerritoryWarSuperClass {
 	public Q00732_ProtectTheReligiousAssociationLeader() {
-		super(732, Q00732_ProtectTheReligiousAssociationLeader.class.getSimpleName(), "Protect the Religious Association Leader");
+		super(732);
 		NPC_IDS = new int[] {
 			36510,
 			36516,

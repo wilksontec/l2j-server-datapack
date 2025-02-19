@@ -50,7 +50,7 @@ public class Q00324_SweetestVenom extends Quest {
 	private static final int ADENA_COUNT = 5810;
 	
 	public Q00324_SweetestVenom() {
-		super(324, Q00324_SweetestVenom.class.getSimpleName(), "Sweetest Venom");
+		super(324);
 		bindStartNpc(ASTARON);
 		bindTalk(ASTARON);
 		bindKill(MONSTERS.keySet());

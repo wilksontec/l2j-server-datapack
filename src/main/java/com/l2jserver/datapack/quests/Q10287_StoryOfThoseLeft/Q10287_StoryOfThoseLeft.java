@@ -43,7 +43,7 @@ public final class Q10287_StoryOfThoseLeft extends Quest {
 	private static final Location EXIT_LOC = new Location(113793, -109342, -845, 0);
 	
 	public Q10287_StoryOfThoseLeft() {
-		super(10287, Q10287_StoryOfThoseLeft.class.getSimpleName(), "Story of Those Left");
+		super(10287);
 		bindStartNpc(RAFFORTY);
 		bindTalk(RAFFORTY, JINIA, KEGOR);
 	}

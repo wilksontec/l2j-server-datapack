@@ -48,7 +48,7 @@ public final class ChamberOfDelusionSquare extends Chamber {
 	private static final String INSTANCE_TEMPLATE = "ChamberOfDelusionSquare.xml";
 	
 	public ChamberOfDelusionSquare() {
-		super(ChamberOfDelusionSquare.class.getSimpleName(), "instances", INSTANCEID, INSTANCE_TEMPLATE, ENTRANCE_GATEKEEPER, ROOM_GATEKEEPER_FIRST, ROOM_GATEKEEPER_LAST, AENKINEL, BOX);
+		super(INSTANCEID, INSTANCE_TEMPLATE, ENTRANCE_GATEKEEPER, ROOM_GATEKEEPER_FIRST, ROOM_GATEKEEPER_LAST, AENKINEL, BOX);
 		ROOM_ENTER_POINTS = ENTER_POINTS;
 	}
 }

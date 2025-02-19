@@ -42,7 +42,6 @@ public final class BlackMarketeerOfMammon extends AbstractNpcAI {
 	private static final double WEIGHT_LIMIT = 0.80;
 	
 	public BlackMarketeerOfMammon() {
-		super(BlackMarketeerOfMammon.class.getSimpleName(), "ai/npc");
 		bindStartNpc(BLACK_MARKETEER);
 		bindFirstTalk(BLACK_MARKETEER);
 	}

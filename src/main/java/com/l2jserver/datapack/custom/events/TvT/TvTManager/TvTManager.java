@@ -43,7 +43,6 @@ public final class TvTManager extends AbstractNpcAI implements IVoicedCommandHan
 	};
 	
 	public TvTManager() {
-		super(TvTManager.class.getSimpleName(), "custom/events/TvT");
 		bindFirstTalk(MANAGER_ID);
 		bindTalk(MANAGER_ID);
 		bindStartNpc(MANAGER_ID);

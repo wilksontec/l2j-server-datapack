@@ -148,7 +148,6 @@ public final class CavernOfThePirateCaptain extends AbstractInstance {
 	//@formatter:on
 	
 	public CavernOfThePirateCaptain() {
-		super(CavernOfThePirateCaptain.class.getSimpleName());
 		bindStartNpc(PATHFINDER);
 		bindTalk(PATHFINDER);
 		bindKill(ZAKEN_60, ZAKEN_83);

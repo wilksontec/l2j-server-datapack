@@ -61,7 +61,7 @@ public class Q00626_ADarkTwilight extends Quest {
 	private static final int SP_COUNT = 12500;
 	
 	public Q00626_ADarkTwilight() {
-		super(626, Q00626_ADarkTwilight.class.getSimpleName(), "A Dark Twilight");
+		super(626);
 		bindStartNpc(HIERARCH);
 		bindTalk(HIERARCH);
 		bindKill(DROPLIST.getNpcIds());

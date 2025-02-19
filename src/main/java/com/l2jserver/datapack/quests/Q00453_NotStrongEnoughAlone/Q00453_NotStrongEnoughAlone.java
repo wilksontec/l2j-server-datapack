@@ -94,7 +94,7 @@ public class Q00453_NotStrongEnoughAlone extends Quest {
 	};
 	
 	public Q00453_NotStrongEnoughAlone() {
-		super(453, Q00453_NotStrongEnoughAlone.class.getSimpleName(), "Not Strong Enought Alone");
+		super(453);
 		bindStartNpc(KLEMIS);
 		bindTalk(KLEMIS);
 		bindKill(MONSTER1);

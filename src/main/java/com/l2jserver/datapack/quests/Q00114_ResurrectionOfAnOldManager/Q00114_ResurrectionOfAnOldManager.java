@@ -56,7 +56,7 @@ public class Q00114_ResurrectionOfAnOldManager extends Quest {
 	private static L2Attackable golem = null;
 	
 	public Q00114_ResurrectionOfAnOldManager() {
-		super(114, Q00114_ResurrectionOfAnOldManager.class.getSimpleName(), "Resurrection of an Old Manager");
+		super(114);
 		bindStartNpc(YUMI);
 		bindTalk(YUMI, WENDY, BOX, STONES, NEWYEAR);
 		bindKill(GUARDIAN);

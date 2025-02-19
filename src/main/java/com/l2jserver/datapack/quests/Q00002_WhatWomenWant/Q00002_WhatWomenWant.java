@@ -47,7 +47,7 @@ public class Q00002_WhatWomenWant extends Quest {
 	private static final int MIN_LEVEL = 2;
 	
 	public Q00002_WhatWomenWant() {
-		super(2, Q00002_WhatWomenWant.class.getSimpleName(), "What Women Want");
+		super(2);
 		bindStartNpc(ARUJIEN);
 		bindTalk(ARUJIEN, MIRABEL, HERBIEL, GREENIS);
 		registerQuestItems(ARUJIENS_LETTER1, ARUJIENS_LETTER2, ARUJIENS_LETTER3, POETRY_BOOK, GREENIS_LETTER);

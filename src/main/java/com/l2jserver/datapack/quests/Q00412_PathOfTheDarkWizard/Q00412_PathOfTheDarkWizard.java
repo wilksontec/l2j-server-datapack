@@ -72,7 +72,7 @@ public final class Q00412_PathOfTheDarkWizard extends Quest {
 	private static final int MIN_LEVEL = 18;
 	
 	public Q00412_PathOfTheDarkWizard() {
-		super(412, Q00412_PathOfTheDarkWizard.class.getSimpleName(), "Path Of The Dark Wizard");
+		super(412);
 		bindStartNpc(VARIKA);
 		bindTalk(VARIKA, CHARKEREN, ANNIKA, ARKENIA);
 		bindKill(MARSH_ZOMBIE, MISERY_SKELETON, SKELETON_SCOUT, SKELETON_HUNTER, SKELETON_HUNTER_ARCHER);

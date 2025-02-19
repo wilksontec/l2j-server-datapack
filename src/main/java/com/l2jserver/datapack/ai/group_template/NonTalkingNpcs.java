@@ -53,7 +53,6 @@ public final class NonTalkingNpcs extends AbstractNpcAI {
 	// @formatter:on
 	
 	public NonTalkingNpcs() {
-		super(NonTalkingNpcs.class.getSimpleName(), "ai/group_template");
 		bindSpawn(NONTALKINGNPCS);
 	}
 	

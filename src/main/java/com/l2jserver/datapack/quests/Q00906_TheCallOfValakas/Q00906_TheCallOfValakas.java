@@ -44,7 +44,7 @@ public class Q00906_TheCallOfValakas extends Quest {
 	private static final int MIN_LEVEL = 83;
 	
 	public Q00906_TheCallOfValakas() {
-		super(906, Q00906_TheCallOfValakas.class.getSimpleName(), "The Call of Valakas");
+		super(906);
 		bindStartNpc(KLEIN);
 		bindTalk(KLEIN);
 		bindKill(LAVASAURUS_ALPHA);

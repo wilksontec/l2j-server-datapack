@@ -36,7 +36,7 @@ public class Q00110_ToThePrimevalIsle extends Quest {
 	private static final int ANCIENT_BOOK = 8777;
 	
 	public Q00110_ToThePrimevalIsle() {
-		super(110, Q00110_ToThePrimevalIsle.class.getSimpleName(), "To the Primeval Isle");
+		super(110);
 		bindStartNpc(ANTON);
 		bindTalk(ANTON, MARQUEZ);
 		registerQuestItems(ANCIENT_BOOK);

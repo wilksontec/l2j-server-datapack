@@ -26,7 +26,7 @@ import com.l2jserver.gameserver.network.NpcStringId;
  */
 public final class Q00721_ForTheSakeOfTheTerritoryAden extends TerritoryWarSuperClass {
 	public Q00721_ForTheSakeOfTheTerritoryAden() {
-		super(721, Q00721_ForTheSakeOfTheTerritoryAden.class.getSimpleName(), "For the Sake of the Territory - Aden");
+		super(721);
 		CATAPULT_ID = 36503;
 		TERRITORY_ID = 85;
 		LEADER_IDS = new int[] {

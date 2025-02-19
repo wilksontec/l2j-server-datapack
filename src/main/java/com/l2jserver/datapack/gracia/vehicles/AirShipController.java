@@ -104,10 +104,6 @@ public abstract class AirShipController extends Quest {
 	
 	private static final SystemMessage SM_NEED_MORE = SystemMessage.getSystemMessage(SystemMessageId.THE_AIRSHIP_NEED_MORE_S1).addItemName(STARSTONE);
 	
-	public AirShipController(int questId, String name, String descr) {
-		super(questId, name, descr);
-	}
-	
 	@Override
 	public String onEvent(String event, L2Npc npc, L2PcInstance player) {
 		if ("summon".equalsIgnoreCase(event)) {

@@ -44,7 +44,6 @@ public final class FrightenedRagnaOrc extends AbstractNpcAI {
 	private static final SkillHolder SKILL = new SkillHolder(6234);
 	
 	public FrightenedRagnaOrc() {
-		super(FrightenedRagnaOrc.class.getSimpleName(), "ai/individual");
 		bindAttack(MOB_ID);
 		bindKill(MOB_ID);
 	}

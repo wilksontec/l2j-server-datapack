@@ -65,7 +65,6 @@ public final class MithrilMine extends AbstractInstance {
 	private static final int TEMPLATE_ID = 138;
 	
 	public MithrilMine() {
-		super(MithrilMine.class.getSimpleName(), "instances");
 		bindFirstTalk(KEGOR);
 		bindKill(KEGOR, MITHRIL_MILLIPEDE);
 		bindStartNpc(TARUN, KRUN);

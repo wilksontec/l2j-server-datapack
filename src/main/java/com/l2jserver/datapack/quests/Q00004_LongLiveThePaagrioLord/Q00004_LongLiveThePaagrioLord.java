@@ -52,7 +52,7 @@ public class Q00004_LongLiveThePaagrioLord extends Quest {
 	private static final int MIN_LEVEL = 2;
 	
 	public Q00004_LongLiveThePaagrioLord() {
-		super(4, Q00004_LongLiveThePaagrioLord.class.getSimpleName(), "Long Live the Pa'agrio Lord");
+		super(4);
 		bindStartNpc(NAKUSIN);
 		bindTalk(NAKUSIN, VARKEES, URUTU, HESTUI, KUNAI, USKA, GROOKIN);
 		registerQuestItems(HONEY_KHANDAR, BEAR_FUR_CLOAK, BLOODY_AXE, ANCESTOR_SKULL, SPIDER_DUST, DEEP_SEA_ORB);

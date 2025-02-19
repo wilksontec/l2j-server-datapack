@@ -27,7 +27,7 @@ import com.l2jserver.gameserver.model.Location;
  */
 public class Q00098_SagaOfTheShillienSaint extends AbstractSagaQuest {
 	public Q00098_SagaOfTheShillienSaint() {
-		super(98, Q00098_SagaOfTheShillienSaint.class.getSimpleName(), "Saga of the Shillien Saint");
+		super(98);
 		_npc = new int[] {
 			31581,
 			31626,

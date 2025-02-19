@@ -52,7 +52,7 @@ public class Q00702_ATrapForRevenge extends Quest {
 	private static final int EXTRACTED_RED_STAR_STONE = 14009;
 	
 	public Q00702_ATrapForRevenge() {
-		super(702, Q00702_ATrapForRevenge.class.getSimpleName(), "A Trap for Revenge");
+		super(702);
 		bindStartNpc(PLENOS);
 		bindTalk(PLENOS, LEKON, TENIUS);
 		bindKill(MONSTERS);

@@ -65,8 +65,6 @@ public abstract class CustomServiceScript extends AbstractNpcAI {
 	private final Map<Integer, String> lastPlayerHtmls = new ConcurrentHashMap<>();
 	
 	public CustomServiceScript(String name) {
-		super(name, SCRIPT_COLLECTION);
-		
 		Objects.requireNonNull(name);
 		scriptName = name;
 		scriptPath = Paths.get(SCRIPT_COLLECTION, scriptName);

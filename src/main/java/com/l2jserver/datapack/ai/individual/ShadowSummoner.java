@@ -53,7 +53,6 @@ public class ShadowSummoner extends AbstractNpcAI {
 	private static final double MIN_HP_PERCENTAGE = 0.25;
 	
 	public ShadowSummoner() {
-		super(ShadowSummoner.class.getSimpleName(), "ai/individual");
 		bindAttack(SHADOW_SUMMONER);
 		bindSeeCreature(SHADOW_SUMMONER);
 	}

@@ -51,7 +51,6 @@ public final class BabyPets extends AbstractNpcAI {
 	private static final int GREATER_HEAL_TRICK = 4718;
 	
 	public BabyPets() {
-		super(BabyPets.class.getSimpleName(), "ai/npc/Summons/Pets");
 		bindSummonSpawn(BABY_PETS);
 	}
 	

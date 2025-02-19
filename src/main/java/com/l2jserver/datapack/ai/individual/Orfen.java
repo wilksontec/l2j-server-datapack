@@ -74,7 +74,6 @@ public final class Orfen extends AbstractNpcAI {
 	private static final int DEAD = 1;
 	
 	public Orfen() {
-		super(Orfen.class.getSimpleName(), "ai/individual");
 		bindKill(ORFEN);
 		bindSpawn(ORFEN, RIBA_IREN);
 		bindExitZone(ZONE);

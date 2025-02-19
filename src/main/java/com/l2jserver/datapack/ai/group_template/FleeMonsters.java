@@ -52,7 +52,6 @@ public final class FleeMonsters extends AbstractNpcAI {
 	private static final int FLEE_DISTANCE = 500;
 	
 	public FleeMonsters() {
-		super(FleeMonsters.class.getSimpleName(), "ai/group_template");
 		bindAttack(MOBS);
 	}
 	

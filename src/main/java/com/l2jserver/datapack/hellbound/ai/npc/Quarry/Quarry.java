@@ -56,7 +56,6 @@ public final class Quarry extends AbstractNpcAI {
 	private static final int TRUST = 50;
 	
 	public Quarry() {
-		super(Quarry.class.getSimpleName(), "hellbound/AI/NPC");
 		bindSpawn(SLAVE);
 		bindFirstTalk(SLAVE);
 		bindStartNpc(SLAVE);

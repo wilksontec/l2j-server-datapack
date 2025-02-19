@@ -38,7 +38,7 @@ public class Q00176_StepsForHonor extends Quest {
 	private static final int MIN_LEVEL = 80;
 	
 	public Q00176_StepsForHonor() {
-		super(176, Q00176_StepsForHonor.class.getSimpleName(), "Steps for Honor");
+		super(176);
 		bindStartNpc(RAPIDUS);
 		bindTalk(RAPIDUS);
 	}

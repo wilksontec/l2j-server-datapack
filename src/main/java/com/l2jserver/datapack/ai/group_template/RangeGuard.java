@@ -24,7 +24,6 @@ import com.l2jserver.gameserver.model.L2Object;
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.L2Playable;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
-import com.l2jserver.gameserver.model.actor.templates.L2NpcTemplate;
 import com.l2jserver.gameserver.model.holders.SkillHolder;
 import com.l2jserver.gameserver.model.skills.Skill;
 import com.l2jserver.gameserver.util.Util;
@@ -79,9 +78,7 @@ public final class RangeGuard extends AbstractNpcAI {
 	private static final int MIN_DISTANCE = 150;
 	
 	public RangeGuard() {
-		super(RangeGuard.class.getSimpleName(), "ai/group_template");
-		
-		for (L2NpcTemplate template : NpcData.getInstance().getAllNpcOfClassType("L2Monster")) {
+		for (var template : NpcData.getInstance().getAllNpcOfClassType("L2Monster")) {
 			if (template.getParameters().getInt("LongRangeGuardRate", -1) > 0) {
 				bindAttack(template.getId());
 			}

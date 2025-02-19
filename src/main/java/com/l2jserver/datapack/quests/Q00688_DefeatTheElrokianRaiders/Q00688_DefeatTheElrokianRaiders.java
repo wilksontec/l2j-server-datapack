@@ -39,7 +39,7 @@ public class Q00688_DefeatTheElrokianRaiders extends Quest {
 	private static final int MIN_LEVEL = 75;
 	
 	public Q00688_DefeatTheElrokianRaiders() {
-		super(688, Q00688_DefeatTheElrokianRaiders.class.getSimpleName(), "Defeat the Elrokian Raiders!");
+		super(688);
 		bindStartNpc(DINN);
 		bindTalk(DINN);
 		bindKill(ELROKI);

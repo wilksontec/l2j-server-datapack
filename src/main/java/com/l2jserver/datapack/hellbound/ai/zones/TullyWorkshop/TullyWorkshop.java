@@ -457,7 +457,6 @@ public final class TullyWorkshop extends AbstractNpcAI {
 	// @formatter:on
 	
 	public TullyWorkshop() {
-		super(TullyWorkshop.class.getSimpleName(), "hellbound/AI/Zones");
 		bindStartNpc(DORIAN);
 		bindTalk(DORIAN);
 		

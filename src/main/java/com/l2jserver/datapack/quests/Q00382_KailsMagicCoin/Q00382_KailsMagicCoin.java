@@ -57,7 +57,7 @@ public final class Q00382_KailsMagicCoin extends Quest {
 	private static final int MIN_LVL = 55;
 	
 	public Q00382_KailsMagicCoin() {
-		super(382, Q00382_KailsMagicCoin.class.getSimpleName(), "Kail's Magic Coin");
+		super(382);
 		bindStartNpc(VERGARA);
 		bindTalk(VERGARA);
 		bindKill(FALLEN_ORC, FALLEN_ORC_ARCHER, FALLEN_ORC_SHAMAN, FALLEN_ORC_CAPTAIN);

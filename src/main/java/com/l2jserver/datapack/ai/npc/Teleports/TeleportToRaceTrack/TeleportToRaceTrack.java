@@ -71,7 +71,6 @@ public final class TeleportToRaceTrack extends AbstractNpcAI {
 	private static final String MONSTER_RETURN = "MONSTER_RETURN";
 	
 	public TeleportToRaceTrack() {
-		super(TeleportToRaceTrack.class.getSimpleName(), "ai/npc/Teleports");
 		bindStartNpc(RACE_MANAGER);
 		bindStartNpc(TELEPORTERS.keySet());
 		bindTalk(RACE_MANAGER);

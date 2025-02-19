@@ -36,7 +36,6 @@ public class Klemis extends AbstractNpcAI {
 	private static final int MIN_LV = 80;
 	
 	public Klemis() {
-		super(Klemis.class.getSimpleName(), "ai/npc/Teleports");
 		bindStartNpc(KLEMIS);
 		bindTalk(KLEMIS);
 		bindFirstTalk(KLEMIS);

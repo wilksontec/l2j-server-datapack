@@ -35,7 +35,6 @@ public final class Typhoon extends AbstractNpcAI {
 	private static final SkillHolder STORM = new SkillHolder(5434); // Gust
 	
 	public Typhoon() {
-		super(Typhoon.class.getSimpleName(), "hellbound/AI");
 		bindAggroRangeEnter(TYPHOON);
 		bindSpawn(TYPHOON);
 	}

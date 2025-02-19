@@ -55,7 +55,7 @@ public final class Q00023_LidiasHeart extends Quest {
 	private static final Location GHOST_SPAWN = new Location(51432, -54570, -3136);
 	
 	public Q00023_LidiasHeart() {
-		super(23, Q00023_LidiasHeart.class.getSimpleName(), "Lidia's Heart");
+		super(23);
 		bindStartNpc(HIGH_PRIEST_INNOCENTIN);
 		bindTalk(HIGH_PRIEST_INNOCENTIN, TRADER_VIOLET, TOMBSTONE, GHOST_OF_VON_HELLMANN, BROKEN_BOOKSHELF, BOX);
 		bindSpawn(GHOST_OF_VON_HELLMANN);

@@ -42,7 +42,7 @@ public class Q00553_OlympiadUndefeated extends Quest {
 	private static final int MEDAL_OF_GLORY = 21874;
 	
 	public Q00553_OlympiadUndefeated() {
-		super(553, Q00553_OlympiadUndefeated.class.getSimpleName(), "Olympiad Undefeated");
+		super(553);
 		bindStartNpc(MANAGER);
 		bindTalk(MANAGER);
 		registerQuestItems(WIN_CONF_2, WIN_CONF_5, WIN_CONF_10);

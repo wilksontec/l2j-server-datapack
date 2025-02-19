@@ -137,7 +137,6 @@ public final class OracleTeleport extends AbstractNpcAI {
 	private static final int DIMENSIONAL_FRAGMENT = 7079;
 	
 	public OracleTeleport() {
-		super(OracleTeleport.class.getSimpleName(), "ai/npc/Teleports");
 		bindStartNpc(RIFT_POSTERS);
 		bindStartNpc(TELEPORTERS);
 		bindStartNpc(TEMPLE_PRIEST);

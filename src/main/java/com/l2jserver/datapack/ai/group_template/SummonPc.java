@@ -41,7 +41,6 @@ public final class SummonPc extends AbstractNpcAI {
 	private static final int MIN_DISTANCE_MOST_HATED = 100;
 	
 	public SummonPc() {
-		super(SummonPc.class.getSimpleName(), "ai/group_template");
 		bindAttack(PORTA, PERUM);
 		bindSpellFinished(PORTA, PERUM);
 	}

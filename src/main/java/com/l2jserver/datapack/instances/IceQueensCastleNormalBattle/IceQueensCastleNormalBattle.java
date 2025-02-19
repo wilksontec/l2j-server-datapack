@@ -172,7 +172,6 @@ public final class IceQueensCastleNormalBattle extends AbstractInstance {
 	private static final int DOOR_ID = 23140101;
 	
 	public IceQueensCastleNormalBattle() {
-		super(IceQueensCastleNormalBattle.class.getSimpleName());
 		bindStartNpc(SIRRA, SUPP_KEGOR, SUPP_JINIA);
 		bindFirstTalk(SUPP_KEGOR, SUPP_JINIA);
 		bindTalk(SIRRA, JINIA, SUPP_KEGOR);

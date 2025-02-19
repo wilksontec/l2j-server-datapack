@@ -54,7 +54,7 @@ public final class Q00193_SevenSignsDyingMessage extends Quest {
 	private static final SkillHolder NPC_HEAL = new SkillHolder(4065, 8);
 	
 	public Q00193_SevenSignsDyingMessage() {
-		super(193, Q00193_SevenSignsDyingMessage.class.getSimpleName(), "Seven Signs, Dying Message");
+		super(193);
 		bindStartNpc(HOLLINT);
 		bindTalk(HOLLINT, CAIN, ERIC, SIR_GUSTAV_ATHEBALDT);
 		bindKill(SHILENS_EVIL_THOUGHTS);

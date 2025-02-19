@@ -50,7 +50,7 @@ public class Q00901_HowLavasaurusesAreMade extends Quest {
 	private static final int TOTEM_OF_FORTITUDE = 21902;
 	
 	public Q00901_HowLavasaurusesAreMade() {
-		super(901, Q00901_HowLavasaurusesAreMade.class.getSimpleName(), "How Lavasauruses Are Made");
+		super(901);
 		bindStartNpc(ROONEY);
 		bindTalk(ROONEY);
 		bindKill(LAVASAURUS_NEWBORN, LAVASAURUS_FLEDGIING, LAVASAURUS_ADULT, LAVASAURUS_ELDERLY);

@@ -80,7 +80,7 @@ public class Q00512_BladeUnderFoot extends Quest {
 	}
 	
 	public Q00512_BladeUnderFoot() {
-		super(512, Q00512_BladeUnderFoot.class.getSimpleName(), "Blade Under Foot");
+		super(512);
 		bindStartNpc(WARDEN);
 		bindTalk(WARDEN);
 		bindKill(RAID_BOSSES.keySet());

@@ -39,7 +39,6 @@ public class TemporaryTeleporter extends AbstractNpcAI {
 	private static final Location REMNANT_TP_POINT = new Location(-248567, 250117, 4336);
 	
 	public TemporaryTeleporter() {
-		super(TemporaryTeleporter.class.getSimpleName(), "gracia/AI/NPC");
 		bindStartNpc(TEMPORARY_TELEPORTER);
 		bindFirstTalk(TEMPORARY_TELEPORTER);
 		bindTalk(TEMPORARY_TELEPORTER);

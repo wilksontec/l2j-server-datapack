@@ -49,7 +49,7 @@ public class Q00451_LuciensAltar extends Quest {
 	private static final int MIN_LEVEL = 80;
 	
 	public Q00451_LuciensAltar() {
-		super(451, Q00451_LuciensAltar.class.getSimpleName(), "Lucien's Altar");
+		super(451);
 		bindStartNpc(DAICHIR);
 		bindTalk(ALTARS);
 		bindTalk(DAICHIR);

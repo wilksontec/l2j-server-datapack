@@ -46,7 +46,7 @@ public class Q00137_TempleChampionPart1 extends Quest {
 	private static final QuestItemChanceHolder FRAGMENT = new QuestItemChanceHolder(10340, 30L);
 	
 	public Q00137_TempleChampionPart1() {
-		super(137, Q00137_TempleChampionPart1.class.getSimpleName(), "Temple Champion - 1");
+		super(137);
 		bindStartNpc(SYLVAIN);
 		bindTalk(SYLVAIN);
 		bindKill(MOBS);

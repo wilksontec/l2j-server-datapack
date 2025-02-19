@@ -84,7 +84,6 @@ public final class PailakaDevilsLegacy extends AbstractInstance {
 	private static final int ZONE = 20109;
 	
 	public PailakaDevilsLegacy() {
-		super(PailakaDevilsLegacy.class.getSimpleName());
 		bindTalk(SURVIVOR);
 		bindAttack(POWDER_KEG, TREASURE_BOX, LEMATAN);
 		bindKill(LEMATAN);

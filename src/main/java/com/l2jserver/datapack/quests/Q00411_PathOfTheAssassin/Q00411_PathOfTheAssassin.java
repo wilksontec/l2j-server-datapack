@@ -53,7 +53,7 @@ public final class Q00411_PathOfTheAssassin extends Quest {
 	private static final int MIN_LEVEL = 18;
 	
 	public Q00411_PathOfTheAssassin() {
-		super(411, Q00411_PathOfTheAssassin.class.getSimpleName(), "Path Of The Assassin");
+		super(411);
 		bindStartNpc(TRISKEL);
 		bindTalk(TRISKEL, GUARD_LEIKAN, ARKENIA);
 		bindKill(MOONSTONE_BEAST, CALPICO);

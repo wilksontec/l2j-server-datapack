@@ -49,7 +49,7 @@ public class Q00141_ShadowFoxPart3 extends Quest {
 	private static final int MAX_REWARD_LEVEL = 42;
 	
 	public Q00141_ShadowFoxPart3() {
-		super(141, Q00141_ShadowFoxPart3.class.getSimpleName(), "Shadow Fox - 3");
+		super(141);
 		bindStartNpc(NATOOLS);
 		bindTalk(NATOOLS);
 		bindKill(DROPLIST.getNpcIds());

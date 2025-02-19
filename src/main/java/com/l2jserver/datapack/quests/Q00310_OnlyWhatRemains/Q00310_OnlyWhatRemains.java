@@ -65,7 +65,7 @@ public class Q00310_OnlyWhatRemains extends Quest {
 	}
 	
 	public Q00310_OnlyWhatRemains() {
-		super(310, Q00310_OnlyWhatRemains.class.getSimpleName(), "Only What Remains");
+		super(310);
 		bindStartNpc(KINTAIJIN);
 		bindTalk(KINTAIJIN);
 		bindKill(MOBS.keySet());

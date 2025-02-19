@@ -44,7 +44,7 @@ public final class Q00116_BeyondTheHillsOfWinter extends Quest {
 	private static final int MIN_LEVEL = 30;
 	
 	public Q00116_BeyondTheHillsOfWinter() {
-		super(116, Q00116_BeyondTheHillsOfWinter.class.getSimpleName(), "Beyond the Hills of Winter");
+		super(116);
 		bindStartNpc(FILAUR);
 		bindTalk(FILAUR, OBI);
 		registerQuestItems(SUPPLYING_GOODS);

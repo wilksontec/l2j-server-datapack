@@ -41,7 +41,7 @@ public class Q00432_BirthdayPartySong extends Quest {
 	private static final int ECHO_CRYSTAL = 7061;
 	
 	public Q00432_BirthdayPartySong() {
-		super(432, Q00432_BirthdayPartySong.class.getSimpleName(), "Birthday Party Song");
+		super(432);
 		bindStartNpc(OCTAVIA);
 		bindTalk(OCTAVIA);
 		bindKill(GOLEM);

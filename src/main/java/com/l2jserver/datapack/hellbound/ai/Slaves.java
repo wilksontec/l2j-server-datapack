@@ -47,7 +47,6 @@ public final class Slaves extends AbstractNpcAI {
 	private static final int TRUST_REWARD = 10;
 	
 	public Slaves() {
-		super(Slaves.class.getSimpleName(), "hellbound/AI");
 		bindSpawn(MASTERS);
 		bindKill(MASTERS);
 	}

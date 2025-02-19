@@ -64,7 +64,7 @@ public final class Q00118_ToLeadAndBeLed extends Quest {
 	private static final int CRYSTAL_COUNT_2 = 771;
 	
 	public Q00118_ToLeadAndBeLed() {
-		super(118, Q00118_ToLeadAndBeLed.class.getSimpleName(), "To Lead And Be Led");
+		super(118);
 		bindStartNpc(BLACKSMITH_PINTER);
 		bindTalk(BLACKSMITH_PINTER);
 		bindKill(MAILLE_LIZARDMAN, MAILLE_LIZARDMAN_SCOUT, MAILLE_LIZARDMAN_GUARD, KING_OF_THE_ARANEID);

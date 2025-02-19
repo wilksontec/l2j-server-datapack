@@ -48,7 +48,7 @@ public final class Q00356_DigUpTheSeaOfSpores extends Quest {
 	private static final int MIN_LEVEL = 43;
 	
 	public Q00356_DigUpTheSeaOfSpores() {
-		super(356, Q00356_DigUpTheSeaOfSpores.class.getSimpleName(), "Dig Up the Sea of Spores!");
+		super(356);
 		bindStartNpc(GAUEN);
 		bindTalk(GAUEN);
 		bindKill(ROTTING_TREE, SPORE_ZOMBIE);

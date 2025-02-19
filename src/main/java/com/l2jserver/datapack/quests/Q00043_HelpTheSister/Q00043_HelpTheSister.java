@@ -44,7 +44,7 @@ public class Q00043_HelpTheSister extends Quest {
 	private static final int PET_TICKET = 7584;
 	
 	public Q00043_HelpTheSister() {
-		super(43, Q00043_HelpTheSister.class.getSimpleName(), "Help The Sister!");
+		super(43);
 		bindStartNpc(COOPER);
 		bindTalk(COOPER, GALLADUCCI);
 		bindKill(SORROW_MAIDEN, SPECTER);

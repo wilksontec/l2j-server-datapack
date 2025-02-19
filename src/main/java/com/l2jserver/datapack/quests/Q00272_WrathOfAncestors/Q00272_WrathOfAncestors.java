@@ -44,7 +44,7 @@ public final class Q00272_WrathOfAncestors extends Quest {
 	private static final int MIN_LVL = 5;
 	
 	public Q00272_WrathOfAncestors() {
-		super(272, Q00272_WrathOfAncestors.class.getSimpleName(), "Wrath of Ancestors");
+		super(272);
 		bindStartNpc(LIVINA);
 		bindTalk(LIVINA);
 		bindKill(MONSTERS);

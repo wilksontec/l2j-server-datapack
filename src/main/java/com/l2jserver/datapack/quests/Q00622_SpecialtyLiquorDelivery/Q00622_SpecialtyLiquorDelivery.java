@@ -54,7 +54,7 @@ public final class Q00622_SpecialtyLiquorDelivery extends Quest {
 	private static final List<Integer> TALKERS = Arrays.asList(KUBER, CROCUS, NAFF, PULIN);
 	
 	public Q00622_SpecialtyLiquorDelivery() {
-		super(622, Q00622_SpecialtyLiquorDelivery.class.getSimpleName(), "Specialty Liquor Delivery");
+		super(622);
 		bindStartNpc(JEREMY);
 		bindTalk(JEREMY, BOELIN, LIETTA);
 		bindTalk(TALKERS);

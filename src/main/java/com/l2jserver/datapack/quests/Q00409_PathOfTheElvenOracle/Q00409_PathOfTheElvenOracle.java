@@ -56,7 +56,7 @@ public final class Q00409_PathOfTheElvenOracle extends Quest {
 	private static final int TAMIL = 27035;
 	
 	public Q00409_PathOfTheElvenOracle() {
-		super(409, Q00409_PathOfTheElvenOracle.class.getSimpleName(), "Path of the Elven Oracle");
+		super(409);
 		bindStartNpc(PRIEST_MANUEL);
 		bindTalk(PRIEST_MANUEL, ALLANA, PERRIN);
 		bindKill(TAMIL, lIZARDMAN_WARRIOR, LIZARDMAN_SCOUT, LIZARDMAN_SOLDIER);

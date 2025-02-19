@@ -54,7 +54,6 @@ public final class RankuFloor extends AbstractInstance {
 	private static final int MIN_LV = 78;
 	
 	public RankuFloor() {
-		super(RankuFloor.class.getSimpleName(), "hellbound/Instances");
 		bindStartNpc(GK_9, CUBE);
 		bindTalk(GK_9, CUBE);
 		bindKill(RANKU);

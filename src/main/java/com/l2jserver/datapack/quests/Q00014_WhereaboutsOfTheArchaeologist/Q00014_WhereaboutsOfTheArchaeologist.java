@@ -37,7 +37,7 @@ public class Q00014_WhereaboutsOfTheArchaeologist extends Quest {
 	private static final int LETTER = 7253;
 	
 	public Q00014_WhereaboutsOfTheArchaeologist() {
-		super(14, Q00014_WhereaboutsOfTheArchaeologist.class.getSimpleName(), "Whereabouts of the Archaeologist");
+		super(14);
 		bindStartNpc(LIESEL);
 		bindTalk(LIESEL, GHOST_OF_ADVENTURER);
 		registerQuestItems(LETTER);

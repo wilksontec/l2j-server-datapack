@@ -39,7 +39,7 @@ public class Q00124_MeetingTheElroki extends Quest {
 	private static final int MANTARASA_EGG = 8778;
 	
 	public Q00124_MeetingTheElroki() {
-		super(124, Q00124_MeetingTheElroki.class.getSimpleName(), "Meeting the Elroki");
+		super(124);
 		bindStartNpc(MARQUEZ);
 		bindTalk(MARQUEZ, MUSHIKA, ASAMAH, KARAKAWEI, MANTARASA);
 		registerQuestItems(MANTARASA_EGG);

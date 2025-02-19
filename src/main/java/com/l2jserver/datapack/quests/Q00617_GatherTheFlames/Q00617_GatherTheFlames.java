@@ -75,7 +75,7 @@ public class Q00617_GatherTheFlames extends Quest {
 	}
 	
 	public Q00617_GatherTheFlames() {
-		super(617, Q00617_GatherTheFlames.class.getSimpleName(), "Gather the Flames");
+		super(617);
 		bindStartNpc(HILDA, VULCAN);
 		bindTalk(ROONEY, HILDA, VULCAN);
 		bindKill(MOBS.keySet());

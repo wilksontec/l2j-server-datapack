@@ -48,7 +48,6 @@ public class HandysBlockCheckerEvent extends Quest {
 	private static final int A_MANAGER_4 = 32524;
 	
 	public HandysBlockCheckerEvent() {
-		super(-1, HandysBlockCheckerEvent.class.getSimpleName(), "Handy's Block Checker Event");
 		if (!general().enableBlockCheckerEvent()) {
 			LOG.info("Handy's Block Checker event is disabled.");
 			return;

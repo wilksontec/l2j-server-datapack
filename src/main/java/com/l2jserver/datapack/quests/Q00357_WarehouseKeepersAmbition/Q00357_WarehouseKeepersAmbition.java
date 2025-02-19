@@ -44,7 +44,7 @@ public final class Q00357_WarehouseKeepersAmbition extends Quest {
 	private static final int MIN_LVL = 47;
 	
 	public Q00357_WarehouseKeepersAmbition() {
-		super(357, Q00357_WarehouseKeepersAmbition.class.getSimpleName(), "Warehouse Keeper's Ambition");
+		super(357);
 		bindStartNpc(SILVA);
 		bindTalk(SILVA);
 		bindKill(DROPLIST.getNpcIds());

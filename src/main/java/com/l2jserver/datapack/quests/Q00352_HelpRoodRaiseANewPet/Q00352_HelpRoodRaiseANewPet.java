@@ -54,7 +54,7 @@ public final class Q00352_HelpRoodRaiseANewPet extends Quest {
 	private static final int MIN_LEVEL = 39;
 	
 	public Q00352_HelpRoodRaiseANewPet() {
-		super(352, Q00352_HelpRoodRaiseANewPet.class.getSimpleName(), "Help Rood Raise A New Pet!");
+		super(352);
 		bindStartNpc(ROOD);
 		bindTalk(ROOD);
 		bindKill(DROPLIST.getNpcIds());

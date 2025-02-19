@@ -165,7 +165,7 @@ public final class Q00372_LegacyOfInsolence extends Quest {
 	};
 	
 	public Q00372_LegacyOfInsolence() {
-		super(372, Q00372_LegacyOfInsolence.class.getSimpleName(), "Legacy Of Insolence");
+		super(372);
 		bindStartNpc(WAREHOUSE_KEEPER_WALDERAL);
 		bindTalk(WAREHOUSE_KEEPER_WALDERAL, TRADER_HOLLY, MAGISTER_DESMOND, ANTIQUE_DEALER_PATRIN, CLAUDIA_ATHEBALDT);
 		bindKill(DROPLIST.getNpcIds());

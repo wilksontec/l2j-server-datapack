@@ -53,7 +53,7 @@ public final class Q00380_BringOutTheFlavorOfIngredients extends Quest {
 	private static final int MIN_LVL = 24;
 	
 	public Q00380_BringOutTheFlavorOfIngredients() {
-		super(380, Q00380_BringOutTheFlavorOfIngredients.class.getSimpleName(), "Bring Out the Flavor of Ingredients!");
+		super(380);
 		bindStartNpc(ROLLAND);
 		bindTalk(ROLLAND);
 		bindKill(DROPLIST.getNpcIds());

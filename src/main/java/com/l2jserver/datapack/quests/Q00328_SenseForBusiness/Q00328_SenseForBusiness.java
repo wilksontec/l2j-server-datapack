@@ -61,7 +61,7 @@ public class Q00328_SenseForBusiness extends Quest {
 	private static final int MIN_LVL = 21;
 	
 	public Q00328_SenseForBusiness() {
-		super(328, Q00328_SenseForBusiness.class.getSimpleName(), "Sense for Business");
+		super(328);
 		bindStartNpc(SARIEN);
 		bindTalk(SARIEN);
 		bindKill(MONSTER_EYES.keySet());

@@ -40,7 +40,6 @@ public final class Alarm extends AbstractNpcAI {
 	private static final int NIKOLAS_COOPERATION_ID = 185;
 	
 	public Alarm() {
-		super(Alarm.class.getSimpleName(), "ai/npc");
 		bindStartNpc(ALARM);
 		bindTalk(ALARM);
 		bindFirstTalk(ALARM);

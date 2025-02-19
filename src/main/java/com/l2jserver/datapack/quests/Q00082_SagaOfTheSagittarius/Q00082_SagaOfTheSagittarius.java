@@ -27,7 +27,7 @@ import com.l2jserver.gameserver.model.Location;
  */
 public class Q00082_SagaOfTheSagittarius extends AbstractSagaQuest {
 	public Q00082_SagaOfTheSagittarius() {
-		super(82, Q00082_SagaOfTheSagittarius.class.getSimpleName(), "Saga of the Sagittarius");
+		super(82);
 		_npc = new int[] {
 			30702,
 			31627,

@@ -44,7 +44,6 @@ public final class SecretAreaInTheKeucereusFortress1 extends AbstractInstance {
 	private static final int TEMPLATE_ID = 117;
 	
 	public SecretAreaInTheKeucereusFortress1() {
-		super(SecretAreaInTheKeucereusFortress1.class.getSimpleName());
 		bindStartNpc(GINBY);
 		bindTalk(GINBY);
 	}

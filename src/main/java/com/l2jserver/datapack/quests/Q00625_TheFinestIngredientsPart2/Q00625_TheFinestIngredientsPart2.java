@@ -58,7 +58,7 @@ public final class Q00625_TheFinestIngredientsPart2 extends Quest {
 	private static final int MIN_LVL = 73;
 	
 	public Q00625_TheFinestIngredientsPart2() {
-		super(625, Q00625_TheFinestIngredientsPart2.class.getSimpleName(), "The Finest Ingredients - Part 2");
+		super(625);
 		bindStartNpc(JEREMY);
 		bindTalk(JEREMY, YETIS_TABLE);
 		bindSpawn(ICICLE_EMPEROR_BUMBALUMP);

@@ -42,7 +42,7 @@ public class Q00608_SlayTheEnemyCommanderKetra extends Quest {
 	private static final int MIN_LEVEL = 75;
 	
 	public Q00608_SlayTheEnemyCommanderKetra() {
-		super(608, Q00608_SlayTheEnemyCommanderKetra.class.getSimpleName(), "Slay the Enemy Commander! (Ketra)");
+		super(608);
 		bindStartNpc(KADUN);
 		bindTalk(KADUN);
 		bindKill(MOS);

@@ -55,7 +55,7 @@ public final class Q00457_LostAndFound extends Quest {
 	private static Set<L2Spawn> _escortCheckers;
 	
 	public Q00457_LostAndFound() {
-		super(457, Q00457_LostAndFound.class.getSimpleName(), "Lost and Found");
+		super(457);
 		bindStartNpc(GUMIEL);
 		bindSpawn(ESCORT_CHECKER);
 		bindFirstTalk(GUMIEL);

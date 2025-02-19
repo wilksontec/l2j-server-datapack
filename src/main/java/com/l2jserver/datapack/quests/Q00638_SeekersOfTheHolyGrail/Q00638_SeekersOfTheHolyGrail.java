@@ -104,7 +104,7 @@ public final class Q00638_SeekersOfTheHolyGrail extends Quest {
 		.build();
 	
 	public Q00638_SeekersOfTheHolyGrail() {
-		super(638, Q00638_SeekersOfTheHolyGrail.class.getSimpleName(), "Seekers Of The Holy Grail");
+		super(638);
 		bindStartNpc(INNOCENTIN);
 		bindTalk(INNOCENTIN);
 		bindKill(DROPLIST.getNpcIds());

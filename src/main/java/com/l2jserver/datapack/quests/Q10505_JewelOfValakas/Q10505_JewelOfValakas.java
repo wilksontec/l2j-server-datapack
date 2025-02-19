@@ -44,7 +44,7 @@ public class Q10505_JewelOfValakas extends Quest {
 	private static final int MIN_LEVEL = 83;
 	
 	public Q10505_JewelOfValakas() {
-		super(10505, Q10505_JewelOfValakas.class.getSimpleName(), "Jewel of Valakas");
+		super(10505);
 		bindStartNpc(KLEIN);
 		bindTalk(KLEIN);
 		bindKill(VALAKAS);

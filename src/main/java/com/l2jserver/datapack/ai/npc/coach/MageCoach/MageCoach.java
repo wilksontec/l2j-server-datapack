@@ -27,7 +27,7 @@ import com.l2jserver.gameserver.enums.Race;
  * @author Zoey76
  * @version 2.6.3.0
  */
-public class MageCoach extends SkillTransferCoach {
+public final class MageCoach extends SkillTransferCoach {
 	
 	// @formatter:off
 	private static final int[] COACHES = {
@@ -45,6 +45,6 @@ public class MageCoach extends SkillTransferCoach {
 	};
 	
 	public MageCoach() {
-		super(MageCoach.class.getSimpleName(), COACHES, CONDITIONS);
+		super(COACHES, CONDITIONS);
 	}
 }

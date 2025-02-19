@@ -208,7 +208,6 @@ public final class Stage1 extends AbstractInstance {
 	private static final int THRONE_DOOR = 12240031;
 	
 	public Stage1() {
-		super(Stage1.class.getSimpleName(), "gracia/instances");
 		load();
 		bindStartNpc(ALENOS, TELEPORT);
 		bindTalk(ALENOS, TELEPORT);

@@ -36,7 +36,6 @@ public final class Shadai extends AbstractNpcAI {
 	private static final Location NIGHT_COORDS = new Location(9064, 253037, -1928);
 	
 	public Shadai() {
-		super(Shadai.class.getSimpleName(), "hellbound/AI/NPC");
 		bindSpawn(SHADAI);
 	}
 	

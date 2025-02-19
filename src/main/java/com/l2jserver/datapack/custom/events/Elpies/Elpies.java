@@ -72,7 +72,6 @@ public final class Elpies extends Event {
 	private final Set<L2Npc> _elpies = ConcurrentHashMap.newKeySet(ELPY_AMOUNT);
 	
 	private Elpies() {
-		super(Elpies.class.getSimpleName(), "custom/events");
 		bindSpawn(ELPY);
 		bindKill(ELPY);
 	}

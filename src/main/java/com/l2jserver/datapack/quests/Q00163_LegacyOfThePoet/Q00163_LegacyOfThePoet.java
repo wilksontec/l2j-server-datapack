@@ -47,7 +47,7 @@ public class Q00163_LegacyOfThePoet extends Quest {
 	private static final int MIN_LVL = 11;
 	
 	public Q00163_LegacyOfThePoet() {
-		super(163, Q00163_LegacyOfThePoet.class.getSimpleName(), "Legacy of the Poet");
+		super(163);
 		bindStartNpc(STARDEN);
 		bindTalk(STARDEN);
 		bindKill(MONSTERS);

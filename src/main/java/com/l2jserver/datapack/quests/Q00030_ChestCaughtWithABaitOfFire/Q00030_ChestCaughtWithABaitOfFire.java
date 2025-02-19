@@ -40,7 +40,7 @@ public class Q00030_ChestCaughtWithABaitOfFire extends Quest {
 	private static final int PROTECTION_NECKLACE = 916;
 	
 	public Q00030_ChestCaughtWithABaitOfFire() {
-		super(30, Q00030_ChestCaughtWithABaitOfFire.class.getSimpleName(), "Chest Caught With A Bait Of Fire");
+		super(30);
 		bindStartNpc(LINNAEUS);
 		bindTalk(LINNAEUS, RUKAL);
 		registerQuestItems(RUKAL_MUSICAL);

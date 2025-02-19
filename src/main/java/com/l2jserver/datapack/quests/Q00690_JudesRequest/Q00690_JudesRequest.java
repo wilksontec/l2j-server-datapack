@@ -69,7 +69,7 @@ public class Q00690_JudesRequest extends Quest {
 	};
 	
 	public Q00690_JudesRequest() {
-		super(690, Q00690_JudesRequest.class.getSimpleName(), "Jude's Request");
+		super(690);
 		bindStartNpc(JUDE);
 		bindTalk(JUDE);
 		bindKill(LESSER_EVIL, GREATER_EVIL);

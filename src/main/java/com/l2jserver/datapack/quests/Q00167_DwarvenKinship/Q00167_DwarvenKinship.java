@@ -40,7 +40,7 @@ public class Q00167_DwarvenKinship extends Quest {
 	private static final int MIN_LVL = 15;
 	
 	public Q00167_DwarvenKinship() {
-		super(167, Q00167_DwarvenKinship.class.getSimpleName(), "Dwarven Kinship");
+		super(167);
 		bindStartNpc(CARLON);
 		bindTalk(CARLON, NORMAN, HAPROCK);
 		registerQuestItems(CARLONS_LETTER, NORMANS_LETTER);

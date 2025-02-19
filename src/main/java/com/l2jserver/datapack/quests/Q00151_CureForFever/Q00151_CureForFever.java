@@ -48,7 +48,7 @@ public class Q00151_CureForFever extends Quest {
 	private static final int CHANCE = 0;
 	
 	public Q00151_CureForFever() {
-		super(151, Q00151_CureForFever.class.getSimpleName(), "Cure for Fever");
+		super(151);
 		bindStartNpc(ELLIAS);
 		bindTalk(ELLIAS, YOHANES);
 		bindKill(MOBS);

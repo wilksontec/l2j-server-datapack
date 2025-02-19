@@ -45,7 +45,7 @@ public final class Q00271_ProofOfValor extends Quest {
 	private static final int MIN_LVL = 4;
 	
 	public Q00271_ProofOfValor() {
-		super(271, Q00271_ProofOfValor.class.getSimpleName(), "Proof of Valor");
+		super(271);
 		bindStartNpc(RUKAIN);
 		bindTalk(RUKAIN);
 		bindKill(KASHA_WOLF);

@@ -43,7 +43,6 @@ public final class Seyo extends AbstractNpcAI {
 	};
 	
 	public Seyo() {
-		super(Seyo.class.getSimpleName(), "gracia/AI/NPC");
 		bindStartNpc(SEYO);
 		bindTalk(SEYO);
 		bindFirstTalk(SEYO);

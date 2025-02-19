@@ -42,7 +42,7 @@ public class Q00607_ProveYourCourageKetra extends Quest {
 	private static final int MIN_LEVEL = 75;
 	
 	public Q00607_ProveYourCourageKetra() {
-		super(607, Q00607_ProveYourCourageKetra.class.getSimpleName(), "Prove Your Courage! (Ketra)");
+		super(607);
 		bindStartNpc(KADUN);
 		bindTalk(KADUN);
 		bindKill(SHADITH);

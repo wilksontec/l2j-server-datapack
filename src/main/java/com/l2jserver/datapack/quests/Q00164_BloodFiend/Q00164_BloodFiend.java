@@ -43,7 +43,7 @@ public class Q00164_BloodFiend extends Quest {
 	private static final int MIN_LVL = 21;
 	
 	public Q00164_BloodFiend() {
-		super(164, Q00164_BloodFiend.class.getSimpleName(), "Blood Fiend");
+		super(164);
 		bindStartNpc(CREAMEES);
 		bindTalk(CREAMEES);
 		bindKill(KIRUNAK);

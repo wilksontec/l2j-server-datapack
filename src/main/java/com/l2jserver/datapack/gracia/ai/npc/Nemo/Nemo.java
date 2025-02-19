@@ -41,7 +41,6 @@ public final class Nemo extends AbstractNpcAI {
 	private static final int MAXIMUM_MAGUEN = 18; // Maximum maguens in one time
 	
 	public Nemo() {
-		super(Nemo.class.getSimpleName(), "gracia/AI/NPC");
 		bindStartNpc(NEMO);
 		bindFirstTalk(NEMO);
 		bindTalk(NEMO);

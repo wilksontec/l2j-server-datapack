@@ -169,12 +169,8 @@ public final class FeedableBeasts extends AbstractNpcAI {
 	}
 	
 	public FeedableBeasts() {
-		super(FeedableBeasts.class.getSimpleName(), "ai/group_template");
 		bindKill(FEEDABLE_BEASTS);
 		bindSkillSee(FEEDABLE_BEASTS);
-		
-		// TODO: no grendels?
-		GrowthCapableMob temp;
 		
 		//@formatter:off
 		final int[][] Kookabura_0_Gold = {{ 21452, 21453, 21454, 21455 }};
@@ -206,7 +202,7 @@ public final class FeedableBeasts extends AbstractNpcAI {
 		//@formatter:on
 		
 		// Alpen Kookabura
-		temp = new GrowthCapableMob(0, 100);
+		var temp = new GrowthCapableMob(0, 100);
 		temp.addMobs(GOLDEN_SPICE, Kookabura_0_Gold);
 		temp.addMobs(CRYSTAL_SPICE, Kookabura_0_Crystal);
 		GROWTH_CAPABLE_MONSTERS.put(21451, temp);

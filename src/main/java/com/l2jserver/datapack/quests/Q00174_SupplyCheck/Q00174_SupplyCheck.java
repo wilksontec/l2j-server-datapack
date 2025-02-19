@@ -50,7 +50,7 @@ public class Q00174_SupplyCheck extends Quest {
 	private static final int MIN_LEVEL = 2;
 	
 	public Q00174_SupplyCheck() {
-		super(174, Q00174_SupplyCheck.class.getSimpleName(), "Supply Check");
+		super(174);
 		bindStartNpc(MARCELA);
 		bindTalk(MARCELA, BENIS, NIKA);
 		

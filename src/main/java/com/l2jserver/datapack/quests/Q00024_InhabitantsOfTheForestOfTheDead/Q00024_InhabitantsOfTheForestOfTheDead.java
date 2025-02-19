@@ -51,7 +51,7 @@ public class Q00024_InhabitantsOfTheForestOfTheDead extends Quest {
 	// @formatter:on
 	
 	public Q00024_InhabitantsOfTheForestOfTheDead() {
-		super(24, Q00024_InhabitantsOfTheForestOfTheDead.class.getSimpleName(), "Inhabitants of the Forest of the Dead");
+		super(24);
 		bindStartNpc(DORIAN);
 		bindTalk(DORIAN, MYSTERIOUS_WIZARD, TOMBSTONE, LIDIA_MAID);
 		bindKill(MOBS);

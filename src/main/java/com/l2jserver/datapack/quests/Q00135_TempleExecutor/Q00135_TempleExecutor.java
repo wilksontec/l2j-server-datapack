@@ -68,7 +68,7 @@ public class Q00135_TempleExecutor extends Quest {
 	private static final int MAX_REWARD_LEVEL = 41;
 	
 	public Q00135_TempleExecutor() {
-		super(135, Q00135_TempleExecutor.class.getSimpleName(), "Temple Executor");
+		super(135);
 		bindStartNpc(SHEGFIELD);
 		bindTalk(SHEGFIELD, ALEX, SONIN, PANO);
 		bindKill(DROPLIST.getNpcIds());

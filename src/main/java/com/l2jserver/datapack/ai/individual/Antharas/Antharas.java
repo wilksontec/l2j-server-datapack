@@ -133,7 +133,6 @@ public final class Antharas extends AbstractNpcAI {
 	private static int attacker_3_hate = 0;
 	
 	public Antharas() {
-		super(Antharas.class.getSimpleName(), "ai/individual");
 		bindStartNpc(HEART, CUBE);
 		bindTalk(HEART, CUBE);
 		bindFirstTalk(HEART);

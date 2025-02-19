@@ -60,7 +60,7 @@ public final class Q00280_TheFoodChain extends Quest {
 	private static final int TEETH_COUNT = 25;
 	
 	public Q00280_TheFoodChain() {
-		super(280, Q00280_TheFoodChain.class.getSimpleName(), "The Food Chain");
+		super(280);
 		bindStartNpc(BIXON);
 		bindTalk(BIXON);
 		bindKill(DROPLIST.getNpcIds());

@@ -79,7 +79,7 @@ public final class Q00403_PathOfTheRogue extends Quest {
 	}
 	
 	public Q00403_PathOfTheRogue() {
-		super(403, Q00403_PathOfTheRogue.class.getSimpleName(), "Path Of The Rogue");
+		super(403);
 		bindStartNpc(CAPTAIN_BEZIQUE);
 		bindTalk(CAPTAIN_BEZIQUE, NETI);
 		bindAttack(MONSTER_DROPS.keySet());

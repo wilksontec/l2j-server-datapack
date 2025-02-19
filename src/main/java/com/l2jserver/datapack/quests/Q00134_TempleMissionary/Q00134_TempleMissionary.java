@@ -60,7 +60,7 @@ public class Q00134_TempleMissionary extends Quest {
 	private static final int REPORT_COUNT = 3;
 	
 	public Q00134_TempleMissionary() {
-		super(134, Q00134_TempleMissionary.class.getSimpleName(), "Temple Missionary");
+		super(134);
 		bindStartNpc(GLYVKA);
 		bindTalk(GLYVKA, ROUKE);
 		bindKill(CRUMA_MARSHLANDS_TRAITOR);

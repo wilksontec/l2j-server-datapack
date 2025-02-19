@@ -67,7 +67,6 @@ public class GiganticGolem extends AbstractNpcAI {
 	private static final Location DR_CHAOS_LOC = new Location(96320, -110912, -3328, 8191);
 	
 	public GiganticGolem() {
-		super(GiganticGolem.class.getSimpleName(), "ai/individual");
 		bindFirstTalk(DR_CHAOS);
 		bindKill(GIGANTIC_GOLEM);
 		bindTeleport(GIGANTIC_GOLEM);

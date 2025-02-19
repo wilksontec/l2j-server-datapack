@@ -34,7 +34,6 @@ public final class Asamah extends AbstractNpcAI {
 	private static final int ASAMAH = 32115;
 	
 	public Asamah() {
-		super(Asamah.class.getSimpleName(), "ai/npc");
 		bindFirstTalk(ASAMAH);
 	}
 	

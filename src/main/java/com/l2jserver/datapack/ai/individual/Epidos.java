@@ -57,7 +57,6 @@ public final class Epidos extends AbstractNpcAI {
 	private final Map<Integer, Double> _lastHp = new ConcurrentHashMap<>();
 	
 	public Epidos() {
-		super(Epidos.class.getSimpleName(), "ai/individual");
 		bindKill(EPIDOSES);
 		bindSpawn(EPIDOSES);
 	}

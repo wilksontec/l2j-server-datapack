@@ -61,7 +61,7 @@ public class Q10272_LightFragment extends Quest {
 	};
 	
 	public Q10272_LightFragment() {
-		super(10272, Q10272_LightFragment.class.getSimpleName(), "Light Fragment");
+		super(10272);
 		bindStartNpc(ORBYU);
 		bindTalk(ORBYU, ARTIUS, GINBY, LELRIKIA, LEKON);
 		bindKill(MOBS);

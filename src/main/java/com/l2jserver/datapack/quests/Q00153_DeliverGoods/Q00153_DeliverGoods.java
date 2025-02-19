@@ -49,7 +49,7 @@ public class Q00153_DeliverGoods extends Quest {
 	private static final int XP_REWARD_AMOUNT = 600;
 	
 	public Q00153_DeliverGoods() {
-		super(153, Q00153_DeliverGoods.class.getSimpleName(), "Deliver Goods");
+		super(153);
 		bindStartNpc(ARNOLD_ID);
 		bindTalk(JACKSON_ID, SILVIA_ID, ARNOLD_ID, RANT_ID);
 		registerQuestItems(DELIVERY_LIST_ID, HEAVY_WOOD_BOX_ID, CLOTH_BUNDLE_ID, CLAY_POT_ID, JACKSONS_RECEIPT_ID, SILVIAS_RECEIPT_ID, RANTS_RECEIPT_ID);

@@ -324,7 +324,6 @@ public final class SSQPriest extends AbstractNpcAI {
 	};
 	
 	public SSQPriest() {
-		super(SSQPriest.class.getSimpleName(), "ai/npc");
 		bindStartNpc(DAWN_NPCS);
 		bindStartNpc(DUSK_NPCS);
 		bindFirstTalk(DAWN_NPCS);

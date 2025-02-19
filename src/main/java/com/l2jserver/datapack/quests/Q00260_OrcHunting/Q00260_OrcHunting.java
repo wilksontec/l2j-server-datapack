@@ -54,7 +54,7 @@ public final class Q00260_OrcHunting extends Quest {
 	private static final int MIN_LVL = 6;
 	
 	public Q00260_OrcHunting() {
-		super(260, Q00260_OrcHunting.class.getSimpleName(), "Orc Hunting");
+		super(260);
 		bindStartNpc(RAYEN);
 		bindTalk(RAYEN);
 		bindKill(MONSTERS.keySet());

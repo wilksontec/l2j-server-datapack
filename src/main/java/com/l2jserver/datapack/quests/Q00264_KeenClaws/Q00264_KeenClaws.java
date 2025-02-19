@@ -54,7 +54,7 @@ public final class Q00264_KeenClaws extends Quest {
 	private static final int MIN_LVL = 3;
 	
 	public Q00264_KeenClaws() {
-		super(264, Q00264_KeenClaws.class.getSimpleName(), "Keen Claws");
+		super(264);
 		bindStartNpc(PAINT);
 		bindTalk(PAINT);
 		bindKill(DROPLIST.getNpcIds());

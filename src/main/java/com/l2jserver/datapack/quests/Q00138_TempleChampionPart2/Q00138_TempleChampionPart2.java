@@ -49,7 +49,7 @@ public class Q00138_TempleChampionPart2 extends Quest {
 	private static final QuestItemChanceHolder RELICS_OF_THE_DARK_ELF_TRAINEE = new QuestItemChanceHolder(10342, 10L);
 	
 	public Q00138_TempleChampionPart2() {
-		super(138, Q00138_TempleChampionPart2.class.getSimpleName(), "Temple Champion - 2");
+		super(138);
 		bindStartNpc(SYLVAIN);
 		bindTalk(SYLVAIN, PUPINA, ANGUS, SLA);
 		bindKill(MOBS);

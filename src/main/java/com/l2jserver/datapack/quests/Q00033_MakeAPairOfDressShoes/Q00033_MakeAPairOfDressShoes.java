@@ -47,7 +47,7 @@ public class Q00033_MakeAPairOfDressShoes extends Quest {
 	private static final int ADENA_COUNT3 = 300000;
 	
 	public Q00033_MakeAPairOfDressShoes() {
-		super(33, Q00033_MakeAPairOfDressShoes.class.getSimpleName(), "Make a Pair of Dress Shoes");
+		super(33);
 		bindStartNpc(WOODLEY);
 		bindTalk(WOODLEY, IAN, LEIKAR);
 	}

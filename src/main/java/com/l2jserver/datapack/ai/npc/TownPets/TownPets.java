@@ -48,8 +48,6 @@ public final class TownPets extends AbstractNpcAI {
 	};
 	
 	public TownPets() {
-		super(TownPets.class.getSimpleName(), "ai/npc");
-		
 		if (general().allowPetWalkers()) {
 			bindSpawn(PETS);
 		}

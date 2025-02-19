@@ -57,7 +57,7 @@ public final class Q00351_BlackSwan extends Quest {
 	private static final int MIN_LEVEL = 32;
 	
 	public Q00351_BlackSwan() {
-		super(351, Q00351_BlackSwan.class.getSimpleName(), "Black Swan");
+		super(351);
 		bindStartNpc(GOSTA, ROMAN);
 		bindTalk(GOSTA, IASON_HEINE, ROMAN);
 		bindKill(TASABA_LIZARDMAN1, TASABA_LIZARDMAN_SHAMAN1, TASABA_LIZARDMAN2, TASABA_LIZARDMAN_SHAMAN2);

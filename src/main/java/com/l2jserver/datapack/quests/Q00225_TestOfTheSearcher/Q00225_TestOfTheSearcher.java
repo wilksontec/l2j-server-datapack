@@ -82,7 +82,7 @@ public final class Q00225_TestOfTheSearcher extends Quest {
 	private static final int MIN_LEVEL = 39;
 	
 	public Q00225_TestOfTheSearcher() {
-		super(225, Q00225_TestOfTheSearcher.class.getSimpleName(), "Test Of The Searcher");
+		super(225);
 		bindStartNpc(MASTER_LUTHER);
 		bindTalk(MASTER_LUTHER, CAPTAIN_ALEX, TYRA, TREE, STRONG_WOODEN_CHEST, MILITIAMAN_LEIRYNN, DRUNKARD_BORYS, BODYGUARD_JAX);
 		bindKill(HANGMAN_TREE, ROAD_SCAVENGER, GIANT_FUNGUS, DELU_lIZARDMAN_SHAMAN, NEER_BODYGUARD, DELU_CHIEF_KALKIS);

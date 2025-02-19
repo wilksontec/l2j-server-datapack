@@ -71,7 +71,7 @@ public final class Q00632_NecromancersRequest extends Quest {
 	private static final int ADENA_REWARD = 120000;
 	
 	public Q00632_NecromancersRequest() {
-		super(632, Q00632_NecromancersRequest.class.getSimpleName(), "Necromancer's Request");
+		super(632);
 		bindStartNpc(MYSTERIOUS_WIZARD);
 		bindTalk(MYSTERIOUS_WIZARD);
 		bindKill(DROPLIST.getNpcIds());

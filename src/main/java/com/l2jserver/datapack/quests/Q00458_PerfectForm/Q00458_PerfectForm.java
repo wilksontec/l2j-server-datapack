@@ -69,7 +69,7 @@ public class Q00458_PerfectForm extends Quest {
 	// @formatter:on
 	
 	public Q00458_PerfectForm() {
-		super(458, Q00458_PerfectForm.class.getSimpleName(), "Perfect Form");
+		super(458);
 		bindStartNpc(KELLEYIA);
 		bindTalk(KELLEYIA);
 		bindKill(KOOKABURRAS);

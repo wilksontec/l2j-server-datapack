@@ -42,7 +42,7 @@ public class Q00182_NewRecruits extends Quest {
 	private static final int RING_OF_DEVOTION = 10124;
 	
 	public Q00182_NewRecruits() {
-		super(182, Q00182_NewRecruits.class.getSimpleName(), "New Recruits");
+		super(182);
 		bindStartNpc(KEKROPUS);
 		bindTalk(KEKROPUS, MENACING_MACHINE);
 	}

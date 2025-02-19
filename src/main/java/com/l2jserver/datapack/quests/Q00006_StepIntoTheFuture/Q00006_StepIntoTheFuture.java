@@ -42,7 +42,7 @@ public class Q00006_StepIntoTheFuture extends Quest {
 	private static final int MIN_LEVEL = 3;
 	
 	public Q00006_StepIntoTheFuture() {
-		super(6, Q00006_StepIntoTheFuture.class.getSimpleName(), "Step Into the Future");
+		super(6);
 		bindStartNpc(ROXXY);
 		bindTalk(ROXXY, BAULRO, SIR_COLLIN);
 		registerQuestItems(BAULRO_LETTER);

@@ -38,7 +38,6 @@ public class Asher extends AbstractNpcAI {
 	private static final int ADENA = 50000;
 	
 	public Asher() {
-		super(Asher.class.getSimpleName(), "ai/npc/Teleports");
 		bindFirstTalk(ASHER);
 		bindStartNpc(ASHER);
 	}

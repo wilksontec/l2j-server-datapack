@@ -50,7 +50,7 @@ public class Q00250_WatchWhatYouEat extends Quest {
 	};
 	
 	public Q00250_WatchWhatYouEat() {
-		super(250, Q00250_WatchWhatYouEat.class.getSimpleName(), "Watch What You Eat");
+		super(250);
 		bindStartNpc(SALLY);
 		bindFirstTalk(SALLY);
 		bindTalk(SALLY);

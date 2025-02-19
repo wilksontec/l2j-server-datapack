@@ -46,7 +46,7 @@ public class Q00510_AClansPrestige extends Quest {
 	};
 	
 	public Q00510_AClansPrestige() {
-		super(510, Q00510_AClansPrestige.class.getSimpleName(), "A Clan's Prestige");
+		super(510);
 		bindStartNpc(VALDIS);
 		bindTalk(VALDIS);
 		bindKill(MOBS);

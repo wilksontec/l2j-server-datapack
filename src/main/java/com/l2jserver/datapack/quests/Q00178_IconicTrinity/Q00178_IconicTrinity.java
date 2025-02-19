@@ -42,7 +42,7 @@ public final class Q00178_IconicTrinity extends Quest {
 	private static final int TWENTY_LEVEL = 20;
 	
 	public Q00178_IconicTrinity() {
-		super(178, Q00178_IconicTrinity.class.getSimpleName(), "Iconic Trinity");
+		super(178);
 		bindStartNpc(HIERARCH_KEKROPUS);
 		bindTalk(HIERARCH_KEKROPUS, ICON_OF_THE_PAST, ICON_OF_THE_PRESENT, ICON_OF_THE_FUTURE);
 	}

@@ -41,7 +41,7 @@ public final class Q00423_TakeYourBestShot extends Quest {
 	private static final int MIN_LEVEL = 82;
 	
 	public Q00423_TakeYourBestShot() {
-		super(423, Q00423_TakeYourBestShot.class.getSimpleName(), "Take Your Best Shot!");
+		super(423);
 		bindStartNpc(JOHNNY, BATRACOS);
 		bindTalk(JOHNNY, BATRACOS);
 		bindKill(TANTA_GUARD);

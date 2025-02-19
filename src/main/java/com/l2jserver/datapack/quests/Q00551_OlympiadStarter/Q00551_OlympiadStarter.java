@@ -43,7 +43,7 @@ public class Q00551_OlympiadStarter extends Quest {
 	private static final int MEDAL_OF_GLORY = 21874;
 	
 	public Q00551_OlympiadStarter() {
-		super(551, Q00551_OlympiadStarter.class.getSimpleName(), "Olympiad Starter");
+		super(551);
 		bindStartNpc(MANAGER);
 		bindTalk(MANAGER);
 		registerQuestItems(CERT_3, CERT_5, CERT_10);

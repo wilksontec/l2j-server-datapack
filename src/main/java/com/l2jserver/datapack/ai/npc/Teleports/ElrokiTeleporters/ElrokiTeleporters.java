@@ -36,7 +36,6 @@ public final class ElrokiTeleporters extends AbstractNpcAI {
 	private static final Location TELEPORT_GARIACHIN = new Location(7651, -5416, -3155);
 	
 	public ElrokiTeleporters() {
-		super(ElrokiTeleporters.class.getSimpleName(), "ai/npc/Teleports");
 		bindFirstTalk(ORAHOCHIN, GARIACHIN);
 		bindStartNpc(ORAHOCHIN, GARIACHIN);
 		bindTalk(ORAHOCHIN, GARIACHIN);

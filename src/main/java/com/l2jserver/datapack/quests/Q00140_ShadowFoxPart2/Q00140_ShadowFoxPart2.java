@@ -53,7 +53,7 @@ public class Q00140_ShadowFoxPart2 extends Quest {
 	private static final int OXYDE_COUNT = 2;
 	
 	public Q00140_ShadowFoxPart2() {
-		super(140, Q00140_ShadowFoxPart2.class.getSimpleName(), "Shadow Fox - 2");
+		super(140);
 		bindStartNpc(KLUCK);
 		bindTalk(KLUCK, XENOVIA);
 		bindKill(DROPLIST.getNpcIds());

@@ -111,7 +111,7 @@ public final class Q00325_GrimCollector extends Quest {
 	private static final int MIN_LEVEL = 15;
 	
 	public Q00325_GrimCollector() {
-		super(325, Q00325_GrimCollector.class.getSimpleName(), "Grim Collector");
+		super(325);
 		bindStartNpc(GUARD_CURTIZ);
 		bindTalk(GUARD_CURTIZ, VARSAK, SAMED);
 		bindKill(DROPLIST.getNpcIds());

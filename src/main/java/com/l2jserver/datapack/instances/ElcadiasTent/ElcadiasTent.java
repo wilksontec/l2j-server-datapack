@@ -49,7 +49,6 @@ public final class ElcadiasTent extends AbstractInstance {
 	private static final int TEMPLATE_ID = 158;
 	
 	public ElcadiasTent() {
-		super(ElcadiasTent.class.getSimpleName());
 		bindFirstTalk(GRUFF_LOOKING_MAN, ELCADIA);
 		bindStartNpc(GRUFF_LOOKING_MAN, ELCADIA);
 		bindTalk(GRUFF_LOOKING_MAN, ELCADIA);

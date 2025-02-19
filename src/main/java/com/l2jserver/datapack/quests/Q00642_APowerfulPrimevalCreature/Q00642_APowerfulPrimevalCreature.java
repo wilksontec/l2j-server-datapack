@@ -50,7 +50,7 @@ public class Q00642_APowerfulPrimevalCreature extends Quest {
 	private static final int MIN_LEVEL = 75;
 	
 	public Q00642_APowerfulPrimevalCreature() {
-		super(642, Q00642_APowerfulPrimevalCreature.class.getSimpleName(), "A Powerful Primeval Creature");
+		super(642);
 		bindStartNpc(DINN);
 		bindTalk(DINN);
 		bindKill(DROPLIST.getNpcIds());

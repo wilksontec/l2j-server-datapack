@@ -36,7 +36,6 @@ public class DrakosWarrior extends AbstractNpcAI {
 	private static final SkillHolder SUMMON = new SkillHolder(6858);
 	
 	public DrakosWarrior() {
-		super(DrakosWarrior.class.getSimpleName(), "ai/individual");
 		bindAttack(DRAKOS_WARRIOR);
 	}
 	

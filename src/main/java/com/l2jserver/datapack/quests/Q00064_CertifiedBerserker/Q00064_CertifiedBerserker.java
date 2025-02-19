@@ -67,7 +67,7 @@ public final class Q00064_CertifiedBerserker extends Quest {
 	private static final int MIN_LEVEL = 39;
 	
 	public Q00064_CertifiedBerserker() {
-		super(64, Q00064_CertifiedBerserker.class.getSimpleName(), "Certified Berserker");
+		super(64);
 		bindStartNpc(MASTER_ORKURUS);
 		bindTalk(MASTER_ORKURUS, MASTER_ENTIENS, MASTER_TENAIN, CARAVANER_GORT, HARKILGAMED);
 		bindKill(DEAD_SEEKER, MARSH_STAKATO_DRONE, BREKA_ORC, BREKA_ORC_ARCHER, BREKA_ORC_SHAMAN, BREKA_ORC_OVERLORD, BREKA_ORC_WARRIOR, ROAD_SCAVENGER, DIVINE_EMISSARY);

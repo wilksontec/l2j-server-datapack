@@ -38,7 +38,7 @@ public class Q00112_WalkOfFate extends Quest {
 	private static final int MIN_LEVEL = 20;
 	
 	public Q00112_WalkOfFate() {
-		super(112, Q00112_WalkOfFate.class.getSimpleName(), "Walk of Fate");
+		super(112);
 		bindStartNpc(LIVINA);
 		bindTalk(LIVINA, KARUDA);
 	}

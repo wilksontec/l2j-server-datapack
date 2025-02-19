@@ -95,7 +95,7 @@ public final class Q00327_RecoverTheFarmland extends Quest {
 	}
 	
 	public Q00327_RecoverTheFarmland() {
-		super(327, Q00327_RecoverTheFarmland.class.getSimpleName(), "Recover the Farmland");
+		super(327);
 		bindStartNpc(LEIKAN, PIOTUR);
 		bindTalk(LEIKAN, PIOTUR, IRIS, ASHA, NESTLE);
 		bindKill(TUREK_ORK_WARLORD, TUREK_ORK_ARCHER, TUREK_ORK_SKIRMISHER, TUREK_ORK_SUPPLIER, TUREK_ORK_FOOTMAN, TUREK_ORK_SENTINEL, TUREK_ORK_SHAMAN);

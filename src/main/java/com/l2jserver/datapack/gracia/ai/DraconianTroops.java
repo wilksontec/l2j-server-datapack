@@ -69,7 +69,6 @@ public class DraconianTroops extends AbstractNpcAI {
 	};
 	
 	public DraconianTroops() {
-		super(DraconianTroops.class.getSimpleName(), "gracia/AI");
 		bindKill(MOB_LIST);
 	}
 	

@@ -46,7 +46,6 @@ public final class ClanTrader extends AbstractNpcAI {
 	private static final int KNIGHTS_EPAULETTE_COUNT = 100; // Knight's Epaulette Count
 	
 	public ClanTrader() {
-		super(ClanTrader.class.getSimpleName(), "ai/npc");
 		bindStartNpc(CLAN_TRADER);
 		bindTalk(CLAN_TRADER);
 		bindFirstTalk(CLAN_TRADER);

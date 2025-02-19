@@ -57,7 +57,7 @@ public final class Q00266_PleasOfPixies extends Quest {
 	private static final int MIN_LVL = 3;
 	
 	public Q00266_PleasOfPixies() {
-		super(266, Q00266_PleasOfPixies.class.getSimpleName(), "Pleas of Pixies");
+		super(266);
 		bindStartNpc(PIXY_MURIKA);
 		bindTalk(PIXY_MURIKA);
 		bindKill(DROPLIST.getNpcIds());

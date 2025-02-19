@@ -62,7 +62,7 @@ public final class Q00123_TheLeaderAndTheFollower extends Quest {
 	private static final int CRYSTAL_COUNT_2 = 771;
 	
 	public Q00123_TheLeaderAndTheFollower() {
-		super(123, Q00123_TheLeaderAndTheFollower.class.getSimpleName(), "The Leader And The Follower");
+		super(123);
 		bindStartNpc(HEAD_BLACKSMITH_NEWYEAR);
 		bindTalk(HEAD_BLACKSMITH_NEWYEAR);
 		bindKill(BRUIN_LIZARDMAN, PICOT_ARANEID);

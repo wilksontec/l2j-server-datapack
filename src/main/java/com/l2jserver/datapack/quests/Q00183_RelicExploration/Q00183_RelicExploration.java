@@ -40,7 +40,7 @@ public final class Q00183_RelicExploration extends Quest {
 	private static final int MAX_LEVEL_FOR_EXP_SP = 46;
 	
 	public Q00183_RelicExploration() {
-		super(183, Q00183_RelicExploration.class.getSimpleName(), "Relic Exploration");
+		super(183);
 		bindStartNpc(HEAD_BLACKSMITH_KUSTO);
 		bindTalk(HEAD_BLACKSMITH_KUSTO, RESEARCHER_LORAIN, MAESTRO_NIKOLA);
 	}

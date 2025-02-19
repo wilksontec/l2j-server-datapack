@@ -48,7 +48,7 @@ public final class Q00381_LetsBecomeARoyalMember extends Quest {
 	private static final int MIN_LVL = 55;
 	
 	public Q00381_LetsBecomeARoyalMember() {
-		super(381, Q00381_LetsBecomeARoyalMember.class.getSimpleName(), "Let's Become a Royal Member!");
+		super(381);
 		bindStartNpc(SORINT);
 		bindTalk(SORINT, SANDRA);
 		bindKill(ANCIENT_GARGOYLE, FALLEN_CHIEF_VERGUS);

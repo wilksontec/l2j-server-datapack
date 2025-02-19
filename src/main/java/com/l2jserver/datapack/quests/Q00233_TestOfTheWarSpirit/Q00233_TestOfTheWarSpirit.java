@@ -106,7 +106,7 @@ public final class Q00233_TestOfTheWarSpirit extends Quest {
 	private static final int MIN_LEVEL = 39;
 	
 	public Q00233_TestOfTheWarSpirit() {
-		super(233, Q00233_TestOfTheWarSpirit.class.getSimpleName(), "Test Of The War Spirit");
+		super(233);
 		bindStartNpc(SEER_SOMAK);
 		bindTalk(SEER_SOMAK, PRIESTESS_VIVYAN, TRADER_SARIEN, SEER_RACOY, SEER_MANAKIA, SHADOW_ORIM, ANCESTOR_MARTANKUS, SEER_PEKIRON);
 		bindKill(NOBLE_ANT, NOBLE_ANT_LEADER, MEDUSA, PORTA, EXCURO, MORDERO, LETO_LIZARDMAN_SHAMAN, LETO_LIZARDMAN_OVERLORD, TAMLIN_ORC, TAMLIN_ORC_ARCHER, STENOA_GORGON_QUEEN);

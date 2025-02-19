@@ -27,7 +27,7 @@ import com.l2jserver.gameserver.model.Location;
  */
 public class Q00074_SagaOfTheDreadnought extends AbstractSagaQuest {
 	public Q00074_SagaOfTheDreadnought() {
-		super(74, Q00074_SagaOfTheDreadnought.class.getSimpleName(), "Saga of the Dreadnought");
+		super(74);
 		_npc = new int[] {
 			30850,
 			31624,

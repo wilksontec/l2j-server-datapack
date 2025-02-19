@@ -33,7 +33,6 @@ public class Sandstorms extends AbstractNpcAI {
 	private static final SkillHolder GUST = new SkillHolder(5435);
 	
 	public Sandstorms() {
-		super(Sandstorms.class.getSimpleName(), "ai/group_template");
 		bindAggroRangeEnter(SANDSTORM);
 	}
 	

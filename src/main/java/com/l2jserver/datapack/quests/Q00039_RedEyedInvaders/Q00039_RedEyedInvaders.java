@@ -53,7 +53,7 @@ public final class Q00039_RedEyedInvaders extends Quest {
 	private static final int MIN_LVL = 20;
 	
 	public Q00039_RedEyedInvaders() {
-		super(39, Q00039_RedEyedInvaders.class.getSimpleName(), "Red-eyed Invaders");
+		super(39);
 		bindStartNpc(GUARD_BABENCO);
 		bindTalk(GUARD_BABENCO, CAPTAIN_BATHIA);
 		bindKill(MALE_LIZARDMAN_GUARD, MALE_LIZARDMAN_SCOUT, MALE_LIZARDMAN, GIANT_ARANE);

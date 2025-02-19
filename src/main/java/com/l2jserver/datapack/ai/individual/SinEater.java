@@ -42,7 +42,6 @@ public final class SinEater extends AbstractNpcAI {
 	private static final int SIN_EATER = 12564;
 	
 	public SinEater() {
-		super(SinEater.class.getSimpleName(), "ai/individual");
 		bindSummonSpawn(SIN_EATER);
 		bindSummonTalk(SIN_EATER);
 	}

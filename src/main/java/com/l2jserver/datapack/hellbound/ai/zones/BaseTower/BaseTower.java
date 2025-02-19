@@ -44,7 +44,6 @@ public final class BaseTower extends AbstractNpcAI {
 	private static final Map<Integer, L2PcInstance> BODY_DESTROYER_TARGET_LIST = new ConcurrentHashMap<>();
 	
 	public BaseTower() {
-		super(BaseTower.class.getSimpleName(), "hellbound/AI/Zones");
 		bindKill(GUZEN);
 		bindKill(BODY_DESTROYER);
 		bindFirstTalk(KENDAL);

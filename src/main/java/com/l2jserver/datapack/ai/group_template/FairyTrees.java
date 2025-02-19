@@ -46,7 +46,6 @@ public class FairyTrees extends AbstractNpcAI {
 	private static final int MIN_DISTANCE = 1500;
 	
 	public FairyTrees() {
-		super(FairyTrees.class.getSimpleName(), "ai/group_template");
 		bindKill(MOBS);
 		bindSpawn(MOBS);
 	}

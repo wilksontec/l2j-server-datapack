@@ -288,7 +288,7 @@ public class AdminShowQuests implements IAdminCommandHandler {
 					target.sendPacket(new QuestList());
 					target.sendPacket(new ExShowQuestMark(qs.getQuest().getId()));
 					target.delQuestState(qs.getQuestName());
-					actor.sendMessage("Removed quest " + qs.getQuest().getDescr() + " from " + target.getName() + ".");
+					actor.sendMessage("Removed quest ID " + qs.getQuest().getId() + " from " + target.getName() + ".");
 					break;
 				}
 				case "CREATE": {

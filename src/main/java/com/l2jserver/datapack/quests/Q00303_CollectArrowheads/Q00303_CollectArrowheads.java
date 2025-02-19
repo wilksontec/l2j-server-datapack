@@ -40,7 +40,7 @@ public final class Q00303_CollectArrowheads extends Quest {
 	private static final int TUNATH_ORC_MARKSMAN = 20361;
 	
 	public Q00303_CollectArrowheads() {
-		super(303, Q00303_CollectArrowheads.class.getSimpleName(), "Collect Arrowheads");
+		super(303);
 		bindStartNpc(MINIA);
 		bindTalk(MINIA);
 		bindKill(TUNATH_ORC_MARKSMAN);

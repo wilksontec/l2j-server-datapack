@@ -104,7 +104,6 @@ public final class RaidBossCancel extends AbstractNpcAI {
 	};
 	
 	public RaidBossCancel() {
-		super(RaidBossCancel.class.getSimpleName(), "ai/group_template");
 		bindAttack(RAID_BOSSES);
 		bindSkillSee(RAID_BOSSES);
 	}

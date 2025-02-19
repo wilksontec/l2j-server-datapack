@@ -76,7 +76,6 @@ public final class TeleportToFantasy extends AbstractNpcAI {
 	private static final String FANTASY_RETURN = "FANTASY_RETURN";
 	
 	public TeleportToFantasy() {
-		super(TeleportToFantasy.class.getSimpleName(), "ai/npc/Teleports");
 		bindStartNpc(PADDIES);
 		bindStartNpc(TELEPORTERS.keySet());
 		bindTalk(PADDIES);

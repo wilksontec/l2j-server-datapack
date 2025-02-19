@@ -47,7 +47,6 @@ public final class Natives extends AbstractNpcAI {
 	};
 	
 	public Natives() {
-		super(Natives.class.getSimpleName(), "hellbound/AI/NPC");
 		bindFirstTalk(NATIVE);
 		bindFirstTalk(INSURGENT);
 		bindFirstTalk(INCASTLE);

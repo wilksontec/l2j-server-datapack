@@ -43,7 +43,7 @@ public class Q10502_FreyaEmbroideredSoulCloak extends Quest {
 	private static final int FRAGMENT_COUNT = 20;
 	
 	public Q10502_FreyaEmbroideredSoulCloak() {
-		super(10502, Q10502_FreyaEmbroideredSoulCloak.class.getSimpleName(), "Freya Embroidered Soul Cloak");
+		super(10502);
 		bindStartNpc(OLF_ADAMS);
 		bindTalk(OLF_ADAMS);
 		bindKill(FREYA);

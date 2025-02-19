@@ -52,7 +52,7 @@ public final class Q00047_IntoTheDarkElvenForest extends Quest {
 	// Reward
 	private static final int SCROLL_OF_ESCAPE_DARK_ELF_VILLAGE = 7556;
 	// Get condition for each npc
-	private static Map<Integer, ItemHolder> NPC_ITEMS = new HashMap<>();
+	private static final Map<Integer, ItemHolder> NPC_ITEMS = new HashMap<>();
 	static {
 		NPC_ITEMS.put(GENTLER, new ItemHolder(1, GALLADUCCIS_ORDER_1));
 		NPC_ITEMS.put(SANDRA, new ItemHolder(3, GALLADUCCIS_ORDER_2));
@@ -60,7 +60,7 @@ public final class Q00047_IntoTheDarkElvenForest extends Quest {
 	}
 	
 	public Q00047_IntoTheDarkElvenForest() {
-		super(47, Q00047_IntoTheDarkElvenForest.class.getSimpleName(), "Into the Dark Elven Forest");
+		super(47);
 		bindStartNpc(GALLADUCCI);
 		bindTalk(GALLADUCCI);
 		bindTalk(NPC_ITEMS.keySet());

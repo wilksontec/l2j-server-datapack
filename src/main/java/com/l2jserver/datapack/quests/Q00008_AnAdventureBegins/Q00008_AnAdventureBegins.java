@@ -42,7 +42,7 @@ public class Q00008_AnAdventureBegins extends Quest {
 	private static final int MIN_LEVEL = 3;
 	
 	public Q00008_AnAdventureBegins() {
-		super(8, Q00008_AnAdventureBegins.class.getSimpleName(), "An Adventure Begins");
+		super(8);
 		bindStartNpc(JASMINE);
 		bindTalk(JASMINE, ROSELYN, HARNE);
 		registerQuestItems(ROSELYNS_NOTE);

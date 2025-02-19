@@ -47,7 +47,7 @@ public class Q00610_MagicalPowerOfWaterPart2 extends Quest {
 	private static final int MIN_LEVEL = 75;
 	
 	public Q00610_MagicalPowerOfWaterPart2() {
-		super(610, Q00610_MagicalPowerOfWaterPart2.class.getSimpleName(), "Magical Power of Water - Part 2");
+		super(610);
 		bindStartNpc(ASEFA);
 		bindTalk(ASEFA, VARKA_TOTEM);
 		bindKill(ASHUTAR);

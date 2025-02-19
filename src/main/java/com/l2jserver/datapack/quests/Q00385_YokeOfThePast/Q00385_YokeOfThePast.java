@@ -93,7 +93,7 @@ public final class Q00385_YokeOfThePast extends Quest {
 	private static final int MIN_LVL = 20;
 	
 	public Q00385_YokeOfThePast() {
-		super(385, Q00385_YokeOfThePast.class.getSimpleName(), "Yoke of the Past");
+		super(385);
 		bindStartNpc(ZIGGURATS);
 		bindTalk(ZIGGURATS);
 		bindKill(DROPLIST.getNpcIds());

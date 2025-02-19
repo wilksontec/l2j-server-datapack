@@ -46,7 +46,7 @@ public final class Q00284_MuertosFeather extends Quest {
 	private static final int MIN_LVL = 11;
 	
 	public Q00284_MuertosFeather() {
-		super(284, Q00284_MuertosFeather.class.getSimpleName(), "Muertos Feather");
+		super(284);
 		bindStartNpc(TREVOR);
 		bindTalk(TREVOR);
 		bindKill(DROPLIST.getNpcIds());

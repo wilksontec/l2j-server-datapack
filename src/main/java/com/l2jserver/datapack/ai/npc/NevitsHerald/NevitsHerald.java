@@ -65,7 +65,6 @@ public final class NevitsHerald extends AbstractNpcAI {
 	private static final SkillHolder FALL_OF_THE_DRAGON = new SkillHolder(23312);
 	
 	public NevitsHerald() {
-		super(NevitsHerald.class.getSimpleName(), "ai/npc");
 		bindFirstTalk(NEVITS_HERALD);
 		bindStartNpc(NEVITS_HERALD);
 		bindTalk(NEVITS_HERALD);

@@ -43,6 +43,6 @@ public final class KamaelCoach extends GuildCoach {
 	};
 	
 	public KamaelCoach() {
-		super(KamaelCoach.class.getSimpleName(), COACHES, CONDITIONS);
+		super(COACHES, CONDITIONS);
 	}
 }

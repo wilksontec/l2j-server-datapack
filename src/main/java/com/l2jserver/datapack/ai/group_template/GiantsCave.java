@@ -38,7 +38,6 @@ public final class GiantsCave extends AbstractNpcAI {
 	};
 	
 	public GiantsCave() {
-		super(GiantsCave.class.getSimpleName(), "ai/group_template");
 		bindAttack(SCOUTS);
 		bindAggroRangeEnter(SCOUTS);
 	}

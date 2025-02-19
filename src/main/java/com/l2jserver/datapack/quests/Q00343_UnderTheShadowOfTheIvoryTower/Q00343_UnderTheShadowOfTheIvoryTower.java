@@ -60,7 +60,7 @@ public final class Q00343_UnderTheShadowOfTheIvoryTower extends Quest {
 	private static final int MIN_LEVEL = 40;
 	
 	public Q00343_UnderTheShadowOfTheIvoryTower() {
-		super(343, Q00343_UnderTheShadowOfTheIvoryTower.class.getSimpleName(), "Under The Shadow Of The Ivory Tower");
+		super(343);
 		bindStartNpc(MAGIC_TRADER_CEMA);
 		bindTalk(MAGIC_TRADER_CEMA, LICH_KING_ICARUS, COLLECTOR_MARSHA, COLLECTOR_TRUMPIN);
 		bindKill(MANASHEN_GARGOYLE, ENCHANTED_MONSTEREYE, ENCHANTED_STONE_GOLEM, ENCHANTED_IRON_GOLEM);

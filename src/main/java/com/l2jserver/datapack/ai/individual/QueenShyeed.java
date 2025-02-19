@@ -56,7 +56,6 @@ public final class QueenShyeed extends AbstractNpcAI {
 	private L2Attackable _mob = null;
 	
 	public QueenShyeed() {
-		super(QueenShyeed.class.getSimpleName(), "ai/individual");
 		registerMobs(SHYEED, SPIKED_STAKATO, SPIKED_STAKATO_WORKER, SPIKED_STAKATO_SORCERER, SPIKED_STAKATO_SOLDIER, SPIKED_STAKATO_DRONE);
 		checkShyeed();
 	}

@@ -56,7 +56,6 @@ public final class SoIController extends AirShipController {
 	};
 	
 	public SoIController() {
-		super(-1, SoIController.class.getSimpleName(), "gracia/vehicles");
 		bindStartNpc(CONTROLLER_ID);
 		bindFirstTalk(CONTROLLER_ID);
 		bindTalk(CONTROLLER_ID);

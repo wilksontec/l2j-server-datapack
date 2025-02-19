@@ -37,7 +37,6 @@ public final class HellboundCore extends AbstractNpcAI {
 	private static final SkillHolder BEAM = new SkillHolder(5493);
 	
 	public HellboundCore() {
-		super(HellboundCore.class.getSimpleName(), "hellbound/AI");
 		bindSpawn(HELLBOUND_CORE, NAIA);
 	}
 	

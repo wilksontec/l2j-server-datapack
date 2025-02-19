@@ -43,7 +43,6 @@ public final class GatekeeperSpirit extends AbstractNpcAI {
 	private static final Location EXIT = new Location(182960, -11904, -4897);
 	
 	public GatekeeperSpirit() {
-		super(GatekeeperSpirit.class.getSimpleName(), "ai/npc/Teleports");
 		bindStartNpc(GATEKEEPER_SPIRIT_ENTER, GATEKEEPER_SPIRIT_EXIT);
 		bindFirstTalk(GATEKEEPER_SPIRIT_ENTER, GATEKEEPER_SPIRIT_EXIT);
 		bindTalk(GATEKEEPER_SPIRIT_ENTER, GATEKEEPER_SPIRIT_EXIT);

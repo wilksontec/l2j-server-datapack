@@ -38,7 +38,7 @@ public class Q00119_LastImperialPrince extends Quest {
 	private static final int MIN_LEVEL = 74;
 	
 	public Q00119_LastImperialPrince() {
-		super(119, Q00119_LastImperialPrince.class.getSimpleName(), "Last Imperial Prince");
+		super(119);
 		bindStartNpc(NAMELESS_SPIRIT);
 		bindTalk(NAMELESS_SPIRIT, DEVORIN);
 	}

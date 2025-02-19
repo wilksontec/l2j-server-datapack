@@ -30,7 +30,7 @@ import com.l2jserver.gameserver.model.base.ClassId;
  */
 public final class DwarfBlacksmithChange2 extends AbstractNpcAI {
 	// NPCs
-	private static int[] NPCS = {
+	private static final int[] NPCS = {
 		30512, // Kusto
 		30677, // Flutter
 		30687, // Vergara
@@ -50,7 +50,6 @@ public final class DwarfBlacksmithChange2 extends AbstractNpcAI {
 	private static final int WARSMITH = 57;
 	
 	public DwarfBlacksmithChange2() {
-		super(DwarfBlacksmithChange2.class.getSimpleName(), "village_master");
 		bindStartNpc(NPCS);
 		bindTalk(NPCS);
 	}

@@ -87,7 +87,6 @@ public final class PlainsOfLizardman extends AbstractNpcAI {
 	// @formatter:on
 	
 	public PlainsOfLizardman() {
-		super(PlainsOfLizardman.class.getSimpleName(), "ai/group_template");
 		bindAttack(FANTASY_MUSHROOM, RAINBOW_FROG, STICKY_MUSHROOM, ENERGY_PLANT, TANTA_SUMMONER);
 		bindKill(TANTA_LIZARDMEN);
 	}

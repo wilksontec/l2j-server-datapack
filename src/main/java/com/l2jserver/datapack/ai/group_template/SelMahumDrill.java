@@ -113,8 +113,6 @@ public final class SelMahumDrill extends AbstractNpcAI {
 	}
 	
 	public SelMahumDrill() {
-		super(SelMahumDrill.class.getSimpleName(), "ai/group_template");
-		
 		bindAttack(MAHUM_SOLDIERS);
 		bindKill(MAHUM_CHIEFS);
 		bindEventReceived(MAHUM_CHIEFS);

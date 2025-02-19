@@ -30,7 +30,7 @@ import com.l2jserver.gameserver.model.base.ClassId;
  */
 public final class DwarfWarehouseChange1 extends AbstractNpcAI {
 	// NPCs
-	private static int[] NPCS = {
+	private static final int[] NPCS = {
 		30498, // Moke
 		30503, // Rikadio
 		30594, // Ranspo
@@ -44,7 +44,6 @@ public final class DwarfWarehouseChange1 extends AbstractNpcAI {
 	private static final int SCAVENGER = 54;
 	
 	public DwarfWarehouseChange1() {
-		super(DwarfWarehouseChange1.class.getSimpleName(), "village_master");
 		bindStartNpc(NPCS);
 		bindTalk(NPCS);
 	}

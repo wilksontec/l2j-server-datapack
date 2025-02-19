@@ -145,7 +145,6 @@ public final class WeaverOlf extends AbstractNpcAI {
 	};
 	
 	public WeaverOlf() {
-		super(WeaverOlf.class.getSimpleName(), "ai/npc");
 		bindStartNpc(NPCs);
 		bindTalk(NPCs);
 	}

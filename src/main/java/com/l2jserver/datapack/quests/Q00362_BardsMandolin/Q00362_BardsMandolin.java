@@ -42,7 +42,7 @@ public final class Q00362_BardsMandolin extends Quest {
 	private static final int MIN_LEVEL = 15;
 	
 	public Q00362_BardsMandolin() {
-		super(362, Q00362_BardsMandolin.class.getSimpleName(), "Bard's Mandolin");
+		super(362);
 		bindStartNpc(SWAN);
 		bindTalk(SWAN, GALION, WOODROW, NANARIN);
 		registerQuestItems(SWANS_FLUTE, SWANS_LETTER);

@@ -78,7 +78,6 @@ public final class TowerOfInfinitum extends AbstractNpcAI {
 	}
 	
 	public TowerOfInfinitum() {
-		super(TowerOfInfinitum.class.getSimpleName(), "hellbound/AI/Zones");
 		bindStartNpc(JERIAN);
 		bindTalk(JERIAN);
 		

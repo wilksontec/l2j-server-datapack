@@ -42,7 +42,7 @@ public class Q00172_NewHorizons extends Quest {
 	private static final int MIN_LEVEL = 3;
 	
 	public Q00172_NewHorizons() {
-		super(172, Q00172_NewHorizons.class.getSimpleName(), "New Horizons");
+		super(172);
 		bindStartNpc(ZENYA);
 		bindTalk(ZENYA, RAGARA);
 	}

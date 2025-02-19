@@ -44,7 +44,6 @@ public final class Wedding extends AbstractNpcAI {
 	private static final int FORMAL_WEAR = 6408;
 	
 	public Wedding() {
-		super(Wedding.class.getSimpleName(), "custom/events");
 		bindFirstTalk(MANAGER_ID);
 		bindTalk(MANAGER_ID);
 		bindStartNpc(MANAGER_ID);

@@ -53,7 +53,7 @@ public final class Q00603_DaimonTheWhiteEyedPart1 extends Quest {
 	private static final int MIN_LVL = 73;
 	
 	public Q00603_DaimonTheWhiteEyedPart1() {
-		super(603, Q00603_DaimonTheWhiteEyedPart1.class.getSimpleName(), "Daimon the White-Eyed - Part 1");
+		super(603);
 		bindStartNpc(EYE_OF_ARGOS);
 		bindTalk(EYE_OF_ARGOS, TABLET_1, TABLET_2, TABLET_3, TABLET_4, TABLET_5);
 		bindKill(DROPLIST.getNpcIds());

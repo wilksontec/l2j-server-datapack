@@ -100,7 +100,7 @@ public final class Q00222_TestOfTheDuelist extends Quest {
 	private static final int MIN_LEVEL = 39;
 	
 	public Q00222_TestOfTheDuelist() {
-		super(222, Q00222_TestOfTheDuelist.class.getSimpleName(), "Test Of The Duelist");
+		super(222);
 		bindStartNpc(DUELIST_KAIEN);
 		bindTalk(DUELIST_KAIEN);
 		bindKill(PUNCHER, NOBLE_ANT_LEADER, DEAD_SEEKER, EXCURO, KRATOR, MARSH_STAKATO_DRONE, BREKA_ORC_OVERLORD, FETTERED_SOUL, GRANDIS, ENCHANTED_MONSTEREYE, LETO_LIZARDMAN_OVERLORD, TIMAK_ORC_OVERLORD, TAMLIN_ORC, TAMLIN_ORC_ARCHER, LAKIN);

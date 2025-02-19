@@ -39,7 +39,7 @@ public class Q00051_OFullesSpecialBait extends Quest {
 	private static final int ICY_AIR_LURE = 7611;
 	
 	public Q00051_OFullesSpecialBait() {
-		super(51, Q00051_OFullesSpecialBait.class.getSimpleName(), "O'Fulle's Special Bait");
+		super(51);
 		bindStartNpc(OFULLE);
 		bindTalk(OFULLE);
 		bindKill(FETTERED_SOUL);

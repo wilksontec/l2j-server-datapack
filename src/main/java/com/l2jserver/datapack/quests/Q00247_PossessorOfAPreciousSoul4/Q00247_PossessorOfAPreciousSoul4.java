@@ -46,7 +46,7 @@ public class Q00247_PossessorOfAPreciousSoul4 extends Quest {
 	private static final SkillHolder MIMIRS_ELIXIR = new SkillHolder(4339);
 	
 	public Q00247_PossessorOfAPreciousSoul4() {
-		super(247, Q00247_PossessorOfAPreciousSoul4.class.getSimpleName(), "Possessor Of A Precious Soul 4");
+		super(247);
 		bindStartNpc(CARADINE);
 		bindTalk(CARADINE, LADY_OF_LAKE);
 	}

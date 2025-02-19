@@ -43,6 +43,6 @@ public final class ClericCoach extends SkillTransferCoach {
 	};
 	
 	public ClericCoach() {
-		super(ClericCoach.class.getSimpleName(), COACHES, CONDITIONS);
+		super(COACHES, CONDITIONS);
 	}
 }

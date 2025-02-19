@@ -57,7 +57,6 @@ public final class Chimeras extends AbstractNpcAI {
 	private static final int CONTAINED_LIFE_FORCE = 9682;
 	
 	public Chimeras() {
-		super(Chimeras.class.getSimpleName(), "hellbound/AI");
 		bindSkillSee(NPCS);
 		bindSpawn(CELTUS);
 		bindSkillSee(CELTUS);

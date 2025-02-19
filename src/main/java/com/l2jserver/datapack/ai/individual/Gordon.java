@@ -32,7 +32,6 @@ public final class Gordon extends AbstractNpcAI {
 	private static final int GORDON = 29095;
 	
 	public Gordon() {
-		super(Gordon.class.getSimpleName(), "ai/individual");
 		bindSpawn(GORDON);
 		bindSeeCreature(GORDON);
 	}

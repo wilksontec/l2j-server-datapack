@@ -47,7 +47,7 @@ public final class Q00274_SkirmishWithTheWerewolves extends Quest {
 	private static final int MIN_LVL = 9;
 	
 	public Q00274_SkirmishWithTheWerewolves() {
-		super(274, Q00274_SkirmishWithTheWerewolves.class.getSimpleName(), "Skirmish with the Werewolves");
+		super(274);
 		bindStartNpc(BRUKURSE);
 		bindTalk(BRUKURSE);
 		bindKill(MONSTERS);

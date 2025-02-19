@@ -82,7 +82,6 @@ public final class Rabbits extends Event {
 	// @formatter:on
 	
 	private Rabbits() {
-		super(Rabbits.class.getSimpleName(), "custom/events");
 		bindFirstTalk(NPC_MANAGER, CHEST);
 		bindTalk(NPC_MANAGER);
 		bindStartNpc(NPC_MANAGER);

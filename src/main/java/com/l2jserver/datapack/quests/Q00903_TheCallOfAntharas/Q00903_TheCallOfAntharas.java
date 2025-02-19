@@ -46,7 +46,7 @@ public class Q00903_TheCallOfAntharas extends Quest {
 	private static final int MIN_LEVEL = 83;
 	
 	public Q00903_TheCallOfAntharas() {
-		super(903, Q00903_TheCallOfAntharas.class.getSimpleName(), "The Call of Antharas");
+		super(903);
 		bindStartNpc(THEODRIC);
 		bindTalk(THEODRIC);
 		bindKill(BEHEMOTH_DRAGON, TARASK_DRAGON);

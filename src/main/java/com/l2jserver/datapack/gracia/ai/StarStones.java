@@ -42,7 +42,6 @@ public class StarStones extends AbstractNpcAI {
 	private static final int COLLECTION_RATE = 1;
 	
 	public StarStones() {
-		super(StarStones.class.getSimpleName(), "gracia/AI");
 		bindSkillSee(MOBS);
 	}
 	

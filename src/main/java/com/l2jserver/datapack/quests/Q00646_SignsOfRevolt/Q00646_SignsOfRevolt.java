@@ -35,7 +35,7 @@ public class Q00646_SignsOfRevolt extends Quest {
 	private static final int MIN_LEVEL = 80;
 	
 	public Q00646_SignsOfRevolt() {
-		super(646, Q00646_SignsOfRevolt.class.getSimpleName(), "Signs of Revolt");
+		super(646);
 		bindStartNpc(TORRANT);
 		bindTalk(TORRANT);
 	}

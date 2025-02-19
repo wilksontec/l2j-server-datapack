@@ -61,7 +61,6 @@ public final class ClassMaster extends AbstractNpcAI {
 	private static final int CUSTOM_EVENT_ID = 1001;
 	
 	public ClassMaster() {
-		super(ClassMaster.class.getSimpleName(), "ai/npc");
 		bindStartNpc(MR_CAT, MISS_QUEEN);
 		bindFirstTalk(MR_CAT, MISS_QUEEN);
 		bindTalk(MR_CAT, MISS_QUEEN);

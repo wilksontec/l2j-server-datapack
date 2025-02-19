@@ -48,7 +48,6 @@ public final class Anais extends AbstractNpcAI {
 	private int _pot = 0;
 	
 	public Anais() {
-		super(Anais.class.getSimpleName(), "ai/individual");
 		bindAttack(ANAIS);
 		bindSpawn(DIVINE_BURNER);
 		bindKill(GRAIL_WARD);

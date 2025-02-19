@@ -44,7 +44,7 @@ public final class Q00262_TradeWithTheIvoryTower extends Quest {
 	private static final int MIN_LEVEL = 8;
 	
 	public Q00262_TradeWithTheIvoryTower() {
-		super(262, Q00262_TradeWithTheIvoryTower.class.getSimpleName(), "Trade With The Ivory Tower");
+		super(262);
 		bindStartNpc(VOLLODOS);
 		bindTalk(VOLLODOS);
 		bindKill(DROPLIST.getNpcIds());

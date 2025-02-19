@@ -65,7 +65,7 @@ public class Q00142_FallenAngelRequestOfDawn extends Quest {
 	private boolean isAngelSpawned = false;
 	
 	public Q00142_FallenAngelRequestOfDawn() {
-		super(142, Q00142_FallenAngelRequestOfDawn.class.getSimpleName(), "Fallen Angel - Request of Dawn");
+		super(142);
 		bindTalk(NATOOLS, RAYMOND, CASIAN, ROCK);
 		bindKill(MOBS.keySet());
 		bindKill(FALLEN_ANGEL);

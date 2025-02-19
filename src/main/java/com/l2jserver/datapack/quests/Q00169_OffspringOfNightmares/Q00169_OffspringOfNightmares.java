@@ -47,7 +47,7 @@ public class Q00169_OffspringOfNightmares extends Quest {
 	private static final int MIN_LVL = 15;
 	
 	public Q00169_OffspringOfNightmares() {
-		super(169, Q00169_OffspringOfNightmares.class.getSimpleName(), "Offspring of Nightmares");
+		super(169);
 		bindStartNpc(VLASTY);
 		bindTalk(VLASTY);
 		bindKill(LESSER_DARK_HORROR, DARK_HORROR);

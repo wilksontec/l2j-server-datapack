@@ -43,7 +43,6 @@ public class BloodyKarinness extends AbstractNpcAI {
 	};
 	
 	public BloodyKarinness() {
-		super(BloodyKarinness.class.getSimpleName(), "ai/individual");
 		bindKill(BLOODY_KARINNESS);
 		bindAttack(BLOODY_KARINNESS);
 		bindTeleport(BLOODY_KARINNESS);

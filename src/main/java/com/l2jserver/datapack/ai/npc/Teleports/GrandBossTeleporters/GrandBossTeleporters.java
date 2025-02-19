@@ -57,7 +57,6 @@ public final class GrandBossTeleporters extends AbstractNpcAI {
 	private static int playerCount = 0;
 	
 	public GrandBossTeleporters() {
-		super(GrandBossTeleporters.class.getSimpleName(), "ai/npc/Teleports");
 		bindStartNpc(NPCs);
 		bindTalk(NPCs);
 	}

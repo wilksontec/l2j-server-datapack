@@ -58,7 +58,6 @@ public final class Core extends AbstractNpcAI {
 	private final List<L2Attackable> _minions = new CopyOnWriteArrayList<>();
 	
 	public Core() {
-		super(Core.class.getSimpleName(), "ai/individual");
 		registerMobs(CORE, DEATH_KNIGHT, DOOM_WRAITH, SUSCEPTOR);
 		
 		_firstAttacked = false;
@@ -103,10 +102,9 @@ public final class Core extends AbstractNpcAI {
 		GrandBossManager.getInstance().addBoss(npc);
 		npc.broadcastPacket(Music.BS01_A_10000.getPacket());
 		// Spawn minions
-		L2Attackable mob;
 		for (int i = 0; i < 5; i++) {
 			final int x = 16800 + (i * 360);
-			mob = (L2Attackable) addSpawn(DEATH_KNIGHT, x, 110000, npc.getZ(), 280 + getRandom(40), false, 0);
+			var mob = (L2Attackable) addSpawn(DEATH_KNIGHT, x, 110000, npc.getZ(), 280 + getRandom(40), false, 0);
 			mob.setIsRaidMinion(true);
 			_minions.add(mob);
 			mob = (L2Attackable) addSpawn(DEATH_KNIGHT, x, 109000, npc.getZ(), 280 + getRandom(40), false, 0);
@@ -119,7 +117,7 @@ public final class Core extends AbstractNpcAI {
 		}
 		for (int i = 0; i < 4; i++) {
 			int x = 16800 + (i * 450);
-			mob = (L2Attackable) addSpawn(SUSCEPTOR, x, 110300, npc.getZ(), 280 + getRandom(40), false, 0);
+			final var mob = (L2Attackable) addSpawn(SUSCEPTOR, x, 110300, npc.getZ(), 280 + getRandom(40), false, 0);
 			mob.setIsRaidMinion(true);
 			_minions.add(mob);
 		}

@@ -83,7 +83,6 @@ public final class StakatoNest extends AbstractNpcAI {
 	private static final SkillHolder EATING_FOLLOWER_HEAL = new SkillHolder(4484);
 	
 	public StakatoNest() {
-		super(StakatoNest.class.getSimpleName(), "ai/group_template");
 		registerMobs(STAKATO_MOBS);
 	}
 	

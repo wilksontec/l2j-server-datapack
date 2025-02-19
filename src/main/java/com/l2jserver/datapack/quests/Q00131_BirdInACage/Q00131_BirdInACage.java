@@ -43,7 +43,7 @@ public class Q00131_BirdInACage extends Quest {
 	private static final int MIN_LEVEL = 78;
 	
 	public Q00131_BirdInACage() {
-		super(131, Q00131_BirdInACage.class.getSimpleName(), "Bird in a Cage");
+		super(131);
 		bindStartNpc(KANIS);
 		bindTalk(KANIS, PARME);
 		registerQuestItems(ECHO_CRYSTAL_OF_FREE_THOUGHT, PARMES_LETTER);

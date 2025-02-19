@@ -81,7 +81,7 @@ public class Q00615_MagicalPowerOfFirePart1 extends Quest {
 	private static final int MIN_LEVEL = 74;
 	
 	public Q00615_MagicalPowerOfFirePart1() {
-		super(615, Q00615_MagicalPowerOfFirePart1.class.getSimpleName(), "Magical Power of Fire - Part 1");
+		super(615);
 		bindStartNpc(NARAN);
 		bindTalk(UDAN, NARAN, ASEFA_BOX);
 		bindAttack(KETRA_MOBS);

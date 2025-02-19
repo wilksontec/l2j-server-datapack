@@ -53,7 +53,6 @@ public final class PlainsOfDion extends AbstractNpcAI {
 	};
 	
 	public PlainsOfDion() {
-		super(PlainsOfDion.class.getSimpleName(), "ai/group_template");
 		bindAttack(DELU_LIZARDMEN);
 	}
 	

@@ -55,7 +55,7 @@ public final class Q00623_TheFinestFood extends Quest {
 	private static final int MIN_LVL = 71;
 	
 	public Q00623_TheFinestFood() {
-		super(623, Q00623_TheFinestFood.class.getSimpleName(), "The Finest Food");
+		super(623);
 		bindStartNpc(JEREMY);
 		bindTalk(JEREMY);
 		bindKill(THERMAL_BUFFALO, THERMAL_FLAVA, THERMAL_ANTELOPE);

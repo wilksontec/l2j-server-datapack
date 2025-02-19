@@ -51,7 +51,7 @@ public final class Q00306_CrystalOfFireAndIce extends Quest {
 	private static final int MIN_LEVEL = 17;
 	
 	public Q00306_CrystalOfFireAndIce() {
-		super(306, Q00306_CrystalOfFireAndIce.class.getSimpleName(), "Crystals of Fire and Ice");
+		super(306);
 		bindStartNpc(KATERINA);
 		bindTalk(KATERINA);
 		bindKill(DROPLIST.getNpcIds());

@@ -30,8 +30,6 @@ public final class NpcBuffers extends AbstractNpcAI {
 	private final NpcBuffersData _npcBuffers = new NpcBuffersData();
 	
 	public NpcBuffers() {
-		super(NpcBuffers.class.getSimpleName(), "ai/npc");
-		
 		for (int npcId : _npcBuffers.getNpcBufferIds()) {
 			// TODO: Cleanup once npc rework is finished and default html is configurable.
 			bindFirstTalk(npcId);

@@ -31,7 +31,7 @@ import com.l2jserver.gameserver.model.base.ClassId;
  */
 public final class OrcChange1 extends AbstractNpcAI {
 	// NPCs
-	private static int[] NPCS = {
+	private static final int[] NPCS = {
 		30500, // Osborn
 		30505, // Drikus
 		30508, // Castor
@@ -45,7 +45,6 @@ public final class OrcChange1 extends AbstractNpcAI {
 	private static final int MASK_OF_MEDIUM = 1631;
 	
 	public OrcChange1() {
-		super(OrcChange1.class.getSimpleName(), "village_master");
 		bindStartNpc(NPCS);
 		bindTalk(NPCS);
 	}

@@ -43,7 +43,7 @@ public final class Q00192_SevenSignsSeriesOfDoubt extends Quest {
 	private static final int MIN_LEVEL = 79;
 	
 	public Q00192_SevenSignsSeriesOfDoubt() {
-		super(192, Q00192_SevenSignsSeriesOfDoubt.class.getSimpleName(), "Seven Signs, Series of Doubt");
+		super(192);
 		bindStartNpc(CROOP, UNIDENTIFIED_BODY);
 		bindTalk(CROOP, STAN, UNIDENTIFIED_BODY, HECTOR, HOLLINT);
 		registerQuestItems(CROOPS_INTRODUCTION, JACOBS_NECKLACE, CROOPS_LETTER);
