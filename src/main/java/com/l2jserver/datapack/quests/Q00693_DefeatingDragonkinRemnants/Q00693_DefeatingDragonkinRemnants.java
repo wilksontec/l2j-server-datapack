@@ -31,13 +31,13 @@ import com.l2jserver.gameserver.model.quest.QuestState;
 import com.l2jserver.gameserver.network.SystemMessageId;
 
 /**
- * Quest 693 - Defeating Dragonkin Remnants
+ * Defeating Dragonkin Remnants (693)
  * @author Lomka
  */
 public class Q00693_DefeatingDragonkinRemnants extends Quest {
 	private static final int EDRIC = 32527;
 	private static final int MIN_LEVEL = 75;
-	private static Location ENTER_TELEPORT_LOC = new Location(-242754, 219982, -10011);
+	private static final Location ENTER_TELEPORT_LOC = new Location(-242754, 219982, -10011);
 	
 	public Q00693_DefeatingDragonkinRemnants() {
 		super(693);
@@ -141,21 +141,17 @@ public class Q00693_DefeatingDragonkinRemnants extends Quest {
 		return htmltext;
 	}
 	
-	private boolean checkInstances(L2PcInstance talker) {
-		if ((System.currentTimeMillis() < InstanceManager.getInstance().getInstanceTime(talker.getObjectId(), 123) //
-		)
-			|| (System.currentTimeMillis() < InstanceManager.getInstance().getInstanceTime(talker.getObjectId(), 124) //
-			)
-			|| (System.currentTimeMillis() < InstanceManager.getInstance().getInstanceTime(talker.getObjectId(), 125) //
-			)
-			|| (System.currentTimeMillis() < InstanceManager.getInstance().getInstanceTime(talker.getObjectId(), 126) //
-			)) {
+	private static boolean checkInstances(L2PcInstance talker) {
+		if ((System.currentTimeMillis() < InstanceManager.getInstance().getInstanceTime(talker.getObjectId(), 123))
+			|| (System.currentTimeMillis() < InstanceManager.getInstance().getInstanceTime(talker.getObjectId(), 124))
+			|| (System.currentTimeMillis() < InstanceManager.getInstance().getInstanceTime(talker.getObjectId(), 125))
+			|| (System.currentTimeMillis() < InstanceManager.getInstance().getInstanceTime(talker.getObjectId(), 126))) {
 			return false;
 		}
 		return true;
 	}
 	
-	private boolean rewardPlayer(QuestState st, int difficulty, int memberCount) {
+	private static boolean rewardPlayer(QuestState st, int difficulty, int memberCount) {
 		if (getRandom(1000) < ((10000 / (memberCount * 10)) * (1 + (difficulty * 2)))) {
 			if (difficulty == 4) {
 				st.giveItems(14638, 1L); // Best Quality Battle Reward Chest
@@ -170,5 +166,4 @@ public class Q00693_DefeatingDragonkinRemnants extends Quest {
 		}
 		return false;
 	}
-	
 }
