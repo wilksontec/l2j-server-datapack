@@ -21,9 +21,11 @@ package com.l2jserver.datapack.quests.Q00104_SpiritOfMirrors;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.l2jserver.datapack.quests.Q00281_HeadForTheHills.Q00281_HeadForTheHills;
+import com.l2jserver.datapack.ai.npc.Teleports.NewbieGuide.NewbieGuide;
 import com.l2jserver.gameserver.enums.Race;
 import com.l2jserver.gameserver.enums.audio.Sound;
+import com.l2jserver.gameserver.enums.audio.Voice;
+import com.l2jserver.gameserver.instancemanager.QuestManager;
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
 import com.l2jserver.gameserver.model.holders.ItemHolder;
@@ -31,6 +33,7 @@ import com.l2jserver.gameserver.model.itemcontainer.Inventory;
 import com.l2jserver.gameserver.model.quest.Quest;
 import com.l2jserver.gameserver.model.quest.QuestState;
 import com.l2jserver.gameserver.model.quest.State;
+import com.l2jserver.gameserver.network.NpcStringId;
 
 /**
  * Spirit of Mirrors (104)
@@ -64,8 +67,15 @@ public final class Q00104_SpiritOfMirrors extends Quest {
 		new ItemHolder(4416, 10), // Echo Crystal - Theme of Celebration
 		new ItemHolder(747, 1), // Wand of Adept
 	};
+	
+	private static final ItemHolder SPIRITSHOTS_NO_GRADE_FOR_ROOKIES = new ItemHolder(5790, 3000);
+	private static final ItemHolder SOULSHOTS_NO_GRADE = new ItemHolder(1835, 1000);
+	private static final ItemHolder SPIRITSHOTS_NO_GRADE = new ItemHolder(2509, 500);
+	
 	// Misc
 	private static final int MIN_LVL = 10;
+	
+	private static final int GUIDE_MISSION = 41;
 	
 	public Q00104_SpiritOfMirrors() {
 		super(104);
@@ -113,10 +123,30 @@ public final class Q00104_SpiritOfMirrors extends Quest {
 					}
 					case State.STARTED: {
 						if (st.isCond(3) && st.hasQuestItems(SPIRITBOUND_WAND1, SPIRITBOUND_WAND2, SPIRITBOUND_WAND3)) {
-							Q00281_HeadForTheHills.giveNewbieReward(player);
+							giveNewbieReward(player);
 							for (ItemHolder reward : REWARDS) {
 								st.giveItems(reward);
 							}
+							
+							// Newbie Guide
+							final var newbieGuide = QuestManager.getInstance().getQuest(NewbieGuide.class.getSimpleName());
+							if (newbieGuide != null) {
+								final var newbieGuideQs = newbieGuide.getQuestState(player, true);
+								if (!newbieGuideQs.haveNRMemo(player, GUIDE_MISSION)) {
+									newbieGuideQs.setNRMemo(player, GUIDE_MISSION);
+									newbieGuideQs.setNRMemoState(player, GUIDE_MISSION, 100000);
+									
+									showOnScreenMsg(player, NpcStringId.ACQUISITION_OF_RACE_SPECIFIC_WEAPON_COMPLETE_N_GO_FIND_THE_NEWBIE_GUIDE, 2, 5000);
+								} else {
+									if (((newbieGuideQs.getNRMemoState(player, GUIDE_MISSION) % 1000000) / 100000) != 1) {
+										newbieGuideQs.setNRMemo(player, GUIDE_MISSION);
+										newbieGuideQs.setNRMemoState(player, GUIDE_MISSION, newbieGuideQs.getNRMemoState(player, GUIDE_MISSION) + 100000);
+										
+										showOnScreenMsg(player, NpcStringId.ACQUISITION_OF_RACE_SPECIFIC_WEAPON_COMPLETE_N_GO_FIND_THE_NEWBIE_GUIDE, 2, 5000);
+									}
+								}
+							}
+							
 							st.addExpAndSp(39750, 3407);
 							st.giveAdena(16866, true);
 							st.exitQuest(false, true);
@@ -149,5 +179,21 @@ public final class Q00104_SpiritOfMirrors extends Quest {
 			}
 		}
 		return htmltext;
+	}
+	
+	/**
+	 * Give basic newbie reward.
+	 * @param player the player to reward
+	 */
+	private static void giveNewbieReward(L2PcInstance player) {
+		if ((player.getLevel() < 25) && player.isMageClass()) {
+			giveItems(player, SPIRITSHOTS_NO_GRADE_FOR_ROOKIES);
+			playSound(player, Voice.TUTORIAL_VOICE_027_1000);
+		}
+		if (!player.isMageClass()) {
+			giveItems(player, SOULSHOTS_NO_GRADE);
+		} else {
+			giveItems(player, SPIRITSHOTS_NO_GRADE);
+		}
 	}
 }

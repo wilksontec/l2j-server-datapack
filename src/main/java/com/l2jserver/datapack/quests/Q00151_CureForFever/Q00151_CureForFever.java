@@ -18,6 +18,8 @@
  */
 package com.l2jserver.datapack.quests.Q00151_CureForFever;
 
+import com.l2jserver.datapack.ai.npc.Teleports.NewbieGuide.NewbieGuide;
+import com.l2jserver.gameserver.instancemanager.QuestManager;
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
 import com.l2jserver.gameserver.model.quest.Quest;
@@ -46,6 +48,8 @@ public class Q00151_CureForFever extends Quest {
 	// Misc
 	private static final int MIN_LEVEL = 15;
 	private static final int CHANCE = 0;
+	
+	private static final int GUIDE_MISSION = 41;
 	
 	public Q00151_CureForFever() {
 		super(151);
@@ -89,7 +93,26 @@ public class Q00151_CureForFever extends Quest {
 							st.giveItems(ROUND_SHIELD, 1);
 							st.addExpAndSp(13106, 613);
 							st.exitQuest(false, true);
-							showOnScreenMsg(player, NpcStringId.LAST_DUTY_COMPLETE_N_GO_FIND_THE_NEWBIE_GUIDE, 2, 5000); // TODO: Newbie Guide
+							
+							// Newbie Guide
+							final var newbieGuide = QuestManager.getInstance().getQuest(NewbieGuide.class.getSimpleName());
+							if (newbieGuide != null) {
+								final var newbieGuideQs = newbieGuide.getQuestState(player, true);
+								if (!newbieGuideQs.haveNRMemo(player, GUIDE_MISSION)) {
+									newbieGuideQs.setNRMemo(player, GUIDE_MISSION);
+									newbieGuideQs.setNRMemoState(player, GUIDE_MISSION, 100000);
+									
+									showOnScreenMsg(player, NpcStringId.LAST_DUTY_COMPLETE_N_GO_FIND_THE_NEWBIE_GUIDE, 2, 5000);
+								} else {
+									if (((newbieGuideQs.getNRMemoState(player, GUIDE_MISSION) % 100000000) / 10000000) != 1) {
+										newbieGuideQs.setNRMemo(player, GUIDE_MISSION);
+										newbieGuideQs.setNRMemoState(player, GUIDE_MISSION, newbieGuideQs.getNRMemoState(player, GUIDE_MISSION) + 10000000);
+										
+										showOnScreenMsg(player, NpcStringId.LAST_DUTY_COMPLETE_N_GO_FIND_THE_NEWBIE_GUIDE, 2, 5000);
+									}
+								}
+							}
+							
 							htmltext = "30050-06.html";
 						} else if (st.isCond(2) && st.hasQuestItems(POISON_SAC)) {
 							htmltext = "30050-05.html";

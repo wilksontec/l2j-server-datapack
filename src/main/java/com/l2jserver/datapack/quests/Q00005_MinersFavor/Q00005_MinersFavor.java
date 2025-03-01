@@ -18,7 +18,9 @@
  */
 package com.l2jserver.datapack.quests.Q00005_MinersFavor;
 
+import com.l2jserver.datapack.ai.npc.Teleports.NewbieGuide.NewbieGuide;
 import com.l2jserver.gameserver.enums.audio.Sound;
+import com.l2jserver.gameserver.instancemanager.QuestManager;
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
 import com.l2jserver.gameserver.model.quest.Quest;
@@ -47,6 +49,8 @@ public class Q00005_MinersFavor extends Quest {
 	private static final int NECKLACE = 906;
 	// Misc
 	private static final int MIN_LEVEL = 2;
+	
+	private static final int GUIDE_MISSION = 41;
 	
 	public Q00005_MinersFavor() {
 		super(5);
@@ -100,12 +104,30 @@ public class Q00005_MinersFavor extends Quest {
 						if (st.isCond(1)) {
 							htmltext = "30554-04.html";
 						} else {
-							giveAdena(player, 2466, true);
-							addExpAndSp(player, 5672, 446);
 							giveItems(player, NECKLACE, 1);
+							addExpAndSp(player, 5672, 446);
+							giveAdena(player, 2466, true);
 							st.exitQuest(false, true);
+							
 							// Newbie Guide
-							showOnScreenMsg(player, NpcStringId.DELIVERY_DUTY_COMPLETE_N_GO_FIND_THE_NEWBIE_GUIDE, 2, 5000);
+							final var newbieGuide = QuestManager.getInstance().getQuest(NewbieGuide.class.getSimpleName());
+							if (newbieGuide != null) {
+								final var newbieGuideQs = newbieGuide.getQuestState(player, true);
+								if (!newbieGuideQs.haveNRMemo(player, GUIDE_MISSION)) {
+									newbieGuideQs.setNRMemo(player, GUIDE_MISSION);
+									newbieGuideQs.setNRMemoState(player, GUIDE_MISSION, 1);
+									
+									showOnScreenMsg(player, NpcStringId.DELIVERY_DUTY_COMPLETE_N_GO_FIND_THE_NEWBIE_GUIDE, 2, 5000);
+								} else {
+									if ((newbieGuideQs.getNRMemoState(player, GUIDE_MISSION) % 10) != 1) {
+										newbieGuideQs.setNRMemo(player, GUIDE_MISSION);
+										newbieGuideQs.setNRMemoState(player, GUIDE_MISSION, newbieGuideQs.getNRMemoState(player, GUIDE_MISSION) + 1);
+										
+										showOnScreenMsg(player, NpcStringId.DELIVERY_DUTY_COMPLETE_N_GO_FIND_THE_NEWBIE_GUIDE, 2, 5000);
+									}
+								}
+							}
+							
 							htmltext = "30554-06.html";
 						}
 						break;

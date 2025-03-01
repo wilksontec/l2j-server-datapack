@@ -18,7 +18,8 @@
  */
 package com.l2jserver.datapack.quests.Q00296_TarantulasSpiderSilk;
 
-import com.l2jserver.datapack.quests.Q00281_HeadForTheHills.Q00281_HeadForTheHills;
+import com.l2jserver.datapack.ai.npc.Teleports.NewbieGuide.NewbieGuide;
+import com.l2jserver.gameserver.instancemanager.QuestManager;
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
 import com.l2jserver.gameserver.model.drops.IDropItem;
@@ -26,6 +27,7 @@ import com.l2jserver.gameserver.model.holders.QuestItemChanceHolder;
 import com.l2jserver.gameserver.model.quest.Quest;
 import com.l2jserver.gameserver.model.quest.QuestDroplist;
 import com.l2jserver.gameserver.model.quest.QuestState;
+import com.l2jserver.gameserver.network.NpcStringId;
 import com.l2jserver.gameserver.util.Util;
 
 /**
@@ -48,6 +50,8 @@ public final class Q00296_TarantulasSpiderSilk extends Quest {
 	};
 	// Misc
 	private static final int MIN_LVL = 15;
+	
+	private static final int GUIDE_MISSION = 41;
 	
 	public Q00296_TarantulasSpiderSilk() {
 		super(296);
@@ -122,7 +126,26 @@ public final class Q00296_TarantulasSpiderSilk extends Quest {
 				if (silk >= 1) {
 					giveAdena(talker, (silk * 30) + (silk >= 10 ? 2000 : 0), true);
 					takeItems(talker, TARANTULA_SPIDER_SILK.getId(), -1);
-					Q00281_HeadForTheHills.giveNewbieReward(talker);// TODO: It's using wrong bitmask, need to create a general bitmask for this using EnumIntBitmask class inside Quest class for handling Quest rewards.
+					
+					// Newbie Guide
+					final var newbieGuide = QuestManager.getInstance().getQuest(NewbieGuide.class.getSimpleName());
+					if (newbieGuide != null) {
+						final var newbieGuideQs = newbieGuide.getQuestState(talker, true);
+						if (!newbieGuideQs.haveNRMemo(talker, GUIDE_MISSION)) {
+							newbieGuideQs.setNRMemo(talker, GUIDE_MISSION);
+							newbieGuideQs.setNRMemoState(talker, GUIDE_MISSION, 100000);
+							
+							showOnScreenMsg(talker, NpcStringId.LAST_DUTY_COMPLETE_N_GO_FIND_THE_NEWBIE_GUIDE, 2, 5000);
+						} else {
+							if (((newbieGuideQs.getNRMemoState(talker, GUIDE_MISSION) % 100000000) / 10000000) != 1) {
+								newbieGuideQs.setNRMemo(talker, GUIDE_MISSION);
+								newbieGuideQs.setNRMemoState(talker, GUIDE_MISSION, newbieGuideQs.getNRMemoState(talker, GUIDE_MISSION) + 10000000);
+								
+								showOnScreenMsg(talker, NpcStringId.LAST_DUTY_COMPLETE_N_GO_FIND_THE_NEWBIE_GUIDE, 2, 5000);
+							}
+						}
+					}
+					
 					html = "30519-05.html";
 				} else {
 					html = "30519-04.html";

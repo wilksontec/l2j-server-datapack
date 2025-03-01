@@ -125,10 +125,19 @@ public final class NewbieGuide extends AbstractNpcAI {
 	public String onFirstTalk(L2Npc npc, L2PcInstance player) {
 		QuestState qs = player.getQuestState(Q00255_Tutorial.class.getSimpleName());
 		if (qs != null) {
-			if (npc.getId() == ADVENTURERS_GUIDE) {
-				return "32327.htm";
+			switch (npc.getId()) {
+				case ADVENTURERS_GUIDE -> {
+					return "32327.htm";
+				}
+				case NEWBIE_GUIDE_GLUDIN -> {
+					return "31076.htm";
+				}
+				case NEWBIE_GUIDE_GLUDIO -> {
+					return "31077.htm";
+				}
 			}
-			return talkGuide(player, qs);
+			
+			return talkGuide(player, npc, qs);
 		}
 		return super.onFirstTalk(npc, player);
 	}
@@ -155,7 +164,7 @@ public final class NewbieGuide extends AbstractNpcAI {
 			case -7: {
 				switch (reply) {
 					case 1: {
-						if (talker.getRace() == Race.KAMAEL) {
+						if (npc.getRace() == Race.KAMAEL) {
 							if (talker.getRace() != npc.getRace()) {
 								showPage(talker, "32135-003.htm");
 							} else if ((talker.getLevel() > 20) || ((talker.getRace() != Race.KAMAEL) || (talker.getClassId().level() != 0))) {
@@ -182,7 +191,7 @@ public final class NewbieGuide extends AbstractNpcAI {
 								}
 							}
 						} else if (talker.getRace() != npc.getRace()) {
-							showPage(talker, "");
+							showPage(talker, npc.getId() + "-003.htm");
 						} else if ((talker.getLevel() > 20) || (talker.getClassId().level() != 0)) {
 							showPage(talker, "");
 						} else if (!talker.isMageClass()) {
@@ -422,7 +431,7 @@ public final class NewbieGuide extends AbstractNpcAI {
 		}
 	}
 	
-	private String talkGuide(L2PcInstance talker, QuestState tutorialQS) {
+	private String talkGuide(L2PcInstance talker, L2Npc npc, QuestState tutorialQS) {
 		final QuestState qs = getQuestState(talker, true);
 		if ((tutorialQS.getMemoStateEx(1) < 5) && (getOneTimeQuestFlag(talker, GUIDE_MISSION) == 0)) {
 			if (!talker.isMageClass()) {
@@ -461,6 +470,9 @@ public final class NewbieGuide extends AbstractNpcAI {
 						qs.giveAdena(1041, true);
 						qs.addExpAndSp(4870, 195);
 					} else if (talker.getLevel() >= 3) {
+						qs.giveAdena(1186, true);
+						qs.addExpAndSp(5675, 227);
+					} else {
 						qs.giveAdena(1240, true);
 						qs.addExpAndSp(5970, 239);
 					}
@@ -470,61 +482,76 @@ public final class NewbieGuide extends AbstractNpcAI {
 					} else {
 						qs.setNRMemoState(talker, GUIDE_MISSION, qs.getNRMemoState(talker, GUIDE_MISSION) + 10);
 					}
-					return "newbie-guide-02.htm";
-				}
-				switch (talker.getRace()) {
-					case HUMAN:
-						showRadar(talker, -84436, 242793, -3729, 2);
-						return "newbie-guide-01a.htm";
-					case ELF:
-						showRadar(talker, 42978, 49115, 2994, 2);
-						return "newbie-guide-01b.htm";
-					case DARK_ELF:
-						showRadar(talker, 25790, 10844, -3727, 2);
-						return "newbie-guide-01c.htm";
-					case ORC:
-						showRadar(talker, -47360, -113791, -237, 2);
-						return "newbie-guide-01d.htm";
-					case DWARF:
-						showRadar(talker, 112656, -174864, -611, 2);
-						return "newbie-guide-01e.htm";
-					case KAMAEL:
-						showRadar(talker, -119378, 49242, 22, 2);
-						return "newbie-guide-01f.htm";
-				}
-				if (!qs.haveNRMemo(talker, GUIDE_MISSION)) {
-					qs.setNRMemo(talker, GUIDE_MISSION);
-					qs.setNRMemoState(talker, GUIDE_MISSION, 0);
+					showPage(talker, "newbie-guide-02.htm");
+				} else {
+					switch (npc.getRace()) {
+						case HUMAN -> {
+							showRadar(talker, -84436, 242793, -3729, 2);
+							showPage(talker, "newbie-guide-01a.htm");
+						}
+						case ELF -> {
+							showRadar(talker, 42978, 49115, 2994, 2);
+							showPage(talker, "newbie-guide-01b.htm");
+						}
+						case DARK_ELF -> {
+							showRadar(talker, 25790, 10844, -3727, 2);
+							showPage(talker, "newbie-guide-01c.htm");
+						}
+						case ORC -> {
+							showRadar(talker, -47360, -113791, -237, 2);
+							showPage(talker, "newbie-guide-01d.htm");
+						}
+						case DWARF -> {
+							showRadar(talker, 112656, -174864, -611, 2);
+							showPage(talker, "newbie-guide-01e.htm");
+						}
+						case KAMAEL -> {
+							showRadar(talker, -119378, 49242, 22, 2);
+							showPage(talker, "newbie-guide-01f.htm");
+						}
+					}
+					if (!qs.haveNRMemo(talker, GUIDE_MISSION)) {
+						qs.setNRMemo(talker, GUIDE_MISSION);
+						qs.setNRMemoState(talker, GUIDE_MISSION, 0);
+					}
 				}
 			} else if (talker.getLevel() < 10) {
 				if ((((qs.getNRMemoState(talker, GUIDE_MISSION) % 1000) / 100) == 1) && (((qs.getNRMemoState(talker, GUIDE_MISSION) % 10000) / 100) == 1)) {
 					switch (talker.getRace()) {
-						case HUMAN:
+						case HUMAN -> {
 							if (!talker.isMageClass()) {
 								showRadar(talker, -71384, 258304, -3109, 2);
-								return "newbie-guide-05a.htm";
+								showPage(talker, "newbie-guide-05a.htm");
+							} else {
+								showRadar(talker, -91008, 248016, -3568, 2);
+								showPage(talker, "newbie-guide-05b.htm");
 							}
-							showRadar(talker, -91008, 248016, -3568, 2);
-							return "newbie-guide-05b.htm";
-						case ELF:
+						}
+						case ELF -> {
 							showRadar(talker, 47595, 51569, -2996, 2);
-							return "newbie-guide-05c.htm";
-						case DARK_ELF:
+							showPage(talker, "newbie-guide-05c.htm");
+						}
+						case DARK_ELF -> {
 							if (!talker.isMageClass()) {
 								showRadar(talker, 10580, 17574, -4554, 2);
-								return "newbie-guide-05d.htm";
+								showPage(talker, "newbie-guide-05d.htm");
+							} else {
+								showRadar(talker, 10775, 14190, -4242, 2);
+								showPage(talker, "newbie-guide-05e.htm");
 							}
-							showRadar(talker, 10775, 14190, -4242, 2);
-							return "newbie-guide-05e.htm";
-						case ORC:
+						}
+						case ORC -> {
 							showRadar(talker, -46808, -113184, -112, 2);
-							return "newbie-guide-05f.htm";
-						case DWARF:
+							showPage(talker, "newbie-guide-05f.htm");
+						}
+						case DWARF -> {
 							showRadar(talker, 115717, -183488, -1483, 2);
-							return "newbie-guide-05g.htm";
-						case KAMAEL:
+							showPage(talker, "newbie-guide-05g.htm");
+						}
+						case KAMAEL -> {
 							showRadar(talker, -118080, 42835, 720, 2);
-							return "newbie-guide-05h.htm";
+							showPage(talker, "newbie-guide-05h.htm");
+						}
 					}
 					if (talker.getLevel() >= 9) {
 						qs.giveAdena(5563, true);
@@ -546,25 +573,31 @@ public final class NewbieGuide extends AbstractNpcAI {
 						qs.setNRMemoState(talker, GUIDE_MISSION, qs.getNRMemoState(talker, GUIDE_MISSION) + 10000);
 					}
 				} else if ((((qs.getNRMemoState(talker, GUIDE_MISSION) % 1000) / 100) == 1) && (((qs.getNRMemoState(talker, GUIDE_MISSION) % 10000) / 100) != 1)) {
-					switch (talker.getRace()) {
-						case HUMAN:
+					switch (npc.getRace()) {
+						case HUMAN -> {
 							showRadar(talker, -82236, 241573, -3728, 2);
-							return "newbie-guide-04a.htm";
-						case ELF:
+							showPage(talker, "newbie-guide-04a.htm");
+						}
+						case ELF -> {
 							showRadar(talker, 42812, 51138, -2996, 2);
-							return "newbie-guide-04b.htm";
-						case DARK_ELF:
+							showPage(talker, "newbie-guide-04b.htm");
+						}
+						case DARK_ELF -> {
 							showRadar(talker, 7644, 18048, -4377, 2);
-							return "newbie-guide-04c.htm";
-						case ORC:
+							showPage(talker, "newbie-guide-04c.htm");
+						}
+						case ORC -> {
 							showRadar(talker, -46802, -114011, -112, 2);
-							return "newbie-guide-04d.htm";
-						case DWARF:
+							showPage(talker, "newbie-guide-04d.htm");
+						}
+						case DWARF -> {
 							showRadar(talker, 116103, -178407, -948, 2);
-							return "newbie-guide-04e.htm";
-						case KAMAEL:
+							showPage(talker, "newbie-guide-04e.htm");
+						}
+						case KAMAEL -> {
 							showRadar(talker, -119378, 49242, 22, 2);
-							return "newbie-guide-04f.htm";
+							showPage(talker, "newbie-guide-04f.htm");
+						}
 					}
 					if (!qs.haveNRMemo(talker, GUIDE_MISSION)) {
 						qs.setNRMemo(talker, GUIDE_MISSION);
@@ -575,7 +608,7 @@ public final class NewbieGuide extends AbstractNpcAI {
 						qs.setNRMemo(talker, GUIDE_MISSION);
 						qs.setNRMemoState(talker, GUIDE_MISSION, 0);
 					}
-					return "newbie-guide-03.htm";
+					showPage(talker, "newbie-guide-03.htm");
 				}
 			} else {
 				setOneTimeQuestFlag(talker, GUIDE_MISSION, 1);
@@ -583,7 +616,7 @@ public final class NewbieGuide extends AbstractNpcAI {
 					qs.setNRMemo(talker, GUIDE_MISSION);
 					qs.setNRMemoState(talker, GUIDE_MISSION, 0);
 				}
-				return "newbie-guide-06.htm";
+				showPage(talker, "newbie-guide-06.htm");
 			}
 		} else if ((tutorialQS.getMemoStateEx(1) >= 5) && (getOneTimeQuestFlag(talker, GUIDE_MISSION) == 0)) {
 			if (talker.getLevel() < 6) {
@@ -607,64 +640,78 @@ public final class NewbieGuide extends AbstractNpcAI {
 					} else {
 						qs.setNRMemoState(talker, GUIDE_MISSION, qs.getNRMemoState(talker, GUIDE_MISSION) + 10);
 					}
-					return "newbie-guide-08.htm";
-				}
-				switch (talker.getRace()) {
-					case HUMAN:
-						showRadar(talker, -84436, 242793, -3729, 2);
-						return "newbie-guide-07a.htm";
-					case ELF:
-						showRadar(talker, 42978, 49115, 2994, 2);
-						return "newbie-guide-07b.htm";
-					case DARK_ELF:
-						showRadar(talker, 25790, 10844, -3727, 2);
-						return "newbie-guide-07c.htm";
-					case ORC:
-						showRadar(talker, -47360, -113791, -237, 2);
-						return "newbie-guide-07d.htm";
-					case DWARF:
-						showRadar(talker, 112656, -174864, -611, 2);
-						return "newbie-guide-07e.htm";
-					case KAMAEL:
-						showRadar(talker, -119378, 49242, 22, 2);
-						return "newbie-guide-07f.htm";
-				}
-				if (!qs.haveNRMemo(talker, GUIDE_MISSION)) {
-					qs.setNRMemo(talker, GUIDE_MISSION);
-					qs.setNRMemoState(talker, GUIDE_MISSION, 0);
+					showPage(talker, "newbie-guide-08.htm");
+				} else {
+					switch (npc.getRace()) {
+						case HUMAN -> {
+							showRadar(talker, -84436, 242793, -3729, 2);
+							showPage(talker, "newbie-guide-07a.htm");
+						}
+						case ELF -> {
+							showRadar(talker, 42978, 49115, 2994, 2);
+							showPage(talker, "newbie-guide-07b.htm");
+						}
+						case DARK_ELF -> {
+							showRadar(talker, 25790, 10844, -3727, 2);
+							showPage(talker, "newbie-guide-07c.htm");
+						}
+						case ORC -> {
+							showRadar(talker, -47360, -113791, -237, 2);
+							showPage(talker, "newbie-guide-07d.htm");
+						}
+						case DWARF -> {
+							showRadar(talker, 112656, -174864, -611, 2);
+							showPage(talker, "newbie-guide-07e.htm");
+						}
+						case KAMAEL -> {
+							showRadar(talker, -119378, 49242, 22, 2);
+							showPage(talker, "newbie-guide-07f.htm");
+						}
+					}
+					if (!qs.haveNRMemo(talker, GUIDE_MISSION)) {
+						qs.setNRMemo(talker, GUIDE_MISSION);
+						qs.setNRMemoState(talker, GUIDE_MISSION, 0);
+					}
 				}
 			} else if (talker.getLevel() < 10) {
 				if (((qs.getNRMemoState(talker, GUIDE_MISSION) % 100000) / 10000) == 1) {
-					return "newbie-guide-09g.htm";
+					showPage(talker, "newbie-guide-09g.htm");
 				} else if ((((qs.getNRMemoState(talker, GUIDE_MISSION) % 1000) / 100) == 1) && (((qs.getNRMemoState(talker, GUIDE_MISSION) % 10000) / 1000) == 1) && (((qs.getNRMemoState(talker, GUIDE_MISSION) % 100000) / 10000) != 1)) {
 					switch (talker.getRace()) {
-						case HUMAN:
+						case HUMAN -> {
 							if (!talker.isMageClass()) {
 								showRadar(talker, -71384, 258304, -3109, 2);
-								return "newbie-guide-10a.htm";
+								showPage(talker, "newbie-guide-10a.htm");
+							} else {
+								showRadar(talker, -91008, 248016, -3568, 2);
+								showPage(talker, "newbie-guide-10b.htm");
 							}
-							showRadar(talker, -91008, 248016, -3568, 2);
-							return "newbie-guide-10b.htm";
-						case ELF:
+						}
+						case ELF -> {
 							showRadar(talker, 47595, 51569, -2996, 2);
-							return "newbie-guide-10c.htm";
-						case DARK_ELF:
+							showPage(talker, "newbie-guide-10c.htm");
+						}
+						case DARK_ELF -> {
 							if (!talker.isMageClass()) {
 								showRadar(talker, 10580, 17574, -4554, 2);
-								return "newbie-guide-10d.htm";
+								showPage(talker, "newbie-guide-10d.htm");
+							} else {
+								showRadar(talker, 10775, 14190, -4242, 2);
+								showPage(talker, "newbie-guide-10e.htm");
 							}
-							showRadar(talker, 10775, 14190, -4242, 2);
-							return "newbie-guide-10e.htm";
-						case ORC:
+						}
+						case ORC -> {
 							showRadar(talker, -46808, -113184, -112, 2);
-							return "newbie-guide-10f.htm";
-						case DWARF:
+							showPage(talker, "newbie-guide-10f.htm");
+						}
+						case DWARF -> {
 							showRadar(talker, 115717, -183488, -1483, 2);
-							return "newbie-guide-10g.htm";
-						case KAMAEL:
+							showPage(talker, "newbie-guide-10g.htm");
+						}
+						case KAMAEL -> {
 							showRadar(talker, -118080, 42835, 720, 2);
-							return "newbie-guide-10h.htm";
-						
+							showPage(talker, "newbie-guide-10h.htm");
+						}
 					}
 					if (talker.getLevel() >= 9) {
 						qs.giveAdena(5563, true);
@@ -686,25 +733,31 @@ public final class NewbieGuide extends AbstractNpcAI {
 						qs.setNRMemoState(talker, GUIDE_MISSION, qs.getNRMemoState(talker, GUIDE_MISSION) + 10000);
 					}
 				} else if ((((qs.getNRMemoState(talker, GUIDE_MISSION) % 1000) / 100) == 1) && (((qs.getNRMemoState(talker, GUIDE_MISSION) % 10000) / 1000) != 1)) {
-					switch (talker.getRace()) {
-						case HUMAN:
+					switch (npc.getRace()) {
+						case HUMAN -> {
 							showRadar(talker, -82236, 241573, -3728, 2);
-							return "newbie-guide-09a.htm";
-						case ELF:
+							showPage(talker, "newbie-guide-09a.htm");
+						}
+						case ELF -> {
 							showRadar(talker, 42812, 51138, -2996, 2);
-							return "newbie-guide-09b.htm";
-						case DARK_ELF:
+							showPage(talker, "newbie-guide-09b.htm");
+						}
+						case DARK_ELF -> {
 							showRadar(talker, 7644, 18048, -4377, 2);
-							return "newbie-guide-09c.htm";
-						case ORC:
+							showPage(talker, "newbie-guide-09c.htm");
+						}
+						case ORC -> {
 							showRadar(talker, -46802, -114011, -112, 2);
-							return "newbie-guide-09d.htm";
-						case DWARF:
+							showPage(talker, "newbie-guide-09d.htm");
+						}
+						case DWARF -> {
 							showRadar(talker, 116103, -178407, -948, 2);
-							return "newbie-guide-09e.htm";
-						case KAMAEL:
+							showPage(talker, "newbie-guide-09e.htm");
+						}
+						case KAMAEL -> {
 							showRadar(talker, -119378, 49242, 22, 2);
-							return "newbie-guide-09f.htm";
+							showPage(talker, "newbie-guide-09f.htm");
+						}
 					}
 					if (!qs.haveNRMemo(talker, GUIDE_MISSION)) {
 						qs.setNRMemo(talker, GUIDE_MISSION);
@@ -715,31 +768,37 @@ public final class NewbieGuide extends AbstractNpcAI {
 						qs.setNRMemo(talker, GUIDE_MISSION);
 						qs.setNRMemoState(talker, GUIDE_MISSION, 0);
 					}
-					return "newbie-guide-08.htm";
+					showPage(talker, "newbie-guide-08.htm");
 				}
 			} else if (talker.getLevel() < 15) {
 				if ((((qs.getNRMemoState(talker, GUIDE_MISSION) % 1000000) / 100000) == 1) && (((qs.getNRMemoState(talker, GUIDE_MISSION) % 10000000) / 1000000) == 1)) {
-					return "newbie-guide-15.htm";
+					showPage(talker, "newbie-guide-15.htm");
 				} else if ((((qs.getNRMemoState(talker, GUIDE_MISSION) % 1000000) / 100000) == 1) && (((qs.getNRMemoState(talker, GUIDE_MISSION) % 10000000) / 1000000) != 1)) {
-					switch (talker.getRace()) {
-						case HUMAN:
+					switch (npc.getRace()) {
+						case HUMAN -> {
 							showRadar(talker, -84057, 242832, -3729, 2);
-							return "newbie-guide-11a.htm";
-						case ELF:
+							showPage(talker, "newbie-guide-11a.htm");
+						}
+						case ELF -> {
 							showRadar(talker, 45859, 50827, -3058, 2);
-							return "newbie-guide-11b.htm";
-						case DARK_ELF:
+							showPage(talker, "newbie-guide-11b.htm");
+						}
+						case DARK_ELF -> {
 							showRadar(talker, 11258, 14431, -4242, 2);
-							return "newbie-guide-11c.htm";
-						case ORC:
+							showPage(talker, "newbie-guide-11c.htm");
+						}
+						case ORC -> {
 							showRadar(talker, -45863, -112621, -200, 2);
-							return "newbie-guide-11d.htm";
-						case DWARF:
+							showPage(talker, "newbie-guide-11d.htm");
+						}
+						case DWARF -> {
 							showRadar(talker, 116268, -177524, -914, 2);
-							return "newbie-guide-11e.htm";
-						case KAMAEL:
+							showPage(talker, "newbie-guide-11e.htm");
+						}
+						case KAMAEL -> {
 							showRadar(talker, -125872, 38208, 1251, 2);
-							return "newbie-guide-11f.htm";
+							showPage(talker, "newbie-guide-11f.htm");
+						}
 					}
 					if (talker.getLevel() >= 14) {
 						qs.giveAdena(13002, true);
@@ -765,32 +824,40 @@ public final class NewbieGuide extends AbstractNpcAI {
 					}
 				} else if (((qs.getNRMemoState(talker, GUIDE_MISSION) % 1000000) / 100000) != 1) {
 					switch (talker.getRace()) {
-						case HUMAN:
+						case HUMAN -> {
 							if (!talker.isMageClass()) {
 								showRadar(talker, -71384, 258304, -3109, 2);
-								return "newbie-guide-10a.htm";
+								showPage(talker, "newbie-guide-10a.htm");
+							} else {
+								showRadar(talker, -91008, 248016, -3568, 2);
+								showPage(talker, "newbie-guide-10b.htm");
 							}
-							showRadar(talker, -91008, 248016, -3568, 2);
-							return "newbie-guide-10b.htm";
-						case ELF:
+						}
+						case ELF -> {
 							showRadar(talker, 47595, 51569, -2996, 2);
-							return "newbie-guide-10c.htm";
-						case DARK_ELF:
+							showPage(talker, "newbie-guide-10c.htm");
+						}
+						case DARK_ELF -> {
 							if (!talker.isMageClass()) {
 								showRadar(talker, 10580, 17574, -4554, 2);
-								return "newbie-guide-10d.htm";
+								showPage(talker, "newbie-guide-10d.htm");
+							} else {
+								showRadar(talker, 10775, 14190, -4242, 2);
+								showPage(talker, "newbie-guide-10e.htm");
 							}
-							showRadar(talker, 10775, 14190, -4242, 2);
-							return "newbie-guide-10e.htm";
-						case ORC:
+						}
+						case ORC -> {
 							showRadar(talker, -46808, -113184, -112, 2);
-							return "newbie-guide-10f.htm";
-						case DWARF:
+							showPage(talker, "newbie-guide-10f.htm");
+						}
+						case DWARF -> {
 							showRadar(talker, 115717, -183488, -1483, 2);
-							return "newbie-guide-10g.htm";
-						case KAMAEL:
+							showPage(talker, "newbie-guide-10g.htm");
+						}
+						case KAMAEL -> {
 							showRadar(talker, -118080, 42835, 720, 2);
-							return "newbie-guide-10h.htm";
+							showPage(talker, "newbie-guide-10h.htm");
+						}
 					}
 					if (!qs.haveNRMemo(talker, GUIDE_MISSION)) {
 						qs.setNRMemo(talker, GUIDE_MISSION);
@@ -800,7 +867,7 @@ public final class NewbieGuide extends AbstractNpcAI {
 			} else if (talker.getLevel() < 18) {
 				if ((((qs.getNRMemoState(talker, GUIDE_MISSION) % 100000000) / 10000000) == 1) && (((qs.getNRMemoState(talker, GUIDE_MISSION) % 1000000000) / 100000000) == 1)) {
 					setOneTimeQuestFlag(talker, GUIDE_MISSION, 1);
-					return "newbie-guide-13.htm";
+					showPage(talker, "newbie-guide-13.htm");
 				} else if ((((qs.getNRMemoState(talker, GUIDE_MISSION) % 100000000) / 10000000) == 1) && (((qs.getNRMemoState(talker, GUIDE_MISSION) % 1000000000) / 100000000) != 1)) {
 					if (talker.getLevel() >= 17) {
 						qs.giveAdena(22996, true);
@@ -819,31 +886,32 @@ public final class NewbieGuide extends AbstractNpcAI {
 						qs.setNRMemoState(talker, GUIDE_MISSION, qs.getNRMemoState(talker, GUIDE_MISSION) + 100000000);
 					}
 					setOneTimeQuestFlag(talker, GUIDE_MISSION, 1);
-					return "newbie-guide-12.htm";
+					showPage(talker, "newbie-guide-12.htm");
 				} else if (((qs.getNRMemoState(talker, GUIDE_MISSION) % 100000000) / 10000000) != 1) {
-					switch (talker.getRace()) {
-						case HUMAN:
+					switch (npc.getRace()) {
+						case HUMAN -> {
 							showRadar(talker, -84057, 242832, -3729, 2);
-							return "newbie-guide-11a.htm";
-						case ELF: {
+							showPage(talker, "newbie-guide-11a.htm");
+						}
+						case ELF -> {
 							showRadar(talker, 45859, 50827, -3058, 2);
-							return "newbie-guide-11b.htm";
+							showPage(talker, "newbie-guide-11b.htm");
 						}
-						case DARK_ELF: {
+						case DARK_ELF -> {
 							showRadar(talker, 11258, 14431, -4242, 2);
-							return "newbie-guide-11c.htm";
+							showPage(talker, "newbie-guide-11c.htm");
 						}
-						case ORC: {
+						case ORC -> {
 							showRadar(talker, -45863, -112621, -200, 2);
-							return "newbie-guide-11d.htm";
+							showPage(talker, "newbie-guide-11d.htm");
 						}
-						case DWARF: {
+						case DWARF -> {
 							showRadar(talker, 116268, -177524, -914, 2);
-							return "newbie-guide-11e.htm";
+							showPage(talker, "newbie-guide-11e.htm");
 						}
-						case KAMAEL: {
+						case KAMAEL -> {
 							showRadar(talker, -125872, 38208, 1251, 2);
-							return "newbie-guide-11f.htm";
+							showPage(talker, "newbie-guide-11f.htm");
 						}
 					}
 				}
@@ -857,14 +925,14 @@ public final class NewbieGuide extends AbstractNpcAI {
 					qs.setNRMemo(talker, GUIDE_MISSION);
 					qs.setNRMemoState(talker, GUIDE_MISSION, 0);
 				}
-				return "newbie-guide-13.htm";
+				showPage(talker, "newbie-guide-13.htm");
 			} else {
 				setOneTimeQuestFlag(talker, GUIDE_MISSION, 1);
 				if (!qs.haveNRMemo(talker, GUIDE_MISSION)) {
 					qs.setNRMemo(talker, GUIDE_MISSION);
 					qs.setNRMemoState(talker, GUIDE_MISSION, 0);
 				}
-				return "newbie-guide-14.htm";
+				showPage(talker, "newbie-guide-14.htm");
 			}
 		}
 		return "";

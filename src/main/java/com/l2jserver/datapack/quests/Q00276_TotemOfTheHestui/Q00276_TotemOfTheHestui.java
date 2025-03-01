@@ -20,8 +20,9 @@ package com.l2jserver.datapack.quests.Q00276_TotemOfTheHestui;
 
 import java.util.List;
 
-import com.l2jserver.datapack.quests.Q00261_CollectorsDream.Q00261_CollectorsDream;
+import com.l2jserver.datapack.ai.npc.Teleports.NewbieGuide.NewbieGuide;
 import com.l2jserver.gameserver.enums.Race;
+import com.l2jserver.gameserver.instancemanager.QuestManager;
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
 import com.l2jserver.gameserver.model.holders.ItemHolder;
@@ -29,6 +30,7 @@ import com.l2jserver.gameserver.model.holders.QuestItemChanceHolder;
 import com.l2jserver.gameserver.model.quest.Quest;
 import com.l2jserver.gameserver.model.quest.QuestState;
 import com.l2jserver.gameserver.model.quest.State;
+import com.l2jserver.gameserver.network.NpcStringId;
 import com.l2jserver.gameserver.util.Util;
 
 /**
@@ -52,6 +54,8 @@ public final class Q00276_TotemOfTheHestui extends Quest {
 	// Misc
 	private static final List<ItemHolder> SPAWN_CHANCES = List.of(new ItemHolder(79, 100), new ItemHolder(69, 20), new ItemHolder(59, 15), new ItemHolder(49, 10), new ItemHolder(39, 2));
 	private static final int MIN_LVL = 15;
+	
+	private static final int GUIDE_MISSION = 41;
 	
 	public Q00276_TotemOfTheHestui() {
 		super(276);
@@ -118,11 +122,30 @@ public final class Q00276_TotemOfTheHestui extends Quest {
 					}
 					case 2: {
 						if (st.hasQuestItems(KASHA_CRYSTAL.getId())) {
-							Q00261_CollectorsDream.giveNewbieReward(player);
 							for (int reward : REWARDS) {
 								st.rewardItems(reward, 1);
 							}
 							st.exitQuest(true, true);
+							
+							// Newbie Guide
+							final var newbieGuide = QuestManager.getInstance().getQuest(NewbieGuide.class.getSimpleName());
+							if (newbieGuide != null) {
+								final var newbieGuideQs = newbieGuide.getQuestState(player, true);
+								if (!newbieGuideQs.haveNRMemo(player, GUIDE_MISSION)) {
+									newbieGuideQs.setNRMemo(player, GUIDE_MISSION);
+									newbieGuideQs.setNRMemoState(player, GUIDE_MISSION, 100000);
+									
+									showOnScreenMsg(player, NpcStringId.LAST_DUTY_COMPLETE_N_GO_FIND_THE_NEWBIE_GUIDE, 2, 5000);
+								} else {
+									if (((newbieGuideQs.getNRMemoState(player, GUIDE_MISSION) % 100000000) / 10000000) != 1) {
+										newbieGuideQs.setNRMemo(player, GUIDE_MISSION);
+										newbieGuideQs.setNRMemoState(player, GUIDE_MISSION, newbieGuideQs.getNRMemoState(player, GUIDE_MISSION) + 10000000);
+										
+										showOnScreenMsg(player, NpcStringId.LAST_DUTY_COMPLETE_N_GO_FIND_THE_NEWBIE_GUIDE, 2, 5000);
+									}
+								}
+							}
+							
 							htmltext = "30571-05.html";
 						}
 						break;

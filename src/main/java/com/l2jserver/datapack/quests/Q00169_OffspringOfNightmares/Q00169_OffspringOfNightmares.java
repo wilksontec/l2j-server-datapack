@@ -20,7 +20,9 @@ package com.l2jserver.datapack.quests.Q00169_OffspringOfNightmares;
 
 import static com.l2jserver.gameserver.model.quest.QuestDroplist.singleDropItem;
 
+import com.l2jserver.datapack.ai.npc.Teleports.NewbieGuide.NewbieGuide;
 import com.l2jserver.gameserver.enums.Race;
+import com.l2jserver.gameserver.instancemanager.QuestManager;
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
 import com.l2jserver.gameserver.model.holders.QuestItemChanceHolder;
@@ -45,6 +47,8 @@ public class Q00169_OffspringOfNightmares extends Quest {
 	private static final QuestItemChanceHolder PERFECT_SKULL = new QuestItemChanceHolder(1031, 20.0, 1L);
 	// Misc
 	private static final int MIN_LVL = 15;
+	
+	private static final int GUIDE_MISSION = 41;
 	
 	public Q00169_OffspringOfNightmares() {
 		super(169);
@@ -71,7 +75,26 @@ public class Q00169_OffspringOfNightmares extends Quest {
 						st.addExpAndSp(17475, 818);
 						st.giveAdena(17030 + (10 * st.getQuestItemsCount(CRACKED_SKULL)), true);
 						st.exitQuest(false, true);
-						showOnScreenMsg(player, NpcStringId.LAST_DUTY_COMPLETE_N_GO_FIND_THE_NEWBIE_GUIDE, 2, 5000); // TODO: Newbie Guide
+						
+						// Newbie Guide
+						final var newbieGuide = QuestManager.getInstance().getQuest(NewbieGuide.class.getSimpleName());
+						if (newbieGuide != null) {
+							final var newbieGuideQs = newbieGuide.getQuestState(player, true);
+							if (!newbieGuideQs.haveNRMemo(player, GUIDE_MISSION)) {
+								newbieGuideQs.setNRMemo(player, GUIDE_MISSION);
+								newbieGuideQs.setNRMemoState(player, GUIDE_MISSION, 100000);
+								
+								showOnScreenMsg(player, NpcStringId.LAST_DUTY_COMPLETE_N_GO_FIND_THE_NEWBIE_GUIDE, 2, 5000);
+							} else {
+								if (((newbieGuideQs.getNRMemoState(player, GUIDE_MISSION) % 100000000) / 10000000) != 1) {
+									newbieGuideQs.setNRMemo(player, GUIDE_MISSION);
+									newbieGuideQs.setNRMemoState(player, GUIDE_MISSION, newbieGuideQs.getNRMemoState(player, GUIDE_MISSION) + 10000000);
+									
+									showOnScreenMsg(player, NpcStringId.LAST_DUTY_COMPLETE_N_GO_FIND_THE_NEWBIE_GUIDE, 2, 5000);
+								}
+							}
+						}
+						
 						htmltext = event;
 					}
 					break;

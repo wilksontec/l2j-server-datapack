@@ -18,13 +18,15 @@
  */
 package com.l2jserver.datapack.quests.Q00283_TheFewTheProudTheBrave;
 
-import com.l2jserver.datapack.quests.Q00261_CollectorsDream.Q00261_CollectorsDream;
+import com.l2jserver.datapack.ai.npc.Teleports.NewbieGuide.NewbieGuide;
+import com.l2jserver.gameserver.instancemanager.QuestManager;
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
 import com.l2jserver.gameserver.model.holders.QuestItemChanceHolder;
 import com.l2jserver.gameserver.model.quest.Quest;
 import com.l2jserver.gameserver.model.quest.QuestState;
 import com.l2jserver.gameserver.model.quest.State;
+import com.l2jserver.gameserver.network.NpcStringId;
 
 /**
  * The Few, The Proud, The Brave (283)
@@ -41,6 +43,8 @@ public final class Q00283_TheFewTheProudTheBrave extends Quest {
 	private static final int CLAW_PRICE = 45;
 	private static final int BONUS = 2187;
 	private static final int MIN_LVL = 15;
+	
+	private static final int GUIDE_MISSION = 41;
 	
 	public Q00283_TheFewTheProudTheBrave() {
 		super(283);
@@ -73,7 +77,26 @@ public final class Q00283_TheFewTheProudTheBrave extends Quest {
 					final long claws = st.getQuestItemsCount(CRIMSON_SPIDER_CLAW.getId());
 					st.giveAdena((claws * CLAW_PRICE) + ((claws >= 10) ? BONUS : 0), true);
 					st.takeItems(CRIMSON_SPIDER_CLAW.getId(), -1);
-					Q00261_CollectorsDream.giveNewbieReward(player);
+					
+					// Newbie Guide
+					final var newbieGuide = QuestManager.getInstance().getQuest(NewbieGuide.class.getSimpleName());
+					if (newbieGuide != null) {
+						final var newbieGuideQs = newbieGuide.getQuestState(player, true);
+						if (!newbieGuideQs.haveNRMemo(player, GUIDE_MISSION)) {
+							newbieGuideQs.setNRMemo(player, GUIDE_MISSION);
+							newbieGuideQs.setNRMemoState(player, GUIDE_MISSION, 100000);
+							
+							showOnScreenMsg(player, NpcStringId.LAST_DUTY_COMPLETE_N_GO_FIND_THE_NEWBIE_GUIDE, 2, 5000);
+						} else {
+							if (((newbieGuideQs.getNRMemoState(player, GUIDE_MISSION) % 100000000) / 10000000) != 1) {
+								newbieGuideQs.setNRMemo(player, GUIDE_MISSION);
+								newbieGuideQs.setNRMemoState(player, GUIDE_MISSION, newbieGuideQs.getNRMemoState(player, GUIDE_MISSION) + 10000000);
+								
+								showOnScreenMsg(player, NpcStringId.LAST_DUTY_COMPLETE_N_GO_FIND_THE_NEWBIE_GUIDE, 2, 5000);
+							}
+						}
+					}
+					
 					htmltext = event;
 				} else {
 					htmltext = "32133-07.html";

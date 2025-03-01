@@ -18,14 +18,18 @@
  */
 package com.l2jserver.datapack.quests.Q00293_TheHiddenVeins;
 
-import com.l2jserver.datapack.quests.Q00281_HeadForTheHills.Q00281_HeadForTheHills;
+import com.l2jserver.datapack.ai.npc.Teleports.NewbieGuide.NewbieGuide;
 import com.l2jserver.gameserver.enums.Race;
 import com.l2jserver.gameserver.enums.audio.Sound;
+import com.l2jserver.gameserver.enums.audio.Voice;
+import com.l2jserver.gameserver.instancemanager.QuestManager;
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
+import com.l2jserver.gameserver.model.holders.ItemHolder;
 import com.l2jserver.gameserver.model.quest.Quest;
 import com.l2jserver.gameserver.model.quest.QuestState;
 import com.l2jserver.gameserver.model.quest.State;
+import com.l2jserver.gameserver.network.NpcStringId;
 
 /**
  * The Hidden Veins (293)
@@ -48,6 +52,10 @@ public final class Q00293_TheHiddenVeins extends Quest {
 	// Misc
 	private static final int MIN_LVL = 6;
 	private static final int REQUIRED_TORN_MAP_FRAGMENT = 4;
+	
+	private static final int GUIDE_MISSION = 41;
+	
+	private static final ItemHolder SOULSHOTS_NO_GRADE_FOR_ROOKIES = new ItemHolder(5789, 6000);
 	
 	public Q00293_TheHiddenVeins() {
 		super(293);
@@ -125,7 +133,28 @@ public final class Q00293_TheHiddenVeins extends Quest {
 							final long maps = st.getQuestItemsCount(HIDDEN_ORE_MAP);
 							st.giveAdena((ores * 5) + (maps * 500) + (((ores + maps) >= 10) ? 2000 : 0), true);
 							takeItems(player, -1, CHRYSOLITE_ORE, HIDDEN_ORE_MAP);
-							Q00281_HeadForTheHills.giveNewbieReward(player);
+							
+							giveNewbieReward(player);
+							
+							// Newbie Guide
+							final var newbieGuide = QuestManager.getInstance().getQuest(NewbieGuide.class.getSimpleName());
+							if (newbieGuide != null) {
+								final var newbieGuideQs = newbieGuide.getQuestState(player, true);
+								if (!newbieGuideQs.haveNRMemo(player, GUIDE_MISSION)) {
+									newbieGuideQs.setNRMemo(player, GUIDE_MISSION);
+									newbieGuideQs.setNRMemoState(player, GUIDE_MISSION, 1000);
+									
+									showOnScreenMsg(player, NpcStringId.ACQUISITION_OF_SOULSHOT_FOR_BEGINNERS_COMPLETE_N_GO_FIND_THE_NEWBIE_GUIDE, 2, 5000);
+								} else {
+									if (((newbieGuideQs.getNRMemoState(player, GUIDE_MISSION) % 10000) / 1000) != 1) {
+										newbieGuideQs.setNRMemo(player, GUIDE_MISSION);
+										newbieGuideQs.setNRMemoState(player, GUIDE_MISSION, newbieGuideQs.getNRMemoState(player, GUIDE_MISSION) + 1000);
+										
+										showOnScreenMsg(player, NpcStringId.ACQUISITION_OF_SOULSHOT_FOR_BEGINNERS_COMPLETE_N_GO_FIND_THE_NEWBIE_GUIDE, 2, 5000);
+									}
+								}
+							}
+							
 							htmltext = (ores > 0) ? (maps > 0) ? "30535-10.html" : "30535-06.html" : "30535-09.html";
 						} else {
 							htmltext = "30535-05.html";
@@ -141,5 +170,20 @@ public final class Q00293_TheHiddenVeins extends Quest {
 			}
 		}
 		return htmltext;
+	}
+	
+	/**
+	 * Give basic newbie reward.
+	 * @param player the player to reward
+	 */
+	private void giveNewbieReward(L2PcInstance player) {
+		if ((player.getLevel() < 25) && (getOneTimeQuestFlag(player, 57) == 0)) {
+			if (!player.isMageClass()) {
+				giveItems(player, SOULSHOTS_NO_GRADE_FOR_ROOKIES);
+				playSound(player, Voice.TUTORIAL_VOICE_026_1000);
+			}
+			
+			setOneTimeQuestFlag(player, 57, 1);
+		}
 	}
 }
