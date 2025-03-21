@@ -28,7 +28,6 @@ import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
 import com.l2jserver.gameserver.model.quest.Quest;
 import com.l2jserver.gameserver.model.quest.QuestState;
 import com.l2jserver.gameserver.network.SystemMessageId;
-import com.l2jserver.gameserver.util.Util;
 
 /**
  * Rift Watcher AI
@@ -154,8 +153,7 @@ public final class RiftWatcher extends AbstractNpcAI {
 							
 							i6 = getGameTicks();
 							for (L2PcInstance c1 : player.getParty().getMembers()) {
-								final double distance = Util.calculateDistance(npc, c0, true, false);
-								if (distance <= MAX_DISTANCE) {
+								if (npc.calculateDistance(c1, true, false) <= MAX_DISTANCE) {
 									Quest q635 = QuestManager.getInstance().getQuest(Q00635_IntoTheDimensionalRift);
 									QuestState qs635 = q635.getQuestState(c1, true);
 									
