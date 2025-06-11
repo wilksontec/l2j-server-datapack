@@ -234,8 +234,8 @@ public final class FinalEmperialTomb extends AbstractInstance {
 		load();
 		bindAttack(SCARLET1, FRINTEZZA);
 		bindAttack(PORTRAITS);
-		bindStartNpc(GUIDE, CUBE);
-		bindTalk(GUIDE, CUBE);
+		bindStartNpc(GUIDE);
+		bindTalk(GUIDE);
 		bindKill(HALL_ALARM, HALL_KEEPER_CAPTAIN, DARK_CHOIR_PLAYER, SCARLET2);
 		bindKill(PORTRAITS);
 		bindKill(DEMONS);
@@ -754,7 +754,7 @@ public final class FinalEmperialTomb extends AbstractInstance {
 					for (int doorId : SECOND_ROUTE_DOORS) {
 						closeDoor(doorId, _world.getInstanceId());
 					}
-					addSpawn(29061, -87904, -141296, -9168, 0, false, 0, false, _world.getInstanceId());
+					addSpawn(CUBE, -87904, -141296, -9168, 0, false, 0, false, _world.getInstanceId());
 					break;
 				case 2:
 					_world.frintezzaDummy = addSpawn(29052, -87784, -155083, -9087, 16048, false, 0, false, _world.getInstanceId());
@@ -1213,11 +1213,6 @@ public final class FinalEmperialTomb extends AbstractInstance {
 		getQuestState(player, true);
 		if (npcId == GUIDE) {
 			enterInstance(player, new FETWorld(), "FinalEmperialTomb.xml", TEMPLATE_ID);
-		} else if (npc.getId() == CUBE) {
-			int x = -87534 + getRandom(500);
-			int y = -153048 + getRandom(500);
-			player.teleToLocation(x, y, -9165);
-			return null;
 		}
 		return null;
 	}

@@ -25,7 +25,6 @@ import org.slf4j.LoggerFactory;
 
 import com.l2jserver.gameserver.handler.IBypassHandler;
 import com.l2jserver.gameserver.model.actor.L2Character;
-import com.l2jserver.gameserver.model.actor.instance.L2NpcInstance;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
 import com.l2jserver.gameserver.model.events.EventDispatcher;
 import com.l2jserver.gameserver.model.events.impl.character.player.PlayerMenuSelected;
@@ -39,7 +38,7 @@ public class MenuSelect implements IBypassHandler {
 	
 	private static final Logger LOG = LoggerFactory.getLogger(MenuSelect.class);
 	
-	private static final Pattern MENU_SELECT_PATTERN = Pattern.compile("menu_select\\?ask=(-?\\d+).*?&reply=(-?\\d+)");
+	private static final Pattern MENU_SELECT_PATTERN = Pattern.compile("menu_select\\?ask=(-?\\d+).*?&reply=\\s*(.*)");
 	
 	private static final String[] COMMANDS = {
 		"menu_select"
@@ -47,16 +46,12 @@ public class MenuSelect implements IBypassHandler {
 	
 	@Override
 	public boolean useBypass(String command, L2PcInstance player, L2Character target) {
-		if (!(target instanceof L2NpcInstance npc)) {
-			return false;
-		}
-		
 		try {
 			final var matcher = MENU_SELECT_PATTERN.matcher(command);
 			if (matcher.find()) {
 				final var ask = Integer.parseInt(matcher.group(1));
-				final var reply = Integer.parseInt(matcher.group(2));
-				EventDispatcher.getInstance().notifyEventAsync(new PlayerMenuSelected(player, npc, ask, reply), target);
+				final var reply = (matcher.group(2).trim() == null || matcher.group(2).trim().isEmpty()) ? 0 : Integer.parseInt(matcher.group(2).trim());
+				EventDispatcher.getInstance().notifyEventAsync(new PlayerMenuSelected(player, target, ask, reply), target);
 				return true;
 			}
 			LOG.warn("Invalid bypass {}!", command);

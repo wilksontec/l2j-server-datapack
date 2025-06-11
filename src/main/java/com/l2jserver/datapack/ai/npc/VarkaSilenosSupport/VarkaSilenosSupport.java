@@ -59,7 +59,7 @@ public final class VarkaSilenosSupport extends AbstractNpcAI {
 	private static final int DIYABU = 31380; // Grocer
 	private static final int HAGOS = 31381; // Warehouse Keeper
 	private static final int SHIKON = 31382; // Trader
-	private static final int TERANU = 31383; // Teleporter
+	
 	// Items
 	private static final int SEED = 7187;
 	private static final int[] VARKA_MARKS = {
@@ -83,9 +83,9 @@ public final class VarkaSilenosSupport extends AbstractNpcAI {
 	}
 	
 	public VarkaSilenosSupport() {
-		bindFirstTalk(ASHAS, NARAN, UDAN, DIYABU, HAGOS, SHIKON, TERANU);
-		bindTalk(UDAN, HAGOS, TERANU);
-		bindStartNpc(HAGOS, TERANU);
+		bindFirstTalk(ASHAS, NARAN, UDAN, DIYABU, HAGOS, SHIKON);
+		bindTalk(UDAN, HAGOS);
+		bindStartNpc(HAGOS);
 	}
 	
 	private int getAllianceLevel(L2PcInstance player) {
@@ -109,13 +109,6 @@ public final class VarkaSilenosSupport extends AbstractNpcAI {
 				npc.setCurrentHpMp(npc.getMaxHp(), npc.getMaxMp());
 			} else {
 				htmltext = "31379-02.html";
-			}
-		} else if (event.equals("Teleport")) {
-			final int AllianceLevel = getAllianceLevel(player);
-			if (AllianceLevel == -4) {
-				htmltext = "31383-04.html";
-			} else if (AllianceLevel == -5) {
-				htmltext = "31383-05.html";
 			}
 		}
 		return htmltext;
@@ -147,14 +140,6 @@ public final class VarkaSilenosSupport extends AbstractNpcAI {
 					case -3, -4 -> "31382-02.html";
 					case -5 -> "31382-03.html";
 					default -> "31382-no.html";
-				};
-				break;
-			case TERANU:
-				htmltext = switch (allianceLevel) {
-					case -1, -2, -3 -> "31383-01.html";
-					case -4 -> "31383-02.html";
-					case -5 -> "31383-03.html";
-					default -> "31383-no.html";
 				};
 				break;
 		}

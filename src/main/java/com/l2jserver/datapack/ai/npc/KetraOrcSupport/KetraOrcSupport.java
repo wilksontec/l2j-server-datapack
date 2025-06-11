@@ -59,7 +59,7 @@ public final class KetraOrcSupport extends AbstractNpcAI {
 	private static final int ATAN = 31373; // Grocer
 	private static final int JAFF = 31374; // Warehouse Keeper
 	private static final int JUMARA = 31375; // Trader
-	private static final int KURFA = 31376; // Gate Keeper
+	
 	// Items
 	private static final int HORN = 7186;
 	private static final int[] KETRA_MARKS = {
@@ -83,9 +83,9 @@ public final class KetraOrcSupport extends AbstractNpcAI {
 	}
 	
 	public KetraOrcSupport() {
-		bindFirstTalk(KADUN, WAHKAN, ASEFA, ATAN, JAFF, JUMARA, KURFA);
-		bindTalk(ASEFA, KURFA, JAFF);
-		bindStartNpc(KURFA, JAFF);
+		bindFirstTalk(KADUN, WAHKAN, ASEFA, ATAN, JAFF, JUMARA);
+		bindTalk(ASEFA, JAFF);
+		bindStartNpc(JAFF);
 	}
 	
 	private int getAllianceLevel(L2PcInstance player) {
@@ -109,13 +109,6 @@ public final class KetraOrcSupport extends AbstractNpcAI {
 				npc.setCurrentHpMp(npc.getMaxHp(), npc.getMaxMp());
 			} else {
 				htmltext = "31372-02.html";
-			}
-		} else if (event.equals("Teleport")) {
-			final int AllianceLevel = getAllianceLevel(player);
-			if (AllianceLevel == 4) {
-				htmltext = "31376-04.html";
-			} else if (AllianceLevel == 5) {
-				htmltext = "31376-05.html";
 			}
 		}
 		return htmltext;
@@ -147,14 +140,6 @@ public final class KetraOrcSupport extends AbstractNpcAI {
 					case 3, 4 -> "31375-02.html";
 					case 5 -> "31375-03.html";
 					default -> "31375-no.html";
-				};
-				break;
-			case KURFA:
-				htmltext = switch (AllianceLevel) {
-					case 1, 2, 3 -> "31376-01.html";
-					case 4 -> "31376-02.html";
-					case 5 -> "31376-03.html";
-					default -> "31376-no.html";
 				};
 				break;
 		}

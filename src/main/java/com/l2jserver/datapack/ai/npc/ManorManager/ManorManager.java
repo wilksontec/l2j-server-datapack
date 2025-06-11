@@ -29,11 +29,6 @@ import com.l2jserver.gameserver.model.PcCondOverride;
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2MerchantInstance;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
-import com.l2jserver.gameserver.model.events.EventType;
-import com.l2jserver.gameserver.model.events.ListenerRegisterType;
-import com.l2jserver.gameserver.model.events.annotations.Id;
-import com.l2jserver.gameserver.model.events.annotations.RegisterEvent;
-import com.l2jserver.gameserver.model.events.annotations.RegisterType;
 import com.l2jserver.gameserver.model.events.impl.character.npc.NpcManorBypass;
 import com.l2jserver.gameserver.network.SystemMessageId;
 import com.l2jserver.gameserver.network.serverpackets.BuyListSeed;
@@ -73,6 +68,7 @@ public final class ManorManager extends AbstractNpcAI {
 		bindStartNpc(NPC);
 		bindFirstTalk(NPC);
 		bindTalk(NPC);
+		bindManorMenuSelected(NPC);
 	}
 	
 	@Override
@@ -100,19 +96,16 @@ public final class ManorManager extends AbstractNpcAI {
 		return getHtm(player.getHtmlPrefix(), "data/html/npcdefault.htm");
 	}
 	
-	// @formatter:off
-	@RegisterEvent(EventType.NPC_MANOR_BYPASS)
-	@RegisterType(ListenerRegisterType.NPC)
-	@Id({35644, 35645, 35319, 35366, 36456, 35512, 35558, 35229, 35230, 35231, 35277, 35103, 35145, 35187})
-	// @formatter:on
-	public void onNpcManorBypass(NpcManorBypass evt) {
+	
+	@Override
+	public void onManorMenuSelected(NpcManorBypass evt) {
 		final L2PcInstance player = evt.player();
 		if (CastleManorManager.getInstance().isUnderMaintenance()) {
 			player.sendPacket(SystemMessageId.THE_MANOR_SYSTEM_IS_CURRENTLY_UNDER_MAINTENANCE);
 			return;
 		}
 		
-		final L2Npc npc = evt.target();
+		final L2Npc npc = (L2Npc) evt.target();
 		final int templateId = npc.getTemplate().getParameters().getInt("manor_id", -1);
 		final int castleId = (evt.manorId() == -1) ? templateId : evt.manorId();
 		switch (evt.request()) {

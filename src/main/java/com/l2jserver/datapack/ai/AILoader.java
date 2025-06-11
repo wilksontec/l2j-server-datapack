@@ -102,6 +102,12 @@ import com.l2jserver.datapack.ai.individual.Sailren.Sailren;
 import com.l2jserver.datapack.ai.individual.Venom.Venom;
 import com.l2jserver.datapack.ai.npc.Abercrombie.Abercrombie;
 import com.l2jserver.datapack.ai.npc.AdventureGuildsman.AdventureGuildsman;
+import com.l2jserver.datapack.ai.npc.AgitDoorkeeper.AzitDoorman.AzitDoorman;
+import com.l2jserver.datapack.ai.npc.AgitDoorkeeper.DoormanOfFortress.DoormanOfFortress;
+import com.l2jserver.datapack.ai.npc.AgitDoorkeeper.DoormanOfHell.DoormanOfHell;
+import com.l2jserver.datapack.ai.npc.AgitDoorkeeper.DoormanOfRainbow.DoormanOfRainbow;
+import com.l2jserver.datapack.ai.npc.AgitDoorkeeper.FarmDoorman.FarmDoorman;
+import com.l2jserver.datapack.ai.npc.AgitDoorkeeper.PartisanDoormanHarkel.PartisanDoormanHarkel;
 import com.l2jserver.datapack.ai.npc.Alarm.Alarm;
 import com.l2jserver.datapack.ai.npc.Alexandria.Alexandria;
 import com.l2jserver.datapack.ai.npc.ArenaManager.ArenaManager;
@@ -112,45 +118,137 @@ import com.l2jserver.datapack.ai.npc.BlackMarketeerOfMammon.BlackMarketeerOfMamm
 import com.l2jserver.datapack.ai.npc.BlacksmithOfMammon.BlacksmithOfMammon;
 import com.l2jserver.datapack.ai.npc.CastleAmbassador.CastleAmbassador;
 import com.l2jserver.datapack.ai.npc.CastleBlacksmith.CastleBlacksmith;
-import com.l2jserver.datapack.ai.npc.CastleChamberlain.CastleChamberlain;
 import com.l2jserver.datapack.ai.npc.CastleCourtMagician.CastleCourtMagician;
 import com.l2jserver.datapack.ai.npc.CastleMercenaryManager.CastleMercenaryManager;
 import com.l2jserver.datapack.ai.npc.CastleSiegeManager.CastleSiegeManager;
 import com.l2jserver.datapack.ai.npc.CastleTeleporter.CastleTeleporter;
 import com.l2jserver.datapack.ai.npc.CastleWarehouse.CastleWarehouse;
+import com.l2jserver.datapack.ai.npc.Chamberlain.Alfred.Alfred;
+import com.l2jserver.datapack.ai.npc.Chamberlain.August.August;
+import com.l2jserver.datapack.ai.npc.Chamberlain.Brasseur.Brasseur;
+import com.l2jserver.datapack.ai.npc.Chamberlain.Crosby.Crosby;
+import com.l2jserver.datapack.ai.npc.Chamberlain.Frederick.Frederick;
+import com.l2jserver.datapack.ai.npc.Chamberlain.Logan.Logan;
+import com.l2jserver.datapack.ai.npc.Chamberlain.Neurath.Neurath;
+import com.l2jserver.datapack.ai.npc.Chamberlain.Saius.Saius;
+import com.l2jserver.datapack.ai.npc.Chamberlain.Saul.Saul;
+import com.l2jserver.datapack.ai.npc.Chandra.Chandra;
 import com.l2jserver.datapack.ai.npc.ClanTrader.ClanTrader;
 import com.l2jserver.datapack.ai.npc.ClassMaster.ClassMaster;
+import com.l2jserver.datapack.ai.npc.CleftGateRed.CleftGateRed;
+import com.l2jserver.datapack.ai.npc.Custodian.Adrienne.Adrienne;
+import com.l2jserver.datapack.ai.npc.Custodian.Aida.Aida;
+import com.l2jserver.datapack.ai.npc.Custodian.Albert.Albert;
+import com.l2jserver.datapack.ai.npc.Custodian.Bianca.Bianca;
+import com.l2jserver.datapack.ai.npc.Custodian.Billy.Billy;
+import com.l2jserver.datapack.ai.npc.Custodian.Black.Black;
+import com.l2jserver.datapack.ai.npc.Custodian.Boyer.Boyer;
+import com.l2jserver.datapack.ai.npc.Custodian.Branhilde.Branhilde;
+import com.l2jserver.datapack.ai.npc.Custodian.Bremmer.Bremmer;
+import com.l2jserver.datapack.ai.npc.Custodian.Calis.Calis;
+import com.l2jserver.datapack.ai.npc.Custodian.Carey.Carey;
+import com.l2jserver.datapack.ai.npc.Custodian.Carrel.Carrel;
+import com.l2jserver.datapack.ai.npc.Custodian.Cerna.Cerna;
+import com.l2jserver.datapack.ai.npc.Custodian.Crissy.Crissy;
+import com.l2jserver.datapack.ai.npc.Custodian.Dianne.Dianne;
+import com.l2jserver.datapack.ai.npc.Custodian.Dillon.Dillon;
+import com.l2jserver.datapack.ai.npc.Custodian.Dimaggio.Dimaggio;
+import com.l2jserver.datapack.ai.npc.Custodian.Emma.Emma;
+import com.l2jserver.datapack.ai.npc.Custodian.Flynn.Flynn;
+import com.l2jserver.datapack.ai.npc.Custodian.Gladys.Gladys;
+import com.l2jserver.datapack.ai.npc.Custodian.Helga.Helga;
+import com.l2jserver.datapack.ai.npc.Custodian.Horner.Horner;
+import com.l2jserver.datapack.ai.npc.Custodian.Jacques.Jacques;
+import com.l2jserver.datapack.ai.npc.Custodian.Jimmy.Jimmy;
+import com.l2jserver.datapack.ai.npc.Custodian.Karuto.Karuto;
+import com.l2jserver.datapack.ai.npc.Custodian.Korgen.Korgen;
+import com.l2jserver.datapack.ai.npc.Custodian.Michael.Michael;
+import com.l2jserver.datapack.ai.npc.Custodian.Milicent.Milicent;
+import com.l2jserver.datapack.ai.npc.Custodian.Pattie.Pattie;
+import com.l2jserver.datapack.ai.npc.Custodian.Regina.Regina;
+import com.l2jserver.datapack.ai.npc.Custodian.Ron.Ron;
+import com.l2jserver.datapack.ai.npc.Custodian.Ronald.Ronald;
+import com.l2jserver.datapack.ai.npc.Custodian.Ruben.Ruben;
+import com.l2jserver.datapack.ai.npc.Custodian.Seth.Seth;
+import com.l2jserver.datapack.ai.npc.Custodian.Stanley.Stanley;
+import com.l2jserver.datapack.ai.npc.Custodian.Tim.Tim;
+import com.l2jserver.datapack.ai.npc.Custodian.Wayne.Wayne;
+import com.l2jserver.datapack.ai.npc.Custodian.Winker.Winker;
 import com.l2jserver.datapack.ai.npc.DimensionKeeper.DimensionKeeper;
+import com.l2jserver.datapack.ai.npc.Doorkeeper.InnerDoorman.InnerDoorman;
+import com.l2jserver.datapack.ai.npc.Doorkeeper.OutterDoorman.OutterDoorman;
 import com.l2jserver.datapack.ai.npc.Dorian.Dorian;
 import com.l2jserver.datapack.ai.npc.DragonVortex.DragonVortex;
 import com.l2jserver.datapack.ai.npc.EchoCrystals.EchoCrystals;
+import com.l2jserver.datapack.ai.npc.Elmina.Elmina;
 import com.l2jserver.datapack.ai.npc.FameManager.FameManager;
 import com.l2jserver.datapack.ai.npc.Fisherman.Fisherman;
 import com.l2jserver.datapack.ai.npc.ForgeOfTheGods.ForgeOfTheGods;
 import com.l2jserver.datapack.ai.npc.ForgeOfTheGods.Rooney;
 import com.l2jserver.datapack.ai.npc.ForgeOfTheGods.TarBeetle;
 import com.l2jserver.datapack.ai.npc.FortressArcherCaptain.FortressArcherCaptain;
+import com.l2jserver.datapack.ai.npc.FortressDoorkeeper.FortressDoorkeeper;
 import com.l2jserver.datapack.ai.npc.FortressSiegeManager.FortressSiegeManager;
+import com.l2jserver.datapack.ai.npc.FortressSteward.AaruFortSteward.AaruFortSteward;
+import com.l2jserver.datapack.ai.npc.FortressSteward.AntharasFortSteward.AntharasFortSteward;
+import com.l2jserver.datapack.ai.npc.FortressSteward.ArchaicFortSteward.ArchaicFortSteward;
+import com.l2jserver.datapack.ai.npc.FortressSteward.BayouFortSteward.BayouFortSteward;
+import com.l2jserver.datapack.ai.npc.FortressSteward.BorderlandFortSteward.BorderlandFortSteward;
+import com.l2jserver.datapack.ai.npc.FortressSteward.CloudMountainFortSteward.CloudMountainFortSteward;
+import com.l2jserver.datapack.ai.npc.FortressSteward.DemonFortSteward.DemonFortSteward;
+import com.l2jserver.datapack.ai.npc.FortressSteward.DragonspineFortSteward.DragonspineFortSteward;
+import com.l2jserver.datapack.ai.npc.FortressSteward.FloranFortSteward.FloranFortSteward;
+import com.l2jserver.datapack.ai.npc.FortressSteward.HiveFortSteward.HiveFortSteward;
+import com.l2jserver.datapack.ai.npc.FortressSteward.HuntersFortSteward.HuntersFortSteward;
+import com.l2jserver.datapack.ai.npc.FortressSteward.IvoryFortSteward.IvoryFortSteward;
+import com.l2jserver.datapack.ai.npc.FortressSteward.MonasticFortSteward.MonasticFortSteward;
+import com.l2jserver.datapack.ai.npc.FortressSteward.NarsellFortSteward.NarsellFortSteward;
+import com.l2jserver.datapack.ai.npc.FortressSteward.ShantyFortSteward.ShantyFortSteward;
+import com.l2jserver.datapack.ai.npc.FortressSteward.SouthernFortSteward.SouthernFortSteward;
+import com.l2jserver.datapack.ai.npc.FortressSteward.SwampFortSteward.SwampFortSteward;
+import com.l2jserver.datapack.ai.npc.FortressSteward.TanorFortSteward.TanorFortSteward;
+import com.l2jserver.datapack.ai.npc.FortressSteward.ValleyFortSteward.ValleyFortSteward;
+import com.l2jserver.datapack.ai.npc.FortressSteward.WesternFortSteward.WesternFortSteward;
+import com.l2jserver.datapack.ai.npc.FortressSteward.WhiteSandsFortSteward.WhiteSandsFortSteward;
 import com.l2jserver.datapack.ai.npc.FreyasSteward.FreyasSteward;
+import com.l2jserver.datapack.ai.npc.GiantDDwarf.GiantDDwarf;
+import com.l2jserver.datapack.ai.npc.GiantQDwarf.GiantQDwarf;
+import com.l2jserver.datapack.ai.npc.GuideUndeath.GuideUndeath;
+import com.l2jserver.datapack.ai.npc.HandyBlockGuide.HandyBlockGuide;
+import com.l2jserver.datapack.ai.npc.Janitor.Janitor;
 import com.l2jserver.datapack.ai.npc.Jinia.Jinia;
 import com.l2jserver.datapack.ai.npc.Katenar.Katenar;
 import com.l2jserver.datapack.ai.npc.KetraOrcSupport.KetraOrcSupport;
 import com.l2jserver.datapack.ai.npc.Kier.Kier;
+import com.l2jserver.datapack.ai.npc.Kroon.Kroon;
 import com.l2jserver.datapack.ai.npc.ManorManager.ManorManager;
 import com.l2jserver.datapack.ai.npc.MercenaryCaptain.MercenaryCaptain;
 import com.l2jserver.datapack.ai.npc.MerchantOfMammon.MerchantOfMammon;
 import com.l2jserver.datapack.ai.npc.Minigame.Minigame;
 import com.l2jserver.datapack.ai.npc.MonumentOfHeroes.MonumentOfHeroes;
 import com.l2jserver.datapack.ai.npc.NevitsHerald.NevitsHerald;
+import com.l2jserver.datapack.ai.npc.NormalDoorkeeper.EustaceVanIssen.EustaceVanIssen;
+import com.l2jserver.datapack.ai.npc.NormalDoorkeeper.FelmingVanIssen.FelmingVanIssen;
+import com.l2jserver.datapack.ai.npc.NormalDoorkeeper.GregorAthebaldt.GregorAthebaldt;
+import com.l2jserver.datapack.ai.npc.NormalDoorkeeper.ViktorVanDeik.ViktorVanDeik;
 import com.l2jserver.datapack.ai.npc.NpcBuffers.NpcBuffers;
 import com.l2jserver.datapack.ai.npc.NpcBuffers.impl.CabaleBuffer;
 import com.l2jserver.datapack.ai.npc.PriestOfBlessing.PriestOfBlessing;
 import com.l2jserver.datapack.ai.npc.Rafforty.Rafforty;
+import com.l2jserver.datapack.ai.npc.Researchers.Researchers;
 import com.l2jserver.datapack.ai.npc.RiftWatcher.RiftWatcher;
 import com.l2jserver.datapack.ai.npc.Rignos.Rignos;
 import com.l2jserver.datapack.ai.npc.SSQPriest.SSQPriest;
 import com.l2jserver.datapack.ai.npc.Selina.Selina;
+import com.l2jserver.datapack.ai.npc.SeparatedSoul.SeparatedSoul;
 import com.l2jserver.datapack.ai.npc.Sirra.Sirra;
+import com.l2jserver.datapack.ai.npc.Sobling.Sobling;
+import com.l2jserver.datapack.ai.npc.Steward.AzitChamberlain.AzitChamberlain;
+import com.l2jserver.datapack.ai.npc.Steward.AzitChamberlainYetti.AzitChamberlainYetti;
+import com.l2jserver.datapack.ai.npc.Steward.Biggerstaff.Biggerstaff;
+import com.l2jserver.datapack.ai.npc.Steward.ChamberlainBandello.ChamberlainBandello;
+import com.l2jserver.datapack.ai.npc.Steward.FarmChamberlain.FarmChamberlain;
+import com.l2jserver.datapack.ai.npc.Steward.OlMahumTamutak.OlMahumTamutak;
 import com.l2jserver.datapack.ai.npc.SubclassCertification.SubclassCertification;
 import com.l2jserver.datapack.ai.npc.Summons.MerchantGolem.GolemTrader;
 import com.l2jserver.datapack.ai.npc.Summons.Pets.BabyPets;
@@ -158,10 +256,60 @@ import com.l2jserver.datapack.ai.npc.Summons.Pets.ImprovedBabyPets;
 import com.l2jserver.datapack.ai.npc.Summons.Servitors.Servitors;
 import com.l2jserver.datapack.ai.npc.SupportUnitCaptain.SupportUnitCaptain;
 import com.l2jserver.datapack.ai.npc.SymbolMaker.SymbolMaker;
+import com.l2jserver.datapack.ai.npc.Taroon.Taroon;
+import com.l2jserver.datapack.ai.npc.Teleporter.Angelina.Angelina;
+import com.l2jserver.datapack.ai.npc.Teleporter.Arisha.Arisha;
+import com.l2jserver.datapack.ai.npc.Teleporter.Belladonna.Belladonna;
+import com.l2jserver.datapack.ai.npc.Teleporter.Billia.Billia;
+import com.l2jserver.datapack.ai.npc.Teleporter.Capellini.Capellini;
+import com.l2jserver.datapack.ai.npc.Teleporter.Cecile.Cecile;
+import com.l2jserver.datapack.ai.npc.Teleporter.Ciffon.Ciffon;
+import com.l2jserver.datapack.ai.npc.Teleporter.Clavier.Clavier;
+import com.l2jserver.datapack.ai.npc.Teleporter.Dimension_Vertex.Dimension_Vertex_1.Dimension_Vertex_1;
+import com.l2jserver.datapack.ai.npc.Teleporter.Dimension_Vertex.Dimension_Vertex_2.Dimension_Vertex_2;
+import com.l2jserver.datapack.ai.npc.Teleporter.Dimension_Vertex.Dimension_Vertex_3.Dimension_Vertex_3;
+import com.l2jserver.datapack.ai.npc.Teleporter.Elisabeth.Elisabeth;
+import com.l2jserver.datapack.ai.npc.Teleporter.Esmeralda.Esmeralda;
+import com.l2jserver.datapack.ai.npc.Teleporter.Flauen.Flauen;
+import com.l2jserver.datapack.ai.npc.Teleporter.Gariachin.Gariachin;
+import com.l2jserver.datapack.ai.npc.Teleporter.Gracia_Transmitter.Gracia_Transmitter;
+import com.l2jserver.datapack.ai.npc.Teleporter.Havarti.Havarti;
+import com.l2jserver.datapack.ai.npc.Teleporter.Ilyana.Ilyana;
+import com.l2jserver.datapack.ai.npc.Teleporter.Jasmine.Jasmine;
+import com.l2jserver.datapack.ai.npc.Teleporter.Karin.Karin;
+import com.l2jserver.datapack.ai.npc.Teleporter.Kurfa.Kurfa;
+import com.l2jserver.datapack.ai.npc.Teleporter.Leggins.Leggins;
+import com.l2jserver.datapack.ai.npc.Teleporter.Mariell.Mariell;
+import com.l2jserver.datapack.ai.npc.Teleporter.Mellin.Mellin;
+import com.l2jserver.datapack.ai.npc.Teleporter.Merian.Merian;
+import com.l2jserver.datapack.ai.npc.Teleporter.Minevea.Minevea;
+import com.l2jserver.datapack.ai.npc.Teleporter.Mint.Mint;
+import com.l2jserver.datapack.ai.npc.Teleporter.Mozzarella.Mozzarella;
+import com.l2jserver.datapack.ai.npc.Teleporter.Oraochin.Oraochin;
+import com.l2jserver.datapack.ai.npc.Teleporter.Penne.Penne;
+import com.l2jserver.datapack.ai.npc.Teleporter.PhotoSno.PhotoSno;
+import com.l2jserver.datapack.ai.npc.Teleporter.Pontina.Pontina;
+import com.l2jserver.datapack.ai.npc.Teleporter.Race_Gatekeeper1.Race_Gatekeeper1;
+import com.l2jserver.datapack.ai.npc.Teleporter.Ragara.Ragara;
+import com.l2jserver.datapack.ai.npc.Teleporter.Ramsedas.Ramsedas;
+import com.l2jserver.datapack.ai.npc.Teleporter.Rapunzel.Rapunzel;
+import com.l2jserver.datapack.ai.npc.Teleporter.Richlin.Richlin;
+import com.l2jserver.datapack.ai.npc.Teleporter.Stanislava.Stanislava;
+import com.l2jserver.datapack.ai.npc.Teleporter.Tamil.Tamil;
+import com.l2jserver.datapack.ai.npc.Teleporter.Tatiana.Tatiana;
+import com.l2jserver.datapack.ai.npc.Teleporter.TeleportCubeA001.TeleportCubeA001;
+import com.l2jserver.datapack.ai.npc.Teleporter.TeleportCubeFrintezza.TeleportCubeFrintezza;
+import com.l2jserver.datapack.ai.npc.Teleporter.Teranu.Teranu;
+import com.l2jserver.datapack.ai.npc.Teleporter.Tiramisu.Tiramisu;
+import com.l2jserver.datapack.ai.npc.Teleporter.Tp_Teleporter.Tp_Teleporter;
+import com.l2jserver.datapack.ai.npc.Teleporter.Trishya.Trishya;
+import com.l2jserver.datapack.ai.npc.Teleporter.Valentina.Valentina;
+import com.l2jserver.datapack.ai.npc.Teleporter.Verona.Verona;
+import com.l2jserver.datapack.ai.npc.Teleporter.Wirphy.Wirphy;
+import com.l2jserver.datapack.ai.npc.Teleporter.Yinir.Yinir;
+import com.l2jserver.datapack.ai.npc.Teleporter.Yung.Yung;
 import com.l2jserver.datapack.ai.npc.Teleports.Asher.Asher;
-import com.l2jserver.datapack.ai.npc.Teleports.CrumaTower.CrumaTower;
 import com.l2jserver.datapack.ai.npc.Teleports.DelusionTeleport.DelusionTeleport;
-import com.l2jserver.datapack.ai.npc.Teleports.ElrokiTeleporters.ElrokiTeleporters;
 import com.l2jserver.datapack.ai.npc.Teleports.GatekeeperSpirit.GatekeeperSpirit;
 import com.l2jserver.datapack.ai.npc.Teleports.GhostChamberlainOfElmoreden.GhostChamberlainOfElmoreden;
 import com.l2jserver.datapack.ai.npc.Teleports.GrandBossTeleporters.GrandBossTeleporters;
@@ -169,28 +317,24 @@ import com.l2jserver.datapack.ai.npc.Teleports.GuardianBorder.GuardianBorder;
 import com.l2jserver.datapack.ai.npc.Teleports.Klemis.Klemis;
 import com.l2jserver.datapack.ai.npc.Teleports.MithrilMinesTeleporter.MithrilMinesTeleporter;
 import com.l2jserver.datapack.ai.npc.Teleports.NewbieGuide.NewbieGuide;
-import com.l2jserver.datapack.ai.npc.Teleports.NoblesseTeleport.NoblesseTeleport;
 import com.l2jserver.datapack.ai.npc.Teleports.OracleTeleport.OracleTeleport;
 import com.l2jserver.datapack.ai.npc.Teleports.PaganTeleporters.PaganTeleporters;
 import com.l2jserver.datapack.ai.npc.Teleports.SSQTeleporter.SSQTeleporter;
-import com.l2jserver.datapack.ai.npc.Teleports.SeparatedSoul.SeparatedSoul;
 import com.l2jserver.datapack.ai.npc.Teleports.StakatoNestTeleporter.StakatoNestTeleporter;
 import com.l2jserver.datapack.ai.npc.Teleports.SteelCitadelTeleport.SteelCitadelTeleport;
-import com.l2jserver.datapack.ai.npc.Teleports.StrongholdsTeleports.StrongholdsTeleports;
 import com.l2jserver.datapack.ai.npc.Teleports.Survivor.Survivor;
-import com.l2jserver.datapack.ai.npc.Teleports.TeleportToFantasy.TeleportToFantasy;
 import com.l2jserver.datapack.ai.npc.Teleports.TeleportToRaceTrack.TeleportToRaceTrack;
 import com.l2jserver.datapack.ai.npc.Teleports.TeleportToUndergroundColiseum.TeleportToUndergroundColiseum;
-import com.l2jserver.datapack.ai.npc.Teleports.TeleportWithCharm.TeleportWithCharm;
-import com.l2jserver.datapack.ai.npc.Teleports.ToIVortex.ToIVortex;
 import com.l2jserver.datapack.ai.npc.TerritoryManagers.TerritoryManagers;
 import com.l2jserver.datapack.ai.npc.Tolonis.Tolonis;
 import com.l2jserver.datapack.ai.npc.TownPets.TownPets;
 import com.l2jserver.datapack.ai.npc.Tunatun.Tunatun;
 import com.l2jserver.datapack.ai.npc.VarkaSilenosSupport.VarkaSilenosSupport;
+import com.l2jserver.datapack.ai.npc.VigilImmortality.VigilImmortality;
 import com.l2jserver.datapack.ai.npc.VillageMasters.FirstClassTransferTalk.FirstClassTransferTalk;
 import com.l2jserver.datapack.ai.npc.WeaverOlf.WeaverOlf;
 import com.l2jserver.datapack.ai.npc.WyvernManager.WyvernManager;
+import com.l2jserver.datapack.ai.npc.ZakenSender.ZakenSender;
 import com.l2jserver.datapack.ai.npc.coach.Blacksmith.Blacksmith;
 import com.l2jserver.datapack.ai.npc.coach.ClericCoach.ClericCoach;
 import com.l2jserver.datapack.ai.npc.coach.FighterCoach.FighterCoach;
@@ -241,17 +385,19 @@ public class AILoader {
 		CastleAmbassador.class,
 		CastleBlacksmith.class,
 		CastleCourtMagician.class,
-		CastleChamberlain.class,
 		CastleMercenaryManager.class,
 		CastleSiegeManager.class,
 		CastleTeleporter.class,
 		CastleWarehouse.class,
+		Chandra.class,
 		ClanTrader.class,
 		ClassMaster.class,
+		CleftGateRed.class,
 		DimensionKeeper.class,
 		Dorian.class,
 		DragonVortex.class,
 		EchoCrystals.class,
+		Elmina.class,
 		FameManager.class,
 		Fisherman.class,
 		ForgeOfTheGods.class,
@@ -260,10 +406,15 @@ public class AILoader {
 		FortressArcherCaptain.class,
 		FortressSiegeManager.class,
 		FreyasSteward.class,
+		GiantDDwarf.class,
+		GiantQDwarf.class,
+		GuideUndeath.class,
+		HandyBlockGuide.class,
 		Jinia.class,
 		Katenar.class,
 		KetraOrcSupport.class,
 		Kier.class,
+		Kroon.class,
 		ManorManager.class,
 		MercenaryCaptain.class,
 		MerchantOfMammon.class,
@@ -274,10 +425,12 @@ public class AILoader {
 		CabaleBuffer.class,
 		PriestOfBlessing.class,
 		Rafforty.class,
+		Researchers.class,
 		RiftWatcher.class,
 		Rignos.class,
 		Selina.class,
 		Sirra.class,
+		Sobling.class,
 		SSQPriest.class,
 		SubclassCertification.class,
 		GolemTrader.class,
@@ -286,10 +439,9 @@ public class AILoader {
 		Servitors.class,
 		SupportUnitCaptain.class,
 		SymbolMaker.class,
+		Taroon.class,
 		Asher.class,
-		CrumaTower.class,
 		DelusionTeleport.class,
-		ElrokiTeleporters.class,
 		GatekeeperSpirit.class,
 		GhostChamberlainOfElmoreden.class,
 		GrandBossTeleporters.class,
@@ -297,27 +449,23 @@ public class AILoader {
 		Klemis.class,
 		MithrilMinesTeleporter.class,
 		NewbieGuide.class,
-		NoblesseTeleport.class,
 		OracleTeleport.class,
 		PaganTeleporters.class,
-		SeparatedSoul.class,
 		SSQTeleporter.class,
 		StakatoNestTeleporter.class,
 		SteelCitadelTeleport.class,
-		StrongholdsTeleports.class,
 		Survivor.class,
-		TeleportToFantasy.class,
 		TeleportToRaceTrack.class,
 		TeleportToUndergroundColiseum.class,
-		TeleportWithCharm.class,
-		ToIVortex.class,
 		TerritoryManagers.class,
 		TownPets.class,
 		Tunatun.class,
 		VarkaSilenosSupport.class,
+		VigilImmortality.class,
 		FirstClassTransferTalk.class,
 		WeaverOlf.class,
 		WyvernManager.class,
+		ZakenSender.class,
 		// Coaches
 		Blacksmith.class,
 		ClericCoach.class,
@@ -328,6 +476,156 @@ public class AILoader {
 		WarehouseKeeper.class,
 		WarehouseKeeperForChaotic.class,
 		WizardCoach.class,
+		// Teleporter
+		Angelina.class,
+		Arisha.class,
+		Belladonna.class,
+		Billia.class,
+		Capellini.class,
+		Cecile.class,
+		Ciffon.class,
+		Clavier.class,
+		Dimension_Vertex_1.class,
+		Dimension_Vertex_2.class,
+		Dimension_Vertex_3.class,
+		Elisabeth.class,
+		Esmeralda.class,
+		Flauen.class,
+		Gariachin.class,
+		Gracia_Transmitter.class,
+		Havarti.class,
+		Ilyana.class,
+		Jasmine.class,
+		Karin.class,
+		Kurfa.class,
+		Leggins.class,
+		Mariell.class,
+		Mellin.class,
+		Merian.class,
+		Minevea.class,
+		Mint.class,
+		Mozzarella.class,
+		Oraochin.class,
+		Penne.class,
+		PhotoSno.class,
+		Pontina.class,
+		Race_Gatekeeper1.class,
+		Ragara.class,
+		Ramsedas.class,
+		Rapunzel.class,
+		Richlin.class,
+		SeparatedSoul.class,
+		Stanislava.class,
+		Tamil.class,
+		Tatiana.class,
+		TeleportCubeA001.class,
+		TeleportCubeFrintezza.class,
+		Teranu.class,
+		Tiramisu.class,
+		Tp_Teleporter.class,
+		Trishya.class,
+		Valentina.class,
+		Verona.class,
+		Wirphy.class,
+		Yinir.class,
+		Yung.class,
+		// Custodian
+		Adrienne.class,
+		Aida.class,
+		Albert.class,
+		Bianca.class,
+		Billy.class,
+		Black.class,
+		Boyer.class,
+		Branhilde.class,
+		Bremmer.class,
+		Calis.class,
+		Carey.class,
+		Carrel.class,
+		Cerna.class,
+		Crissy.class,
+		Dianne.class,
+		Dillon.class,
+		Dimaggio.class,
+		Emma.class,
+		Flynn.class,
+		Gladys.class,
+		Helga.class,
+		Horner.class,
+		Jacques.class,
+		Jimmy.class,
+		Karuto.class,
+		Korgen.class,
+		Michael.class,
+		Milicent.class,
+		Pattie.class,
+		Regina.class,
+		Ron.class,
+		Ronald.class,
+		Ruben.class,
+		Seth.class,
+		Stanley.class,
+		Tim.class,
+		Wayne.class,
+		Winker.class,
+		// Steward
+		AzitChamberlain.class,
+		AzitChamberlainYetti.class,
+		Biggerstaff.class,
+		ChamberlainBandello.class,
+		FarmChamberlain.class,
+		OlMahumTamutak.class,
+		// Fortress Steward
+		AaruFortSteward.class,
+		AntharasFortSteward.class,
+		ArchaicFortSteward.class,
+		BayouFortSteward.class,
+		BorderlandFortSteward.class,
+		CloudMountainFortSteward.class,
+		DemonFortSteward.class,
+		DragonspineFortSteward.class,
+		FloranFortSteward.class,
+		HiveFortSteward.class,
+		HuntersFortSteward.class,
+		IvoryFortSteward.class,
+		MonasticFortSteward.class,
+		NarsellFortSteward.class,
+		ShantyFortSteward.class,
+		SouthernFortSteward.class,
+		SwampFortSteward.class,
+		TanorFortSteward.class,
+		ValleyFortSteward.class,
+		WesternFortSteward.class,
+		WhiteSandsFortSteward.class,
+		// Normal Doorkeeper
+		EustaceVanIssen.class,
+		FelmingVanIssen.class,
+		GregorAthebaldt.class,
+		ViktorVanDeik.class,
+		// Agit Doorkeeper
+		AzitDoorman.class,
+		DoormanOfFortress.class,
+		DoormanOfHell.class,
+		DoormanOfRainbow.class,
+		FarmDoorman.class,
+		PartisanDoormanHarkel.class,
+		// Fortress Doorkeeper
+		FortressDoorkeeper.class,
+		// Doorkeeper
+		OutterDoorman.class,
+		InnerDoorman.class,
+		// Janitor
+		Janitor.class,
+		// Chamberlain
+		Alfred.class,
+		August.class,
+		Brasseur.class,
+		Crosby.class,
+		Frederick.class,
+		Logan.class,
+		Neurath.class,
+		Saius.class,
+		Saul.class,
 		// Fantasy Isle
 		MC_Show.class,
 		HandysBlockCheckerEvent.class,

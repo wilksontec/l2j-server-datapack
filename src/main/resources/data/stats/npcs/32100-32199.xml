@@ -429,7 +429,7 @@
 			<height normal="0.1" />
 		</collision>
 	</npc>
-	<npc id="32111" level="70" type="L2Npc" name="Orahochin">
+	<npc id="32111" level="70" type="L2Teleporter" name="Orahochin">
 		<!-- Confirmed CT2.5 -->
 		<parameters>
 			<param name="MoveAroundSocial" value="80" />
@@ -468,7 +468,7 @@
 			<height normal="33" />
 		</collision>
 	</npc>
-	<npc id="32112" level="70" type="L2Npc" name="Gariachin">
+	<npc id="32112" level="70" type="L2Teleporter" name="Gariachin">
 		<!-- Confirmed CT2.5 -->
 		<parameters>
 			<param name="MoveAroundSocial" value="80" />

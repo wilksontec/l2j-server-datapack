@@ -55,7 +55,7 @@ public final class PaganTeleporters extends AbstractNpcAI {
 	public PaganTeleporters() {
 		bindStartNpc(NPCS);
 		bindTalk(NPCS);
-		bindFirstTalk(TRIOLS_MIRROR_1, TRIOLS_MIRROR_2);
+		bindFirstTalk(NPCS);
 	}
 	
 	@Override
@@ -79,7 +79,14 @@ public final class PaganTeleporters extends AbstractNpcAI {
 		if (TRIOLS_LOCS.containsKey(npc.getId())) {
 			player.teleToLocation(TRIOLS_LOCS.get(npc.getId()));
 		}
-		return "";
+		
+		switch (npc.getId()) {
+			case 32034, 32035, 32036, 32037 -> {
+				showPage(player, npc.getId() + ".htm");
+			}
+		}
+		
+		return super.onFirstTalk(npc, player);
 	}
 	
 	@Override

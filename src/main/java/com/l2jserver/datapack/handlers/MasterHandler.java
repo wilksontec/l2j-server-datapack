@@ -126,6 +126,7 @@ import com.l2jserver.datapack.handlers.bypasshandlers.ItemAuctionLink;
 import com.l2jserver.datapack.handlers.bypasshandlers.LearnSkill;
 import com.l2jserver.datapack.handlers.bypasshandlers.Link;
 import com.l2jserver.datapack.handlers.bypasshandlers.Loto;
+import com.l2jserver.datapack.handlers.bypasshandlers.ManorMenuSelect;
 import com.l2jserver.datapack.handlers.bypasshandlers.MenuSelect;
 import com.l2jserver.datapack.handlers.bypasshandlers.Multisell;
 import com.l2jserver.datapack.handlers.bypasshandlers.NpcViewMod;
@@ -141,6 +142,8 @@ import com.l2jserver.datapack.handlers.bypasshandlers.ReleaseAttribute;
 import com.l2jserver.datapack.handlers.bypasshandlers.RentPet;
 import com.l2jserver.datapack.handlers.bypasshandlers.SupportBlessing;
 import com.l2jserver.datapack.handlers.bypasshandlers.SupportMagic;
+import com.l2jserver.datapack.handlers.bypasshandlers.Teleport;
+import com.l2jserver.datapack.handlers.bypasshandlers.TeleportRequest;
 import com.l2jserver.datapack.handlers.bypasshandlers.TerritoryStatus;
 import com.l2jserver.datapack.handlers.bypasshandlers.TutorialClose;
 import com.l2jserver.datapack.handlers.bypasshandlers.VoiceCommand;
@@ -366,6 +369,7 @@ public class MasterHandler {
 		LearnSkill.class,
 		Link.class,
 		Loto.class,
+		ManorMenuSelect.class,
 		MenuSelect.class,
 		Multisell.class,
 		NpcViewMod.class,
@@ -381,6 +385,8 @@ public class MasterHandler {
 		RentPet.class,
 		SupportBlessing.class,
 		SupportMagic.class,
+		Teleport.class,
+		TeleportRequest.class,
 		TerritoryStatus.class,
 		TutorialClose.class,
 		VoiceCommand.class,

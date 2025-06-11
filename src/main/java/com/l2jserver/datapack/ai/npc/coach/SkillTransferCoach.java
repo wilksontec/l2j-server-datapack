@@ -29,6 +29,7 @@ import com.l2jserver.gameserver.data.xml.impl.CategoryData;
 import com.l2jserver.gameserver.data.xml.impl.SkillTreesData;
 import com.l2jserver.gameserver.enums.CategoryType;
 import com.l2jserver.gameserver.enums.Race;
+import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2PcInstance;
 import com.l2jserver.gameserver.model.base.ClassId;
 import com.l2jserver.gameserver.model.events.impl.character.player.PlayerMenuSelected;
@@ -60,10 +61,11 @@ public abstract class SkillTransferCoach extends GuildCoach {
 	public void onMenuSelected(PlayerMenuSelected event) {
 		if (event.ask() == -707) {
 			final var player = event.player();
+			final var npc = (L2Npc) event.npc();
 			switch (event.reply()) {
 				case 1 -> {
-					if (!checkConditions(player, event.npc(), SKILL_TRANSFER_CONDITIONS)) {
-						showPage(player, event.npc().getId() + "-noteach.htm");
+					if (!checkConditions(player, npc, SKILL_TRANSFER_CONDITIONS)) {
+						showPage(player, npc.getId() + "-noteach.htm");
 						break;
 					}
 					
@@ -99,7 +101,7 @@ public abstract class SkillTransferCoach extends GuildCoach {
 						break;
 					}
 					
-					final var skillSharingItemId = event.npc().getTemplate().getParameters().getInt("skill_sharing_item");
+					final var skillSharingItemId = npc.getTemplate().getParameters().getInt("skill_sharing_item");
 					if (hasQuestItems(player, skillSharingItemId)) {
 						showPage(player, "data/html/skill_share_healer_have.htm");
 						break;
@@ -112,9 +114,9 @@ public abstract class SkillTransferCoach extends GuildCoach {
 					
 					deleteAcquireSkills(player);
 					takeItems(player, skillSharingItemId, -1);
-					player.reduceAdena("skill_share_healer", character().getFeeDeleteTransferSkills(), event.npc(), true);
-					final var tokenNum = event.npc().getTemplate().getParameters().getInt("token_num");
-					player.addItem("skill_share_healer", skillSharingItemId, tokenNum, event.npc(), true);
+					player.reduceAdena("skill_share_healer", character().getFeeDeleteTransferSkills(), npc, true);
+					final var tokenNum = npc.getTemplate().getParameters().getInt("token_num");
+					player.addItem("skill_share_healer", skillSharingItemId, tokenNum, npc, true);
 				}
 			}
 		}

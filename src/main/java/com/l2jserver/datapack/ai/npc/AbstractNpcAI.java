@@ -18,6 +18,8 @@
  */
 package com.l2jserver.datapack.ai.npc;
 
+import com.l2jserver.gameserver.model.L2Party;
+import com.l2jserver.gameserver.model.Location;
 import com.l2jserver.gameserver.model.actor.L2Character;
 import com.l2jserver.gameserver.model.actor.L2Npc;
 import com.l2jserver.gameserver.model.actor.instance.L2MonsterInstance;
@@ -145,6 +147,44 @@ public abstract class AbstractNpcAI extends Quest {
 	public void spawnMinions(final L2Npc npc, final String spawnName) {
 		for (var is : npc.getTemplate().getParameters().getMinionList(spawnName)) {
 			addMinion((L2MonsterInstance) npc, is.getId());
+		}
+	}
+	
+	/**
+	 * Teleports a party to x, y, z
+	 * @param npc
+	 * @param party
+	 * @param x
+	 * @param y
+	 * @param z
+	 * @param maxDist
+	 */
+	protected void teleportParty(L2Npc npc, L2Party party, int x, int y, int z, int maxDist) {
+		if (party != null) {
+			for (L2PcInstance pc : party.getMembers()) {
+				if (npc.calculateDistance(pc, true, false) <= maxDist) {
+					pc.teleToLocation(x, y, z);
+				}
+			}
+		}
+	}
+	
+	/**
+	 * Teleports a party to location
+	 * @param npc
+	 * @param party
+	 * @param x
+	 * @param y
+	 * @param z
+	 * @param maxDist
+	 */
+	protected void teleportParty(L2Npc npc, L2Party party, Location loc, int maxDist) {
+		if (party != null) {
+			for (L2PcInstance pc : party.getMembers()) {
+				if (npc.calculateDistance(pc, true, false) <= maxDist) {
+					pc.teleToLocation(loc);
+				}
+			}
 		}
 	}
 }
