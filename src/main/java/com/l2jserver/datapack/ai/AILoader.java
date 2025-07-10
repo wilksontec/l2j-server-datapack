@@ -317,7 +317,6 @@ import com.l2jserver.datapack.ai.npc.Teleports.GuardianBorder.GuardianBorder;
 import com.l2jserver.datapack.ai.npc.Teleports.Klemis.Klemis;
 import com.l2jserver.datapack.ai.npc.Teleports.MithrilMinesTeleporter.MithrilMinesTeleporter;
 import com.l2jserver.datapack.ai.npc.Teleports.NewbieGuide.NewbieGuide;
-import com.l2jserver.datapack.ai.npc.Teleports.OracleTeleport.OracleTeleport;
 import com.l2jserver.datapack.ai.npc.Teleports.PaganTeleporters.PaganTeleporters;
 import com.l2jserver.datapack.ai.npc.Teleports.SSQTeleporter.SSQTeleporter;
 import com.l2jserver.datapack.ai.npc.Teleports.StakatoNestTeleporter.StakatoNestTeleporter;
@@ -449,7 +448,6 @@ public class AILoader {
 		Klemis.class,
 		MithrilMinesTeleporter.class,
 		NewbieGuide.class,
-		OracleTeleport.class,
 		PaganTeleporters.class,
 		SSQTeleporter.class,
 		StakatoNestTeleporter.class,
