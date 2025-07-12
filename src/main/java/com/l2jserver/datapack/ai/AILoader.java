@@ -238,7 +238,6 @@ import com.l2jserver.datapack.ai.npc.Rafforty.Rafforty;
 import com.l2jserver.datapack.ai.npc.Researchers.Researchers;
 import com.l2jserver.datapack.ai.npc.RiftWatcher.RiftWatcher;
 import com.l2jserver.datapack.ai.npc.Rignos.Rignos;
-import com.l2jserver.datapack.ai.npc.SSQPriest.SSQPriest;
 import com.l2jserver.datapack.ai.npc.Selina.Selina;
 import com.l2jserver.datapack.ai.npc.SeparatedSoul.SeparatedSoul;
 import com.l2jserver.datapack.ai.npc.Sirra.Sirra;
@@ -294,6 +293,28 @@ import com.l2jserver.datapack.ai.npc.Teleporter.Ragara.Ragara;
 import com.l2jserver.datapack.ai.npc.Teleporter.Ramsedas.Ramsedas;
 import com.l2jserver.datapack.ai.npc.Teleporter.Rapunzel.Rapunzel;
 import com.l2jserver.datapack.ai.npc.Teleporter.Richlin.Richlin;
+import com.l2jserver.datapack.ai.npc.Teleporter.SSQNpcPriest.DawnPriestAden.DawnPriestAden;
+import com.l2jserver.datapack.ai.npc.Teleporter.SSQNpcPriest.DawnPriestDion.DawnPriestDion;
+import com.l2jserver.datapack.ai.npc.Teleporter.SSQNpcPriest.DawnPriestGiran.DawnPriestGiran;
+import com.l2jserver.datapack.ai.npc.Teleporter.SSQNpcPriest.DawnPriestGludin.DawnPriestGludin;
+import com.l2jserver.datapack.ai.npc.Teleporter.SSQNpcPriest.DawnPriestGludio.DawnPriestGludio;
+import com.l2jserver.datapack.ai.npc.Teleporter.SSQNpcPriest.DawnPriestGodard.DawnPriestGodard;
+import com.l2jserver.datapack.ai.npc.Teleporter.SSQNpcPriest.DawnPriestHeiness.DawnPriestHeiness;
+import com.l2jserver.datapack.ai.npc.Teleporter.SSQNpcPriest.DawnPriestHunter.DawnPriestHunter;
+import com.l2jserver.datapack.ai.npc.Teleporter.SSQNpcPriest.DawnPriestOren.DawnPriestOren;
+import com.l2jserver.datapack.ai.npc.Teleporter.SSQNpcPriest.DawnPriestRune.DawnPriestRune;
+import com.l2jserver.datapack.ai.npc.Teleporter.SSQNpcPriest.DawnPriestSchuttgart.DawnPriestSchuttgart;
+import com.l2jserver.datapack.ai.npc.Teleporter.SSQNpcPriest.DuskPriestessAden.DuskPriestessAden;
+import com.l2jserver.datapack.ai.npc.Teleporter.SSQNpcPriest.DuskPriestessDion.DuskPriestessDion;
+import com.l2jserver.datapack.ai.npc.Teleporter.SSQNpcPriest.DuskPriestessGiran.DuskPriestessGiran;
+import com.l2jserver.datapack.ai.npc.Teleporter.SSQNpcPriest.DuskPriestessGludin.DuskPriestessGludin;
+import com.l2jserver.datapack.ai.npc.Teleporter.SSQNpcPriest.DuskPriestessGludio.DuskPriestessGludio;
+import com.l2jserver.datapack.ai.npc.Teleporter.SSQNpcPriest.DuskPriestessGodard.DuskPriestessGodard;
+import com.l2jserver.datapack.ai.npc.Teleporter.SSQNpcPriest.DuskPriestessHeiness.DuskPriestessHeiness;
+import com.l2jserver.datapack.ai.npc.Teleporter.SSQNpcPriest.DuskPriestessHunter.DuskPriestessHunter;
+import com.l2jserver.datapack.ai.npc.Teleporter.SSQNpcPriest.DuskPriestessOren.DuskPriestessOren;
+import com.l2jserver.datapack.ai.npc.Teleporter.SSQNpcPriest.DuskPriestessRune.DuskPriestessRune;
+import com.l2jserver.datapack.ai.npc.Teleporter.SSQNpcPriest.DuskPriestessSchuttgart.DuskPriestessSchuttgart;
 import com.l2jserver.datapack.ai.npc.Teleporter.Stanislava.Stanislava;
 import com.l2jserver.datapack.ai.npc.Teleporter.Tamil.Tamil;
 import com.l2jserver.datapack.ai.npc.Teleporter.Tatiana.Tatiana;
@@ -430,7 +451,6 @@ public class AILoader {
 		Selina.class,
 		Sirra.class,
 		Sobling.class,
-		SSQPriest.class,
 		SubclassCertification.class,
 		GolemTrader.class,
 		BabyPets.class,
@@ -624,6 +644,29 @@ public class AILoader {
 		Neurath.class,
 		Saius.class,
 		Saul.class,
+		// SSQ Priests
+		DawnPriestAden.class,
+		DawnPriestDion.class,
+		DawnPriestGiran.class,
+		DawnPriestGludin.class,
+		DawnPriestGludio.class,
+		DawnPriestGodard.class,
+		DawnPriestHeiness.class,
+		DawnPriestHunter.class,
+		DawnPriestOren.class,
+		DawnPriestRune.class,
+		DawnPriestSchuttgart.class,
+		DuskPriestessAden.class,
+		DuskPriestessDion.class,
+		DuskPriestessGiran.class,
+		DuskPriestessGludin.class,
+		DuskPriestessGludio.class,
+		DuskPriestessGodard.class,
+		DuskPriestessHeiness.class,
+		DuskPriestessHunter.class,
+		DuskPriestessOren.class,
+		DuskPriestessRune.class,
+		DuskPriestessSchuttgart.class,
 		// Fantasy Isle
 		MC_Show.class,
 		HandysBlockCheckerEvent.class,
